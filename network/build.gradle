@@ -34,7 +34,15 @@ android {
 }
 
 dependencies {
+    def retrofit_version = "2.9.0"
+    def okhttp_version = "4.9.1"
+
     implementation(project(":core"))
+
+    // ... Retrofit and OkHttp
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
 
     // ... Dagger Hilt
     api("com.google.dagger:hilt-android:$hilt_version")

@@ -22,9 +22,12 @@ android {
     }
 
     buildTypes {
+        Properties properties = new Properties()
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", properties.getProperty("BASE_URL", "")
         }
     }
     compileOptions {
