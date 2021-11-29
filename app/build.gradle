@@ -25,23 +25,26 @@ android {
     }
 
     buildTypes {
+        Properties properties = new Properties()
+        
         debug {
             applicationVariants.all { variant ->
                 variant.outputs.all {
                     outputFileName = "${"app_" + variant.buildType.name + "_v" + variant.versionName + "_" + formattedDate}.apk"
                 }
             }
+            buildConfigField "String", "BASE_URL", properties.getProperty("BASE_URL", "")
         }
 
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
             applicationVariants.all { variant ->
                 variant.outputs.all {
                     outputFileName = "${"app_" + variant.buildType.name + "_v" + variant.versionName + "_" + formattedDate}.apk"
                 }
             }
+            buildConfigField "String", "BASE_URL", properties.getProperty("BASE_URL", "")
         }
     }
     compileOptions {
