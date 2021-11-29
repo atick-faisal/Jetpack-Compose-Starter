@@ -70,8 +70,11 @@ dependencies {
     api("androidx.lifecycle:lifecycle-common-java8:$lifecycle_version")
 
     // ... Dagger Hilt
-    api("com.google.dagger:hilt-android:2.38.1")
+    api("com.google.dagger:hilt-android:$hilt_version")
     kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+
+    // ... Logger
+    api("com.orhanobut:logger:2.2.0")
 }
 
 kapt {
