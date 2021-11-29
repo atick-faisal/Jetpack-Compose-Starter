@@ -1,7 +1,8 @@
 plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
+    id("com.android.library")
+    id("kotlin-android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -67,4 +68,15 @@ dependencies {
     api("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
     api("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
     api("androidx.lifecycle:lifecycle-common-java8:$lifecycle_version")
+
+    // ... Dagger Hilt
+    api("com.google.dagger:hilt-android:$hilt_version")
+    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+
+    // ... Logger
+    api("com.orhanobut:logger:2.2.0")
+}
+
+kapt {
+    correctErrorTypes = true
 }
