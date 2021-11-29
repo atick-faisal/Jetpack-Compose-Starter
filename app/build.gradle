@@ -24,9 +24,23 @@ android {
     }
 
     buildTypes {
+        debug {
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "${"app_" + variant.buildType.name + "_v" + variant.versionName + "_" + formattedDate}.apk"
+                }
+            }
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "${"app_" + variant.buildType.name + "_v" + variant.versionName + "_" + formattedDate}.apk"
+                }
+            }
         }
     }
     compileOptions {
