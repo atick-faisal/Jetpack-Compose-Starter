@@ -33,7 +33,7 @@ android {
                     outputFileName = "${"app_" + variant.buildType.name + "_v" + variant.versionName + "_" + formattedDate}.apk"
                 }
             }
-            buildConfigField "String", "BASE_URL", properties.getProperty("BASE_URL", "")
+            // buildConfigField "String", "BASE_URL", properties.getProperty("BASE_URL", "")
         }
 
         release {
