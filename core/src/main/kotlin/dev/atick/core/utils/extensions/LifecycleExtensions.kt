@@ -9,12 +9,19 @@ inline fun <T> LifecycleOwner.observe(
     liveData: LiveData<T>,
     crossinline action: (T) -> Unit
 ) {
-    liveData.observe(this, { it?.let(action) })
+    liveData.observe(this) { it?.let(action) }
+}
+
+inline fun <T> LifecycleOwner.observeEvent(
+    liveData: LiveData<Event<T>>,
+    crossinline action: (T) -> Unit
+) {
+    liveData.observe(this) { it?.getContentIfNotHandled()?.let(action) }
 }
 
 inline fun <T> LifecycleOwner.observeEvent(
     liveData: MutableLiveData<Event<T>>,
     crossinline action: (T) -> Unit
 ) {
-    liveData.observe(this, { it?.getContentIfNotHandled()?.let(action) })
+    liveData.observe(this) { it?.getContentIfNotHandled()?.let(action) }
 }

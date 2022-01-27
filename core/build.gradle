@@ -11,8 +11,6 @@ android {
     defaultConfig {
         minSdk rootProject.ext.min_sdk_version
         targetSdk rootProject.ext.target_sdk_version
-        versionCode rootProject.ext.version_code
-        versionName rootProject.ext.version_name
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -49,8 +47,8 @@ dependencies {
 
     // ... Core
     api("androidx.core:core-ktx:1.7.0")
-    api("androidx.appcompat:appcompat:1.4.0")
-    api("com.google.android.material:material:1.4.0")
+    api("androidx.appcompat:appcompat:1.4.1")
+    api("com.google.android.material:material:1.5.0")
 
     // ... Jetpack Compose
     api("androidx.compose.ui:ui:$compose_version")
