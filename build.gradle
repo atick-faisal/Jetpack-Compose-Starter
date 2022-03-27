@@ -7,11 +7,11 @@ buildscript {
         version_name = "1.0.0"
 
         agp_version = "7.1.2"
-        kotlin_version = "1.5.31"
+        kotlin_version = "1.6.10"
 
-        compose_version = "1.0.5"
-        lifecycle_version = "2.4.0"
-        hilt_version = "2.40.5"
+        compose_version = "1.1.1"
+        lifecycle_version = "2.4.1"
+        hilt_version = "2.41"
     }
     repositories {
         google()
