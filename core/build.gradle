@@ -71,6 +71,9 @@ dependencies {
     api("com.google.dagger:hilt-android:$hilt_version")
     kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
 
+    // ... Material Color
+    api("com.github.atick-faisal:compose-material-color:v2.1.0")
+
     // ... Logger
     api("com.orhanobut:logger:2.2.0")
 }
