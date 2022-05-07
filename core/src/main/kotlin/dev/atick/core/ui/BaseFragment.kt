@@ -8,9 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 
-abstract class BaseComposeFragment<ViewModel : BaseViewModel> : Fragment() {
-
-    abstract val viewModel: ViewModel
+abstract class BaseComposeFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -18,6 +16,7 @@ abstract class BaseComposeFragment<ViewModel : BaseViewModel> : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return ComposeView(requireContext()).apply {
+            observeStates()
             setContent {
                 ComposeUi()
             }

@@ -14,6 +14,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         Logger.addLogAdapter(logAdapter)
-        Logger.i("Skynet Initiated!")
+        Logger.i("SKYNET INITIATED!")
     }
 }
