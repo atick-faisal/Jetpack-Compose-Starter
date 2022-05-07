@@ -25,7 +25,7 @@ android {
     }
 
     buildTypes {
-        Properties properties = new Properties()
+        // Properties properties = new Properties()
         
         debug {
             applicationVariants.all { variant ->
@@ -50,7 +50,7 @@ android {
                                     "${variant.versionName + "_" + formattedDate}.apk"
                 }
             }
-            buildConfigField "String", "BASE_URL", properties.getProperty("BASE_URL", "")
+            // buildConfigField "String", "BASE_URL", properties.getProperty("BASE_URL", "")
         }
     }
     compileOptions {
@@ -85,4 +85,8 @@ dependencies {
     // ... Dagger Hilt
     implementation("com.google.dagger:hilt-android:$hilt_version")
     kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+}
+
+kapt {
+    correctErrorTypes = true
 }
