@@ -25,6 +25,8 @@ android {
     }
 
     buildTypes {
+        Properties properties = new Properties()
+        
         debug {
             applicationVariants.all { variant ->
                 variant.outputs.all {
@@ -33,6 +35,7 @@ android {
                                     "${variant.versionName + "_" + formattedDate}.apk"
                 }
             }
+            // buildConfigField "String", "BASE_URL", properties.getProperty("BASE_URL", "")
         }
 
         release {
@@ -47,6 +50,7 @@ android {
                                     "${variant.versionName + "_" + formattedDate}.apk"
                 }
             }
+            buildConfigField "String", "BASE_URL", properties.getProperty("BASE_URL", "")
         }
     }
     compileOptions {
