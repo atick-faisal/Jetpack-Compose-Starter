@@ -21,7 +21,8 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
         }
     }
     compileOptions {
@@ -35,7 +36,7 @@ android {
 
 dependencies {
     def retrofit_version = "2.9.0"
-    def okhttp_version = "4.9.1"
+    def okhttp_version = '5.0.0-alpha.7'
 
     implementation(project(":core"))
 
