@@ -6,13 +6,11 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk rootProject.ext.compile_sdk_version
 
     defaultConfig {
-        minSdk 23
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
+        minSdk rootProject.ext.min_sdk_version
+        targetSdk rootProject.ext.target_sdk_version
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -21,7 +19,8 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
         }
     }
     compileOptions {
@@ -35,7 +34,7 @@ android {
 
 dependencies {
     def retrofit_version = "2.9.0"
-    def okhttp_version = "4.9.1"
+    def okhttp_version = '5.0.0-alpha.7'
 
     implementation(project(":core"))
 
