@@ -19,8 +19,8 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
-                    'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
         }
     }
     compileOptions {
@@ -28,28 +28,16 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
-        useIR = true
-    }
-    buildFeatures {
-        compose true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion compose_version
-    }
-    packagingOptions {
-        resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
-        }
+        jvmTarget = "1.8"
     }
 }
 
 dependencies {
 
     // ... Core
-    api("androidx.core:core-ktx:1.7.0")
-    api("androidx.appcompat:appcompat:1.4.1")
-    api("com.google.android.material:material:1.6.0")
+    api("androidx.core:core-ktx:1.8.0")
+    api("androidx.appcompat:appcompat:1.4.2")
+    api("com.google.android.material:material:1.6.1")
 
     // ... Jetpack Compose
     api("androidx.compose.ui:ui:$compose_version")
@@ -59,7 +47,7 @@ dependencies {
     api("androidx.compose.material:material-icons-core:$compose_version")
     api("androidx.compose.material:material-icons-extended:$compose_version")
     api("androidx.compose.runtime:runtime-livedata:$compose_version")
-    api 'androidx.activity:activity-compose:1.4.0'
+    api("androidx.activity:activity-compose:1.4.0")
 
 
     // ... Lifecycle
