@@ -71,6 +71,7 @@ android {
 
 dependencies {
     implementation project(path: ":core")
+    implementation project(path: ":debug")
 
     // ... Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
