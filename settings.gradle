@@ -17,5 +17,4 @@ dependencyResolutionManagement {
 rootProject.name = "Jetpack Compose Starter"
 include(":app")
 include(":core")
-include(":debug")
 include(":network")
