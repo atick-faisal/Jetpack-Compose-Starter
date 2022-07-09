@@ -2,6 +2,8 @@ os: linux
 language: android
 jdk: openjdk11
 
+if: branch = main
+
 android:
   components:
     - tools
