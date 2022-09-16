@@ -1,4 +1,4 @@
-package dev.atick.compose.ui.theme
+package dev.atick.core.ui.theme
 
 import ai.atick.material.MaterialColor
 

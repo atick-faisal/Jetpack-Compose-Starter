@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
+import dev.atick.core.ui.theme.ComposeTheme
 
 abstract class BaseComposeFragment : Fragment() {
 
@@ -18,7 +19,9 @@ abstract class BaseComposeFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             observeStates()
             setContent {
-                ComposeUi()
+                ComposeTheme {
+                    ComposeUi()
+                }
             }
         }
     }
