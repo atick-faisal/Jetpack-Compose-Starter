@@ -37,7 +37,7 @@ android {
     }
     packagingOptions {
         resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
     namespace("dev.atick.core")
@@ -58,7 +58,7 @@ dependencies {
     api("androidx.compose.material:material-icons-core:$compose_version")
     api("androidx.compose.material:material-icons-extended:$compose_version")
     api("androidx.compose.runtime:runtime-livedata:$compose_version")
-    api("androidx.activity:activity-compose:1.5.1")
+    api("androidx.activity:activity-compose:1.6.0")
 
 
     // ... Lifecycle
