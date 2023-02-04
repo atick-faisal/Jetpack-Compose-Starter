@@ -1,46 +1,12 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.JetpackComposeStarter" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/primaryVariant</item>
-        <item name="colorPrimaryVariant">@color/primary</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/secondary</item>
-        <item name="colorSecondaryVariant">@color/secondaryVariant</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <item name="colorOnBackground">@color/white</item>
-        <item name="colorSurface">@color/dark_blue_gray</item>
-        <item name="colorOnSurface">@color/white</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/dark_blue_gray</item>
-        <item name="android:windowLightStatusBar">false</item>
-        <item name="android:navigationBarColor">@color/darker_blue_gray</item>
-        <!-- Customize your theme here. -->
-    </style>
+    <style name="Theme.JetpackComposeStarter" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
 
     <style name="SplashScreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_background_night</item>
         <item name="android:statusBarColor">@color/darker_blue_gray</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:navigationBarColor">@color/darker_blue_gray</item>
-    </style>
-
-    <style name="ThemeOverlay.MaterialAlertDialog.Rounded" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
-        <item name="alertDialogStyle">@style/MaterialAlertDialog.Rounded</item>
-        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
-    </style>
-
-    <style name="MaterialAlertDialog.Rounded" parent="MaterialAlertDialog.MaterialComponents">
-        <item name="shapeAppearance">@style/ShapeAppearance.MaterialAlertDialog.Rounded</item>
-    </style>
-
-    <style name="ShapeAppearance.MaterialAlertDialog.Rounded" parent="">
-        <item name="cornerSize">16dp</item>
-    </style>
-
-    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button">
-        <item name="cornerRadius">16dp</item>
     </style>
 
 </resources>

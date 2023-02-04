@@ -48,18 +48,31 @@ dependencies {
 
     // ... Core
     api("androidx.core:core-ktx:1.9.0")
-    api("androidx.appcompat:appcompat:1.5.1")
-    api("com.google.android.material:material:1.7.0")
+    api("androidx.appcompat:appcompat:1.6.0")
+    api("com.google.android.material:material:1.8.0")
 
     // ... Jetpack Compose
-    api("androidx.compose.ui:ui:$compose_version")
-    api("androidx.compose.ui:ui-tooling:$compose_version")
-    api("androidx.compose.foundation:foundation:$compose_version")
-    api("androidx.compose.material:material:$compose_version")
-    api("androidx.compose.material:material-icons-core:$compose_version")
-    api("androidx.compose.material:material-icons-extended:$compose_version")
-    api("androidx.compose.runtime:runtime-livedata:$compose_version")
-    api("androidx.activity:activity-compose:1.6.1")
+//    api("androidx.compose.ui:ui:$compose_version")
+//    api("androidx.compose.ui:ui-tooling:$compose_version")
+//    api("androidx.compose.foundation:foundation:$compose_version")
+//    api("androidx.compose.material:material:$compose_version")
+//    api("androidx.compose.material:material-icons-core:$compose_version")
+//    api("androidx.compose.material:material-icons-extended:$compose_version")
+//    api("androidx.compose.runtime:runtime-livedata:$compose_version")
+//    api("androidx.activity:activity-compose:1.6.1")
+
+    def composeBom = platform("androidx.compose:compose-bom:$compose_version")
+    implementation composeBom
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.foundation:foundation")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    implementation("androidx.compose.material:material-icons-core")
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation("androidx.compose.material3:material3-window-size-class")
+    implementation("androidx.compose.runtime:runtime-livedata")
+    implementation("androidx.activity:activity-compose:1.6.1")
 
 
     // ... Lifecycle
