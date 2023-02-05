@@ -36,8 +36,8 @@ android {
 dependencies {
     def retrofit_version = "2.9.0"
     def okhttp_version = '5.0.0-alpha.7'
+    implementation implementation(project(':core:android',))
 
-    implementation(project(":core"))
 
     // ... Retrofit and OkHttp
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"

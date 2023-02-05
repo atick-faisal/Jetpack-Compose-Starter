@@ -71,7 +71,7 @@ android {
 }
 
 dependencies {
-    implementation project(path: ":core")
+    implementation project(path: ':core:android')
     implementation project(path: ":network")
 
     // ... Navigation

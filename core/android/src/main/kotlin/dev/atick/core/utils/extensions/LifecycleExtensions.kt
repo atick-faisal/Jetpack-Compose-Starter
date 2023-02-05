@@ -3,7 +3,6 @@ package dev.atick.core.utils.extensions
 import androidx.lifecycle.*
 import dev.atick.core.utils.Event
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 inline fun <T> LifecycleOwner.observe(

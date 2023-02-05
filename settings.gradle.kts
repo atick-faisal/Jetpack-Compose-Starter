@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":core:ui")
+
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -18,5 +21,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Jetpack Compose Starter"
 include(":app")
-include(":core")
+include(":core:android")
 include(":network")
