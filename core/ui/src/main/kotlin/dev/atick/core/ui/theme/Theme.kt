@@ -102,7 +102,7 @@ fun JetpackTheme(
         val currentWindow = (FragmentComponentManager.findActivity(view.context) as Activity).window
         SideEffect {
             currentWindow?.let { window ->
-                window.statusBarColor = colorScheme.surface.toArgb()
+                window.statusBarColor = colorScheme.surfaceVariant.toArgb()
                 window.navigationBarColor = colorScheme.background.toArgb()
                 getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
                 getInsetsController(window, view).isAppearanceLightNavigationBars = !darkTheme

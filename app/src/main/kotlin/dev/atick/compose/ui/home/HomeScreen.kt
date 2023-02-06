@@ -9,10 +9,13 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import dev.atick.compose.R
 import dev.atick.compose.ui.home.components.HomeContent
+import dev.atick.core.ui.components.TopBar
 import kotlinx.coroutines.launch
 
 @Composable
@@ -36,6 +39,12 @@ fun HomeScreen(
     }
 
     Scaffold(
+        topBar = {
+            TopBar(
+                title = stringResource(R.string.home),
+                onSearchClick = {},
+                onMenuClick = {})
+        },
         snackbarHost = { SnackbarHost(hostState = snackbarHost) }
     ) { paddingValues ->
         HomeContent(

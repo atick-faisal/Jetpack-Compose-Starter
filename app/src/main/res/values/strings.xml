@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Jetpack Compose Starter</string>
     <string name="btn_click_text">CLICK ME</string>
+    <string name="home">Home</string>
 </resources>
