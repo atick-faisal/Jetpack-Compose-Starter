@@ -1,4 +1,4 @@
-package dev.atick.core.utils.extensions
+package dev.atick.core.extensions
 
 import android.util.Patterns
 import java.util.regex.Matcher
@@ -9,7 +9,7 @@ fun String?.isEmailValid(): Boolean {
 }
 
 fun String?.isPasswordValid(): Boolean {
-    val passwordRegex = "^(?=.*[0-9])(?=.*[a-z]).{8,20}$"
+    val passwordRegex = "^(?=.*\\d)(?=.*[a-z]).{8,20}$"
     val pattern: Pattern = Pattern.compile(passwordRegex)
     val matcher: Matcher = pattern.matcher(this ?: "")
     return matcher.matches()

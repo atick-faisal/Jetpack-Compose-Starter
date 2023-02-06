@@ -1,4 +1,4 @@
-package dev.atick.core.utils.extensions
+package dev.atick.core.ui.extensions
 
 import android.app.Activity
 import android.content.Intent

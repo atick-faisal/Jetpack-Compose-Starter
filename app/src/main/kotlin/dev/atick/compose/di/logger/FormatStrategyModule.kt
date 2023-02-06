@@ -1,4 +1,4 @@
-package dev.atick.core.di.logger
+package dev.atick.compose.di.logger
 
 import com.orhanobut.logger.FormatStrategy
 import com.orhanobut.logger.PrettyFormatStrategy
@@ -13,16 +13,12 @@ import javax.inject.Singleton
 object FormatStrategyModule {
 
     private const val LOG_TAG = "SKYNET_LOG"
-    private const val LOG_METHOD_COUNT = 2
-    private const val LOG_METHOD_OFFSET = 7
 
     @Provides
     @Singleton
     fun provideFormatStrategy(): FormatStrategy {
         return PrettyFormatStrategy.newBuilder()
-            .showThreadInfo(false)
-            .methodCount(LOG_METHOD_COUNT)
-            .methodOffset(LOG_METHOD_OFFSET)
+            .showThreadInfo(true)
             .tag(LOG_TAG)
             .build()
     }

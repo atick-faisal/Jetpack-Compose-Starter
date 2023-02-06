@@ -20,16 +20,14 @@ buildscript {
         // ... Core-UI
         nav_version = "2.5.3"
         fragment_version = "1.5.5"
+        activity_version = "1.6.1"
+        appcompat_version = "1.6.0"
         compose_version = "2023.01.00"
         compose_compiler_version = "1.3.2"
 
         // ... Network
         retrofit_version = "2.9.0"
         okhttp_version = "4.10.0"
-
-        // ... App
-        activity_version = "1.6.1"
-        appcompat_version = "1.6.0"
 
         // ... Dagger-Hilt
         hilt_version = "2.44.2"

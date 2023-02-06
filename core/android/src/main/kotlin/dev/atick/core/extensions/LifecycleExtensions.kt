@@ -1,7 +1,7 @@
-package dev.atick.core.utils.extensions
+package dev.atick.core.extensions
 
 import androidx.lifecycle.*
-import dev.atick.core.utils.Event
+import dev.atick.core.data.SingleLiveEvent
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
@@ -13,7 +13,7 @@ inline fun <T> LifecycleOwner.observe(
 }
 
 inline fun <T> LifecycleOwner.observeEvent(
-    liveData: LiveData<Event<T>>,
+    liveData: LiveData<SingleLiveEvent<T>>,
     crossinline action: (T) -> Unit
 ) {
     liveData.observe(this, Observer {
@@ -22,7 +22,7 @@ inline fun <T> LifecycleOwner.observeEvent(
 }
 
 inline fun <T> LifecycleOwner.observeEvent(
-    liveData: MutableLiveData<Event<T>>,
+    liveData: MutableLiveData<SingleLiveEvent<T>>,
     crossinline action: (T) -> Unit
 ) {
     liveData.observe(this, Observer {

@@ -1,4 +1,4 @@
-package dev.atick.core.utils.extensions
+package dev.atick.core.extensions
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow

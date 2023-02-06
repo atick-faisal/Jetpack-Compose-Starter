@@ -81,18 +81,6 @@ dependencies {
     implementation(project(path: ":core:ui"))
     implementation(project(path: ":network"))
 
-    // ... Activity
-    // ... (https://developer.android.com/jetpack/androidx/releases/activity)
-    implementation("androidx.activity:activity-ktx:$activity_version")
-
-    // ... Activity Compose
-    // ... (https://developer.android.com/jetpack/compose/setup)
-    implementation("androidx.activity:activity-compose:$activity_version")
-
-    // ... AppCompat
-    // ... (https://developer.android.com/jetpack/androidx/releases/appcompat)
-    implementation("androidx.appcompat:appcompat:$appcompat_version")
-
     // ... Dagger-Hilt
     implementation("com.google.dagger:hilt-android:$hilt_version")
     kapt("com.google.dagger:hilt-android-compiler:$hilt_version")

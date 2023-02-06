@@ -42,9 +42,13 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp")
     implementation("com.squareup.okhttp3:logging-interceptor")
 
-    // ... Retrofit
+    // ... Retrofit2
     // ... (https://github.com/square/retrofit/tags)
     implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
+
+    // ... Retrofit Gson Converter
+    // ... (https://stackoverflow.com/questions/32902157/retrofit-convertor-factory-can-not-access-gsonconverterfactory)
+    implementation("com.squareup.retrofit2:converter-gson:$retrofit_version")
 
     // ... Dagger Hilt
     // ... (https://developer.android.com/training/dependency-injection/hilt-android)

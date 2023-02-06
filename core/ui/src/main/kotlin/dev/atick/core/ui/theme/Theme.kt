@@ -10,6 +10,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat.getInsetsController
+import dagger.hilt.android.internal.managers.FragmentComponentManager
 
 private val LightColorScheme = lightColorScheme(
     primary = md_theme_light_primary,
@@ -91,15 +92,18 @@ fun JetpackTheme(
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
+
     val view = LocalView.current
     if (!view.isInEditMode) {
         // ... ViewCompat.getWindowInsetsController is deprecated
         // ... https://stackoverflow.com/a/73271312/12737399
-        val currentWindow = (view.context as? Activity)?.window
+        // ... FragmentContextWrapper cannot be cast to android.app.Activity
+        // ... https://stackoverflow.com/a/65023375/12737399
+        val currentWindow = (FragmentComponentManager.findActivity(view.context) as Activity).window
         SideEffect {
-            (view.context as Activity).window.statusBarColor = colorScheme.surface.toArgb()
-            (view.context as Activity).window.navigationBarColor = colorScheme.background.toArgb()
             currentWindow?.let { window ->
+                window.statusBarColor = colorScheme.surface.toArgb()
+                window.navigationBarColor = colorScheme.background.toArgb()
                 getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
                 getInsetsController(window, view).isAppearanceLightNavigationBars = !darkTheme
             }

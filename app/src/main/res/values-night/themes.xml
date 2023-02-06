@@ -1,12 +1,12 @@
 <resources>
-    <!-- Base application theme. -->
+
     <style name="Theme.JetpackComposeStarter" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
 
     <style name="SplashScreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_background_night</item>
-        <item name="android:statusBarColor">@color/darker_blue_gray</item>
+        <item name="android:statusBarColor">@color/surface_dark</item>
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:navigationBarColor">@color/darker_blue_gray</item>
+        <item name="android:navigationBarColor">@color/surface_dark</item>
     </style>
 
 </resources>

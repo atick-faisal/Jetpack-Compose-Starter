@@ -39,16 +39,28 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-    namespace("dev.atick.core.android")
+    namespace("dev.atick.core.ui")
 }
 
 dependencies {
     // ... Core-Android
-    implementation(project(path: ":core:android"))
+    api(project(path: ":core:android"))
 
     // ... Fragment
     // ... (https://developer.android.com/jetpack/androidx/releases/fragment)
     api("androidx.fragment:fragment-ktx:$fragment_version")
+
+    // ... Activity
+    // ... (https://developer.android.com/jetpack/androidx/releases/activity)
+    api("androidx.activity:activity-ktx:$activity_version")
+
+    // ... Activity Compose
+    // ... (https://developer.android.com/jetpack/compose/setup)
+    api("androidx.activity:activity-compose:$activity_version")
+
+    // ... AppCompat
+    // ... (https://developer.android.com/jetpack/androidx/releases/appcompat)
+    api("androidx.appcompat:appcompat:$appcompat_version")
 
     // ... Navigation
     // ... (https://developer.android.com/jetpack/androidx/releases/navigation)
@@ -87,4 +99,7 @@ dependencies {
     // ... (https://developer.android.com/jetpack/compose/setup)
     api("androidx.compose.ui:ui-tooling-preview")
     debugApi("androidx.compose.ui:ui-tooling")
+
+    // ... Dagger-Hilt
+    implementation("com.google.dagger:hilt-android:$hilt_version")
 }

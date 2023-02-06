@@ -1,6 +1,6 @@
-package dev.atick.core.di.logger
+package dev.atick.compose.di.logger
 
-//import dev.atick.core.BuildConfig
+import dev.atick.compose.BuildConfig
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.FormatStrategy
 import com.orhanobut.logger.LogAdapter
@@ -23,7 +23,7 @@ object LogAdapterModule {
     fun provideLogAdapter(formatStrategy: FormatStrategy): LogAdapter {
         return object : AndroidLogAdapter(formatStrategy) {
             override fun isLoggable(priority: Int, tag: String?): Boolean {
-                return true // BuildConfig.DEBUG
+                return BuildConfig.DEBUG
             }
         }
     }
