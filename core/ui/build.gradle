@@ -1,8 +1,6 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -45,54 +43,48 @@ android {
 }
 
 dependencies {
+    // ... Core-Android
+    implementation(project(path: ":core:android"))
 
-    // ... Core
-    api("androidx.core:core-ktx:1.9.0")
-    api("androidx.appcompat:appcompat:1.6.0")
-    api("com.google.android.material:material:1.8.0")
+    // ... Fragment
+    // ... (https://developer.android.com/jetpack/androidx/releases/fragment)
+    api("androidx.fragment:fragment-ktx:$fragment_version")
+
+    // ... Navigation
+    // ... (https://developer.android.com/jetpack/androidx/releases/navigation)
+    api("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    api("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    // ... Lifecycle ViewModel
+    // ... (https://developer.android.com/jetpack/androidx/releases/lifecycle)
+    api("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
 
     // ... Jetpack Compose
-//    api("androidx.compose.ui:ui:$compose_version")
-//    api("androidx.compose.ui:ui-tooling:$compose_version")
-//    api("androidx.compose.foundation:foundation:$compose_version")
-//    api("androidx.compose.material:material:$compose_version")
-//    api("androidx.compose.material:material-icons-core:$compose_version")
-//    api("androidx.compose.material:material-icons-extended:$compose_version")
-//    api("androidx.compose.runtime:runtime-livedata:$compose_version")
-//    api("androidx.activity:activity-compose:1.6.1")
+    // ... (https://developer.android.com/jetpack/compose/setup)
+    api(platform("androidx.compose:compose-bom:$compose_version"))
+    api("androidx.compose.ui:ui")
+    api("androidx.compose.foundation:foundation")
 
-    def composeBom = platform("androidx.compose:compose-bom:$compose_version")
-    implementation composeBom
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.foundation:foundation")
-    implementation("androidx.compose.material3:material3")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    implementation("androidx.compose.material:material-icons-core")
-    implementation("androidx.compose.material:material-icons-extended")
-    implementation("androidx.compose.material3:material3-window-size-class")
-    implementation("androidx.compose.runtime:runtime-livedata")
-    implementation("androidx.activity:activity-compose:1.6.1")
+    // ... Material Design 3
+    // ... (https://developer.android.com/jetpack/compose/setup)
+    api("androidx.compose.material3:material3")
+    api("androidx.compose.material3:material3-window-size-class")
 
+    // ... Material Icons
+    // ... (https://developer.android.com/jetpack/compose/setup)
+    api("androidx.compose.material:material-icons-core")
+    api("androidx.compose.material:material-icons-extended")
 
-    // ... Lifecycle
-    api("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    // ... LiveData Compose
+    // ... (https://developer.android.com/jetpack/compose/setup)
+    api("androidx.compose.runtime:runtime-livedata")
+
+    // ... ViewModel Compose
+    // ... (https://developer.android.com/jetpack/androidx/releases/lifecycle)
     api("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
-    api("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
-    api("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
-    api("androidx.lifecycle:lifecycle-common-java8:$lifecycle_version")
 
-    // ... Dagger Hilt
-    api("com.google.dagger:hilt-android:$hilt_version")
-    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
-
-    // ... Material Color
-    api("com.github.atick-faisal:compose-material-color:3.0.0")
-
-    // ... Logger
-    api("com.orhanobut:logger:2.2.0")
-}
-
-kapt {
-    correctErrorTypes = true
+    // ... Compose Tooling
+    // ... (https://developer.android.com/jetpack/compose/setup)
+    api("androidx.compose.ui:ui-tooling-preview")
+    debugApi("androidx.compose.ui:ui-tooling")
 }
