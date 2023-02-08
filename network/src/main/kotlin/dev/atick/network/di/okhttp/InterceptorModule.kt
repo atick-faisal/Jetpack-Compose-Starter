@@ -1,4 +1,4 @@
-package dev.atick.network.di
+package dev.atick.network.di.okhttp
 
 import dagger.Module
 import dagger.Provides

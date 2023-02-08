@@ -1,9 +1,11 @@
-package dev.atick.network.di
+package dev.atick.network.di.retrofit
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import dev.atick.network.api.JetpackRestApi.Companion.BASE_URL
+import dev.atick.network.di.okhttp.OkHttpClientModule
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -16,8 +18,6 @@ import javax.inject.Singleton
 )
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
-
-    private const val BASE_URL = "http://raspberrypi.local/"
 
     @Singleton
     @Provides

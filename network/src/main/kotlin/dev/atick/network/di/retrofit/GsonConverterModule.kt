@@ -1,4 +1,4 @@
-package dev.atick.network.di
+package dev.atick.network.di.retrofit
 
 import dagger.Module
 import dagger.Provides

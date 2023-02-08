@@ -23,7 +23,7 @@ abstract class BaseFragment : Fragment() {
     ): View? {
         return ComposeView(requireContext()).apply {
             setContent {
-                JetpackTheme {
+                JetpackTheme(dynamicColor = false) {
                     ComposeUi()
                 }
             }

@@ -2,10 +2,7 @@ package dev.atick.compose.ui.home
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLifecycleOwner
@@ -51,7 +48,9 @@ fun HomeScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues),
-            onButtonCLick = { homeViewModel.click() }
+            item = homeUiState.item,
+            loading = homeUiState.loading,
+            onButtonCLick = { homeViewModel.getItem() }
         )
     }
 }

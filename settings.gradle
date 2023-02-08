@@ -14,7 +14,7 @@ dependencyResolutionManagement {
 }
 
 
-rootProject.name = "Jetpack Compose Starter"
+rootProject.name = "Jetpack"
 include(":app")
 include(":core:ui")
 include(":core:android")

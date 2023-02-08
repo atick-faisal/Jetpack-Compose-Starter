@@ -1,5 +1,7 @@
 buildscript {
     ext {
+        app_id = "dev.atick.compose"
+
         // Version Name: X.Y.Z;
         // X = Major Update
         // Y = Minor Update
