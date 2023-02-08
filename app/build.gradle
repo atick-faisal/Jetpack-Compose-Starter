@@ -80,6 +80,7 @@ android {
 dependencies {
     implementation(project(path: ":core:ui"))
     implementation(project(path: ":network"))
+    implementation(project(path: ":storage:room"))
 
     // ... Dagger-Hilt
     implementation("com.google.dagger:hilt-android:$hilt_version")

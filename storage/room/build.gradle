@@ -1,0 +1,61 @@
+plugins {
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
+    id("kotlin-kapt")
+}
+
+android {
+    compileSdk rootProject.ext.compile_sdk_version
+
+    defaultConfig {
+        minSdk rootProject.ext.min_sdk_version
+        targetSdk rootProject.ext.target_sdk_version
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+    namespace("dev.atick.storage.room")
+}
+
+dependencies {
+    implementation(project(":core:android"))
+
+    // ... Room
+    // ... (https://developer.android.com/jetpack/androidx/releases/room)
+    implementation("androidx.room:room-runtime:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+
+    // ... Room Coroutines
+    // ... (https://developer.android.com/jetpack/androidx/releases/room)
+    implementation("androidx.room:room-ktx:$room_version")
+
+    // ... Dagger Hilt
+    // ... (https://developer.android.com/training/dependency-injection/hilt-android)
+    implementation("com.google.dagger:hilt-android:$hilt_version")
+    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+}
+
+kapt {
+    correctErrorTypes = true
+}

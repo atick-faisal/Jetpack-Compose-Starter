@@ -31,6 +31,9 @@ buildscript {
         retrofit_version = "2.9.0"
         okhttp_version = "4.10.0"
 
+        // ... Storage-Room
+        room_version = "2.5.0"
+
         // ... Dagger-Hilt
         hilt_version = "2.44.2"
 

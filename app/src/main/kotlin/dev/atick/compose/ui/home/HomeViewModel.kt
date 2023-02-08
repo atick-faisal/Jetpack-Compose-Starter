@@ -30,9 +30,13 @@ class HomeViewModel @Inject constructor(
         if (getItemJob != null) return
         getItemJob = viewModelScope.launch {
             _homeUiState.update { it.copy(loading = true) }
-            val result = jetpackRepository.getItem(Random(42).nextInt())
+            val result = jetpackRepository.getItem(Random.nextInt(-100, 100))
             if (result.isSuccess) {
-                _homeUiState.update { it.copy(item = result.getOrNull(), loading = false) }
+                val item = result.getOrNull()
+                item?.let {
+                    _homeUiState.update { it.copy(item = item, loading = false) }
+                    jetpackRepository.saveItem(item)
+                }
             } else {
                 _homeUiState.update {
                     it.copy(

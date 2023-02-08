@@ -4,4 +4,5 @@ import dev.atick.compose.data.home.Item
 
 interface JetpackRepository {
     suspend fun getItem(id: Int): Result<Item>
+    suspend fun saveItem(item: Item)
 }
