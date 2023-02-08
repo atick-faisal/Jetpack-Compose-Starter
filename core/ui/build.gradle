@@ -1,0 +1,105 @@
+plugins {
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+}
+
+android {
+    compileSdk rootProject.ext.compile_sdk_version
+
+    defaultConfig {
+        minSdk rootProject.ext.min_sdk_version
+        targetSdk rootProject.ext.target_sdk_version
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_compiler_version
+    }
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+    namespace("dev.atick.core.ui")
+}
+
+dependencies {
+    // ... Core-Android
+    api(project(path: ":core:android"))
+
+    // ... Fragment
+    // ... (https://developer.android.com/jetpack/androidx/releases/fragment)
+    api("androidx.fragment:fragment-ktx:$fragment_version")
+
+    // ... Activity
+    // ... (https://developer.android.com/jetpack/androidx/releases/activity)
+    api("androidx.activity:activity-ktx:$activity_version")
+
+    // ... Activity Compose
+    // ... (https://developer.android.com/jetpack/compose/setup)
+    api("androidx.activity:activity-compose:$activity_version")
+
+    // ... AppCompat
+    // ... (https://developer.android.com/jetpack/androidx/releases/appcompat)
+    api("androidx.appcompat:appcompat:$appcompat_version")
+
+    // ... Navigation
+    // ... (https://developer.android.com/jetpack/androidx/releases/navigation)
+    api("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    api("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    // ... Lifecycle ViewModel
+    // ... (https://developer.android.com/jetpack/androidx/releases/lifecycle)
+    api("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+
+    // ... Jetpack Compose
+    // ... (https://developer.android.com/jetpack/compose/setup)
+    api(platform("androidx.compose:compose-bom:$compose_version"))
+    api("androidx.compose.ui:ui")
+    api("androidx.compose.foundation:foundation")
+
+    // ... Material Design 3
+    // ... (https://developer.android.com/jetpack/compose/setup)
+    api("androidx.compose.material3:material3")
+    api("androidx.compose.material3:material3-window-size-class")
+
+    // ... Material Icons
+    // ... (https://developer.android.com/jetpack/compose/setup)
+    api("androidx.compose.material:material-icons-core")
+    api("androidx.compose.material:material-icons-extended")
+
+    // ... LiveData Compose
+    // ... (https://developer.android.com/jetpack/compose/setup)
+    api("androidx.compose.runtime:runtime-livedata")
+
+    // ... ViewModel Compose
+    // ... (https://developer.android.com/jetpack/androidx/releases/lifecycle)
+    api("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
+
+    // ... Compose Tooling
+    // ... (https://developer.android.com/jetpack/compose/setup)
+    api("androidx.compose.ui:ui-tooling-preview")
+    debugApi("androidx.compose.ui:ui-tooling")
+
+    // ... Dagger-Hilt
+    implementation("com.google.dagger:hilt-android:$hilt_version")
+}

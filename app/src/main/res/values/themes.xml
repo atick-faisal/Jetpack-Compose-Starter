@@ -1,11 +1,13 @@
-<resources>
-    <!-- Base application theme. -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
     <style name="Theme.JetpackComposeStarter" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
 
     <style name="SplashScreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_background</item>
-        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:statusBarColor">@color/surface_light</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/surface_light</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="O_MR1">true</item>
     </style>
 
 </resources>

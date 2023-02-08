@@ -1,27 +1,23 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
-    id("kotlin-kapt")
+    id("org.jetbrains.kotlin.android")
     id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
+    id("kotlin-kapt")
 }
 
 android {
     def date = new Date()
-    def formattedDate = date.format("dd.MM.yyyy hh.mm a")
+    def formattedDate = date.format("dd_MM_yyyy_hh_mm_a")
 
     compileSdk rootProject.ext.compile_sdk_version
 
     defaultConfig {
-        applicationId "dev.atick.compose"
+        applicationId rootProject.ext.app_id
         minSdk rootProject.ext.min_sdk_version
         targetSdk rootProject.ext.target_sdk_version
         versionCode rootProject.ext.version_code
         versionName rootProject.ext.version_name
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary true
-        }
     }
 
     buildTypes {
@@ -29,8 +25,10 @@ android {
             applicationVariants.all { variant ->
                 variant.outputs.all {
                     outputFileName =
-                            "${"app_" + variant.buildType.name + "_v"}" +
-                                    "${variant.versionName + "_" + formattedDate}.apk"
+                            "${rootProject.name.replace(" ", "_") + "_"}" +
+                                    "${variant.buildType.name + "_v"}" +
+                                    "${variant.versionName + "_"}" +
+                                    "${formattedDate}.apk"
                 }
             }
         }
@@ -43,8 +41,10 @@ android {
             applicationVariants.all { variant ->
                 variant.outputs.all {
                     outputFileName =
-                            "${"app_" + variant.buildType.name + "_v"}" +
-                                    "${variant.versionName + "_" + formattedDate}.apk"
+                            "${rootProject.name.replace(" ", "_") + "_"}" +
+                                    "${variant.buildType.name + "_v"}" +
+                                    "${variant.versionName + "_"}" +
+                                    "${formattedDate}.apk"
                 }
             }
         }
@@ -55,6 +55,13 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+        freeCompilerArgs = freeCompilerArgs + [
+                "-opt-in=kotlin.RequiresOptIn",
+                // ... Enable experimental coroutines APIs, including Flow
+                "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+                "-opt-in=kotlinx.coroutines.FlowPreview",
+                "-opt-in=kotlin.Experimental",
+        ]
     }
     buildFeatures {
         compose true
@@ -71,14 +78,10 @@ android {
 }
 
 dependencies {
-    implementation project(path: ":core")
-    implementation project(path: ":network")
+    implementation(project(path: ":core:ui"))
+    implementation(project(path: ":network"))
 
-    // ... Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
-
-    // ... Dagger Hilt
+    // ... Dagger-Hilt
     implementation("com.google.dagger:hilt-android:$hilt_version")
     kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
 }

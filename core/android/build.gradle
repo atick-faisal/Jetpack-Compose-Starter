@@ -1,0 +1,63 @@
+plugins {
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+}
+
+android {
+    compileSdk rootProject.ext.compile_sdk_version
+
+    defaultConfig {
+        minSdk rootProject.ext.min_sdk_version
+        targetSdk rootProject.ext.target_sdk_version
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+    namespace("dev.atick.core.android")
+}
+
+dependencies {
+    // ... Core-Ktx
+    // ... (https://developer.android.com/jetpack/androidx/releases/core)
+    api("androidx.core:core-ktx:$core_ktx_version")
+
+    // ... Kotlin Coroutines
+    // ... (https://developer.android.com/kotlin/coroutines)
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version")
+
+    // ... Lifecycle LiveData
+    // ... (https://developer.android.com/jetpack/androidx/releases/lifecycle)
+    api("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+
+    // ... Lifecycle Runtime
+    // ... (https://developer.android.com/jetpack/androidx/releases/lifecycle)
+    api("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
+
+    // ... Lifecycle Annotation Processor for Java 8
+    // ... (https://developer.android.com/jetpack/androidx/releases/lifecycle)
+    api("androidx.lifecycle:lifecycle-common-java8:$lifecycle_version")
+
+    // ... Logger
+    // ... (https://github.com/orhanobut/logger)
+    api("com.orhanobut:logger:2.2.0")
+}
