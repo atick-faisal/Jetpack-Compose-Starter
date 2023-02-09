@@ -87,3 +87,9 @@ lint/tmp/
 
 # Android Profiling
 *.hprof
+
+# key
+*.jks
+
+# metadata
+*-metadata.json
