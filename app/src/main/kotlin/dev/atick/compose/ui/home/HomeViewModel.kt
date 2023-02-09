@@ -26,6 +26,16 @@ class HomeViewModel @Inject constructor(
 
     private var getItemJob: Job? = null
 
+    init {
+        viewModelScope.launch {
+            val result = jetpackRepository.getUserId()
+            if (result.isSuccess) {
+                val userId = result.getOrNull().toString()
+                _homeUiState.update { it.copy(error = UiText.DynamicString(userId)) }
+            }
+        }
+    }
+
     fun getItem() {
         if (getItemJob != null) return
         getItemJob = viewModelScope.launch {
