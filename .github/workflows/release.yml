@@ -27,9 +27,9 @@ jobs:
       - name: build prod
         run: ./gradlew app:assembleRelease
         env:
-          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
-          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
-          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          SIGNING_KEY_ALIAS: 'jetpack-key'
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
