@@ -39,6 +39,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
+          body_path: ${{ github.workspace }}/CHANGELOG.md
           files: app/build/outputs/apk/release/*.apk
 
 # https://github.com/softprops/action-gh-release/issues/236
