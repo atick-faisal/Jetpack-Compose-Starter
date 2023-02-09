@@ -31,6 +31,13 @@ buildscript {
         retrofit_version = "2.9.0"
         okhttp_version = "4.10.0"
 
+        // ... Storage-Room
+        room_version = "2.5.0"
+
+        // ... Preferences-DataStore
+        preferences_version = "1.0.0"
+        serializer_version = "1.4.1"
+
         // ... Dagger-Hilt
         hilt_version = "2.44.2"
 
@@ -45,6 +52,7 @@ plugins {
     id("com.android.library") version "7.4.0" apply false
     id("com.android.application") version "$agp_version" apply false
     id("org.jetbrains.kotlin.android") version "$kotlin_version" apply false
+    id("org.jetbrains.kotlin.plugin.serialization") version "$kotlin_version" apply false
     id("com.google.dagger.hilt.android") version "$hilt_version" apply false
     id("androidx.navigation.safeargs") version "$nav_version" apply false
 }

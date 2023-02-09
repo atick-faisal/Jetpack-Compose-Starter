@@ -15,9 +15,15 @@ fun Context.showToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }
 
-fun Context.hasPermission(permissionType: String): Boolean {
-    return ContextCompat.checkSelfPermission(this, permissionType) ==
+fun Context.hasPermission(permission: String): Boolean {
+    return ContextCompat.checkSelfPermission(this, permission) ==
         PackageManager.PERMISSION_GRANTED
+}
+
+fun Context.isAllPermissionsGranted(permissions: List<String>): Boolean {
+    return permissions.map { permission ->
+        this.hasPermission(permission)
+    }.reduce { acc, b -> acc && b }
 }
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
