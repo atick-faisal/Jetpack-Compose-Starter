@@ -1,6 +1,11 @@
-name: Build Release App Bundle
+# https://proandroiddev.com/how-to-securely-build-and-sign-your-android-app-with-github-actions-ad5323452ce
 
-on: workflow_dispatch
+name: Release APK
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
 
 jobs:
   build:
@@ -30,3 +35,12 @@ jobs:
         with:
           name: Build Artifacts
           path: app/build/outputs/apk/release/*.apk
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: app/build/outputs/apk/release/*.apk
+
+# https://github.com/softprops/action-gh-release/issues/236
+permissions:
+  contents: write
