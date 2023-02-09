@@ -4,8 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.compose.repository.home.JetpackRepository
-import dev.atick.compose.repository.home.JetpackRepositoryImpl
+import dev.atick.compose.repository.home.HomeRepository
+import dev.atick.compose.repository.home.HomeRepositoryImpl
 import javax.inject.Singleton
 
 @Module
@@ -14,7 +14,7 @@ abstract class RepositoryModule {
 
     @Binds
     @Singleton
-    abstract fun bindJetpackRepository(
-        jetpackRepositoryImpl: JetpackRepositoryImpl
-    ): JetpackRepository
+    abstract fun bindHomeRepository(
+        homeRepositoryImpl: HomeRepositoryImpl
+    ): HomeRepository
 }

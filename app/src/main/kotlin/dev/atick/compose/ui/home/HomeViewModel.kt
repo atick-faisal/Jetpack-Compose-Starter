@@ -3,7 +3,7 @@ package dev.atick.compose.ui.home
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.compose.R
-import dev.atick.compose.repository.home.JetpackRepository
+import dev.atick.compose.repository.home.HomeRepository
 import dev.atick.compose.ui.home.state.HomeUiState
 import dev.atick.core.ui.base.BaseViewModel
 import dev.atick.core.ui.utils.UiText
@@ -18,7 +18,7 @@ import kotlin.random.Random
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val jetpackRepository: JetpackRepository
+    private val jetpackRepository: HomeRepository
 ) : BaseViewModel<HomeUiState>() {
 
     private val _homeUiState = MutableStateFlow(HomeUiState())

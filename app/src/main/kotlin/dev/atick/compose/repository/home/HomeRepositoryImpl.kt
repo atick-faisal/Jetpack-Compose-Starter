@@ -6,11 +6,11 @@ import dev.atick.storage.preferences.data.PreferencesDatastore
 import dev.atick.storage.room.data.JetpackDao
 import javax.inject.Inject
 
-class JetpackRepositoryImpl @Inject constructor(
-    private val jetpackDataSource: JetpackDataSource,
+class HomeRepositoryImpl @Inject constructor(
     private val jetpackDao: JetpackDao,
+    private val jetpackDataSource: JetpackDataSource,
     private val preferencesDatastore: PreferencesDatastore
-) : JetpackRepository {
+) : HomeRepository {
     override suspend fun getItem(id: Int): Result<Item> {
         return try {
             val response = jetpackDataSource.getItem(id)
