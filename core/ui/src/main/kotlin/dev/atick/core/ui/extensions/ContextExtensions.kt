@@ -21,9 +21,7 @@ fun Context.hasPermission(permission: String): Boolean {
 }
 
 fun Context.isAllPermissionsGranted(permissions: List<String>): Boolean {
-    return permissions.map { permission ->
-        this.hasPermission(permission)
-    }.reduce { acc, b -> acc && b }
+    return permissions.all { hasPermission(it) }
 }
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
