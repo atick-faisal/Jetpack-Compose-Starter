@@ -100,6 +100,10 @@ dependencies {
     api("androidx.compose.ui:ui-tooling-preview")
     debugApi("androidx.compose.ui:ui-tooling")
 
+    // ... Lottie Animation
+    // ... (https://github.com/airbnb/lottie/blob/master/android-compose.md)
+    api("com.airbnb.android:lottie-compose:$lottie_version")
+
     // ... Dagger-Hilt
     implementation("com.google.dagger:hilt-android:$hilt_version")
 }
