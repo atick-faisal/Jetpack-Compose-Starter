@@ -31,7 +31,7 @@ jobs:
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
       - name: Upload
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Build Artifacts
           path: app/build/outputs/apk/release/*.apk
