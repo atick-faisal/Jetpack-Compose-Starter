@@ -1,3 +1,8 @@
 package dev.atick.core.ui.base
 
-open class BaseUiState
+import dev.atick.core.ui.utils.UiText
+
+abstract class BaseUiState {
+    abstract val loading: Boolean
+    abstract val toastMessage: UiText?
+}
