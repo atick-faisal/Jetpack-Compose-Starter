@@ -4,7 +4,6 @@ Jetpack Compose App Template
 <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="400" />
 </p>
 </h1>
-<h3 align="center">Generate Foot Thermogram from a Contactless Temperature Sensor Platform</h3>
 
 <p align="center">
     <a href="https://github.com/atick-faisal/Jetpack-Compose-Starter/releases"><img src="https://img.shields.io/github/release/atick-faisal/Jetpack-Compose-Starter?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
