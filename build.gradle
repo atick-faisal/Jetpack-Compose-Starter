@@ -25,7 +25,7 @@ buildscript {
         activity_version = "1.6.1"
         appcompat_version = "1.6.1"
         compose_version = "2023.01.00"
-        compose_compiler_version = "1.4.2"
+        compose_compiler_version = "1.4.3"
         lottie_version = "6.0.0"
 
         // ... Network
