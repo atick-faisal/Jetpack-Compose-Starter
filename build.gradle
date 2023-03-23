@@ -16,7 +16,7 @@ buildscript {
         // ... Core-android
         core_ktx_version = "1.9.0"
         coroutines_version = "1.6.4"
-        lifecycle_version = "2.6.0"
+        lifecycle_version = "2.6.1"
         logger_version = "2.2.0"
 
         // ... Core-UI
