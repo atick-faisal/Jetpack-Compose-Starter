@@ -33,7 +33,7 @@ buildscript {
         okhttp_version = "4.10.0"
 
         // ... Storage-Room
-        room_version = "2.5.0"
+        room_version = "2.5.1"
 
         // ... Preferences-DataStore
         preferences_version = "1.0.0"
