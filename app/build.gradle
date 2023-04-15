@@ -79,7 +79,9 @@ android {
         ]
     }
     buildFeatures {
-        compose true
+        // ... BuildConfig (https://stackoverflow.com/a/74692390/12737399)
+        buildConfig = true
+        compose = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion compose_compiler_version
