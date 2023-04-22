@@ -1,3 +1,19 @@
+/*
+ * Copyright 2023 Atick Faisal
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package dev.atick.core.ui.extensions
 
 import android.Manifest
@@ -11,7 +27,13 @@ import android.widget.Toast
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import java.io.*
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.InputStream
+import java.io.OutputStream
+
+// import java.io.*
 
 fun Context.showToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
@@ -29,7 +51,7 @@ fun Context.isAllPermissionsGranted(permissions: List<String>): Boolean {
 @SuppressLint("MissingPermission")
 fun Context.showNotification(
     notificationId: Int,
-    notification: Notification
+    notification: Notification,
 ) {
     if (hasPermission(Manifest.permission.POST_NOTIFICATIONS)) {
         with(NotificationManagerCompat.from(this)) {
@@ -50,7 +72,7 @@ fun Context.getTmpFileUri(appId: String): Uri {
     val tmpFile = File.createTempFile(
         "tmp_image_file",
         ".png",
-        cacheDir
+        cacheDir,
     ).apply {
         createNewFile()
         deleteOnExit()
@@ -58,8 +80,8 @@ fun Context.getTmpFileUri(appId: String): Uri {
 
     return FileProvider.getUriForFile(
         applicationContext,
-        "${appId}.provider",
-        tmpFile
+        "$appId.provider",
+        tmpFile,
     )
 }
 

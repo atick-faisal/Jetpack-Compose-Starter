@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2023 Atick Faisal
+     Copyright $YEAR Atick Faisal
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,9 +15,3 @@
      limitations under the License.
 -->
 
-<resources>
-    <string name="app_name">Jetpack</string>
-    <string name="btn_click_text">Get Item</string>
-    <string name="home">Home</string>
-    <string name="error_item_loading">Error Loading Item</string>
-</resources>

@@ -1,3 +1,19 @@
+/*
+ * Copyright 2023 Atick Faisal
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package dev.atick.core.ui.extensions
 
 import android.app.Activity
@@ -10,35 +26,41 @@ import androidx.activity.result.contract.ActivityResultContracts
 
 inline fun ComponentActivity.resultLauncher(
     crossinline onSuccess: () -> Unit = {},
-    crossinline onFailure: () -> Unit = {}
+    crossinline onFailure: () -> Unit = {},
 ): ActivityResultLauncher<Intent> {
     val resultCallback = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
+        ActivityResultContracts.StartActivityForResult(),
     ) { result ->
         val success = (result.resultCode == Activity.RESULT_OK)
-        if (success) onSuccess.invoke()
-        else onFailure.invoke()
+        if (success) {
+            onSuccess.invoke()
+        } else {
+            onFailure.invoke()
+        }
     }
     return resultCallback
 }
 
 inline fun ComponentActivity.permissionLauncher(
     crossinline onSuccess: () -> Unit = {},
-    crossinline onFailure: () -> Unit = {}
+    crossinline onFailure: () -> Unit = {},
 ): ActivityResultLauncher<Array<String>> {
     val resultCallback = registerForActivityResult(
-        ActivityResultContracts.RequestMultiplePermissions()
+        ActivityResultContracts.RequestMultiplePermissions(),
     ) { permissions ->
         val granted = permissions.entries.all { it.value }
-        if (granted) onSuccess.invoke()
-        else onFailure.invoke()
+        if (granted) {
+            onSuccess.invoke()
+        } else {
+            onFailure.invoke()
+        }
     }
     return resultCallback
 }
 
 inline fun ComponentActivity.checkForPermissions(
     permissions: List<String>,
-    crossinline onSuccess: () -> Unit
+    crossinline onSuccess: () -> Unit,
 ) {
     if (isAllPermissionsGranted(permissions)) return
     val launcher = permissionLauncher(
@@ -46,7 +68,7 @@ inline fun ComponentActivity.checkForPermissions(
         onFailure = {
             showToast("PLEASE ALLOW ALL PERMISSIONS")
             openPermissionSettings()
-        }
+        },
     )
     launcher.launch(permissions.toTypedArray())
 }
@@ -56,7 +78,7 @@ inline fun ComponentActivity.checkForPermissions(
 fun ComponentActivity.openPermissionSettings() {
     val intent = Intent(
         ACTION_APPLICATION_DETAILS_SETTINGS,
-        Uri.parse("package:$packageName")
+        Uri.parse("package:$packageName"),
     )
     intent.addCategory(Intent.CATEGORY_DEFAULT)
     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK

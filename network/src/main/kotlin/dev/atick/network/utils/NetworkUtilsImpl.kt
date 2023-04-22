@@ -1,3 +1,19 @@
+/*
+ * Copyright 2023 Atick Faisal
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package dev.atick.network.utils
 
 import android.net.ConnectivityManager
@@ -11,10 +27,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import javax.inject.Inject
 
-
 @ExperimentalCoroutinesApi
 class NetworkUtilsImpl @Inject constructor(
-    private val connectivityManager: ConnectivityManager
+    private val connectivityManager: ConnectivityManager,
 ) : NetworkUtils {
     override val currentState: Flow<NetworkState>
         get() = callbackFlow {
@@ -45,7 +60,7 @@ class NetworkUtilsImpl @Inject constructor(
 
                 override fun onCapabilitiesChanged(
                     network: Network,
-                    networkCapabilities: NetworkCapabilities
+                    networkCapabilities: NetworkCapabilities,
                 ) {
                     super.onCapabilitiesChanged(network, networkCapabilities)
                     Logger.i("NETWORK TYPE CHANGED")
@@ -53,7 +68,7 @@ class NetworkUtilsImpl @Inject constructor(
 
                 override fun onLinkPropertiesChanged(
                     network: Network,
-                    linkProperties: LinkProperties
+                    linkProperties: LinkProperties,
                 ) {
                     super.onLinkPropertiesChanged(network, linkProperties)
                     Logger.i("LINK PROPERTIES CHANGED")
@@ -62,7 +77,6 @@ class NetworkUtilsImpl @Inject constructor(
                 override fun onBlockedStatusChanged(network: Network, blocked: Boolean) {
                     Logger.i("BLOCKED STATUS CHANGED")
                 }
-
             }
             connectivityManager.registerDefaultNetworkCallback(callback)
 

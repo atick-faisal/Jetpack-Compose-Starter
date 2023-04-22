@@ -12,6 +12,8 @@ jobs:
   build:
     name: Generate Signed APK
     runs-on: ubuntu-latest
+    timeout-minutes: 45
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -20,7 +22,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: 17
-          distribution: 'temurin'
+          distribution: 'zulu'
           cache: gradle
 
       - name: Make gradlew Executable
