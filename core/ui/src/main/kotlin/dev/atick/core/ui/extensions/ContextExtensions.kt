@@ -1,15 +1,13 @@
 package dev.atick.core.ui.extensions
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Notification
 import android.content.Context
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.webkit.MimeTypeMap
 import android.widget.Toast
-import androidx.annotation.RequiresApi
-import androidx.annotation.RequiresPermission
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
@@ -28,20 +26,32 @@ fun Context.isAllPermissionsGranted(permissions: List<String>): Boolean {
     return permissions.all { hasPermission(it) }
 }
 
-@RequiresApi(Build.VERSION_CODES.TIRAMISU)
-@RequiresPermission(Manifest.permission.POST_NOTIFICATIONS)
+@SuppressLint("MissingPermission")
 fun Context.showNotification(
     notificationId: Int,
     notification: Notification
 ) {
+    if (hasPermission(Manifest.permission.POST_NOTIFICATIONS)) {
+        with(NotificationManagerCompat.from(this)) {
+            notify(notificationId, notification)
+        }
+    }
+}
+
+fun Context.cancelNotification(notificationId: Int) {
     with(NotificationManagerCompat.from(this)) {
-        notify(notificationId, notification)
+        cancel(notificationId)
     }
 }
 
 // ... https://medium.com/codex/how-to-implement-the-activity-result-api-takepicture-contract-with-uri-return-type-7c93881f5b0f
+@Throws(IllegalAccessException::class)
 fun Context.getTmpFileUri(appId: String): Uri {
-    val tmpFile = File.createTempFile("tmp_image_file", ".png", cacheDir).apply {
+    val tmpFile = File.createTempFile(
+        "tmp_image_file",
+        ".png",
+        cacheDir
+    ).apply {
         createNewFile()
         deleteOnExit()
     }
@@ -54,27 +64,21 @@ fun Context.getTmpFileUri(appId: String): Uri {
 }
 
 // ... https://stackoverflow.com/a/64488260/12737399
-fun Context.getFileFromContentUri(contentUri: Uri): File {
-    val fileExtension = getFileExtension(this, contentUri)
-    val fileName = "temp_file" + if (fileExtension != null) ".$fileExtension" else ""
-
-    val tempFile = File(cacheDir, fileName)
-    tempFile.createNewFile()
-
-    try {
+fun Context.getFileFromContentUri(contentUri: Uri): File? {
+    return try {
+        val fileExtension = getFileExtension(this, contentUri)
+        val fileName = "temp_file" + if (fileExtension != null) ".$fileExtension" else ""
+        val tempFile = File(cacheDir, fileName)
+        tempFile.createNewFile()
         val oStream = FileOutputStream(tempFile)
         val inputStream = contentResolver.openInputStream(contentUri)
-
-        inputStream?.let {
-            copy(inputStream, oStream)
-        }
-
+        inputStream?.let { copy(inputStream, oStream) }
         oStream.flush()
+        tempFile
     } catch (e: Exception) {
         e.printStackTrace()
+        null
     }
-
-    return tempFile
 }
 
 private fun getFileExtension(context: Context, uri: Uri): String? {
