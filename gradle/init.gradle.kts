@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 The Android Open Source Project
+ * Copyright 2023 Atick Faisal
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -37,6 +37,30 @@ rootProject {
                 targetExclude("**/build/**/*.kt")
                 ktlint(ktlintVersion).userData(mapOf("android" to "true"))
                 licenseHeaderFile(rootProject.file("spotless/copyright.kt"))
+            }
+            format("gradle") {
+                target("**/build.gradle")
+//                targetExclude("**/build/*.gradle")
+                // Look for the first line that doesn't have a block comment (assumed to be the license)
+                licenseHeaderFile(rootProject.file("spotless/copyright.gradle"), "(^(?![\\/ ]\\*).*$)")
+            }
+//            groovy {
+//                target("**/*.gradle")
+//                targetExclude("**/build/**/*.gradle")
+//                // Look for the first line that doesn't have a block comment (assumed to be the license)
+//                licenseHeaderFile(rootProject.file("spotless/copyright.gradle"), "(^(?![\\/ ]\\*).*$)")
+//            }
+            format("kts") {
+                target("**/*.kts")
+                targetExclude("**/build/**/*.kts")
+                // Look for the first line that doesn't have a block comment (assumed to be the license)
+                licenseHeaderFile(rootProject.file("spotless/copyright.kts"), "(^(?![\\/ ]\\*).*$)")
+            }
+            format("xml") {
+                target("**/*.xml")
+                targetExclude("**/build/**/*.xml")
+                // Look for the first XML tag that isn't a comment (<!--) or the xml declaration (<?xml)
+                licenseHeaderFile(rootProject.file("spotless/copyright.xml"), "(<[^!?])")
             }
         }
     }
