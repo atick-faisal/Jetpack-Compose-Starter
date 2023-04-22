@@ -7,28 +7,24 @@ import android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS
 import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import com.orhanobut.logger.Logger
 
-fun ComponentActivity.resultLauncher(
-    onSuccess: () -> Unit = {},
-    onFailure: () -> Unit = {}
-
+inline fun ComponentActivity.resultLauncher(
+    crossinline onSuccess: () -> Unit = {},
+    crossinline onFailure: () -> Unit = {}
 ): ActivityResultLauncher<Intent> {
     val resultCallback = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            onSuccess.invoke()
-        } else {
-            onFailure.invoke()
-        }
+        val success = (result.resultCode == Activity.RESULT_OK)
+        if (success) onSuccess.invoke()
+        else onFailure.invoke()
     }
     return resultCallback
 }
 
-fun ComponentActivity.permissionLauncher(
-    onSuccess: () -> Unit = {},
-    onFailure: () -> Unit = {}
+inline fun ComponentActivity.permissionLauncher(
+    crossinline onSuccess: () -> Unit = {},
+    crossinline onFailure: () -> Unit = {}
 ): ActivityResultLauncher<Array<String>> {
     val resultCallback = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
@@ -40,10 +36,13 @@ fun ComponentActivity.permissionLauncher(
     return resultCallback
 }
 
-fun ComponentActivity.checkForPermissions(permissions: List<String>) {
+inline fun ComponentActivity.checkForPermissions(
+    permissions: List<String>,
+    crossinline onSuccess: () -> Unit
+) {
     if (isAllPermissionsGranted(permissions)) return
-    val launcher = this.permissionLauncher(
-        onSuccess = { Logger.i("PERMISSION GRANTED!") },
+    val launcher = permissionLauncher(
+        onSuccess = onSuccess,
         onFailure = {
             showToast("PLEASE ALLOW ALL PERMISSIONS")
             openPermissionSettings()
