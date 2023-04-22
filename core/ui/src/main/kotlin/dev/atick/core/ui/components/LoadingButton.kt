@@ -1,17 +1,51 @@
+/*
+ * Copyright 2023 Atick Faisal
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package dev.atick.core.ui.components
 
 // ... Author fbilarino@github
 // ... https://gist.github.com/fvilarino/7dc026b8a590ef65744180b984587ede
 
-import androidx.compose.animation.core.*
+// import androidx.compose.animation.core.*
+import androidx.compose.animation.core.DurationBasedAnimationSpec
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.StartOffset
+import androidx.compose.animation.core.animate
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.keyframes
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.Stable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -63,7 +97,7 @@ fun LoadingButton(
                 animationType = animationType,
             )
             Box(
-                modifier = Modifier.graphicsLayer { alpha = contentAlpha }
+                modifier = Modifier.graphicsLayer { alpha = contentAlpha },
             ) {
                 content()
             }
@@ -74,7 +108,9 @@ fun LoadingButton(
 private val AnimationType.animationSpec: DurationBasedAnimationSpec<Float>
     get() = when (this) {
         AnimationType.Bounce,
-        AnimationType.Fade -> tween(durationMillis = animationDuration)
+        AnimationType.Fade,
+        -> tween(durationMillis = animationDuration)
+
         AnimationType.LazyBounce -> keyframes {
             durationMillis = animationDuration
             initialValue at 0
@@ -87,7 +123,9 @@ private val AnimationType.animationSpec: DurationBasedAnimationSpec<Float>
 private val AnimationType.animationDuration: Int
     get() = when (this) {
         AnimationType.Bounce,
-        AnimationType.LazyBounce -> BounceAnimationDurationMillis
+        AnimationType.LazyBounce,
+        -> BounceAnimationDurationMillis
+
         AnimationType.Fade -> FadeAnimationDurationMillis
     }
 
@@ -129,7 +167,7 @@ class LoadingIndicatorStateImpl : LoadingIndicatorState {
                     animationSpec = infiniteRepeatable(
                         animation = animationType.animationSpec,
                         repeatMode = RepeatMode.Reverse,
-                        initialStartOffset = StartOffset(animationType.animationDelay * index)
+                        initialStartOffset = StartOffset(animationType.animationDelay * index),
                     ),
                 ) { value, _ -> animatedValues[index].value = value }
             }
@@ -188,13 +226,15 @@ private fun LoadingIndicator(
                     .then(
                         when (animationType) {
                             AnimationType.Bounce,
-                            AnimationType.LazyBounce -> Modifier.offset(
+                            AnimationType.LazyBounce,
+                            -> Modifier.offset(
                                 y = state[index].coerceAtMost(
-                                    IndicatorSize / 2f
-                                ).dp
+                                    IndicatorSize / 2f,
+                                ).dp,
                             )
+
                             AnimationType.Fade -> Modifier.graphicsLayer { alpha = state[index] }
-                        }
+                        },
                     ),
                 color = color,
             )
@@ -210,6 +250,6 @@ private fun LoadingDot(
     Box(
         modifier = modifier
             .clip(shape = CircleShape)
-            .background(color = color)
+            .background(color = color),
     )
 }
