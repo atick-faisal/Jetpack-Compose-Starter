@@ -1,5 +1,5 @@
 /*
- * Copyright $YEAR Atick Faisal
+ * Copyright 2023 Atick Faisal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ buildscript {
         // ... Project
         agp_version = "8.0.0"
         kotlin_version = "1.8.20"
+        java_version = 17
 
         // ... Core-android
         core_ktx_version = "1.10.0"

@@ -38,18 +38,12 @@ rootProject {
                 ktlint(ktlintVersion).userData(mapOf("android" to "true"))
                 licenseHeaderFile(rootProject.file("spotless/copyright.kt"))
             }
-            format("gradle") {
-                target("**/build.gradle")
-//                targetExclude("**/build/*.gradle")
+            groovy {
+                target("**/*.gradle")
+                targetExclude("**/build/**/*.gradle")
                 // Look for the first line that doesn't have a block comment (assumed to be the license)
                 licenseHeaderFile(rootProject.file("spotless/copyright.gradle"), "(^(?![\\/ ]\\*).*$)")
             }
-//            groovy {
-//                target("**/*.gradle")
-//                targetExclude("**/build/**/*.gradle")
-//                // Look for the first line that doesn't have a block comment (assumed to be the license)
-//                licenseHeaderFile(rootProject.file("spotless/copyright.gradle"), "(^(?![\\/ ]\\*).*$)")
-//            }
             format("kts") {
                 target("**/*.kts")
                 targetExclude("**/build/**/*.kts")
