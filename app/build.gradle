@@ -18,6 +18,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
     id("kotlin-kapt")
 }
 
@@ -98,6 +100,13 @@ dependencies {
     implementation(project(path: ":network"))
     implementation(project(path: ":storage:room"))
     implementation(project(path: ":storage:preferences"))
+    implementation(project(path: ":auth"))
+
+    // ... Crashlytics
+    // ... (https://firebase.google.com/docs/crashlytics/get-started?platform=android)
+    implementation platform("com.google.firebase:firebase-bom:$firebase_bom_version")
+    implementation("com.google.firebase:firebase-crashlytics-ktx")
+    implementation("com.google.firebase:firebase-analytics-ktx")
 
     // ... Dagger-Hilt
     implementation("com.google.dagger:hilt-android:$hilt_version")

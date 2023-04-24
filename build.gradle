@@ -72,4 +72,6 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization") version "$kotlin_version" apply false
     id("com.google.dagger.hilt.android") version "$hilt_version" apply false
     id("androidx.navigation.safeargs") version "$nav_version" apply false
+    id("com.google.gms.google-services") version "$google_services_version" apply false
+    id("com.google.firebase.crashlytics") version "$crashlytics_version" apply false
 }

@@ -3,9 +3,13 @@
 name: Build
 
 on:
-  pull_request:
+  push:
     branches:
       - main
+  pull_request:
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:

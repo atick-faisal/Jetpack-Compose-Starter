@@ -16,6 +16,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
+    id("kotlin-kapt")
 }
 
 android {
@@ -58,5 +60,20 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:android"))
+    implementation(project(":core:ui"))
+
+    // ... Firebase Auth
+    // ... (https://firebase.google.com/docs/auth/android/google-signin)
+    implementation platform("com.google.firebase:firebase-bom:$firebase_bom_version")
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.android.gms:play-services-auth:$google_auth_version")
+
+    // ... Dagger Hilt
+    // ... (https://developer.android.com/training/dependency-injection/hilt-android)
+    implementation("com.google.dagger:hilt-android:$hilt_version")
+    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+}
+
+kapt {
+    correctErrorTypes = true
 }
