@@ -22,7 +22,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import dev.atick.core.data.SingleLiveEvent
+import dev.atick.core.utils.SingleLiveEvent
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 

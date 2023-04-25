@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.core.data
+package dev.atick.core.utils
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emitAll

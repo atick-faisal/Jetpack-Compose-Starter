@@ -16,22 +16,49 @@
 
 @file:Suppress("UnstableApiUsage")
 
+import com.android.build.gradle.internal.api.BaseVariantOutputImpl
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
 plugins {
     alias(libs.plugins.kotlin)
-    alias(libs.plugins.android.library)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.dagger.hilt.android)
+    kotlin("kapt")
 }
 
 android {
+    // ... Application Version ...
+    val majorUpdateVersion = 1
+    val minorUpdateVersion = 0
+    val patchVersion = 0
+
+    val mVersionCode = majorUpdateVersion.times(10_000)
+        .plus(minorUpdateVersion.times(100))
+        .plus(patchVersion)
+
+    val mVersionName = "$majorUpdateVersion.$minorUpdateVersion.$patchVersion"
+
+    val formatter = DateTimeFormatter.ofPattern("yyyy_MM_dd_hh_mm_a")
+    val currentTime = LocalDateTime.now().format(formatter)
+
     val javaVersion = libs.versions.java.get().toInt()
     val compileSdkVersion = libs.versions.compileSdk.get().toInt()
     val minSdkVersion = libs.versions.minSdk.get().toInt()
+    val targetSdkVersion = libs.versions.targetSdk.get().toInt()
     val composeCompilerVersion = libs.versions.androidxComposeCompiler.get().toString()
 
     compileSdk = compileSdkVersion
 
     defaultConfig {
+        versionCode = mVersionCode
+        versionName = mVersionName
+        applicationId = "dev.atick.compose"
         minSdk = minSdkVersion
-        consumerProguardFiles("consumer-rules.pro")
+        targetSdk = targetSdkVersion
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -41,6 +68,17 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+
+        applicationVariants.all {
+            outputs.all {
+                (this as BaseVariantOutputImpl).outputFileName =
+                    rootProject.name.replace(" ", "_") + "_" +
+                        (buildType.name + "_v") +
+                        (versionName + "_") +
+                        "${currentTime}.apk"
+                println(outputFileName)
+            }
         }
     }
 
@@ -61,51 +99,34 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     composeOptions {
         kotlinCompilerExtensionVersion = composeCompilerVersion
     }
 
-    namespace = "dev.atick.core.ui"
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+
+    namespace = "dev.atick.compose"
 }
 
 dependencies {
     // ... Modules
-    api(project(":core:android"))
+    implementation(project(":core:ui"))
+    implementation(project(":network"))
+    implementation(project(":storage:room"))
+    implementation(project(":storage:preferences"))
 
-    // ... AppCompat
-    api(libs.androidx.appcompat)
+    // ... Dagger-Hilt
+    implementation(libs.dagger.hilt.android)
+    kapt(libs.dagger.hilt.compiler)
+}
 
-    // ... Fragment
-    api(libs.androidx.fragment.ktx)
-
-    // ... Activity
-    api(libs.androidx.activity.ktx)
-    api(libs.androidx.activity.compose)
-
-    // ... Lifecycle
-    api(libs.androidx.lifecycle.runtime.ktx)
-    api(libs.androidx.lifecycle.livedata.ktx)
-    api(libs.androidx.lifecycle.viewmodel.ktx)
-    api(libs.androidx.lifecycle.runtimeCompose)
-    api(libs.androidx.lifecycle.viewModelCompose)
-
-    // ... Jetpack Compose
-    api(platform(libs.androidx.compose.bom))
-    api(libs.androidx.compose.runtime)
-    api(libs.androidx.compose.foundation)
-    api(libs.androidx.compose.ui.util)
-    api(libs.androidx.compose.material3)
-    api(libs.androidx.compose.material3.windowSizeClass)
-    api(libs.androidx.compose.material.iconsExtended)
-    api(libs.androidx.compose.ui.tooling.preview)
-    debugApi(libs.androidx.compose.ui.tooling)
-
-    // ... Navigation
-    api(libs.androidx.navigation.fragment)
-    api(libs.androidx.navigation.compose)
-
-    // ... Lottie
-    api(libs.lottie.compose)
+kapt {
+    correctErrorTypes = true
 }

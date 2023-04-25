@@ -33,7 +33,6 @@ import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
 
-
 fun Context.showToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }

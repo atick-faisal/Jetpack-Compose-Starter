@@ -16,7 +16,7 @@
 
 @file:Suppress("MemberVisibilityCanBePrivate")
 
-package dev.atick.core.data
+package dev.atick.core.utils
 
 // Event wrapper for Single Events
 // Details here: https://medium.com/androiddevelopers/livedata-with-snackbar-navigation-and-other-events-the-singleliveevent-case-ac2622673150

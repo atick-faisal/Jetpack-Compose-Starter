@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
-@file:Suppress("UnstableApiUsage")
+@file: Suppress("UnstableApiUsage")
 
 plugins {
     alias(libs.plugins.kotlin)
     alias(libs.plugins.android.library)
+    alias(libs.plugins.dagger.hilt.android)
+    kotlin("kapt")
 }
 
 android {
@@ -37,8 +39,8 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
             )
         }
     }
@@ -51,31 +53,29 @@ android {
     kotlinOptions {
         jvmTarget = "$javaVersion"
         freeCompilerArgs = freeCompilerArgs + listOf(
-            "-opt-in=kotlin.RequiresOptIn",
-            "-opt-in=kotlinx.coroutines.FlowPreview",
-            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+                "-opt-in=kotlin.RequiresOptIn",
+                "-opt-in=kotlinx.coroutines.FlowPreview",
+                "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
         )
     }
 
-    namespace = "dev.atick.core.android"
+    namespace = "dev.atick.storage.room"
 }
 
 dependencies {
-    // ... Core Android
-    api(libs.androidx.core.ktx)
+    // ... Modules
+    implementation(project(":core:android"))
 
-    // ... Coroutines
-    api(libs.kotlinx.coroutines.android)
-
-    // ... Serialization
-    api(libs.kotlinx.serialization.json)
-
-    // ... Date-Time
-    api(libs.kotlinx.datetime)
+    // ... Room
+    implementation(libs.room.ktx)
+    implementation(libs.room.runtime)
+    kapt(libs.room.compiler)
 
     // ... Dagger-Hilt
-    api(libs.dagger.hilt.android)
+    implementation(libs.dagger.hilt.android)
+    kapt(libs.dagger.hilt.compiler)
+}
 
-    // ... Logger
-    api(libs.orhanbout.logger)
+kapt {
+    correctErrorTypes = true
 }

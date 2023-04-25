@@ -8,7 +8,8 @@ androidGradlePlugin = "8.0.0"
 # ... CORE:ANDROID ...
 androidxCore = "1.10.0"
 kotlinxCoroutines = "1.6.4"
-androidxLifecycle = "2.6.1"
+kotlinxDatetime = "0.4.0"
+kotlinxSerializationJson = "1.5.0"
 orhanboutLogger = "2.2.0"
 
 # ... CORE:UI ...
@@ -16,12 +17,23 @@ androidxNavigation = "2.5.3"
 androidxFragment = "1.5.7"
 androidxAppCompat = "1.6.1"
 androidxActivity = "1.7.1"
+androidxLifecycle = "2.6.1"
 androidxComposeBom = "2023.04.01"
 androidxComposeCompiler = "1.4.6"
 lottieCompose = "6.0.0"
 
 # ... FIREBASE ...
 
+
+# ... NETWORK ...
+okhttp = "4.10.0"
+retrofit = "2.9.0"
+
+# ... STORAGE:PREFERENCES ...
+androidxDataStore = "1.0.0"
+
+# ... STORAGE:ROOM ...
+room = "2.5.1"
 
 # ... DAGGER-HILT ...
 daggerHilt = "2.45"
@@ -48,9 +60,8 @@ dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "da
 # ... CORE:ANDROID ...
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
-androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "androidxLifecycle" }
-androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "androidxLifecycle" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
+kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinxDatetime" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 orhanbout-logger = { group = "com.orhanobut", name = "logger", version.ref = "orhanboutLogger" }
 
 # ... CORE:UI ...
@@ -69,11 +80,30 @@ androidx-compose-runtime-livedata = { group = "androidx.compose.runtime", name =
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-compose-ui-util = { group = "androidx.compose.ui", name = "ui-util" }
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "androidxLifecycle" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "androidxLifecycle" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
 androidx-lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
 androidx-lifecycle-viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
 androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "androidxNavigation" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
 lottie-compose = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottieCompose" }
+
+# ... NETWORK ...
+okhttp-bom = { group = "com.squareup.okhttp3", name = "okhttp-bom", version.ref = "okhttp" }
+okhttp-core = { group = "com.squareup.okhttp3", name = "okhttp" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor" }
+retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+
+# ... STORAGE:PREFERENCES ...
+androidx-dataStore-core = { group = "androidx.datastore", name = "datastore", version.ref = "androidxDataStore" }
+androidx-dataStore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "androidxDataStore" }
+
+# ... STORAGE:ROOM ...
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 
 # ... DAGGER-HILT ...
 dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
@@ -92,8 +122,6 @@ androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navig
 #androidx-browser = { group = "androidx.browser", name = "browser", version.ref = "androidxBrowser" }
 
 #androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "androidxCoreSplashscreen" }
-#androidx-dataStore-core = { group = "androidx.datastore", name = "datastore", version.ref = "androidxDataStore" }
-#androidx-dataStore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "androidxDataStore" }
 
 #androidx-metrics = { group = "androidx.metrics", name = "metrics-performance", version.ref = "androidxMetrics" }
 #androidx-navigation-testing = { group = "androidx.navigation", name = "navigation-testing", version.ref = "androidxNavigation" }
@@ -118,25 +146,17 @@ androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navig
 #firebase-crashlytics-gradle = { group = "com.google.firebase", name = "firebase-crashlytics-gradle", version.ref = "firebaseCrashlyticsPlugin" }
 #firebase-performance = { group = "com.google.firebase", name = "firebase-perf-ktx" }
 #firebase-performance-gradle = { group = "com.google.firebase", name = "perf-plugin", version.ref = "firebasePerfPlugin" }
-#hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
-#hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
-#hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
-#hilt-ext-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
-#hilt-ext-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltExt" }
+
 #junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
 #kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
 #kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
-#kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinxDatetime" }
-#kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+
 #lint-api = { group = "com.android.tools.lint", name = "lint-api", version.ref = "lint" }
-#okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+
 #protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobuf" }
 #protobuf-protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protobuf" }
-#retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
-#retrofit-kotlin-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinxSerializationJson" }
-#room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
-#room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
-#room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+
+
 #turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
 
 #ext {
