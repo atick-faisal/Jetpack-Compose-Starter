@@ -33,5 +33,9 @@ gradlePlugin {
             id = "dev.atick.dagger.hilt"
             implementationClass = "DaggerHiltConventionPlugin"
         }
+        register("firebase") {
+            id = "dev.atick.firebase"
+            implementationClass = "FirebaseConventionPlugin"
+        }
     }
 }

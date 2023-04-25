@@ -23,6 +23,7 @@ import java.time.format.DateTimeFormatter
 plugins {
     id("dev.atick.application")
     id("dev.atick.dagger.hilt")
+    id("dev.atick.firebase")
 }
 
 android {
