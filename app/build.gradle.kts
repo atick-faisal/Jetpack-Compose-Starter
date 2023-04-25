@@ -21,10 +21,8 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 plugins {
-    alias(libs.plugins.kotlin)
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.dagger.hilt.android)
-    kotlin("kapt")
+    id("dev.atick.application")
+    id("dev.atick.dagger.hilt")
 }
 
 android {
@@ -38,77 +36,32 @@ android {
         .plus(patchVersion)
 
     val mVersionName = "$majorUpdateVersion.$minorUpdateVersion.$patchVersion"
-
     val formatter = DateTimeFormatter.ofPattern("yyyy_MM_dd_hh_mm_a")
     val currentTime = LocalDateTime.now().format(formatter)
-
-    val javaVersion = libs.versions.java.get().toInt()
-    val compileSdkVersion = libs.versions.compileSdk.get().toInt()
-    val minSdkVersion = libs.versions.minSdk.get().toInt()
-    val targetSdkVersion = libs.versions.targetSdk.get().toInt()
-    val composeCompilerVersion = libs.versions.androidxComposeCompiler.get().toString()
-
-    compileSdk = compileSdkVersion
 
     defaultConfig {
         versionCode = mVersionCode
         versionName = mVersionName
         applicationId = "dev.atick.compose"
-        minSdk = minSdkVersion
-        targetSdk = targetSdkVersion
-        vectorDrawables {
-            useSupportLibrary = true
-        }
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
+            applicationVariants.all {
+                outputs.all {
+                    (this as BaseVariantOutputImpl).outputFileName =
+                        rootProject.name.replace(" ", "_") + "_" +
+                            (buildType.name + "_v") +
+                            (versionName + "_") +
+                            "${currentTime}.apk"
+                    println(outputFileName)
+                }
+            }
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-        }
-
-        applicationVariants.all {
-            outputs.all {
-                (this as BaseVariantOutputImpl).outputFileName =
-                    rootProject.name.replace(" ", "_") + "_" +
-                        (buildType.name + "_v") +
-                        (versionName + "_") +
-                        "${currentTime}.apk"
-                println(outputFileName)
-            }
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.values()[javaVersion - 1]
-        targetCompatibility = JavaVersion.values()[javaVersion - 1]
-    }
-
-    kotlinOptions {
-        jvmTarget = "$javaVersion"
-        freeCompilerArgs = freeCompilerArgs + listOf(
-            "-opt-in=kotlin.RequiresOptIn",
-            "-opt-in=kotlinx.coroutines.FlowPreview",
-            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
-        )
-    }
-
-    buildFeatures {
-        compose = true
-        buildConfig = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = composeCompilerVersion
-    }
-
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
 
@@ -116,17 +69,8 @@ android {
 }
 
 dependencies {
-    // ... Modules
     implementation(project(":core:ui"))
     implementation(project(":network"))
     implementation(project(":storage:room"))
     implementation(project(":storage:preferences"))
-
-    // ... Dagger-Hilt
-    implementation(libs.dagger.hilt.android)
-    kapt(libs.dagger.hilt.compiler)
-}
-
-kapt {
-    correctErrorTypes = true
 }

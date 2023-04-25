@@ -14,51 +14,12 @@
  * limitations under the License.
  */
 
-@file: Suppress("UnstableApiUsage")
-
 plugins {
-    alias(libs.plugins.kotlin)
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.dagger.hilt.android)
-    kotlin("kapt")
+    id("dev.atick.library")
+    id("dev.atick.dagger.hilt")
 }
 
 android {
-    val javaVersion = libs.versions.java.get().toInt()
-    val compileSdkVersion = libs.versions.compileSdk.get().toInt()
-    val minSdkVersion = libs.versions.minSdk.get().toInt()
-
-    compileSdk = compileSdkVersion
-
-    defaultConfig {
-        minSdk = minSdkVersion
-        consumerProguardFiles("consumer-rules.pro")
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
-            )
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.values()[javaVersion - 1]
-        targetCompatibility = JavaVersion.values()[javaVersion - 1]
-    }
-
-    kotlinOptions {
-        jvmTarget = "$javaVersion"
-        freeCompilerArgs = freeCompilerArgs + listOf(
-                "-opt-in=kotlin.RequiresOptIn",
-                "-opt-in=kotlinx.coroutines.FlowPreview",
-                "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
-        )
-    }
-
     namespace = "dev.atick.storage.room"
 }
 
@@ -70,12 +31,4 @@ dependencies {
     implementation(libs.room.ktx)
     implementation(libs.room.runtime)
     kapt(libs.room.compiler)
-
-    // ... Dagger-Hilt
-    implementation(libs.dagger.hilt.android)
-    kapt(libs.dagger.hilt.compiler)
-}
-
-kapt {
-    correctErrorTypes = true
 }

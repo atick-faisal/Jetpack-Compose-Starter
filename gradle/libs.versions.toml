@@ -4,6 +4,7 @@
 java = "17"
 kotlin = "1.8.20"
 androidGradlePlugin = "8.0.0"
+ksp = "1.8.20-1.0.11"
 
 # ... CORE:ANDROID ...
 androidxCore = "1.10.0"
@@ -39,6 +40,8 @@ room = "2.5.1"
 daggerHilt = "2.45"
 daggerHiltExt = "1.0.0"
 
+kotlinDsl = "4.0.14"
+
 # ... SDK-CONFIG ...
 minSdk = "24"
 compileSdk = "33"
@@ -54,6 +57,10 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 #gms = { id = "com.google.gms.google-services", version.ref = "gmsPlugin" }
 androidx-navigation-safeargs = { id = "androidx.navigation.safeargs", version.ref = "androidxNavigation" }
 dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
+
+gradle-kotlin-dsl = { id = "org.gradle.kotlin.kotlin-dsl", version.ref = "kotlinDsl" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
 
 [libraries]
 
@@ -112,6 +119,10 @@ androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", vers
 androidx-hilt-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "daggerHiltExt" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "daggerHiltExt" }
 
+# ... BUILD-LOGIC ...
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 
 
 #accompanist-systemuicontroller = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "accompanist" }
