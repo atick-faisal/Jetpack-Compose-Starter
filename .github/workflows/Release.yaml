@@ -18,6 +18,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Set up Google Services
+        run: |
+          touch app/google-services.json
+          echo "${CONTENT// /}" | base64 --decode > app/google-services.json
+        env:
+          CONTENT: ${{ secrets.GOOGLE_SERVICES }}
+
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
