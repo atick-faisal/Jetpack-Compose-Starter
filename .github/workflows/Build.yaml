@@ -19,7 +19,7 @@ jobs:
       - name: Set up Google Services
         run: |
           touch app/google-services.json
-          cat $CONTENT > app/google-services.json
+          echo $CONTENT > app/google-services.json
         env:
           CONTENT: ${{ secrets.GOOGLE_SERVICES }}
 
