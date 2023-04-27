@@ -29,12 +29,6 @@ class LibraryConventionPlugin : Plugin<Project> {
                     minSdk = minSdkVersion
                 }
 
-                buildTypes {
-                    release {
-                        isMinifyEnabled = false
-                    }
-                }
-
                 compileOptions {
                     sourceCompatibility = JavaVersion.values()[javaVersion - 1]
                     targetCompatibility = JavaVersion.values()[javaVersion - 1]

@@ -48,7 +48,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             applicationVariants.all {
                 outputs.all {
                     (this as BaseVariantOutputImpl).outputFileName =
