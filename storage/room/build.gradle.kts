@@ -1,5 +1,5 @@
 /*
- * Copyright $YEAR Atick Faisal
+ * Copyright 2023 Atick Faisal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,3 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+plugins {
+    id("dev.atick.library")
+    id("dev.atick.dagger.hilt")
+}
+
+android {
+    namespace = "dev.atick.storage.room"
+}
+
+dependencies {
+    // ... Modules
+    implementation(project(":core:android"))
+
+    // ... Room
+    implementation(libs.room.ktx)
+    implementation(libs.room.runtime)
+    kapt(libs.room.compiler)
+}

@@ -20,6 +20,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import dev.atick.network.BuildConfig
 import okhttp3.logging.HttpLoggingInterceptor
 import javax.inject.Singleton
 
@@ -33,7 +34,9 @@ object InterceptorModule {
         return HttpLoggingInterceptor { message ->
             com.orhanobut.logger.Logger.i(message)
         }.apply {
-            level = HttpLoggingInterceptor.Level.BASIC
+            if (BuildConfig.DEBUG) {
+                setLevel(HttpLoggingInterceptor.Level.BODY)
+            }
         }
     }
 }
