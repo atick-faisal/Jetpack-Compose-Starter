@@ -2,9 +2,9 @@
 
 # ... PROJECT ...
 java = "17"
-kotlin = "1.8.20"
+kotlin = "1.8.21"
 androidGradlePlugin = "8.0.0"
-ksp = "1.8.20-1.0.11"
+ksp = "1.8.21-1.0.11"
 
 # ... CORE:ANDROID ...
 androidxCore = "1.10.0"
@@ -24,7 +24,7 @@ androidxComposeCompiler = "1.4.6"
 lottieCompose = "6.0.0"
 
 # ... NETWORK ...
-okhttp = "4.10.0"
+okhttp = "4.11.0"
 retrofit = "2.9.0"
 
 # ... STORAGE:PREFERENCES ...
