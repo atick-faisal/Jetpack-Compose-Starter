@@ -2,7 +2,7 @@
 
 # ... PROJECT ...
 java = "17"
-kotlin = "1.8.20"
+kotlin = "1.8.21"
 androidGradlePlugin = "8.0.0"
 ksp = "1.8.21-1.0.11"
 
@@ -39,7 +39,7 @@ firebaseBom = "31.5.0"
 firebaseCrashlyticsPlugin = "2.9.5"
 
 # ... DAGGER-HILT ...
-daggerHilt = "2.45"
+daggerHilt = "2.46"
 daggerHiltExt = "1.0.0"
 
 kotlinDsl = "4.0.14"
