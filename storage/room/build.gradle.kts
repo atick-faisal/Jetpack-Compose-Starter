@@ -30,5 +30,5 @@ dependencies {
     // ... Room
     implementation(libs.room.ktx)
     implementation(libs.room.runtime)
-    kapt(libs.room.compiler)
+    annotationProcessor(libs.room.compiler)
 }
