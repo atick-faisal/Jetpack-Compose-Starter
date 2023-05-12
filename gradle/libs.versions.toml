@@ -2,15 +2,15 @@
 
 # ... PROJECT ...
 java = "17"
-kotlin = "1.8.20"
-androidGradlePlugin = "8.0.0"
+kotlin = "1.8.21"
+androidGradlePlugin = "8.0.1"
 ksp = "1.8.21-1.0.11"
 
 # ... CORE:ANDROID ...
-androidxCore = "1.10.0"
-kotlinxCoroutines = "1.6.4"
+androidxCore = "1.10.1"
+kotlinxCoroutines = "1.7.0"
 kotlinxDatetime = "0.4.0"
-kotlinxSerializationJson = "1.5.0"
+kotlinxSerializationJson = "1.5.1"
 orhanboutLogger = "2.2.0"
 
 # ... CORE:UI ...
@@ -19,7 +19,7 @@ androidxFragment = "1.5.7"
 androidxAppCompat = "1.6.1"
 androidxActivity = "1.7.1"
 androidxLifecycle = "2.6.1"
-androidxComposeBom = "2023.04.01"
+androidxComposeBom = "2023.05.01"
 androidxComposeCompiler = "1.4.6"
 lottieCompose = "6.0.0"
 
@@ -35,7 +35,7 @@ room = "2.5.1"
 
 # ... FIREBASE ...
 gmsPlugin = "4.3.15"
-firebaseBom = "31.5.0"
+firebaseBom = "32.0.0"
 firebaseCrashlyticsPlugin = "2.9.5"
 
 # ... DAGGER-HILT ...
