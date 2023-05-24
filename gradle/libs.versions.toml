@@ -42,7 +42,7 @@ firebaseCrashlyticsPlugin = "2.9.5"
 daggerHilt = "2.46.1"
 daggerHiltExt = "1.0.0"
 
-kotlinDsl = "4.0.14"
+kotlinDsl = "4.0.15"
 
 # ... SDK-CONFIG ...
 minSdk = "24"
