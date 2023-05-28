@@ -39,5 +39,5 @@ dependencies {
     api(libs.dagger.hilt.android)
 
     // ... Logger
-    api(libs.orhanbout.logger)
+    api(libs.timber.logging)
 }

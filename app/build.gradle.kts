@@ -66,6 +66,10 @@ android {
         }
     }
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     namespace = "dev.atick.compose"
 }
 

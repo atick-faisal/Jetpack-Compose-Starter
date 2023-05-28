@@ -10,7 +10,7 @@ androidxCore = "1.10.1"
 kotlinxCoroutines = "1.7.1"
 kotlinxDatetime = "0.4.0"
 kotlinxSerializationJson = "1.5.1"
-orhanboutLogger = "2.2.0"
+timber = "5.0.1"
 
 # ... CORE:UI ...
 androidxNavigation = "2.5.3"
@@ -48,6 +48,7 @@ targetSdk = "33"
 
 
 [plugins]
+
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
@@ -64,7 +65,7 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinxDatetime" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
-orhanbout-logger = { group = "com.orhanobut", name = "logger", version.ref = "orhanboutLogger" }
+timber-logging = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 
 # ... CORE:UI ...
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
@@ -111,7 +112,6 @@ room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics-ktx" }
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics-ktx" }
-
 
 # ... DAGGER-HILT ...
 dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
