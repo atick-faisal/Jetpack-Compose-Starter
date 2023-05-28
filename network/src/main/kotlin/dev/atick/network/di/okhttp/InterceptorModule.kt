@@ -22,6 +22,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dev.atick.network.BuildConfig
 import okhttp3.logging.HttpLoggingInterceptor
+import timber.log.Timber
 import javax.inject.Singleton
 
 @Module
@@ -32,7 +33,7 @@ object InterceptorModule {
     @Singleton
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor { message ->
-            com.orhanobut.logger.Logger.i(message)
+            Timber.i(message)
         }.apply {
             if (BuildConfig.DEBUG) {
                 setLevel(HttpLoggingInterceptor.Level.BODY)

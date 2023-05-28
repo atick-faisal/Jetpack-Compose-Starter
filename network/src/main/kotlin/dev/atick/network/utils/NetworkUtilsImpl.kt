@@ -20,11 +20,11 @@ import android.net.ConnectivityManager
 import android.net.LinkProperties
 import android.net.Network
 import android.net.NetworkCapabilities
-import com.orhanobut.logger.Logger
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import timber.log.Timber
 import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
@@ -37,25 +37,25 @@ class NetworkUtilsImpl @Inject constructor(
                 override fun onAvailable(network: Network) {
                     super.onAvailable(network)
                     trySend(NetworkState.CONNECTED)
-                    Logger.i("NETWORK CONNECTED")
+                    Timber.i("NETWORK CONNECTED")
                 }
 
                 override fun onLosing(network: Network, maxMsToLive: Int) {
                     super.onLosing(network, maxMsToLive)
                     trySend(NetworkState.LOSING)
-                    Logger.i("LOSING NETWORK CONNECTION ... ")
+                    Timber.i("LOSING NETWORK CONNECTION ... ")
                 }
 
                 override fun onLost(network: Network) {
                     super.onLost(network)
                     trySend(NetworkState.LOST)
-                    Logger.i("NETWORK CONNECTION LOST")
+                    Timber.i("NETWORK CONNECTION LOST")
                 }
 
                 override fun onUnavailable() {
                     super.onUnavailable()
                     trySend(NetworkState.UNAVAILABLE)
-                    Logger.i("NETWORK UNAVAILABLE")
+                    Timber.i("NETWORK UNAVAILABLE")
                 }
 
                 override fun onCapabilitiesChanged(
@@ -63,7 +63,7 @@ class NetworkUtilsImpl @Inject constructor(
                     networkCapabilities: NetworkCapabilities,
                 ) {
                     super.onCapabilitiesChanged(network, networkCapabilities)
-                    Logger.i("NETWORK TYPE CHANGED")
+                    Timber.i("NETWORK TYPE CHANGED")
                 }
 
                 override fun onLinkPropertiesChanged(
@@ -71,11 +71,11 @@ class NetworkUtilsImpl @Inject constructor(
                     linkProperties: LinkProperties,
                 ) {
                     super.onLinkPropertiesChanged(network, linkProperties)
-                    Logger.i("LINK PROPERTIES CHANGED")
+                    Timber.i("LINK PROPERTIES CHANGED")
                 }
 
                 override fun onBlockedStatusChanged(network: Network, blocked: Boolean) {
-                    Logger.i("BLOCKED STATUS CHANGED")
+                    Timber.i("BLOCKED STATUS CHANGED")
                 }
             }
             connectivityManager.registerDefaultNetworkCallback(callback)
