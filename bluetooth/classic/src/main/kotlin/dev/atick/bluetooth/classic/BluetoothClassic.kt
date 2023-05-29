@@ -4,27 +4,47 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
+import android.bluetooth.BluetoothSocket
 import android.content.Context
 import android.content.IntentFilter
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dev.atick.bluetooth.common.data.BluetoothDataSource
+import dev.atick.bluetooth.common.manager.BluetoothManager
 import dev.atick.bluetooth.common.models.BtDevice
+import dev.atick.bluetooth.common.models.BtMessage
 import dev.atick.bluetooth.common.models.BtState
 import dev.atick.bluetooth.common.models.simplify
 import dev.atick.bluetooth.common.receiver.BluetoothStateReceiver
+import dev.atick.bluetooth.common.receiver.DeviceStateReceiver
 import dev.atick.bluetooth.common.receiver.ScannedDeviceReceiver
 import dev.atick.bluetooth.common.utils.BluetoothUtils
+import dev.atick.core.di.IoDispatcher
 import dev.atick.core.extensions.hasPermission
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.withContext
 import timber.log.Timber
+import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStreamReader
+import java.util.UUID
 import javax.inject.Inject
 
 class BluetoothClassic @Inject constructor(
     private val bluetoothAdapter: BluetoothAdapter?,
-    @ApplicationContext private val context: Context
-) : BluetoothUtils {
+    @ApplicationContext private val context: Context,
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher
+) : BluetoothUtils, BluetoothManager, BluetoothDataSource {
+
+    companion object {
+        const val BT_UUID = "00001101-0000-1000-8000-00805F9B34FB"
+    }
+
+    private var bluetoothSocket: BluetoothSocket? = null
 
     private val _bluetoothState = MutableStateFlow(
         if (bluetoothAdapter?.isEnabled == true) BtState.ENABLED
@@ -33,6 +53,9 @@ class BluetoothClassic @Inject constructor(
 
     private val _scannedDevices = MutableStateFlow(emptyList<BtDevice>())
     private val _pairedDevices = MutableStateFlow(emptyList<BtDevice>())
+    private val _deviceState = MutableStateFlow<BtDevice?>(null)
+    private val _bluetoothMessage = MutableStateFlow<BtMessage?>(null)
+    private var connectedDeviceAddress: String? = null
 
     private val bluetoothStateReceiver = BluetoothStateReceiver { state ->
         Timber.i("BT STATE UPDATE: $state")
@@ -43,6 +66,11 @@ class BluetoothClassic @Inject constructor(
         if (device in _scannedDevices.value) return@ScannedDeviceReceiver
         Timber.i("FOUND NEW DEVICE: $device")
         _scannedDevices.update { it + device }
+    }
+
+    private val deviceStateReceiver = DeviceStateReceiver { device ->
+        if (connectedDeviceAddress != device.address) return@DeviceStateReceiver
+        _deviceState.update { device }
     }
 
     override fun getBluetoothState(): StateFlow<BtState> {
@@ -57,6 +85,7 @@ class BluetoothClassic @Inject constructor(
     @SuppressLint("MissingPermission")
     override fun getScannedDevices(): StateFlow<List<BtDevice>> {
         Timber.d("STARTING BT CLASSIC SCAN ... ")
+        clearScannedDevices()
         context.registerReceiver(
             scannedDeviceReceiver,
             IntentFilter(BluetoothDevice.ACTION_FOUND)
@@ -72,7 +101,7 @@ class BluetoothClassic @Inject constructor(
         Timber.d("FETCHING PAIRED DEVICES ... ")
         if (context.hasPermission(Manifest.permission.BLUETOOTH_CONNECT)) {
             _pairedDevices.update {
-                bluetoothAdapter?.bondedDevices?.map{ it.simplify() } ?: emptyList()
+                bluetoothAdapter?.bondedDevices?.map { it.simplify() } ?: emptyList()
             }
         }
         return _pairedDevices.asStateFlow()
@@ -85,5 +114,97 @@ class BluetoothClassic @Inject constructor(
             bluetoothAdapter?.cancelDiscovery()
         }
         context.unregisterReceiver(scannedDeviceReceiver)
+    }
+
+    @SuppressLint("MissingPermission")
+    override suspend fun connect(address: String): Result<Unit> {
+        if (!context.hasPermission(Manifest.permission.BLUETOOTH_CONNECT))
+            return Result.failure(SecurityException("Missing Permission"))
+        if (bluetoothSocket?.isConnected == true) {
+            return Result.failure(IllegalStateException("Please Close Existing Connection"))
+        }
+        Timber.d("INITIATING CONNECTION ... ")
+        bluetoothSocket = bluetoothAdapter?.getRemoteDevice(address)
+            ?.createInsecureRfcommSocketToServiceRecord(UUID.fromString(BT_UUID))
+        return try {
+            withContext(ioDispatcher) {
+                bluetoothSocket?.run { connect() }
+                connectedDeviceAddress = address
+                listenForIncomingBluetoothMessages()
+                Result.success(Unit)
+            }
+        } catch (e: IOException) {
+            Result.failure(e)
+        }
+    }
+
+    override fun getConnectedDeviceState(): StateFlow<BtDevice?> {
+        Timber.d("FETCHING DEVICE STATE ... ")
+        context.registerReceiver(
+            deviceStateReceiver,
+            IntentFilter().apply {
+                addAction(BluetoothDevice.ACTION_ACL_CONNECTED)
+                addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED)
+            }
+        )
+        return _deviceState.asStateFlow()
+    }
+
+    override suspend fun closeConnection(): Result<Unit> {
+        Timber.d("CLOSING CONNECTION ... ")
+        return try {
+            withContext(ioDispatcher) {
+                bluetoothSocket?.close()
+                while (_deviceState.value?.connected == true) {
+                    delay(1000L)
+                }
+                cleanup()
+                Result.success(Unit)
+            }
+        } catch (e: IOException) {
+            Result.failure(e)
+        }
+    }
+
+    override fun getBluetoothDataStream(): StateFlow<BtMessage?> {
+        return _bluetoothMessage.asStateFlow()
+    }
+
+    override suspend fun sendDataToBluetoothDevice(data: CharSequence): Result<Unit> {
+        TODO("Not yet implemented")
+    }
+
+    private suspend fun listenForIncomingBluetoothMessages() {
+        Timber.d("LISTENING FOR BLUETOOTH MESSAGES ... ")
+        withContext(ioDispatcher) {
+            bluetoothSocket?.run {
+                val bufferedReader = BufferedReader(InputStreamReader(inputStream))
+                while (isConnected) {
+                    try {
+                        if (bufferedReader.ready()) {
+                            val message = bufferedReader.readLine()
+                            _bluetoothMessage.update { BtMessage(message = message) }
+                            Timber.i("RECEIVED MESSAGE: $message")
+                        }
+                    } catch (e: IOException) {
+                        Timber.e(e)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun clearScannedDevices() {
+        _scannedDevices.update { emptyList() }
+    }
+
+    private fun cleanup() {
+        Timber.d("CLEANING UP ... ")
+        bluetoothSocket = null
+        connectedDeviceAddress = null
+        context.unregisterReceiver(scannedDeviceReceiver)
+        context.unregisterReceiver(bluetoothStateReceiver)
+        context.unregisterReceiver(deviceStateReceiver)
+        clearScannedDevices()
     }
 }

@@ -11,7 +11,6 @@ import dev.atick.bluetooth.common.models.BtDevice
 import dev.atick.bluetooth.common.models.simplify
 
 class DeviceStateReceiver(
-    private val deviceAddress: String,
     private val onConnectionStateChange: (BtDevice) -> Unit
 ) : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
@@ -23,7 +22,7 @@ class DeviceStateReceiver(
         } else {
             intent?.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE)
         }
-        if (device?.address != deviceAddress) return
+        if (device == null) return
         when (intent?.action) {
             BluetoothDevice.ACTION_ACL_CONNECTED -> {
                 onConnectionStateChange(device.simplify(true))
