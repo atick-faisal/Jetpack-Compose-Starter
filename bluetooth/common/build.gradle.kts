@@ -4,10 +4,9 @@ plugins {
 }
 
 android {
-    namespace = "dev.atick.bluetooth.classic"
+    namespace = "dev.atick.bluetooth.common"
 }
 
 dependencies {
     implementation(project(":core:android"))
-    api(project(":bluetooth:common"))
 }

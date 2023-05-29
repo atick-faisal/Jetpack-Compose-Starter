@@ -1,16 +1,15 @@
-@file:Suppress("DEPRECATION")
-
-package dev.atick.bluetooth.classic.receiver
+package dev.atick.bluetooth.common.receiver
 
 import android.bluetooth.BluetoothDevice
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import dev.atick.bluetooth.classic.utils.BluetoothClassicDevice
+import dev.atick.bluetooth.common.models.BtDevice
+import dev.atick.bluetooth.common.models.simplify
 
-class FoundDeviceReceiver(
-    private val onDeviceFound: (BluetoothClassicDevice) -> Unit
+class ScannedDeviceReceiver(
+    private val onDeviceFound: (BtDevice) -> Unit
 ) : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
@@ -22,9 +21,10 @@ class FoundDeviceReceiver(
                         BluetoothDevice::class.java
                     )
                 } else {
+                    @Suppress("DEPRECATION")
                     intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE)
                 }
-                device?.run { onDeviceFound(BluetoothClassicDevice(this)) }
+                device?.let { onDeviceFound(it.simplify()) }
             }
         }
     }

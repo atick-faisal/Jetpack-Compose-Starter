@@ -23,6 +23,8 @@ import android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS
 import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import dev.atick.core.extensions.isAllPermissionsGranted
+import dev.atick.core.extensions.showToast
 
 inline fun ComponentActivity.resultLauncher(
     crossinline onSuccess: () -> Unit = {},

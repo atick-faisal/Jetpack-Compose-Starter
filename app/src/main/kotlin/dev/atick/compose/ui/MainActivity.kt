@@ -17,38 +17,66 @@
 package dev.atick.compose.ui
 
 import android.Manifest
+import android.bluetooth.BluetoothAdapter
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
+import dev.atick.bluetooth.common.models.BtState
+import dev.atick.bluetooth.common.utils.BluetoothUtils
 import dev.atick.compose.R
 import dev.atick.core.extensions.collectWithLifecycle
+import dev.atick.core.extensions.isAllPermissionsGranted
 import dev.atick.core.ui.extensions.checkForPermissions
+import dev.atick.core.ui.extensions.resultLauncher
 import dev.atick.network.utils.NetworkUtils
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    @Inject
-    // ... At least one inject in @AndroidEntryPoint is required
-    // ... to solve Hilt deprecation issue
-    lateinit var networkUtils: NetworkUtils
-
     private val permissions = mutableListOf<String>()
+    private lateinit var btLauncher: ActivityResultLauncher<Intent>
+
+    @Inject
+    lateinit var bluetoothUtils: BluetoothUtils
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.Theme_JetpackComposeStarter)
         setContentView(R.layout.activity_main)
 
-        collectWithLifecycle(networkUtils.currentState) {}
-
         //                ... App Permissions ...
         // ----------------------------------------------------------
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             permissions.add(Manifest.permission.POST_NOTIFICATIONS)
         }
-        checkForPermissions(permissions) {}
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            permissions.add(Manifest.permission.BLUETOOTH_SCAN)
+            permissions.add(Manifest.permission.BLUETOOTH_CONNECT)
+        }
+
+        checkForPermissions(permissions) {
+            btLauncher.launch(
+                Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+            )
+        }
+
+        //              ... Turn On Bluetooth ...
+        // ------------------------------------------------------
+        btLauncher = resultLauncher(onFailure = { finishAffinity() })
+        collectWithLifecycle(bluetoothUtils.getBluetoothState()) { state ->
+            if (state == BtState.DISABLED && isAllPermissionsGranted(permissions)) {
+                btLauncher.launch(
+                    Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+                )
+            }
+        }
+
+        collectWithLifecycle(bluetoothUtils.getScannedDevices()) {
+
+        }
     }
 }
