@@ -14,31 +14,18 @@
  * limitations under the License.
  */
 
-plugins {
-    id("dev.atick.library")
-    id("dev.atick.dagger.hilt")
-}
+package dev.atick.bluetooth.common.models
 
-android {
-    namespace = "dev.atick.core.android"
-}
-
-dependencies {
-    // ... Core Android
-    api(libs.androidx.core.ktx)
-
-    // ... Coroutines
-    api(libs.kotlinx.coroutines.android)
-
-    // ... Serialization
-    api(libs.kotlinx.serialization.json)
-
-    // ... Date-Time
-    api(libs.kotlinx.datetime)
-
-    // ... Dagger-Hilt
-    api(libs.dagger.hilt.android)
-
-    // ... Logger
-    api(libs.timber.logging)
+enum class BtDeviceType {
+    AUDIO_VIDEO,
+    COMPUTER,
+    HEALTH,
+    IMAGING,
+    MISC,
+    NETWORKING,
+    PERIPHERAL,
+    PHONE,
+    TOY,
+    UNCATEGORIZED,
+    WEARABLE,
 }

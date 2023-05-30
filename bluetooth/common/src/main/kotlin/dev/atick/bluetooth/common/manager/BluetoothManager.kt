@@ -14,31 +14,13 @@
  * limitations under the License.
  */
 
-plugins {
-    id("dev.atick.library")
-    id("dev.atick.dagger.hilt")
-}
+package dev.atick.bluetooth.common.manager
 
-android {
-    namespace = "dev.atick.core.android"
-}
+import dev.atick.bluetooth.common.models.BtDevice
+import kotlinx.coroutines.flow.StateFlow
 
-dependencies {
-    // ... Core Android
-    api(libs.androidx.core.ktx)
-
-    // ... Coroutines
-    api(libs.kotlinx.coroutines.android)
-
-    // ... Serialization
-    api(libs.kotlinx.serialization.json)
-
-    // ... Date-Time
-    api(libs.kotlinx.datetime)
-
-    // ... Dagger-Hilt
-    api(libs.dagger.hilt.android)
-
-    // ... Logger
-    api(libs.timber.logging)
+interface BluetoothManager {
+    suspend fun connect(address: String): Result<Unit>
+    fun getConnectedDeviceState(): StateFlow<BtDevice?>
+    suspend fun closeConnection(): Result<Unit>
 }

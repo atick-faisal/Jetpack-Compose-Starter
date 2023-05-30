@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.core.ui.extensions
+package dev.atick.core.extensions
 
 import android.Manifest
 import android.annotation.SuppressLint

@@ -13,32 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 plugins {
     id("dev.atick.library")
     id("dev.atick.dagger.hilt")
 }
 
 android {
-    namespace = "dev.atick.core.android"
+    namespace = "dev.atick.bluetooth.common"
 }
 
 dependencies {
-    // ... Core Android
-    api(libs.androidx.core.ktx)
-
-    // ... Coroutines
-    api(libs.kotlinx.coroutines.android)
-
-    // ... Serialization
-    api(libs.kotlinx.serialization.json)
-
-    // ... Date-Time
-    api(libs.kotlinx.datetime)
-
-    // ... Dagger-Hilt
-    api(libs.dagger.hilt.android)
-
-    // ... Logger
-    api(libs.timber.logging)
+    implementation(project(":core:android"))
 }
