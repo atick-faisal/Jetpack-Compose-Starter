@@ -31,7 +31,6 @@ import dev.atick.core.extensions.collectWithLifecycle
 import dev.atick.core.extensions.isAllPermissionsGranted
 import dev.atick.core.ui.extensions.checkForPermissions
 import dev.atick.core.ui.extensions.resultLauncher
-import dev.atick.network.utils.NetworkUtils
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -60,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         checkForPermissions(permissions) {
             btLauncher.launch(
-                Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+                Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE),
             )
         }
 
@@ -70,13 +69,9 @@ class MainActivity : AppCompatActivity() {
         collectWithLifecycle(bluetoothUtils.getBluetoothState()) { state ->
             if (state == BtState.DISABLED && isAllPermissionsGranted(permissions)) {
                 btLauncher.launch(
-                    Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+                    Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE),
                 )
             }
-        }
-
-        collectWithLifecycle(bluetoothUtils.getScannedDevices()) {
-
         }
     }
 }

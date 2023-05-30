@@ -1,3 +1,19 @@
+/*
+ * Copyright 2023 Atick Faisal
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package dev.atick.bluetooth.classic
 
 import android.Manifest
@@ -39,7 +55,7 @@ import javax.inject.Singleton
 class BluetoothClassic @Inject constructor(
     private val bluetoothAdapter: BluetoothAdapter?,
     @ApplicationContext private val context: Context,
-    @IoDispatcher private val ioDispatcher: CoroutineDispatcher
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : BluetoothUtils, BluetoothManager, BluetoothDataSource {
 
     companion object {
@@ -49,8 +65,11 @@ class BluetoothClassic @Inject constructor(
     private var bluetoothSocket: BluetoothSocket? = null
 
     private val _bluetoothState = MutableStateFlow(
-        if (bluetoothAdapter?.isEnabled == true) BtState.ENABLED
-        else BtState.DISABLED
+        if (bluetoothAdapter?.isEnabled == true) {
+            BtState.ENABLED
+        } else {
+            BtState.DISABLED
+        },
     )
 
     private val _scannedDevices = MutableStateFlow(emptyList<BtDevice>())
@@ -79,7 +98,7 @@ class BluetoothClassic @Inject constructor(
         Timber.d("REGISTERING BT STATE RECEIVER ... ")
         context.registerReceiver(
             bluetoothStateReceiver,
-            IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED)
+            IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED),
         )
         return _bluetoothState.asStateFlow()
     }
@@ -90,7 +109,7 @@ class BluetoothClassic @Inject constructor(
         clearScannedDevices()
         context.registerReceiver(
             scannedDeviceReceiver,
-            IntentFilter(BluetoothDevice.ACTION_FOUND)
+            IntentFilter(BluetoothDevice.ACTION_FOUND),
         )
         if (context.hasPermission(Manifest.permission.BLUETOOTH_SCAN)) {
             bluetoothAdapter?.startDiscovery()
@@ -124,8 +143,9 @@ class BluetoothClassic @Inject constructor(
 
     @SuppressLint("MissingPermission")
     override suspend fun connect(address: String): Result<Unit> {
-        if (!context.hasPermission(Manifest.permission.BLUETOOTH_CONNECT))
+        if (!context.hasPermission(Manifest.permission.BLUETOOTH_CONNECT)) {
             return Result.failure(SecurityException("Missing Permission"))
+        }
         if (bluetoothSocket?.isConnected == true) {
             return Result.failure(IllegalStateException("Please Close Existing Connection"))
         }
@@ -152,7 +172,7 @@ class BluetoothClassic @Inject constructor(
             IntentFilter().apply {
                 addAction(BluetoothDevice.ACTION_ACL_CONNECTED)
                 addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED)
-            }
+            },
         )
         return _deviceState.asStateFlow()
     }
