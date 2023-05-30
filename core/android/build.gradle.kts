@@ -16,6 +16,7 @@
 
 plugins {
     id("dev.atick.library")
+    id("dev.atick.dagger.hilt")
 }
 
 android {

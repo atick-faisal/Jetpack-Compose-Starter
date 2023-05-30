@@ -33,7 +33,9 @@ import java.io.IOException
 import java.io.InputStreamReader
 import java.util.UUID
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class BluetoothClassic @Inject constructor(
     private val bluetoothAdapter: BluetoothAdapter?,
     @ApplicationContext private val context: Context,
@@ -111,9 +113,13 @@ class BluetoothClassic @Inject constructor(
     override fun stopDiscovery() {
         Timber.d("STOPPING DISCOVERY ... ")
         if (context.hasPermission(Manifest.permission.BLUETOOTH_SCAN)) {
-            bluetoothAdapter?.cancelDiscovery()
+            try {
+                bluetoothAdapter?.cancelDiscovery()
+                context.unregisterReceiver(scannedDeviceReceiver)
+            } catch (e: Exception) {
+                Timber.e(e)
+            }
         }
-        context.unregisterReceiver(scannedDeviceReceiver)
     }
 
     @SuppressLint("MissingPermission")
@@ -134,6 +140,7 @@ class BluetoothClassic @Inject constructor(
                 Result.success(Unit)
             }
         } catch (e: IOException) {
+            Timber.e(e)
             Result.failure(e)
         }
     }
@@ -170,12 +177,21 @@ class BluetoothClassic @Inject constructor(
         return _bluetoothMessage.asStateFlow()
     }
 
-    override suspend fun sendDataToBluetoothDevice(data: CharSequence): Result<Unit> {
-        TODO("Not yet implemented")
+    override suspend fun sendDataToBluetoothDevice(data: String): Result<Unit> {
+        Timber.d("SENDING : $data")
+        return try {
+            withContext(ioDispatcher) {
+                bluetoothSocket?.outputStream?.write(data.toByteArray())
+                Result.success(Unit)
+            }
+        } catch (e: IOException) {
+            Result.failure(e)
+        }
     }
 
     private suspend fun listenForIncomingBluetoothMessages() {
         Timber.d("LISTENING FOR BLUETOOTH MESSAGES ... ")
+        Timber.d("SOCKET: $bluetoothSocket")
         withContext(ioDispatcher) {
             bluetoothSocket?.run {
                 val bufferedReader = BufferedReader(InputStreamReader(inputStream))
@@ -200,9 +216,8 @@ class BluetoothClassic @Inject constructor(
 
     private fun cleanup() {
         Timber.d("CLEANING UP ... ")
-        bluetoothSocket = null
+        // bluetoothSocket = null
         connectedDeviceAddress = null
-        context.unregisterReceiver(scannedDeviceReceiver)
         context.unregisterReceiver(bluetoothStateReceiver)
         context.unregisterReceiver(deviceStateReceiver)
         clearScannedDevices()

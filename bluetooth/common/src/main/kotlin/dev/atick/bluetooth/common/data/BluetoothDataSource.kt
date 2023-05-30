@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.StateFlow
 
 interface BluetoothDataSource {
     fun getBluetoothDataStream(): StateFlow<BtMessage?>
-    suspend fun sendDataToBluetoothDevice(data: CharSequence): Result<Unit>
+    suspend fun sendDataToBluetoothDevice(data: String): Result<Unit>
 }
