@@ -2,7 +2,7 @@
 
 # ... PROJECT ...
 java = "17"
-kotlin = "1.8.21"
+kotlin = "1.8.22"
 androidGradlePlugin = "8.0.2"
 
 # ... CORE:ANDROID ...
@@ -20,7 +20,7 @@ androidxActivity = "1.7.2"
 androidxLifecycle = "2.6.1"
 androidxComposeBom = "2023.06.00"
 androidxComposeCompiler = "1.4.7"
-lottieCompose = "6.0.0"
+lottieCompose = "6.0.1"
 
 # ... NETWORK ...
 okhttp = "4.11.0"
