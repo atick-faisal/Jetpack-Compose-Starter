@@ -41,7 +41,7 @@ jobs:
         run: |
           pip install mkdocs
           ./gradlew dokkaGfmMultiModule
-          mv ./build/dokka/htmlMultiModule docs
+          mv ./build/dokka/gfmMultiModule docs
           mkdocs gh-deploy
           
         
