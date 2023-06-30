@@ -1,11 +1,9 @@
-# https://proandroiddev.com/how-to-securely-build-and-sign-your-android-app-with-github-actions-ad5323452ce
-
-name: Build
+name: Docs
 
 on:
   push:
     branches:
-#      - main
+      - main
   pull_request:
 
 jobs:
@@ -34,11 +32,17 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
-      - name: Check spotless
-        run: ./gradlew spotlessCheck --init-script gradle/init.gradle.kts --no-configuration-cache
+      - name: Setup Python
+        uses: actions/python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip'
 
-      - name: Clean
-        run: ./gradlew clean
-
-      - name: Build
-        run: ./gradlew build
+      - name: Generate Docs
+        run: |
+          pip install mkdocs
+          ./gradlew dokkaGfmMultiModule
+          mv ./build/dokka/htmlMultiModule docs
+          mkdocs gh-deploy
+          
+        
