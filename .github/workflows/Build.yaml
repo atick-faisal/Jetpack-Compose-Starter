@@ -1,12 +1,7 @@
-# https://proandroiddev.com/how-to-securely-build-and-sign-your-android-app-with-github-actions-ad5323452ce
-
 name: Build
 
 on:
-#  push:
-#    branches:
-#      - main
-#  pull_request:
+  pull_request:
 
 jobs:
   build:

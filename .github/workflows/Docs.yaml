@@ -3,11 +3,10 @@ name: Docs
 on:
   push:
     branches:
-      - feature/documentation
-  pull_request:
+      - main
 
 jobs:
-  build:
+  mkdocs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
@@ -35,13 +34,14 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: '3.10'
 
       - name: Generate Docs
         run: |
           pip install mkdocs mkdocs-material
           ./gradlew dokkaGfmMultiModule
-          mv ./build/dokka/gfmMultiModule docs
+          mv build/dokka/gfmMultiModule docs
+          cat README.md > docs/index.md
           mkdocs gh-deploy
           
         
