@@ -39,7 +39,7 @@ jobs:
 
       - name: Generate Docs
         run: |
-          pip install mkdocs
+          pip install mkdocs mkdocs-material
           ./gradlew dokkaGfmMultiModule
           mv ./build/dokka/gfmMultiModule docs
           mkdocs gh-deploy
