@@ -33,19 +33,42 @@ import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
 
+/**
+ * Displays a short toast message.
+ *
+ * @param message The message to be displayed in the toast.
+ */
 fun Context.showToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }
 
+/**
+ * Checks if the app has a given permission.
+ *
+ * @param permission The permission to check.
+ * @return `true` if the permission is granted, `false` otherwise.
+ */
 fun Context.hasPermission(permission: String): Boolean {
     return ContextCompat.checkSelfPermission(this, permission) ==
-        PackageManager.PERMISSION_GRANTED
+            PackageManager.PERMISSION_GRANTED
 }
 
+/**
+ * Checks if all the given permissions are granted.
+ *
+ * @param permissions List of permissions to check.
+ * @return `true` if all permissions are granted, `false` otherwise.
+ */
 fun Context.isAllPermissionsGranted(permissions: List<String>): Boolean {
     return permissions.all { hasPermission(it) }
 }
 
+/**
+ * Shows a notification using the specified notification ID and notification object.
+ *
+ * @param notificationId The ID of the notification.
+ * @param notification The notification object to be shown.
+ */
 @SuppressLint("MissingPermission")
 fun Context.showNotification(
     notificationId: Int,
@@ -58,13 +81,24 @@ fun Context.showNotification(
     }
 }
 
+/**
+ * Cancels a previously shown notification.
+ *
+ * @param notificationId The ID of the notification to be canceled.
+ */
 fun Context.cancelNotification(notificationId: Int) {
     with(NotificationManagerCompat.from(this)) {
         cancel(notificationId)
     }
 }
 
-// ... https://medium.com/codex/how-to-implement-the-activity-result-api-takepicture-contract-with-uri-return-type-7c93881f5b0f
+/**
+ * Retrieves a temporary file URI for the specified app ID.
+ *
+ * @param appId The ID of the app.
+ * @return The URI of the temporary file.
+ * @throws IllegalAccessException if unable to create or retrieve the temporary file.
+ */
 @Throws(IllegalAccessException::class)
 fun Context.getTmpFileUri(appId: String): Uri {
     val tmpFile = File.createTempFile(
@@ -83,7 +117,12 @@ fun Context.getTmpFileUri(appId: String): Uri {
     )
 }
 
-// ... https://stackoverflow.com/a/64488260/12737399
+/**
+ * Retrieves a File object from the given content URI.
+ *
+ * @param contentUri The content URI of the file.
+ * @return The File object representing the content URI, or `null` if an error occurred.
+ */
 fun Context.getFileFromContentUri(contentUri: Uri): File? {
     return try {
         val fileExtension = getFileExtension(this, contentUri)
@@ -101,11 +140,25 @@ fun Context.getFileFromContentUri(contentUri: Uri): File? {
     }
 }
 
+/**
+ * Retrieves the file extension from the given content URI.
+ *
+ * @param context The context.
+ * @param uri The content URI of the file.
+ * @return The file extension, or `null` if the extension could not be determined.
+ */
 private fun getFileExtension(context: Context, uri: Uri): String? {
     val fileType: String? = context.contentResolver.getType(uri)
     return MimeTypeMap.getSingleton().getExtensionFromMimeType(fileType)
 }
 
+/**
+ * Copies the data from the input stream to the output stream.
+ *
+ * @param source The input stream to read from.
+ * @param target The output stream to write to.
+ * @throws IOException if an I/O error occurs during the copy operation.
+ */
 @Throws(IOException::class)
 private fun copy(source: InputStream, target: OutputStream) {
     val buf = ByteArray(8192)

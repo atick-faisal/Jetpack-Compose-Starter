@@ -57,6 +57,7 @@ firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "
 gms = { id = "com.google.gms.google-services", version.ref = "gmsPlugin" }
 androidx-navigation-safeargs = { id = "androidx.navigation.safeargs", version.ref = "androidxNavigation" }
 dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "kotlin" }
 
 [libraries]
 
