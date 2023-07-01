@@ -34,6 +34,16 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
+      - name: Set up Signing Key
+        run: |
+          touch app/key.jks
+          echo "${KEYSTORE// /}" | base64 --decode > app/key.jks
+          touch keystore.properties
+          echo "${KEYSTORE_PROPERTIES// /}" | base64 --decode > keystore.properties
+        env:
+          KEYSTORE: ${{ secrets.KEYSTORE }}
+          KEYSTORE_PROPERTIES: ${{ secrets.KEYSTORE_PROPERTIES }}
+
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
