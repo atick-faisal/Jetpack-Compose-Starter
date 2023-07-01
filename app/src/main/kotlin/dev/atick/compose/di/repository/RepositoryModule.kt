@@ -24,10 +24,19 @@ import dev.atick.compose.repository.home.HomeRepository
 import dev.atick.compose.repository.home.HomeRepositoryImpl
 import javax.inject.Singleton
 
+/**
+ * Dagger module that provides the binding for the [HomeRepository] interface.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
 
+    /**
+     * Binds the [HomeRepositoryImpl] implementation to the [HomeRepository] interface.
+     *
+     * @param homeRepositoryImpl The implementation of [HomeRepository] to be bound.
+     * @return The [HomeRepository] interface.
+     */
     @Binds
     @Singleton
     abstract fun bindHomeRepository(

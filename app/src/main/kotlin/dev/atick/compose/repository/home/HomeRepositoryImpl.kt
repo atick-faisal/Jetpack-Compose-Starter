@@ -27,6 +27,13 @@ class HomeRepositoryImpl @Inject constructor(
     private val jetpackDataSource: JetpackDataSource,
     private val preferencesDatastore: PreferencesDatastore,
 ) : HomeRepository {
+
+    /**
+     * Retrieves an item with the specified ID.
+     *
+     * @param id The ID of the item to retrieve.
+     * @return A [Result] object representing the result of the operation.
+     */
     override suspend fun getItem(id: Int): Result<Item> {
         return try {
             val response = jetpackDataSource.getItem(id)
@@ -40,10 +47,20 @@ class HomeRepositoryImpl @Inject constructor(
         }
     }
 
+    /**
+     * Saves an item to the repository.
+     *
+     * @param item The item to save.
+     */
     override suspend fun saveItem(item: Item) {
         jetpackDao.insert(item.toRoomItem())
     }
 
+    /**
+     * Retrieves the user ID.
+     *
+     * @return A [Result] object representing the result of the operation.
+     */
     override suspend fun getUserId(): Result<String> {
         return try {
             val userId = preferencesDatastore.getUserId()

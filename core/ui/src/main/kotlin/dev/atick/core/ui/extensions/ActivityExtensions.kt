@@ -26,6 +26,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import dev.atick.core.extensions.isAllPermissionsGranted
 import dev.atick.core.extensions.showToast
 
+/**
+ * Launch an activity for result.
+ *
+ * @param onSuccess Callback when the result is successful.
+ * @param onFailure Callback when the result is failed.
+ */
 inline fun ComponentActivity.resultLauncher(
     crossinline onSuccess: () -> Unit = {},
     crossinline onFailure: () -> Unit = {},
@@ -43,6 +49,12 @@ inline fun ComponentActivity.resultLauncher(
     return resultCallback
 }
 
+/**
+ * Launch an activity for permission.
+ *
+ * @param onSuccess Callback when the result is successful.
+ * @param onFailure Callback when the result is failed.
+ */
 inline fun ComponentActivity.permissionLauncher(
     crossinline onSuccess: () -> Unit = {},
     crossinline onFailure: () -> Unit = {},
@@ -60,6 +72,12 @@ inline fun ComponentActivity.permissionLauncher(
     return resultCallback
 }
 
+/**
+ * Check for permissions.
+ *
+ * @param permissions List of permissions to be checked.
+ * @param onSuccess Callback when the result is successful.
+ */
 inline fun ComponentActivity.checkForPermissions(
     permissions: List<String>,
     crossinline onSuccess: () -> Unit,
@@ -77,6 +95,10 @@ inline fun ComponentActivity.checkForPermissions(
 
 // ... Open App Settings
 // ... https://stackoverflow.com/a/37093460/12737399
+
+/**
+ * Open app settings.
+ */
 fun ComponentActivity.openPermissionSettings() {
     val intent = Intent(
         ACTION_APPLICATION_DETAILS_SETTINGS,

@@ -27,12 +27,14 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.atick.bluetooth.common.models.BtState
 import dev.atick.bluetooth.common.utils.BluetoothUtils
 import dev.atick.compose.R
-import dev.atick.core.extensions.collectWithLifecycle
 import dev.atick.core.extensions.isAllPermissionsGranted
 import dev.atick.core.ui.extensions.checkForPermissions
+import dev.atick.core.ui.extensions.collectWithLifecycle
 import dev.atick.core.ui.extensions.resultLauncher
 import javax.inject.Inject
-
+/**
+ * Main activity for the application.
+ */
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
@@ -47,8 +49,7 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.Theme_JetpackComposeStarter)
         setContentView(R.layout.activity_main)
 
-        //                ... App Permissions ...
-        // ----------------------------------------------------------
+        // Configure required permissions
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             permissions.add(Manifest.permission.POST_NOTIFICATIONS)
         }
@@ -57,14 +58,14 @@ class MainActivity : AppCompatActivity() {
             permissions.add(Manifest.permission.BLUETOOTH_CONNECT)
         }
 
+        // Check for permissions and launch Bluetooth enable request
         checkForPermissions(permissions) {
             btLauncher.launch(
                 Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE),
             )
         }
 
-        //              ... Turn On Bluetooth ...
-        // ------------------------------------------------------
+        // Configure Bluetooth state monitoring and enable request
         btLauncher = resultLauncher(onFailure = { finishAffinity() })
         collectWithLifecycle(bluetoothUtils.getBluetoothState()) { state ->
             if (state == BtState.DISABLED && isAllPermissionsGranted(permissions)) {

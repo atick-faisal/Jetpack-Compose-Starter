@@ -26,10 +26,21 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+/**
+ * Dagger module that provides the [NotificationManager] instance as a dependency for the application.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object NotificationModule {
 
+    /**
+     * Provides a singleton instance of [NotificationManager] using the application [Context].
+     *
+     * @param context The application [Context] provided by Dagger through dependency injection.
+     * @return The singleton [NotificationManager] instance.
+     * @throws ClassCastException If the [NOTIFICATION_SERVICE] retrieved from the [Context] is not an instance of [NotificationManager].
+     * @see Context.getSystemService
+     */
     @Provides
     @Singleton
     fun provideNotificationManager(

@@ -18,4 +18,9 @@ package dev.atick.core.ui.base
 
 import androidx.lifecycle.ViewModel
 
+/**
+ * Base class for ViewModels.
+ *
+ * @param T The type of the UI state associated with the ViewModel.
+ */
 open class BaseViewModel<T : BaseUiState> : ViewModel()

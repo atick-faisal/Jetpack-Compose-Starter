@@ -96,6 +96,13 @@ private val DarkColorScheme = darkColorScheme(
     scrim = md_theme_dark_scrim,
 )
 
+/**
+ * Jetpack Compose Material3 theme
+ *
+ * @param darkTheme Whether the theme should be dark or light
+ * @param dynamicColor Whether the theme should be dynamic or static
+ * @param content The content of the application
+ */
 @Composable
 fun JetpackTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),

@@ -31,7 +31,11 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.random.Random
-
+/**
+ * View model for the home screen.
+ *
+ * @param jetpackRepository The repository for accessing home screen data.
+ */
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val jetpackRepository: HomeRepository,
@@ -52,6 +56,9 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Retrieves an item and updates the UI state accordingly.
+     */
     fun getItem() {
         if (getItemJob != null) return
         getItemJob = viewModelScope.launch {
@@ -71,6 +78,9 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Clears the error toast message from the UI state.
+     */
     fun clearError() {
         _homeUiState.setToastMessage(null)
     }

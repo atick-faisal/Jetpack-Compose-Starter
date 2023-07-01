@@ -20,17 +20,24 @@ import android.net.ConnectivityManager
 import android.net.LinkProperties
 import android.net.Network
 import android.net.NetworkCapabilities
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import timber.log.Timber
 import javax.inject.Inject
 
-@ExperimentalCoroutinesApi
+/**
+ * Implementation of [NetworkUtils].
+ *
+ * @param connectivityManager [ConnectivityManager].
+ */
 class NetworkUtilsImpl @Inject constructor(
     private val connectivityManager: ConnectivityManager,
 ) : NetworkUtils {
+
+    /**
+     * Current network state as [Flow].
+     */
     override val currentState: Flow<NetworkState>
         get() = callbackFlow {
             val callback = object : ConnectivityManager.NetworkCallback() {

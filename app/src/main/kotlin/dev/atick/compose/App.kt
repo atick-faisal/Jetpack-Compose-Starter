@@ -20,8 +20,16 @@ import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
+/**
+ * The main application class that extends [Application] and is annotated with [HiltAndroidApp].
+ */
 @HiltAndroidApp
 class App : Application() {
+
+    /**
+     * Called when the application is first created.
+     * Performs initialization tasks, such as setting up Timber logging in debug mode.
+     */
     override fun onCreate() {
         super.onCreate()
         if (BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())

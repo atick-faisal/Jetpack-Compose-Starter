@@ -18,8 +18,30 @@ package dev.atick.compose.repository.home
 
 import dev.atick.compose.data.home.Item
 
+/**
+ * Interface defining operations for interacting with the home repository.
+ */
 interface HomeRepository {
+
+    /**
+     * Retrieves an item with the specified ID.
+     *
+     * @param id The ID of the item to retrieve.
+     * @return A [Result] object representing the result of the operation.
+     */
     suspend fun getItem(id: Int): Result<Item>
+
+    /**
+     * Saves an item to the repository.
+     *
+     * @param item The item to save.
+     */
     suspend fun saveItem(item: Item)
+
+    /**
+     * Retrieves the user ID.
+     *
+     * @return A [Result] object representing the result of the operation.
+     */
     suspend fun getUserId(): Result<String>
 }

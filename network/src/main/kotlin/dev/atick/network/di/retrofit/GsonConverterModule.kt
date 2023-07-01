@@ -23,10 +23,18 @@ import dagger.hilt.components.SingletonComponent
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+/**
+ * Module for providing [GsonConverterFactory].
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object GsonConverterModule {
 
+    /**
+     * Provides [GsonConverterFactory].
+     *
+     * @return [GsonConverterFactory].
+     */
     @Singleton
     @Provides
     fun provideGsonConverterFactory(): GsonConverterFactory {

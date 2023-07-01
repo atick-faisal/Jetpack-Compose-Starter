@@ -24,10 +24,19 @@ import dev.atick.network.data.JetpackDataSource
 import dev.atick.network.data.JetpackDataSourceImpl
 import javax.inject.Singleton
 
+/**
+ * Module for providing [JetpackDataSource].
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class DataSourceModule {
 
+    /**
+     * Binds [JetpackDataSourceImpl] to [JetpackDataSource].
+     *
+     * @param jetpackDataSourceImpl [JetpackDataSourceImpl].
+     * @return [JetpackDataSource].
+     */
     @Binds
     @Singleton
     abstract fun bindJetpackDataSource(

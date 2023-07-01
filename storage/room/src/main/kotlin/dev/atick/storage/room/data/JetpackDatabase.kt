@@ -20,6 +20,9 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import dev.atick.storage.room.data.models.Item
 
+/**
+ * Room database for Jetpack.
+ */
 @Database(
     version = 1,
     exportSchema = false,
@@ -28,5 +31,10 @@ import dev.atick.storage.room.data.models.Item
     ],
 )
 abstract class JetpackDatabase : RoomDatabase() {
+    /**
+     * Get the data access object for [Item] entity.
+     *
+     * @return The data access object for [Item] entity.
+     */
     abstract fun getJetpackDao(): JetpackDao
 }

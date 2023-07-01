@@ -29,6 +29,14 @@ import android.bluetooth.BluetoothClass.Device.Major.UNCATEGORIZED
 import android.bluetooth.BluetoothClass.Device.Major.WEARABLE
 import android.bluetooth.BluetoothDevice
 
+/**
+ * Represents a Bluetooth device.
+ *
+ * @property name The name of the Bluetooth device.
+ * @property address The address of the Bluetooth device.
+ * @property type The type of the Bluetooth device.
+ * @property connected Indicates whether the Bluetooth device is currently connected.
+ */
 data class BtDevice(
     val name: String,
     val address: String,
@@ -36,6 +44,12 @@ data class BtDevice(
     val connected: Boolean,
 )
 
+/**
+ * Converts a [BluetoothDevice] object to a simplified [BtDevice] object.
+ *
+ * @param connected Indicates whether the Bluetooth device is connected.
+ * @return A simplified [BtDevice] object.
+ */
 fun BluetoothDevice.simplify(
     connected: Boolean = false,
 ): BtDevice {

@@ -20,12 +20,21 @@ import dev.atick.network.data.models.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
+/**
+ * Retrofit API interface for Jetpack.
+ */
 interface JetpackRestApi {
 
     companion object {
         const val BASE_URL = "https://jsonplaceholder.typicode.com"
     }
 
+    /**
+     * Get a list of items.
+     *
+     * @param id The id of the item.
+     * @return The particular item.
+     */
     @GET("todos/{id}")
     suspend fun getItem(
         @Path("id") id: Int,

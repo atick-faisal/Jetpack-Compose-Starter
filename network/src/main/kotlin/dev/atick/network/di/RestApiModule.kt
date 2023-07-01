@@ -25,6 +25,9 @@ import dev.atick.network.di.retrofit.RetrofitModule
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
+/**
+ * Module for providing [JetpackRestApi].
+ */
 @Module(
     includes = [
         RetrofitModule::class,
@@ -32,6 +35,13 @@ import javax.inject.Singleton
 )
 @InstallIn(SingletonComponent::class)
 object RestApiModule {
+
+    /**
+     * Provides [JetpackRestApi].
+     *
+     * @param retrofit [Retrofit].
+     * @return [JetpackRestApi].
+     */
     @Singleton
     @Provides
     fun provideApiService(retrofit: Retrofit): JetpackRestApi {
