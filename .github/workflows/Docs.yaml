@@ -41,7 +41,7 @@ jobs:
 
       - name: Generate Docs
         run: |
-          pip install mkdocs mkdocs-material
+          pip install mkdocs mkdocs-material Pygments
           ./gradlew dokkaGfmMultiModule
           mv build/dokka/gfmMultiModule docs
           cat README.md > docs/index.md
