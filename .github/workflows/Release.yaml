@@ -32,33 +32,33 @@ jobs:
       - name: Make gradlew Executable
         run: chmod +x ./gradlew
 
-      - name: Build Release APK
-        run: ./gradlew app:assembleRelease
-
-      - name: Sign APK
-        uses: r0adkll/sign-android-release@v1
-        id: sign_app
-        with:
-          releaseDirectory: app/build/outputs/apk/release
-          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-          alias: ${{ secrets.ALIAS }}
-          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-          keyPassword: ${{ secrets.KEY_PASSWORD }}
+      - name: Set up Signing Key
+        run: |
+          touch app/key.jks
+          echo "${KEYSTORE// /}" | base64 --decode > app/key.jks
+          touch keystore.properties
+          echo "${KEYSTORE_PROPERTIES// /}" | base64 --decode > keystore.properties
         env:
-          BUILD_TOOLS_VERSION: "33.0.1"
+          KEYSTORE: ${{ secrets.KEYSTORE }}
+          KEYSTORE_PROPERTIES: ${{ secrets.KEYSTORE_PROPERTIES }}
+
+      - name: Clean
+        run: ./gradlew clean
+
+      - name: Build Release APK
+        run: ./gradlew assembleRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
-          name: Build Artifacts
-          path: ${{steps.sign_app.outputs.signedReleaseFile}}
+          path: ${{ github.workspace }}/app/build/outputs/apk/release/*.apk
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          body_path: ${{ github.workspace }}/CHANGELOG.md
-          files: ${{steps.sign_app.outputs.signedReleaseFile}}
+          body_path: CHANGELOG.md
+          files: app/build/outputs/apk/release/*.apk
 
 # https://github.com/softprops/action-gh-release/issues/236
 permissions:
