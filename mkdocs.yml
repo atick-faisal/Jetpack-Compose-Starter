@@ -5,7 +5,7 @@ repo_url: https://github.com/atick-faisal/Jetpack-Compose-Starter
 theme:
   name: material
   palette:
-
+    - primary: deep-orange
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
