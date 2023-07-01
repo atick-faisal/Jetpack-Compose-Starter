@@ -25,13 +25,29 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import dev.atick.core.ui.theme.JetpackTheme
 
+/**
+ * A base fragment class that provides common functionality for fragments using Jetpack Compose.
+ */
 abstract class BaseFragment : Fragment() {
 
+    /**
+     * Called when the fragment is created.
+     *
+     * @param savedInstanceState The saved instance state.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         observeStates()
     }
 
+    /**
+     * Called to create the fragment's view.
+     *
+     * @param inflater The layout inflater.
+     * @param container The parent view.
+     * @param savedInstanceState The saved instance state.
+     * @return The created view.
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -46,8 +62,15 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
+    /**
+     * Defines the Jetpack Compose UI of the fragment.
+     */
     @Composable
     abstract fun ComposeUi()
 
+    /**
+     * Observes the states relevant to the fragment.
+     * This method can be overridden by subclasses to implement state observation.
+     */
     open fun observeStates() {}
 }

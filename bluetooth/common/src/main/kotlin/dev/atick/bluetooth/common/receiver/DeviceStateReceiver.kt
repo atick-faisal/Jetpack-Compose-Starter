@@ -26,9 +26,21 @@ import android.os.Build
 import dev.atick.bluetooth.common.models.BtDevice
 import dev.atick.bluetooth.common.models.simplify
 
+/**
+ * BroadcastReceiver for receiving Bluetooth device connection state changes.
+ *
+ * @param onConnectionStateChange Callback function to handle Bluetooth device connection state changes.
+ */
 class DeviceStateReceiver(
     private val onConnectionStateChange: (BtDevice) -> Unit,
 ) : BroadcastReceiver() {
+
+    /**
+     * Called when a broadcast is received.
+     *
+     * @param context The context of the receiver.
+     * @param intent The intent containing the broadcast information.
+     */
     override fun onReceive(context: Context?, intent: Intent?) {
         val device = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             intent?.getParcelableExtra(

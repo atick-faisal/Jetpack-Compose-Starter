@@ -1,10 +1,12 @@
-name: Build
+name: Docs
 
 on:
-  pull_request:
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
+  mkdocs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
@@ -29,11 +31,17 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
-      - name: Check spotless
-        run: ./gradlew spotlessCheck --init-script gradle/init.gradle.kts --no-configuration-cache
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-      - name: Clean
-        run: ./gradlew clean
-
-      - name: Build
-        run: ./gradlew build
+      - name: Generate Docs
+        run: |
+          pip install mkdocs mkdocs-material
+          ./gradlew dokkaGfmMultiModule
+          mv build/dokka/gfmMultiModule docs
+          cat README.md > docs/index.md
+          mkdocs gh-deploy
+          
+        

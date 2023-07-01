@@ -51,6 +51,14 @@ import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * Implementation of [BluetoothUtils], [BluetoothManager], and [BluetoothDataSource] interfaces
+ * for managing Bluetooth operations.
+ *
+ * @property bluetoothAdapter The Bluetooth adapter instance.
+ * @property context The application context.
+ * @property ioDispatcher The [CoroutineDispatcher] for performing IO operations.
+ */
 @Singleton
 class BluetoothClassic @Inject constructor(
     private val bluetoothAdapter: BluetoothAdapter?,
@@ -94,6 +102,11 @@ class BluetoothClassic @Inject constructor(
         _deviceState.update { device }
     }
 
+    /**
+     * Retrieves the state of the Bluetooth adapter.
+     *
+     * @return [StateFlow] representing the Bluetooth state.
+     */
     override fun getBluetoothState(): StateFlow<BtState> {
         Timber.d("REGISTERING BT STATE RECEIVER ... ")
         context.registerReceiver(
@@ -103,6 +116,11 @@ class BluetoothClassic @Inject constructor(
         return _bluetoothState.asStateFlow()
     }
 
+    /**
+     * Retrieves the list of scanned Bluetooth devices.
+     *
+     * @return [StateFlow] representing the list of scanned devices.
+     */
     @SuppressLint("MissingPermission")
     override fun getScannedDevices(): StateFlow<List<BtDevice>> {
         Timber.d("STARTING BT CLASSIC SCAN ... ")
@@ -117,6 +135,11 @@ class BluetoothClassic @Inject constructor(
         return _scannedDevices.asStateFlow()
     }
 
+    /**
+     * Retrieves the list of paired Bluetooth devices.
+     *
+     * @return [StateFlow] representing the list of paired devices.
+     */
     @SuppressLint("MissingPermission")
     override fun getPairedDevices(): StateFlow<List<BtDevice>> {
         Timber.d("FETCHING PAIRED DEVICES ... ")
@@ -128,6 +151,9 @@ class BluetoothClassic @Inject constructor(
         return _pairedDevices.asStateFlow()
     }
 
+    /**
+     * Stops the device discovery process.
+     */
     @SuppressLint("MissingPermission")
     override fun stopDiscovery() {
         Timber.d("STOPPING DISCOVERY ... ")
@@ -141,6 +167,12 @@ class BluetoothClassic @Inject constructor(
         }
     }
 
+    /**
+     * Connects to a Bluetooth device with the specified address.
+     *
+     * @param address The MAC address of the Bluetooth device.
+     * @return [Result] indicating the success or failure of the connection.
+     */
     @SuppressLint("MissingPermission")
     override suspend fun connect(address: String): Result<Unit> {
         if (!context.hasPermission(Manifest.permission.BLUETOOTH_CONNECT)) {
@@ -165,6 +197,11 @@ class BluetoothClassic @Inject constructor(
         }
     }
 
+    /**
+     * Retrieves the state of the connected Bluetooth device.
+     *
+     * @return [StateFlow] representing the device state.
+     */
     override fun getConnectedDeviceState(): StateFlow<BtDevice?> {
         Timber.d("FETCHING DEVICE STATE ... ")
         context.registerReceiver(
@@ -177,6 +214,11 @@ class BluetoothClassic @Inject constructor(
         return _deviceState.asStateFlow()
     }
 
+    /**
+     * Closes the Bluetooth connection.
+     *
+     * @return [Result] indicating the success or failure of the operation.
+     */
     override suspend fun closeConnection(): Result<Unit> {
         Timber.d("CLOSING CONNECTION ... ")
         return try {
@@ -193,10 +235,22 @@ class BluetoothClassic @Inject constructor(
         }
     }
 
+    /**
+     * Retrieves the data stream of incoming Bluetooth messages.
+     *
+     * @return [StateFlow] representing the incoming Bluetooth messages.
+     */
     override fun getBluetoothDataStream(): StateFlow<BtMessage?> {
         return _bluetoothMessage.asStateFlow()
     }
 
+    /**
+     * Sends data to the connected Bluetooth device.
+     *
+     * @param data The data to send.
+     * @return [Result] indicating the success or failure of the operation.
+     */
+    @Suppress("BlockingMethodInNonBlockingContext")
     override suspend fun sendDataToBluetoothDevice(data: String): Result<Unit> {
         Timber.d("SENDING : $data")
         return try {
@@ -209,6 +263,10 @@ class BluetoothClassic @Inject constructor(
         }
     }
 
+    /**
+     * Suspends the current coroutine and listens for incoming Bluetooth messages from the connected device.
+     * This function runs on the IO dispatcher.
+     */
     private suspend fun listenForIncomingBluetoothMessages() {
         Timber.d("LISTENING FOR BLUETOOTH MESSAGES ... ")
         Timber.d("SOCKET: $bluetoothSocket")
@@ -230,10 +288,16 @@ class BluetoothClassic @Inject constructor(
         }
     }
 
+    /**
+     * Clears the list of scanned Bluetooth devices.
+     */
     private fun clearScannedDevices() {
         _scannedDevices.update { emptyList() }
     }
 
+    /**
+     * Cleans up the Bluetooth Classic module by unregistering receivers and clearing scanned devices.
+     */
     private fun cleanup() {
         Timber.d("CLEANING UP ... ")
         // bluetoothSocket = null

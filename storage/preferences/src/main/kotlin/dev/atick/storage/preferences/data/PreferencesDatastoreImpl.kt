@@ -21,13 +21,28 @@ import dev.atick.storage.preferences.data.models.UserPreferences
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
+/**
+ * Preferences datastore implementation
+ *
+ * @param datastore DataStore
+ */
 class PreferencesDatastoreImpl @Inject constructor(
     private val datastore: DataStore<UserPreferences>,
 ) : PreferencesDatastore {
+    /**
+     * Save user id
+     *
+     * @param userId user id
+     */
     override suspend fun saveUserId(userId: String) {
         datastore.updateData { it.copy(userId = userId) }
     }
 
+    /**
+     * Get user id
+     *
+     * @return user id
+     */
     override suspend fun getUserId(): String {
         return datastore.data.first().userId
     }

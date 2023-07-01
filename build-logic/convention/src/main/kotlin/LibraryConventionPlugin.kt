@@ -20,6 +20,7 @@ class LibraryConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply("com.android.library")
                 apply("org.jetbrains.kotlin.android")
+                apply("org.jetbrains.dokka")
             }
 
             extensions.configure<LibraryExtension> {
@@ -42,6 +43,12 @@ class LibraryConventionPlugin : Plugin<Project> {
                         "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
                     )
                 }
+            }
+
+            // ... https://github.com/Kotlin/dokka/issues/2954
+            tasks.named("dokkaGfmPartial") {
+                dependsOn("kaptDebugKotlin")
+                dependsOn("kaptReleaseKotlin")
             }
         }
     }

@@ -18,7 +18,6 @@ package dev.atick.compose.ui.home
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -38,8 +37,12 @@ import dev.atick.compose.ui.home.components.HomeContent
 import dev.atick.core.ui.components.TopBar
 import kotlinx.coroutines.launch
 
+/**
+ * Composable function that represents the home screen.
+ *
+ * @param homeViewModel The view model for the home screen.
+ */
 @Composable
-@OptIn(ExperimentalMaterial3Api::class)
 fun HomeScreen(
     homeViewModel: HomeViewModel = viewModel(),
 ) {
@@ -75,7 +78,7 @@ fun HomeScreen(
                 .padding(paddingValues),
             item = homeUiState.item,
             loading = homeUiState.loading,
-            onButtonCLick = { homeViewModel.getItem() },
+            onButtonClick = { homeViewModel.getItem() },
         )
     }
 }

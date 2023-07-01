@@ -20,9 +20,20 @@ import dev.atick.network.api.JetpackRestApi
 import dev.atick.network.data.models.Response
 import javax.inject.Inject
 
+/**
+ * Data source implementation for Jetpack.
+ *
+ * @param jetpackRestApi The [JetpackRestApi] instance.
+ */
 class JetpackDataSourceImpl @Inject constructor(
     private val jetpackRestApi: JetpackRestApi,
 ) : JetpackDataSource {
+    /**
+     * Get a list of items.
+     *
+     * @param id The id of the item.
+     * @return The particular item as [Response].
+     */
     override suspend fun getItem(id: Int): Response {
         return jetpackRestApi.getItem(id)
     }

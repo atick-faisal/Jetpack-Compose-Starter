@@ -18,6 +18,12 @@ package dev.atick.network.data.models
 
 import com.google.gson.annotations.SerializedName
 
+/**
+ * Data class for a request.
+ *
+ * @param id The id of the item.
+ * @param title The title of the item.
+ */
 data class Response(
     @SerializedName("id")
     val id: Int,

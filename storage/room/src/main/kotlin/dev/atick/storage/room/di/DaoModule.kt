@@ -23,6 +23,9 @@ import dagger.hilt.components.SingletonComponent
 import dev.atick.storage.room.data.JetpackDatabase
 import javax.inject.Singleton
 
+/**
+ * Dagger module for data access object.
+ */
 @Module(
     includes = [
         DatabaseModule::class,
@@ -31,6 +34,12 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DaoModule {
 
+    /**
+     * Get the data access.
+     *
+     * @param jetpackDatabase The database for Jetpack.
+     * @return The data access object.
+     */
     @Singleton
     @Provides
     fun provideJetpackDao(jetpackDatabase: JetpackDatabase) = jetpackDatabase.getJetpackDao()

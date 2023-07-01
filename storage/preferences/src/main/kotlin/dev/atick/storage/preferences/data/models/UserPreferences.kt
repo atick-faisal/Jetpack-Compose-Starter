@@ -18,6 +18,11 @@ package dev.atick.storage.preferences.data.models
 
 import kotlinx.serialization.SerialName
 
+/**
+ * User preferences data model
+ *
+ * @param userId user id
+ */
 @kotlinx.serialization.Serializable
 data class UserPreferences(
     @SerialName("user_id")

@@ -25,10 +25,19 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+/**
+ * Module for providing [ConnectivityManager].
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object ConnectivityManagerModule {
 
+    /**
+     * Provides [ConnectivityManager].
+     *
+     * @param context [Context].
+     * @return [ConnectivityManager].
+     */
     @Provides
     @Singleton
     fun provideConnectivityManager(

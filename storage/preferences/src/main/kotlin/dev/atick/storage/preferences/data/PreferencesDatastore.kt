@@ -16,7 +16,21 @@
 
 package dev.atick.storage.preferences.data
 
+/**
+ * Preferences datastore interface
+ */
 interface PreferencesDatastore {
+    /**
+     * Save user id
+     *
+     * @param userId user id
+     */
     suspend fun saveUserId(userId: String)
+
+    /**
+     * Get user id
+     *
+     * @return user id
+     */
     suspend fun getUserId(): String
 }

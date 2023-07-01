@@ -25,10 +25,18 @@ import okhttp3.logging.HttpLoggingInterceptor
 import timber.log.Timber
 import javax.inject.Singleton
 
+/**
+ * Module for providing interceptors.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object InterceptorModule {
 
+    /**
+     * Provides [HttpLoggingInterceptor].
+     *
+     * @return [HttpLoggingInterceptor].
+     */
     @Provides
     @Singleton
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {

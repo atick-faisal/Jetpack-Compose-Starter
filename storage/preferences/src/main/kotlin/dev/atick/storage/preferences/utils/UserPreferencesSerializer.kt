@@ -26,10 +26,19 @@ import kotlinx.serialization.json.Json
 import java.io.InputStream
 import java.io.OutputStream
 
+/**
+ * User preferences serializer
+ */
 object UserPreferencesSerializer : Serializer<UserPreferences> {
 
     override val defaultValue = UserPreferences()
 
+    /**
+     * Read from input stream
+     *
+     * @param input input stream
+     * @return user preferences
+     */
     override suspend fun readFrom(input: InputStream): UserPreferences {
         try {
             return Json.decodeFromString(
@@ -41,6 +50,12 @@ object UserPreferencesSerializer : Serializer<UserPreferences> {
         }
     }
 
+    /**
+     * Write to output stream
+     *
+     * @param t user preferences
+     * @param output output stream
+     */
     override suspend fun writeTo(t: UserPreferences, output: OutputStream) {
         withContext(Dispatchers.IO) {
             output.write(

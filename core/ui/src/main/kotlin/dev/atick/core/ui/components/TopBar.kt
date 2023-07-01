@@ -46,6 +46,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+/**
+ * Title text for the top bar.
+ *
+ * @param modifier Modifier to be applied to the layout.
+ * @param title Title of the top bar.
+ * @param color Color of the title text.
+ */
 @Composable
 fun TitleText(
     modifier: Modifier = Modifier,
@@ -76,6 +83,17 @@ fun TitleText(
     }
 }
 
+/**
+ * Top bar for the app.
+ *
+ * @param modifier Modifier to be applied to the layout.
+ * @param title Title of the top bar.
+ * @param onSearchClick Callback when search button is clicked.
+ * @param onRefreshClick Callback when refresh button is clicked.
+ * @param onMenuClick Callback when menu button is clicked.
+ * @param onExitClick Callback when exit button is clicked.
+ * @param onLogoutClick Callback when logout button is clicked.
+ */
 @Composable
 fun TopBar(
     modifier: Modifier = Modifier,

@@ -20,6 +20,12 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/**
+ * Data class for [Item] entity.
+ *
+ * @param id The id of the item.
+ * @param name The name of the item.
+ */
 @Entity(
     tableName = "items",
 )

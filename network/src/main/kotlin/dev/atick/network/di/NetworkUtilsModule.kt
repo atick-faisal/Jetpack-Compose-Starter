@@ -25,10 +25,19 @@ import dev.atick.network.utils.NetworkUtilsImpl
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Singleton
 
+/**
+ * Module for providing [NetworkUtils].
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class NetworkUtilsModule {
 
+    /**
+     * Binds [NetworkUtilsImpl] to [NetworkUtils].
+     *
+     * @param networkUtilsImpl [NetworkUtilsImpl].
+     * @return [NetworkUtils].
+     */
     @Binds
     @Singleton
     @ExperimentalCoroutinesApi

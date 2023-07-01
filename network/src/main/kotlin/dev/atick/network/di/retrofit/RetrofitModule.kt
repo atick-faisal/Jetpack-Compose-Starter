@@ -27,6 +27,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+/**
+ * Module for providing [Retrofit].
+ */
 @Module(
     includes = [
         OkHttpClientModule::class,
@@ -35,6 +38,13 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
 
+    /**
+     * Provides [Retrofit].
+     *
+     * @param converterFactory [GsonConverterFactory].
+     * @param okHttpClient [OkHttpClient].
+     * @return [Retrofit].
+     */
     @Singleton
     @Provides
     fun provideRetrofitClient(

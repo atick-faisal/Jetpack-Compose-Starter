@@ -32,12 +32,21 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import javax.inject.Singleton
 
+/**
+ * Datastore module
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object DatastoreModule {
 
     private const val DATA_STORE_FILE_NAME = "user_preferences.json"
 
+    /**
+     * Provide preferences datastore
+     *
+     * @param appContext application context
+     * @return DataStore
+     */
     @Singleton
     @Provides
     fun providePreferencesDataStore(

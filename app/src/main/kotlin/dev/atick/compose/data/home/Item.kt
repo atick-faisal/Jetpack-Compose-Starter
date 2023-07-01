@@ -18,10 +18,21 @@ package dev.atick.compose.data.home
 
 import dev.atick.storage.room.data.models.Item
 
+/**
+ * Data class representing an item.
+ *
+ * @property id The ID of the item.
+ * @property title The title of the item.
+ */
 data class Item(
     val id: Int,
     val title: String,
 ) {
+    /**
+     * Converts the item to a [Item].
+     *
+     * @return The converted [Item] instance.
+     */
     fun toRoomItem(): Item {
         return Item(name = title)
     }

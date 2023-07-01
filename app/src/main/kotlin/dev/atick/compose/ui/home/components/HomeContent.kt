@@ -30,12 +30,20 @@ import dev.atick.compose.R
 import dev.atick.compose.data.home.Item
 import dev.atick.core.ui.components.LoadingButton
 
+/**
+ * Composable function that displays the content of the home screen.
+ *
+ * @param modifier The modifier for styling or positioning the content.
+ * @param item The item to display. If null, no item will be shown.
+ * @param loading Whether the content is currently loading or not.
+ * @param onButtonClick The callback function to be invoked when the button is clicked.
+ */
 @Composable
 fun HomeContent(
     modifier: Modifier = Modifier,
     item: Item? = null,
     loading: Boolean = false,
-    onButtonCLick: () -> Unit,
+    onButtonClick: () -> Unit,
 ) {
     Column(
         modifier = modifier,
@@ -46,7 +54,7 @@ fun HomeContent(
             Text(text = it.title)
             Spacer(modifier = Modifier.height(16.dp))
         }
-        LoadingButton(onClick = onButtonCLick, loading = loading) {
+        LoadingButton(onClick = onButtonClick, loading = loading) {
             Text(text = stringResource(R.string.btn_click_text))
         }
     }

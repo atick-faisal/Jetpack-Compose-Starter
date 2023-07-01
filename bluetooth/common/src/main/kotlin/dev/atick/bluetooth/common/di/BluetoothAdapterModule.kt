@@ -29,14 +29,18 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object BluetoothAdapterModule {
-
+    /**
+     * Provides the BluetoothAdapter instance.
+     *
+     * @param context The application context.
+     * @return The BluetoothAdapter instance, or null if Bluetooth is not supported.
+     */
     @Provides
     @Singleton
     fun provideBluetoothAdapter(
         @ApplicationContext context: Context,
     ): BluetoothAdapter? {
-        val bluetoothManager = context
-            .getSystemService(BluetoothManager::class.java)
+        val bluetoothManager = context.getSystemService(BluetoothManager::class.java)
         return bluetoothManager?.adapter
     }
 }

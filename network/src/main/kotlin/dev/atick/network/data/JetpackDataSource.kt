@@ -18,6 +18,15 @@ package dev.atick.network.data
 
 import dev.atick.network.data.models.Response
 
+/**
+ * Data source interface for Jetpack.
+ */
 interface JetpackDataSource {
+    /**
+     * Get a list of items.
+     *
+     * @param id The id of the item.
+     * @return The particular item as [Response].
+     */
     suspend fun getItem(id: Int): Response
 }

@@ -24,10 +24,19 @@ import dev.atick.storage.preferences.data.PreferencesDatastore
 import dev.atick.storage.preferences.data.PreferencesDatastoreImpl
 import javax.inject.Singleton
 
+/**
+ * Preferences datastore module
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class PreferencesDatastoreModule {
 
+    /**
+     * Bind preferences datastore
+     *
+     * @param preferencesDatastoreImpl PreferencesDatastoreImpl
+     * @return [PreferencesDatastore]
+     */
     @Binds
     @Singleton
     abstract fun bindUserPreferencesDatastore(

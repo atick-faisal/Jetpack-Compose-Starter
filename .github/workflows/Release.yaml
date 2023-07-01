@@ -1,6 +1,3 @@
-# https://github.com/marketplace/actions/sign-android-release
-# https://proandroiddev.com/how-to-securely-build-and-sign-your-android-app-with-github-actions-ad5323452ce
-
 name: Release APK
 
 on:

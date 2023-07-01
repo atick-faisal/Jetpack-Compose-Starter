@@ -26,12 +26,21 @@ import dagger.hilt.components.SingletonComponent
 import dev.atick.storage.room.data.JetpackDatabase
 import javax.inject.Singleton
 
+/**
+ * Dagger module for database.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
 
     private const val ROOM_DATABASE_NAME = "dev.atick.jetpack.room"
 
+    /**
+     * Get the database for Jetpack.
+     *
+     * @param appContext The application context.
+     * @return The database for Jetpack.
+     */
     @Singleton
     @Provides
     fun provideRoomDatabase(
