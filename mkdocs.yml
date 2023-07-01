@@ -42,19 +42,21 @@ extra:
       make our documentation better.
 
   social:
-    - icon: fontawesome/brands/mastodon
-      link: https://fosstodon.org/@squidfunk
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:atickfaisal@gmail.com
+    - icon: fontawesome/brands/github
+      link: https://github.com/atick-faisal
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/atick-faisal
+    - icon: fontawesome/brands/medium
+      link: https://atickfaisal.medium.com
+    - icon: fontawesome/brands/stack-overflow
+      link: https://stackoverflow.com/users/12737399/atick-faisal
+    - icon: fontawesome/brands/researchgate
+      link: https://scholar.google.com/citations?user=ZiPKjAgAAAAJ&hl=en
 
 plugins:
   - search
   - tags
 
-# nav:
-#   - 'Home':
-#       - 'Home': index.md
-#       - 'Website': https://atick.dev
-#   - 'Core':
-#       - 'Android': core/android/index.md
-#       - 'UI': core/ui/index.md
-
-copyright: Copyright &copy; 2016 - 2020 Martin Donath
+copyright: Copyright &copy; 2023 Atick Faisal
