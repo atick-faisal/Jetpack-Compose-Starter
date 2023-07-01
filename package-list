@@ -1,0 +1,430 @@
+$dokka.format:gfm-v1
+$dokka.linkExtension:md
+$dokka.location:dev.atick.bluetooth.classic.di////PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic.di/index.md
+$dokka.location:dev.atick.bluetooth.classic.di/BluetoothClassicModule///PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic.di/-bluetooth-classic-module/index.md
+$dokka.location:dev.atick.bluetooth.classic.di/BluetoothClassicModule/BluetoothClassicModule/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic.di/-bluetooth-classic-module/-bluetooth-classic-module.md
+$dokka.location:dev.atick.bluetooth.classic.di/BluetoothClassicModule/bindBluetoothDataSource/#dev.atick.bluetooth.classic.BluetoothClassic/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic.di/-bluetooth-classic-module/bind-bluetooth-data-source.md
+$dokka.location:dev.atick.bluetooth.classic.di/BluetoothClassicModule/bindBluetoothManager/#dev.atick.bluetooth.classic.BluetoothClassic/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic.di/-bluetooth-classic-module/bind-bluetooth-manager.md
+$dokka.location:dev.atick.bluetooth.classic.di/BluetoothClassicModule/provideBluetoothUtils/#dev.atick.bluetooth.classic.BluetoothClassic/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic.di/-bluetooth-classic-module/provide-bluetooth-utils.md
+$dokka.location:dev.atick.bluetooth.classic////PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/index.md
+$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic.Companion///PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/-companion/index.md
+$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic.Companion/BT_UUID/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/-companion/-b-t_-u-u-i-d.md
+$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic///PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/index.md
+$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/BluetoothClassic/#android.bluetooth.BluetoothAdapter?#android.content.Context#kotlinx.coroutines.CoroutineDispatcher/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/-bluetooth-classic.md
+$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/closeConnection/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/close-connection.md
+$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/connect/#kotlin.String/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/connect.md
+$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/getBluetoothDataStream/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/get-bluetooth-data-stream.md
+$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/getBluetoothState/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/get-bluetooth-state.md
+$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/getConnectedDeviceState/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/get-connected-device-state.md
+$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/getPairedDevices/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/get-paired-devices.md
+$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/getScannedDevices/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/get-scanned-devices.md
+$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/sendDataToBluetoothDevice/#kotlin.String/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/send-data-to-bluetooth-device.md
+$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/stopDiscovery/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/stop-discovery.md
+$dokka.location:dev.atick.bluetooth.common.data////PointingToDeclaration/common/common/dev.atick.bluetooth.common.data/index.md
+$dokka.location:dev.atick.bluetooth.common.data/BluetoothDataSource///PointingToDeclaration/common/common/dev.atick.bluetooth.common.data/-bluetooth-data-source/index.md
+$dokka.location:dev.atick.bluetooth.common.data/BluetoothDataSource/getBluetoothDataStream/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.data/-bluetooth-data-source/get-bluetooth-data-stream.md
+$dokka.location:dev.atick.bluetooth.common.data/BluetoothDataSource/sendDataToBluetoothDevice/#kotlin.String/PointingToDeclaration/common/common/dev.atick.bluetooth.common.data/-bluetooth-data-source/send-data-to-bluetooth-device.md
+$dokka.location:dev.atick.bluetooth.common.di////PointingToDeclaration/common/common/dev.atick.bluetooth.common.di/index.md
+$dokka.location:dev.atick.bluetooth.common.di/BluetoothAdapterModule///PointingToDeclaration/common/common/dev.atick.bluetooth.common.di/-bluetooth-adapter-module/index.md
+$dokka.location:dev.atick.bluetooth.common.di/BluetoothAdapterModule/provideBluetoothAdapter/#android.content.Context/PointingToDeclaration/common/common/dev.atick.bluetooth.common.di/-bluetooth-adapter-module/provide-bluetooth-adapter.md
+$dokka.location:dev.atick.bluetooth.common.manager////PointingToDeclaration/common/common/dev.atick.bluetooth.common.manager/index.md
+$dokka.location:dev.atick.bluetooth.common.manager/BluetoothManager///PointingToDeclaration/common/common/dev.atick.bluetooth.common.manager/-bluetooth-manager/index.md
+$dokka.location:dev.atick.bluetooth.common.manager/BluetoothManager/closeConnection/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.manager/-bluetooth-manager/close-connection.md
+$dokka.location:dev.atick.bluetooth.common.manager/BluetoothManager/connect/#kotlin.String/PointingToDeclaration/common/common/dev.atick.bluetooth.common.manager/-bluetooth-manager/connect.md
+$dokka.location:dev.atick.bluetooth.common.manager/BluetoothManager/getConnectedDeviceState/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.manager/-bluetooth-manager/get-connected-device-state.md
+$dokka.location:dev.atick.bluetooth.common.models////PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/index.md
+$dokka.location:dev.atick.bluetooth.common.models//simplify/android.bluetooth.BluetoothDevice#kotlin.Boolean/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/simplify.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDevice///PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDevice/BtDevice/#kotlin.String#kotlin.String#dev.atick.bluetooth.common.models.BtDeviceType#kotlin.Boolean/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/-bt-device.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDevice/address/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/address.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDevice/connected/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/connected.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDevice/name/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/name.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDevice/type/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/type.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.AUDIO_VIDEO///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-a-u-d-i-o_-v-i-d-e-o/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.COMPUTER///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-c-o-m-p-u-t-e-r/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.HEALTH///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-h-e-a-l-t-h/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.IMAGING///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-i-m-a-g-i-n-g/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.MISC///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-m-i-s-c/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.NETWORKING///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-n-e-t-w-o-r-k-i-n-g/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.PERIPHERAL///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-p-e-r-i-p-h-e-r-a-l/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.PHONE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-p-h-o-n-e/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.TOY///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-t-o-y/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.UNCATEGORIZED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-u-n-c-a-t-e-g-o-r-i-z-e-d/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.WEARABLE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-w-e-a-r-a-b-l-e/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType///PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device-type/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType/valueOf/#kotlin.String/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device-type/value-of.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType/values/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device-type/values.md
+$dokka.location:dev.atick.bluetooth.common.models/BtMessage///PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-message/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtMessage/BtMessage/#kotlin.Long#kotlin.CharSequence/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-message/-bt-message.md
+$dokka.location:dev.atick.bluetooth.common.models/BtMessage/message/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-message/message.md
+$dokka.location:dev.atick.bluetooth.common.models/BtMessage/timestamp/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-message/timestamp.md
+$dokka.location:dev.atick.bluetooth.common.models/BtState.DISABLED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-state/-d-i-s-a-b-l-e-d/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtState.ENABLED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-state/-e-n-a-b-l-e-d/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtState///PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-state/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtState/valueOf/#kotlin.String/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-state/value-of.md
+$dokka.location:dev.atick.bluetooth.common.models/BtState/values/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-state/values.md
+$dokka.location:dev.atick.bluetooth.common.receiver////PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/index.md
+$dokka.location:dev.atick.bluetooth.common.receiver/BluetoothStateReceiver///PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-bluetooth-state-receiver/index.md
+$dokka.location:dev.atick.bluetooth.common.receiver/BluetoothStateReceiver/BluetoothStateReceiver/#kotlin.Function1[dev.atick.bluetooth.common.models.BtState,kotlin.Unit]/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-bluetooth-state-receiver/-bluetooth-state-receiver.md
+$dokka.location:dev.atick.bluetooth.common.receiver/BluetoothStateReceiver/onReceive/#android.content.Context?#android.content.Intent?/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-bluetooth-state-receiver/on-receive.md
+$dokka.location:dev.atick.bluetooth.common.receiver/DeviceStateReceiver///PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-device-state-receiver/index.md
+$dokka.location:dev.atick.bluetooth.common.receiver/DeviceStateReceiver/DeviceStateReceiver/#kotlin.Function1[dev.atick.bluetooth.common.models.BtDevice,kotlin.Unit]/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-device-state-receiver/-device-state-receiver.md
+$dokka.location:dev.atick.bluetooth.common.receiver/DeviceStateReceiver/onReceive/#android.content.Context?#android.content.Intent?/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-device-state-receiver/on-receive.md
+$dokka.location:dev.atick.bluetooth.common.receiver/ScannedDeviceReceiver///PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-scanned-device-receiver/index.md
+$dokka.location:dev.atick.bluetooth.common.receiver/ScannedDeviceReceiver/ScannedDeviceReceiver/#kotlin.Function1[dev.atick.bluetooth.common.models.BtDevice,kotlin.Unit]/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-scanned-device-receiver/-scanned-device-receiver.md
+$dokka.location:dev.atick.bluetooth.common.receiver/ScannedDeviceReceiver/onReceive/#android.content.Context?#android.content.Intent?/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-scanned-device-receiver/on-receive.md
+$dokka.location:dev.atick.bluetooth.common.utils////PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/index.md
+$dokka.location:dev.atick.bluetooth.common.utils/BluetoothUtils///PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/-bluetooth-utils/index.md
+$dokka.location:dev.atick.bluetooth.common.utils/BluetoothUtils/getBluetoothState/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/-bluetooth-utils/get-bluetooth-state.md
+$dokka.location:dev.atick.bluetooth.common.utils/BluetoothUtils/getPairedDevices/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/-bluetooth-utils/get-paired-devices.md
+$dokka.location:dev.atick.bluetooth.common.utils/BluetoothUtils/getScannedDevices/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/-bluetooth-utils/get-scanned-devices.md
+$dokka.location:dev.atick.bluetooth.common.utils/BluetoothUtils/stopDiscovery/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/-bluetooth-utils/stop-discovery.md
+$dokka.location:dev.atick.compose.data.home////PointingToDeclaration/app/app/dev.atick.compose.data.home/index.md
+$dokka.location:dev.atick.compose.data.home/Item///PointingToDeclaration/app/app/dev.atick.compose.data.home/-item/index.md
+$dokka.location:dev.atick.compose.data.home/Item/Item/#kotlin.Int#kotlin.String/PointingToDeclaration/app/app/dev.atick.compose.data.home/-item/-item.md
+$dokka.location:dev.atick.compose.data.home/Item/id/#/PointingToDeclaration/app/app/dev.atick.compose.data.home/-item/id.md
+$dokka.location:dev.atick.compose.data.home/Item/title/#/PointingToDeclaration/app/app/dev.atick.compose.data.home/-item/title.md
+$dokka.location:dev.atick.compose.data.home/Item/toRoomItem/#/PointingToDeclaration/app/app/dev.atick.compose.data.home/-item/to-room-item.md
+$dokka.location:dev.atick.compose.di.notification////PointingToDeclaration/app/app/dev.atick.compose.di.notification/index.md
+$dokka.location:dev.atick.compose.di.notification/NotificationModule///PointingToDeclaration/app/app/dev.atick.compose.di.notification/-notification-module/index.md
+$dokka.location:dev.atick.compose.di.notification/NotificationModule/provideNotificationManager/#android.content.Context/PointingToDeclaration/app/app/dev.atick.compose.di.notification/-notification-module/provide-notification-manager.md
+$dokka.location:dev.atick.compose.di.repository////PointingToDeclaration/app/app/dev.atick.compose.di.repository/index.md
+$dokka.location:dev.atick.compose.di.repository/RepositoryModule///PointingToDeclaration/app/app/dev.atick.compose.di.repository/-repository-module/index.md
+$dokka.location:dev.atick.compose.di.repository/RepositoryModule/RepositoryModule/#/PointingToDeclaration/app/app/dev.atick.compose.di.repository/-repository-module/-repository-module.md
+$dokka.location:dev.atick.compose.di.repository/RepositoryModule/bindHomeRepository/#dev.atick.compose.repository.home.HomeRepositoryImpl/PointingToDeclaration/app/app/dev.atick.compose.di.repository/-repository-module/bind-home-repository.md
+$dokka.location:dev.atick.compose.repository.home////PointingToDeclaration/app/app/dev.atick.compose.repository.home/index.md
+$dokka.location:dev.atick.compose.repository.home/HomeRepository///PointingToDeclaration/app/app/dev.atick.compose.repository.home/-home-repository/index.md
+$dokka.location:dev.atick.compose.repository.home/HomeRepository/getItem/#kotlin.Int/PointingToDeclaration/app/app/dev.atick.compose.repository.home/-home-repository/get-item.md
+$dokka.location:dev.atick.compose.repository.home/HomeRepository/getUserId/#/PointingToDeclaration/app/app/dev.atick.compose.repository.home/-home-repository/get-user-id.md
+$dokka.location:dev.atick.compose.repository.home/HomeRepository/saveItem/#dev.atick.compose.data.home.Item/PointingToDeclaration/app/app/dev.atick.compose.repository.home/-home-repository/save-item.md
+$dokka.location:dev.atick.compose.repository.home/HomeRepositoryImpl///PointingToDeclaration/app/app/dev.atick.compose.repository.home/-home-repository-impl/index.md
+$dokka.location:dev.atick.compose.repository.home/HomeRepositoryImpl/HomeRepositoryImpl/#dev.atick.storage.room.data.JetpackDao#dev.atick.network.data.JetpackDataSource#dev.atick.storage.preferences.data.PreferencesDatastore/PointingToDeclaration/app/app/dev.atick.compose.repository.home/-home-repository-impl/-home-repository-impl.md
+$dokka.location:dev.atick.compose.repository.home/HomeRepositoryImpl/getItem/#kotlin.Int/PointingToDeclaration/app/app/dev.atick.compose.repository.home/-home-repository-impl/get-item.md
+$dokka.location:dev.atick.compose.repository.home/HomeRepositoryImpl/getUserId/#/PointingToDeclaration/app/app/dev.atick.compose.repository.home/-home-repository-impl/get-user-id.md
+$dokka.location:dev.atick.compose.repository.home/HomeRepositoryImpl/saveItem/#dev.atick.compose.data.home.Item/PointingToDeclaration/app/app/dev.atick.compose.repository.home/-home-repository-impl/save-item.md
+$dokka.location:dev.atick.compose.ui.home.components////PointingToDeclaration/app/app/dev.atick.compose.ui.home.components/index.md
+$dokka.location:dev.atick.compose.ui.home.components//HomeContent/#androidx.compose.ui.Modifier#dev.atick.compose.data.home.Item?#kotlin.Boolean#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/app/app/dev.atick.compose.ui.home.components/-home-content.md
+$dokka.location:dev.atick.compose.ui.home.state////PointingToDeclaration/app/app/dev.atick.compose.ui.home.state/index.md
+$dokka.location:dev.atick.compose.ui.home.state//setLoading/kotlinx.coroutines.flow.MutableStateFlow[dev.atick.compose.ui.home.state.HomeUiState]#kotlin.Boolean/PointingToDeclaration/app/app/dev.atick.compose.ui.home.state/set-loading.md
+$dokka.location:dev.atick.compose.ui.home.state//setToastMessage/kotlinx.coroutines.flow.MutableStateFlow[dev.atick.compose.ui.home.state.HomeUiState]#kotlin.String?/PointingToDeclaration/app/app/dev.atick.compose.ui.home.state/set-toast-message.md
+$dokka.location:dev.atick.compose.ui.home.state/HomeUiState///PointingToDeclaration/app/app/dev.atick.compose.ui.home.state/-home-ui-state/index.md
+$dokka.location:dev.atick.compose.ui.home.state/HomeUiState/HomeUiState/#kotlin.Boolean#dev.atick.core.ui.utils.UiText?#dev.atick.compose.data.home.Item?/PointingToDeclaration/app/app/dev.atick.compose.ui.home.state/-home-ui-state/-home-ui-state.md
+$dokka.location:dev.atick.compose.ui.home.state/HomeUiState/item/#/PointingToDeclaration/app/app/dev.atick.compose.ui.home.state/-home-ui-state/item.md
+$dokka.location:dev.atick.compose.ui.home.state/HomeUiState/loading/#/PointingToDeclaration/app/app/dev.atick.compose.ui.home.state/-home-ui-state/loading.md
+$dokka.location:dev.atick.compose.ui.home.state/HomeUiState/toastMessage/#/PointingToDeclaration/app/app/dev.atick.compose.ui.home.state/-home-ui-state/toast-message.md
+$dokka.location:dev.atick.compose.ui.home////PointingToDeclaration/app/app/dev.atick.compose.ui.home/index.md
+$dokka.location:dev.atick.compose.ui.home//HomeScreen/#dev.atick.compose.ui.home.HomeViewModel/PointingToDeclaration/app/app/dev.atick.compose.ui.home/-home-screen.md
+$dokka.location:dev.atick.compose.ui.home/HomeFragment///PointingToDeclaration/app/app/dev.atick.compose.ui.home/-home-fragment/index.md
+$dokka.location:dev.atick.compose.ui.home/HomeFragment/ComposeUi/#/PointingToDeclaration/app/app/dev.atick.compose.ui.home/-home-fragment/-compose-ui.md
+$dokka.location:dev.atick.compose.ui.home/HomeFragment/HomeFragment/#/PointingToDeclaration/app/app/dev.atick.compose.ui.home/-home-fragment/-home-fragment.md
+$dokka.location:dev.atick.compose.ui.home/HomeViewModel///PointingToDeclaration/app/app/dev.atick.compose.ui.home/-home-view-model/index.md
+$dokka.location:dev.atick.compose.ui.home/HomeViewModel/HomeViewModel/#dev.atick.compose.repository.home.HomeRepository/PointingToDeclaration/app/app/dev.atick.compose.ui.home/-home-view-model/-home-view-model.md
+$dokka.location:dev.atick.compose.ui.home/HomeViewModel/clearError/#/PointingToDeclaration/app/app/dev.atick.compose.ui.home/-home-view-model/clear-error.md
+$dokka.location:dev.atick.compose.ui.home/HomeViewModel/getItem/#/PointingToDeclaration/app/app/dev.atick.compose.ui.home/-home-view-model/get-item.md
+$dokka.location:dev.atick.compose.ui.home/HomeViewModel/homeUiState/#/PointingToDeclaration/app/app/dev.atick.compose.ui.home/-home-view-model/home-ui-state.md
+$dokka.location:dev.atick.compose.ui////PointingToDeclaration/app/app/dev.atick.compose.ui/index.md
+$dokka.location:dev.atick.compose.ui/MainActivity///PointingToDeclaration/app/app/dev.atick.compose.ui/-main-activity/index.md
+$dokka.location:dev.atick.compose.ui/MainActivity/MainActivity/#/PointingToDeclaration/app/app/dev.atick.compose.ui/-main-activity/-main-activity.md
+$dokka.location:dev.atick.compose.ui/MainActivity/bluetoothUtils/#/PointingToDeclaration/app/app/dev.atick.compose.ui/-main-activity/bluetooth-utils.md
+$dokka.location:dev.atick.compose////PointingToDeclaration/app/app/dev.atick.compose/index.md
+$dokka.location:dev.atick.compose/App///PointingToDeclaration/app/app/dev.atick.compose/-app/index.md
+$dokka.location:dev.atick.compose/App/App/#/PointingToDeclaration/app/app/dev.atick.compose/-app/-app.md
+$dokka.location:dev.atick.compose/App/onCreate/#/PointingToDeclaration/app/app/dev.atick.compose/-app/on-create.md
+$dokka.location:dev.atick.core.di////PointingToDeclaration/android/android/dev.atick.core.di/index.md
+$dokka.location:dev.atick.core.di/DefaultDispatcher///PointingToDeclaration/android/android/dev.atick.core.di/-default-dispatcher/index.md
+$dokka.location:dev.atick.core.di/DispatcherModule///PointingToDeclaration/android/android/dev.atick.core.di/-dispatcher-module/index.md
+$dokka.location:dev.atick.core.di/DispatcherModule/providesDefaultDispatcher/#/PointingToDeclaration/android/android/dev.atick.core.di/-dispatcher-module/provides-default-dispatcher.md
+$dokka.location:dev.atick.core.di/DispatcherModule/providesIoDispatcher/#/PointingToDeclaration/android/android/dev.atick.core.di/-dispatcher-module/provides-io-dispatcher.md
+$dokka.location:dev.atick.core.di/DispatcherModule/providesMainDispatcher/#/PointingToDeclaration/android/android/dev.atick.core.di/-dispatcher-module/provides-main-dispatcher.md
+$dokka.location:dev.atick.core.di/IoDispatcher///PointingToDeclaration/android/android/dev.atick.core.di/-io-dispatcher/index.md
+$dokka.location:dev.atick.core.di/MainDispatcher///PointingToDeclaration/android/android/dev.atick.core.di/-main-dispatcher/index.md
+$dokka.location:dev.atick.core.extensions////PointingToDeclaration/android/android/dev.atick.core.extensions/index.md
+$dokka.location:dev.atick.core.extensions//cancelNotification/android.content.Context#kotlin.Int/PointingToDeclaration/android/android/dev.atick.core.extensions/cancel-notification.md
+$dokka.location:dev.atick.core.extensions//getFileFromContentUri/android.content.Context#android.net.Uri/PointingToDeclaration/android/android/dev.atick.core.extensions/get-file-from-content-uri.md
+$dokka.location:dev.atick.core.extensions//getTmpFileUri/android.content.Context#kotlin.String/PointingToDeclaration/android/android/dev.atick.core.extensions/get-tmp-file-uri.md
+$dokka.location:dev.atick.core.extensions//hasPermission/android.content.Context#kotlin.String/PointingToDeclaration/android/android/dev.atick.core.extensions/has-permission.md
+$dokka.location:dev.atick.core.extensions//isAllPermissionsGranted/android.content.Context#kotlin.collections.List[kotlin.String]/PointingToDeclaration/android/android/dev.atick.core.extensions/is-all-permissions-granted.md
+$dokka.location:dev.atick.core.extensions//isEmailValid/kotlin.String?#/PointingToDeclaration/android/android/dev.atick.core.extensions/is-email-valid.md
+$dokka.location:dev.atick.core.extensions//isPasswordValid/kotlin.String?#/PointingToDeclaration/android/android/dev.atick.core.extensions/is-password-valid.md
+$dokka.location:dev.atick.core.extensions//showNotification/android.content.Context#kotlin.Int#android.app.Notification/PointingToDeclaration/android/android/dev.atick.core.extensions/show-notification.md
+$dokka.location:dev.atick.core.extensions//showToast/android.content.Context#kotlin.String/PointingToDeclaration/android/android/dev.atick.core.extensions/show-toast.md
+$dokka.location:dev.atick.core.extensions//stateInDelayed/kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]#TypeParam(bounds=[kotlin.Any?])#kotlinx.coroutines.CoroutineScope/PointingToDeclaration/android/android/dev.atick.core.extensions/state-in-delayed.md
+$dokka.location:dev.atick.core.ui.base////PointingToDeclaration/ui/ui/dev.atick.core.ui.base/index.md
+$dokka.location:dev.atick.core.ui.base/BaseFragment///PointingToDeclaration/ui/ui/dev.atick.core.ui.base/-base-fragment/index.md
+$dokka.location:dev.atick.core.ui.base/BaseFragment/BaseFragment/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.base/-base-fragment/-base-fragment.md
+$dokka.location:dev.atick.core.ui.base/BaseFragment/ComposeUi/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.base/-base-fragment/-compose-ui.md
+$dokka.location:dev.atick.core.ui.base/BaseFragment/observeStates/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.base/-base-fragment/observe-states.md
+$dokka.location:dev.atick.core.ui.base/BaseFragment/onCreate/#android.os.Bundle?/PointingToDeclaration/ui/ui/dev.atick.core.ui.base/-base-fragment/on-create.md
+$dokka.location:dev.atick.core.ui.base/BaseFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/ui/ui/dev.atick.core.ui.base/-base-fragment/on-create-view.md
+$dokka.location:dev.atick.core.ui.base/BaseUiState///PointingToDeclaration/ui/ui/dev.atick.core.ui.base/-base-ui-state/index.md
+$dokka.location:dev.atick.core.ui.base/BaseUiState/BaseUiState/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.base/-base-ui-state/-base-ui-state.md
+$dokka.location:dev.atick.core.ui.base/BaseUiState/loading/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.base/-base-ui-state/loading.md
+$dokka.location:dev.atick.core.ui.base/BaseUiState/toastMessage/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.base/-base-ui-state/toast-message.md
+$dokka.location:dev.atick.core.ui.base/BaseViewModel///PointingToDeclaration/ui/ui/dev.atick.core.ui.base/-base-view-model/index.md
+$dokka.location:dev.atick.core.ui.base/BaseViewModel/BaseViewModel/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.base/-base-view-model/-base-view-model.md
+$dokka.location:dev.atick.core.ui.components////PointingToDeclaration/ui/ui/dev.atick.core.ui.components/index.md
+$dokka.location:dev.atick.core.ui.components//LoadingButton/#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Boolean#dev.atick.core.ui.components.AnimationType#androidx.compose.material3.ButtonColors#androidx.compose.ui.unit.Dp#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-loading-button.md
+$dokka.location:dev.atick.core.ui.components//TitleText/#androidx.compose.ui.Modifier#kotlin.String#androidx.compose.ui.graphics.Color/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-title-text.md
+$dokka.location:dev.atick.core.ui.components//TopBar/#androidx.compose.ui.Modifier#kotlin.String#kotlin.Function0[kotlin.Unit]?#kotlin.Function0[kotlin.Unit]?#kotlin.Function0[kotlin.Unit]?#kotlin.Function0[kotlin.Unit]?#kotlin.Function0[kotlin.Unit]?/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-top-bar.md
+$dokka.location:dev.atick.core.ui.components//rememberLoadingIndicatorState/#kotlin.Boolean#dev.atick.core.ui.components.AnimationType/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/remember-loading-indicator-state.md
+$dokka.location:dev.atick.core.ui.components/AnimationType.Bounce///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}ui/ui/dev.atick.core.ui.components/-animation-type/-bounce/index.md
+$dokka.location:dev.atick.core.ui.components/AnimationType.Fade///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}ui/ui/dev.atick.core.ui.components/-animation-type/-fade/index.md
+$dokka.location:dev.atick.core.ui.components/AnimationType.LazyBounce///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}ui/ui/dev.atick.core.ui.components/-animation-type/-lazy-bounce/index.md
+$dokka.location:dev.atick.core.ui.components/AnimationType///PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-animation-type/index.md
+$dokka.location:dev.atick.core.ui.components/AnimationType/valueOf/#kotlin.String/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-animation-type/value-of.md
+$dokka.location:dev.atick.core.ui.components/AnimationType/values/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-animation-type/values.md
+$dokka.location:dev.atick.core.ui.components/LoadingIndicatorState///PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-loading-indicator-state/index.md
+$dokka.location:dev.atick.core.ui.components/LoadingIndicatorState/get/#kotlin.Int/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-loading-indicator-state/get.md
+$dokka.location:dev.atick.core.ui.components/LoadingIndicatorState/start/#dev.atick.core.ui.components.AnimationType#kotlinx.coroutines.CoroutineScope/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-loading-indicator-state/start.md
+$dokka.location:dev.atick.core.ui.components/LoadingIndicatorStateImpl///PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-loading-indicator-state-impl/index.md
+$dokka.location:dev.atick.core.ui.components/LoadingIndicatorStateImpl/LoadingIndicatorStateImpl/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-loading-indicator-state-impl/-loading-indicator-state-impl.md
+$dokka.location:dev.atick.core.ui.components/LoadingIndicatorStateImpl/equals/#kotlin.Any?/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-loading-indicator-state-impl/equals.md
+$dokka.location:dev.atick.core.ui.components/LoadingIndicatorStateImpl/get/#kotlin.Int/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-loading-indicator-state-impl/get.md
+$dokka.location:dev.atick.core.ui.components/LoadingIndicatorStateImpl/hashCode/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-loading-indicator-state-impl/hash-code.md
+$dokka.location:dev.atick.core.ui.components/LoadingIndicatorStateImpl/start/#dev.atick.core.ui.components.AnimationType#kotlinx.coroutines.CoroutineScope/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-loading-indicator-state-impl/start.md
+$dokka.location:dev.atick.core.ui.extensions////PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/index.md
+$dokka.location:dev.atick.core.ui.extensions//checkForPermissions/androidx.activity.ComponentActivity#kotlin.collections.List[kotlin.String]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/check-for-permissions.md
+$dokka.location:dev.atick.core.ui.extensions//collectWithLifecycle/androidx.lifecycle.LifecycleOwner#kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/collect-with-lifecycle.md
+$dokka.location:dev.atick.core.ui.extensions//observe/androidx.lifecycle.LifecycleOwner#androidx.lifecycle.LiveData[TypeParam(bounds=[kotlin.Any?])]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/observe.md
+$dokka.location:dev.atick.core.ui.extensions//observeEvent/androidx.lifecycle.LifecycleOwner#androidx.lifecycle.LiveData[dev.atick.core.utils.SingleLiveEvent[TypeParam(bounds=[kotlin.Any?])]]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/observe-event.md
+$dokka.location:dev.atick.core.ui.extensions//observeEvent/androidx.lifecycle.LifecycleOwner#androidx.lifecycle.MutableLiveData[dev.atick.core.utils.SingleLiveEvent[TypeParam(bounds=[kotlin.Any?])]]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/observe-event.md
+$dokka.location:dev.atick.core.ui.extensions//openPermissionSettings/androidx.activity.ComponentActivity#/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/open-permission-settings.md
+$dokka.location:dev.atick.core.ui.extensions//permissionLauncher/androidx.activity.ComponentActivity#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/permission-launcher.md
+$dokka.location:dev.atick.core.ui.extensions//resultLauncher/androidx.activity.ComponentActivity#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/result-launcher.md
+$dokka.location:dev.atick.core.ui.theme////PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/index.md
+$dokka.location:dev.atick.core.ui.theme//JetpackTheme/#kotlin.Boolean#kotlin.Boolean#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/-jetpack-theme.md
+$dokka.location:dev.atick.core.ui.theme//Typography/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/-typography.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_background/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_background.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_error/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_error.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_errorContainer/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_error-container.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_inverseOnSurface/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_inverse-on-surface.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_inversePrimary/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_inverse-primary.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_inverseSurface/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_inverse-surface.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_onBackground/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_on-background.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_onError/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_on-error.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_onErrorContainer/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_on-error-container.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_onPrimary/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_on-primary.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_onPrimaryContainer/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_on-primary-container.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_onSecondary/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_on-secondary.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_onSecondaryContainer/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_on-secondary-container.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_onSurface/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_on-surface.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_onSurfaceVariant/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_on-surface-variant.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_onTertiary/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_on-tertiary.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_onTertiaryContainer/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_on-tertiary-container.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_outline/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_outline.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_outlineVariant/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_outline-variant.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_primary/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_primary.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_primaryContainer/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_primary-container.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_scrim/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_scrim.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_secondary/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_secondary.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_secondaryContainer/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_secondary-container.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_surface/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_surface.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_surfaceTint/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_surface-tint.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_surfaceVariant/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_surface-variant.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_tertiary/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_tertiary.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_dark_tertiaryContainer/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_dark_tertiary-container.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_background/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_background.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_error/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_error.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_errorContainer/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_error-container.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_inverseOnSurface/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_inverse-on-surface.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_inversePrimary/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_inverse-primary.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_inverseSurface/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_inverse-surface.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_onBackground/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_on-background.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_onError/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_on-error.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_onErrorContainer/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_on-error-container.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_onPrimary/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_on-primary.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_onPrimaryContainer/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_on-primary-container.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_onSecondary/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_on-secondary.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_onSecondaryContainer/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_on-secondary-container.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_onSurface/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_on-surface.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_onSurfaceVariant/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_on-surface-variant.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_onTertiary/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_on-tertiary.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_onTertiaryContainer/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_on-tertiary-container.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_outline/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_outline.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_outlineVariant/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_outline-variant.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_primary/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_primary.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_primaryContainer/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_primary-container.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_scrim/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_scrim.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_secondary/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_secondary.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_secondaryContainer/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_secondary-container.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_surface/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_surface.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_surfaceTint/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_surface-tint.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_surfaceVariant/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_surface-variant.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_tertiary/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_tertiary.md
+$dokka.location:dev.atick.core.ui.theme//md_theme_light_tertiaryContainer/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/md_theme_light_tertiary-container.md
+$dokka.location:dev.atick.core.ui.utils////PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/index.md
+$dokka.location:dev.atick.core.ui.utils/TakePictureActivityContract///PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-take-picture-activity-contract/index.md
+$dokka.location:dev.atick.core.ui.utils/TakePictureActivityContract/TakePictureActivityContract/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-take-picture-activity-contract/-take-picture-activity-contract.md
+$dokka.location:dev.atick.core.ui.utils/TakePictureActivityContract/createIntent/#android.content.Context#android.net.Uri/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-take-picture-activity-contract/create-intent.md
+$dokka.location:dev.atick.core.ui.utils/TakePictureActivityContract/getSynchronousResult/#android.content.Context#android.net.Uri/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-take-picture-activity-contract/get-synchronous-result.md
+$dokka.location:dev.atick.core.ui.utils/TakePictureActivityContract/parseResult/#kotlin.Int#android.content.Intent?/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-take-picture-activity-contract/parse-result.md
+$dokka.location:dev.atick.core.ui.utils/UiText.DynamicString///PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/-dynamic-string/index.md
+$dokka.location:dev.atick.core.ui.utils/UiText.DynamicString/DynamicString/#kotlin.String/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/-dynamic-string/-dynamic-string.md
+$dokka.location:dev.atick.core.ui.utils/UiText.DynamicString/value/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/-dynamic-string/value.md
+$dokka.location:dev.atick.core.ui.utils/UiText.StringResource///PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/-string-resource/index.md
+$dokka.location:dev.atick.core.ui.utils/UiText.StringResource/StringResource/#kotlin.Int#kotlin.Array[kotlin.Any]/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/-string-resource/-string-resource.md
+$dokka.location:dev.atick.core.ui.utils/UiText.StringResource/args/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/-string-resource/args.md
+$dokka.location:dev.atick.core.ui.utils/UiText.StringResource/resId/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/-string-resource/res-id.md
+$dokka.location:dev.atick.core.ui.utils/UiText///PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/index.md
+$dokka.location:dev.atick.core.ui.utils/UiText/asString/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/as-string.md
+$dokka.location:dev.atick.core.ui.utils/UiText/asString/#android.content.Context/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/as-string.md
+$dokka.location:dev.atick.core.utils////PointingToDeclaration/android/android/dev.atick.core.utils/index.md
+$dokka.location:dev.atick.core.utils//networkBoundResource/#kotlin.Function0[kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]]#kotlin.coroutines.SuspendFunction0[TypeParam(bounds=[kotlin.Any?])]#kotlin.coroutines.SuspendFunction1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Boolean]/PointingToDeclaration/android/android/dev.atick.core.utils/network-bound-resource.md
+$dokka.location:dev.atick.core.utils/Resource.Error///PointingToDeclaration/android/android/dev.atick.core.utils/-resource/-error/index.md
+$dokka.location:dev.atick.core.utils/Resource.Error/Error/#TypeParam(bounds=[kotlin.Any?])?#kotlin.Throwable/PointingToDeclaration/android/android/dev.atick.core.utils/-resource/-error/-error.md
+$dokka.location:dev.atick.core.utils/Resource.Loading///PointingToDeclaration/android/android/dev.atick.core.utils/-resource/-loading/index.md
+$dokka.location:dev.atick.core.utils/Resource.Loading/Loading/#TypeParam(bounds=[kotlin.Any?])?/PointingToDeclaration/android/android/dev.atick.core.utils/-resource/-loading/-loading.md
+$dokka.location:dev.atick.core.utils/Resource.Success///PointingToDeclaration/android/android/dev.atick.core.utils/-resource/-success/index.md
+$dokka.location:dev.atick.core.utils/Resource.Success/Success/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/android/android/dev.atick.core.utils/-resource/-success/-success.md
+$dokka.location:dev.atick.core.utils/Resource///PointingToDeclaration/android/android/dev.atick.core.utils/-resource/index.md
+$dokka.location:dev.atick.core.utils/Resource/data/#/PointingToDeclaration/android/android/dev.atick.core.utils/-resource/data.md
+$dokka.location:dev.atick.core.utils/Resource/error/#/PointingToDeclaration/android/android/dev.atick.core.utils/-resource/error.md
+$dokka.location:dev.atick.core.utils/SingleLiveEvent///PointingToDeclaration/android/android/dev.atick.core.utils/-single-live-event/index.md
+$dokka.location:dev.atick.core.utils/SingleLiveEvent/SingleLiveEvent/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/android/android/dev.atick.core.utils/-single-live-event/-single-live-event.md
+$dokka.location:dev.atick.core.utils/SingleLiveEvent/getContentIfNotHandled/#/PointingToDeclaration/android/android/dev.atick.core.utils/-single-live-event/get-content-if-not-handled.md
+$dokka.location:dev.atick.core.utils/SingleLiveEvent/hasBeenHandled/#/PointingToDeclaration/android/android/dev.atick.core.utils/-single-live-event/has-been-handled.md
+$dokka.location:dev.atick.core.utils/SingleLiveEvent/peekContent/#/PointingToDeclaration/android/android/dev.atick.core.utils/-single-live-event/peek-content.md
+$dokka.location:dev.atick.network.api////PointingToDeclaration/network/network/dev.atick.network.api/index.md
+$dokka.location:dev.atick.network.api/JetpackRestApi.Companion///PointingToDeclaration/network/network/dev.atick.network.api/-jetpack-rest-api/-companion/index.md
+$dokka.location:dev.atick.network.api/JetpackRestApi.Companion/BASE_URL/#/PointingToDeclaration/network/network/dev.atick.network.api/-jetpack-rest-api/-companion/-b-a-s-e_-u-r-l.md
+$dokka.location:dev.atick.network.api/JetpackRestApi///PointingToDeclaration/network/network/dev.atick.network.api/-jetpack-rest-api/index.md
+$dokka.location:dev.atick.network.api/JetpackRestApi/getItem/#kotlin.Int/PointingToDeclaration/network/network/dev.atick.network.api/-jetpack-rest-api/get-item.md
+$dokka.location:dev.atick.network.data.models////PointingToDeclaration/network/network/dev.atick.network.data.models/index.md
+$dokka.location:dev.atick.network.data.models/Response///PointingToDeclaration/network/network/dev.atick.network.data.models/-response/index.md
+$dokka.location:dev.atick.network.data.models/Response/Response/#kotlin.Int#kotlin.String/PointingToDeclaration/network/network/dev.atick.network.data.models/-response/-response.md
+$dokka.location:dev.atick.network.data.models/Response/id/#/PointingToDeclaration/network/network/dev.atick.network.data.models/-response/id.md
+$dokka.location:dev.atick.network.data.models/Response/title/#/PointingToDeclaration/network/network/dev.atick.network.data.models/-response/title.md
+$dokka.location:dev.atick.network.data////PointingToDeclaration/network/network/dev.atick.network.data/index.md
+$dokka.location:dev.atick.network.data/JetpackDataSource///PointingToDeclaration/network/network/dev.atick.network.data/-jetpack-data-source/index.md
+$dokka.location:dev.atick.network.data/JetpackDataSource/getItem/#kotlin.Int/PointingToDeclaration/network/network/dev.atick.network.data/-jetpack-data-source/get-item.md
+$dokka.location:dev.atick.network.data/JetpackDataSourceImpl///PointingToDeclaration/network/network/dev.atick.network.data/-jetpack-data-source-impl/index.md
+$dokka.location:dev.atick.network.data/JetpackDataSourceImpl/JetpackDataSourceImpl/#dev.atick.network.api.JetpackRestApi/PointingToDeclaration/network/network/dev.atick.network.data/-jetpack-data-source-impl/-jetpack-data-source-impl.md
+$dokka.location:dev.atick.network.data/JetpackDataSourceImpl/getItem/#kotlin.Int/PointingToDeclaration/network/network/dev.atick.network.data/-jetpack-data-source-impl/get-item.md
+$dokka.location:dev.atick.network.di.okhttp////PointingToDeclaration/network/network/dev.atick.network.di.okhttp/index.md
+$dokka.location:dev.atick.network.di.okhttp/InterceptorModule///PointingToDeclaration/network/network/dev.atick.network.di.okhttp/-interceptor-module/index.md
+$dokka.location:dev.atick.network.di.okhttp/InterceptorModule/provideLoggingInterceptor/#/PointingToDeclaration/network/network/dev.atick.network.di.okhttp/-interceptor-module/provide-logging-interceptor.md
+$dokka.location:dev.atick.network.di.okhttp/OkHttpClientModule///PointingToDeclaration/network/network/dev.atick.network.di.okhttp/-ok-http-client-module/index.md
+$dokka.location:dev.atick.network.di.okhttp/OkHttpClientModule/provideOkHttpClient/#okhttp3.logging.HttpLoggingInterceptor/PointingToDeclaration/network/network/dev.atick.network.di.okhttp/-ok-http-client-module/provide-ok-http-client.md
+$dokka.location:dev.atick.network.di.retrofit////PointingToDeclaration/network/network/dev.atick.network.di.retrofit/index.md
+$dokka.location:dev.atick.network.di.retrofit/GsonConverterModule///PointingToDeclaration/network/network/dev.atick.network.di.retrofit/-gson-converter-module/index.md
+$dokka.location:dev.atick.network.di.retrofit/GsonConverterModule/provideGsonConverterFactory/#/PointingToDeclaration/network/network/dev.atick.network.di.retrofit/-gson-converter-module/provide-gson-converter-factory.md
+$dokka.location:dev.atick.network.di.retrofit/RetrofitModule///PointingToDeclaration/network/network/dev.atick.network.di.retrofit/-retrofit-module/index.md
+$dokka.location:dev.atick.network.di.retrofit/RetrofitModule/provideRetrofitClient/#retrofit2.converter.gson.GsonConverterFactory#okhttp3.OkHttpClient/PointingToDeclaration/network/network/dev.atick.network.di.retrofit/-retrofit-module/provide-retrofit-client.md
+$dokka.location:dev.atick.network.di////PointingToDeclaration/network/network/dev.atick.network.di/index.md
+$dokka.location:dev.atick.network.di/ConnectivityManagerModule///PointingToDeclaration/network/network/dev.atick.network.di/-connectivity-manager-module/index.md
+$dokka.location:dev.atick.network.di/ConnectivityManagerModule/provideConnectivityManager/#android.content.Context/PointingToDeclaration/network/network/dev.atick.network.di/-connectivity-manager-module/provide-connectivity-manager.md
+$dokka.location:dev.atick.network.di/DataSourceModule///PointingToDeclaration/network/network/dev.atick.network.di/-data-source-module/index.md
+$dokka.location:dev.atick.network.di/DataSourceModule/DataSourceModule/#/PointingToDeclaration/network/network/dev.atick.network.di/-data-source-module/-data-source-module.md
+$dokka.location:dev.atick.network.di/DataSourceModule/bindJetpackDataSource/#dev.atick.network.data.JetpackDataSourceImpl/PointingToDeclaration/network/network/dev.atick.network.di/-data-source-module/bind-jetpack-data-source.md
+$dokka.location:dev.atick.network.di/NetworkUtilsModule///PointingToDeclaration/network/network/dev.atick.network.di/-network-utils-module/index.md
+$dokka.location:dev.atick.network.di/NetworkUtilsModule/NetworkUtilsModule/#/PointingToDeclaration/network/network/dev.atick.network.di/-network-utils-module/-network-utils-module.md
+$dokka.location:dev.atick.network.di/NetworkUtilsModule/bindNetworkUtils/#dev.atick.network.utils.NetworkUtilsImpl/PointingToDeclaration/network/network/dev.atick.network.di/-network-utils-module/bind-network-utils.md
+$dokka.location:dev.atick.network.di/RestApiModule///PointingToDeclaration/network/network/dev.atick.network.di/-rest-api-module/index.md
+$dokka.location:dev.atick.network.di/RestApiModule/provideApiService/#retrofit2.Retrofit/PointingToDeclaration/network/network/dev.atick.network.di/-rest-api-module/provide-api-service.md
+$dokka.location:dev.atick.network.utils////PointingToDeclaration/network/network/dev.atick.network.utils/index.md
+$dokka.location:dev.atick.network.utils/NetworkState.CONNECTED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}network/network/dev.atick.network.utils/-network-state/-c-o-n-n-e-c-t-e-d/index.md
+$dokka.location:dev.atick.network.utils/NetworkState.LOSING///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}network/network/dev.atick.network.utils/-network-state/-l-o-s-i-n-g/index.md
+$dokka.location:dev.atick.network.utils/NetworkState.LOST///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}network/network/dev.atick.network.utils/-network-state/-l-o-s-t/index.md
+$dokka.location:dev.atick.network.utils/NetworkState.UNAVAILABLE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}network/network/dev.atick.network.utils/-network-state/-u-n-a-v-a-i-l-a-b-l-e/index.md
+$dokka.location:dev.atick.network.utils/NetworkState///PointingToDeclaration/network/network/dev.atick.network.utils/-network-state/index.md
+$dokka.location:dev.atick.network.utils/NetworkState/description/#/PointingToDeclaration/network/network/dev.atick.network.utils/-network-state/description.md
+$dokka.location:dev.atick.network.utils/NetworkState/valueOf/#kotlin.String/PointingToDeclaration/network/network/dev.atick.network.utils/-network-state/value-of.md
+$dokka.location:dev.atick.network.utils/NetworkState/values/#/PointingToDeclaration/network/network/dev.atick.network.utils/-network-state/values.md
+$dokka.location:dev.atick.network.utils/NetworkUtils///PointingToDeclaration/network/network/dev.atick.network.utils/-network-utils/index.md
+$dokka.location:dev.atick.network.utils/NetworkUtils/currentState/#/PointingToDeclaration/network/network/dev.atick.network.utils/-network-utils/current-state.md
+$dokka.location:dev.atick.network.utils/NetworkUtilsImpl///PointingToDeclaration/network/network/dev.atick.network.utils/-network-utils-impl/index.md
+$dokka.location:dev.atick.network.utils/NetworkUtilsImpl/NetworkUtilsImpl/#android.net.ConnectivityManager/PointingToDeclaration/network/network/dev.atick.network.utils/-network-utils-impl/-network-utils-impl.md
+$dokka.location:dev.atick.network.utils/NetworkUtilsImpl/currentState/#/PointingToDeclaration/network/network/dev.atick.network.utils/-network-utils-impl/current-state.md
+$dokka.location:dev.atick.storage.preferences.data.models////PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data.models/index.md
+$dokka.location:dev.atick.storage.preferences.data.models/UserPreferences///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data.models/-user-preferences/index.md
+$dokka.location:dev.atick.storage.preferences.data.models/UserPreferences/UserPreferences/#kotlin.String/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data.models/-user-preferences/-user-preferences.md
+$dokka.location:dev.atick.storage.preferences.data.models/UserPreferences/userId/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data.models/-user-preferences/user-id.md
+$dokka.location:dev.atick.storage.preferences.data////PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/index.md
+$dokka.location:dev.atick.storage.preferences.data/PreferencesDatastore///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-preferences-datastore/index.md
+$dokka.location:dev.atick.storage.preferences.data/PreferencesDatastore/getUserId/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-preferences-datastore/get-user-id.md
+$dokka.location:dev.atick.storage.preferences.data/PreferencesDatastore/saveUserId/#kotlin.String/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-preferences-datastore/save-user-id.md
+$dokka.location:dev.atick.storage.preferences.data/PreferencesDatastoreImpl///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-preferences-datastore-impl/index.md
+$dokka.location:dev.atick.storage.preferences.data/PreferencesDatastoreImpl/PreferencesDatastoreImpl/#androidx.datastore.core.DataStore[dev.atick.storage.preferences.data.models.UserPreferences]/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-preferences-datastore-impl/-preferences-datastore-impl.md
+$dokka.location:dev.atick.storage.preferences.data/PreferencesDatastoreImpl/getUserId/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-preferences-datastore-impl/get-user-id.md
+$dokka.location:dev.atick.storage.preferences.data/PreferencesDatastoreImpl/saveUserId/#kotlin.String/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-preferences-datastore-impl/save-user-id.md
+$dokka.location:dev.atick.storage.preferences.di////PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.di/index.md
+$dokka.location:dev.atick.storage.preferences.di/DatastoreModule///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.di/-datastore-module/index.md
+$dokka.location:dev.atick.storage.preferences.di/DatastoreModule/providePreferencesDataStore/#android.content.Context/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.di/-datastore-module/provide-preferences-data-store.md
+$dokka.location:dev.atick.storage.preferences.di/PreferencesDatastoreModule///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.di/-preferences-datastore-module/index.md
+$dokka.location:dev.atick.storage.preferences.di/PreferencesDatastoreModule/PreferencesDatastoreModule/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.di/-preferences-datastore-module/-preferences-datastore-module.md
+$dokka.location:dev.atick.storage.preferences.di/PreferencesDatastoreModule/bindUserPreferencesDatastore/#dev.atick.storage.preferences.data.PreferencesDatastoreImpl/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.di/-preferences-datastore-module/bind-user-preferences-datastore.md
+$dokka.location:dev.atick.storage.preferences.utils////PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/index.md
+$dokka.location:dev.atick.storage.preferences.utils/UserPreferencesSerializer///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-user-preferences-serializer/index.md
+$dokka.location:dev.atick.storage.preferences.utils/UserPreferencesSerializer/defaultValue/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-user-preferences-serializer/default-value.md
+$dokka.location:dev.atick.storage.preferences.utils/UserPreferencesSerializer/readFrom/#java.io.InputStream/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-user-preferences-serializer/read-from.md
+$dokka.location:dev.atick.storage.preferences.utils/UserPreferencesSerializer/writeTo/#dev.atick.storage.preferences.data.models.UserPreferences#java.io.OutputStream/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-user-preferences-serializer/write-to.md
+$dokka.location:dev.atick.storage.room.data.models////PointingToDeclaration/room/room/dev.atick.storage.room.data.models/index.md
+$dokka.location:dev.atick.storage.room.data.models/Item///PointingToDeclaration/room/room/dev.atick.storage.room.data.models/-item/index.md
+$dokka.location:dev.atick.storage.room.data.models/Item/Item/#kotlin.Long#kotlin.String/PointingToDeclaration/room/room/dev.atick.storage.room.data.models/-item/-item.md
+$dokka.location:dev.atick.storage.room.data.models/Item/id/#/PointingToDeclaration/room/room/dev.atick.storage.room.data.models/-item/id.md
+$dokka.location:dev.atick.storage.room.data.models/Item/name/#/PointingToDeclaration/room/room/dev.atick.storage.room.data.models/-item/name.md
+$dokka.location:dev.atick.storage.room.data////PointingToDeclaration/room/room/dev.atick.storage.room.data/index.md
+$dokka.location:dev.atick.storage.room.data/JetpackDao///PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/index.md
+$dokka.location:dev.atick.storage.room.data/JetpackDao/clear/#/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/clear.md
+$dokka.location:dev.atick.storage.room.data/JetpackDao/delete/#dev.atick.storage.room.data.models.Item/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/delete.md
+$dokka.location:dev.atick.storage.room.data/JetpackDao/getAllItems/#/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/get-all-items.md
+$dokka.location:dev.atick.storage.room.data/JetpackDao/getItem/#kotlin.Long/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/get-item.md
+$dokka.location:dev.atick.storage.room.data/JetpackDao/getItem/#kotlin.String/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/get-item.md
+$dokka.location:dev.atick.storage.room.data/JetpackDao/insert/#dev.atick.storage.room.data.models.Item/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/insert.md
+$dokka.location:dev.atick.storage.room.data/JetpackDao/insertAll/#kotlin.collections.List[dev.atick.storage.room.data.models.Item]/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/insert-all.md
+$dokka.location:dev.atick.storage.room.data/JetpackDao/update/#dev.atick.storage.room.data.models.Item/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/update.md
+$dokka.location:dev.atick.storage.room.data/JetpackDatabase///PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-database/index.md
+$dokka.location:dev.atick.storage.room.data/JetpackDatabase/JetpackDatabase/#/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-database/-jetpack-database.md
+$dokka.location:dev.atick.storage.room.data/JetpackDatabase/getJetpackDao/#/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-database/get-jetpack-dao.md
+$dokka.location:dev.atick.storage.room.di////PointingToDeclaration/room/room/dev.atick.storage.room.di/index.md
+$dokka.location:dev.atick.storage.room.di/DaoModule///PointingToDeclaration/room/room/dev.atick.storage.room.di/-dao-module/index.md
+$dokka.location:dev.atick.storage.room.di/DaoModule/provideJetpackDao/#dev.atick.storage.room.data.JetpackDatabase/PointingToDeclaration/room/room/dev.atick.storage.room.di/-dao-module/provide-jetpack-dao.md
+$dokka.location:dev.atick.storage.room.di/DatabaseModule///PointingToDeclaration/room/room/dev.atick.storage.room.di/-database-module/index.md
+$dokka.location:dev.atick.storage.room.di/DatabaseModule/provideRoomDatabase/#android.content.Context/PointingToDeclaration/room/room/dev.atick.storage.room.di/-database-module/provide-room-database.md
+module:app
+dev.atick.compose
+dev.atick.compose.data.home
+dev.atick.compose.di.notification
+dev.atick.compose.di.repository
+dev.atick.compose.repository.home
+dev.atick.compose.ui
+dev.atick.compose.ui.home
+dev.atick.compose.ui.home.components
+dev.atick.compose.ui.home.state
+module:network
+dev.atick.network.api
+dev.atick.network.data
+dev.atick.network.data.models
+dev.atick.network.di
+dev.atick.network.di.okhttp
+dev.atick.network.di.retrofit
+dev.atick.network.utils
+module:classic
+dev.atick.bluetooth.classic
+dev.atick.bluetooth.classic.di
+module:common
+dev.atick.bluetooth.common.data
+dev.atick.bluetooth.common.di
+dev.atick.bluetooth.common.manager
+dev.atick.bluetooth.common.models
+dev.atick.bluetooth.common.receiver
+dev.atick.bluetooth.common.utils
+module:android
+dev.atick.core.di
+dev.atick.core.extensions
+dev.atick.core.utils
+module:ui
+dev.atick.core.ui.base
+dev.atick.core.ui.components
+dev.atick.core.ui.extensions
+dev.atick.core.ui.theme
+dev.atick.core.ui.utils
+module:preferences
+dev.atick.storage.preferences.data
+dev.atick.storage.preferences.data.models
+dev.atick.storage.preferences.di
+dev.atick.storage.preferences.utils
+module:room
+dev.atick.storage.room.data
+dev.atick.storage.room.data.models
+dev.atick.storage.room.di
