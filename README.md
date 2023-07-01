@@ -16,7 +16,7 @@ Jetpack Compose App Template
 <br>
 
 <p align="center">
-  <img src="technologies.png" width="700"/>
+  <img src="https://github.com/atick-faisal/Jetpack-Compose-Starter/technologies.png" width="700"/>
 </p>
 
 <br>
