@@ -20,7 +20,7 @@ androidxAppCompat = "1.6.1"
 androidxActivity = "1.7.2"
 androidxLifecycle = "2.6.1"
 androidxComposeBom = "2023.06.01"
-androidxComposeCompiler = "1.4.8"
+androidxComposeCompiler = "1.5.0"
 lottieCompose = "6.1.0"
 
 # ... NETWORK ...
