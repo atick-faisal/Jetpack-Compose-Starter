@@ -55,7 +55,10 @@ interface JetpackDao {
     suspend fun delete(item: Item)
 
     /**
-     * Delete all items.
+     * Get an item by id.
+     *
+     * @param id The id of the item.
+     * @return The item with the given id.
      */
     @Query("SELECT * FROM items WHERE id = :id")
     suspend fun getItem(id: Long): Item?
