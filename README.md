@@ -9,9 +9,9 @@
 ## Documentation
 <br>
 <p align="center">
-    <a href="https://atick.dev/Jetpack-Compose-Starter">
         <img src="https://github.com/atick-faisal/Jetpack-Compose-Starter/assets/38709932/02fde5d3-f564-4020-8778-47b2d6a1b7b5" width=400 />
-    </a>
+    <br>
+    <a href="https://atick.dev/Jetpack-Compose-Starter">Read The Documentation Here</a>
 </p>
 
 ## Features
