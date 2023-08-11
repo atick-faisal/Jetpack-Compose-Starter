@@ -15,6 +15,7 @@ class DaggerHiltConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply("com.google.dagger.hilt.android")
                 apply("org.jetbrains.kotlin.kapt")
+                apply("com.google.devtools.ksp")
             }
 
             dependencies {
