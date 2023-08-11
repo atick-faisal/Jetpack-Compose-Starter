@@ -3,23 +3,23 @@
 # ... PROJECT ...
 java = "17"
 kotlin = "1.9.0"
-androidGradlePlugin = "8.0.2"
+androidGradlePlugin = "8.1.0"
 dokka = "1.8.20"
 
 # ... CORE:ANDROID ...
 androidxCore = "1.10.1"
-kotlinxCoroutines = "1.7.2"
+kotlinxCoroutines = "1.7.3"
 kotlinxDatetime = "0.4.0"
 kotlinxSerializationJson = "1.5.1"
 timber = "5.0.1"
 
 # ... CORE:UI ...
-androidxNavigation = "2.6.0"
-androidxFragment = "1.6.0"
+androidxNavigation = "2.7.0"
+androidxFragment = "1.6.1"
 androidxAppCompat = "1.6.1"
 androidxActivity = "1.7.2"
 androidxLifecycle = "2.6.1"
-androidxComposeBom = "2023.06.01"
+androidxComposeBom = "2023.08.00"
 androidxComposeCompiler = "1.5.0"
 lottieCompose = "6.1.0"
 
@@ -35,8 +35,8 @@ room = "2.5.2"
 
 # ... FIREBASE ...
 gmsPlugin = "4.3.15"
-firebaseBom = "32.2.0"
-firebaseCrashlyticsPlugin = "2.9.7"
+firebaseBom = "32.2.2"
+firebaseCrashlyticsPlugin = "2.9.8"
 
 # ... DAGGER-HILT ...
 daggerHilt = "2.47"
