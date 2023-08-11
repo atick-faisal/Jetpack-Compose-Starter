@@ -44,8 +44,8 @@ daggerHiltExt = "1.0.0"
 
 # ... SDK-CONFIG ...
 minSdk = "24"
-compileSdk = "33"
-targetSdk = "33"
+compileSdk = "34"
+targetSdk = "34"
 
 
 [plugins]
