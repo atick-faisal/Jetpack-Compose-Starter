@@ -19,6 +19,7 @@
 plugins {
     id("dev.atick.library")
     id("dev.atick.dagger.hilt")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -26,6 +27,10 @@ android {
         buildConfig = true
     }
     namespace = "dev.atick.network"
+}
+
+secrets {
+    defaultPropertiesFileName = "secrets.defaults.properties"
 }
 
 dependencies {
