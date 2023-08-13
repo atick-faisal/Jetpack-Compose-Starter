@@ -6,6 +6,7 @@ kotlin = "1.9.0"
 androidGradlePlugin = "8.1.0"
 ksp = "1.9.0-1.0.13"
 dokka = "1.8.20"
+secrets = "2.0.1"
 
 # ... CORE:ANDROID ...
 androidxCore = "1.10.1"
@@ -62,6 +63,7 @@ androidx-navigation-safeargs = { id = "androidx.navigation.safeargs", version.re
 dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secrets" }
 
 [libraries]
 

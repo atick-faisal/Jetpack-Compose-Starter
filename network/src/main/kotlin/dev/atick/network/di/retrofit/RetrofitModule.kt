@@ -20,7 +20,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.network.api.JetpackRestApi.Companion.BASE_URL
+import dev.atick.network.BuildConfig
 import dev.atick.network.di.okhttp.OkHttpClientModule
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -52,7 +52,7 @@ object RetrofitModule {
         okHttpClient: OkHttpClient,
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.BACKEND_URL)
             .addConverterFactory(converterFactory)
             .client(okHttpClient)
             .build()

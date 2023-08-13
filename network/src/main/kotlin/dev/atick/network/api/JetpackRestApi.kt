@@ -25,10 +25,6 @@ import retrofit2.http.Path
  */
 interface JetpackRestApi {
 
-    companion object {
-        const val BASE_URL = "https://jsonplaceholder.typicode.com"
-    }
-
     /**
      * Get a list of items.
      *
