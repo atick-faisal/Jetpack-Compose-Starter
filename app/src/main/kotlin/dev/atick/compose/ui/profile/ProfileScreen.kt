@@ -14,41 +14,36 @@
  * limitations under the License.
  */
 
-package dev.atick.compose.ui.home
+package dev.atick.compose.ui.profile
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import dev.atick.compose.data.home.HomeData
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import dev.atick.compose.data.profile.ProfileData
 import dev.atick.core.ui.utils.StatefulComposable
 
-/**
- * Composable function that represents the home screen.
- *
- * @param homeViewModel The view model for the home screen.
- */
 @Composable
-internal fun HomeRoute(
+internal fun ProfileRoute(
     onShowLoadingDialog: (Boolean) -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
-    homeViewModel: HomeViewModel = hiltViewModel(),
+    viewModel: ProfileViewModel = hiltViewModel(),
 ) {
-    val homeState by homeViewModel.homeUiState.collectAsState()
+    val profileState by viewModel.profileUiState.collectAsStateWithLifecycle()
 
     StatefulComposable(
-        state = homeState,
+        state = profileState,
         onShowLoadingDialog = onShowLoadingDialog,
         onShowSnackbar = onShowSnackbar,
-    ) { homeData ->
-        HomeScreen(homeData = homeData)
+    ) { profileData ->
+        ProfileScreen(profileData)
     }
 }
 
 @Preview
 @Composable
-private fun HomeScreen(homeData: HomeData = HomeData()) {
-    Text(text = homeData.name)
+private fun ProfileScreen(profileData: ProfileData = ProfileData()) {
+    Text(text = profileData.name)
 }

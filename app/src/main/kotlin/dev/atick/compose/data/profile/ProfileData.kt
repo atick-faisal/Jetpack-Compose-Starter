@@ -14,23 +14,8 @@
  * limitations under the License.
  */
 
-package dev.atick.compose.ui.home
+package dev.atick.compose.data.profile
 
-import androidx.compose.runtime.Composable
-import dagger.hilt.android.AndroidEntryPoint
-import dev.atick.core.ui.base.BaseFragment
-
-/**
- * Fragment for the home screen.
- */
-@AndroidEntryPoint
-class HomeFragment : BaseFragment() {
-
-    /**
-     * Compose the UI for the fragment.
-     */
-    @Composable
-    override fun ComposeUi() {
-        HomeScreen()
-    }
-}
+data class ProfileData(
+    val name: String = "PROFILE",
+)

@@ -20,4 +20,7 @@
     <string name="btn_click_text">Get Item</string>
     <string name="home">Home</string>
     <string name="error_item_loading">Error Loading Item</string>
+    <string name="profile">Profile</string>
+    <string name="search">Search</string>
+    <string name="more">More</string>
 </resources>

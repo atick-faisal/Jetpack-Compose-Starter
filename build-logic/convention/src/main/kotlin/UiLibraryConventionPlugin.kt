@@ -8,7 +8,7 @@ import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 
-@Suppress("UNUSED", "UnstableApiUsage")
+@Suppress("UNUSED")
 class UiLibraryConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
@@ -42,7 +42,9 @@ class UiLibraryConventionPlugin : Plugin<Project> {
                     freeCompilerArgs = freeCompilerArgs + listOf(
                         "-opt-in=kotlin.RequiresOptIn",
                         "-opt-in=kotlinx.coroutines.FlowPreview",
-                        "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+                        "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+                        "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+                        "-opt-in=androidx.compose.foundation.layout.ExperimentalLayoutApi"
                     )
                 }
 

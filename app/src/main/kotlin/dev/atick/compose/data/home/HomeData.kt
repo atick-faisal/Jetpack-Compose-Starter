@@ -14,21 +14,8 @@
  * limitations under the License.
  */
 
-package dev.atick.core.ui.base
+package dev.atick.compose.data.home
 
-import dev.atick.core.ui.utils.UiText
-
-/**
- * Abstract base class for UI states.
- */
-abstract class BaseUiState {
-    /**
-     * Indicates whether the UI is in a loading state.
-     */
-    abstract val loading: Boolean
-
-    /**
-     * The toast message to display, if any.
-     */
-    abstract val toastMessage: UiText?
-}
+data class HomeData(
+    val name: String = "HOME",
+)
