@@ -70,7 +70,7 @@ fun JetpackApp(
     appState: JetpackAppState = rememberJetpackAppState(
         windowSizeClass = windowSizeClass,
         networkUtils = networkUtils,
-        ),
+    ),
 ) {
     val snackBarHostState = remember { SnackbarHostState() }
     val unreadDestinations by appState.topLevelDestinationsWithUnreadResources.collectAsStateWithLifecycle()

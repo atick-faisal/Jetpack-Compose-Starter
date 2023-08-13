@@ -41,5 +41,5 @@ enum class TopLevelDestination(
         unselectedIcon = Icons.Outlined.Person,
         iconTextId = R.string.profile,
         titleTextId = R.string.profile,
-        ),
+    ),
 }
