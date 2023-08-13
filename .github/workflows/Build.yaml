@@ -35,9 +35,6 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
-#      - name: Make gradlew executable
-#        run: chmod +x ./gradlew
-
       - name: Set up Signing Key
         run: |
           touch app/key.jks

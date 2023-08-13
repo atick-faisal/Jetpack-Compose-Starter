@@ -31,8 +31,8 @@ jobs:
           distribution: 'zulu'
           cache: gradle
 
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
 
       - name: Set up Signing Key
         run: |
@@ -52,7 +52,7 @@ jobs:
       - name: Generate Docs
         run: |
           pip install mkdocs mkdocs-material Pygments
-          ./gradlew dokkaGfmMultiModule
+          ./gradlew dokkaGfmMultiModule --no-configuration-cache
           mv build/dokka/gfmMultiModule docs
           cat README.md > docs/index.md
           mkdocs gh-deploy

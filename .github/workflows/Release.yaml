@@ -29,8 +29,8 @@ jobs:
           distribution: 'zulu'
           cache: gradle
 
-      - name: Make gradlew Executable
-        run: chmod +x ./gradlew
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
 
       - name: Set up Signing Key
         run: |
