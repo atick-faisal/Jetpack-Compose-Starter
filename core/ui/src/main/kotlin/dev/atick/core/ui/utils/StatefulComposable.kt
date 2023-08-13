@@ -28,12 +28,16 @@ fun <T> StatefulComposable(
     onShowSnackbar: suspend (String, String?) -> Boolean,
     content: @Composable (T) -> Unit,
 ) {
+    content(state.data)
     when (state) {
-        is UiState.Loading -> { onShowLoadingDialog(true) }
+        is UiState.Loading -> {
+            onShowLoadingDialog(true)
+        }
+
         is UiState.Success -> {
             onShowLoadingDialog(false)
-            content(state.data)
         }
+
         is UiState.Error -> {
             onShowLoadingDialog(false)
             LaunchedEffect(onShowSnackbar) {
@@ -43,8 +47,8 @@ fun <T> StatefulComposable(
     }
 }
 
-sealed interface UiState<out T> {
-    data object Loading : UiState<Nothing>
-    data class Success<T>(val data: T) : UiState<T>
-    data class Error<T>(val exception: Exception, val data: T? = null) : UiState<T>
+sealed class UiState<out T>(val data: T) {
+    data class Loading<T>(val d: T) : UiState<T>(d)
+    data class Success<T>(val d: T) : UiState<T>(d)
+    data class Error<T>(val exception: Exception, val d: T) : UiState<T>(d)
 }
