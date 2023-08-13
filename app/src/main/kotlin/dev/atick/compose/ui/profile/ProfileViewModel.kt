@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-package dev.atick.compose.ui.home
+package dev.atick.compose.ui.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.atick.compose.data.home.HomeData
-import dev.atick.compose.repository.home.HomeRepository
+import dev.atick.compose.data.profile.ProfileData
 import dev.atick.core.ui.utils.UiState
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -29,23 +28,16 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-/**
- * View model for the home screen.
- *
- * @param jetpackRepository The repository for accessing home screen data.
- */
 @HiltViewModel
-class HomeViewModel @Inject constructor(
-    private val jetpackRepository: HomeRepository,
-) : ViewModel() {
-    private val _homeUiState: MutableStateFlow<UiState<HomeData>> =
+class ProfileViewModel @Inject constructor() : ViewModel() {
+    private val _profileUiState: MutableStateFlow<UiState<ProfileData>> =
         MutableStateFlow(UiState.Loading)
-    val homeUiState = _homeUiState.asStateFlow()
+    val profileUiState = _profileUiState.asStateFlow()
 
     init {
         viewModelScope.launch {
             delay(3_000L)
-            _homeUiState.update { UiState.Success(HomeData()) }
+            _profileUiState.update { UiState.Success(ProfileData()) }
         }
     }
 }

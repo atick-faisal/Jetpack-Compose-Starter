@@ -21,8 +21,12 @@ import android.bluetooth.BluetoothAdapter
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.activity.result.ActivityResultLauncher
-import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
+import androidx.core.view.WindowCompat
 import dagger.hilt.android.AndroidEntryPoint
 import dev.atick.bluetooth.common.models.BtState
 import dev.atick.bluetooth.common.utils.BluetoothUtils
@@ -31,12 +35,15 @@ import dev.atick.core.extensions.isAllPermissionsGranted
 import dev.atick.core.ui.extensions.checkForPermissions
 import dev.atick.core.ui.extensions.collectWithLifecycle
 import dev.atick.core.ui.extensions.resultLauncher
+import dev.atick.core.ui.theme.JetpackTheme
+import dev.atick.network.utils.NetworkUtils
 import javax.inject.Inject
+
 /**
  * Main activity for the application.
  */
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
 
     private val permissions = mutableListOf<String>()
     private lateinit var btLauncher: ActivityResultLauncher<Intent>
@@ -44,10 +51,24 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var bluetoothUtils: BluetoothUtils
 
+    @Inject
+    lateinit var networkUtils: NetworkUtils
+
+    @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.Theme_JetpackComposeStarter)
-        setContentView(R.layout.activity_main)
+
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
+        setContent {
+            JetpackTheme {
+                JetpackApp(
+                    windowSizeClass = calculateWindowSizeClass(activity = this),
+                    networkUtils = networkUtils,
+                )
+            }
+        }
 
         // Configure required permissions
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

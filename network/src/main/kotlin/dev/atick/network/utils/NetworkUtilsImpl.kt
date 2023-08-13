@@ -49,7 +49,6 @@ class NetworkUtilsImpl @Inject constructor(
 
                 override fun onLosing(network: Network, maxMsToLive: Int) {
                     super.onLosing(network, maxMsToLive)
-                    trySend(NetworkState.LOSING)
                     Timber.i("LOSING NETWORK CONNECTION ... ")
                 }
 

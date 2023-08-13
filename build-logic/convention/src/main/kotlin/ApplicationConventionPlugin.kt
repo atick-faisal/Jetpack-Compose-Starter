@@ -23,7 +23,6 @@ class ApplicationConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply("com.android.application")
                 apply("org.jetbrains.kotlin.android")
-                apply("androidx.navigation.safeargs")
                 apply("org.jetbrains.dokka")
             }
 
@@ -48,7 +47,9 @@ class ApplicationConventionPlugin : Plugin<Project> {
                     freeCompilerArgs = freeCompilerArgs + listOf(
                         "-opt-in=kotlin.RequiresOptIn",
                         "-opt-in=kotlinx.coroutines.FlowPreview",
-                        "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+                        "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+                        "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+                        "-opt-in=androidx.compose.foundation.layout.ExperimentalLayoutApi"
                     )
                 }
 

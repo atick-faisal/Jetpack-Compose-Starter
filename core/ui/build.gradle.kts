@@ -56,6 +56,7 @@ dependencies {
     // ... Navigation
     api(libs.androidx.navigation.fragment)
     api(libs.androidx.navigation.compose)
+    api(libs.androidx.hilt.navigation.compose)
 
     // ... Lottie
     api(libs.lottie.compose)

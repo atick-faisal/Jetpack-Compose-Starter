@@ -22,6 +22,7 @@ androidxActivity = "1.7.2"
 androidxLifecycle = "2.6.1"
 androidxComposeBom = "2023.08.00"
 androidxComposeCompiler = "1.5.0"
+androidxHiltNavigationCompose = "1.0.0"
 lottieCompose = "6.1.0"
 
 # ... NETWORK ...
@@ -122,7 +123,7 @@ dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", vers
 dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
 androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "daggerHiltExt" }
 androidx-hilt-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "daggerHiltExt" }
-androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "daggerHiltExt" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
 
 # ... BUILD-LOGIC ...
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
