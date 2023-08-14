@@ -22,27 +22,24 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Add
-import androidx.compose.material.icons.outlined.Sailing
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import dev.atick.compose.data.home.HomeData
-import dev.atick.core.ui.theme.JetpackTheme
-import dev.atick.core.ui.utils.DevicePreviews
+import coil.compose.AsyncImage
+import dev.atick.compose.data.home.HomeScreenData
 import dev.atick.core.ui.utils.StatefulComposable
 
 /**
@@ -60,14 +57,14 @@ internal fun HomeRoute(
     StatefulComposable(
         state = homeState,
         onShowSnackbar = onShowSnackbar,
-    ) {
-        HomeScreen()
+    ) { homeScreenData ->
+        HomeScreen(homeScreenData)
     }
 }
 
 @Composable
-private fun HomeScreen() {
-    val homeItems by remember { mutableStateOf(List(50) { HomeData() }) }
+private fun HomeScreen(homeScreenData: HomeScreenData) {
+
     val scrollableState = rememberLazyListState()
 
     LazyColumn(
@@ -75,17 +72,16 @@ private fun HomeScreen() {
         contentPadding = PaddingValues(vertical = 16.dp),
         state = scrollableState,
     ) {
-        items(homeItems) { item ->
+        items(homeScreenData.posts) { post ->
             ListItem(
                 leadingContent = {
-                    Icon(
-                        imageVector = Icons.Outlined.Sailing,
+                    AsyncImage(
+                        model = post.thumbnailUrl,
                         contentDescription = null,
-                        modifier = Modifier.size(64.dp),
+                        modifier = Modifier.clip(CircleShape),
                     )
                 },
-                headlineContent = { Text(text = item.name) },
-                supportingContent = { Text(text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.") },
+                headlineContent = { Text(text = post.title) },
                 trailingContent = {
                     IconButton(onClick = {}) {
                         Icon(
@@ -99,16 +95,6 @@ private fun HomeScreen() {
                     containerColor = Color.Transparent,
                 ),
             )
-        }
-    }
-}
-
-@DevicePreviews
-@Composable
-fun HomeScreenPreview() {
-    JetpackTheme {
-        Surface {
-            HomeScreen()
         }
     }
 }

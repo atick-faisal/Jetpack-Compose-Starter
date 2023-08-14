@@ -17,7 +17,7 @@
 package dev.atick.network.data
 
 import dev.atick.core.di.IoDispatcher
-import dev.atick.network.JetpackDataSource
+import dev.atick.network.NetworkDataSource
 import dev.atick.network.api.JetpackRestApi
 import dev.atick.network.model.NetworkPost
 import kotlinx.coroutines.CoroutineDispatcher
@@ -29,10 +29,10 @@ import javax.inject.Inject
  *
  * @param jetpackRestApi The [JetpackRestApi] instance.
  */
-class JetpackDataSourceImpl @Inject constructor(
+class NetworkDataSourceImpl @Inject constructor(
     private val jetpackRestApi: JetpackRestApi,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
-) : JetpackDataSource {
+) : NetworkDataSource {
 
     /**
      * Retrieves a list of network posts from a remote source using the specified IO dispatcher.

@@ -16,57 +16,43 @@
 
 package dev.atick.compose.repository.home
 
-import dev.atick.compose.data.home.Item
-import dev.atick.network.data.JetpackDataSource
-import dev.atick.storage.preferences.data.PreferencesDatastore
-import dev.atick.storage.room.data.JetpackDao
+import dev.atick.compose.data.home.UiPost
+import dev.atick.compose.data.home.mapToUiPosts
+import dev.atick.compose.data.home.toUiPost
+import dev.atick.network.NetworkDataSource
 import javax.inject.Inject
 
 class HomeRepositoryImpl @Inject constructor(
-    private val jetpackDao: JetpackDao,
-    private val jetpackDataSource: JetpackDataSource,
-    private val preferencesDatastore: PreferencesDatastore,
+    private val networkDataSource: NetworkDataSource,
 ) : HomeRepository {
 
     /**
-     * Retrieves an item with the specified ID.
+     * Retrieves a list of UI posts wrapped in a [Result] by utilizing the network data source.
      *
-     * @param id The ID of the item to retrieve.
-     * @return A [Result] object representing the result of the operation.
+     * This function asynchronously fetches a list of UI posts using the network data source and encapsulates the result
+     * in a [Result] wrapper, applying the [mapToUiPosts] conversion.
+     *
+     * @return A [Result] instance containing either the fetched [List] of [UiPost] objects on success or an error on failure.
      */
-    override suspend fun getItem(id: Int): Result<Item> {
-        return try {
-            val response = jetpackDataSource.getItem(id)
-            val item = Item(
-                id = response.id,
-                title = response.title,
-            )
-            Result.success(item)
-        } catch (exception: Exception) {
-            Result.failure(exception)
+    override suspend fun getPosts(): Result<List<UiPost>> {
+        return kotlin.runCatching {
+            networkDataSource.getPosts().mapToUiPosts()
         }
     }
 
     /**
-     * Saves an item to the repository.
+     * Retrieves a UI post with the specified ID wrapped in a [Result] by utilizing the network data source.
      *
-     * @param item The item to save.
-     */
-    override suspend fun saveItem(item: Item) {
-        jetpackDao.insert(item.toRoomItem())
-    }
-
-    /**
-     * Retrieves the user ID.
+     * This function asynchronously fetches a UI post with the given ID using the network data source and encapsulates
+     * the result in a [Result] wrapper, applying the [toUiPost] conversion.
      *
-     * @return A [Result] object representing the result of the operation.
+     * @param id The ID of the UI post to retrieve.
+     * @return A [Result] instance containing either the fetched [UiPost] object on success or an error on failure.
      */
-    override suspend fun getUserId(): Result<String> {
-        return try {
-            val userId = preferencesDatastore.getUserId()
-            Result.success(userId)
-        } catch (exception: Exception) {
-            Result.failure(exception)
+    override suspend fun getPost(id: Int): Result<UiPost> {
+        return kotlin.runCatching {
+            networkDataSource.getPost(id).toUiPost()
         }
     }
+
 }

@@ -51,7 +51,7 @@ fun <T> StatefulComposable(
         }
         is UiState.Error -> {
             LaunchedEffect(onShowSnackbar) {
-                onShowSnackbar(state.exception.message.toString(), null)
+                onShowSnackbar(state.t?.message.toString(), null)
             }
         }
         else -> { }
@@ -61,5 +61,5 @@ fun <T> StatefulComposable(
 sealed class UiState<out T>(val data: T) {
     data class Loading<T>(val d: T) : UiState<T>(d)
     data class Success<T>(val d: T) : UiState<T>(d)
-    data class Error<T>(val exception: Exception, val d: T) : UiState<T>(d)
+    data class Error<T>(val d: T, val t: Throwable?) : UiState<T>(d)
 }

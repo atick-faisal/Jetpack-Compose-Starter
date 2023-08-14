@@ -16,7 +16,7 @@
 
 package dev.atick.compose.repository.home
 
-import dev.atick.compose.data.home.Item
+import dev.atick.compose.data.home.UiPost
 
 /**
  * Interface defining operations for interacting with the home repository.
@@ -24,24 +24,21 @@ import dev.atick.compose.data.home.Item
 interface HomeRepository {
 
     /**
-     * Retrieves an item with the specified ID.
+     * Retrieves a list of UI posts wrapped in a [Result] from a data source.
      *
-     * @param id The ID of the item to retrieve.
-     * @return A [Result] object representing the result of the operation.
+     * This function asynchronously fetches a list of UI posts and encapsulates the result in a [Result] wrapper.
+     *
+     * @return A [Result] instance containing either the fetched [List] of [UiPost] objects on success or an error on failure.
      */
-    suspend fun getItem(id: Int): Result<Item>
+    suspend fun getPosts(): Result<List<UiPost>>
 
     /**
-     * Saves an item to the repository.
+     * Retrieves a UI post with the specified ID wrapped in a [Result] from a data source.
      *
-     * @param item The item to save.
-     */
-    suspend fun saveItem(item: Item)
-
-    /**
-     * Retrieves the user ID.
+     * This function asynchronously fetches a UI post with the given ID and encapsulates the result in a [Result] wrapper.
      *
-     * @return A [Result] object representing the result of the operation.
+     * @param id The ID of the UI post to retrieve.
+     * @return A [Result] instance containing either the fetched [UiPost] object on success or an error on failure.
      */
-    suspend fun getUserId(): Result<String>
+    suspend fun getPost(id: Int): Result<UiPost>
 }
