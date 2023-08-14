@@ -19,7 +19,6 @@ package dev.atick.compose.ui.profile
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.atick.compose.data.profile.ProfileData
@@ -42,7 +41,6 @@ internal fun ProfileRoute(
     }
 }
 
-@Preview
 @Composable
 private fun ProfileScreen(profileData: ProfileData = ProfileData()) {
     Text(text = profileData.name)

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.compose.ui.common
+package dev.atick.core.ui.component
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
