@@ -44,4 +44,8 @@ dependencies {
     // ... Retrofit
     implementation(libs.retrofit.core)
     implementation(libs.retrofit.converter.gson)
+
+    // ... Coil
+    implementation(libs.coil.kt)
+    implementation(libs.coil.kt.svg)
 }

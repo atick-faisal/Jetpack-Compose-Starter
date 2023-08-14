@@ -58,6 +58,11 @@ dependencies {
     api(libs.androidx.navigation.compose)
     api(libs.androidx.hilt.navigation.compose)
 
+
+    // ... Coil
+    api(libs.coil.kt)
+    api(libs.coil.kt.compose)
+
     // ... Lottie
     api(libs.lottie.compose)
 }
