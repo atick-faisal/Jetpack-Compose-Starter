@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.compose.ui
+package dev.atick.compose
 
 import android.Manifest
 import android.bluetooth.BluetoothAdapter
@@ -34,7 +34,7 @@ import androidx.core.view.WindowCompat
 import dagger.hilt.android.AndroidEntryPoint
 import dev.atick.bluetooth.common.models.BtState
 import dev.atick.bluetooth.common.utils.BluetoothUtils
-import dev.atick.compose.R
+import dev.atick.compose.ui.JetpackApp
 import dev.atick.core.extensions.isAllPermissionsGranted
 import dev.atick.core.ui.extensions.checkForPermissions
 import dev.atick.core.ui.extensions.collectWithLifecycle

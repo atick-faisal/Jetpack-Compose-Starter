@@ -1,24 +1,7 @@
-/*
- * Copyright 2023 Atick Faisal
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package dev.atick.compose.ui.common
+package dev.atick.core.ui.component
 
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -26,81 +9,13 @@ import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.NavigationRail
 import androidx.compose.material3.NavigationRailItem
 import androidx.compose.material3.NavigationRailItemDefaults
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.composed
-import androidx.compose.ui.draw.drawWithContent
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavDestination
-import androidx.navigation.NavDestination.Companion.hierarchy
-import dev.atick.compose.navigation.TopLevelDestination
-
-@Composable
-fun JetpackBottomBar(
-    destinations: List<TopLevelDestination>,
-    destinationsWithUnreadResources: Set<TopLevelDestination>,
-    onNavigateToDestination: (TopLevelDestination) -> Unit,
-    currentDestination: NavDestination?,
-    modifier: Modifier = Modifier,
-) {
-    JetpackNavigationBar(
-        modifier = modifier,
-    ) {
-        destinations.forEach { destination ->
-            val hasUnread = destinationsWithUnreadResources.contains(destination)
-            val selected = currentDestination.isTopLevelDestinationInHierarchy(destination)
-            JetpackNavigationBarItem(
-                selected = selected,
-                onClick = { onNavigateToDestination(destination) },
-                icon = {
-                    Icon(
-                        imageVector = destination.unselectedIcon,
-                        contentDescription = null,
-                    )
-                },
-                selectedIcon = {
-                    Icon(
-                        imageVector = destination.selectedIcon,
-                        contentDescription = null,
-                    )
-                },
-                label = { Text(stringResource(destination.iconTextId)) },
-                modifier = if (hasUnread) Modifier.notificationDot() else Modifier,
-            )
-        }
-    }
-}
-
-private fun Modifier.notificationDot(): Modifier =
-    composed {
-        val tertiaryColor = MaterialTheme.colorScheme.tertiary
-        drawWithContent {
-            drawContent()
-            drawCircle(
-                tertiaryColor,
-                radius = 5.dp.toPx(),
-                // This is based on the dimensions of the NavigationBar's "indicator pill";
-                // however, its parameters are private, so we must depend on them implicitly
-                // (NavigationBarTokens.ActiveIndicatorWidth = 64.dp)
-                center = center + Offset(
-                    64.dp.toPx() * .45f,
-                    32.dp.toPx() * -.45f - 6.dp.toPx(),
-                ),
-            )
-        }
-    }
-
-private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) =
-    this?.hierarchy?.any {
-        it.route?.contains(destination.name, true) ?: false
-    } ?: false
 
 /**
- * Now in Android navigation bar item with icon and label content slots. Wraps Material 3
+ * Jetpack navigation bar item with icon and label content slots. Wraps Material 3
  * [NavigationBarItem].
  *
  * @param selected Whether this item is selected.
@@ -144,7 +59,7 @@ fun RowScope.JetpackNavigationBarItem(
 }
 
 /**
- * Now in Android navigation bar with content slot. Wraps Material 3 [NavigationBar].
+ * Jetpack navigation bar with content slot. Wraps Material 3 [NavigationBar].
  *
  * @param modifier Modifier to be applied to the navigation bar.
  * @param content Destinations inside the navigation bar. This should contain multiple
@@ -163,42 +78,8 @@ fun JetpackNavigationBar(
     )
 }
 
-@Composable
-fun JetpackNavRail(
-    destinations: List<TopLevelDestination>,
-    destinationsWithUnreadResources: Set<TopLevelDestination>,
-    onNavigateToDestination: (TopLevelDestination) -> Unit,
-    currentDestination: NavDestination?,
-    modifier: Modifier = Modifier,
-) {
-    JetpackNavigationRail(modifier = modifier) {
-        destinations.forEach { destination ->
-            val selected = currentDestination.isTopLevelDestinationInHierarchy(destination)
-            val hasUnread = destinationsWithUnreadResources.contains(destination)
-            JetpackNavigationRailItem(
-                selected = selected,
-                onClick = { onNavigateToDestination(destination) },
-                icon = {
-                    Icon(
-                        imageVector = destination.unselectedIcon,
-                        contentDescription = null,
-                    )
-                },
-                selectedIcon = {
-                    Icon(
-                        imageVector = destination.selectedIcon,
-                        contentDescription = null,
-                    )
-                },
-                label = { Text(stringResource(destination.iconTextId)) },
-                modifier = if (hasUnread) Modifier.notificationDot() else Modifier,
-            )
-        }
-    }
-}
-
 /**
- * Now in Android navigation rail item with icon and label content slots. Wraps Material 3
+ * Jetpack navigation rail item with icon and label content slots. Wraps Material 3
  * [NavigationRailItem].
  *
  * @param selected Whether this item is selected.
@@ -242,7 +123,7 @@ fun JetpackNavigationRailItem(
 }
 
 /**
- * Now in Android navigation rail with header and content slots. Wraps Material 3 [NavigationRail].
+ * Jetpack navigation rail with header and content slots. Wraps Material 3 [NavigationRail].
  *
  * @param modifier Modifier to be applied to the navigation rail.
  * @param header Optional header that may hold a floating action button or a logo.
@@ -265,7 +146,7 @@ fun JetpackNavigationRail(
 }
 
 /**
- * Now in Android navigation default values.
+ * Jetpack navigation default values.
  */
 object JetpackNavigationDefaults {
     @Composable

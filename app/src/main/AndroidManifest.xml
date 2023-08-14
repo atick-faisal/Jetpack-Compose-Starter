@@ -29,7 +29,7 @@
         android:theme="@style/SplashScreenTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>
