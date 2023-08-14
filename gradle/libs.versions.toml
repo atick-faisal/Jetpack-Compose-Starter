@@ -32,6 +32,7 @@ lottieCompose = "6.1.0"
 # ... NETWORK ...
 okhttp = "4.11.0"
 retrofit = "2.9.0"
+coil = "2.2.2"
 
 # ... STORAGE:PREFERENCES ...
 androidxDataStore = "1.0.0"
@@ -109,6 +110,9 @@ okhttp-core = { group = "com.squareup.okhttp3", name = "okhttp" }
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor" }
 retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+coil-kt = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+coil-kt-svg = { group = "io.coil-kt", name = "coil-svg", version.ref = "coil" }
 
 # ... STORAGE:PREFERENCES ...
 androidx-dataStore-core = { group = "androidx.datastore", name = "datastore", version.ref = "androidxDataStore" }
