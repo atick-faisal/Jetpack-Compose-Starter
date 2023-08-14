@@ -25,6 +25,7 @@ androidxActivity = "1.8.0-alpha06"
 androidxLifecycle = "2.6.1"
 androidxComposeBom = "2023.08.00"
 androidxComposeCompiler = "1.5.0"
+androidxCoreSplashscreen = "1.0.1"
 androidxHiltNavigationCompose = "1.0.0"
 lottieCompose = "6.1.0"
 
@@ -99,6 +100,7 @@ androidx-lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "life
 androidx-lifecycle-viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
 androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "androidxNavigation" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "androidxCoreSplashscreen" }
 lottie-compose = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottieCompose" }
 
 # ... NETWORK ...
