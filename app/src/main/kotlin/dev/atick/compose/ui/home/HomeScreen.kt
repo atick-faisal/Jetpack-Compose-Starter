@@ -16,13 +16,33 @@
 
 package dev.atick.compose.ui.home
 
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Add
+import androidx.compose.material.icons.outlined.Sailing
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import dev.atick.compose.data.home.HomeData
+import dev.atick.core.ui.theme.JetpackTheme
 import dev.atick.core.ui.utils.StatefulComposable
 
 /**
@@ -42,13 +62,55 @@ internal fun HomeRoute(
         state = homeState,
         onShowLoadingDialog = onShowLoadingDialog,
         onShowSnackbar = onShowSnackbar,
-    ) { homeData ->
-        HomeScreen(homeData = homeData)
+    ) {
+        HomeScreen()
+    }
+}
+
+@Composable
+private fun HomeScreen() {
+    val homeItems by remember { mutableStateOf(List(50) { HomeData() }) }
+    val scrollableState = rememberLazyListState()
+
+    LazyColumn(
+        modifier = Modifier.padding(horizontal = 24.dp),
+        contentPadding = PaddingValues(vertical = 16.dp),
+        state = scrollableState,
+    ) {
+        items(homeItems) { item ->
+            ListItem(
+                leadingContent = {
+                    Icon(
+                        imageVector = Icons.Outlined.Sailing,
+                        contentDescription = null,
+                        modifier = Modifier.size(64.dp),
+                    )
+                },
+                headlineContent = { Text(text = item.name) },
+                supportingContent = { Text(text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.") },
+                trailingContent = {
+                    IconButton(onClick = {}) {
+                        Icon(
+                            imageVector = Icons.Outlined.Add,
+                            contentDescription = null,
+                            modifier = Modifier.size(64.dp),
+                        )
+                    }
+                },
+                colors = ListItemDefaults.colors(
+                    containerColor = Color.Transparent,
+                ),
+            )
+        }
     }
 }
 
 @Preview
 @Composable
-private fun HomeScreen(homeData: HomeData = HomeData()) {
-    Text(text = homeData.name)
+fun HomeScreenPreview() {
+    JetpackTheme {
+        Surface {
+            HomeScreen()
+        }
+    }
 }
