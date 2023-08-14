@@ -52,7 +52,6 @@ import dev.atick.core.ui.utils.StatefulComposable
  */
 @Composable
 internal fun HomeRoute(
-    onShowLoadingDialog: (Boolean) -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
     homeViewModel: HomeViewModel = hiltViewModel(),
 ) {
@@ -60,7 +59,6 @@ internal fun HomeRoute(
 
     StatefulComposable(
         state = homeState,
-        onShowLoadingDialog = onShowLoadingDialog,
         onShowSnackbar = onShowSnackbar,
     ) {
         HomeScreen()

@@ -29,13 +29,9 @@ fun NavController.navigateProfile(navOptions: NavOptions?) {
 }
 
 fun NavGraphBuilder.profileScreen(
-    onShowLoadingDialog: (Boolean) -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
 ) {
     composable(route = profileNavigationRoute) {
-        ProfileRoute(
-            onShowLoadingDialog = onShowLoadingDialog,
-            onShowSnackbar = onShowSnackbar,
-        )
+        ProfileRoute(onShowSnackbar = onShowSnackbar)
     }
 }

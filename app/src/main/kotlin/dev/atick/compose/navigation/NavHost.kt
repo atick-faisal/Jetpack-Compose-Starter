@@ -27,7 +27,6 @@ import dev.atick.compose.ui.JetpackAppState
 @Composable
 fun JetpackNavHost(
     appState: JetpackAppState,
-    onShowLoadingDialog: (Boolean) -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
     modifier: Modifier = Modifier,
     startDestination: String = homeNavigationRoute,
@@ -38,13 +37,7 @@ fun JetpackNavHost(
         startDestination = startDestination,
         modifier = modifier,
     ) {
-        homeScreen(
-            onShowLoadingDialog = onShowLoadingDialog,
-            onShowSnackbar = onShowSnackbar,
-        )
-        profileScreen(
-            onShowLoadingDialog = onShowLoadingDialog,
-            onShowSnackbar = onShowSnackbar,
-        )
+        homeScreen(onShowSnackbar = onShowSnackbar)
+        profileScreen(onShowSnackbar = onShowSnackbar)
     }
 }
