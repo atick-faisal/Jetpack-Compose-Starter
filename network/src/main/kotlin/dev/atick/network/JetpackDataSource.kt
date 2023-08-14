@@ -14,16 +14,14 @@
  * limitations under the License.
  */
 
-package dev.atick.network.api
+package dev.atick.network
 
 import dev.atick.network.model.NetworkPost
-import retrofit2.http.GET
-import retrofit2.http.Path
 
 /**
- * Retrofit API interface for Jetpack.
+ * Data source interface for Jetpack.
  */
-interface JetpackRestApi {
+interface JetpackDataSource {
 
     /**
      * Retrieves a list of network posts from the specified endpoint.
@@ -32,7 +30,6 @@ interface JetpackRestApi {
      *
      * @return A [List] of [NetworkPost] objects representing the retrieved network posts.
      */
-    @GET("/posts")
     suspend fun getPosts(): List<NetworkPost>
 
     /**
@@ -43,6 +40,5 @@ interface JetpackRestApi {
      * @param id The ID of the network post to retrieve.
      * @return A [NetworkPost] object representing the retrieved network post.
      */
-    @GET("/posts/{id}")
-    suspend fun getPost(@Path("id") id: Int): NetworkPost
+    suspend fun getPost(id: Int): NetworkPost
 }
