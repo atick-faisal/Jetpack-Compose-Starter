@@ -33,6 +33,7 @@ import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -57,6 +58,10 @@ import dev.atick.compose.navigation.TopLevelDestination
 import dev.atick.compose.ui.common.JetpackBottomBar
 import dev.atick.compose.ui.common.JetpackNavRail
 import dev.atick.compose.ui.common.JetpackTopAppBar
+import dev.atick.core.ui.component.AppBackground
+import dev.atick.core.ui.component.AppGradientBackground
+import dev.atick.core.ui.theme.GradientColors
+import dev.atick.core.ui.theme.LocalGradientColors
 import dev.atick.network.utils.NetworkUtils
 
 @Composable
@@ -72,82 +77,98 @@ fun JetpackApp(
         networkUtils = networkUtils,
     ),
 ) {
-    val snackBarHostState = remember { SnackbarHostState() }
-    val unreadDestinations by appState.topLevelDestinationsWithUnreadResources.collectAsStateWithLifecycle()
-    var shouldShowLoadingDialog by rememberSaveable { mutableStateOf(false) }
+    val shouldShowGradientBackground =
+        appState.currentTopLevelDestination == TopLevelDestination.HOME
 
-    Scaffold(
-        snackbarHost = { SnackbarHost(snackBarHostState) },
-        bottomBar = {
-            if (appState.shouldShowBottomBar) {
-                JetpackBottomBar(
-                    destinations = appState.topLevelDestinations,
-                    destinationsWithUnreadResources = setOf(TopLevelDestination.PROFILE),
-                    onNavigateToDestination = appState::navigateToTopLevelDestination,
-                    currentDestination = appState.currentDestination,
-                )
-            }
-        },
-    ) { padding ->
-        Row(
-            Modifier
-                .fillMaxSize()
-                .padding(padding)
-                .consumeWindowInsets(padding)
-                .windowInsetsPadding(
-                    WindowInsets.safeDrawing.only(
-                        WindowInsetsSides.Horizontal,
-                    ),
-                ),
+    AppBackground {
+        AppGradientBackground(
+            gradientColors = if (shouldShowGradientBackground) {
+                LocalGradientColors.current
+            } else {
+                GradientColors()
+            },
         ) {
-            if (appState.shouldShowNavRail) {
-                JetpackNavRail(
-                    destinations = appState.topLevelDestinations,
-                    destinationsWithUnreadResources = unreadDestinations,
-                    onNavigateToDestination = appState::navigateToTopLevelDestination,
-                    currentDestination = appState.currentDestination,
-                    modifier = Modifier.safeDrawingPadding(),
-                )
-            }
+            val snackBarHostState = remember { SnackbarHostState() }
+            val unreadDestinations by appState.topLevelDestinationsWithUnreadResources.collectAsStateWithLifecycle()
+            var shouldShowLoadingDialog by rememberSaveable { mutableStateOf(false) }
 
-            Column(Modifier.fillMaxSize()) {
-                // Show the top app bar on top level destinations.
-                val destination = appState.currentTopLevelDestination
-                if (destination != null) {
-                    JetpackTopAppBar(
-                        titleRes = destination.titleTextId,
-                        navigationIcon = Icons.Default.Search,
-                        navigationIconContentDescription = stringResource(id = R.string.search),
-                        actionIcon = Icons.Default.MoreVert,
-                        actionIconContentDescription = stringResource(id = R.string.more),
-                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                            containerColor = Color.Transparent,
+            Scaffold(
+                containerColor = Color.Transparent,
+                contentColor = MaterialTheme.colorScheme.onBackground,
+                contentWindowInsets = WindowInsets(0, 0, 0, 0),
+                snackbarHost = { SnackbarHost(snackBarHostState) },
+                bottomBar = {
+                    if (appState.shouldShowBottomBar) {
+                        JetpackBottomBar(
+                            destinations = appState.topLevelDestinations,
+                            destinationsWithUnreadResources = setOf(TopLevelDestination.PROFILE),
+                            onNavigateToDestination = appState::navigateToTopLevelDestination,
+                            currentDestination = appState.currentDestination,
+                        )
+                    }
+                },
+            ) { padding ->
+                Row(
+                    Modifier
+                        .fillMaxSize()
+                        .padding(padding)
+                        .consumeWindowInsets(padding)
+                        .windowInsetsPadding(
+                            WindowInsets.safeDrawing.only(
+                                WindowInsetsSides.Horizontal,
+                            ),
                         ),
-                        onActionClick = { },
-                        onNavigationClick = { },
+                ) {
+                    if (appState.shouldShowNavRail) {
+                        JetpackNavRail(
+                            destinations = appState.topLevelDestinations,
+                            destinationsWithUnreadResources = unreadDestinations,
+                            onNavigateToDestination = appState::navigateToTopLevelDestination,
+                            currentDestination = appState.currentDestination,
+                            modifier = Modifier.safeDrawingPadding(),
+                        )
+                    }
+
+                    Column(Modifier.fillMaxSize()) {
+                        // Show the top app bar on top level destinations.
+                        val destination = appState.currentTopLevelDestination
+                        if (destination != null) {
+                            JetpackTopAppBar(
+                                titleRes = destination.titleTextId,
+                                navigationIcon = Icons.Default.Search,
+                                navigationIconContentDescription = stringResource(id = R.string.search),
+                                actionIcon = Icons.Default.MoreVert,
+                                actionIconContentDescription = stringResource(id = R.string.more),
+                                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                                    containerColor = Color.Transparent,
+                                ),
+                                onActionClick = { },
+                                onNavigationClick = { },
+                            )
+                        }
+                        JetpackNavHost(
+                            appState = appState,
+                            onShowLoadingDialog = { shouldShowLoadingDialog = it },
+                            onShowSnackbar = { message, action ->
+                                snackBarHostState.showSnackbar(
+                                    message = message,
+                                    actionLabel = action,
+                                    duration = SnackbarDuration.Short,
+                                ) == SnackbarResult.ActionPerformed
+                            },
+                        )
+                    }
+                }
+
+                if (shouldShowLoadingDialog) {
+                    AlertDialog(
+                        onDismissRequest = { },
+                        title = { Text(text = "Loading ... ") },
+                        text = { Text(text = "Please Wait") },
+                        confirmButton = { },
                     )
                 }
-                JetpackNavHost(
-                    appState = appState,
-                    onShowLoadingDialog = { shouldShowLoadingDialog = it },
-                    onShowSnackbar = { message, action ->
-                        snackBarHostState.showSnackbar(
-                            message = message,
-                            actionLabel = action,
-                            duration = SnackbarDuration.Short,
-                        ) == SnackbarResult.ActionPerformed
-                    },
-                )
             }
-        }
-
-        if (shouldShowLoadingDialog) {
-            AlertDialog(
-                onDismissRequest = { },
-                title = { Text(text = "Loading ... ") },
-                text = { Text(text = "Please Wait") },
-                confirmButton = { },
-            )
         }
     }
 }

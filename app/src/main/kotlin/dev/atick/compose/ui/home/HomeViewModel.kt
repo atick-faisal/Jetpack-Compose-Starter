@@ -28,6 +28,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.Exception
 
 /**
  * View model for the home screen.
@@ -39,13 +40,17 @@ class HomeViewModel @Inject constructor(
     private val jetpackRepository: HomeRepository,
 ) : ViewModel() {
     private val _homeUiState: MutableStateFlow<UiState<HomeData>> =
-        MutableStateFlow(UiState.Loading)
+        MutableStateFlow(UiState.Success(HomeData()))
     val homeUiState = _homeUiState.asStateFlow()
 
     init {
         viewModelScope.launch {
+            delay(10_000L)
+            _homeUiState.update { UiState.Loading(it.data) }
             delay(3_000L)
-            _homeUiState.update { UiState.Success(HomeData()) }
+            _homeUiState.update { UiState.Error(Exception("Shit"), it.data) }
+            delay(3_000L)
+            _homeUiState.update { UiState.Success(it.data.copy(name = "Hu")) }
         }
     }
 }

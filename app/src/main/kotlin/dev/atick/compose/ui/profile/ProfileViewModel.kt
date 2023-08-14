@@ -31,7 +31,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor() : ViewModel() {
     private val _profileUiState: MutableStateFlow<UiState<ProfileData>> =
-        MutableStateFlow(UiState.Loading)
+        MutableStateFlow(UiState.Success(ProfileData()))
     val profileUiState = _profileUiState.asStateFlow()
 
     init {
