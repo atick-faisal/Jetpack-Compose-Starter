@@ -16,34 +16,45 @@
 
 package dev.atick.core.ui.utils
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import dev.atick.core.ui.component.JetpackOverlayLoadingWheel
 
 @Stable
 @Composable
 fun <T> StatefulComposable(
     state: UiState<T>,
-    onShowLoadingDialog: (Boolean) -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
     content: @Composable (T) -> Unit,
 ) {
     content(state.data)
     when (state) {
         is UiState.Loading -> {
-            onShowLoadingDialog(true)
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp),
+            ) {
+                JetpackOverlayLoadingWheel(
+                    modifier = Modifier
+                        .align(Alignment.Center),
+                    contentDesc = "",
+                )
+            }
         }
-
-        is UiState.Success -> {
-            onShowLoadingDialog(false)
-        }
-
         is UiState.Error -> {
-            onShowLoadingDialog(false)
             LaunchedEffect(onShowSnackbar) {
                 onShowSnackbar(state.exception.message.toString(), null)
             }
         }
+        else -> { }
     }
 }
 

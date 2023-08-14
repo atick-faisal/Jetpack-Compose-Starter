@@ -26,7 +26,6 @@ import dev.atick.core.ui.utils.StatefulComposable
 
 @Composable
 internal fun ProfileRoute(
-    onShowLoadingDialog: (Boolean) -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
     viewModel: ProfileViewModel = hiltViewModel(),
 ) {
@@ -34,7 +33,6 @@ internal fun ProfileRoute(
 
     StatefulComposable(
         state = profileState,
-        onShowLoadingDialog = onShowLoadingDialog,
         onShowSnackbar = onShowSnackbar,
     ) { profileData ->
         ProfileScreen(profileData)

@@ -45,9 +45,9 @@ class HomeViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            delay(10_000L)
-            _homeUiState.update { UiState.Loading(it.data) }
             delay(3_000L)
+            _homeUiState.update { UiState.Loading(it.data) }
+            delay(10_000L)
             _homeUiState.update { UiState.Error(Exception("Shit"), it.data) }
             delay(3_000L)
             _homeUiState.update { UiState.Success(it.data.copy(name = "Hu")) }

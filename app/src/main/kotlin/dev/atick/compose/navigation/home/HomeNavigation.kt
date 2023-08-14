@@ -29,13 +29,9 @@ fun NavController.navigateToHome(navOptions: NavOptions?) {
 }
 
 fun NavGraphBuilder.homeScreen(
-    onShowLoadingDialog: (Boolean) -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
 ) {
     composable(route = homeNavigationRoute) {
-        HomeRoute(
-            onShowLoadingDialog = onShowLoadingDialog,
-            onShowSnackbar = onShowSnackbar,
-        )
+        HomeRoute(onShowSnackbar = onShowSnackbar)
     }
 }

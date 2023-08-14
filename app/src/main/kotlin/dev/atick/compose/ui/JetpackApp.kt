@@ -31,7 +31,6 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -45,10 +44,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.drawWithContent
@@ -99,7 +95,6 @@ fun JetpackApp(
         ) {
             val snackBarHostState = remember { SnackbarHostState() }
             val unreadDestinations by appState.topLevelDestinationsWithUnreadResources.collectAsStateWithLifecycle()
-            var shouldShowLoadingDialog by rememberSaveable { mutableStateOf(false) }
 
             Scaffold(
                 containerColor = Color.Transparent,
@@ -157,7 +152,6 @@ fun JetpackApp(
                         }
                         JetpackNavHost(
                             appState = appState,
-                            onShowLoadingDialog = { shouldShowLoadingDialog = it },
                             onShowSnackbar = { message, action ->
                                 snackBarHostState.showSnackbar(
                                     message = message,
@@ -167,15 +161,6 @@ fun JetpackApp(
                             },
                         )
                     }
-                }
-
-                if (shouldShowLoadingDialog) {
-                    AlertDialog(
-                        onDismissRequest = { },
-                        title = { Text(text = "Loading ... ") },
-                        text = { Text(text = "Please Wait") },
-                        confirmButton = { },
-                    )
                 }
             }
         }
