@@ -19,38 +19,43 @@ package dev.atick.compose.ui.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.atick.compose.data.home.HomeData
+import dev.atick.compose.data.home.HomeScreenData
 import dev.atick.compose.repository.home.HomeRepository
 import dev.atick.core.ui.utils.UiState
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlin.Exception
 
 /**
  * View model for the home screen.
  *
- * @param jetpackRepository The repository for accessing home screen data.
+ * @param homeRepository The repository for accessing home screen data.
  */
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val jetpackRepository: HomeRepository,
+    private val homeRepository: HomeRepository,
 ) : ViewModel() {
-    private val _homeUiState: MutableStateFlow<UiState<HomeData>> =
-        MutableStateFlow(UiState.Success(HomeData()))
+    private val _homeUiState: MutableStateFlow<UiState<HomeScreenData>> =
+        MutableStateFlow(UiState.Success(HomeScreenData()))
     val homeUiState = _homeUiState.asStateFlow()
 
     init {
         viewModelScope.launch {
-            delay(3_000L)
-            _homeUiState.update { UiState.Loading(it.data) }
-            delay(10_000L)
-            _homeUiState.update { UiState.Error(Exception("Shit"), it.data) }
-            delay(3_000L)
-            _homeUiState.update { UiState.Success(it.data.copy(name = "Hu")) }
+            _homeUiState.update { UiState.Loading(HomeScreenData()) }
+            val result = homeRepository.getPosts()
+            if (result.isSuccess) {
+                val posts = result.getOrDefault(listOf())
+                _homeUiState.update { UiState.Success(HomeScreenData(posts)) }
+            } else {
+                _homeUiState.update {
+                    UiState.Error(
+                        HomeScreenData(),
+                        result.exceptionOrNull(),
+                    )
+                }
+            }
         }
     }
 }

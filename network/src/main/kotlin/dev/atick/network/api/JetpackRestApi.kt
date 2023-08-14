@@ -32,7 +32,7 @@ interface JetpackRestApi {
      *
      * @return A [List] of [NetworkPost] objects representing the retrieved network posts.
      */
-    @GET("/posts")
+    @GET("/photos")
     suspend fun getPosts(): List<NetworkPost>
 
     /**
@@ -43,6 +43,6 @@ interface JetpackRestApi {
      * @param id The ID of the network post to retrieve.
      * @return A [NetworkPost] object representing the retrieved network post.
      */
-    @GET("/posts/{id}")
+    @GET("/photos/{id}")
     suspend fun getPost(@Path("id") id: Int): NetworkPost
 }

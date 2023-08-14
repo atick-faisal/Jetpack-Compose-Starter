@@ -21,7 +21,7 @@ import dev.atick.network.model.NetworkPost
 /**
  * Data source interface for Jetpack.
  */
-interface JetpackDataSource {
+interface NetworkDataSource {
 
     /**
      * Retrieves a list of network posts from the specified endpoint.
