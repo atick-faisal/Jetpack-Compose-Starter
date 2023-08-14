@@ -16,8 +16,12 @@
 
 package dev.atick.network.data
 
+import dev.atick.core.di.IoDispatcher
+import dev.atick.network.JetpackDataSource
 import dev.atick.network.api.JetpackRestApi
-import dev.atick.network.data.models.Response
+import dev.atick.network.model.NetworkPost
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /**
@@ -27,14 +31,34 @@ import javax.inject.Inject
  */
 class JetpackDataSourceImpl @Inject constructor(
     private val jetpackRestApi: JetpackRestApi,
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : JetpackDataSource {
+
     /**
-     * Get a list of items.
+     * Retrieves a list of network posts from a remote source using the specified IO dispatcher.
      *
-     * @param id The id of the item.
-     * @return The particular item as [Response].
+     * This function overrides the suspend function [getPosts] and fetches a list of network posts by invoking [jetpackRestApi.getPosts()]
+     * within the provided IO dispatcher context.
+     *
+     * @return A [List] of [NetworkPost] objects representing the retrieved network posts.
      */
-    override suspend fun getItem(id: Int): Response {
-        return jetpackRestApi.getItem(id)
+    override suspend fun getPosts(): List<NetworkPost> {
+        return withContext(ioDispatcher) {
+            jetpackRestApi.getPosts()
+        }
+    }
+
+    /**
+     * Retrieves a network post with the specified ID from the designated endpoint.
+     *
+     * This function uses the HTTP GET method to retrieve a single network post with the given ID from the "/posts/{id}" endpoint.
+     *
+     * @param id The ID of the network post to retrieve.
+     * @return A [NetworkPost] object representing the retrieved network post.
+     */
+    override suspend fun getPost(id: Int): NetworkPost {
+        return withContext(ioDispatcher) {
+            jetpackRestApi.getPost(id)
+        }
     }
 }
