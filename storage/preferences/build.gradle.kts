@@ -22,6 +22,9 @@ plugins {
 
 android {
     namespace = "dev.atick.storage.preferences"
+    defaultConfig {
+        consumerProguardFiles("consumer-rules.pro")
+    }
 }
 
 dependencies {

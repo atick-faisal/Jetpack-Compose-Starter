@@ -26,6 +26,9 @@ android {
     buildFeatures {
         buildConfig = true
     }
+    defaultConfig {
+        consumerProguardFiles("consumer-rules.pro")
+    }
     namespace = "dev.atick.network"
 }
 

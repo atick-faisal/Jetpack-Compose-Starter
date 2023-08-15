@@ -59,7 +59,7 @@ class HomeViewModel @Inject constructor(
             if (result.isFailure) {
                 _homeUiState.update {
                     UiState.Error(
-                        HomeScreenData(),
+                        homeUiState.value.data,
                         result.exceptionOrNull(),
                     )
                 }
