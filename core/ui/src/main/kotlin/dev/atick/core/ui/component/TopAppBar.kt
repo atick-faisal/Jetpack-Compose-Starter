@@ -72,9 +72,6 @@ fun JetpackTopAppBar(
     )
 }
 
-/**
- * Top app bar with action, displayed on the right
- */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun JetpackTopAppBar(

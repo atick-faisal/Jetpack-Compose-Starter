@@ -16,6 +16,12 @@
 
 package dev.atick.compose.data.profile
 
-data class ProfileData(
+/**
+ * Data class representing profile-related data.
+ *
+ * @property name The name associated with the profile.
+ * @constructor Creates a [ProfileScreenData] instance with an optional name parameter.
+ */
+data class ProfileScreenData(
     val name: String = "PROFILE",
 )

@@ -21,7 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import dev.atick.compose.data.profile.ProfileData
+import dev.atick.compose.data.profile.ProfileScreenData
 import dev.atick.core.ui.utils.StatefulComposable
 
 @Composable
@@ -40,6 +40,6 @@ internal fun ProfileRoute(
 }
 
 @Composable
-private fun ProfileScreen(profileData: ProfileData = ProfileData()) {
-    Text(text = profileData.name)
+private fun ProfileScreen(profileScreenData: ProfileScreenData = ProfileScreenData()) {
+    Text(text = profileScreenData.name)
 }
