@@ -63,7 +63,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             applicationVariants.all {
                 outputs.all {
                     (this as BaseVariantOutputImpl).outputFileName =
@@ -74,10 +74,6 @@ android {
                     println(outputFileName)
                 }
             }
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
             signingConfig = signingConfigs.getByName("release")
         }
     }

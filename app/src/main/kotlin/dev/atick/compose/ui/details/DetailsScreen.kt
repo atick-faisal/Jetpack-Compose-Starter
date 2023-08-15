@@ -65,14 +65,14 @@ private fun DetailsScreen(
     post: UiPost?,
     onBackClick: () -> Unit,
 ) {
-    post?.let {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 24.dp),
-        ) {
-            Spacer(Modifier.windowInsetsTopHeight(WindowInsets.safeDrawing))
-            DetailsToolbar(onBackClick = onBackClick)
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 24.dp),
+    ) {
+        Spacer(Modifier.windowInsetsTopHeight(WindowInsets.safeDrawing))
+        DetailsToolbar(onBackClick = onBackClick)
+        post?.let {
             AsyncImage(
                 model = post.url,
                 contentDescription = null,
