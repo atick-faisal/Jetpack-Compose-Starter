@@ -28,11 +28,20 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
+/**
+ * Annotates a ViewModel class that is managed by Hilt's dependency injection system.
+ *
+ * @constructor Creates a [MainActivityViewModel] instance.
+ * @param userDataRepository The repository providing access to user data.
+ */
 @HiltViewModel
 class MainActivityViewModel @Inject constructor(
-    userDataRepository: UserDataRepository,
+    userDataRepository: UserDataRepository
 ) : ViewModel() {
 
+    /**
+     * Represents the state of the UI for user data.
+     */
     val uiState: StateFlow<UiState<UserData>> = userDataRepository.userData
         .catch { throwable -> UiState.Error(UserData(), throwable) }
         .map { userData -> UiState.Success(userData) }

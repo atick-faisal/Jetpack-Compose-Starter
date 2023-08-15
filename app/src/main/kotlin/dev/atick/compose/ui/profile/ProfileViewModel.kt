@@ -19,7 +19,7 @@ package dev.atick.compose.ui.profile
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.atick.compose.data.profile.ProfileData
+import dev.atick.compose.data.profile.ProfileScreenData
 import dev.atick.core.ui.utils.UiState
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -30,14 +30,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor() : ViewModel() {
-    private val _profileUiState: MutableStateFlow<UiState<ProfileData>> =
-        MutableStateFlow(UiState.Success(ProfileData()))
+    private val _profileUiState: MutableStateFlow<UiState<ProfileScreenData>> =
+        MutableStateFlow(UiState.Success(ProfileScreenData()))
     val profileUiState = _profileUiState.asStateFlow()
 
     init {
         viewModelScope.launch {
             delay(3_000L)
-            _profileUiState.update { UiState.Success(ProfileData()) }
+            _profileUiState.update { UiState.Success(ProfileScreenData()) }
         }
     }
 }

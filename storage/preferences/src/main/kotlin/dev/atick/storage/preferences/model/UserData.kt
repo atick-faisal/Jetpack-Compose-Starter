@@ -18,6 +18,15 @@ package dev.atick.storage.preferences.model
 
 import kotlinx.serialization.Serializable
 
+/**
+ * Serializable data class representing user-specific data and preferences.
+ *
+ * @property userId The unique identifier for the user.
+ * @property themeBrand The selected brand for the app's theme.
+ * @property darkThemeConfig Configuration for the dark theme.
+ * @property useDynamicColor Indicates whether dynamic colors are enabled.
+ * @constructor Creates a [UserData] instance with optional parameters.
+ */
 @Serializable
 data class UserData(
     val userId: String = "-1",
@@ -25,3 +34,4 @@ data class UserData(
     val darkThemeConfig: DarkThemeConfig = DarkThemeConfig.FOLLOW_SYSTEM,
     val useDynamicColor: Boolean = true,
 )
+

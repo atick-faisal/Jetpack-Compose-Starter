@@ -24,6 +24,14 @@ import androidx.compose.material.icons.outlined.Person
 import androidx.compose.ui.graphics.vector.ImageVector
 import dev.atick.compose.R
 
+/**
+ * Enum class representing top-level destinations in a navigation system.
+ *
+ * @property selectedIcon The selected icon associated with the destination.
+ * @property unselectedIcon The unselected icon associated with the destination.
+ * @property iconTextId The resource ID for the icon's content description text.
+ * @property titleTextId The resource ID for the title text.
+ */
 enum class TopLevelDestination(
     val selectedIcon: ImageVector,
     val unselectedIcon: ImageVector,
@@ -43,3 +51,4 @@ enum class TopLevelDestination(
         titleTextId = R.string.profile,
     ),
 }
+
