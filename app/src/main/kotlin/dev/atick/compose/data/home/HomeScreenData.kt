@@ -17,6 +17,7 @@
 package dev.atick.compose.data.home
 
 import dev.atick.network.model.NetworkPost
+import dev.atick.storage.room.model.PostEntity
 
 data class HomeScreenData(
     val posts: List<UiPost> = listOf(),
@@ -38,6 +39,31 @@ data class UiPost(
 )
 
 /**
+ * Converts a [PostEntity] object to a [UiPost] object for displaying in the UI.
+ *
+ * @return The converted [UiPost] object.
+ */
+fun PostEntity.toUiPost(): UiPost {
+    return UiPost(
+        id = id,
+        title = title,
+        url = url,
+        thumbnailUrl = thumbnailUrl,
+    )
+}
+
+/**
+ * Converts a list of [PostEntity] objects to a list of [UiPost] objects for displaying in the UI,
+ * using the [toUiPost] conversion function.
+ *
+ * @receiver The list of [PostEntity] objects to be converted.
+ * @return A list of converted [UiPost] objects.
+ */
+fun List<PostEntity>.mapToUiPost(): List<UiPost> {
+    return map(PostEntity::toUiPost)
+}
+
+/**
  * Converts a [NetworkPost] object to a corresponding [UiPost] object.
  *
  * This extension function facilitates the conversion of a [NetworkPost] object into a [UiPost] object by mapping
@@ -51,7 +77,22 @@ fun NetworkPost.toUiPost(): UiPost {
         id = id,
         title = title,
         url = url,
-        thumbnailUrl = thumbnailUrl
+        thumbnailUrl = thumbnailUrl,
+    )
+}
+
+
+/**
+ * Converts a [NetworkPost] object to a [PostEntity] object.
+ *
+ * @return The converted [PostEntity] object.
+ */
+fun NetworkPost.toPostEntity(): PostEntity {
+    return PostEntity(
+        id = id,
+        title = title,
+        url = url,
+        thumbnailUrl = thumbnailUrl,
     )
 }
 
@@ -67,4 +108,16 @@ fun NetworkPost.toUiPost(): UiPost {
 fun List<NetworkPost>.mapToUiPosts(): List<UiPost> {
     return map(NetworkPost::toUiPost)
 }
+
+/**
+ * Converts a list of [NetworkPost] objects to a list of [PostEntity] objects using the
+ * [toPostEntity] conversion function.
+ *
+ * @receiver The list of [NetworkPost] objects to be converted.
+ * @return A list of converted [PostEntity] objects.
+ */
+fun List<NetworkPost>.mapToPostEntities(): List<PostEntity> {
+    return map(NetworkPost::toPostEntity)
+}
+
 

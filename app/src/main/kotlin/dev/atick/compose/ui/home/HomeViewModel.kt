@@ -24,6 +24,9 @@ import dev.atick.compose.repository.home.HomeRepository
 import dev.atick.core.ui.utils.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -38,17 +41,22 @@ class HomeViewModel @Inject constructor(
     private val homeRepository: HomeRepository,
 ) : ViewModel() {
     private val _homeUiState: MutableStateFlow<UiState<HomeScreenData>> =
-        MutableStateFlow(UiState.Success(HomeScreenData()))
+        MutableStateFlow(UiState.Loading(HomeScreenData()))
     val homeUiState = _homeUiState.asStateFlow()
 
     init {
+        homeRepository.getCachedPosts()
+            .map(::HomeScreenData)
+            .onEach { homeScreenData ->
+                _homeUiState.update {
+                    UiState.Success(homeScreenData)
+                }
+            }.launchIn(viewModelScope)
+
         viewModelScope.launch {
             _homeUiState.update { UiState.Loading(HomeScreenData()) }
-            val result = homeRepository.getPosts()
-            if (result.isSuccess) {
-                val posts = result.getOrDefault(listOf())
-                _homeUiState.update { UiState.Success(HomeScreenData(posts)) }
-            } else {
+            val result = homeRepository.synchronizePosts()
+            if (result.isFailure) {
                 _homeUiState.update {
                     UiState.Error(
                         HomeScreenData(),

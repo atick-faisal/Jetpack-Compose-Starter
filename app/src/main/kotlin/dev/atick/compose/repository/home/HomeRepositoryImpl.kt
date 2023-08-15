@@ -17,42 +17,57 @@
 package dev.atick.compose.repository.home
 
 import dev.atick.compose.data.home.UiPost
-import dev.atick.compose.data.home.mapToUiPosts
+import dev.atick.compose.data.home.mapToPostEntities
+import dev.atick.compose.data.home.mapToUiPost
 import dev.atick.compose.data.home.toUiPost
 import dev.atick.network.NetworkDataSource
+import dev.atick.storage.room.LocalDataSource
+import dev.atick.storage.room.model.PostEntity
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
+/**
+ * Implementation of [HomeRepository] that coordinates data synchronization between network and local sources.
+ *
+ * @param networkDataSource The data source for network operations.
+ * @param localDataSource The data source for local storage operations.
+ */
 class HomeRepositoryImpl @Inject constructor(
     private val networkDataSource: NetworkDataSource,
+    private val localDataSource: LocalDataSource,
 ) : HomeRepository {
 
     /**
-     * Retrieves a list of UI posts wrapped in a [Result] by utilizing the network data source.
+     * Synchronizes posts by fetching from the network and updating the local storage.
      *
-     * This function asynchronously fetches a list of UI posts using the network data source and encapsulates the result
-     * in a [Result] wrapper, applying the [mapToUiPosts] conversion.
-     *
-     * @return A [Result] instance containing either the fetched [List] of [UiPost] objects on success or an error on failure.
+     * @return A [Result] indicating the outcome of the synchronization operation.
      */
-    override suspend fun getPosts(): Result<List<UiPost>> {
-        return kotlin.runCatching {
-            networkDataSource.getPosts().mapToUiPosts()
+    override suspend fun synchronizePosts(): Result<Unit> {
+        return runCatching {
+            val networkPosts = networkDataSource.getPosts()
+            localDataSource.upsertPostEntities(networkPosts.mapToPostEntities())
         }
     }
 
     /**
-     * Retrieves a UI post with the specified ID wrapped in a [Result] by utilizing the network data source.
+     * Retrieves a post by its unique identifier from the network data source and converts it to a [UiPost].
      *
-     * This function asynchronously fetches a UI post with the given ID using the network data source and encapsulates
-     * the result in a [Result] wrapper, applying the [toUiPost] conversion.
-     *
-     * @param id The ID of the UI post to retrieve.
-     * @return A [Result] instance containing either the fetched [UiPost] object on success or an error on failure.
+     * @param id The unique identifier of the post.
+     * @return A [Result] containing the retrieved [UiPost] object.
      */
     override suspend fun getPost(id: Int): Result<UiPost> {
-        return kotlin.runCatching {
+        return runCatching {
             networkDataSource.getPost(id).toUiPost()
         }
     }
 
+    /**
+     * Retrieves cached posts from the local data source and converts them to a [Flow] of [UiPost] objects.
+     *
+     * @return A [Flow] emitting a list of [UiPost] objects representing cached posts.
+     */
+    override fun getCachedPosts(): Flow<List<UiPost>> {
+        return localDataSource.getPostEntities().map(List<PostEntity>::mapToUiPost)
+    }
 }

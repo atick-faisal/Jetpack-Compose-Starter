@@ -18,79 +18,56 @@ package dev.atick.storage.room.data
 
 import androidx.room.Dao
 import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Update
-import dev.atick.storage.room.data.models.Item
+import androidx.room.Upsert
+import dev.atick.storage.room.model.PostEntity
 import kotlinx.coroutines.flow.Flow
 
 /**
- * Data access object for [Item] entity.
+ * DAO for handling [PostEntity] operations.
  */
 @Dao
 interface JetpackDao {
-    /**
-     * Insert an item into the database. If the item already exists, replace it.
-     *
-     * @param item The item to be inserted.
-     */
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(item: Item)
 
     /**
-     * Update an item.
-     *
-     * @param item The item to be updated.
+     * Upsert operation (Insert an entity into the database. If the entity already exists, replace it.)
+     * @param postEntity The entity to be inserted or updated.
      */
-    @Update
-    suspend fun update(item: Item)
+    @Upsert
+    suspend fun insertOrUpdatePostEntity(postEntity: PostEntity)
 
     /**
-     * Delete an item.
-     *
-     * @param item The item to be deleted.
+     * Delete a [PostEntity] from the database.
+     * @param postEntity The entity to be deleted.
      */
     @Delete
-    suspend fun delete(item: Item)
+    suspend fun deletePostEntity(postEntity: PostEntity)
 
     /**
-     * Get an item by id.
-     *
-     * @param id The id of the item.
-     * @return The item with the given id.
+     * Retrieve a [PostEntity] by ID.
+     * @param id The id of the entity.
+     * @return The entity with the given id, or null if no such entity exists.
      */
-    @Query("SELECT * FROM items WHERE id = :id")
-    suspend fun getItem(id: Long): Item?
+    @Query("SELECT * FROM posts WHERE id = :id")
+    suspend fun getPostEntity(id: Int): PostEntity?
 
     /**
-     * Get an item by name.
-     *
-     * @param name The name of the item.
-     * @return The item with the given name.
+     * Retrieve all [PostEntity] from the database.
+     * @return A [Flow] that emits the list of entities.
      */
-    @Query("SELECT * FROM items WHERE name = :name LIMIT 1")
-    suspend fun getItem(name: String): Item?
+    @Query("SELECT * FROM posts")
+    fun getPostEntities(): Flow<List<PostEntity>>
 
     /**
-     * Get all items.
-     *
-     * @return A list of all items in the database.
+     * Upsert operation (Insert a list of entities into the database. If an entity already exists, replace it.)
+     * @param postEntities The list of entities to be inserted or updated.
      */
-    @Query("SELECT * FROM items")
-    fun getAllItems(): Flow<List<Item>>
+    @Upsert
+    suspend fun upsertPostEntities(postEntities: List<PostEntity>)
 
     /**
-     * Insert a list of items into the database. If the item already exists, replace it.
-     *
-     * @param items The list of items to be inserted.
+     * Delete all [PostEntity] items from the database.
      */
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(items: List<Item>)
-
-    /**
-     * Delete all items.
-     */
-    @Query("DELETE FROM items")
-    suspend fun clear()
+    @Query("DELETE FROM posts")
+    suspend fun deleteAllPostEntities()
 }
