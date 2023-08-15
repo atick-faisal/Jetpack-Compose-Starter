@@ -69,7 +69,6 @@ private fun HomeScreen(
     homeScreenData: HomeScreenData,
     onPostCLick: (Int) -> Unit,
 ) {
-
     val scrollableState = rememberLazyListState()
 
     LazyColumn(

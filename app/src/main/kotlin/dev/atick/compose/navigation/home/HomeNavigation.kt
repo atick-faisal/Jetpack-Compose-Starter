@@ -33,14 +33,14 @@ fun NavController.navigateToHomeNavGraph(navOptions: NavOptions? = null) {
 fun NavGraphBuilder.homeNavGraph(
     onPostClick: (Int) -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
-    nestedNavGraphs: NavGraphBuilder.() -> Unit
+    nestedNavGraphs: NavGraphBuilder.() -> Unit,
 ) {
     navigation(
         route = homeNavGraphRoute,
-        startDestination = homeNavigationRoute
+        startDestination = homeNavigationRoute,
     ) {
         composable(route = homeNavigationRoute) {
-            HomeRoute(onPostCLick = onPostClick ,onShowSnackbar = onShowSnackbar)
+            HomeRoute(onPostCLick = onPostClick, onShowSnackbar = onShowSnackbar)
         }
         nestedNavGraphs()
     }

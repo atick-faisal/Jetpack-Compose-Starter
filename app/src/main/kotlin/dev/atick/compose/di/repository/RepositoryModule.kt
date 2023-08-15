@@ -54,6 +54,6 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindUserDataRepository(
-        userDataRepositoryImpl: UserDataRepositoryImpl
+        userDataRepositoryImpl: UserDataRepositoryImpl,
     ): UserDataRepository
 }

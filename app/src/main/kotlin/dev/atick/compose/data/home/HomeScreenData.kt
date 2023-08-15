@@ -81,7 +81,6 @@ fun NetworkPost.toUiPost(): UiPost {
     )
 }
 
-
 /**
  * Converts a [NetworkPost] object to a [PostEntity] object.
  *
@@ -119,5 +118,3 @@ fun List<NetworkPost>.mapToUiPosts(): List<UiPost> {
 fun List<NetworkPost>.mapToPostEntities(): List<PostEntity> {
     return map(NetworkPost::toPostEntity)
 }
-
-
