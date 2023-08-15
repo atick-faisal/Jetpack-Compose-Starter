@@ -32,6 +32,5 @@ import kotlinx.serialization.Serializable
 enum class DarkThemeConfig {
     FOLLOW_SYSTEM,
     LIGHT,
-    DARK
+    DARK,
 }
-
