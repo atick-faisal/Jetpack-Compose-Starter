@@ -20,18 +20,28 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
+import androidx.navigation.navigation
 import dev.atick.compose.ui.home.HomeRoute
 
 const val homeNavigationRoute = "home"
+const val homeNavGraphRoute = "home_graph"
 
-fun NavController.navigateToHome(navOptions: NavOptions?) {
-    navigate(homeNavigationRoute, navOptions)
+fun NavController.navigateToHomeNavGraph(navOptions: NavOptions? = null) {
+    navigate(homeNavGraphRoute, navOptions)
 }
 
-fun NavGraphBuilder.homeScreen(
+fun NavGraphBuilder.homeNavGraph(
+    onPostClick: (Int) -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
+    nestedNavGraphs: NavGraphBuilder.() -> Unit
 ) {
-    composable(route = homeNavigationRoute) {
-        HomeRoute(onShowSnackbar = onShowSnackbar)
+    navigation(
+        route = homeNavGraphRoute,
+        startDestination = homeNavigationRoute
+    ) {
+        composable(route = homeNavigationRoute) {
+            HomeRoute(onPostCLick = onPostClick ,onShowSnackbar = onShowSnackbar)
+        }
+        nestedNavGraphs()
     }
 }
