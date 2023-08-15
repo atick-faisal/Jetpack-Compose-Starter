@@ -36,7 +36,7 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class MainActivityViewModel @Inject constructor(
-    userDataRepository: UserDataRepository
+    userDataRepository: UserDataRepository,
 ) : ViewModel() {
 
     /**

@@ -51,4 +51,3 @@ enum class TopLevelDestination(
         titleTextId = R.string.profile,
     ),
 }
-

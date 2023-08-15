@@ -29,5 +29,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 enum class ThemeBrand {
     DEFAULT,
-    ANDROID
+    ANDROID,
 }
