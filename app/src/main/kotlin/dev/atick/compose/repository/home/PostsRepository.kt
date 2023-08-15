@@ -22,7 +22,7 @@ import kotlinx.coroutines.flow.Flow
 /**
  * Interface defining operations for interacting with the home repository.
  */
-interface HomeRepository {
+interface PostsRepository {
 
     suspend fun synchronizePosts(): Result<Unit>
 

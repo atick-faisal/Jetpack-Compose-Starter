@@ -20,26 +20,26 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.storage.preferences.data.PreferencesDatastore
-import dev.atick.storage.preferences.data.PreferencesDatastoreImpl
+import dev.atick.storage.preferences.UserPreferencesDataSource
+import dev.atick.storage.preferences.data.UserPreferencesDataSourceImpl
 import javax.inject.Singleton
 
 /**
- * Preferences datastore module
+ * Preferences DataSource module
  */
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class PreferencesDatastoreModule {
+abstract class PreferencesDataSourceModule {
 
     /**
-     * Bind preferences datastore
+     * Bind preferences datasource
      *
-     * @param preferencesDatastoreImpl PreferencesDatastoreImpl
-     * @return [PreferencesDatastore]
+     * @param userPreferencesDataSourceImpl PreferencesDatastoreImpl
+     * @return [UserPreferencesDataSource]
      */
     @Binds
     @Singleton
-    abstract fun bindUserPreferencesDatastore(
-        preferencesDatastoreImpl: PreferencesDatastoreImpl,
-    ): PreferencesDatastore
+    abstract fun bindUserPreferencesDataSource(
+        userPreferencesDataSourceImpl: UserPreferencesDataSourceImpl,
+    ): UserPreferencesDataSource
 }

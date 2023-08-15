@@ -26,10 +26,15 @@ import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.viewModels
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dagger.hilt.android.AndroidEntryPoint
 import dev.atick.bluetooth.common.models.BtState
@@ -40,7 +45,11 @@ import dev.atick.core.ui.extensions.checkForPermissions
 import dev.atick.core.ui.extensions.collectWithLifecycle
 import dev.atick.core.ui.extensions.resultLauncher
 import dev.atick.core.ui.theme.JetpackTheme
+import dev.atick.core.ui.utils.UiState
 import dev.atick.network.utils.NetworkUtils
+import dev.atick.storage.preferences.model.DarkThemeConfig
+import dev.atick.storage.preferences.model.ThemeBrand
+import dev.atick.storage.preferences.model.UserData
 import javax.inject.Inject
 
 /**
@@ -58,15 +67,26 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var networkUtils: NetworkUtils
 
+    private val viewModel: MainActivityViewModel by viewModels()
+
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         val splashScreen = installSplashScreen()
+        super.onCreate(savedInstanceState)
+
+        var uiState: UiState<UserData> by mutableStateOf(UiState.Loading(UserData()))
+
+        collectWithLifecycle(viewModel.uiState) { uiState = it }
 
         // Keep the splash screen on-screen until the UI state is loaded. This condition is
         // evaluated each time the app needs to be redrawn so it should be fast to avoid blocking
         // the UI.
-        splashScreen.setKeepOnScreenCondition { false }
+        splashScreen.setKeepOnScreenCondition {
+            when (uiState) {
+                is UiState.Loading -> true
+                else -> false
+            }
+        }
 
         // Turn off the decor fitting system windows, which allows us to handle insets,
         // including IME animations, and go edge-to-edge
@@ -74,7 +94,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
-            val darkTheme = isSystemInDarkTheme()
+            val darkTheme = shouldUseDarkTheme(uiState)
 
             // Update the edge to edge configuration to match the theme
             // This is the same parameters as the default enableEdgeToEdge call, but we manually
@@ -96,8 +116,8 @@ class MainActivity : ComponentActivity() {
 
             JetpackTheme(
                 darkTheme = darkTheme,
-                androidTheme = false, // TODO: Implementation required
-                disableDynamicTheming = false,
+                androidTheme = shouldUseAndroidTheme(uiState),
+                disableDynamicTheming = shouldDisableDynamicTheming(uiState),
             ) {
                 JetpackApp(
                     networkUtils = networkUtils,
@@ -131,6 +151,56 @@ class MainActivity : ComponentActivity() {
                 )
             }
         }
+    }
+}
+
+/**
+ * Returns `true` if the Android theme should be used, as a function of the [uiState].
+ */
+@Composable
+private fun shouldUseAndroidTheme(
+    uiState: UiState<UserData>,
+): Boolean = when (uiState) {
+    is UiState.Loading,
+    is UiState.Error,
+    -> false
+
+    is UiState.Success -> when (uiState.data.themeBrand) {
+        ThemeBrand.DEFAULT -> false
+        ThemeBrand.ANDROID -> true
+    }
+}
+
+/**
+ * Returns `true` if the dynamic color is disabled, as a function of the [uiState].
+ */
+@Composable
+private fun shouldDisableDynamicTheming(
+    uiState: UiState<UserData>,
+): Boolean = when (uiState) {
+    is UiState.Loading,
+    is UiState.Error,
+    -> false
+
+    is UiState.Success -> !uiState.data.useDynamicColor
+}
+
+/**
+ * Returns `true` if dark theme should be used, as a function of the [uiState] and the
+ * current system context.
+ */
+@Composable
+private fun shouldUseDarkTheme(
+    uiState: UiState<UserData>,
+): Boolean = when (uiState) {
+    is UiState.Loading,
+    is UiState.Error,
+    -> isSystemInDarkTheme()
+
+    is UiState.Success -> when (uiState.data.darkThemeConfig) {
+        DarkThemeConfig.FOLLOW_SYSTEM -> isSystemInDarkTheme()
+        DarkThemeConfig.LIGHT -> false
+        DarkThemeConfig.DARK -> true
     }
 }
 

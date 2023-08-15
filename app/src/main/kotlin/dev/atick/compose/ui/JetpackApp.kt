@@ -29,8 +29,8 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -43,8 +43,12 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.drawWithContent
@@ -58,6 +62,7 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import dev.atick.compose.R
 import dev.atick.compose.navigation.JetpackNavHost
 import dev.atick.compose.navigation.TopLevelDestination
+import dev.atick.compose.ui.settings.SettingsDialog
 import dev.atick.core.ui.component.AppBackground
 import dev.atick.core.ui.component.AppGradientBackground
 import dev.atick.core.ui.component.JetpackNavigationBar
@@ -84,6 +89,7 @@ fun JetpackApp(
 ) {
     val shouldShowGradientBackground =
         appState.currentTopLevelDestination == TopLevelDestination.HOME
+    var showSettingsDialog by rememberSaveable { mutableStateOf(false) }
 
     AppBackground {
         AppGradientBackground(
@@ -93,14 +99,33 @@ fun JetpackApp(
                 GradientColors()
             },
         ) {
-            val snackBarHostState = remember { SnackbarHostState() }
+            val snackbarHostState = remember { SnackbarHostState() }
             val unreadDestinations by appState.topLevelDestinationsWithUnreadResources.collectAsStateWithLifecycle()
+
+            val isOffline by appState.isOffline.collectAsStateWithLifecycle()
+
+            // If user is not connected to the internet show a snack bar to inform them.
+            val notConnectedMessage = stringResource(R.string.not_connected)
+            LaunchedEffect(isOffline) {
+                if (isOffline) {
+                    snackbarHostState.showSnackbar(
+                        message = notConnectedMessage,
+                        duration = SnackbarDuration.Indefinite,
+                    )
+                }
+            }
+
+            if (showSettingsDialog) {
+                SettingsDialog(
+                    onDismiss = { showSettingsDialog = false },
+                )
+            }
 
             Scaffold(
                 containerColor = Color.Transparent,
                 contentColor = MaterialTheme.colorScheme.onBackground,
                 contentWindowInsets = WindowInsets(0, 0, 0, 0),
-                snackbarHost = { SnackbarHost(snackBarHostState) },
+                snackbarHost = { SnackbarHost(snackbarHostState) },
                 bottomBar = {
                     if (appState.shouldShowBottomBar) {
                         JetpackBottomBar(
@@ -141,19 +166,19 @@ fun JetpackApp(
                                 titleRes = destination.titleTextId,
                                 navigationIcon = Icons.Default.Search,
                                 navigationIconContentDescription = stringResource(id = R.string.search),
-                                actionIcon = Icons.Default.MoreVert,
+                                actionIcon = Icons.Default.Settings,
                                 actionIconContentDescription = stringResource(id = R.string.more),
                                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                                     containerColor = Color.Transparent,
                                 ),
-                                onActionClick = { },
+                                onActionClick = { showSettingsDialog = true },
                                 onNavigationClick = { },
                             )
                         }
                         JetpackNavHost(
                             appState = appState,
                             onShowSnackbar = { message, action ->
-                                snackBarHostState.showSnackbar(
+                                snackbarHostState.showSnackbar(
                                     message = message,
                                     actionLabel = action,
                                     duration = SnackbarDuration.Short,
