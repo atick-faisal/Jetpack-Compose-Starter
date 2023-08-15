@@ -28,15 +28,15 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 /**
- * Implementation of [HomeRepository] that coordinates data synchronization between network and local sources.
+ * Implementation of [PostsRepository] that coordinates data synchronization between network and local sources.
  *
  * @param networkDataSource The data source for network operations.
  * @param localDataSource The data source for local storage operations.
  */
-class HomeRepositoryImpl @Inject constructor(
+class PostsRepositoryImpl @Inject constructor(
     private val networkDataSource: NetworkDataSource,
     private val localDataSource: LocalDataSource,
-) : HomeRepository {
+) : PostsRepository {
 
     /**
      * Synchronizes posts by fetching from the network and updating the local storage.

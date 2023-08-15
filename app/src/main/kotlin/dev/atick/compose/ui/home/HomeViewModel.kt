@@ -20,7 +20,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.compose.data.home.HomeScreenData
-import dev.atick.compose.repository.home.HomeRepository
+import dev.atick.compose.repository.home.PostsRepository
 import dev.atick.core.ui.utils.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -34,18 +34,18 @@ import javax.inject.Inject
 /**
  * View model for the home screen.
  *
- * @param homeRepository The repository for accessing home screen data.
+ * @param postsRepository The repository for accessing home screen data.
  */
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val homeRepository: HomeRepository,
+    private val postsRepository: PostsRepository,
 ) : ViewModel() {
     private val _homeUiState: MutableStateFlow<UiState<HomeScreenData>> =
         MutableStateFlow(UiState.Loading(HomeScreenData()))
     val homeUiState = _homeUiState.asStateFlow()
 
     init {
-        homeRepository.getCachedPosts()
+        postsRepository.getCachedPosts()
             .map(::HomeScreenData)
             .onEach { homeScreenData ->
                 _homeUiState.update {
@@ -55,7 +55,7 @@ class HomeViewModel @Inject constructor(
 
         viewModelScope.launch {
             _homeUiState.update { UiState.Loading(HomeScreenData()) }
-            val result = homeRepository.synchronizePosts()
+            val result = postsRepository.synchronizePosts()
             if (result.isFailure) {
                 _homeUiState.update {
                     UiState.Error(

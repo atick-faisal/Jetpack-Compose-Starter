@@ -20,26 +20,40 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.compose.repository.home.HomeRepository
-import dev.atick.compose.repository.home.HomeRepositoryImpl
+import dev.atick.compose.repository.home.PostsRepository
+import dev.atick.compose.repository.home.PostsRepositoryImpl
+import dev.atick.compose.repository.user.UserDataRepository
+import dev.atick.compose.repository.user.UserDataRepositoryImpl
 import javax.inject.Singleton
 
 /**
- * Dagger module that provides the binding for the [HomeRepository] interface.
+ * Dagger module that provides the binding for the [PostsRepository] interface.
  */
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
 
     /**
-     * Binds the [HomeRepositoryImpl] implementation to the [HomeRepository] interface.
+     * Binds the [PostsRepositoryImpl] implementation to the [PostsRepository] interface.
      *
-     * @param homeRepositoryImpl The implementation of [HomeRepository] to be bound.
-     * @return The [HomeRepository] interface.
+     * @param postsRepositoryImpl The implementation of [PostsRepository] to be bound.
+     * @return The [PostsRepository] interface.
      */
     @Binds
     @Singleton
-    abstract fun bindHomeRepository(
-        homeRepositoryImpl: HomeRepositoryImpl,
-    ): HomeRepository
+    abstract fun bindPostsRepository(
+        postsRepositoryImpl: PostsRepositoryImpl,
+    ): PostsRepository
+
+    /**
+     * Binds the [UserDataRepositoryImpl] implementation to the [UserDataRepository] interface.
+     *
+     * @param userDataRepositoryImpl The implementation of [UserDataRepository] to be bound.
+     * @return The [UserDataRepository] interface.
+     */
+    @Binds
+    @Singleton
+    abstract fun bindUserDataRepository(
+        userDataRepositoryImpl: UserDataRepositoryImpl
+    ): UserDataRepository
 }

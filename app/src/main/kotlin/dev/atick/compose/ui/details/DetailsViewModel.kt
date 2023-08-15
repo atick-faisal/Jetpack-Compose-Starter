@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.compose.data.home.UiPost
 import dev.atick.compose.navigation.details.postIdArg
-import dev.atick.compose.repository.home.HomeRepository
+import dev.atick.compose.repository.home.PostsRepository
 import dev.atick.core.ui.utils.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
-    homeRepository: HomeRepository,
+    postsRepository: PostsRepository,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
     private val postId = checkNotNull(savedStateHandle.get<Int>(postIdArg))
@@ -27,7 +27,7 @@ class DetailsViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val result = homeRepository.getPost(postId)
+            val result = postsRepository.getPost(postId)
             if (result.isSuccess) {
                 _detailsUiState.update { UiState.Success(result.getOrNull()) }
             } else {
