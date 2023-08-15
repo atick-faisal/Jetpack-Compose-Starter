@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 
-package dev.atick.compose.data.settings
+package dev.atick.storage.preferences.model
 
-import dev.atick.storage.preferences.model.DarkThemeConfig
-import dev.atick.storage.preferences.model.ThemeBrand
+import kotlinx.serialization.Serializable
 
-data class UserEditableSettings(
-    val brand: ThemeBrand = ThemeBrand.DEFAULT,
-    val useDynamicColor: Boolean = true,
-    val darkThemeConfig: DarkThemeConfig = DarkThemeConfig.FOLLOW_SYSTEM,
-)
+@Serializable
+enum class DarkThemeConfig {
+    FOLLOW_SYSTEM, LIGHT, DARK
+}
