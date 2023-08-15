@@ -16,6 +16,7 @@
 
 package dev.atick.compose.ui.home
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -49,6 +50,7 @@ import dev.atick.core.ui.utils.StatefulComposable
  */
 @Composable
 internal fun HomeRoute(
+    onPostCLick: (Int) -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
     homeViewModel: HomeViewModel = hiltViewModel(),
 ) {
@@ -58,12 +60,15 @@ internal fun HomeRoute(
         state = homeState,
         onShowSnackbar = onShowSnackbar,
     ) { homeScreenData ->
-        HomeScreen(homeScreenData)
+        HomeScreen(homeScreenData, onPostCLick)
     }
 }
 
 @Composable
-private fun HomeScreen(homeScreenData: HomeScreenData) {
+private fun HomeScreen(
+    homeScreenData: HomeScreenData,
+    onPostCLick: (Int) -> Unit,
+) {
 
     val scrollableState = rememberLazyListState()
 
@@ -94,6 +99,7 @@ private fun HomeScreen(homeScreenData: HomeScreenData) {
                 colors = ListItemDefaults.colors(
                     containerColor = Color.Transparent,
                 ),
+                modifier = Modifier.clickable { onPostCLick(post.id) },
             )
         }
     }

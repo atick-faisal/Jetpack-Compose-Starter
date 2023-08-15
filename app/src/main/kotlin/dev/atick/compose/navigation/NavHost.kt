@@ -19,8 +19,10 @@ package dev.atick.compose.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
-import dev.atick.compose.navigation.home.homeNavigationRoute
-import dev.atick.compose.navigation.home.homeScreen
+import dev.atick.compose.navigation.details.detailsScreen
+import dev.atick.compose.navigation.details.navigateToDetailsScreen
+import dev.atick.compose.navigation.home.homeNavGraph
+import dev.atick.compose.navigation.home.homeNavGraphRoute
 import dev.atick.compose.navigation.profile.profileScreen
 import dev.atick.compose.ui.JetpackAppState
 
@@ -29,7 +31,7 @@ fun JetpackNavHost(
     appState: JetpackAppState,
     onShowSnackbar: suspend (String, String?) -> Boolean,
     modifier: Modifier = Modifier,
-    startDestination: String = homeNavigationRoute,
+    startDestination: String = homeNavGraphRoute,
 ) {
     val navController = appState.navController
     NavHost(
@@ -37,7 +39,16 @@ fun JetpackNavHost(
         startDestination = startDestination,
         modifier = modifier,
     ) {
-        homeScreen(onShowSnackbar = onShowSnackbar)
+        homeNavGraph(
+            onPostClick = navController::navigateToDetailsScreen,
+            onShowSnackbar = onShowSnackbar,
+            nestedNavGraphs = {
+                detailsScreen(
+                    onBackClick = navController::popBackStack,
+                    onShowSnackbar = onShowSnackbar,
+                )
+            },
+        )
         profileScreen(onShowSnackbar = onShowSnackbar)
     }
 }
