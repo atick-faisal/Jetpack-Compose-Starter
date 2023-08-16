@@ -32,7 +32,7 @@ lottieCompose = "6.1.0"
 # ... NETWORK ...
 okhttp = "4.11.0"
 retrofit = "2.9.0"
-coil = "2.2.2"
+coil = "2.4.0"
 
 # ... STORAGE:PREFERENCES ...
 androidxDataStore = "1.0.0"
