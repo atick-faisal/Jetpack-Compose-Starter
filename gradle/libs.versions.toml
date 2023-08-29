@@ -2,9 +2,9 @@
 
 # ... PROJECT ...
 java = "17"
-kotlin = "1.9.0"
+kotlin = "1.9.10"
 androidGradlePlugin = "8.1.1"
-ksp = "1.9.0-1.0.13"
+ksp = "1.9.10-1.0.13"
 dokka = "1.8.20"
 secrets = "2.0.1"
 
@@ -16,12 +16,12 @@ kotlinxSerializationJson = "1.6.0"
 timber = "5.0.1"
 
 # ... CORE:UI ...
-androidxNavigation = "2.7.0"
+androidxNavigation = "2.7.1"
 androidxFragment = "1.6.1"
 androidxAppCompat = "1.6.1"
 # TODO: Change this to stable release
 # Required for edgeToEdge()
-androidxActivity = "1.8.0-alpha06"
+androidxActivity = "1.8.0-alpha07"
 androidxLifecycle = "2.6.1"
 androidxComposeBom = "2023.08.00"
 androidxComposeCompiler = "1.5.0"
@@ -42,8 +42,8 @@ room = "2.5.2"
 
 # ... FIREBASE ...
 gmsPlugin = "4.3.15"
-firebaseBom = "32.2.2"
-firebaseCrashlyticsPlugin = "2.9.8"
+firebaseBom = "32.2.3"
+firebaseCrashlyticsPlugin = "2.9.9"
 
 # ... DAGGER-HILT ...
 daggerHilt = "2.47"
