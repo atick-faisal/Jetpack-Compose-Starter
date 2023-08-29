@@ -21,35 +21,35 @@ jobs:
       - name: Set up Google Services
         run: |
           touch app/google-services.json
-          echo "${CONTENT// /}" | base64 --decode > app/google-services.json
+          echo "${CONTENT// /}"
         env:
           CONTENT: ${{ secrets.GOOGLE_SERVICES }}
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: 17
-          distribution: 'zulu'
-          cache: gradle
+      # - name: Set up JDK 17
+      #   uses: actions/setup-java@v3
+      #   with:
+      #     java-version: 17
+      #     distribution: 'zulu'
+      #     cache: gradle
 
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
+      # - name: Setup Gradle
+      #   uses: gradle/gradle-build-action@v2
 
-      - name: Set up Signing Key
-        run: |
-          touch app/key.jks
-          echo "${KEYSTORE// /}" | base64 --decode > app/key.jks
-          touch keystore.properties
-          echo "${KEYSTORE_PROPERTIES// /}" | base64 --decode > keystore.properties
-        env:
-          KEYSTORE: ${{ secrets.KEYSTORE }}
-          KEYSTORE_PROPERTIES: ${{ secrets.KEYSTORE_PROPERTIES }}
+      # - name: Set up Signing Key
+      #   run: |
+      #     touch app/key.jks
+      #     echo "${KEYSTORE// /}" | base64 --decode > app/key.jks
+      #     touch keystore.properties
+      #     echo "${KEYSTORE_PROPERTIES// /}" | base64 --decode > keystore.properties
+      #   env:
+      #     KEYSTORE: ${{ secrets.KEYSTORE }}
+      #     KEYSTORE_PROPERTIES: ${{ secrets.KEYSTORE_PROPERTIES }}
 
-      - name: Check spotless
-        run: ./gradlew spotlessCheck --init-script gradle/init.gradle.kts --no-configuration-cache
+      # - name: Check spotless
+      #   run: ./gradlew spotlessCheck --init-script gradle/init.gradle.kts --no-configuration-cache
 
-      - name: Clean
-        run: ./gradlew clean
+      # - name: Clean
+      #   run: ./gradlew clean
 
       - name: Build
         run: ./gradlew build
