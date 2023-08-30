@@ -46,7 +46,7 @@ firebaseBom = "32.2.3"
 firebaseCrashlyticsPlugin = "2.9.9"
 
 # ... DAGGER-HILT ...
-daggerHilt = "2.47"
+daggerHilt = "2.48"
 daggerHiltExt = "1.0.0"
 
 # ... SDK-CONFIG ...

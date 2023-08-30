@@ -40,16 +40,18 @@ class LibraryConventionPlugin : Plugin<Project> {
                     freeCompilerArgs = freeCompilerArgs + listOf(
                         "-opt-in=kotlin.RequiresOptIn",
                         "-opt-in=kotlinx.coroutines.FlowPreview",
-                        "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+                        "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
                     )
                 }
             }
 
+            /* Migrated to KSP
             // ... https://github.com/Kotlin/dokka/issues/2954
             tasks.named("dokkaGfmPartial") {
                 dependsOn("kaptDebugKotlin")
                 dependsOn("kaptReleaseKotlin")
             }
+            */
         }
     }
 }
