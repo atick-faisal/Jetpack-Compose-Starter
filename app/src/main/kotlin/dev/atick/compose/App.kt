@@ -17,19 +17,21 @@
 package dev.atick.compose
 
 import android.app.Application
-import com.orhanobut.logger.LogAdapter
-import com.orhanobut.logger.Logger
 import dagger.hilt.android.HiltAndroidApp
-import javax.inject.Inject
+import timber.log.Timber
 
+/**
+ * The main application class that extends [Application] and is annotated with [HiltAndroidApp].
+ */
 @HiltAndroidApp
 class App : Application() {
-    @Inject
-    lateinit var logAdapter: LogAdapter
 
+    /**
+     * Called when the application is first created.
+     * Performs initialization tasks, such as setting up Timber logging in debug mode.
+     */
     override fun onCreate() {
         super.onCreate()
-        Logger.addLogAdapter(logAdapter)
-        Logger.i("SKYNET INITIATED!")
+        if (BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
     }
 }

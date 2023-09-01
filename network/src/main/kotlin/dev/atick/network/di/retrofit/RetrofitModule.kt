@@ -20,13 +20,16 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.network.api.JetpackRestApi.Companion.BASE_URL
+import dev.atick.network.BuildConfig
 import dev.atick.network.di.okhttp.OkHttpClientModule
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+/**
+ * Module for providing [Retrofit].
+ */
 @Module(
     includes = [
         OkHttpClientModule::class,
@@ -35,6 +38,13 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
 
+    /**
+     * Provides [Retrofit].
+     *
+     * @param converterFactory [GsonConverterFactory].
+     * @param okHttpClient [OkHttpClient].
+     * @return [Retrofit].
+     */
     @Singleton
     @Provides
     fun provideRetrofitClient(
@@ -42,7 +52,7 @@ object RetrofitModule {
         okHttpClient: OkHttpClient,
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.BACKEND_URL)
             .addConverterFactory(converterFactory)
             .client(okHttpClient)
             .build()

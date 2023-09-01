@@ -16,66 +16,90 @@
 
 package dev.atick.compose.ui.home
 
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Add
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalLifecycleOwner
-import androidx.compose.ui.res.stringResource
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.repeatOnLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
-import dev.atick.compose.R
-import dev.atick.compose.ui.home.components.HomeContent
-import dev.atick.core.ui.components.TopBar
-import kotlinx.coroutines.launch
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import coil.compose.AsyncImage
+import dev.atick.compose.data.home.HomeScreenData
+import dev.atick.core.ui.utils.StatefulComposable
+
+/**
+ * Composable function that represents the home screen.
+ *
+ * @param homeViewModel The view model for the home screen.
+ */
+@Composable
+internal fun HomeRoute(
+    onPostCLick: (Int) -> Unit,
+    onShowSnackbar: suspend (String, String?) -> Boolean,
+    homeViewModel: HomeViewModel = hiltViewModel(),
+) {
+    val homeState by homeViewModel.homeUiState.collectAsState()
+
+    StatefulComposable(
+        state = homeState,
+        onShowSnackbar = onShowSnackbar,
+    ) { homeScreenData ->
+        HomeScreen(homeScreenData, onPostCLick)
+    }
+}
 
 @Composable
-@OptIn(ExperimentalMaterial3Api::class)
-fun HomeScreen(
-    homeViewModel: HomeViewModel = viewModel(),
+private fun HomeScreen(
+    homeScreenData: HomeScreenData,
+    onPostCLick: (Int) -> Unit,
 ) {
-    val homeUiState by homeViewModel.homeUiState.collectAsState()
-    val snackbarHost = remember { SnackbarHostState() }
-    val lifecycle = LocalLifecycleOwner.current.lifecycle
+    val scrollableState = rememberLazyListState()
 
-    homeUiState.toastMessage?.let {
-        val errorMessage = it.asString()
-        LaunchedEffect(homeUiState) {
-            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                launch {
-                    snackbarHost.showSnackbar(errorMessage)
-                    homeViewModel.clearError()
-                }
-            }
-        }
-    }
-
-    Scaffold(
-        topBar = {
-            TopBar(
-                title = stringResource(R.string.home),
-                onSearchClick = {},
-                onMenuClick = {},
+    LazyColumn(
+        modifier = Modifier.padding(horizontal = 24.dp),
+        contentPadding = PaddingValues(vertical = 16.dp),
+        state = scrollableState,
+    ) {
+        items(homeScreenData.posts) { post ->
+            ListItem(
+                leadingContent = {
+                    AsyncImage(
+                        model = post.thumbnailUrl,
+                        contentDescription = null,
+                        modifier = Modifier.clip(CircleShape),
+                    )
+                },
+                headlineContent = { Text(text = post.title) },
+                trailingContent = {
+                    IconButton(onClick = {}) {
+                        Icon(
+                            imageVector = Icons.Outlined.Add,
+                            contentDescription = null,
+                            modifier = Modifier.size(64.dp),
+                        )
+                    }
+                },
+                colors = ListItemDefaults.colors(
+                    containerColor = Color.Transparent,
+                ),
+                modifier = Modifier.clickable { onPostCLick(post.id) },
             )
-        },
-        snackbarHost = { SnackbarHost(hostState = snackbarHost) },
-    ) { paddingValues ->
-        HomeContent(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues),
-            item = homeUiState.item,
-            loading = homeUiState.loading,
-            onButtonCLick = { homeViewModel.getItem() },
-        )
+        }
     }
 }

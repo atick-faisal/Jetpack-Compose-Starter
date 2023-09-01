@@ -18,36 +18,56 @@ package dev.atick.storage.room.data
 
 import androidx.room.Dao
 import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Update
-import dev.atick.storage.room.data.models.Item
+import androidx.room.Upsert
+import dev.atick.storage.room.model.PostEntity
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * DAO for handling [PostEntity] operations.
+ */
 @Dao
 interface JetpackDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(item: Item)
 
-    @Update
-    suspend fun update(item: Item)
+    /**
+     * Upsert operation (Insert an entity into the database. If the entity already exists, replace it.)
+     * @param postEntity The entity to be inserted or updated.
+     */
+    @Upsert
+    suspend fun insertOrUpdatePostEntity(postEntity: PostEntity)
 
+    /**
+     * Delete a [PostEntity] from the database.
+     * @param postEntity The entity to be deleted.
+     */
     @Delete
-    suspend fun delete(item: Item)
+    suspend fun deletePostEntity(postEntity: PostEntity)
 
-    @Query("SELECT * FROM items WHERE id = :id")
-    suspend fun getItem(id: Long): Item?
+    /**
+     * Retrieve a [PostEntity] by ID.
+     * @param id The id of the entity.
+     * @return The entity with the given id, or null if no such entity exists.
+     */
+    @Query("SELECT * FROM posts WHERE id = :id")
+    suspend fun getPostEntity(id: Int): PostEntity?
 
-    @Query("SELECT * FROM items WHERE name = :name LIMIT 1")
-    suspend fun getItem(name: String): Item?
+    /**
+     * Retrieve all [PostEntity] from the database.
+     * @return A [Flow] that emits the list of entities.
+     */
+    @Query("SELECT * FROM posts")
+    fun getPostEntities(): Flow<List<PostEntity>>
 
-    @Query("SELECT * FROM items")
-    fun getAllItems(): Flow<List<Item>>
+    /**
+     * Upsert operation (Insert a list of entities into the database. If an entity already exists, replace it.)
+     * @param postEntities The list of entities to be inserted or updated.
+     */
+    @Upsert
+    suspend fun upsertPostEntities(postEntities: List<PostEntity>)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(items: List<Item>)
-
-    @Query("DELETE FROM items")
-    suspend fun clear()
+    /**
+     * Delete all [PostEntity] items from the database.
+     */
+    @Query("DELETE FROM posts")
+    suspend fun deleteAllPostEntities()
 }

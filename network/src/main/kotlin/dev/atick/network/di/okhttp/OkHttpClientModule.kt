@@ -25,6 +25,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit.SECONDS
 import javax.inject.Singleton
 
+/**
+ * Module for providing [OkHttpClient].
+ */
 @Module(
     includes = [
         InterceptorModule::class,
@@ -35,6 +38,12 @@ object OkHttpClientModule {
 
     private const val TIME_OUT = 60L
 
+    /**
+     * Provides [OkHttpClient].
+     *
+     * @param loggingInterceptor [HttpLoggingInterceptor].
+     * @return [OkHttpClient].
+     */
     @Singleton
     @Provides
     fun provideOkHttpClient(

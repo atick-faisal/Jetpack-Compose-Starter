@@ -15,15 +15,13 @@
      limitations under the License.
 -->
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.JetpackComposeStarter" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+    <style name="NightAdjusted.Theme.Nia" parent="android:Theme.Material.NoActionBar" />
 
-    <style name="SplashScreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash_background_night</item>
-        <item name="android:statusBarColor">@color/surface_dark</item>
+    <style name="NightAdjusted.Theme.Splash" parent="Theme.SplashScreen">
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:navigationBarColor">@color/surface_dark</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
     </style>
 
 </resources>

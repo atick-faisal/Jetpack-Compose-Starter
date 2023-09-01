@@ -20,17 +20,26 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.network.data.JetpackDataSource
-import dev.atick.network.data.JetpackDataSourceImpl
+import dev.atick.network.NetworkDataSource
+import dev.atick.network.data.NetworkDataSourceImpl
 import javax.inject.Singleton
 
+/**
+ * Module for providing [NetworkDataSource].
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class DataSourceModule {
 
+    /**
+     * Binds [NetworkDataSourceImpl] to [NetworkDataSource].
+     *
+     * @param jetpackDataSourceImpl [NetworkDataSourceImpl].
+     * @return [NetworkDataSource].
+     */
     @Binds
     @Singleton
     abstract fun bindJetpackDataSource(
-        jetpackDataSourceImpl: JetpackDataSourceImpl,
-    ): JetpackDataSource
+        jetpackDataSourceImpl: NetworkDataSourceImpl,
+    ): NetworkDataSource
 }

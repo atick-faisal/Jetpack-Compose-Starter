@@ -1,0 +1,75 @@
+site_name: Jetpack Android Template
+repo_name: Jetpack-Compose-Starter
+repo_url: https://github.com/atick-faisal/Jetpack-Compose-Starter
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      primary: deep-orange
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep-orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep-orange
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to system preference
+
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+    - content.action.view
+    - content.code.copy
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+
+extra:
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+
+  social:
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:atickfaisal@gmail.com
+    - icon: fontawesome/brands/github
+      link: https://github.com/atick-faisal
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/atick-faisal
+    - icon: fontawesome/brands/medium
+      link: https://atickfaisal.medium.com
+    - icon: fontawesome/brands/stack-overflow
+      link: https://stackoverflow.com/users/12737399/atick-faisal
+    - icon: fontawesome/brands/researchgate
+      link: https://scholar.google.com/citations?user=ZiPKjAgAAAAJ&hl=en
+
+plugins:
+  - search
+  - tags
+
+copyright: Copyright &copy; 2023 Atick Faisal
