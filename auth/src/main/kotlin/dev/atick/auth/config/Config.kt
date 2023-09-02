@@ -1,4 +1,4 @@
-package dev.atick.auth.data.config
+package dev.atick.auth.config
 
 object Config {
     const val WEB_CLIENT_ID =

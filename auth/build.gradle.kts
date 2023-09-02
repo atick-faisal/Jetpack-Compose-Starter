@@ -15,7 +15,7 @@
  */
 
 plugins {
-    id("dev.atick.library")
+    id("dev.atick.ui.library")
     id("dev.atick.dagger.hilt")
 }
 
