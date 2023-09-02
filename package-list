@@ -52,6 +52,7 @@ $dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.TOY///PointingToD
 $dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.UNCATEGORIZED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-u-n-c-a-t-e-g-o-r-i-z-e-d/index.md
 $dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.WEARABLE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-w-e-a-r-a-b-l-e/index.md
 $dokka.location:dev.atick.bluetooth.common.models/BtDeviceType///PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device-type/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType/entries/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device-type/entries.md
 $dokka.location:dev.atick.bluetooth.common.models/BtDeviceType/valueOf/#kotlin.String/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device-type/value-of.md
 $dokka.location:dev.atick.bluetooth.common.models/BtDeviceType/values/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device-type/values.md
 $dokka.location:dev.atick.bluetooth.common.models/BtMessage///PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-message/index.md
@@ -61,6 +62,7 @@ $dokka.location:dev.atick.bluetooth.common.models/BtMessage/timestamp/#/Pointing
 $dokka.location:dev.atick.bluetooth.common.models/BtState.DISABLED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-state/-d-i-s-a-b-l-e-d/index.md
 $dokka.location:dev.atick.bluetooth.common.models/BtState.ENABLED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-state/-e-n-a-b-l-e-d/index.md
 $dokka.location:dev.atick.bluetooth.common.models/BtState///PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-state/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtState/entries/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-state/entries.md
 $dokka.location:dev.atick.bluetooth.common.models/BtState/valueOf/#kotlin.String/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-state/value-of.md
 $dokka.location:dev.atick.bluetooth.common.models/BtState/values/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-state/values.md
 $dokka.location:dev.atick.bluetooth.common.receiver////PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/index.md
@@ -130,6 +132,7 @@ $dokka.location:dev.atick.compose.navigation//JetpackNavHost/#dev.atick.compose.
 $dokka.location:dev.atick.compose.navigation/TopLevelDestination.HOME///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/app/dev.atick.compose.navigation/-top-level-destination/-h-o-m-e/index.md
 $dokka.location:dev.atick.compose.navigation/TopLevelDestination.PROFILE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/app/dev.atick.compose.navigation/-top-level-destination/-p-r-o-f-i-l-e/index.md
 $dokka.location:dev.atick.compose.navigation/TopLevelDestination///PointingToDeclaration/app/app/dev.atick.compose.navigation/-top-level-destination/index.md
+$dokka.location:dev.atick.compose.navigation/TopLevelDestination/entries/#/PointingToDeclaration/app/app/dev.atick.compose.navigation/-top-level-destination/entries.md
 $dokka.location:dev.atick.compose.navigation/TopLevelDestination/iconTextId/#/PointingToDeclaration/app/app/dev.atick.compose.navigation/-top-level-destination/icon-text-id.md
 $dokka.location:dev.atick.compose.navigation/TopLevelDestination/selectedIcon/#/PointingToDeclaration/app/app/dev.atick.compose.navigation/-top-level-destination/selected-icon.md
 $dokka.location:dev.atick.compose.navigation/TopLevelDestination/titleTextId/#/PointingToDeclaration/app/app/dev.atick.compose.navigation/-top-level-destination/title-text-id.md
@@ -398,6 +401,7 @@ $dokka.location:dev.atick.network.utils/NetworkState.LOST///PointingToDeclaratio
 $dokka.location:dev.atick.network.utils/NetworkState.UNAVAILABLE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}network/network/dev.atick.network.utils/-network-state/-u-n-a-v-a-i-l-a-b-l-e/index.md
 $dokka.location:dev.atick.network.utils/NetworkState///PointingToDeclaration/network/network/dev.atick.network.utils/-network-state/index.md
 $dokka.location:dev.atick.network.utils/NetworkState/description/#/PointingToDeclaration/network/network/dev.atick.network.utils/-network-state/description.md
+$dokka.location:dev.atick.network.utils/NetworkState/entries/#/PointingToDeclaration/network/network/dev.atick.network.utils/-network-state/entries.md
 $dokka.location:dev.atick.network.utils/NetworkState/valueOf/#kotlin.String/PointingToDeclaration/network/network/dev.atick.network.utils/-network-state/value-of.md
 $dokka.location:dev.atick.network.utils/NetworkState/values/#/PointingToDeclaration/network/network/dev.atick.network.utils/-network-state/values.md
 $dokka.location:dev.atick.network.utils/NetworkUtils///PointingToDeclaration/network/network/dev.atick.network.utils/-network-utils/index.md
@@ -428,11 +432,13 @@ $dokka.location:dev.atick.storage.preferences.model/DarkThemeConfig.DARK///Point
 $dokka.location:dev.atick.storage.preferences.model/DarkThemeConfig.FOLLOW_SYSTEM///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}preferences/preferences/dev.atick.storage.preferences.model/-dark-theme-config/-f-o-l-l-o-w_-s-y-s-t-e-m/index.md
 $dokka.location:dev.atick.storage.preferences.model/DarkThemeConfig.LIGHT///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}preferences/preferences/dev.atick.storage.preferences.model/-dark-theme-config/-l-i-g-h-t/index.md
 $dokka.location:dev.atick.storage.preferences.model/DarkThemeConfig///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-dark-theme-config/index.md
+$dokka.location:dev.atick.storage.preferences.model/DarkThemeConfig/entries/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-dark-theme-config/entries.md
 $dokka.location:dev.atick.storage.preferences.model/DarkThemeConfig/valueOf/#kotlin.String/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-dark-theme-config/value-of.md
 $dokka.location:dev.atick.storage.preferences.model/DarkThemeConfig/values/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-dark-theme-config/values.md
 $dokka.location:dev.atick.storage.preferences.model/ThemeBrand.ANDROID///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}preferences/preferences/dev.atick.storage.preferences.model/-theme-brand/-a-n-d-r-o-i-d/index.md
 $dokka.location:dev.atick.storage.preferences.model/ThemeBrand.DEFAULT///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}preferences/preferences/dev.atick.storage.preferences.model/-theme-brand/-d-e-f-a-u-l-t/index.md
 $dokka.location:dev.atick.storage.preferences.model/ThemeBrand///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-theme-brand/index.md
+$dokka.location:dev.atick.storage.preferences.model/ThemeBrand/entries/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-theme-brand/entries.md
 $dokka.location:dev.atick.storage.preferences.model/ThemeBrand/valueOf/#kotlin.String/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-theme-brand/value-of.md
 $dokka.location:dev.atick.storage.preferences.model/ThemeBrand/values/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-theme-brand/values.md
 $dokka.location:dev.atick.storage.preferences.model/UserData///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-user-data/index.md
