@@ -10,9 +10,10 @@ import dev.atick.core.ui.utils.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import javax.inject.Inject
 
 @HiltViewModel
-class AuthViewModel : ViewModel() {
+class AuthViewModel @Inject constructor() : ViewModel() {
 
     private val _loginUiState: MutableStateFlow<UiState<LoginScreenData>> =
         MutableStateFlow(UiState.Success(LoginScreenData()))
