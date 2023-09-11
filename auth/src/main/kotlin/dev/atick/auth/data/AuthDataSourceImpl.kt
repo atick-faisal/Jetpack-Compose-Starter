@@ -10,13 +10,16 @@ import com.google.firebase.auth.UserProfileChangeRequest
 import dev.atick.auth.config.Config
 import dev.atick.auth.model.AuthUser
 import dev.atick.auth.model.asAuthUser
+import dev.atick.core.di.IoDispatcher
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
-import kotlin.coroutines.cancellation.CancellationException
 
 class AuthDataSourceImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth,
     private val signInClient: SignInClient,
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : AuthDataSource {
 
     override val currentUser: AuthUser?
@@ -26,8 +29,8 @@ class AuthDataSourceImpl @Inject constructor(
     override suspend fun signInWithEmailAndPassword(
         email: String,
         password: String,
-    ): Result<AuthUser> {
-        return runCatching {
+    ): AuthUser {
+        return withContext(ioDispatcher) {
             val user = firebaseAuth.signInWithEmailAndPassword(email, password).await().user!!
             user.asAuthUser()
         }
@@ -37,8 +40,8 @@ class AuthDataSourceImpl @Inject constructor(
         name: String,
         email: String,
         password: String,
-    ): Result<AuthUser> {
-        return runCatching {
+    ): AuthUser {
+        return withContext(ioDispatcher) {
             val user = firebaseAuth.createUserWithEmailAndPassword(email, password).await().user!!
             user.updateProfile(UserProfileChangeRequest.Builder().setDisplayName(name).build())
                 .await()
@@ -47,28 +50,24 @@ class AuthDataSourceImpl @Inject constructor(
     }
 
     override suspend fun logout() {
-        firebaseAuth.signOut()
+        withContext(ioDispatcher) {
+            firebaseAuth.signOut()
+        }
     }
 
     override suspend fun getGoogleSignInIntent(): IntentSender? {
-        val result = try {
-            signInClient.beginSignIn(
-                buildSignInRequest(),
-            ).await()
-        } catch (e: Exception) {
-            e.printStackTrace()
-            if (e is CancellationException) throw e
-            null
+        return withContext(ioDispatcher) {
+            val result = signInClient.beginSignIn(buildSignInRequest()).await()
+            result?.pendingIntent?.intentSender
         }
-        return result?.pendingIntent?.intentSender
     }
 
-    override suspend fun signInWithIntent(intent: Intent): Result<AuthUser> {
+    override suspend fun signInWithIntent(intent: Intent): AuthUser {
         val credential = signInClient.getSignInCredentialFromIntent(intent)
         val googleIdToken = credential.googleIdToken
         val googleCredentials = GoogleAuthProvider.getCredential(googleIdToken, null)
 
-        return runCatching {
+        return withContext(ioDispatcher) {
             val user = firebaseAuth.signInWithCredential(googleCredentials).await().user!!
             AuthUser(
                 id = user.uid,
