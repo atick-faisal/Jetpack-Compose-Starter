@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="password">Password</string>
+    <string name="show_password">Show password</string>
+    <string name="hide_password">Hide password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="do_not_have_an_account">"Do not have an account? "</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+</resources>

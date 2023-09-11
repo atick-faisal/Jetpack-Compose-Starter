@@ -54,7 +54,11 @@ class UserPreferencesDataSourceImpl @Inject constructor(
     override suspend fun setProfile(profile: Profile) {
         withContext(ioDispatcher) {
             datastore.updateData { userData ->
-                userData.copy(profile = profile)
+                userData.copy(
+                    id = profile.id,
+                    name = profile.name,
+                    profilePictureUriString = profile.profilePictureUriString,
+                )
             }
         }
     }

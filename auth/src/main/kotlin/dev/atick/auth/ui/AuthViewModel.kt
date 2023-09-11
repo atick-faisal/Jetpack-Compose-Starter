@@ -24,6 +24,19 @@ class AuthViewModel @Inject constructor(
         MutableStateFlow(UiState.Success(AuthScreenData()))
     val loginUiState = _loginUiState.asStateFlow()
 
+    fun updateName(name: String) {
+        _loginUiState.update {
+            UiState.Success(
+                it.data.copy(
+                    email = TextFiledData(
+                        value = name,
+                        errorMessage = null,
+                    ),
+                ),
+            )
+        }
+    }
+
     fun updateEmail(email: String) {
         _loginUiState.update {
             UiState.Success(
@@ -51,11 +64,22 @@ class AuthViewModel @Inject constructor(
     }
 
     fun loginWithEmailAndPassword() {
+        _loginUiState.update { UiState.Loading(loginUiState.value.data) }
         viewModelScope.launch {
-            authRepository.signInWithEmailAndPassword(
+            val result = authRepository.signInWithEmailAndPassword(
                 email = loginUiState.value.data.email.value,
                 password = loginUiState.value.data.email.value,
             )
+            if (result.isSuccess) {
+                _loginUiState.update { UiState.Success(AuthScreenData()) }
+            } else {
+                _loginUiState.update {
+                    UiState.Error(
+                        loginUiState.value.data,
+                        result.exceptionOrNull(),
+                    )
+                }
+            }
         }
     }
 

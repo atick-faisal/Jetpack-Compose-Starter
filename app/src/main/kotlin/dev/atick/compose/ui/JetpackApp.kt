@@ -19,6 +19,7 @@ package dev.atick.compose.ui
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.consumeWindowInsets
@@ -27,6 +28,7 @@ import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
@@ -80,9 +82,11 @@ import dev.atick.network.utils.NetworkUtils
     ExperimentalMaterial3Api::class,
 )
 fun JetpackApp(
+    isUserLoggedIn: Boolean,
     windowSizeClass: WindowSizeClass,
     networkUtils: NetworkUtils,
     appState: JetpackAppState = rememberJetpackAppState(
+        isUserLoggedIn = isUserLoggedIn,
         windowSizeClass = windowSizeClass,
         networkUtils = networkUtils,
     ),
@@ -124,7 +128,8 @@ fun JetpackApp(
             Scaffold(
                 containerColor = Color.Transparent,
                 contentColor = MaterialTheme.colorScheme.onBackground,
-                contentWindowInsets = WindowInsets(0, 0, 0, 0),
+                // Snackbar displays incorrectly if used
+                // contentWindowInsets = WindowInsets(0, 0, 0, 0),
                 snackbarHost = { SnackbarHost(snackbarHostState) },
                 bottomBar = {
                     if (appState.shouldShowBottomBar) {
@@ -185,6 +190,7 @@ fun JetpackApp(
                                 ) == SnackbarResult.ActionPerformed
                             },
                         )
+                        Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.safeDrawing))
                     }
                 }
             }

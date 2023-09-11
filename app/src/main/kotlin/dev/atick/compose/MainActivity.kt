@@ -120,6 +120,7 @@ class MainActivity : ComponentActivity() {
                 disableDynamicTheming = shouldDisableDynamicTheming(uiState),
             ) {
                 JetpackApp(
+                    isUserLoggedIn = isUserLoggedIn(uiState),
                     networkUtils = networkUtils,
                     windowSizeClass = calculateWindowSizeClass(this),
                 )
@@ -201,6 +202,14 @@ private fun shouldUseDarkTheme(
         DarkThemeConfig.FOLLOW_SYSTEM -> isSystemInDarkTheme()
         DarkThemeConfig.LIGHT -> false
         DarkThemeConfig.DARK -> true
+    }
+}
+
+private fun isUserLoggedIn(uiState: UiState<UserData>): Boolean {
+    return when (uiState) {
+        is UiState.Loading -> true
+        is UiState.Success -> uiState.data.id != "-1"
+        is UiState.Error -> false
     }
 }
 
