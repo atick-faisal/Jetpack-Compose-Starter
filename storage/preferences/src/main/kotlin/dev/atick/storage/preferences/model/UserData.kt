@@ -21,7 +21,7 @@ import kotlinx.serialization.Serializable
 /**
  * Serializable data class representing user-specific data and preferences.
  *
- * @property userId The unique identifier for the user.
+ * @property profile The user profile information.
  * @property themeBrand The selected brand for the app's theme.
  * @property darkThemeConfig Configuration for the dark theme.
  * @property useDynamicColor Indicates whether dynamic colors are enabled.
@@ -29,7 +29,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class UserData(
-    val userId: String = "-1",
+    val profile: Profile = Profile(),
     val themeBrand: ThemeBrand = ThemeBrand.DEFAULT,
     val darkThemeConfig: DarkThemeConfig = DarkThemeConfig.FOLLOW_SYSTEM,
     val useDynamicColor: Boolean = true,

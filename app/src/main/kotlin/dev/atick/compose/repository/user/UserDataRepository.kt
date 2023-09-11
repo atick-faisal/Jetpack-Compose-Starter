@@ -17,6 +17,7 @@
 package dev.atick.compose.repository.user
 
 import dev.atick.storage.preferences.model.DarkThemeConfig
+import dev.atick.storage.preferences.model.Profile
 import dev.atick.storage.preferences.model.ThemeBrand
 import dev.atick.storage.preferences.model.UserData
 import kotlinx.coroutines.flow.Flow
@@ -34,10 +35,10 @@ interface UserDataRepository {
     /**
      * Sets the user ID in the user preferences.
      *
-     * @param userId The user ID to be set.
+     * @param profile The user ID to be set.
      * @return [Result] indicating the success or failure of the operation.
      */
-    suspend fun setUserId(userId: String): Result<Unit>
+    suspend fun setUserProfile(profile: Profile): Result<Unit>
 
     /**
      * Sets the theme brand in the user preferences.

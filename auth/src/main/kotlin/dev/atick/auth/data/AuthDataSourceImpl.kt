@@ -69,11 +69,7 @@ class AuthDataSourceImpl @Inject constructor(
 
         return withContext(ioDispatcher) {
             val user = firebaseAuth.signInWithCredential(googleCredentials).await().user!!
-            AuthUser(
-                id = user.uid,
-                name = user.displayName,
-                profilePictureUri = user.photoUrl,
-            )
+            user.asAuthUser()
         }
     }
 
