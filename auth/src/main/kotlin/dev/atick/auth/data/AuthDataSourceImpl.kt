@@ -73,7 +73,6 @@ class AuthDataSourceImpl @Inject constructor(
         }
     }
 
-
     private fun buildSignInRequest(): BeginSignInRequest {
         return BeginSignInRequest.Builder()
             .setGoogleIdTokenRequestOptions(

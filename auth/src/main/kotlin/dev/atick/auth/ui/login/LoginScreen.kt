@@ -30,7 +30,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import dev.atick.auth.model.login.LoginScreenData
+import dev.atick.auth.model.login.AuthScreenData
 import dev.atick.auth.ui.AuthViewModel
 import dev.atick.core.ui.component.JetpackButton
 import dev.atick.core.ui.utils.DevicePreviews
@@ -58,7 +58,7 @@ fun HomeRoute(
 
 @Composable
 private fun LoginScreen(
-    loginScreenData: LoginScreenData,
+    authScreenData: AuthScreenData,
     onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
     onSignInClick: () -> Unit,
@@ -73,7 +73,7 @@ private fun LoginScreen(
         Text("Login", style = MaterialTheme.typography.headlineMedium)
         Spacer(modifier = Modifier.height(24.dp))
         OutlinedTextField(
-            value = loginScreenData.email.value,
+            value = authScreenData.email.value,
             onValueChange = onEmailChange,
             modifier = Modifier.fillMaxWidth(),
             label = { Text("Email") },
@@ -82,7 +82,7 @@ private fun LoginScreen(
         )
         Spacer(modifier = Modifier.height(8.dp))
         OutlinedTextField(
-            value = loginScreenData.password.value,
+            value = authScreenData.password.value,
             onValueChange = onPasswordChange,
             modifier = Modifier.fillMaxWidth(),
             label = { Text("Email") },
@@ -118,7 +118,7 @@ private fun LoginScreen(
 @Composable
 fun LoginScreenPreview() {
     LoginScreen(
-        loginScreenData = LoginScreenData(),
+        authScreenData = AuthScreenData(),
         onEmailChange = {},
         onPasswordChange = {},
         onSignInClick = {},
