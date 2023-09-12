@@ -72,5 +72,4 @@ abstract class RepositoryModule {
     abstract fun bindProfileDataRepository(
         profileDataRepositoryImpl: ProfileDataRepositoryImpl,
     ): ProfileDataRepository
-
 }

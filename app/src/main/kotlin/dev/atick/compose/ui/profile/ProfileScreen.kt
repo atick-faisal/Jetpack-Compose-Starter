@@ -63,7 +63,7 @@ private fun ProfileScreen(
     profileScreenData: ProfileScreenData,
     onSignOutClick: () -> Unit,
 
-    ) {
+) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
