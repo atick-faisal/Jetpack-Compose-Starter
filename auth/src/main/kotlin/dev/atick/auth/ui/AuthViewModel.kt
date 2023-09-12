@@ -7,6 +7,7 @@ import dev.atick.auth.model.login.AuthScreenData
 import dev.atick.auth.repository.AuthRepository
 import dev.atick.core.extensions.isEmailValid
 import dev.atick.core.extensions.isPasswordValid
+import dev.atick.core.extensions.isValidFullName
 import dev.atick.core.ui.utils.TextFiledData
 import dev.atick.core.ui.utils.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -28,9 +29,9 @@ class AuthViewModel @Inject constructor(
         _loginUiState.update {
             UiState.Success(
                 it.data.copy(
-                    email = TextFiledData(
+                    name = TextFiledData(
                         value = name,
-                        errorMessage = null,
+                        errorMessage = if (name.isValidFullName()) null else "Name Not Valid",
                     ),
                 ),
             )
@@ -83,4 +84,24 @@ class AuthViewModel @Inject constructor(
         }
     }
 
+    fun registerWithEmailAndPassword() {
+        _loginUiState.update { UiState.Loading(loginUiState.value.data) }
+        viewModelScope.launch {
+            val result = authRepository.registerWithEmailAndPassword(
+                name = loginUiState.value.data.name.value,
+                email = loginUiState.value.data.email.value,
+                password = loginUiState.value.data.email.value,
+            )
+            if (result.isSuccess) {
+                _loginUiState.update { UiState.Success(AuthScreenData()) }
+            } else {
+                _loginUiState.update {
+                    UiState.Error(
+                        loginUiState.value.data,
+                        result.exceptionOrNull(),
+                    )
+                }
+            }
+        }
+    }
 }

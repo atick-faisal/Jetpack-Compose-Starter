@@ -52,6 +52,7 @@ import dev.atick.core.ui.utils.StatefulComposable
 
 @Composable
 fun SignUpRoute(
+    onSignInClick: () -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
     authViewModel: AuthViewModel = hiltViewModel(),
 ) {
@@ -66,7 +67,8 @@ fun SignUpRoute(
             authViewModel::updateName,
             authViewModel::updateEmail,
             authViewModel::updatePassword,
-            authViewModel::loginWithEmailAndPassword,
+            authViewModel::registerWithEmailAndPassword,
+            onSignInClick,
         )
     }
 }
@@ -77,6 +79,7 @@ private fun SignUpScreen(
     onNameChange: (String) -> Unit,
     onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
+    onSignUpClick: () -> Unit,
     onSignInClick: () -> Unit,
 ) {
     var passwordVisible by rememberSaveable { mutableStateOf(false) }
@@ -87,11 +90,11 @@ private fun SignUpScreen(
         verticalArrangement = Arrangement.Center,
     ) {
         Spacer(Modifier.windowInsetsTopHeight(WindowInsets.safeDrawing))
-        Text("Login", style = MaterialTheme.typography.headlineMedium)
+        Text(stringResource(id = R.string.sign_up), style = MaterialTheme.typography.headlineMedium)
         Spacer(modifier = Modifier.height(24.dp))
         JetpackOutlinedButton(
             onClick = {},
-            text = { Text(text = "Sign Up with Google") },
+            text = { Text(text = stringResource(R.string.sign_up_with_google)) },
             leadingIcon = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_google),
@@ -182,20 +185,20 @@ private fun SignUpScreen(
         JetpackButton(
             onClick = {
                 focusManager.clearFocus()
-                onSignInClick.invoke()
+                onSignUpClick.invoke()
             },
             modifier = Modifier.fillMaxWidth(),
-            text = { Text(stringResource(R.string.sign_in)) },
+            text = { Text(stringResource(R.string.sign_up)) },
         )
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Text(text = stringResource(R.string.do_not_have_an_account))
-            JetpackTextButton(onClick = { /*TODO*/ }) {
+            Text(text = stringResource(R.string.already_have_an_account))
+            JetpackTextButton(onClick = onSignInClick) {
                 Text(
-                    text = stringResource(R.string.sign_up),
+                    text = stringResource(R.string.sign_in),
                     color = MaterialTheme.colorScheme.primary,
                 )
             }
@@ -211,6 +214,7 @@ fun SignUpScreenPreview() {
         onNameChange = {},
         onEmailChange = {},
         onPasswordChange = {},
+        onSignUpClick = {},
         onSignInClick = {},
     )
 }

@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import dev.atick.auth.navigation.authNavGraph
 import dev.atick.auth.navigation.authNavGraphRoute
+import dev.atick.auth.navigation.navigateToSignInRoute
 import dev.atick.auth.navigation.navigateToSignUpRoute
 import dev.atick.compose.navigation.details.detailsScreen
 import dev.atick.compose.navigation.details.navigateToDetailsScreen
@@ -44,7 +45,8 @@ fun JetpackNavHost(
     ) {
         authNavGraph(
             onSignUpClick = navController::navigateToSignUpRoute,
-            onShowSnackbar = onShowSnackbar
+            onSignInCLick = navController::navigateToSignInRoute,
+            onShowSnackbar = onShowSnackbar,
         )
         homeNavGraph(
             onPostClick = navController::navigateToDetailsScreen,

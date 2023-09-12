@@ -26,6 +26,7 @@ fun NavController.navigateToSignUpRoute(navOptions: NavOptions? = null) {
 
 fun NavGraphBuilder.authNavGraph(
     onSignUpClick: () -> Unit,
+    onSignInCLick: () -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
 ) {
     navigation(
@@ -39,7 +40,10 @@ fun NavGraphBuilder.authNavGraph(
             )
         }
         composable(signUpNavigationRoute) {
-            SignUpRoute(onShowSnackbar = onShowSnackbar)
+            SignUpRoute(
+                onSignInClick = onSignInCLick,
+                onShowSnackbar = onShowSnackbar,
+            )
         }
     }
 }

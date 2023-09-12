@@ -7,5 +7,7 @@
     <string name="do_not_have_an_account">"Do not have an account? "</string>
     <string name="sign_up">Sign Up</string>
     <string name="email">Email</string>
-    <string name="name">Name</string>
+    <string name="name">Full Name</string>
+    <string name="sign_up_with_google">Sign Up with Google</string>
+    <string name="already_have_an_account">Already have an account?</string>
 </resources>
