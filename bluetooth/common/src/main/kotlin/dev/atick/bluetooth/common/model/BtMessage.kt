@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.bluetooth.common.models
+package dev.atick.bluetooth.common.model
 
 import java.util.Date
 

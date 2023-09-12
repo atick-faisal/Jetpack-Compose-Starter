@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.network
+package dev.atick.network.data
 
 import dev.atick.network.model.NetworkPost
 

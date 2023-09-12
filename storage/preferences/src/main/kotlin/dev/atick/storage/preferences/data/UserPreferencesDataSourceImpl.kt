@@ -18,7 +18,6 @@ package dev.atick.storage.preferences.data
 
 import androidx.datastore.core.DataStore
 import dev.atick.core.di.IoDispatcher
-import dev.atick.storage.preferences.UserPreferencesDataSource
 import dev.atick.storage.preferences.model.DarkThemeConfig
 import dev.atick.storage.preferences.model.Profile
 import dev.atick.storage.preferences.model.ThemeBrand

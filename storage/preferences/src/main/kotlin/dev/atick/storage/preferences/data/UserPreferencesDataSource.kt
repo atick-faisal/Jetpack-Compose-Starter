@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.storage.preferences
+package dev.atick.storage.preferences.data
 
 import dev.atick.storage.preferences.model.DarkThemeConfig
 import dev.atick.storage.preferences.model.Profile

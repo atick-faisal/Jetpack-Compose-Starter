@@ -16,16 +16,34 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
+/**
+ * Implementation of the [AuthDataSource] interface responsible for handling authentication data operations.
+ *
+ * @param firebaseAuth The Firebase Authentication instance for performing authentication operations.
+ * @param signInClient The client for handling identity-related operations.
+ * @param ioDispatcher The [CoroutineDispatcher] for executing suspend functions in an IO context.
+ */
 class AuthDataSourceImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth,
     private val signInClient: SignInClient,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : AuthDataSource {
 
+    /**
+     * Gets the currently authenticated user, if any.
+     *
+     * @return The currently authenticated [AuthUser], or null if not signed in.
+     */
     override val currentUser: AuthUser?
         get() = firebaseAuth.currentUser?.run { asAuthUser() }
 
-
+    /**
+     * Sign in with an email and password.
+     *
+     * @param email The user's email address.
+     * @param password The user's password.
+     * @return The authenticated [AuthUser] upon successful sign-in.
+     */
     override suspend fun signInWithEmailAndPassword(
         email: String,
         password: String,
@@ -36,6 +54,14 @@ class AuthDataSourceImpl @Inject constructor(
         }
     }
 
+    /**
+     * Register a new user with an email and password.
+     *
+     * @param name The user's name.
+     * @param email The user's email address.
+     * @param password The user's password.
+     * @return The authenticated [AuthUser] upon successful registration.
+     */
     override suspend fun registerWithEmailAndPassword(
         name: String,
         email: String,
@@ -49,12 +75,20 @@ class AuthDataSourceImpl @Inject constructor(
         }
     }
 
+    /**
+     * Sign out the currently authenticated user.
+     */
     override suspend fun signOut() {
         withContext(ioDispatcher) {
             firebaseAuth.signOut()
         }
     }
 
+    /**
+     * Retrieves an [IntentSender] for initiating Google Sign-In.
+     *
+     * @return The [IntentSender] for Google Sign-In, or null if unavailable.
+     */
     override suspend fun getGoogleSignInIntent(): IntentSender? {
         return withContext(ioDispatcher) {
             val result = signInClient.beginSignIn(buildSignInRequest()).await()
@@ -62,6 +96,12 @@ class AuthDataSourceImpl @Inject constructor(
         }
     }
 
+    /**
+     * Sign in using an [Intent] obtained from Google Sign-In.
+     *
+     * @param intent The [Intent] obtained from Google Sign-In.
+     * @return The authenticated [AuthUser] upon successful sign-in.
+     */
     override suspend fun signInWithIntent(intent: Intent): AuthUser {
         val credential = signInClient.getSignInCredentialFromIntent(intent)
         val googleIdToken = credential.googleIdToken
@@ -73,6 +113,11 @@ class AuthDataSourceImpl @Inject constructor(
         }
     }
 
+    /**
+     * Builds a [BeginSignInRequest] for Google Sign-In.
+     *
+     * @return The constructed [BeginSignInRequest].
+     */
     private fun buildSignInRequest(): BeginSignInRequest {
         return BeginSignInRequest.Builder()
             .setGoogleIdTokenRequestOptions(

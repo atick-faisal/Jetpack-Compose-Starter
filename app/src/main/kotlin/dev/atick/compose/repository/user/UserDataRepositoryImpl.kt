@@ -16,7 +16,7 @@
 
 package dev.atick.compose.repository.user
 
-import dev.atick.storage.preferences.UserPreferencesDataSource
+import dev.atick.storage.preferences.data.UserPreferencesDataSource
 import dev.atick.storage.preferences.model.DarkThemeConfig
 import dev.atick.storage.preferences.model.Profile
 import dev.atick.storage.preferences.model.ThemeBrand

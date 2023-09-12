@@ -36,7 +36,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import dev.atick.auth.R
-import dev.atick.auth.model.login.AuthScreenData
+import dev.atick.auth.model.AuthScreenData
 import dev.atick.auth.ui.AuthViewModel
 import dev.atick.core.ui.component.JetpackButton
 import dev.atick.core.ui.component.JetpackOutlinedButton

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.storage.room
+package dev.atick.storage.room.data
 
 import dev.atick.storage.room.model.PostEntity
 import kotlinx.coroutines.flow.Flow
