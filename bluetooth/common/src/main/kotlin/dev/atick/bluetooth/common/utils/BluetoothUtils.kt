@@ -16,8 +16,8 @@
 
 package dev.atick.bluetooth.common.utils
 
-import dev.atick.bluetooth.common.models.BtDevice
-import dev.atick.bluetooth.common.models.BtState
+import dev.atick.bluetooth.common.model.BtDevice
+import dev.atick.bluetooth.common.model.BtState
 import kotlinx.coroutines.flow.StateFlow
 
 /**

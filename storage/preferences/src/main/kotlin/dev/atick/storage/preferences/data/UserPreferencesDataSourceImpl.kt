@@ -18,8 +18,8 @@ package dev.atick.storage.preferences.data
 
 import androidx.datastore.core.DataStore
 import dev.atick.core.di.IoDispatcher
-import dev.atick.storage.preferences.UserPreferencesDataSource
 import dev.atick.storage.preferences.model.DarkThemeConfig
+import dev.atick.storage.preferences.model.Profile
 import dev.atick.storage.preferences.model.ThemeBrand
 import dev.atick.storage.preferences.model.UserData
 import kotlinx.coroutines.CoroutineDispatcher
@@ -46,14 +46,18 @@ class UserPreferencesDataSourceImpl @Inject constructor(
         get() = datastore.data.flowOn(ioDispatcher)
 
     /**
-     * Sets the user ID in the user preferences.
+     * Sets the user profile in the user preferences.
      *
-     * @param userId The user ID to be set.
+     * @param profile The user [Profile] to be set.
      */
-    override suspend fun setUserId(userId: String) {
+    override suspend fun setProfile(profile: Profile) {
         withContext(ioDispatcher) {
             datastore.updateData { userData ->
-                userData.copy(userId = userId)
+                userData.copy(
+                    id = profile.id,
+                    name = profile.name,
+                    profilePictureUriString = profile.profilePictureUriString,
+                )
             }
         }
     }

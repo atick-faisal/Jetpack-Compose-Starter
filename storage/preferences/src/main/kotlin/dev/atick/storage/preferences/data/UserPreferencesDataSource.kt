@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package dev.atick.storage.preferences
+package dev.atick.storage.preferences.data
 
 import dev.atick.storage.preferences.model.DarkThemeConfig
+import dev.atick.storage.preferences.model.Profile
 import dev.atick.storage.preferences.model.ThemeBrand
 import dev.atick.storage.preferences.model.UserData
 import kotlinx.coroutines.flow.Flow
@@ -32,11 +33,11 @@ interface UserPreferencesDataSource {
     val userData: Flow<UserData>
 
     /**
-     * Sets the user ID in the user preferences.
+     * Sets the user profile in the user preferences.
      *
-     * @param userId The user ID to be set.
+     * @param profile The user ID to be set.
      */
-    suspend fun setUserId(userId: String)
+    suspend fun setProfile(profile: Profile)
 
     /**
      * Sets the theme brand in the user preferences.

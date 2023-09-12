@@ -21,8 +21,8 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import dev.atick.bluetooth.common.models.BtDevice
-import dev.atick.bluetooth.common.models.simplify
+import dev.atick.bluetooth.common.model.BtDevice
+import dev.atick.bluetooth.common.model.simplify
 
 /**
  * BroadcastReceiver for receiving Bluetooth device discovery events.

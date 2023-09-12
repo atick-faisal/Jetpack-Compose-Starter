@@ -16,30 +16,73 @@
 
 package dev.atick.compose.ui.profile
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import coil.compose.AsyncImage
+import dev.atick.compose.R
 import dev.atick.compose.data.profile.ProfileScreenData
+import dev.atick.core.ui.component.JetpackButton
 import dev.atick.core.ui.utils.StatefulComposable
 
 @Composable
 internal fun ProfileRoute(
     onShowSnackbar: suspend (String, String?) -> Boolean,
-    viewModel: ProfileViewModel = hiltViewModel(),
+    profileViewModel: ProfileViewModel = hiltViewModel(),
 ) {
-    val profileState by viewModel.profileUiState.collectAsStateWithLifecycle()
+    val profileState by profileViewModel.profileUiState.collectAsStateWithLifecycle()
 
     StatefulComposable(
         state = profileState,
         onShowSnackbar = onShowSnackbar,
-    ) { profileData ->
-        ProfileScreen(profileData)
+    ) { profileScreenData ->
+        ProfileScreen(
+            profileScreenData = profileScreenData,
+            onSignOutClick = profileViewModel::signOut,
+        )
     }
 }
 
 @Composable
-private fun ProfileScreen(profileScreenData: ProfileScreenData = ProfileScreenData()) {
-    Text(text = profileScreenData.name)
+private fun ProfileScreen(
+    profileScreenData: ProfileScreenData,
+    onSignOutClick: () -> Unit,
+
+) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Spacer(modifier = Modifier.height(64.dp))
+        AsyncImage(
+            model = profileScreenData.profilePictureUri,
+            contentDescription = stringResource(R.string.profile_picture),
+            placeholder = painterResource(id = R.drawable.ic_avatar),
+            fallback = painterResource(id = R.drawable.ic_avatar),
+            modifier = Modifier
+                .size(96.dp)
+                .clip(CircleShape),
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(text = profileScreenData.name, style = MaterialTheme.typography.headlineLarge)
+        Spacer(modifier = Modifier.height(16.dp))
+        JetpackButton(onClick = onSignOutClick) {
+            Text(text = stringResource(id = R.string.sign_out))
+        }
+    }
 }

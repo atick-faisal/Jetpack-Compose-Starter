@@ -44,4 +44,6 @@
     <string name="dynamic_color_no">No</string>
     <string name="dismiss_dialog_button_text">OK</string>
     <string name="not_connected">⚠️ You aren’t connected to the internet</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="profile_picture">Profile Picture</string>
 </resources>

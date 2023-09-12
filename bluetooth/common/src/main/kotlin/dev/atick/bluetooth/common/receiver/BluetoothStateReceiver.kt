@@ -20,7 +20,7 @@ import android.bluetooth.BluetoothAdapter
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import dev.atick.bluetooth.common.models.BtState
+import dev.atick.bluetooth.common.model.BtState
 
 /**
  * BroadcastReceiver for receiving Bluetooth state changes.

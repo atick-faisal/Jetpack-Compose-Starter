@@ -14,17 +14,19 @@
  * limitations under the License.
  */
 
-package dev.atick.bluetooth.common.models
-
-import java.util.Date
+package dev.atick.bluetooth.common.model
 
 /**
- * Data class representing a Bluetooth message.
- *
- * @property timestamp The timestamp of the message.
- * @property message The content of the message.
+ * Enum class representing the Bluetooth state.
  */
-data class BtMessage(
-    val timestamp: Long = Date().time,
-    val message: CharSequence,
-)
+enum class BtState {
+    /**
+     * Bluetooth is enabled.
+     */
+    ENABLED,
+
+    /**
+     * Bluetooth is disabled.
+     */
+    DISABLED,
+}

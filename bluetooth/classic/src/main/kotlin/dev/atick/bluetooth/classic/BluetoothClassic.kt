@@ -26,10 +26,10 @@ import android.content.IntentFilter
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.atick.bluetooth.common.data.BluetoothDataSource
 import dev.atick.bluetooth.common.manager.BluetoothManager
-import dev.atick.bluetooth.common.models.BtDevice
-import dev.atick.bluetooth.common.models.BtMessage
-import dev.atick.bluetooth.common.models.BtState
-import dev.atick.bluetooth.common.models.simplify
+import dev.atick.bluetooth.common.model.BtDevice
+import dev.atick.bluetooth.common.model.BtMessage
+import dev.atick.bluetooth.common.model.BtState
+import dev.atick.bluetooth.common.model.simplify
 import dev.atick.bluetooth.common.receiver.BluetoothStateReceiver
 import dev.atick.bluetooth.common.receiver.DeviceStateReceiver
 import dev.atick.bluetooth.common.receiver.ScannedDeviceReceiver

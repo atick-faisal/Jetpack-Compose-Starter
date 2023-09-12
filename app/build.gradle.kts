@@ -91,6 +91,7 @@ dependencies {
     implementation(project(":storage:room"))
     implementation(project(":storage:preferences"))
     implementation(project(":bluetooth:classic"))
+    implementation(project(":auth"))
 
     // ... Splash Screen
     implementation(libs.androidx.core.splashscreen)
