@@ -49,7 +49,7 @@ class AuthDataSourceImpl @Inject constructor(
         }
     }
 
-    override suspend fun logout() {
+    override suspend fun signOut() {
         withContext(ioDispatcher) {
             firebaseAuth.signOut()
         }

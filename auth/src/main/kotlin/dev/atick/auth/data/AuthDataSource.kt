@@ -16,5 +16,5 @@ interface AuthDataSource {
         password: String,
     ): AuthUser
 
-    suspend fun logout()
+    suspend fun signOut()
 }

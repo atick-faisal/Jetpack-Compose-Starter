@@ -16,12 +16,9 @@
 
 package dev.atick.compose.data.profile
 
-/**
- * Data class representing profile-related data.
- *
- * @property name The name associated with the profile.
- * @constructor Creates a [ProfileScreenData] instance with an optional name parameter.
- */
+import android.net.Uri
+
 data class ProfileScreenData(
-    val name: String = "PROFILE",
+    val name: String = "",
+    val profilePictureUri: String? = null,
 )
