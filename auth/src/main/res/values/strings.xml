@@ -10,4 +10,5 @@
     <string name="name">Full Name</string>
     <string name="sign_up_with_google">Sign Up with Google</string>
     <string name="already_have_an_account">Already have an account?</string>
+    <string name="login">Login</string>
 </resources>

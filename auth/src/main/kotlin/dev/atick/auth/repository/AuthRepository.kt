@@ -5,7 +5,7 @@ import android.content.IntentSender
 import dev.atick.auth.model.AuthUser
 
 interface AuthRepository {
-    suspend fun getGoogleSignInIntent(): IntentSender?
+    suspend fun getGoogleSignInIntent(): Result<IntentSender>
     suspend fun signInWithIntent(intent: Intent): Result<AuthUser>
     suspend fun signInWithEmailAndPassword(email: String, password: String): Result<AuthUser>
     suspend fun registerWithEmailAndPassword(

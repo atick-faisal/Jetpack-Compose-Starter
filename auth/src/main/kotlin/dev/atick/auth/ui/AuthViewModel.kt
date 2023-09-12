@@ -1,5 +1,6 @@
 package dev.atick.auth.ui
 
+import android.content.Intent
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,12 +22,12 @@ class AuthViewModel @Inject constructor(
     private val authRepository: AuthRepository,
 ) : ViewModel() {
 
-    private val _loginUiState: MutableStateFlow<UiState<AuthScreenData>> =
+    private val _authUiState: MutableStateFlow<UiState<AuthScreenData>> =
         MutableStateFlow(UiState.Success(AuthScreenData()))
-    val loginUiState = _loginUiState.asStateFlow()
+    val authUiState = _authUiState.asStateFlow()
 
     fun updateName(name: String) {
-        _loginUiState.update {
+        _authUiState.update {
             UiState.Success(
                 it.data.copy(
                     name = TextFiledData(
@@ -39,7 +40,7 @@ class AuthViewModel @Inject constructor(
     }
 
     fun updateEmail(email: String) {
-        _loginUiState.update {
+        _authUiState.update {
             UiState.Success(
                 it.data.copy(
                     email = TextFiledData(
@@ -52,7 +53,7 @@ class AuthViewModel @Inject constructor(
     }
 
     fun updatePassword(password: String) {
-        _loginUiState.update {
+        _authUiState.update {
             UiState.Success(
                 it.data.copy(
                     password = TextFiledData(
@@ -65,18 +66,18 @@ class AuthViewModel @Inject constructor(
     }
 
     fun loginWithEmailAndPassword() {
-        _loginUiState.update { UiState.Loading(loginUiState.value.data) }
+        _authUiState.update { UiState.Loading(authUiState.value.data) }
         viewModelScope.launch {
             val result = authRepository.signInWithEmailAndPassword(
-                email = loginUiState.value.data.email.value,
-                password = loginUiState.value.data.email.value,
+                email = authUiState.value.data.email.value,
+                password = authUiState.value.data.email.value,
             )
             if (result.isSuccess) {
-                _loginUiState.update { UiState.Success(AuthScreenData()) }
+                _authUiState.update { UiState.Success(AuthScreenData()) }
             } else {
-                _loginUiState.update {
+                _authUiState.update {
                     UiState.Error(
-                        loginUiState.value.data,
+                        authUiState.value.data,
                         result.exceptionOrNull(),
                     )
                 }
@@ -85,19 +86,59 @@ class AuthViewModel @Inject constructor(
     }
 
     fun registerWithEmailAndPassword() {
-        _loginUiState.update { UiState.Loading(loginUiState.value.data) }
+        _authUiState.update { UiState.Loading(authUiState.value.data) }
         viewModelScope.launch {
             val result = authRepository.registerWithEmailAndPassword(
-                name = loginUiState.value.data.name.value,
-                email = loginUiState.value.data.email.value,
-                password = loginUiState.value.data.email.value,
+                name = authUiState.value.data.name.value,
+                email = authUiState.value.data.email.value,
+                password = authUiState.value.data.email.value,
             )
             if (result.isSuccess) {
-                _loginUiState.update { UiState.Success(AuthScreenData()) }
+                _authUiState.update { UiState.Success(AuthScreenData()) }
             } else {
-                _loginUiState.update {
+                _authUiState.update {
                     UiState.Error(
-                        loginUiState.value.data,
+                        authUiState.value.data,
+                        result.exceptionOrNull(),
+                    )
+                }
+            }
+        }
+    }
+
+    fun getGoogleSignInIntent() {
+        _authUiState.update { UiState.Loading(authUiState.value.data) }
+        viewModelScope.launch {
+            val result = authRepository.getGoogleSignInIntent()
+            if (result.isSuccess) {
+                _authUiState.update {
+                    UiState.Success(
+                        it.data.copy(
+                            googleSignInIntent = result.getOrNull(),
+                        ),
+                    )
+                }
+            } else {
+                _authUiState.update {
+                    UiState.Error(
+                        authUiState.value.data,
+                        result.exceptionOrNull(),
+                    )
+                }
+            }
+        }
+    }
+
+    fun signInWithIntent(intent: Intent) {
+        _authUiState.update { UiState.Loading(authUiState.value.data) }
+        viewModelScope.launch {
+            val result = authRepository.signInWithIntent(intent)
+            if (result.isSuccess) {
+                _authUiState.update { UiState.Success(AuthScreenData()) }
+            } else {
+                _authUiState.update {
+                    UiState.Error(
+                        authUiState.value.data,
                         result.exceptionOrNull(),
                     )
                 }

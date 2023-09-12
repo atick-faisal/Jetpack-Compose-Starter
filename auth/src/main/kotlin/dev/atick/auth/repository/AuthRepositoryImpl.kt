@@ -12,8 +12,11 @@ class AuthRepositoryImpl @Inject constructor(
     private val userPreferencesDataSource: UserPreferencesDataSource,
 
     ) : AuthRepository {
-    override suspend fun getGoogleSignInIntent(): IntentSender? {
-        return authDataSource.getGoogleSignInIntent()
+    override suspend fun getGoogleSignInIntent(): Result<IntentSender> {
+        return runCatching {
+            authDataSource.getGoogleSignInIntent()
+                ?: throw Exception("Unable not Sign In with Google")
+        }
     }
 
     override suspend fun signInWithIntent(intent: Intent): Result<AuthUser> {
