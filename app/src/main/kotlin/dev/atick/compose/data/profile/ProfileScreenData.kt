@@ -16,8 +16,6 @@
 
 package dev.atick.compose.data.profile
 
-import android.net.Uri
-
 data class ProfileScreenData(
     val name: String = "",
     val profilePictureUri: String? = null,
