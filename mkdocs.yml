@@ -4,10 +4,12 @@ repo_url: https://github.com/atick-faisal/Jetpack-Compose-Starter
 
 theme:
   name: material
+  icon:
+    logo: octicons/rocket-24
   palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
-      primary: deep-orange
+      primary: white
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
@@ -15,7 +17,7 @@ theme:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: deep-orange
+      primary: white
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
@@ -23,7 +25,7 @@ theme:
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: deep-orange
+      primary: black
       toggle:
         icon: material/weather-sunny
         name: Switch to system preference
