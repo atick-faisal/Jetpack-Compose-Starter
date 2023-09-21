@@ -17,14 +17,14 @@ kotlinxSerializationJson = "1.6.0"
 timber = "5.0.1"
 
 # ... CORE:UI ...
-androidxNavigation = "2.7.2"
+androidxNavigation = "2.7.3"
 androidxFragment = "1.6.1"
 androidxAppCompat = "1.6.1"
 # TODO: Change this to stable release
 # Required for edgeToEdge()
-androidxActivity = "1.8.0-beta01"
+androidxActivity = "1.8.0-rc01"
 androidxLifecycle = "2.6.2"
-androidxComposeBom = "2023.09.00"
+androidxComposeBom = "2023.09.01"
 androidxComposeCompiler = "1.5.3"
 androidxCoreSplashscreen = "1.0.1"
 androidxHiltNavigationCompose = "1.0.0"
