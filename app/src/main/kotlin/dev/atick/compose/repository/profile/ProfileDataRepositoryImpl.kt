@@ -19,7 +19,7 @@ package dev.atick.compose.repository.profile
 import dev.atick.auth.data.AuthDataSource
 import dev.atick.compose.data.profile.ProfileScreenData
 import dev.atick.storage.preferences.data.UserPreferencesDataSource
-import dev.atick.storage.preferences.model.Profile
+import dev.atick.storage.preferences.models.Profile
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

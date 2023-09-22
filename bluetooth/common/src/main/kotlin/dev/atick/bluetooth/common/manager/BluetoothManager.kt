@@ -16,7 +16,7 @@
 
 package dev.atick.bluetooth.common.manager
 
-import dev.atick.bluetooth.common.model.BtDevice
+import dev.atick.bluetooth.common.models.BtDevice
 import kotlinx.coroutines.flow.StateFlow
 
 /**

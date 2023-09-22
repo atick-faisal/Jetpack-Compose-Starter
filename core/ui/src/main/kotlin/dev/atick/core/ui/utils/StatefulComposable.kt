@@ -23,7 +23,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import dev.atick.core.ui.component.JetpackOverlayLoadingWheel
+import dev.atick.core.ui.components.JetpackOverlayLoadingWheel
 
 @Stable
 @Composable

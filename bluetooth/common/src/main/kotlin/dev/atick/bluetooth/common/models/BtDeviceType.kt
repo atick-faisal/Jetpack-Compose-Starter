@@ -14,19 +14,21 @@
  * limitations under the License.
  */
 
-package dev.atick.bluetooth.common.model
+package dev.atick.bluetooth.common.models
 
 /**
- * Enum class representing the Bluetooth state.
+ * Enum class representing the type of a Bluetooth device.
  */
-enum class BtState {
-    /**
-     * Bluetooth is enabled.
-     */
-    ENABLED,
-
-    /**
-     * Bluetooth is disabled.
-     */
-    DISABLED,
+enum class BtDeviceType {
+    AUDIO_VIDEO,
+    COMPUTER,
+    HEALTH,
+    IMAGING,
+    MISC,
+    NETWORKING,
+    PERIPHERAL,
+    PHONE,
+    TOY,
+    UNCATEGORIZED,
+    WEARABLE,
 }

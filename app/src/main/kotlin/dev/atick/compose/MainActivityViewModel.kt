@@ -22,7 +22,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.compose.repository.user.UserDataRepository
 import dev.atick.core.extensions.stateInDelayed
 import dev.atick.core.ui.utils.UiState
-import dev.atick.storage.preferences.model.UserData
+import dev.atick.storage.preferences.models.UserData
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map

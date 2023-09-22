@@ -20,7 +20,7 @@ import android.content.Intent
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.atick.auth.model.AuthScreenData
+import dev.atick.auth.models.AuthScreenData
 import dev.atick.auth.repository.AuthRepository
 import dev.atick.core.extensions.isEmailValid
 import dev.atick.core.extensions.isPasswordValid

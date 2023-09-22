@@ -16,8 +16,8 @@
 
 package dev.atick.compose.data.home
 
-import dev.atick.network.model.NetworkPost
-import dev.atick.storage.room.model.PostEntity
+import dev.atick.network.models.NetworkPost
+import dev.atick.storage.room.models.PostEntity
 
 data class HomeScreenData(
     val posts: List<UiPost> = listOf(),

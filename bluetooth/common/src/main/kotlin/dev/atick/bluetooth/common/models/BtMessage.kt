@@ -14,20 +14,17 @@
  * limitations under the License.
  */
 
-package dev.atick.storage.preferences.model
+package dev.atick.bluetooth.common.models
 
-import dev.atick.storage.preferences.model.ThemeBrand.ANDROID
-import dev.atick.storage.preferences.model.ThemeBrand.DEFAULT
-import kotlinx.serialization.Serializable
+import java.util.Date
 
 /**
- * Enum class representing different brand options for the app's theme.
+ * Data class representing a Bluetooth message.
  *
- * @property DEFAULT The default brand option for the app's theme.
- * @property ANDROID The brand option representing the Android platform theme.
+ * @property timestamp The timestamp of the message.
+ * @property message The content of the message.
  */
-@Serializable
-enum class ThemeBrand {
-    DEFAULT,
-    ANDROID,
-}
+data class BtMessage(
+    val timestamp: Long = Date().time,
+    val message: CharSequence,
+)

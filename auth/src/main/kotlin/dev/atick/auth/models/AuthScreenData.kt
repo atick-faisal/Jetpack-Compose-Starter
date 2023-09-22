@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.auth.model
+package dev.atick.auth.models
 
 import android.content.IntentSender
 import dev.atick.core.ui.utils.TextFiledData

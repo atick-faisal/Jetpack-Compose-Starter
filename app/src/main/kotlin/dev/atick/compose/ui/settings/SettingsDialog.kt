@@ -50,8 +50,8 @@ import dev.atick.compose.R
 import dev.atick.compose.data.settings.UserEditableSettings
 import dev.atick.core.ui.theme.supportsDynamicTheming
 import dev.atick.core.ui.utils.UiState
-import dev.atick.storage.preferences.model.DarkThemeConfig
-import dev.atick.storage.preferences.model.ThemeBrand
+import dev.atick.storage.preferences.models.DarkThemeConfig
+import dev.atick.storage.preferences.models.ThemeBrand
 
 @Composable
 fun SettingsDialog(

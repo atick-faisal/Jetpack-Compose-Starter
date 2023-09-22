@@ -16,7 +16,7 @@
 
 package dev.atick.bluetooth.common.data
 
-import dev.atick.bluetooth.common.model.BtMessage
+import dev.atick.bluetooth.common.models.BtMessage
 import kotlinx.coroutines.flow.StateFlow
 
 /**

@@ -18,7 +18,7 @@ package dev.atick.auth.data
 
 import android.content.Intent
 import android.content.IntentSender
-import dev.atick.auth.model.AuthUser
+import dev.atick.auth.models.AuthUser
 
 /**
  * Interface defining data source operations for authentication.
