@@ -52,13 +52,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import dev.atick.auth.R
-import dev.atick.auth.model.AuthScreenData
+import dev.atick.auth.models.AuthScreenData
 import dev.atick.auth.ui.AuthViewModel
-import dev.atick.core.ui.component.JetpackButton
-import dev.atick.core.ui.component.JetpackOutlinedButton
-import dev.atick.core.ui.component.JetpackPasswordFiled
-import dev.atick.core.ui.component.JetpackTextButton
-import dev.atick.core.ui.component.JetpackTextFiled
+import dev.atick.core.ui.components.JetpackButton
+import dev.atick.core.ui.components.JetpackOutlinedButton
+import dev.atick.core.ui.components.JetpackPasswordFiled
+import dev.atick.core.ui.components.JetpackTextButton
+import dev.atick.core.ui.components.JetpackTextFiled
 import dev.atick.core.ui.utils.DevicePreviews
 import dev.atick.core.ui.utils.StatefulComposable
 

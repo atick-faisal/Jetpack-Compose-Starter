@@ -14,17 +14,19 @@
  * limitations under the License.
  */
 
-package dev.atick.bluetooth.common.model
-
-import java.util.Date
+package dev.atick.network.models
 
 /**
- * Data class representing a Bluetooth message.
+ * Data class representing a network post retrieved from a remote source.
  *
- * @property timestamp The timestamp of the message.
- * @property message The content of the message.
+ * @property id The unique identifier of the network post.
+ * @property title The title of the network post.
+ * @property url The URL associated with the network post.
+ * @property thumbnailUrl The URL of the thumbnail image associated with the network post.
  */
-data class BtMessage(
-    val timestamp: Long = Date().time,
-    val message: CharSequence,
+data class NetworkPost(
+    val id: Int,
+    val title: String,
+    val url: String,
+    val thumbnailUrl: String,
 )

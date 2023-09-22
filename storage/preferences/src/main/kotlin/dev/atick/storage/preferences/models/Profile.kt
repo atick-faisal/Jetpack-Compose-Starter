@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.storage.preferences.model
+package dev.atick.storage.preferences.models
 
 import kotlinx.serialization.Serializable
 

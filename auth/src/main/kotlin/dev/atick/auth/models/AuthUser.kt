@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package dev.atick.auth.model
+package dev.atick.auth.models
 
 import android.net.Uri
 import com.google.firebase.auth.FirebaseUser
-import dev.atick.storage.preferences.model.Profile
+import dev.atick.storage.preferences.models.Profile
 
 /**
  * Represents an authenticated user with basic information.

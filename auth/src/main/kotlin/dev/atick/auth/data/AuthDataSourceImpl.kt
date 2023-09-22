@@ -24,8 +24,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.UserProfileChangeRequest
 import dev.atick.auth.config.Config
-import dev.atick.auth.model.AuthUser
-import dev.atick.auth.model.asAuthUser
+import dev.atick.auth.models.AuthUser
+import dev.atick.auth.models.asAuthUser
 import dev.atick.core.di.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.tasks.await

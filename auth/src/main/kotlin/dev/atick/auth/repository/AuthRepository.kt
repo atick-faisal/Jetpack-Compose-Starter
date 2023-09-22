@@ -18,7 +18,7 @@ package dev.atick.auth.repository
 
 import android.content.Intent
 import android.content.IntentSender
-import dev.atick.auth.model.AuthUser
+import dev.atick.auth.models.AuthUser
 
 /**
  * Interface defining authentication-related operations.

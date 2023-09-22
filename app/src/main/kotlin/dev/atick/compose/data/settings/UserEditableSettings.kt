@@ -16,8 +16,8 @@
 
 package dev.atick.compose.data.settings
 
-import dev.atick.storage.preferences.model.DarkThemeConfig
-import dev.atick.storage.preferences.model.ThemeBrand
+import dev.atick.storage.preferences.models.DarkThemeConfig
+import dev.atick.storage.preferences.models.ThemeBrand
 
 /**
  * Data class representing editable user settings related to themes and appearance.

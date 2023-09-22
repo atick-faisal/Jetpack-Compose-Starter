@@ -17,10 +17,10 @@
 package dev.atick.compose.repository.user
 
 import dev.atick.storage.preferences.data.UserPreferencesDataSource
-import dev.atick.storage.preferences.model.DarkThemeConfig
-import dev.atick.storage.preferences.model.Profile
-import dev.atick.storage.preferences.model.ThemeBrand
-import dev.atick.storage.preferences.model.UserData
+import dev.atick.storage.preferences.models.DarkThemeConfig
+import dev.atick.storage.preferences.models.Profile
+import dev.atick.storage.preferences.models.ThemeBrand
+import dev.atick.storage.preferences.models.UserData
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

@@ -18,7 +18,7 @@ package dev.atick.network.data
 
 import dev.atick.core.di.IoDispatcher
 import dev.atick.network.api.JetpackRestApi
-import dev.atick.network.model.NetworkPost
+import dev.atick.network.models.NetworkPost
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

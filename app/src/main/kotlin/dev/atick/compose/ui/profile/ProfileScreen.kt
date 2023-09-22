@@ -37,7 +37,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import dev.atick.compose.R
 import dev.atick.compose.data.profile.ProfileScreenData
-import dev.atick.core.ui.component.JetpackButton
+import dev.atick.core.ui.components.JetpackButton
 import dev.atick.core.ui.utils.StatefulComposable
 
 @Composable

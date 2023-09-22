@@ -22,8 +22,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.compose.data.settings.UserEditableSettings
 import dev.atick.compose.repository.user.UserDataRepository
 import dev.atick.core.ui.utils.UiState
-import dev.atick.storage.preferences.model.DarkThemeConfig
-import dev.atick.storage.preferences.model.ThemeBrand
+import dev.atick.storage.preferences.models.DarkThemeConfig
+import dev.atick.storage.preferences.models.ThemeBrand
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
