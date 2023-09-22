@@ -17,14 +17,12 @@
 @file:Suppress("UnstableApiUsage")
 
 import com.android.build.gradle.internal.api.BaseVariantOutputImpl
+import java.io.FileInputStream
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.Properties
-import java.io.FileInputStream
 
 val keystorePropertiesFile: File = rootProject.file("keystore.properties")
-val keystoreProperties = Properties()
-keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 
 plugins {
     id("dev.atick.application")
@@ -54,27 +52,44 @@ android {
 
     signingConfigs {
         create("release") {
-            keyAlias = keystoreProperties["keyAlias"] as String
-            keyPassword = keystoreProperties["keyPassword"] as String
-            storeFile = file(keystoreProperties["storeFile"] as String)
-            storePassword = keystoreProperties["storePassword"] as String
+            if (keystorePropertiesFile.exists()) {
+                val keystoreProperties = Properties()
+                keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+                keyAlias = keystoreProperties["keyAlias"] as String
+                keyPassword = keystoreProperties["keyPassword"] as String
+                storeFile = file(keystoreProperties["storeFile"] as String)
+                storePassword = keystoreProperties["storePassword"] as String
+            }
         }
     }
 
     buildTypes {
+        debug {
+            isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("debug")
+        }
         release {
             isMinifyEnabled = true
             applicationVariants.all {
                 outputs.all {
                     (this as BaseVariantOutputImpl).outputFileName =
                         rootProject.name.replace(" ", "_") + "_" +
-                            (buildType.name + "_v") +
-                            (versionName + "_") +
-                            "${currentTime}.apk"
+                                (buildType.name + "_v") +
+                                (versionName + "_") +
+                                "${currentTime}.apk"
                     println(outputFileName)
                 }
             }
-            signingConfig = signingConfigs.getByName("release")
+            signingConfig = if (keystorePropertiesFile.exists()) {
+                signingConfigs.getByName("release")
+            } else {
+                println(
+                    "keystore.properties file not found. Using debug key. Read more here: " +
+                            "https://github.com/atick-faisal/Jetpack-Compose-Starter#release",
+                )
+                signingConfigs.getByName("debug")
+
+            }
         }
     }
 
