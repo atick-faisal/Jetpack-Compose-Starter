@@ -29,20 +29,20 @@ $dokka.location:dev.atick.auth.di/FirebaseAuthModule/provideSingInClient/#androi
 $dokka.location:dev.atick.auth.di/RepositoryModule///PointingToDeclaration/auth/auth/dev.atick.auth.di/-repository-module/index.md
 $dokka.location:dev.atick.auth.di/RepositoryModule/RepositoryModule/#/PointingToDeclaration/auth/auth/dev.atick.auth.di/-repository-module/-repository-module.md
 $dokka.location:dev.atick.auth.di/RepositoryModule/bindAuthRepository/#dev.atick.auth.repository.AuthRepositoryImpl/PointingToDeclaration/auth/auth/dev.atick.auth.di/-repository-module/bind-auth-repository.md
-$dokka.location:dev.atick.auth.model////PointingToDeclaration/auth/auth/dev.atick.auth.model/index.md
-$dokka.location:dev.atick.auth.model//asAuthUser/com.google.firebase.auth.FirebaseUser#/PointingToDeclaration/auth/auth/dev.atick.auth.model/as-auth-user.md
-$dokka.location:dev.atick.auth.model/AuthScreenData///PointingToDeclaration/auth/auth/dev.atick.auth.model/-auth-screen-data/index.md
-$dokka.location:dev.atick.auth.model/AuthScreenData/AuthScreenData/#dev.atick.core.ui.utils.TextFiledData#dev.atick.core.ui.utils.TextFiledData#dev.atick.core.ui.utils.TextFiledData#android.content.IntentSender?/PointingToDeclaration/auth/auth/dev.atick.auth.model/-auth-screen-data/-auth-screen-data.md
-$dokka.location:dev.atick.auth.model/AuthScreenData/email/#/PointingToDeclaration/auth/auth/dev.atick.auth.model/-auth-screen-data/email.md
-$dokka.location:dev.atick.auth.model/AuthScreenData/googleSignInIntent/#/PointingToDeclaration/auth/auth/dev.atick.auth.model/-auth-screen-data/google-sign-in-intent.md
-$dokka.location:dev.atick.auth.model/AuthScreenData/name/#/PointingToDeclaration/auth/auth/dev.atick.auth.model/-auth-screen-data/name.md
-$dokka.location:dev.atick.auth.model/AuthScreenData/password/#/PointingToDeclaration/auth/auth/dev.atick.auth.model/-auth-screen-data/password.md
-$dokka.location:dev.atick.auth.model/AuthUser///PointingToDeclaration/auth/auth/dev.atick.auth.model/-auth-user/index.md
-$dokka.location:dev.atick.auth.model/AuthUser/AuthUser/#kotlin.String#kotlin.String#android.net.Uri?/PointingToDeclaration/auth/auth/dev.atick.auth.model/-auth-user/-auth-user.md
-$dokka.location:dev.atick.auth.model/AuthUser/asProfile/#/PointingToDeclaration/auth/auth/dev.atick.auth.model/-auth-user/as-profile.md
-$dokka.location:dev.atick.auth.model/AuthUser/id/#/PointingToDeclaration/auth/auth/dev.atick.auth.model/-auth-user/id.md
-$dokka.location:dev.atick.auth.model/AuthUser/name/#/PointingToDeclaration/auth/auth/dev.atick.auth.model/-auth-user/name.md
-$dokka.location:dev.atick.auth.model/AuthUser/profilePictureUri/#/PointingToDeclaration/auth/auth/dev.atick.auth.model/-auth-user/profile-picture-uri.md
+$dokka.location:dev.atick.auth.models////PointingToDeclaration/auth/auth/dev.atick.auth.models/index.md
+$dokka.location:dev.atick.auth.models//asAuthUser/com.google.firebase.auth.FirebaseUser#/PointingToDeclaration/auth/auth/dev.atick.auth.models/as-auth-user.md
+$dokka.location:dev.atick.auth.models/AuthScreenData///PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-screen-data/index.md
+$dokka.location:dev.atick.auth.models/AuthScreenData/AuthScreenData/#dev.atick.core.ui.utils.TextFiledData#dev.atick.core.ui.utils.TextFiledData#dev.atick.core.ui.utils.TextFiledData#android.content.IntentSender?/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-screen-data/-auth-screen-data.md
+$dokka.location:dev.atick.auth.models/AuthScreenData/email/#/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-screen-data/email.md
+$dokka.location:dev.atick.auth.models/AuthScreenData/googleSignInIntent/#/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-screen-data/google-sign-in-intent.md
+$dokka.location:dev.atick.auth.models/AuthScreenData/name/#/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-screen-data/name.md
+$dokka.location:dev.atick.auth.models/AuthScreenData/password/#/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-screen-data/password.md
+$dokka.location:dev.atick.auth.models/AuthUser///PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-user/index.md
+$dokka.location:dev.atick.auth.models/AuthUser/AuthUser/#kotlin.String#kotlin.String#android.net.Uri?/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-user/-auth-user.md
+$dokka.location:dev.atick.auth.models/AuthUser/asProfile/#/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-user/as-profile.md
+$dokka.location:dev.atick.auth.models/AuthUser/id/#/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-user/id.md
+$dokka.location:dev.atick.auth.models/AuthUser/name/#/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-user/name.md
+$dokka.location:dev.atick.auth.models/AuthUser/profilePictureUri/#/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-user/profile-picture-uri.md
 $dokka.location:dev.atick.auth.navigation////PointingToDeclaration/auth/auth/dev.atick.auth.navigation/index.md
 $dokka.location:dev.atick.auth.navigation//authNavGraph/androidx.navigation.NavGraphBuilder#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#kotlin.coroutines.SuspendFunction2[kotlin.String,kotlin.String?,kotlin.Boolean]/PointingToDeclaration/auth/auth/dev.atick.auth.navigation/auth-nav-graph.md
 $dokka.location:dev.atick.auth.navigation//authNavGraphRoute/#/PointingToDeclaration/auth/auth/dev.atick.auth.navigation/auth-nav-graph-route.md
@@ -112,49 +112,49 @@ $dokka.location:dev.atick.bluetooth.common.manager/BluetoothManager///PointingTo
 $dokka.location:dev.atick.bluetooth.common.manager/BluetoothManager/closeConnection/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.manager/-bluetooth-manager/close-connection.md
 $dokka.location:dev.atick.bluetooth.common.manager/BluetoothManager/connect/#kotlin.String/PointingToDeclaration/common/common/dev.atick.bluetooth.common.manager/-bluetooth-manager/connect.md
 $dokka.location:dev.atick.bluetooth.common.manager/BluetoothManager/getConnectedDeviceState/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.manager/-bluetooth-manager/get-connected-device-state.md
-$dokka.location:dev.atick.bluetooth.common.model////PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/index.md
-$dokka.location:dev.atick.bluetooth.common.model//simplify/android.bluetooth.BluetoothDevice#kotlin.Boolean/PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/simplify.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDevice///PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-device/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDevice/BtDevice/#kotlin.String#kotlin.String#dev.atick.bluetooth.common.model.BtDeviceType#kotlin.Boolean/PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-device/-bt-device.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDevice/address/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-device/address.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDevice/connected/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-device/connected.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDevice/name/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-device/name.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDevice/type/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-device/type.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDeviceType.AUDIO_VIDEO///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.model/-bt-device-type/-a-u-d-i-o_-v-i-d-e-o/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDeviceType.COMPUTER///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.model/-bt-device-type/-c-o-m-p-u-t-e-r/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDeviceType.HEALTH///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.model/-bt-device-type/-h-e-a-l-t-h/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDeviceType.IMAGING///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.model/-bt-device-type/-i-m-a-g-i-n-g/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDeviceType.MISC///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.model/-bt-device-type/-m-i-s-c/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDeviceType.NETWORKING///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.model/-bt-device-type/-n-e-t-w-o-r-k-i-n-g/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDeviceType.PERIPHERAL///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.model/-bt-device-type/-p-e-r-i-p-h-e-r-a-l/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDeviceType.PHONE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.model/-bt-device-type/-p-h-o-n-e/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDeviceType.TOY///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.model/-bt-device-type/-t-o-y/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDeviceType.UNCATEGORIZED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.model/-bt-device-type/-u-n-c-a-t-e-g-o-r-i-z-e-d/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDeviceType.WEARABLE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.model/-bt-device-type/-w-e-a-r-a-b-l-e/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDeviceType///PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-device-type/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDeviceType/entries/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-device-type/entries.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDeviceType/valueOf/#kotlin.String/PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-device-type/value-of.md
-$dokka.location:dev.atick.bluetooth.common.model/BtDeviceType/values/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-device-type/values.md
-$dokka.location:dev.atick.bluetooth.common.model/BtMessage///PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-message/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtMessage/BtMessage/#kotlin.Long#kotlin.CharSequence/PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-message/-bt-message.md
-$dokka.location:dev.atick.bluetooth.common.model/BtMessage/message/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-message/message.md
-$dokka.location:dev.atick.bluetooth.common.model/BtMessage/timestamp/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-message/timestamp.md
-$dokka.location:dev.atick.bluetooth.common.model/BtState.DISABLED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.model/-bt-state/-d-i-s-a-b-l-e-d/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtState.ENABLED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.model/-bt-state/-e-n-a-b-l-e-d/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtState///PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-state/index.md
-$dokka.location:dev.atick.bluetooth.common.model/BtState/entries/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-state/entries.md
-$dokka.location:dev.atick.bluetooth.common.model/BtState/valueOf/#kotlin.String/PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-state/value-of.md
-$dokka.location:dev.atick.bluetooth.common.model/BtState/values/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.model/-bt-state/values.md
-$dokka.location:dev.atick.bluetooth.common.receiver////PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/index.md
-$dokka.location:dev.atick.bluetooth.common.receiver/BluetoothStateReceiver///PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-bluetooth-state-receiver/index.md
-$dokka.location:dev.atick.bluetooth.common.receiver/BluetoothStateReceiver/BluetoothStateReceiver/#kotlin.Function1[dev.atick.bluetooth.common.model.BtState,kotlin.Unit]/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-bluetooth-state-receiver/-bluetooth-state-receiver.md
-$dokka.location:dev.atick.bluetooth.common.receiver/BluetoothStateReceiver/onReceive/#android.content.Context?#android.content.Intent?/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-bluetooth-state-receiver/on-receive.md
-$dokka.location:dev.atick.bluetooth.common.receiver/DeviceStateReceiver///PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-device-state-receiver/index.md
-$dokka.location:dev.atick.bluetooth.common.receiver/DeviceStateReceiver/DeviceStateReceiver/#kotlin.Function1[dev.atick.bluetooth.common.model.BtDevice,kotlin.Unit]/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-device-state-receiver/-device-state-receiver.md
-$dokka.location:dev.atick.bluetooth.common.receiver/DeviceStateReceiver/onReceive/#android.content.Context?#android.content.Intent?/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-device-state-receiver/on-receive.md
-$dokka.location:dev.atick.bluetooth.common.receiver/ScannedDeviceReceiver///PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-scanned-device-receiver/index.md
-$dokka.location:dev.atick.bluetooth.common.receiver/ScannedDeviceReceiver/ScannedDeviceReceiver/#kotlin.Function1[dev.atick.bluetooth.common.model.BtDevice,kotlin.Unit]/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-scanned-device-receiver/-scanned-device-receiver.md
-$dokka.location:dev.atick.bluetooth.common.receiver/ScannedDeviceReceiver/onReceive/#android.content.Context?#android.content.Intent?/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receiver/-scanned-device-receiver/on-receive.md
+$dokka.location:dev.atick.bluetooth.common.models////PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/index.md
+$dokka.location:dev.atick.bluetooth.common.models//simplify/android.bluetooth.BluetoothDevice#kotlin.Boolean/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/simplify.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDevice///PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDevice/BtDevice/#kotlin.String#kotlin.String#dev.atick.bluetooth.common.models.BtDeviceType#kotlin.Boolean/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/-bt-device.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDevice/address/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/address.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDevice/connected/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/connected.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDevice/name/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/name.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDevice/type/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/type.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.AUDIO_VIDEO///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-a-u-d-i-o_-v-i-d-e-o/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.COMPUTER///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-c-o-m-p-u-t-e-r/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.HEALTH///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-h-e-a-l-t-h/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.IMAGING///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-i-m-a-g-i-n-g/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.MISC///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-m-i-s-c/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.NETWORKING///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-n-e-t-w-o-r-k-i-n-g/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.PERIPHERAL///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-p-e-r-i-p-h-e-r-a-l/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.PHONE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-p-h-o-n-e/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.TOY///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-t-o-y/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.UNCATEGORIZED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-u-n-c-a-t-e-g-o-r-i-z-e-d/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.WEARABLE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-w-e-a-r-a-b-l-e/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType///PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device-type/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType/entries/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device-type/entries.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType/valueOf/#kotlin.String/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device-type/value-of.md
+$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType/values/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device-type/values.md
+$dokka.location:dev.atick.bluetooth.common.models/BtMessage///PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-message/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtMessage/BtMessage/#kotlin.Long#kotlin.CharSequence/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-message/-bt-message.md
+$dokka.location:dev.atick.bluetooth.common.models/BtMessage/message/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-message/message.md
+$dokka.location:dev.atick.bluetooth.common.models/BtMessage/timestamp/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-message/timestamp.md
+$dokka.location:dev.atick.bluetooth.common.models/BtState.DISABLED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-state/-d-i-s-a-b-l-e-d/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtState.ENABLED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-state/-e-n-a-b-l-e-d/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtState///PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-state/index.md
+$dokka.location:dev.atick.bluetooth.common.models/BtState/entries/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-state/entries.md
+$dokka.location:dev.atick.bluetooth.common.models/BtState/valueOf/#kotlin.String/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-state/value-of.md
+$dokka.location:dev.atick.bluetooth.common.models/BtState/values/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-state/values.md
+$dokka.location:dev.atick.bluetooth.common.receivers////PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/index.md
+$dokka.location:dev.atick.bluetooth.common.receivers/BluetoothStateReceiver///PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-bluetooth-state-receiver/index.md
+$dokka.location:dev.atick.bluetooth.common.receivers/BluetoothStateReceiver/BluetoothStateReceiver/#kotlin.Function1[dev.atick.bluetooth.common.models.BtState,kotlin.Unit]/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-bluetooth-state-receiver/-bluetooth-state-receiver.md
+$dokka.location:dev.atick.bluetooth.common.receivers/BluetoothStateReceiver/onReceive/#android.content.Context?#android.content.Intent?/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-bluetooth-state-receiver/on-receive.md
+$dokka.location:dev.atick.bluetooth.common.receivers/DeviceStateReceiver///PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-device-state-receiver/index.md
+$dokka.location:dev.atick.bluetooth.common.receivers/DeviceStateReceiver/DeviceStateReceiver/#kotlin.Function1[dev.atick.bluetooth.common.models.BtDevice,kotlin.Unit]/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-device-state-receiver/-device-state-receiver.md
+$dokka.location:dev.atick.bluetooth.common.receivers/DeviceStateReceiver/onReceive/#android.content.Context?#android.content.Intent?/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-device-state-receiver/on-receive.md
+$dokka.location:dev.atick.bluetooth.common.receivers/ScannedDeviceReceiver///PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-scanned-device-receiver/index.md
+$dokka.location:dev.atick.bluetooth.common.receivers/ScannedDeviceReceiver/ScannedDeviceReceiver/#kotlin.Function1[dev.atick.bluetooth.common.models.BtDevice,kotlin.Unit]/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-scanned-device-receiver/-scanned-device-receiver.md
+$dokka.location:dev.atick.bluetooth.common.receivers/ScannedDeviceReceiver/onReceive/#android.content.Context?#android.content.Intent?/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-scanned-device-receiver/on-receive.md
 $dokka.location:dev.atick.bluetooth.common.utils////PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/index.md
 $dokka.location:dev.atick.bluetooth.common.utils/BluetoothUtils///PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/-bluetooth-utils/index.md
 $dokka.location:dev.atick.bluetooth.common.utils/BluetoothUtils/getBluetoothState/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/-bluetooth-utils/get-bluetooth-state.md
@@ -162,12 +162,12 @@ $dokka.location:dev.atick.bluetooth.common.utils/BluetoothUtils/getPairedDevices
 $dokka.location:dev.atick.bluetooth.common.utils/BluetoothUtils/getScannedDevices/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/-bluetooth-utils/get-scanned-devices.md
 $dokka.location:dev.atick.bluetooth.common.utils/BluetoothUtils/stopDiscovery/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/-bluetooth-utils/stop-discovery.md
 $dokka.location:dev.atick.compose.data.home////PointingToDeclaration/app/app/dev.atick.compose.data.home/index.md
-$dokka.location:dev.atick.compose.data.home//mapToPostEntities/kotlin.collections.List[dev.atick.network.model.NetworkPost]#/PointingToDeclaration/app/app/dev.atick.compose.data.home/map-to-post-entities.md
-$dokka.location:dev.atick.compose.data.home//mapToUiPost/kotlin.collections.List[dev.atick.storage.room.model.PostEntity]#/PointingToDeclaration/app/app/dev.atick.compose.data.home/map-to-ui-post.md
-$dokka.location:dev.atick.compose.data.home//mapToUiPosts/kotlin.collections.List[dev.atick.network.model.NetworkPost]#/PointingToDeclaration/app/app/dev.atick.compose.data.home/map-to-ui-posts.md
-$dokka.location:dev.atick.compose.data.home//toPostEntity/dev.atick.network.model.NetworkPost#/PointingToDeclaration/app/app/dev.atick.compose.data.home/to-post-entity.md
-$dokka.location:dev.atick.compose.data.home//toUiPost/dev.atick.network.model.NetworkPost#/PointingToDeclaration/app/app/dev.atick.compose.data.home/to-ui-post.md
-$dokka.location:dev.atick.compose.data.home//toUiPost/dev.atick.storage.room.model.PostEntity#/PointingToDeclaration/app/app/dev.atick.compose.data.home/to-ui-post.md
+$dokka.location:dev.atick.compose.data.home//mapToPostEntities/kotlin.collections.List[dev.atick.network.models.NetworkPost]#/PointingToDeclaration/app/app/dev.atick.compose.data.home/map-to-post-entities.md
+$dokka.location:dev.atick.compose.data.home//mapToUiPost/kotlin.collections.List[dev.atick.storage.room.models.PostEntity]#/PointingToDeclaration/app/app/dev.atick.compose.data.home/map-to-ui-post.md
+$dokka.location:dev.atick.compose.data.home//mapToUiPosts/kotlin.collections.List[dev.atick.network.models.NetworkPost]#/PointingToDeclaration/app/app/dev.atick.compose.data.home/map-to-ui-posts.md
+$dokka.location:dev.atick.compose.data.home//toPostEntity/dev.atick.network.models.NetworkPost#/PointingToDeclaration/app/app/dev.atick.compose.data.home/to-post-entity.md
+$dokka.location:dev.atick.compose.data.home//toUiPost/dev.atick.network.models.NetworkPost#/PointingToDeclaration/app/app/dev.atick.compose.data.home/to-ui-post.md
+$dokka.location:dev.atick.compose.data.home//toUiPost/dev.atick.storage.room.models.PostEntity#/PointingToDeclaration/app/app/dev.atick.compose.data.home/to-ui-post.md
 $dokka.location:dev.atick.compose.data.home/HomeScreenData///PointingToDeclaration/app/app/dev.atick.compose.data.home/-home-screen-data/index.md
 $dokka.location:dev.atick.compose.data.home/HomeScreenData/HomeScreenData/#kotlin.collections.List[dev.atick.compose.data.home.UiPost]/PointingToDeclaration/app/app/dev.atick.compose.data.home/-home-screen-data/-home-screen-data.md
 $dokka.location:dev.atick.compose.data.home/HomeScreenData/posts/#/PointingToDeclaration/app/app/dev.atick.compose.data.home/-home-screen-data/posts.md
@@ -184,7 +184,7 @@ $dokka.location:dev.atick.compose.data.profile/ProfileScreenData/name/#/Pointing
 $dokka.location:dev.atick.compose.data.profile/ProfileScreenData/profilePictureUri/#/PointingToDeclaration/app/app/dev.atick.compose.data.profile/-profile-screen-data/profile-picture-uri.md
 $dokka.location:dev.atick.compose.data.settings////PointingToDeclaration/app/app/dev.atick.compose.data.settings/index.md
 $dokka.location:dev.atick.compose.data.settings/UserEditableSettings///PointingToDeclaration/app/app/dev.atick.compose.data.settings/-user-editable-settings/index.md
-$dokka.location:dev.atick.compose.data.settings/UserEditableSettings/UserEditableSettings/#dev.atick.storage.preferences.model.ThemeBrand#kotlin.Boolean#dev.atick.storage.preferences.model.DarkThemeConfig/PointingToDeclaration/app/app/dev.atick.compose.data.settings/-user-editable-settings/-user-editable-settings.md
+$dokka.location:dev.atick.compose.data.settings/UserEditableSettings/UserEditableSettings/#dev.atick.storage.preferences.models.ThemeBrand#kotlin.Boolean#dev.atick.storage.preferences.models.DarkThemeConfig/PointingToDeclaration/app/app/dev.atick.compose.data.settings/-user-editable-settings/-user-editable-settings.md
 $dokka.location:dev.atick.compose.data.settings/UserEditableSettings/brand/#/PointingToDeclaration/app/app/dev.atick.compose.data.settings/-user-editable-settings/brand.md
 $dokka.location:dev.atick.compose.data.settings/UserEditableSettings/darkThemeConfig/#/PointingToDeclaration/app/app/dev.atick.compose.data.settings/-user-editable-settings/dark-theme-config.md
 $dokka.location:dev.atick.compose.data.settings/UserEditableSettings/useDynamicColor/#/PointingToDeclaration/app/app/dev.atick.compose.data.settings/-user-editable-settings/use-dynamic-color.md
@@ -241,17 +241,17 @@ $dokka.location:dev.atick.compose.repository.profile/ProfileDataRepositoryImpl/p
 $dokka.location:dev.atick.compose.repository.profile/ProfileDataRepositoryImpl/signOut/#/PointingToDeclaration/app/app/dev.atick.compose.repository.profile/-profile-data-repository-impl/sign-out.md
 $dokka.location:dev.atick.compose.repository.user////PointingToDeclaration/app/app/dev.atick.compose.repository.user/index.md
 $dokka.location:dev.atick.compose.repository.user/UserDataRepository///PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository/index.md
-$dokka.location:dev.atick.compose.repository.user/UserDataRepository/setDarkThemeConfig/#dev.atick.storage.preferences.model.DarkThemeConfig/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository/set-dark-theme-config.md
+$dokka.location:dev.atick.compose.repository.user/UserDataRepository/setDarkThemeConfig/#dev.atick.storage.preferences.models.DarkThemeConfig/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository/set-dark-theme-config.md
 $dokka.location:dev.atick.compose.repository.user/UserDataRepository/setDynamicColorPreference/#kotlin.Boolean/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository/set-dynamic-color-preference.md
-$dokka.location:dev.atick.compose.repository.user/UserDataRepository/setThemeBrand/#dev.atick.storage.preferences.model.ThemeBrand/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository/set-theme-brand.md
-$dokka.location:dev.atick.compose.repository.user/UserDataRepository/setUserProfile/#dev.atick.storage.preferences.model.Profile/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository/set-user-profile.md
+$dokka.location:dev.atick.compose.repository.user/UserDataRepository/setThemeBrand/#dev.atick.storage.preferences.models.ThemeBrand/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository/set-theme-brand.md
+$dokka.location:dev.atick.compose.repository.user/UserDataRepository/setUserProfile/#dev.atick.storage.preferences.models.Profile/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository/set-user-profile.md
 $dokka.location:dev.atick.compose.repository.user/UserDataRepository/userData/#/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository/user-data.md
 $dokka.location:dev.atick.compose.repository.user/UserDataRepositoryImpl///PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository-impl/index.md
 $dokka.location:dev.atick.compose.repository.user/UserDataRepositoryImpl/UserDataRepositoryImpl/#dev.atick.storage.preferences.data.UserPreferencesDataSource/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository-impl/-user-data-repository-impl.md
-$dokka.location:dev.atick.compose.repository.user/UserDataRepositoryImpl/setDarkThemeConfig/#dev.atick.storage.preferences.model.DarkThemeConfig/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository-impl/set-dark-theme-config.md
+$dokka.location:dev.atick.compose.repository.user/UserDataRepositoryImpl/setDarkThemeConfig/#dev.atick.storage.preferences.models.DarkThemeConfig/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository-impl/set-dark-theme-config.md
 $dokka.location:dev.atick.compose.repository.user/UserDataRepositoryImpl/setDynamicColorPreference/#kotlin.Boolean/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository-impl/set-dynamic-color-preference.md
-$dokka.location:dev.atick.compose.repository.user/UserDataRepositoryImpl/setThemeBrand/#dev.atick.storage.preferences.model.ThemeBrand/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository-impl/set-theme-brand.md
-$dokka.location:dev.atick.compose.repository.user/UserDataRepositoryImpl/setUserProfile/#dev.atick.storage.preferences.model.Profile/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository-impl/set-user-profile.md
+$dokka.location:dev.atick.compose.repository.user/UserDataRepositoryImpl/setThemeBrand/#dev.atick.storage.preferences.models.ThemeBrand/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository-impl/set-theme-brand.md
+$dokka.location:dev.atick.compose.repository.user/UserDataRepositoryImpl/setUserProfile/#dev.atick.storage.preferences.models.Profile/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository-impl/set-user-profile.md
 $dokka.location:dev.atick.compose.repository.user/UserDataRepositoryImpl/userData/#/PointingToDeclaration/app/app/dev.atick.compose.repository.user/-user-data-repository-impl/user-data.md
 $dokka.location:dev.atick.compose.ui.details////PointingToDeclaration/app/app/dev.atick.compose.ui.details/index.md
 $dokka.location:dev.atick.compose.ui.details/DetailsViewModel///PointingToDeclaration/app/app/dev.atick.compose.ui.details/-details-view-model/index.md
@@ -267,15 +267,15 @@ $dokka.location:dev.atick.compose.ui.profile/ProfileViewModel/ProfileViewModel/#
 $dokka.location:dev.atick.compose.ui.profile/ProfileViewModel/profileUiState/#/PointingToDeclaration/app/app/dev.atick.compose.ui.profile/-profile-view-model/profile-ui-state.md
 $dokka.location:dev.atick.compose.ui.profile/ProfileViewModel/signOut/#/PointingToDeclaration/app/app/dev.atick.compose.ui.profile/-profile-view-model/sign-out.md
 $dokka.location:dev.atick.compose.ui.settings////PointingToDeclaration/app/app/dev.atick.compose.ui.settings/index.md
-$dokka.location:dev.atick.compose.ui.settings//SettingsDialog/#dev.atick.core.ui.utils.UiState[dev.atick.compose.data.settings.UserEditableSettings]#kotlin.Boolean#kotlin.Function0[kotlin.Unit]#kotlin.Function1[dev.atick.storage.preferences.model.ThemeBrand,kotlin.Unit]#kotlin.Function1[kotlin.Boolean,kotlin.Unit]#kotlin.Function1[dev.atick.storage.preferences.model.DarkThemeConfig,kotlin.Unit]/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-dialog.md
+$dokka.location:dev.atick.compose.ui.settings//SettingsDialog/#dev.atick.core.ui.utils.UiState[dev.atick.compose.data.settings.UserEditableSettings]#kotlin.Boolean#kotlin.Function0[kotlin.Unit]#kotlin.Function1[dev.atick.storage.preferences.models.ThemeBrand,kotlin.Unit]#kotlin.Function1[kotlin.Boolean,kotlin.Unit]#kotlin.Function1[dev.atick.storage.preferences.models.DarkThemeConfig,kotlin.Unit]/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-dialog.md
 $dokka.location:dev.atick.compose.ui.settings//SettingsDialog/#kotlin.Function0[kotlin.Unit]#dev.atick.compose.ui.settings.SettingsViewModel/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-dialog.md
 $dokka.location:dev.atick.compose.ui.settings//SettingsDialogThemeChooserRow/#kotlin.String#kotlin.Boolean#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-dialog-theme-chooser-row.md
 $dokka.location:dev.atick.compose.ui.settings/SettingsViewModel///PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-view-model/index.md
 $dokka.location:dev.atick.compose.ui.settings/SettingsViewModel/SettingsViewModel/#dev.atick.compose.repository.user.UserDataRepository/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-view-model/-settings-view-model.md
 $dokka.location:dev.atick.compose.ui.settings/SettingsViewModel/settingsUiState/#/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-view-model/settings-ui-state.md
-$dokka.location:dev.atick.compose.ui.settings/SettingsViewModel/updateDarkThemeConfig/#dev.atick.storage.preferences.model.DarkThemeConfig/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-view-model/update-dark-theme-config.md
+$dokka.location:dev.atick.compose.ui.settings/SettingsViewModel/updateDarkThemeConfig/#dev.atick.storage.preferences.models.DarkThemeConfig/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-view-model/update-dark-theme-config.md
 $dokka.location:dev.atick.compose.ui.settings/SettingsViewModel/updateDynamicColorPreference/#kotlin.Boolean/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-view-model/update-dynamic-color-preference.md
-$dokka.location:dev.atick.compose.ui.settings/SettingsViewModel/updateThemeBrand/#dev.atick.storage.preferences.model.ThemeBrand/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-view-model/update-theme-brand.md
+$dokka.location:dev.atick.compose.ui.settings/SettingsViewModel/updateThemeBrand/#dev.atick.storage.preferences.models.ThemeBrand/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-view-model/update-theme-brand.md
 $dokka.location:dev.atick.compose.ui////PointingToDeclaration/app/app/dev.atick.compose.ui/index.md
 $dokka.location:dev.atick.compose.ui//JetpackApp/#kotlin.Boolean#androidx.compose.material3.windowsizeclass.WindowSizeClass#dev.atick.network.utils.NetworkUtils#dev.atick.compose.ui.JetpackAppState/PointingToDeclaration/app/app/dev.atick.compose.ui/-jetpack-app.md
 $dokka.location:dev.atick.compose.ui//JetpackBottomBar/#kotlin.collections.List[dev.atick.compose.navigation.TopLevelDestination]#kotlin.collections.Set[dev.atick.compose.navigation.TopLevelDestination]#kotlin.Function1[dev.atick.compose.navigation.TopLevelDestination,kotlin.Unit]#androidx.navigation.NavDestination?#androidx.compose.ui.Modifier/PointingToDeclaration/app/app/dev.atick.compose.ui/-jetpack-bottom-bar.md
@@ -328,41 +328,41 @@ $dokka.location:dev.atick.core.extensions//isValidFullName/kotlin.String?#/Point
 $dokka.location:dev.atick.core.extensions//showNotification/android.content.Context#kotlin.Int#android.app.Notification/PointingToDeclaration/android/android/dev.atick.core.extensions/show-notification.md
 $dokka.location:dev.atick.core.extensions//showToast/android.content.Context#kotlin.String/PointingToDeclaration/android/android/dev.atick.core.extensions/show-toast.md
 $dokka.location:dev.atick.core.extensions//stateInDelayed/kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]#TypeParam(bounds=[kotlin.Any?])#kotlinx.coroutines.CoroutineScope/PointingToDeclaration/android/android/dev.atick.core.extensions/state-in-delayed.md
-$dokka.location:dev.atick.core.ui.component////PointingToDeclaration/ui/ui/dev.atick.core.ui.component/index.md
-$dokka.location:dev.atick.core.ui.component//AppBackground/#androidx.compose.ui.Modifier#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-app-background.md
-$dokka.location:dev.atick.core.ui.component//AppGradientBackground/#androidx.compose.ui.Modifier#dev.atick.core.ui.theme.GradientColors#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-app-gradient-background.md
-$dokka.location:dev.atick.core.ui.component//DynamicAsyncImage/#kotlin.String#kotlin.String?#androidx.compose.ui.Modifier#androidx.compose.ui.graphics.painter.Painter?/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-dynamic-async-image.md
-$dokka.location:dev.atick.core.ui.component//JetpackButton/#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#androidx.compose.foundation.layout.PaddingValues#kotlin.Function1[androidx.compose.foundation.layout.RowScope,kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-button.md
-$dokka.location:dev.atick.core.ui.component//JetpackButton/#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]?/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-button.md
-$dokka.location:dev.atick.core.ui.component//JetpackFilterChip/#kotlin.Boolean#kotlin.Function1[kotlin.Boolean,kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-filter-chip.md
-$dokka.location:dev.atick.core.ui.component//JetpackIconToggleButton/#kotlin.Boolean#kotlin.Function1[kotlin.Boolean,kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-icon-toggle-button.md
-$dokka.location:dev.atick.core.ui.component//JetpackLoadingWheel/#kotlin.String#androidx.compose.ui.Modifier/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-loading-wheel.md
-$dokka.location:dev.atick.core.ui.component//JetpackNavigationBar/#androidx.compose.ui.Modifier#kotlin.Function1[androidx.compose.foundation.layout.RowScope,kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-navigation-bar.md
-$dokka.location:dev.atick.core.ui.component//JetpackNavigationBarItem/androidx.compose.foundation.layout.RowScope#kotlin.Boolean#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Function0[kotlin.Unit]#kotlin.Boolean#kotlin.Function0[kotlin.Unit]?#kotlin.Boolean/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-navigation-bar-item.md
-$dokka.location:dev.atick.core.ui.component//JetpackNavigationRail/#androidx.compose.ui.Modifier#kotlin.Function1[androidx.compose.foundation.layout.ColumnScope,kotlin.Unit]?#kotlin.Function1[androidx.compose.foundation.layout.ColumnScope,kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-navigation-rail.md
-$dokka.location:dev.atick.core.ui.component//JetpackNavigationRailItem/#kotlin.Boolean#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Function0[kotlin.Unit]#kotlin.Boolean#kotlin.Function0[kotlin.Unit]?#kotlin.Boolean/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-navigation-rail-item.md
-$dokka.location:dev.atick.core.ui.component//JetpackOutlinedButton/#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#androidx.compose.foundation.layout.PaddingValues#kotlin.Function1[androidx.compose.foundation.layout.RowScope,kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-outlined-button.md
-$dokka.location:dev.atick.core.ui.component//JetpackOutlinedButton/#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]?/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-outlined-button.md
-$dokka.location:dev.atick.core.ui.component//JetpackOverlayLoadingWheel/#kotlin.String#androidx.compose.ui.Modifier/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-overlay-loading-wheel.md
-$dokka.location:dev.atick.core.ui.component//JetpackPasswordFiled/#kotlin.String#kotlin.Function1[kotlin.String,kotlin.Unit]#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.String?/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-password-filed.md
-$dokka.location:dev.atick.core.ui.component//JetpackTextButton/#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]?/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-text-button.md
-$dokka.location:dev.atick.core.ui.component//JetpackTextButton/#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Function1[androidx.compose.foundation.layout.RowScope,kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-text-button.md
-$dokka.location:dev.atick.core.ui.component//JetpackTextFiled/#kotlin.String#kotlin.Function1[kotlin.String,kotlin.Unit]#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#androidx.compose.foundation.text.KeyboardOptions#kotlin.Function0[kotlin.Unit]#kotlin.String?/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-text-filed.md
-$dokka.location:dev.atick.core.ui.component//JetpackTopAppBar/#kotlin.Int#androidx.compose.ui.graphics.vector.ImageVector#kotlin.String?#androidx.compose.ui.Modifier#androidx.compose.material3.TopAppBarColors#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-top-app-bar.md
-$dokka.location:dev.atick.core.ui.component//JetpackTopAppBar/#kotlin.Int#androidx.compose.ui.graphics.vector.ImageVector#kotlin.String?#androidx.compose.ui.graphics.vector.ImageVector#kotlin.String?#androidx.compose.ui.Modifier#androidx.compose.material3.TopAppBarColors#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-top-app-bar.md
-$dokka.location:dev.atick.core.ui.component/JetpackButtonDefaults///PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-button-defaults/index.md
-$dokka.location:dev.atick.core.ui.component/JetpackButtonDefaults/DisabledOutlinedButtonBorderAlpha/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-button-defaults/-disabled-outlined-button-border-alpha.md
-$dokka.location:dev.atick.core.ui.component/JetpackButtonDefaults/OutlinedButtonBorderWidth/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-button-defaults/-outlined-button-border-width.md
-$dokka.location:dev.atick.core.ui.component/JetpackChipDefaults///PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-chip-defaults/index.md
-$dokka.location:dev.atick.core.ui.component/JetpackChipDefaults/ChipBorderWidth/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-chip-defaults/-chip-border-width.md
-$dokka.location:dev.atick.core.ui.component/JetpackChipDefaults/DisabledChipContainerAlpha/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-chip-defaults/-disabled-chip-container-alpha.md
-$dokka.location:dev.atick.core.ui.component/JetpackChipDefaults/DisabledChipContentAlpha/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-chip-defaults/-disabled-chip-content-alpha.md
-$dokka.location:dev.atick.core.ui.component/JetpackIconButtonDefaults///PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-icon-button-defaults/index.md
-$dokka.location:dev.atick.core.ui.component/JetpackIconButtonDefaults/DisabledIconButtonContainerAlpha/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-icon-button-defaults/-disabled-icon-button-container-alpha.md
-$dokka.location:dev.atick.core.ui.component/JetpackNavigationDefaults///PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-navigation-defaults/index.md
-$dokka.location:dev.atick.core.ui.component/JetpackNavigationDefaults/navigationContentColor/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-navigation-defaults/navigation-content-color.md
-$dokka.location:dev.atick.core.ui.component/JetpackNavigationDefaults/navigationIndicatorColor/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-navigation-defaults/navigation-indicator-color.md
-$dokka.location:dev.atick.core.ui.component/JetpackNavigationDefaults/navigationSelectedItemColor/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.component/-jetpack-navigation-defaults/navigation-selected-item-color.md
+$dokka.location:dev.atick.core.ui.components////PointingToDeclaration/ui/ui/dev.atick.core.ui.components/index.md
+$dokka.location:dev.atick.core.ui.components//AppBackground/#androidx.compose.ui.Modifier#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-app-background.md
+$dokka.location:dev.atick.core.ui.components//AppGradientBackground/#androidx.compose.ui.Modifier#dev.atick.core.ui.theme.GradientColors#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-app-gradient-background.md
+$dokka.location:dev.atick.core.ui.components//DynamicAsyncImage/#kotlin.String#kotlin.String?#androidx.compose.ui.Modifier#androidx.compose.ui.graphics.painter.Painter?/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-dynamic-async-image.md
+$dokka.location:dev.atick.core.ui.components//JetpackButton/#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#androidx.compose.foundation.layout.PaddingValues#kotlin.Function1[androidx.compose.foundation.layout.RowScope,kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-button.md
+$dokka.location:dev.atick.core.ui.components//JetpackButton/#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]?/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-button.md
+$dokka.location:dev.atick.core.ui.components//JetpackFilterChip/#kotlin.Boolean#kotlin.Function1[kotlin.Boolean,kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-filter-chip.md
+$dokka.location:dev.atick.core.ui.components//JetpackIconToggleButton/#kotlin.Boolean#kotlin.Function1[kotlin.Boolean,kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-icon-toggle-button.md
+$dokka.location:dev.atick.core.ui.components//JetpackLoadingWheel/#kotlin.String#androidx.compose.ui.Modifier/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-loading-wheel.md
+$dokka.location:dev.atick.core.ui.components//JetpackNavigationBar/#androidx.compose.ui.Modifier#kotlin.Function1[androidx.compose.foundation.layout.RowScope,kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-navigation-bar.md
+$dokka.location:dev.atick.core.ui.components//JetpackNavigationBarItem/androidx.compose.foundation.layout.RowScope#kotlin.Boolean#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Function0[kotlin.Unit]#kotlin.Boolean#kotlin.Function0[kotlin.Unit]?#kotlin.Boolean/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-navigation-bar-item.md
+$dokka.location:dev.atick.core.ui.components//JetpackNavigationRail/#androidx.compose.ui.Modifier#kotlin.Function1[androidx.compose.foundation.layout.ColumnScope,kotlin.Unit]?#kotlin.Function1[androidx.compose.foundation.layout.ColumnScope,kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-navigation-rail.md
+$dokka.location:dev.atick.core.ui.components//JetpackNavigationRailItem/#kotlin.Boolean#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Function0[kotlin.Unit]#kotlin.Boolean#kotlin.Function0[kotlin.Unit]?#kotlin.Boolean/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-navigation-rail-item.md
+$dokka.location:dev.atick.core.ui.components//JetpackOutlinedButton/#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#androidx.compose.foundation.layout.PaddingValues#kotlin.Function1[androidx.compose.foundation.layout.RowScope,kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-outlined-button.md
+$dokka.location:dev.atick.core.ui.components//JetpackOutlinedButton/#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]?/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-outlined-button.md
+$dokka.location:dev.atick.core.ui.components//JetpackOverlayLoadingWheel/#kotlin.String#androidx.compose.ui.Modifier/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-overlay-loading-wheel.md
+$dokka.location:dev.atick.core.ui.components//JetpackPasswordFiled/#kotlin.String#kotlin.Function1[kotlin.String,kotlin.Unit]#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.String?/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-password-filed.md
+$dokka.location:dev.atick.core.ui.components//JetpackTextButton/#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]?/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-text-button.md
+$dokka.location:dev.atick.core.ui.components//JetpackTextButton/#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Function1[androidx.compose.foundation.layout.RowScope,kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-text-button.md
+$dokka.location:dev.atick.core.ui.components//JetpackTextFiled/#kotlin.String#kotlin.Function1[kotlin.String,kotlin.Unit]#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#androidx.compose.ui.Modifier#androidx.compose.foundation.text.KeyboardOptions#kotlin.Function0[kotlin.Unit]#kotlin.String?/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-text-filed.md
+$dokka.location:dev.atick.core.ui.components//JetpackTopAppBar/#kotlin.Int#androidx.compose.ui.graphics.vector.ImageVector#kotlin.String?#androidx.compose.ui.Modifier#androidx.compose.material3.TopAppBarColors#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-top-app-bar.md
+$dokka.location:dev.atick.core.ui.components//JetpackTopAppBar/#kotlin.Int#androidx.compose.ui.graphics.vector.ImageVector#kotlin.String?#androidx.compose.ui.graphics.vector.ImageVector#kotlin.String?#androidx.compose.ui.Modifier#androidx.compose.material3.TopAppBarColors#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-top-app-bar.md
+$dokka.location:dev.atick.core.ui.components/JetpackButtonDefaults///PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-button-defaults/index.md
+$dokka.location:dev.atick.core.ui.components/JetpackButtonDefaults/DisabledOutlinedButtonBorderAlpha/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-button-defaults/-disabled-outlined-button-border-alpha.md
+$dokka.location:dev.atick.core.ui.components/JetpackButtonDefaults/OutlinedButtonBorderWidth/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-button-defaults/-outlined-button-border-width.md
+$dokka.location:dev.atick.core.ui.components/JetpackChipDefaults///PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-chip-defaults/index.md
+$dokka.location:dev.atick.core.ui.components/JetpackChipDefaults/ChipBorderWidth/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-chip-defaults/-chip-border-width.md
+$dokka.location:dev.atick.core.ui.components/JetpackChipDefaults/DisabledChipContainerAlpha/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-chip-defaults/-disabled-chip-container-alpha.md
+$dokka.location:dev.atick.core.ui.components/JetpackChipDefaults/DisabledChipContentAlpha/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-chip-defaults/-disabled-chip-content-alpha.md
+$dokka.location:dev.atick.core.ui.components/JetpackIconButtonDefaults///PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-icon-button-defaults/index.md
+$dokka.location:dev.atick.core.ui.components/JetpackIconButtonDefaults/DisabledIconButtonContainerAlpha/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-icon-button-defaults/-disabled-icon-button-container-alpha.md
+$dokka.location:dev.atick.core.ui.components/JetpackNavigationDefaults///PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-navigation-defaults/index.md
+$dokka.location:dev.atick.core.ui.components/JetpackNavigationDefaults/navigationContentColor/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-navigation-defaults/navigation-content-color.md
+$dokka.location:dev.atick.core.ui.components/JetpackNavigationDefaults/navigationIndicatorColor/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-navigation-defaults/navigation-indicator-color.md
+$dokka.location:dev.atick.core.ui.components/JetpackNavigationDefaults/navigationSelectedItemColor/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-jetpack-navigation-defaults/navigation-selected-item-color.md
 $dokka.location:dev.atick.core.ui.extensions////PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/index.md
 $dokka.location:dev.atick.core.ui.extensions//checkForPermissions/androidx.activity.ComponentActivity#kotlin.collections.List[kotlin.String]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/check-for-permissions.md
 $dokka.location:dev.atick.core.ui.extensions//collectWithLifecycle/androidx.lifecycle.LifecycleOwner#kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/collect-with-lifecycle.md
@@ -491,13 +491,13 @@ $dokka.location:dev.atick.network.di/NetworkUtilsModule/NetworkUtilsModule/#/Poi
 $dokka.location:dev.atick.network.di/NetworkUtilsModule/bindNetworkUtils/#dev.atick.network.utils.NetworkUtilsImpl/PointingToDeclaration/network/network/dev.atick.network.di/-network-utils-module/bind-network-utils.md
 $dokka.location:dev.atick.network.di/RestApiModule///PointingToDeclaration/network/network/dev.atick.network.di/-rest-api-module/index.md
 $dokka.location:dev.atick.network.di/RestApiModule/provideApiService/#retrofit2.Retrofit/PointingToDeclaration/network/network/dev.atick.network.di/-rest-api-module/provide-api-service.md
-$dokka.location:dev.atick.network.model////PointingToDeclaration/network/network/dev.atick.network.model/index.md
-$dokka.location:dev.atick.network.model/NetworkPost///PointingToDeclaration/network/network/dev.atick.network.model/-network-post/index.md
-$dokka.location:dev.atick.network.model/NetworkPost/NetworkPost/#kotlin.Int#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/network/network/dev.atick.network.model/-network-post/-network-post.md
-$dokka.location:dev.atick.network.model/NetworkPost/id/#/PointingToDeclaration/network/network/dev.atick.network.model/-network-post/id.md
-$dokka.location:dev.atick.network.model/NetworkPost/thumbnailUrl/#/PointingToDeclaration/network/network/dev.atick.network.model/-network-post/thumbnail-url.md
-$dokka.location:dev.atick.network.model/NetworkPost/title/#/PointingToDeclaration/network/network/dev.atick.network.model/-network-post/title.md
-$dokka.location:dev.atick.network.model/NetworkPost/url/#/PointingToDeclaration/network/network/dev.atick.network.model/-network-post/url.md
+$dokka.location:dev.atick.network.models////PointingToDeclaration/network/network/dev.atick.network.models/index.md
+$dokka.location:dev.atick.network.models/NetworkPost///PointingToDeclaration/network/network/dev.atick.network.models/-network-post/index.md
+$dokka.location:dev.atick.network.models/NetworkPost/NetworkPost/#kotlin.Int#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/network/network/dev.atick.network.models/-network-post/-network-post.md
+$dokka.location:dev.atick.network.models/NetworkPost/id/#/PointingToDeclaration/network/network/dev.atick.network.models/-network-post/id.md
+$dokka.location:dev.atick.network.models/NetworkPost/thumbnailUrl/#/PointingToDeclaration/network/network/dev.atick.network.models/-network-post/thumbnail-url.md
+$dokka.location:dev.atick.network.models/NetworkPost/title/#/PointingToDeclaration/network/network/dev.atick.network.models/-network-post/title.md
+$dokka.location:dev.atick.network.models/NetworkPost/url/#/PointingToDeclaration/network/network/dev.atick.network.models/-network-post/url.md
 $dokka.location:dev.atick.network.utils////PointingToDeclaration/network/network/dev.atick.network.utils/index.md
 $dokka.location:dev.atick.network.utils/NetworkState.CONNECTED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}network/network/dev.atick.network.utils/-network-state/-c-o-n-n-e-c-t-e-d/index.md
 $dokka.location:dev.atick.network.utils/NetworkState.LOSING///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}network/network/dev.atick.network.utils/-network-state/-l-o-s-i-n-g/index.md
@@ -515,17 +515,17 @@ $dokka.location:dev.atick.network.utils/NetworkUtilsImpl/NetworkUtilsImpl/#andro
 $dokka.location:dev.atick.network.utils/NetworkUtilsImpl/currentState/#/PointingToDeclaration/network/network/dev.atick.network.utils/-network-utils-impl/current-state.md
 $dokka.location:dev.atick.storage.preferences.data////PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/index.md
 $dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSource///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source/index.md
-$dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSource/setDarkThemeConfig/#dev.atick.storage.preferences.model.DarkThemeConfig/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source/set-dark-theme-config.md
+$dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSource/setDarkThemeConfig/#dev.atick.storage.preferences.models.DarkThemeConfig/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source/set-dark-theme-config.md
 $dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSource/setDynamicColorPreference/#kotlin.Boolean/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source/set-dynamic-color-preference.md
-$dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSource/setProfile/#dev.atick.storage.preferences.model.Profile/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source/set-profile.md
-$dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSource/setThemeBrand/#dev.atick.storage.preferences.model.ThemeBrand/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source/set-theme-brand.md
+$dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSource/setProfile/#dev.atick.storage.preferences.models.Profile/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source/set-profile.md
+$dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSource/setThemeBrand/#dev.atick.storage.preferences.models.ThemeBrand/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source/set-theme-brand.md
 $dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSource/userData/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source/user-data.md
 $dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSourceImpl///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source-impl/index.md
-$dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSourceImpl/UserPreferencesDataSourceImpl/#androidx.datastore.core.DataStore[dev.atick.storage.preferences.model.UserData]#kotlinx.coroutines.CoroutineDispatcher/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source-impl/-user-preferences-data-source-impl.md
-$dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSourceImpl/setDarkThemeConfig/#dev.atick.storage.preferences.model.DarkThemeConfig/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source-impl/set-dark-theme-config.md
+$dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSourceImpl/UserPreferencesDataSourceImpl/#androidx.datastore.core.DataStore[dev.atick.storage.preferences.models.UserData]#kotlinx.coroutines.CoroutineDispatcher/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source-impl/-user-preferences-data-source-impl.md
+$dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSourceImpl/setDarkThemeConfig/#dev.atick.storage.preferences.models.DarkThemeConfig/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source-impl/set-dark-theme-config.md
 $dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSourceImpl/setDynamicColorPreference/#kotlin.Boolean/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source-impl/set-dynamic-color-preference.md
-$dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSourceImpl/setProfile/#dev.atick.storage.preferences.model.Profile/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source-impl/set-profile.md
-$dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSourceImpl/setThemeBrand/#dev.atick.storage.preferences.model.ThemeBrand/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source-impl/set-theme-brand.md
+$dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSourceImpl/setProfile/#dev.atick.storage.preferences.models.Profile/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source-impl/set-profile.md
+$dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSourceImpl/setThemeBrand/#dev.atick.storage.preferences.models.ThemeBrand/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source-impl/set-theme-brand.md
 $dokka.location:dev.atick.storage.preferences.data/UserPreferencesDataSourceImpl/userData/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.data/-user-preferences-data-source-impl/user-data.md
 $dokka.location:dev.atick.storage.preferences.di////PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.di/index.md
 $dokka.location:dev.atick.storage.preferences.di/DatastoreModule///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.di/-datastore-module/index.md
@@ -533,72 +533,72 @@ $dokka.location:dev.atick.storage.preferences.di/DatastoreModule/providePreferen
 $dokka.location:dev.atick.storage.preferences.di/PreferencesDataSourceModule///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.di/-preferences-data-source-module/index.md
 $dokka.location:dev.atick.storage.preferences.di/PreferencesDataSourceModule/PreferencesDataSourceModule/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.di/-preferences-data-source-module/-preferences-data-source-module.md
 $dokka.location:dev.atick.storage.preferences.di/PreferencesDataSourceModule/bindUserPreferencesDataSource/#dev.atick.storage.preferences.data.UserPreferencesDataSourceImpl/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.di/-preferences-data-source-module/bind-user-preferences-data-source.md
-$dokka.location:dev.atick.storage.preferences.model////PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/index.md
-$dokka.location:dev.atick.storage.preferences.model/DarkThemeConfig.DARK///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}preferences/preferences/dev.atick.storage.preferences.model/-dark-theme-config/-d-a-r-k/index.md
-$dokka.location:dev.atick.storage.preferences.model/DarkThemeConfig.FOLLOW_SYSTEM///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}preferences/preferences/dev.atick.storage.preferences.model/-dark-theme-config/-f-o-l-l-o-w_-s-y-s-t-e-m/index.md
-$dokka.location:dev.atick.storage.preferences.model/DarkThemeConfig.LIGHT///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}preferences/preferences/dev.atick.storage.preferences.model/-dark-theme-config/-l-i-g-h-t/index.md
-$dokka.location:dev.atick.storage.preferences.model/DarkThemeConfig///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-dark-theme-config/index.md
-$dokka.location:dev.atick.storage.preferences.model/DarkThemeConfig/entries/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-dark-theme-config/entries.md
-$dokka.location:dev.atick.storage.preferences.model/DarkThemeConfig/valueOf/#kotlin.String/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-dark-theme-config/value-of.md
-$dokka.location:dev.atick.storage.preferences.model/DarkThemeConfig/values/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-dark-theme-config/values.md
-$dokka.location:dev.atick.storage.preferences.model/Profile///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-profile/index.md
-$dokka.location:dev.atick.storage.preferences.model/Profile/Profile/#kotlin.String#kotlin.String#kotlin.String?/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-profile/-profile.md
-$dokka.location:dev.atick.storage.preferences.model/Profile/id/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-profile/id.md
-$dokka.location:dev.atick.storage.preferences.model/Profile/name/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-profile/name.md
-$dokka.location:dev.atick.storage.preferences.model/Profile/profilePictureUriString/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-profile/profile-picture-uri-string.md
-$dokka.location:dev.atick.storage.preferences.model/ThemeBrand.ANDROID///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}preferences/preferences/dev.atick.storage.preferences.model/-theme-brand/-a-n-d-r-o-i-d/index.md
-$dokka.location:dev.atick.storage.preferences.model/ThemeBrand.DEFAULT///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}preferences/preferences/dev.atick.storage.preferences.model/-theme-brand/-d-e-f-a-u-l-t/index.md
-$dokka.location:dev.atick.storage.preferences.model/ThemeBrand///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-theme-brand/index.md
-$dokka.location:dev.atick.storage.preferences.model/ThemeBrand/entries/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-theme-brand/entries.md
-$dokka.location:dev.atick.storage.preferences.model/ThemeBrand/valueOf/#kotlin.String/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-theme-brand/value-of.md
-$dokka.location:dev.atick.storage.preferences.model/ThemeBrand/values/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-theme-brand/values.md
-$dokka.location:dev.atick.storage.preferences.model/UserData///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-user-data/index.md
-$dokka.location:dev.atick.storage.preferences.model/UserData/UserData/#kotlin.String#kotlin.String#kotlin.String?#dev.atick.storage.preferences.model.ThemeBrand#dev.atick.storage.preferences.model.DarkThemeConfig#kotlin.Boolean/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-user-data/-user-data.md
-$dokka.location:dev.atick.storage.preferences.model/UserData/darkThemeConfig/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-user-data/dark-theme-config.md
-$dokka.location:dev.atick.storage.preferences.model/UserData/id/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-user-data/id.md
-$dokka.location:dev.atick.storage.preferences.model/UserData/name/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-user-data/name.md
-$dokka.location:dev.atick.storage.preferences.model/UserData/profilePictureUriString/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-user-data/profile-picture-uri-string.md
-$dokka.location:dev.atick.storage.preferences.model/UserData/themeBrand/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-user-data/theme-brand.md
-$dokka.location:dev.atick.storage.preferences.model/UserData/useDynamicColor/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.model/-user-data/use-dynamic-color.md
+$dokka.location:dev.atick.storage.preferences.models////PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/index.md
+$dokka.location:dev.atick.storage.preferences.models/DarkThemeConfig.DARK///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}preferences/preferences/dev.atick.storage.preferences.models/-dark-theme-config/-d-a-r-k/index.md
+$dokka.location:dev.atick.storage.preferences.models/DarkThemeConfig.FOLLOW_SYSTEM///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}preferences/preferences/dev.atick.storage.preferences.models/-dark-theme-config/-f-o-l-l-o-w_-s-y-s-t-e-m/index.md
+$dokka.location:dev.atick.storage.preferences.models/DarkThemeConfig.LIGHT///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}preferences/preferences/dev.atick.storage.preferences.models/-dark-theme-config/-l-i-g-h-t/index.md
+$dokka.location:dev.atick.storage.preferences.models/DarkThemeConfig///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-dark-theme-config/index.md
+$dokka.location:dev.atick.storage.preferences.models/DarkThemeConfig/entries/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-dark-theme-config/entries.md
+$dokka.location:dev.atick.storage.preferences.models/DarkThemeConfig/valueOf/#kotlin.String/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-dark-theme-config/value-of.md
+$dokka.location:dev.atick.storage.preferences.models/DarkThemeConfig/values/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-dark-theme-config/values.md
+$dokka.location:dev.atick.storage.preferences.models/Profile///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-profile/index.md
+$dokka.location:dev.atick.storage.preferences.models/Profile/Profile/#kotlin.String#kotlin.String#kotlin.String?/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-profile/-profile.md
+$dokka.location:dev.atick.storage.preferences.models/Profile/id/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-profile/id.md
+$dokka.location:dev.atick.storage.preferences.models/Profile/name/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-profile/name.md
+$dokka.location:dev.atick.storage.preferences.models/Profile/profilePictureUriString/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-profile/profile-picture-uri-string.md
+$dokka.location:dev.atick.storage.preferences.models/ThemeBrand.ANDROID///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}preferences/preferences/dev.atick.storage.preferences.models/-theme-brand/-a-n-d-r-o-i-d/index.md
+$dokka.location:dev.atick.storage.preferences.models/ThemeBrand.DEFAULT///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}preferences/preferences/dev.atick.storage.preferences.models/-theme-brand/-d-e-f-a-u-l-t/index.md
+$dokka.location:dev.atick.storage.preferences.models/ThemeBrand///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-theme-brand/index.md
+$dokka.location:dev.atick.storage.preferences.models/ThemeBrand/entries/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-theme-brand/entries.md
+$dokka.location:dev.atick.storage.preferences.models/ThemeBrand/valueOf/#kotlin.String/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-theme-brand/value-of.md
+$dokka.location:dev.atick.storage.preferences.models/ThemeBrand/values/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-theme-brand/values.md
+$dokka.location:dev.atick.storage.preferences.models/UserData///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-user-data/index.md
+$dokka.location:dev.atick.storage.preferences.models/UserData/UserData/#kotlin.String#kotlin.String#kotlin.String?#dev.atick.storage.preferences.models.ThemeBrand#dev.atick.storage.preferences.models.DarkThemeConfig#kotlin.Boolean/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-user-data/-user-data.md
+$dokka.location:dev.atick.storage.preferences.models/UserData/darkThemeConfig/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-user-data/dark-theme-config.md
+$dokka.location:dev.atick.storage.preferences.models/UserData/id/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-user-data/id.md
+$dokka.location:dev.atick.storage.preferences.models/UserData/name/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-user-data/name.md
+$dokka.location:dev.atick.storage.preferences.models/UserData/profilePictureUriString/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-user-data/profile-picture-uri-string.md
+$dokka.location:dev.atick.storage.preferences.models/UserData/themeBrand/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-user-data/theme-brand.md
+$dokka.location:dev.atick.storage.preferences.models/UserData/useDynamicColor/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.models/-user-data/use-dynamic-color.md
 $dokka.location:dev.atick.storage.preferences.utils////PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/index.md
 $dokka.location:dev.atick.storage.preferences.utils/DarkThemeConfigSerializer///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-dark-theme-config-serializer/index.md
 $dokka.location:dev.atick.storage.preferences.utils/DarkThemeConfigSerializer/descriptor/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-dark-theme-config-serializer/descriptor.md
 $dokka.location:dev.atick.storage.preferences.utils/DarkThemeConfigSerializer/deserialize/#kotlinx.serialization.encoding.Decoder/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-dark-theme-config-serializer/deserialize.md
-$dokka.location:dev.atick.storage.preferences.utils/DarkThemeConfigSerializer/serialize/#kotlinx.serialization.encoding.Encoder#dev.atick.storage.preferences.model.DarkThemeConfig/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-dark-theme-config-serializer/serialize.md
+$dokka.location:dev.atick.storage.preferences.utils/DarkThemeConfigSerializer/serialize/#kotlinx.serialization.encoding.Encoder#dev.atick.storage.preferences.models.DarkThemeConfig/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-dark-theme-config-serializer/serialize.md
 $dokka.location:dev.atick.storage.preferences.utils/ThemeBrandSerializer///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-theme-brand-serializer/index.md
 $dokka.location:dev.atick.storage.preferences.utils/ThemeBrandSerializer/descriptor/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-theme-brand-serializer/descriptor.md
 $dokka.location:dev.atick.storage.preferences.utils/ThemeBrandSerializer/deserialize/#kotlinx.serialization.encoding.Decoder/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-theme-brand-serializer/deserialize.md
-$dokka.location:dev.atick.storage.preferences.utils/ThemeBrandSerializer/serialize/#kotlinx.serialization.encoding.Encoder#dev.atick.storage.preferences.model.ThemeBrand/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-theme-brand-serializer/serialize.md
+$dokka.location:dev.atick.storage.preferences.utils/ThemeBrandSerializer/serialize/#kotlinx.serialization.encoding.Encoder#dev.atick.storage.preferences.models.ThemeBrand/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-theme-brand-serializer/serialize.md
 $dokka.location:dev.atick.storage.preferences.utils/UserDataSerializer///PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-user-data-serializer/index.md
 $dokka.location:dev.atick.storage.preferences.utils/UserDataSerializer/defaultValue/#/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-user-data-serializer/default-value.md
 $dokka.location:dev.atick.storage.preferences.utils/UserDataSerializer/readFrom/#java.io.InputStream/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-user-data-serializer/read-from.md
-$dokka.location:dev.atick.storage.preferences.utils/UserDataSerializer/writeTo/#dev.atick.storage.preferences.model.UserData#java.io.OutputStream/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-user-data-serializer/write-to.md
+$dokka.location:dev.atick.storage.preferences.utils/UserDataSerializer/writeTo/#dev.atick.storage.preferences.models.UserData#java.io.OutputStream/PointingToDeclaration/preferences/preferences/dev.atick.storage.preferences.utils/-user-data-serializer/write-to.md
 $dokka.location:dev.atick.storage.room.data////PointingToDeclaration/room/room/dev.atick.storage.room.data/index.md
 $dokka.location:dev.atick.storage.room.data/JetpackDao///PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/index.md
 $dokka.location:dev.atick.storage.room.data/JetpackDao/deleteAllPostEntities/#/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/delete-all-post-entities.md
-$dokka.location:dev.atick.storage.room.data/JetpackDao/deletePostEntity/#dev.atick.storage.room.model.PostEntity/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/delete-post-entity.md
+$dokka.location:dev.atick.storage.room.data/JetpackDao/deletePostEntity/#dev.atick.storage.room.models.PostEntity/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/delete-post-entity.md
 $dokka.location:dev.atick.storage.room.data/JetpackDao/getPostEntities/#/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/get-post-entities.md
 $dokka.location:dev.atick.storage.room.data/JetpackDao/getPostEntity/#kotlin.Int/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/get-post-entity.md
-$dokka.location:dev.atick.storage.room.data/JetpackDao/insertOrUpdatePostEntity/#dev.atick.storage.room.model.PostEntity/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/insert-or-update-post-entity.md
-$dokka.location:dev.atick.storage.room.data/JetpackDao/upsertPostEntities/#kotlin.collections.List[dev.atick.storage.room.model.PostEntity]/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/upsert-post-entities.md
+$dokka.location:dev.atick.storage.room.data/JetpackDao/insertOrUpdatePostEntity/#dev.atick.storage.room.models.PostEntity/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/insert-or-update-post-entity.md
+$dokka.location:dev.atick.storage.room.data/JetpackDao/upsertPostEntities/#kotlin.collections.List[dev.atick.storage.room.models.PostEntity]/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-dao/upsert-post-entities.md
 $dokka.location:dev.atick.storage.room.data/JetpackDatabase///PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-database/index.md
 $dokka.location:dev.atick.storage.room.data/JetpackDatabase/JetpackDatabase/#/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-database/-jetpack-database.md
 $dokka.location:dev.atick.storage.room.data/JetpackDatabase/getJetpackDao/#/PointingToDeclaration/room/room/dev.atick.storage.room.data/-jetpack-database/get-jetpack-dao.md
 $dokka.location:dev.atick.storage.room.data/LocalDataSource///PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source/index.md
 $dokka.location:dev.atick.storage.room.data/LocalDataSource/deleteAllPostEntities/#/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source/delete-all-post-entities.md
-$dokka.location:dev.atick.storage.room.data/LocalDataSource/deletePostEntity/#dev.atick.storage.room.model.PostEntity/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source/delete-post-entity.md
+$dokka.location:dev.atick.storage.room.data/LocalDataSource/deletePostEntity/#dev.atick.storage.room.models.PostEntity/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source/delete-post-entity.md
 $dokka.location:dev.atick.storage.room.data/LocalDataSource/getPostEntities/#/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source/get-post-entities.md
 $dokka.location:dev.atick.storage.room.data/LocalDataSource/getPostEntity/#kotlin.Int/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source/get-post-entity.md
-$dokka.location:dev.atick.storage.room.data/LocalDataSource/insertOrUpdatePostEntity/#dev.atick.storage.room.model.PostEntity/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source/insert-or-update-post-entity.md
-$dokka.location:dev.atick.storage.room.data/LocalDataSource/upsertPostEntities/#kotlin.collections.List[dev.atick.storage.room.model.PostEntity]/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source/upsert-post-entities.md
+$dokka.location:dev.atick.storage.room.data/LocalDataSource/insertOrUpdatePostEntity/#dev.atick.storage.room.models.PostEntity/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source/insert-or-update-post-entity.md
+$dokka.location:dev.atick.storage.room.data/LocalDataSource/upsertPostEntities/#kotlin.collections.List[dev.atick.storage.room.models.PostEntity]/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source/upsert-post-entities.md
 $dokka.location:dev.atick.storage.room.data/LocalDataSourceImpl///PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source-impl/index.md
 $dokka.location:dev.atick.storage.room.data/LocalDataSourceImpl/LocalDataSourceImpl/#dev.atick.storage.room.data.JetpackDao#kotlinx.coroutines.CoroutineDispatcher/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source-impl/-local-data-source-impl.md
 $dokka.location:dev.atick.storage.room.data/LocalDataSourceImpl/deleteAllPostEntities/#/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source-impl/delete-all-post-entities.md
-$dokka.location:dev.atick.storage.room.data/LocalDataSourceImpl/deletePostEntity/#dev.atick.storage.room.model.PostEntity/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source-impl/delete-post-entity.md
+$dokka.location:dev.atick.storage.room.data/LocalDataSourceImpl/deletePostEntity/#dev.atick.storage.room.models.PostEntity/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source-impl/delete-post-entity.md
 $dokka.location:dev.atick.storage.room.data/LocalDataSourceImpl/getPostEntities/#/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source-impl/get-post-entities.md
 $dokka.location:dev.atick.storage.room.data/LocalDataSourceImpl/getPostEntity/#kotlin.Int/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source-impl/get-post-entity.md
-$dokka.location:dev.atick.storage.room.data/LocalDataSourceImpl/insertOrUpdatePostEntity/#dev.atick.storage.room.model.PostEntity/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source-impl/insert-or-update-post-entity.md
-$dokka.location:dev.atick.storage.room.data/LocalDataSourceImpl/upsertPostEntities/#kotlin.collections.List[dev.atick.storage.room.model.PostEntity]/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source-impl/upsert-post-entities.md
+$dokka.location:dev.atick.storage.room.data/LocalDataSourceImpl/insertOrUpdatePostEntity/#dev.atick.storage.room.models.PostEntity/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source-impl/insert-or-update-post-entity.md
+$dokka.location:dev.atick.storage.room.data/LocalDataSourceImpl/upsertPostEntities/#kotlin.collections.List[dev.atick.storage.room.models.PostEntity]/PointingToDeclaration/room/room/dev.atick.storage.room.data/-local-data-source-impl/upsert-post-entities.md
 $dokka.location:dev.atick.storage.room.di////PointingToDeclaration/room/room/dev.atick.storage.room.di/index.md
 $dokka.location:dev.atick.storage.room.di/DaoModule///PointingToDeclaration/room/room/dev.atick.storage.room.di/-dao-module/index.md
 $dokka.location:dev.atick.storage.room.di/DaoModule/provideJetpackDao/#dev.atick.storage.room.data.JetpackDatabase/PointingToDeclaration/room/room/dev.atick.storage.room.di/-dao-module/provide-jetpack-dao.md
@@ -607,13 +607,13 @@ $dokka.location:dev.atick.storage.room.di/DataSourceModule/DataSourceModule/#/Po
 $dokka.location:dev.atick.storage.room.di/DataSourceModule/bindLocalDataSource/#dev.atick.storage.room.data.LocalDataSourceImpl/PointingToDeclaration/room/room/dev.atick.storage.room.di/-data-source-module/bind-local-data-source.md
 $dokka.location:dev.atick.storage.room.di/DatabaseModule///PointingToDeclaration/room/room/dev.atick.storage.room.di/-database-module/index.md
 $dokka.location:dev.atick.storage.room.di/DatabaseModule/provideRoomDatabase/#android.content.Context/PointingToDeclaration/room/room/dev.atick.storage.room.di/-database-module/provide-room-database.md
-$dokka.location:dev.atick.storage.room.model////PointingToDeclaration/room/room/dev.atick.storage.room.model/index.md
-$dokka.location:dev.atick.storage.room.model/PostEntity///PointingToDeclaration/room/room/dev.atick.storage.room.model/-post-entity/index.md
-$dokka.location:dev.atick.storage.room.model/PostEntity/PostEntity/#kotlin.Int#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/room/room/dev.atick.storage.room.model/-post-entity/-post-entity.md
-$dokka.location:dev.atick.storage.room.model/PostEntity/id/#/PointingToDeclaration/room/room/dev.atick.storage.room.model/-post-entity/id.md
-$dokka.location:dev.atick.storage.room.model/PostEntity/thumbnailUrl/#/PointingToDeclaration/room/room/dev.atick.storage.room.model/-post-entity/thumbnail-url.md
-$dokka.location:dev.atick.storage.room.model/PostEntity/title/#/PointingToDeclaration/room/room/dev.atick.storage.room.model/-post-entity/title.md
-$dokka.location:dev.atick.storage.room.model/PostEntity/url/#/PointingToDeclaration/room/room/dev.atick.storage.room.model/-post-entity/url.md
+$dokka.location:dev.atick.storage.room.models////PointingToDeclaration/room/room/dev.atick.storage.room.models/index.md
+$dokka.location:dev.atick.storage.room.models/PostEntity///PointingToDeclaration/room/room/dev.atick.storage.room.models/-post-entity/index.md
+$dokka.location:dev.atick.storage.room.models/PostEntity/PostEntity/#kotlin.Int#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/room/room/dev.atick.storage.room.models/-post-entity/-post-entity.md
+$dokka.location:dev.atick.storage.room.models/PostEntity/id/#/PointingToDeclaration/room/room/dev.atick.storage.room.models/-post-entity/id.md
+$dokka.location:dev.atick.storage.room.models/PostEntity/thumbnailUrl/#/PointingToDeclaration/room/room/dev.atick.storage.room.models/-post-entity/thumbnail-url.md
+$dokka.location:dev.atick.storage.room.models/PostEntity/title/#/PointingToDeclaration/room/room/dev.atick.storage.room.models/-post-entity/title.md
+$dokka.location:dev.atick.storage.room.models/PostEntity/url/#/PointingToDeclaration/room/room/dev.atick.storage.room.models/-post-entity/url.md
 module:app
 dev.atick.compose
 dev.atick.compose.data.home
@@ -637,7 +637,7 @@ module:auth
 dev.atick.auth.config
 dev.atick.auth.data
 dev.atick.auth.di
-dev.atick.auth.model
+dev.atick.auth.models
 dev.atick.auth.navigation
 dev.atick.auth.repository
 dev.atick.auth.ui
@@ -650,7 +650,7 @@ dev.atick.network.di
 dev.atick.network.di.coil
 dev.atick.network.di.okhttp
 dev.atick.network.di.retrofit
-dev.atick.network.model
+dev.atick.network.models
 dev.atick.network.utils
 module:classic
 dev.atick.bluetooth.classic
@@ -659,24 +659,24 @@ module:common
 dev.atick.bluetooth.common.data
 dev.atick.bluetooth.common.di
 dev.atick.bluetooth.common.manager
-dev.atick.bluetooth.common.model
-dev.atick.bluetooth.common.receiver
+dev.atick.bluetooth.common.models
+dev.atick.bluetooth.common.receivers
 dev.atick.bluetooth.common.utils
 module:android
 dev.atick.core.di
 dev.atick.core.extensions
 dev.atick.core.utils
 module:ui
-dev.atick.core.ui.component
+dev.atick.core.ui.components
 dev.atick.core.ui.extensions
 dev.atick.core.ui.theme
 dev.atick.core.ui.utils
 module:preferences
 dev.atick.storage.preferences.data
 dev.atick.storage.preferences.di
-dev.atick.storage.preferences.model
+dev.atick.storage.preferences.models
 dev.atick.storage.preferences.utils
 module:room
 dev.atick.storage.room.data
 dev.atick.storage.room.di
-dev.atick.storage.room.model
+dev.atick.storage.room.models
