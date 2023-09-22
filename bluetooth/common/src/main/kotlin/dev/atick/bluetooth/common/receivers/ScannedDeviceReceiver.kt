@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package dev.atick.bluetooth.common.receiver
+package dev.atick.bluetooth.common.receivers
 
 import android.bluetooth.BluetoothDevice
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import dev.atick.bluetooth.common.model.BtDevice
-import dev.atick.bluetooth.common.model.simplify
+import dev.atick.bluetooth.common.models.BtDevice
+import dev.atick.bluetooth.common.models.simplify
 
 /**
  * BroadcastReceiver for receiving Bluetooth device discovery events.

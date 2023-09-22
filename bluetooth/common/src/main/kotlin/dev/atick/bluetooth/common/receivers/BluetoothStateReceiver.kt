@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package dev.atick.bluetooth.common.receiver
+package dev.atick.bluetooth.common.receivers
 
 import android.bluetooth.BluetoothAdapter
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import dev.atick.bluetooth.common.model.BtState
+import dev.atick.bluetooth.common.models.BtState
 
 /**
  * BroadcastReceiver for receiving Bluetooth state changes.

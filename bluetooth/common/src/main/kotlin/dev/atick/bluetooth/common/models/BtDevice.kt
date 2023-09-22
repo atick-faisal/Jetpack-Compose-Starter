@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.bluetooth.common.model
+package dev.atick.bluetooth.common.models
 
 import android.bluetooth.BluetoothClass.Device.Major.AUDIO_VIDEO
 import android.bluetooth.BluetoothClass.Device.Major.COMPUTER

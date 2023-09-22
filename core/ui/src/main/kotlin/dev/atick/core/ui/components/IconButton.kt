@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.core.ui.component
+package dev.atick.core.ui.components
 
 import androidx.compose.material3.FilledIconToggleButton
 import androidx.compose.material3.IconButton

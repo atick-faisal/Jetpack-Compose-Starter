@@ -26,7 +26,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dev.atick.core.di.IoDispatcher
-import dev.atick.storage.preferences.model.UserData
+import dev.atick.storage.preferences.models.UserData
 import dev.atick.storage.preferences.utils.UserDataSerializer
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope

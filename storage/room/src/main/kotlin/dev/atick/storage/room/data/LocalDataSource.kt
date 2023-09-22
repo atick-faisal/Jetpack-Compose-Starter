@@ -16,7 +16,7 @@
 
 package dev.atick.storage.room.data
 
-import dev.atick.storage.room.model.PostEntity
+import dev.atick.storage.room.models.PostEntity
 import kotlinx.coroutines.flow.Flow
 
 /**

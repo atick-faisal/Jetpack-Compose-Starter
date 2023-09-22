@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.core.ui.component
+package dev.atick.core.ui.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

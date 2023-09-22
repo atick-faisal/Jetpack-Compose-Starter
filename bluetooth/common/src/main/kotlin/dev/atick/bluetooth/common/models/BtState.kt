@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package dev.atick.network.model
+package dev.atick.bluetooth.common.models
 
 /**
- * Data class representing a network post retrieved from a remote source.
- *
- * @property id The unique identifier of the network post.
- * @property title The title of the network post.
- * @property url The URL associated with the network post.
- * @property thumbnailUrl The URL of the thumbnail image associated with the network post.
+ * Enum class representing the Bluetooth state.
  */
-data class NetworkPost(
-    val id: Int,
-    val title: String,
-    val url: String,
-    val thumbnailUrl: String,
-)
+enum class BtState {
+    /**
+     * Bluetooth is enabled.
+     */
+    ENABLED,
+
+    /**
+     * Bluetooth is disabled.
+     */
+    DISABLED,
+}

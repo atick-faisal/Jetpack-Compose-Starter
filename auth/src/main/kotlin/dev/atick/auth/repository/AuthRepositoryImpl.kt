@@ -19,7 +19,7 @@ package dev.atick.auth.repository
 import android.content.Intent
 import android.content.IntentSender
 import dev.atick.auth.data.AuthDataSource
-import dev.atick.auth.model.AuthUser
+import dev.atick.auth.models.AuthUser
 import dev.atick.storage.preferences.data.UserPreferencesDataSource
 import javax.inject.Inject
 

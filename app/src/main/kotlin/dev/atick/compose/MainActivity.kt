@@ -37,7 +37,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dagger.hilt.android.AndroidEntryPoint
-import dev.atick.bluetooth.common.model.BtState
+import dev.atick.bluetooth.common.models.BtState
 import dev.atick.bluetooth.common.utils.BluetoothUtils
 import dev.atick.compose.ui.JetpackApp
 import dev.atick.core.extensions.isAllPermissionsGranted
@@ -47,9 +47,9 @@ import dev.atick.core.ui.extensions.resultLauncher
 import dev.atick.core.ui.theme.JetpackTheme
 import dev.atick.core.ui.utils.UiState
 import dev.atick.network.utils.NetworkUtils
-import dev.atick.storage.preferences.model.DarkThemeConfig
-import dev.atick.storage.preferences.model.ThemeBrand
-import dev.atick.storage.preferences.model.UserData
+import dev.atick.storage.preferences.models.DarkThemeConfig
+import dev.atick.storage.preferences.models.ThemeBrand
+import dev.atick.storage.preferences.models.UserData
 import javax.inject.Inject
 
 /**

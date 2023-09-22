@@ -14,23 +14,20 @@
  * limitations under the License.
  */
 
-package dev.atick.storage.preferences.model
+package dev.atick.storage.preferences.models
 
-import dev.atick.storage.preferences.model.DarkThemeConfig.DARK
-import dev.atick.storage.preferences.model.DarkThemeConfig.FOLLOW_SYSTEM
-import dev.atick.storage.preferences.model.DarkThemeConfig.LIGHT
+import dev.atick.storage.preferences.models.ThemeBrand.ANDROID
+import dev.atick.storage.preferences.models.ThemeBrand.DEFAULT
 import kotlinx.serialization.Serializable
 
 /**
- * Enum class representing configuration options for the dark theme.
+ * Enum class representing different brand options for the app's theme.
  *
- * @property FOLLOW_SYSTEM The dark theme configuration follows the system-wide setting.
- * @property LIGHT The app's dark theme is disabled, using the light theme.
- * @property DARK The app's dark theme is enabled, using the dark theme.
+ * @property DEFAULT The default brand option for the app's theme.
+ * @property ANDROID The brand option representing the Android platform theme.
  */
 @Serializable
-enum class DarkThemeConfig {
-    FOLLOW_SYSTEM,
-    LIGHT,
-    DARK,
+enum class ThemeBrand {
+    DEFAULT,
+    ANDROID,
 }

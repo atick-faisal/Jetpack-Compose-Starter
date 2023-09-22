@@ -20,7 +20,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Upsert
-import dev.atick.storage.room.model.PostEntity
+import dev.atick.storage.room.models.PostEntity
 import kotlinx.coroutines.flow.Flow
 
 /**
