@@ -18,9 +18,9 @@ package dev.atick.storage.preferences.utils
 
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer
-import dev.atick.storage.preferences.model.DarkThemeConfig
-import dev.atick.storage.preferences.model.ThemeBrand
-import dev.atick.storage.preferences.model.UserData
+import dev.atick.storage.preferences.models.DarkThemeConfig
+import dev.atick.storage.preferences.models.ThemeBrand
+import dev.atick.storage.preferences.models.UserData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.KSerializer

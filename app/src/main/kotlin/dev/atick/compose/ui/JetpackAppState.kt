@@ -44,18 +44,21 @@ import kotlinx.coroutines.flow.map
 
 @Composable
 fun rememberJetpackAppState(
+    isUserLoggedIn: Boolean,
     windowSizeClass: WindowSizeClass,
     networkUtils: NetworkUtils,
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
     navController: NavHostController = rememberNavController(),
 ): JetpackAppState {
     return remember(
+        isUserLoggedIn,
         navController,
         windowSizeClass,
         coroutineScope,
         networkUtils,
     ) {
         JetpackAppState(
+            isUserLoggedIn,
             navController,
             windowSizeClass,
             coroutineScope,
@@ -67,6 +70,7 @@ fun rememberJetpackAppState(
 @Suppress("MemberVisibilityCanBePrivate", "UNUSED")
 @Stable
 class JetpackAppState(
+    val isUserLoggedIn: Boolean,
     val navController: NavHostController,
     val windowSizeClass: WindowSizeClass,
     coroutineScope: CoroutineScope,
@@ -84,10 +88,12 @@ class JetpackAppState(
         }
 
     val shouldShowBottomBar: Boolean
-        get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact
+        @Composable get() = (windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact) &&
+            (currentTopLevelDestination != null)
 
     val shouldShowNavRail: Boolean
-        get() = !shouldShowBottomBar
+        @Composable get() = (windowSizeClass.widthSizeClass != WindowWidthSizeClass.Compact) &&
+            (currentTopLevelDestination != null)
 
     val isOffline = networkUtils.currentState
         .map { it != NetworkState.CONNECTED }

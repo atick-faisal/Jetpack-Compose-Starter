@@ -30,9 +30,9 @@ import dev.atick.bluetooth.common.models.BtDevice
 import dev.atick.bluetooth.common.models.BtMessage
 import dev.atick.bluetooth.common.models.BtState
 import dev.atick.bluetooth.common.models.simplify
-import dev.atick.bluetooth.common.receiver.BluetoothStateReceiver
-import dev.atick.bluetooth.common.receiver.DeviceStateReceiver
-import dev.atick.bluetooth.common.receiver.ScannedDeviceReceiver
+import dev.atick.bluetooth.common.receivers.BluetoothStateReceiver
+import dev.atick.bluetooth.common.receivers.DeviceStateReceiver
+import dev.atick.bluetooth.common.receivers.ScannedDeviceReceiver
 import dev.atick.bluetooth.common.utils.BluetoothUtils
 import dev.atick.core.di.IoDispatcher
 import dev.atick.core.extensions.hasPermission

@@ -20,7 +20,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.storage.room.LocalDataSource
+import dev.atick.storage.room.data.LocalDataSource
 import dev.atick.storage.room.data.LocalDataSourceImpl
 import javax.inject.Singleton
 

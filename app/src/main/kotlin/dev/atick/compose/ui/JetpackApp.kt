@@ -19,6 +19,7 @@ package dev.atick.compose.ui
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.consumeWindowInsets
@@ -27,6 +28,7 @@ import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
@@ -63,13 +65,13 @@ import dev.atick.compose.R
 import dev.atick.compose.navigation.JetpackNavHost
 import dev.atick.compose.navigation.TopLevelDestination
 import dev.atick.compose.ui.settings.SettingsDialog
-import dev.atick.core.ui.component.AppBackground
-import dev.atick.core.ui.component.AppGradientBackground
-import dev.atick.core.ui.component.JetpackNavigationBar
-import dev.atick.core.ui.component.JetpackNavigationBarItem
-import dev.atick.core.ui.component.JetpackNavigationRail
-import dev.atick.core.ui.component.JetpackNavigationRailItem
-import dev.atick.core.ui.component.JetpackTopAppBar
+import dev.atick.core.ui.components.AppBackground
+import dev.atick.core.ui.components.AppGradientBackground
+import dev.atick.core.ui.components.JetpackNavigationBar
+import dev.atick.core.ui.components.JetpackNavigationBarItem
+import dev.atick.core.ui.components.JetpackNavigationRail
+import dev.atick.core.ui.components.JetpackNavigationRailItem
+import dev.atick.core.ui.components.JetpackTopAppBar
 import dev.atick.core.ui.theme.GradientColors
 import dev.atick.core.ui.theme.LocalGradientColors
 import dev.atick.network.utils.NetworkUtils
@@ -80,9 +82,11 @@ import dev.atick.network.utils.NetworkUtils
     ExperimentalMaterial3Api::class,
 )
 fun JetpackApp(
+    isUserLoggedIn: Boolean,
     windowSizeClass: WindowSizeClass,
     networkUtils: NetworkUtils,
     appState: JetpackAppState = rememberJetpackAppState(
+        isUserLoggedIn = isUserLoggedIn,
         windowSizeClass = windowSizeClass,
         networkUtils = networkUtils,
     ),
@@ -124,7 +128,8 @@ fun JetpackApp(
             Scaffold(
                 containerColor = Color.Transparent,
                 contentColor = MaterialTheme.colorScheme.onBackground,
-                contentWindowInsets = WindowInsets(0, 0, 0, 0),
+                // Snackbar displays incorrectly if used
+                // contentWindowInsets = WindowInsets(0, 0, 0, 0),
                 snackbarHost = { SnackbarHost(snackbarHostState) },
                 bottomBar = {
                     if (appState.shouldShowBottomBar) {
@@ -185,6 +190,7 @@ fun JetpackApp(
                                 ) == SnackbarResult.ActionPerformed
                             },
                         )
+                        Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.safeDrawing))
                     }
                 }
             }

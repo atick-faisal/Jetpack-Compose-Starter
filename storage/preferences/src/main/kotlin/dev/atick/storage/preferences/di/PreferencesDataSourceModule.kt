@@ -20,7 +20,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.storage.preferences.UserPreferencesDataSource
+import dev.atick.storage.preferences.data.UserPreferencesDataSource
 import dev.atick.storage.preferences.data.UserPreferencesDataSourceImpl
 import javax.inject.Singleton
 

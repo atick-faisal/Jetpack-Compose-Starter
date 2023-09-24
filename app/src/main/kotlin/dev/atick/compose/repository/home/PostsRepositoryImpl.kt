@@ -20,9 +20,9 @@ import dev.atick.compose.data.home.UiPost
 import dev.atick.compose.data.home.mapToPostEntities
 import dev.atick.compose.data.home.mapToUiPost
 import dev.atick.compose.data.home.toUiPost
-import dev.atick.network.NetworkDataSource
-import dev.atick.storage.room.LocalDataSource
-import dev.atick.storage.room.model.PostEntity
+import dev.atick.network.data.NetworkDataSource
+import dev.atick.storage.room.data.LocalDataSource
+import dev.atick.storage.room.models.PostEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

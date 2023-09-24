@@ -16,7 +16,7 @@
 
 package dev.atick.network.api
 
-import dev.atick.network.model.NetworkPost
+import dev.atick.network.models.NetworkPost
 import retrofit2.http.GET
 import retrofit2.http.Path
 

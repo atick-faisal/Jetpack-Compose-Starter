@@ -47,9 +47,9 @@ import dev.atick.core.ui.extensions.resultLauncher
 import dev.atick.core.ui.theme.JetpackTheme
 import dev.atick.core.ui.utils.UiState
 import dev.atick.network.utils.NetworkUtils
-import dev.atick.storage.preferences.model.DarkThemeConfig
-import dev.atick.storage.preferences.model.ThemeBrand
-import dev.atick.storage.preferences.model.UserData
+import dev.atick.storage.preferences.models.DarkThemeConfig
+import dev.atick.storage.preferences.models.ThemeBrand
+import dev.atick.storage.preferences.models.UserData
 import javax.inject.Inject
 
 /**
@@ -120,6 +120,7 @@ class MainActivity : ComponentActivity() {
                 disableDynamicTheming = shouldDisableDynamicTheming(uiState),
             ) {
                 JetpackApp(
+                    isUserLoggedIn = isUserLoggedIn(uiState),
                     networkUtils = networkUtils,
                     windowSizeClass = calculateWindowSizeClass(this),
                 )
@@ -201,6 +202,20 @@ private fun shouldUseDarkTheme(
         DarkThemeConfig.FOLLOW_SYSTEM -> isSystemInDarkTheme()
         DarkThemeConfig.LIGHT -> false
         DarkThemeConfig.DARK -> true
+    }
+}
+
+/**
+ * Determines whether a user is logged in based on the provided [UiState].
+ *
+ * @param uiState The UI state representing the user data.
+ * @return `true` if the user is considered logged in; `false` otherwise.
+ */
+private fun isUserLoggedIn(uiState: UiState<UserData>): Boolean {
+    return when (uiState) {
+        is UiState.Loading -> true // User is considered logged in during loading (assuming ongoing session).
+        is UiState.Success -> uiState.data.id.isNotEmpty() // User is logged in if the data ID is not "-1".
+        is UiState.Error -> false // User is not logged in in case of an error.
     }
 }
 
