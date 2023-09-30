@@ -59,5 +59,7 @@ jobs:
           mv build/dokka/gfmMultiModule docs
           cat README.md > docs/index.md
           mkdocs gh-deploy
-          
-        
+
+# https://github.com/softprops/action-gh-release/issues/236
+permissions:
+  contents: write
