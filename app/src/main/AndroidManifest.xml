@@ -15,7 +15,8 @@
      limitations under the License.
 -->
 
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
@@ -28,6 +29,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jetpack.Splash"
         android:usesCleartextTraffic="true">
+        <profileable android:shell="true" tools:targetApi="q" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
