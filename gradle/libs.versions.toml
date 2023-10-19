@@ -24,7 +24,7 @@ androidxAppCompat = "1.6.1"
 # Required for edgeToEdge()
 androidxActivity = "1.8.0"
 androidxLifecycle = "2.6.2"
-androidxComposeBom = "2023.10.00"
+androidxComposeBom = "2023.10.01"
 androidxComposeCompiler = "1.5.3"
 androidxCoreSplashscreen = "1.0.1"
 androidxHiltNavigationCompose = "1.0.0"
@@ -39,13 +39,13 @@ coil = "2.4.0"
 androidxDataStore = "1.0.0"
 
 # ... STORAGE:ROOM ...
-room = "2.5.2"
+room = "2.6.0"
 
 # ... AUTH ...
 playServicesAuth = "20.7.0"
 
 # ... FIREBASE ...
-firebaseBom = "32.3.1"
+firebaseBom = "32.4.0"
 firebaseCrashlyticsPlugin = "2.9.9"
 
 # ... DAGGER-HILT ...
