@@ -13,7 +13,7 @@ secrets = "2.0.1"
 androidxCore = "1.12.0"
 kotlinxCoroutines = "1.7.3"
 kotlinxDatetime = "0.4.1"
-kotlinxSerializationJson = "1.6.0"
+kotlinxSerializationJson = "1.6.1"
 timber = "5.0.1"
 
 # ... CORE:UI ...
@@ -22,7 +22,7 @@ androidxFragment = "1.6.2"
 androidxAppCompat = "1.6.1"
 # TODO: Change this to stable release
 # Required for edgeToEdge()
-androidxActivity = "1.8.0"
+androidxActivity = "1.8.1"
 androidxLifecycle = "2.6.2"
 androidxComposeBom = "2023.10.01"
 androidxComposeCompiler = "1.5.4"
