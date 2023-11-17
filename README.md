@@ -4,6 +4,7 @@
     <a href="https://github.com/atick-faisal/Jetpack-Compose-Starter/releases"><img src="https://img.shields.io/github/release/atick-faisal/Jetpack-Compose-Starter?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
     <a href="https://github.com/atick-faisal/Jetpack-Compose-Starter/issues"><img src="https://img.shields.io/github/issues/atick-faisal/Jetpack-Compose-Starter?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
     <a href="https://github.com/atick-faisal/Jetpack-Compose-Starter/contributors"><img src="https://img.shields.io/github/contributors/atick-faisal/Jetpack-Compose-Starter?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
+    <img src="https://img.shields.io/github/actions/workflow/status/atick-faisal/Jetpack-Compose-Starter/Build.yaml?style=for-the-badge&logo=android&labelColor=363a4f"/>
 </p>
 
 ## Documentation
