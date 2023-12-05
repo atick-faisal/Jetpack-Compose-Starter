@@ -35,7 +35,10 @@ rootProject {
             kotlin {
                 target("**/*.kt")
                 targetExclude("**/build/**/*.kt")
-                ktlint(ktlintVersion).userData(mapOf("android" to "true"))
+                // FIXME: This no longer working after spotless updata
+                // ktlint(ktlintVersion).userData(mapOf("android" to "true"))
+                // Temp Fix
+                ktlint(ktlintVersion)
                 licenseHeaderFile(rootProject.file("spotless/copyright.kt"))
             }
             groovy {
