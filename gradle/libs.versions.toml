@@ -5,7 +5,7 @@ java = "17"
 kotlin = "1.9.20"
 androidGradlePlugin = "8.2.0"
 gmsPlugin = "4.4.0"
-ksp = "1.9.21-1.0.15"
+ksp = "1.9.20-1.0.14"
 dokka = "1.9.10"
 secrets = "2.0.1"
 
