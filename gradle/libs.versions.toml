@@ -2,10 +2,10 @@
 
 # ... PROJECT ...
 java = "17"
-kotlin = "1.9.20"
-androidGradlePlugin = "8.2.0"
+kotlin = "1.9.21"
+androidGradlePlugin = "8.2.1"
 gmsPlugin = "4.4.0"
-ksp = "1.9.20-1.0.14"
+ksp = "1.9.21-1.0.16"
 dokka = "1.9.10"
 secrets = "2.0.1"
 
@@ -17,18 +17,17 @@ kotlinxSerializationJson = "1.6.2"
 timber = "5.0.1"
 
 # ... CORE:UI ...
-androidxNavigation = "2.7.5"
+androidxNavigation = "2.7.6"
 androidxFragment = "1.6.2"
 androidxAppCompat = "1.6.1"
-# TODO: Change this to stable release
-# Required for edgeToEdge()
-androidxActivity = "1.8.1"
+androidxActivity = "1.8.2"
 androidxLifecycle = "2.6.2"
 androidxComposeBom = "2023.10.01"
-androidxComposeCompiler = "1.5.5"
+# ... Doesn't auto update here. Moved to build.gradle.kts
+# androidxComposeCompiler = "1.5.6"
 androidxCoreSplashscreen = "1.0.1"
 androidxHiltNavigationCompose = "1.1.0"
-lottieCompose = "6.2.0"
+lottieCompose = "6.3.0"
 
 # ... NETWORK ...
 okhttp = "4.12.0"
@@ -45,11 +44,11 @@ room = "2.6.1"
 playServicesAuth = "20.7.0"
 
 # ... FIREBASE ...
-firebaseBom = "32.6.0"
+firebaseBom = "32.7.0"
 firebaseCrashlyticsPlugin = "2.9.9"
 
 # ... DAGGER-HILT ...
-daggerHilt = "2.49"
+daggerHilt = "2.50"
 daggerHiltExt = "1.1.0"
 
 # ... SDK-CONFIG ...
