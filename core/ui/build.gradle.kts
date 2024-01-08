@@ -22,7 +22,7 @@ android {
     namespace = "dev.atick.core.ui"
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.7"
+        kotlinCompilerExtensionVersion = libs.versions.androidxComposeCompiler.get()
     }
 }
 
