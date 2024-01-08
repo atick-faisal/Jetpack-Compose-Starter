@@ -101,7 +101,7 @@ fun Context.isAllPermissionsGranted(permissions: List<String>): Boolean {
 This template follows the [official architecture guidance](https://developer.android.com/topic/architecture)  suggested by Google.
 
 ## Modularization
-![Modularization](assets/modularization.svg)
+![Modularization](https://github.com/atick-faisal/Jetpack-Compose-Starter/blob/main/assets/modularization.svg)
 
 ## Building
 ### Debug
