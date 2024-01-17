@@ -17,6 +17,8 @@ class ApplicationConventionPlugin : Plugin<Project> {
             val minSdkVersion = libs.findVersion("minSdk").get().toString().toInt()
             val targetSdkVersion = libs.findVersion("targetSdk").get().toString().toInt()
             val compileSdkVersion = libs.findVersion("compileSdk").get().toString().toInt()
+            val composeCompilerVersion =
+                libs.findVersion("androidxComposeCompiler").get().toString()
 
             with(pluginManager) {
                 apply("com.android.application")
@@ -54,6 +56,10 @@ class ApplicationConventionPlugin : Plugin<Project> {
                 buildFeatures {
                     compose = true
                     buildConfig = true
+                }
+
+                composeOptions {
+                    kotlinCompilerExtensionVersion = composeCompilerVersion
                 }
 
                 packaging {

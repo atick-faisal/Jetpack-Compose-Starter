@@ -16,6 +16,8 @@ class UiLibraryConventionPlugin : Plugin<Project> {
             val javaVersion = libs.findVersion("java").get().toString().toInt()
             val minSdkVersion = libs.findVersion("minSdk").get().toString().toInt()
             val compileSdkVersion = libs.findVersion("compileSdk").get().toString().toInt()
+            val composeCompilerVersion =
+                libs.findVersion("androidxComposeCompiler").get().toString()
 
             with(pluginManager) {
                 apply("com.android.library")
@@ -48,6 +50,10 @@ class UiLibraryConventionPlugin : Plugin<Project> {
 
                 buildFeatures {
                     compose = true
+                }
+
+                composeOptions {
+                    kotlinCompilerExtensionVersion = composeCompilerVersion
                 }
             }
         }

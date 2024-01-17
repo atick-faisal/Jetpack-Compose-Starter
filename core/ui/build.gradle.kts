@@ -20,10 +20,6 @@ plugins {
 
 android {
     namespace = "dev.atick.core.ui"
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.androidxComposeCompiler.get()
-    }
 }
 
 dependencies {

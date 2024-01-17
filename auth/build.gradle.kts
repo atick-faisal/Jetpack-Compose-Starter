@@ -21,10 +21,6 @@ plugins {
 
 android {
     namespace = "dev.atick.auth"
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.androidxComposeCompiler.get()
-    }
 }
 
 dependencies {
