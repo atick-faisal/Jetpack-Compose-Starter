@@ -69,6 +69,8 @@ fun JetpackFilterChip(
         },
         shape = CircleShape,
         border = FilterChipDefaults.filterChipBorder(
+            enabled = enabled,
+            selected = selected,
             borderColor = MaterialTheme.colorScheme.onBackground,
             selectedBorderColor = MaterialTheme.colorScheme.onBackground,
             disabledBorderColor = MaterialTheme.colorScheme.onBackground.copy(
