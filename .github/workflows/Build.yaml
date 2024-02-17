@@ -2,7 +2,7 @@ name: Build
 
 on:
   repository_dispatch:
-    types: [libs-versions-updated]
+    types: [ libs-versions-updated ]
   pull_request:
     paths:
       - '**/*'
