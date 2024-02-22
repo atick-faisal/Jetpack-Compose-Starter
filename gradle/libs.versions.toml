@@ -22,10 +22,10 @@ androidxFragment = "1.6.2"
 androidxAppCompat = "1.6.1"
 androidxActivity = "1.8.2"
 androidxLifecycle = "2.7.0"
-androidxComposeBom = "2024.02.00"
-androidxComposeCompiler = "1.5.9"
+androidxComposeBom = "2024.02.01"
+androidxComposeCompiler = "1.5.10"
 androidxCoreSplashscreen = "1.0.1"
-androidxHiltNavigationCompose = "1.1.0"
+androidxHiltNavigationCompose = "1.2.0"
 lottieCompose = "6.3.0"
 
 # ... NETWORK ...
@@ -48,7 +48,7 @@ firebaseCrashlyticsPlugin = "2.9.9"
 
 # ... DAGGER-HILT ...
 daggerHilt = "2.50"
-daggerHiltExt = "1.1.0"
+daggerHiltExt = "1.2.0"
 
 # ... SDK-CONFIG ...
 minSdk = "24"
