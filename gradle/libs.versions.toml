@@ -26,7 +26,7 @@ androidxComposeBom = "2024.02.01"
 androidxComposeCompiler = "1.5.10"
 androidxCoreSplashscreen = "1.0.1"
 androidxHiltNavigationCompose = "1.2.0"
-lottieCompose = "6.3.0"
+lottieCompose = "6.4.0"
 
 # ... NETWORK ...
 okhttp = "4.12.0"
