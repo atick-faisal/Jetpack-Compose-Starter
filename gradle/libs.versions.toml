@@ -43,7 +43,7 @@ room = "2.6.1"
 playServicesAuth = "21.0.0"
 
 # ... FIREBASE ...
-firebaseBom = "32.7.3"
+firebaseBom = "32.7.4"
 firebaseCrashlyticsPlugin = "2.9.9"
 
 # ... DAGGER-HILT ...
