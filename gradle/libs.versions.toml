@@ -10,7 +10,7 @@ dokka = "1.9.20"
 secrets = "2.0.1"
 
 # ... CORE:ANDROID ...
-androidxCore = "1.12.0"
+androidxCore = "1.13.0"
 kotlinxCoroutines = "1.8.0"
 kotlinxDatetime = "0.5.0"
 kotlinxSerializationJson = "1.6.3"
@@ -20,10 +20,10 @@ timber = "5.0.1"
 androidxNavigation = "2.7.7"
 androidxFragment = "1.6.2"
 androidxAppCompat = "1.6.1"
-androidxActivity = "1.8.2"
+androidxActivity = "1.9.0"
 androidxLifecycle = "2.7.0"
-androidxComposeBom = "2024.04.00"
-androidxComposeCompiler = "1.5.11"
+androidxComposeBom = "2024.04.01"
+androidxComposeCompiler = "1.5.12"
 androidxCoreSplashscreen = "1.0.1"
 androidxHiltNavigationCompose = "1.2.0"
 lottieCompose = "6.4.0"
@@ -34,7 +34,7 @@ retrofit = "2.11.0"
 coil = "2.6.0"
 
 # ... STORAGE:PREFERENCES ...
-androidxDataStore = "1.0.0"
+androidxDataStore = "1.1.0"
 
 # ... STORAGE:ROOM ...
 room = "2.6.1"
