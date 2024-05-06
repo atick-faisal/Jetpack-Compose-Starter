@@ -44,7 +44,7 @@ playServicesAuth = "21.1.0"
 
 # ... FIREBASE ...
 firebaseBom = "32.8.1"
-firebaseCrashlyticsPlugin = "2.9.9"
+firebaseCrashlyticsPlugin = "3.0.0"
 
 # ... DAGGER-HILT ...
 daggerHilt = "2.51.1"
