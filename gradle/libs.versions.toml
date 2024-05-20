@@ -18,7 +18,7 @@ timber = "5.0.1"
 
 # ... CORE:UI ...
 androidxNavigation = "2.7.7"
-androidxFragment = "1.7.0"
+androidxFragment = "1.7.1"
 androidxAppCompat = "1.6.1"
 androidxActivity = "1.9.0"
 androidxLifecycle = "2.8.0"
