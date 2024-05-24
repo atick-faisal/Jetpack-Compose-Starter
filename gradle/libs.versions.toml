@@ -2,10 +2,10 @@
 
 # ... PROJECT ...
 java = "17"
-kotlin = "1.9.24"
-androidGradlePlugin = "8.4.0"
+kotlin = "2.0.0"
+androidGradlePlugin = "8.4.1"
 gmsPlugin = "4.4.1"
-ksp = "1.9.24-1.0.20"
+ksp = "2.0.0-1.0.21"
 dokka = "1.9.20"
 secrets = "2.0.1"
 
@@ -40,11 +40,11 @@ androidxDataStore = "1.1.1"
 room = "2.6.1"
 
 # ... AUTH ...
-playServicesAuth = "21.1.1"
+playServicesAuth = "21.2.0"
 
 # ... FIREBASE ...
 firebaseBom = "33.0.0"
-firebaseCrashlyticsPlugin = "2.9.9"
+firebaseCrashlyticsPlugin = "3.0.1"
 
 # ... DAGGER-HILT ...
 daggerHilt = "2.51.1"
