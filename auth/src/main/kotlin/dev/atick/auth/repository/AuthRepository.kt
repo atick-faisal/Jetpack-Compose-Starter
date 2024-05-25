@@ -16,29 +16,13 @@
 
 package dev.atick.auth.repository
 
-import android.content.Intent
-import android.content.IntentSender
+import android.app.Activity
 import dev.atick.auth.models.AuthUser
 
 /**
  * Interface defining authentication-related operations.
  */
 interface AuthRepository {
-    /**
-     * Retrieves an [IntentSender] for initiating Google Sign-In.
-     *
-     * @return A [Result] containing the [IntentSender] for Google Sign-In.
-     */
-    suspend fun getGoogleSignInIntent(): Result<IntentSender>
-
-    /**
-     * Sign in using an [Intent] obtained from Google Sign-In.
-     *
-     * @param intent The [Intent] obtained from Google Sign-In.
-     * @return A [Result] containing the authenticated [AuthUser] upon successful sign-in.
-     */
-    suspend fun signInWithIntent(intent: Intent): Result<AuthUser>
-
     /**
      * Sign in with an email and password.
      *
@@ -61,4 +45,19 @@ interface AuthRepository {
         email: String,
         password: String,
     ): Result<AuthUser>
+
+    /**
+     * Sign in with Google.
+     *
+     * @return A [Result] containing the authenticated [AuthUser] upon successful sign-in.
+     */
+    suspend fun signInWithGoogle(activity: Activity): Result<AuthUser>
+
+    /**
+     * Register a new user with Google.
+     *
+     * @param activity The activity used to launch the Google sign-in intent.
+     * @return A [Result] containing the authenticated [AuthUser] upon successful registration.
+     */
+    suspend fun registerWithGoogle(activity: Activity): Result<AuthUser>
 }

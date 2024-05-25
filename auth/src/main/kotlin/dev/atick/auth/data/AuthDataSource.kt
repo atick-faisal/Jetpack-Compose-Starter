@@ -16,28 +16,13 @@
 
 package dev.atick.auth.data
 
-import android.content.Intent
-import android.content.IntentSender
+import android.app.Activity
 import dev.atick.auth.models.AuthUser
 
 /**
  * Interface defining data source operations for authentication.
  */
 interface AuthDataSource {
-    /**
-     * Retrieves an [IntentSender] for initiating Google Sign-In.
-     *
-     * @return The [IntentSender] for Google Sign-In, or null if unavailable.
-     */
-    suspend fun getGoogleSignInIntent(): IntentSender?
-
-    /**
-     * Sign in using an [Intent] obtained from Google Sign-In.
-     *
-     * @param intent The [Intent] obtained from Google Sign-In.
-     * @return The authenticated [AuthUser] upon successful sign-in.
-     */
-    suspend fun signInWithIntent(intent: Intent): AuthUser
 
     /**
      * Gets the currently authenticated user, if any.
@@ -68,6 +53,22 @@ interface AuthDataSource {
         email: String,
         password: String,
     ): AuthUser
+
+    /**
+     * Sign in with a Google account.
+     *
+     * @param activity The activity instance.
+     * @return The authenticated [AuthUser] upon successful sign-in.
+     */
+    suspend fun signInWithGoogle(activity: Activity): AuthUser
+
+    /**
+     * Register a new user with Google.
+     *
+     * @param activity The activity instance.
+     * @return The authenticated [AuthUser] upon successful registration.
+     */
+    suspend fun registerWithGoogle(activity: Activity): AuthUser
 
     /**
      * Sign out the currently authenticated user.
