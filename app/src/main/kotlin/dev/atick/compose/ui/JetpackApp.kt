@@ -17,7 +17,6 @@
 package dev.atick.compose.ui
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
@@ -33,7 +32,6 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -77,10 +75,6 @@ import dev.atick.core.ui.theme.LocalGradientColors
 import dev.atick.network.utils.NetworkUtils
 
 @Composable
-@OptIn(
-    ExperimentalLayoutApi::class,
-    ExperimentalMaterial3Api::class,
-)
 fun JetpackApp(
     isUserLoggedIn: Boolean,
     windowSizeClass: WindowSizeClass,

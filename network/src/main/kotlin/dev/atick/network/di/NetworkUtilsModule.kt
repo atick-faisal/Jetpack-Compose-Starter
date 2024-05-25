@@ -22,7 +22,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dev.atick.network.utils.NetworkUtils
 import dev.atick.network.utils.NetworkUtilsImpl
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Singleton
 
 /**
@@ -40,7 +39,6 @@ abstract class NetworkUtilsModule {
      */
     @Binds
     @Singleton
-    @ExperimentalCoroutinesApi
     abstract fun bindNetworkUtils(
         networkUtilsImpl: NetworkUtilsImpl,
     ): NetworkUtils

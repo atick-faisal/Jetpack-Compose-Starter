@@ -37,3 +37,6 @@ google-services.json
 
 # Build Metadata
 output-metadata.json
+
+# k2 compiler build dir
+.kotlin
