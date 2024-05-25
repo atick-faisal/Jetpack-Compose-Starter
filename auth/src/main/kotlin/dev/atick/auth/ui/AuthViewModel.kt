@@ -16,7 +16,7 @@
 
 package dev.atick.auth.ui
 
-import android.content.Intent
+import android.app.Activity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -122,18 +122,12 @@ class AuthViewModel @Inject constructor(
         }
     }
 
-    fun getGoogleSignInIntent() {
+    fun signInWithGoogle(activity: Activity) {
         _authUiState.update { UiState.Loading(authUiState.value.data) }
         viewModelScope.launch {
-            val result = authRepository.getGoogleSignInIntent()
+            val result = authRepository.signInWithGoogle(activity)
             if (result.isSuccess) {
-                _authUiState.update {
-                    UiState.Success(
-                        it.data.copy(
-                            googleSignInIntent = result.getOrNull(),
-                        ),
-                    )
-                }
+                _authUiState.update { UiState.Success(AuthScreenData()) }
             } else {
                 _authUiState.update {
                     UiState.Error(
@@ -145,10 +139,10 @@ class AuthViewModel @Inject constructor(
         }
     }
 
-    fun signInWithIntent(intent: Intent) {
+    fun registerWithGoogle(activity: Activity) {
         _authUiState.update { UiState.Loading(authUiState.value.data) }
         viewModelScope.launch {
-            val result = authRepository.signInWithIntent(intent)
+            val result = authRepository.registerWithGoogle(activity)
             if (result.isSuccess) {
                 _authUiState.update { UiState.Success(AuthScreenData()) }
             } else {

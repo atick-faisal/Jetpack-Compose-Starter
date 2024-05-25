@@ -20,10 +20,12 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Notification
 import android.content.Context
+import android.content.ContextWrapper
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.webkit.MimeTypeMap
 import android.widget.Toast
+import androidx.activity.ComponentActivity
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
@@ -32,6 +34,19 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
+
+/**
+ * Provides the activity from Context (https://stackoverflow.com/a/68423182/12737399)
+ *
+ * @return The activity associated with the context, or `null` if the context is not an activity.
+ */
+fun Context.getActivity(): ComponentActivity? {
+    return when (this) {
+        is ComponentActivity -> this
+        is ContextWrapper -> baseContext.getActivity()
+        else -> null
+    }
+}
 
 /**
  * Displays a short toast message.
@@ -49,8 +64,7 @@ fun Context.showToast(message: String) {
  * @return `true` if the permission is granted, `false` otherwise.
  */
 fun Context.hasPermission(permission: String): Boolean {
-    return ContextCompat.checkSelfPermission(this, permission) ==
-        PackageManager.PERMISSION_GRANTED
+    return ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
 }
 
 /**

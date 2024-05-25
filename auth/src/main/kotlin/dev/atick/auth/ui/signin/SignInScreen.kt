@@ -16,10 +16,7 @@
 
 package dev.atick.auth.ui.signin
 
-import android.app.Activity.RESULT_OK
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.IntentSenderRequest
-import androidx.activity.result.contract.ActivityResultContracts
+import android.app.Activity
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -38,11 +35,11 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -53,6 +50,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import dev.atick.auth.R
 import dev.atick.auth.models.AuthScreenData
 import dev.atick.auth.ui.AuthViewModel
+import dev.atick.core.extensions.getActivity
 import dev.atick.core.ui.components.JetpackButton
 import dev.atick.core.ui.components.JetpackOutlinedButton
 import dev.atick.core.ui.components.JetpackPasswordFiled
@@ -68,24 +66,24 @@ fun SignInRoute(
     authViewModel: AuthViewModel = hiltViewModel(),
 ) {
     val loginState by authViewModel.authUiState.collectAsState()
-    val googleSignInIntent = loginState.data.googleSignInIntent
-
-    val launcher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.StartIntentSenderForResult(),
-        onResult = { result ->
-            if (result.resultCode == RESULT_OK) {
-                result.data?.run {
-                    authViewModel.signInWithIntent(this)
-                }
-            }
-        },
-    )
-
-    googleSignInIntent?.let { intentSender ->
-        LaunchedEffect(key1 = googleSignInIntent) {
-            launcher.launch(IntentSenderRequest.Builder(intentSender).build())
-        }
-    }
+//    val googleSignInIntent = loginState.data.googleSignInIntent
+//
+//    val launcher = rememberLauncherForActivityResult(
+//        contract = ActivityResultContracts.StartIntentSenderForResult(),
+//        onResult = { result ->
+//            if (result.resultCode == RESULT_OK) {
+//                result.data?.run {
+//                    authViewModel.signInWithIntent(this)
+//                }
+//            }
+//        },
+//    )
+//
+//    googleSignInIntent?.let { intentSender ->
+//        LaunchedEffect(key1 = googleSignInIntent) {
+//            launcher.launch(IntentSenderRequest.Builder(intentSender).build())
+//        }
+//    }
 
     StatefulComposable(
         state = loginState,
@@ -95,7 +93,7 @@ fun SignInRoute(
             homeScreenData,
             authViewModel::updateEmail,
             authViewModel::updatePassword,
-            authViewModel::getGoogleSignInIntent,
+            authViewModel::signInWithGoogle,
             authViewModel::loginWithEmailAndPassword,
             onSignUpClick,
         )
@@ -107,11 +105,12 @@ private fun SignInScreen(
     authScreenData: AuthScreenData,
     onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
-    onSignInWithGoogleClick: () -> Unit,
+    onSignInWithGoogleClick: (Activity) -> Unit,
     onSignInClick: () -> Unit,
     onSignUpClick: () -> Unit,
 ) {
     val focusManager = LocalFocusManager.current
+    val activity = LocalContext.current.getActivity()
 
     Column(
         modifier = Modifier.padding(24.dp),
@@ -121,7 +120,7 @@ private fun SignInScreen(
         Text(stringResource(R.string.sign_in), style = MaterialTheme.typography.headlineLarge)
         Spacer(modifier = Modifier.height(24.dp))
         JetpackOutlinedButton(
-            onClick = onSignInWithGoogleClick,
+            onClick = { activity?.run { onSignInWithGoogleClick.invoke(this) } },
             text = { Text(text = "Sign In with Google") },
             leadingIcon = {
                 Icon(

@@ -32,4 +32,8 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth)
     implementation(libs.play.services.auth)
+
+    // ... Credential Manager
+    implementation(libs.androidx.credentials)
+    implementation(libs.identity.google.id)
 }

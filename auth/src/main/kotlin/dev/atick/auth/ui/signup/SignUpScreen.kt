@@ -17,9 +17,6 @@
 package dev.atick.auth.ui.signup
 
 import android.app.Activity
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.IntentSenderRequest
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -39,11 +36,11 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -54,6 +51,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import dev.atick.auth.R
 import dev.atick.auth.models.AuthScreenData
 import dev.atick.auth.ui.AuthViewModel
+import dev.atick.core.extensions.getActivity
 import dev.atick.core.ui.components.JetpackButton
 import dev.atick.core.ui.components.JetpackOutlinedButton
 import dev.atick.core.ui.components.JetpackPasswordFiled
@@ -69,24 +67,24 @@ fun SignUpRoute(
     authViewModel: AuthViewModel = hiltViewModel(),
 ) {
     val authState by authViewModel.authUiState.collectAsState()
-    val googleSignInIntent = authState.data.googleSignInIntent
+//    val googleSignInIntent = authState.data.googleSignInIntent
 
-    val launcher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.StartIntentSenderForResult(),
-        onResult = { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                result.data?.run {
-                    authViewModel.signInWithIntent(this)
-                }
-            }
-        },
-    )
-
-    googleSignInIntent?.let { intentSender ->
-        LaunchedEffect(key1 = googleSignInIntent) {
-            launcher.launch(IntentSenderRequest.Builder(intentSender).build())
-        }
-    }
+//    val launcher = rememberLauncherForActivityResult(
+//        contract = ActivityResultContracts.StartIntentSenderForResult(),
+//        onResult = { result ->
+//            if (result.resultCode == Activity.RESULT_OK) {
+//                result.data?.run {
+//                    authViewModel.signInWithIntent(this)
+//                }
+//            }
+//        },
+//    )
+//
+//    googleSignInIntent?.let { intentSender ->
+//        LaunchedEffect(key1 = googleSignInIntent) {
+//            launcher.launch(IntentSenderRequest.Builder(intentSender).build())
+//        }
+//    }
 
     StatefulComposable(
         state = authState,
@@ -97,7 +95,7 @@ fun SignUpRoute(
             authViewModel::updateName,
             authViewModel::updateEmail,
             authViewModel::updatePassword,
-            authViewModel::getGoogleSignInIntent,
+            authViewModel::registerWithGoogle,
             authViewModel::registerWithEmailAndPassword,
             onSignInClick,
         )
@@ -110,11 +108,12 @@ private fun SignUpScreen(
     onNameChange: (String) -> Unit,
     onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
-    onSignUpWithGoogleClick: () -> Unit,
+    onRegisterWithGoogleClick: (Activity) -> Unit,
     onSignUpClick: () -> Unit,
     onSignInClick: () -> Unit,
 ) {
     val focusManager = LocalFocusManager.current
+    val activity = LocalContext.current.getActivity()
 
     Column(
         modifier = Modifier.padding(24.dp),
@@ -124,7 +123,7 @@ private fun SignUpScreen(
         Text(stringResource(id = R.string.sign_up), style = MaterialTheme.typography.headlineLarge)
         Spacer(modifier = Modifier.height(24.dp))
         JetpackOutlinedButton(
-            onClick = onSignUpWithGoogleClick,
+            onClick = { activity?.run { onRegisterWithGoogleClick.invoke(this) } },
             text = { Text(text = stringResource(R.string.sign_up_with_google)) },
             leadingIcon = {
                 Icon(
@@ -209,7 +208,7 @@ fun SignUpScreenPreview() {
         onNameChange = {},
         onEmailChange = {},
         onPasswordChange = {},
-        onSignUpWithGoogleClick = {},
+        onRegisterWithGoogleClick = {},
         onSignUpClick = {},
         onSignInClick = {},
     )

@@ -16,8 +16,7 @@
 
 package dev.atick.auth.repository
 
-import android.content.Intent
-import android.content.IntentSender
+import android.app.Activity
 import dev.atick.auth.data.AuthDataSource
 import dev.atick.auth.models.AuthUser
 import dev.atick.storage.preferences.data.UserPreferencesDataSource
@@ -33,31 +32,6 @@ class AuthRepositoryImpl @Inject constructor(
     private val authDataSource: AuthDataSource,
     private val userPreferencesDataSource: UserPreferencesDataSource,
 ) : AuthRepository {
-    /**
-     * Retrieves an [IntentSender] for initiating Google Sign-In.
-     *
-     * @return A [Result] containing the [IntentSender] for Google Sign-In.
-     */
-    override suspend fun getGoogleSignInIntent(): Result<IntentSender> {
-        return runCatching {
-            authDataSource.getGoogleSignInIntent()
-                ?: throw Exception("Unable not Sign In with Google")
-        }
-    }
-
-    /**
-     * Sign in using an [Intent] obtained from Google Sign-In.
-     *
-     * @param intent The [Intent] obtained from Google Sign-In.
-     * @return A [Result] containing the authenticated [AuthUser] upon successful sign-in.
-     */
-    override suspend fun signInWithIntent(intent: Intent): Result<AuthUser> {
-        return runCatching {
-            val user = authDataSource.signInWithIntent(intent)
-            userPreferencesDataSource.setProfile(user.asProfile())
-            user
-        }
-    }
 
     /**
      * Sign in with an email and password.
@@ -92,6 +66,34 @@ class AuthRepositoryImpl @Inject constructor(
     ): Result<AuthUser> {
         return runCatching {
             val user = authDataSource.registerWithEmailAndPassword(name, email, password)
+            userPreferencesDataSource.setProfile(user.asProfile())
+            user
+        }
+    }
+
+    /**
+     * Sign in with Google.
+     *
+     * @param activity The current activity.
+     * @return A [Result] containing the authenticated [AuthUser] upon successful sign-in.
+     */
+    override suspend fun signInWithGoogle(activity: Activity): Result<AuthUser> {
+        return runCatching {
+            val user = authDataSource.signInWithGoogle(activity)
+            userPreferencesDataSource.setProfile(user.asProfile())
+            user
+        }
+    }
+
+    /**
+     * Register a new user with Google.
+     *
+     * @param activity The current activity.
+     * @return A [Result] containing the authenticated [AuthUser] upon successful registration.
+     */
+    override suspend fun registerWithGoogle(activity: Activity): Result<AuthUser> {
+        return kotlin.runCatching {
+            val user = authDataSource.registerWithGoogle(activity)
             userPreferencesDataSource.setProfile(user.asProfile())
             user
         }
