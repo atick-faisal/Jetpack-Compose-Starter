@@ -33,9 +33,8 @@ $dokka.location:dev.atick.auth.di/RepositoryModule/bindAuthRepository/#dev.atick
 $dokka.location:dev.atick.auth.models////PointingToDeclaration/auth/auth/dev.atick.auth.models/index.md
 $dokka.location:dev.atick.auth.models//asAuthUser/com.google.firebase.auth.FirebaseUser#/PointingToDeclaration/auth/auth/dev.atick.auth.models/as-auth-user.md
 $dokka.location:dev.atick.auth.models/AuthScreenData///PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-screen-data/index.md
-$dokka.location:dev.atick.auth.models/AuthScreenData/AuthScreenData/#dev.atick.core.ui.utils.TextFiledData#dev.atick.core.ui.utils.TextFiledData#dev.atick.core.ui.utils.TextFiledData#android.content.IntentSender?/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-screen-data/-auth-screen-data.md
+$dokka.location:dev.atick.auth.models/AuthScreenData/AuthScreenData/#dev.atick.core.ui.utils.TextFiledData#dev.atick.core.ui.utils.TextFiledData#dev.atick.core.ui.utils.TextFiledData/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-screen-data/-auth-screen-data.md
 $dokka.location:dev.atick.auth.models/AuthScreenData/email/#/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-screen-data/email.md
-$dokka.location:dev.atick.auth.models/AuthScreenData/googleSignInIntent/#/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-screen-data/google-sign-in-intent.md
 $dokka.location:dev.atick.auth.models/AuthScreenData/name/#/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-screen-data/name.md
 $dokka.location:dev.atick.auth.models/AuthScreenData/password/#/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-screen-data/password.md
 $dokka.location:dev.atick.auth.models/AuthUser///PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-user/index.md
