@@ -42,10 +42,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import coil.compose.AsyncImage
+import coil.compose.SubcomposeAsyncImage
 import dev.atick.compose.R
 import dev.atick.compose.data.home.UiPost
 import dev.atick.core.ui.components.JetpackButton
+import dev.atick.core.ui.components.JetpackLoadingWheel
 import dev.atick.core.ui.utils.StatefulComposable
 
 @Composable
@@ -73,12 +74,15 @@ private fun DetailsScreen(
         Spacer(Modifier.windowInsetsTopHeight(WindowInsets.safeDrawing))
         DetailsToolbar(onBackClick = onBackClick)
         post?.let {
-            AsyncImage(
+            SubcomposeAsyncImage(
                 model = post.url,
-                contentDescription = null,
+                contentDescription = post.title,
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(16.dp)),
+                loading = {
+                    JetpackLoadingWheel(contentDesc = post.title)
+                },
             )
             Spacer(modifier = Modifier.height(16.dp))
             Text(
@@ -108,7 +112,7 @@ private fun DetailsToolbar(
             )
         }
         JetpackButton(onClick = onBackClick) {
-            Text(text = "Done")
+            Text(text = stringResource(R.string.done))
         }
     }
 }

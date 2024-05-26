@@ -46,4 +46,5 @@
     <string name="not_connected">⚠️ You aren’t connected to the internet</string>
     <string name="sign_out">Sign Out</string>
     <string name="profile_picture">Profile Picture</string>
+    <string name="done">Done</string>
 </resources>
