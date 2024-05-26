@@ -35,5 +35,6 @@ dependencies {
 
     // ... Credential Manager
     implementation(libs.androidx.credentials)
+    implementation(libs.credentials.play.services.auth)
     implementation(libs.identity.google.id)
 }
