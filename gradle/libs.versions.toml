@@ -46,7 +46,7 @@ identityGoogleId = "1.1.0"
 
 # ... FIREBASE ...
 firebaseBom = "33.0.0"
-firebaseCrashlyticsPlugin = "3.0.1"
+firebaseCrashlyticsPlugin = "2.9.9"
 
 # ... DAGGER-HILT ...
 daggerHilt = "2.51.1"
