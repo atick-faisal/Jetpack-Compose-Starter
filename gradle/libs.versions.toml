@@ -129,7 +129,9 @@ room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "
 
 # ... AUTH ...
 play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "playServicesAuth" }
+# noinspection CredentialDependency - Already added the required dependency
 androidx-credentials = { group = "androidx.credentials", name = "credentials", version.ref = "androidxCredentials" }
+credentials-play-services-auth = { group = "androidx.credentials", name = "credentials-play-services-auth", version.ref = "androidxCredentials" }
 identity-google-id = { group = "com.google.android.libraries.identity.googleid", name = "googleid", version.ref = "identityGoogleId" }
 
 # ... FIREBASE ...
