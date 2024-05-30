@@ -4,7 +4,7 @@
 java = "17"
 kotlin = "2.0.0"
 androidGradlePlugin = "8.4.1"
-gmsPlugin = "4.4.1"
+gmsPlugin = "4.4.2"
 ksp = "2.0.0-1.0.21"
 dokka = "1.9.20"
 secrets = "2.0.1"
@@ -19,14 +19,14 @@ timber = "5.0.1"
 # ... CORE:UI ...
 androidxNavigation = "2.7.7"
 androidxFragment = "1.7.1"
-androidxAppCompat = "1.6.1"
+androidxAppCompat = "1.7.0"
 androidxActivity = "1.9.0"
-androidxLifecycle = "2.8.0"
+androidxLifecycle = "2.8.1"
 androidxComposeBom = "2024.05.00"
 androidxComposeCompiler = "1.5.14"
 androidxCoreSplashscreen = "1.0.1"
 androidxHiltNavigationCompose = "1.2.0"
-lottieCompose = "6.4.0"
+lottieCompose = "6.4.1"
 
 # ... NETWORK ...
 okhttp = "4.12.0"
@@ -45,8 +45,8 @@ androidxCredentials = "1.2.2"
 identityGoogleId = "1.1.0"
 
 # ... FIREBASE ...
-firebaseBom = "33.0.0"
-firebaseCrashlyticsPlugin = "2.9.9"
+firebaseBom = "33.1.0"
+firebaseCrashlyticsPlugin = "3.0.1"
 
 # ... DAGGER-HILT ...
 daggerHilt = "2.51.1"
