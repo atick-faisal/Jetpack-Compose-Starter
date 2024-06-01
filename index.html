@@ -23547,9 +23547,10 @@
 
 <h2 id="what-is-it">What is it</h2>
 <p>It's a starting template that I use for all my Android apps. It is based on the architecture of the <a href="https://github.com/android/nowinandroid">Now In Android</a> app by Google. Check out the app from the latest <a href="https://github.com/atick-faisal/Jetpack-Compose-Starter/releases">Release</a>.</p>
+<p><img alt="Screenshots" src="https://github.com/atick-faisal/Jetpack-Compose-Starter/blob/main/assets/ss.png" /></p>
 <blockquote>
 <p>[!WARNING]
-Firebase authentication and crashlytics requires Firebase console setup and the <code>google-services.json</code> file. I have provided a template to ensure a successful build. Howver, you need to provide your own in order to use all the functionalities.</p>
+Firebase authentication and crashlytics requires Firebase console setup and the <code>google-services.json</code> file. I have provided a template to ensure a successful build. However, you need to provide your own in order to use all the functionalities.</p>
 </blockquote>
 <h2 id="documentation">Documentation</h2>
 <p><br></p>
@@ -23560,16 +23561,18 @@ Firebase authentication and crashlytics requires Firebase console setup and the 
 </p>
 
 <h2 id="features">Features</h2>
-<p>This template offers Modern Android Development principles and Architecture guidelines. It provides an out-of-the-box template for:
-* Connecting to a remote API using Retrofit and OKHttp
-* Persistent database solution using Room and Datastore
-* Sign In Authentication using Firebase i.e. Google ID and Email
-* Bluetooth communication using classic and low-energy (upcoming) protocols</p>
+<p>This template offers Modern Android Development principles and Architecture guidelines. It provides an out-of-the-box template for:</p>
+<ul>
+<li>Connecting to a remote API using Retrofit and OKHttp</li>
+<li>Persistent database solution using Room and Datastore</li>
+<li>Sign In Authentication using Firebase i.e. Google ID and Email</li>
+<li>Bluetooth communication using classic and low-energy (upcoming) protocols</li>
+</ul>
 <blockquote>
 <p>[!NOTE]
-Firebase auth needs <a href="https://developers.google.com/android/guides/client-auth?sjid=11391664450238405928-EU">setting up</a> first using the SHA fingerprint. Get the SHA fingerprint of the app and add it to firebase console. </p>
+Firebase auth needs <a href="https://developers.google.com/android/guides/client-auth?sjid=11391664450238405928-EU">setting up</a> first using the SHA fingerprint. Get the SHA fingerprint of the app and add it to firebase console.</p>
 </blockquote>
-<p>It contains easy-to-use Interfaces for common tasks. For example, the following provides utilities for Bluetooth communication:
+<p>It contains easy-to-use Interfaces for common tasks. For example, the following provides utilities for Bluetooth communication:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/**</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm"> * BluetoothManager interface provides methods to manage Bluetooth connections.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cm"> */</span>
@@ -23596,8 +23599,8 @@ Firebase auth needs <a href="https://developers.google.com/android/guides/client
 </span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="cm">     */</span>
 </span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">closeConnection</span><span class="p">():</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="kt">Unit</span><span class="o">&gt;</span>
 </span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="p">}</span>
-</span></code></pre></div></p>
-<p>It also contains several utilities and extension functions to make repetitive tasks easier. For example:
+</span></code></pre></div>
+<p>It also contains several utilities and extension functions to make repetitive tasks easier. For example:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/**</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cm"> * Displays a short toast message.</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="cm"> *</span>
@@ -23627,7 +23630,7 @@ Firebase auth needs <a href="https://developers.google.com/android/guides/client
 </span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="kd">fun</span><span class="w"> </span><span class="n">Context</span><span class="p">.</span><span class="nf">isAllPermissionsGranted</span><span class="p">(</span><span class="n">permissions</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">):</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">permissions</span><span class="p">.</span><span class="na">all</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">hasPermission</span><span class="p">(</span><span class="nb">it</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="p">}</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 <h2 id="technologies">Technologies</h2>
 <ul>
 <li>Kotlin 2.0</li>
@@ -23645,25 +23648,25 @@ Firebase auth needs <a href="https://developers.google.com/android/guides/client
 <li>Convention Plugin</li>
 </ul>
 <h2 id="architecture">Architecture</h2>
-<p>This template follows the <a href="https://developer.android.com/topic/architecture">official architecture guidance</a>  suggested by Google.</p>
+<p>This template follows the <a href="https://developer.android.com/topic/architecture">official architecture guidance</a> suggested by Google.</p>
 <h2 id="modularization">Modularization</h2>
 <p><img alt="Modularization" src="https://github.com/atick-faisal/Jetpack-Compose-Starter/blob/main/assets/modularization.svg" /></p>
 <h2 id="building">Building</h2>
 <h3 id="debug">Debug</h3>
 <p>This project requires Firebase for analytics. Building the app requires <code>google-services.json</code> to be present inside the <code>app</code> dir. This file can be generated from the <a href="https://firebase.google.com/docs/android/setup">Firebase Console</a>. After that, run the following from the terminal.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>./gradlew<span class="w"> </span>assembleDebug<span class="w"> </span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>./gradlew<span class="w"> </span>assembleDebug
 </span></code></pre></div>
 <p>Or, use <code>Build &gt; Rebuild Project</code>.</p>
 <h3 id="release">Release</h3>
-<p>Building the <code>release</code> version requires a <code>Keystore</code> file in the <code>app</code> dir. Also, a <code>keystore.properties</code> file needs to be created in the <code>rootDir</code>.
+<p>Building the <code>release</code> version requires a <code>Keystore</code> file in the <code>app</code> dir. Also, a <code>keystore.properties</code> file needs to be created in the <code>rootDir</code>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>storePassword=****
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>keyPassword=*****
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>keyAlias=****
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>storeFile=keystore file name (e.g., key.jks)
 </span></code></pre></div>
-After that, run the following from the terminal.
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>./gradlew<span class="w"> </span>assembleRelease<span class="w"> </span>
-</span></code></pre></div></p>
+<p>After that, run the following from the terminal.</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>./gradlew<span class="w"> </span>assembleRelease
+</span></code></pre></div>
 <p align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" /></p>
 <p align="center"><a href="https://sites.google.com/view/mchowdhury" target="_blank">Qatar University Machine Learning Group</a>
 <p align="center"><a href="https://github.com/atick-faisal/Jetpack-Compose-Starter/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a></p>
