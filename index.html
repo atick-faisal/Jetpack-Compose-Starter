@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#documentation" class="md-skip">
+        <a href="#what-is-it" class="md-skip">
           Skip to content
         </a>
       
@@ -474,6 +474,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is it
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#documentation" class="md-nav__link">
@@ -23414,6 +23423,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#what-is-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is it
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#documentation" class="md-nav__link">
     <span class="md-ellipsis">
       Documentation
@@ -23527,6 +23545,12 @@
     <img src="https://img.shields.io/github/actions/workflow/status/atick-faisal/Jetpack-Compose-Starter/Build.yaml?style=for-the-badge&logo=android&labelColor=363a4f"/>
 </p>
 
+<h2 id="what-is-it">What is it</h2>
+<p>It's a starting template that I use for all my Android apps. It is based on the architecture of the <a href="https://github.com/android/nowinandroid">Now In Android</a> app by Google. Check out the app from the latest <a href="https://github.com/atick-faisal/Jetpack-Compose-Starter/releases">Release</a>.</p>
+<blockquote>
+<p>[!WARNING]
+Firebase authentication and crashlytics requires Firebase console setup and the <code>google-services.json</code> file. I have provided a template to ensure a successful build. Howver, you need to provide your own in order to use all the functionalities.</p>
+</blockquote>
 <h2 id="documentation">Documentation</h2>
 <p><br></p>
 <p align="center">
@@ -23539,7 +23563,12 @@
 <p>This template offers Modern Android Development principles and Architecture guidelines. It provides an out-of-the-box template for:
 * Connecting to a remote API using Retrofit and OKHttp
 * Persistent database solution using Room and Datastore
+* Sign In Authentication using Firebase i.e. Google ID and Email
 * Bluetooth communication using classic and low-energy (upcoming) protocols</p>
+<blockquote>
+<p>[!NOTE]
+Firebase auth needs <a href="https://developers.google.com/android/guides/client-auth?sjid=11391664450238405928-EU">setting up</a> first using the SHA fingerprint. Get the SHA fingerprint of the app and add it to firebase console. </p>
+</blockquote>
 <p>It contains easy-to-use Interfaces for common tasks. For example, the following provides utilities for Bluetooth communication:
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/**</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm"> * BluetoothManager interface provides methods to manage Bluetooth connections.</span>
@@ -23601,11 +23630,13 @@
 </span></code></pre></div></p>
 <h2 id="technologies">Technologies</h2>
 <ul>
-<li>Kotlin</li>
+<li>Kotlin 2.0</li>
 <li>Jetpack Compose</li>
 <li>Kotlin Coroutines</li>
 <li>Kotlin Flow for Reactive Data</li>
 <li>Retrofit and OkHttp</li>
+<li>Firebase Auth</li>
+<li>Firebase Crashlytics</li>
 <li>Room Database</li>
 <li>Preferences Datastore</li>
 <li>Dependency Injection with Hilt</li>
@@ -23619,7 +23650,7 @@
 <p><img alt="Modularization" src="https://github.com/atick-faisal/Jetpack-Compose-Starter/blob/main/assets/modularization.svg" /></p>
 <h2 id="building">Building</h2>
 <h3 id="debug">Debug</h3>
-<p>This project requires Firebase for analytics. Building the app requires <code>google-services.json</code> to be present inside the <code>app</code> dir. This file can be generated from the <a href="https://firebase.google.com/docs/android/setup">Google Cloud Console</a>. After that, run the following from the terminal.</p>
+<p>This project requires Firebase for analytics. Building the app requires <code>google-services.json</code> to be present inside the <code>app</code> dir. This file can be generated from the <a href="https://firebase.google.com/docs/android/setup">Firebase Console</a>. After that, run the following from the terminal.</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>./gradlew<span class="w"> </span>assembleDebug<span class="w"> </span>
 </span></code></pre></div>
 <p>Or, use <code>Build &gt; Rebuild Project</code>.</p>
