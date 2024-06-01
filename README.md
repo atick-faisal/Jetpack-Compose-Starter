@@ -7,6 +7,12 @@
     <img src="https://img.shields.io/github/actions/workflow/status/atick-faisal/Jetpack-Compose-Starter/Build.yaml?style=for-the-badge&logo=android&labelColor=363a4f"/>
 </p>
 
+## What is it
+It's a starting template that I use for all my Android apps. It is based on the architecture of the [Now In Android](https://github.com/android/nowinandroid) app by Google. Check out the app from the latest [Release](https://github.com/atick-faisal/Jetpack-Compose-Starter/releases).
+
+> [!WARNING]
+> Firebase authentication and crashlytics requires Firebase console setup and the `google-services.json` file. I have provided a template to ensure a successful build. Howver, you need to provide your own in order to use all the functionalities.
+
 ## Documentation
 <br>
 <p align="center">
@@ -19,7 +25,11 @@
 This template offers Modern Android Development principles and Architecture guidelines. It provides an out-of-the-box template for:
 * Connecting to a remote API using Retrofit and OKHttp
 * Persistent database solution using Room and Datastore
+* Sign In Authentication using Firebase i.e. Google ID and Email
 * Bluetooth communication using classic and low-energy (upcoming) protocols
+
+> [!NOTE]
+> Firebase auth needs [setting up](https://developers.google.com/android/guides/client-auth?sjid=11391664450238405928-EU) first using the SHA fingerprint. Get the SHA fingerprint of the app and add it to firebase console. 
 
 It contains easy-to-use Interfaces for common tasks. For example, the following provides utilities for Bluetooth communication:
 ``` kotlin
@@ -85,11 +95,13 @@ fun Context.isAllPermissionsGranted(permissions: List<String>): Boolean {
 ```
 
 ## Technologies
-* Kotlin
+* Kotlin 2.0
 * Jetpack Compose
 * Kotlin Coroutines
 * Kotlin Flow for Reactive Data
 * Retrofit and OkHttp
+* Firebase Auth
+* Firebase Crashlytics
 * Room Database
 * Preferences Datastore
 * Dependency Injection with Hilt
@@ -105,7 +117,7 @@ This template follows the [official architecture guidance](https://developer.and
 
 ## Building
 ### Debug
-This project requires Firebase for analytics. Building the app requires `google-services.json` to be present inside the `app` dir. This file can be generated from the [Google Cloud Console](https://firebase.google.com/docs/android/setup). After that, run the following from the terminal.
+This project requires Firebase for analytics. Building the app requires `google-services.json` to be present inside the `app` dir. This file can be generated from the [Firebase Console](https://firebase.google.com/docs/android/setup). After that, run the following from the terminal.
 
 ``` sh
 $ ./gradlew assembleDebug 
