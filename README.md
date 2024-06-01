@@ -8,12 +8,16 @@
 </p>
 
 ## What is it
+
 It's a starting template that I use for all my Android apps. It is based on the architecture of the [Now In Android](https://github.com/android/nowinandroid) app by Google. Check out the app from the latest [Release](https://github.com/atick-faisal/Jetpack-Compose-Starter/releases).
 
+![Screenshots](https://github.com/atick-faisal/Jetpack-Compose-Starter/blob/main/assets/ss.png)
+
 > [!WARNING]
-> Firebase authentication and crashlytics requires Firebase console setup and the `google-services.json` file. I have provided a template to ensure a successful build. Howver, you need to provide your own in order to use all the functionalities.
+> Firebase authentication and crashlytics requires Firebase console setup and the `google-services.json` file. I have provided a template to ensure a successful build. However, you need to provide your own in order to use all the functionalities.
 
 ## Documentation
+
 <br>
 <p align="center">
         <img src="https://github.com/atick-faisal/Jetpack-Compose-Starter/assets/38709932/02fde5d3-f564-4020-8778-47b2d6a1b7b5" width=400 />
@@ -22,17 +26,20 @@ It's a starting template that I use for all my Android apps. It is based on the 
 </p>
 
 ## Features
+
 This template offers Modern Android Development principles and Architecture guidelines. It provides an out-of-the-box template for:
-* Connecting to a remote API using Retrofit and OKHttp
-* Persistent database solution using Room and Datastore
-* Sign In Authentication using Firebase i.e. Google ID and Email
-* Bluetooth communication using classic and low-energy (upcoming) protocols
+
+- Connecting to a remote API using Retrofit and OKHttp
+- Persistent database solution using Room and Datastore
+- Sign In Authentication using Firebase i.e. Google ID and Email
+- Bluetooth communication using classic and low-energy (upcoming) protocols
 
 > [!NOTE]
-> Firebase auth needs [setting up](https://developers.google.com/android/guides/client-auth?sjid=11391664450238405928-EU) first using the SHA fingerprint. Get the SHA fingerprint of the app and add it to firebase console. 
+> Firebase auth needs [setting up](https://developers.google.com/android/guides/client-auth?sjid=11391664450238405928-EU) first using the SHA fingerprint. Get the SHA fingerprint of the app and add it to firebase console.
 
 It contains easy-to-use Interfaces for common tasks. For example, the following provides utilities for Bluetooth communication:
-``` kotlin
+
+```kotlin
 /**
  * BluetoothManager interface provides methods to manage Bluetooth connections.
  */
@@ -62,7 +69,8 @@ interface BluetoothManager {
 ```
 
 It also contains several utilities and extension functions to make repetitive tasks easier. For example:
-``` kotlin
+
+```kotlin
 /**
  * Displays a short toast message.
  *
@@ -95,47 +103,56 @@ fun Context.isAllPermissionsGranted(permissions: List<String>): Boolean {
 ```
 
 ## Technologies
-* Kotlin 2.0
-* Jetpack Compose
-* Kotlin Coroutines
-* Kotlin Flow for Reactive Data
-* Retrofit and OkHttp
-* Firebase Auth
-* Firebase Crashlytics
-* Room Database
-* Preferences Datastore
-* Dependency Injection with Hilt
-* Gradle Kotlin DSL
-* Gradle Version Catalog
-* Convention Plugin
+
+- Kotlin 2.0
+- Jetpack Compose
+- Kotlin Coroutines
+- Kotlin Flow for Reactive Data
+- Retrofit and OkHttp
+- Firebase Auth
+- Firebase Crashlytics
+- Room Database
+- Preferences Datastore
+- Dependency Injection with Hilt
+- Gradle Kotlin DSL
+- Gradle Version Catalog
+- Convention Plugin
 
 ## Architecture
-This template follows the [official architecture guidance](https://developer.android.com/topic/architecture)  suggested by Google.
+
+This template follows the [official architecture guidance](https://developer.android.com/topic/architecture) suggested by Google.
 
 ## Modularization
+
 ![Modularization](https://github.com/atick-faisal/Jetpack-Compose-Starter/blob/main/assets/modularization.svg)
 
 ## Building
+
 ### Debug
+
 This project requires Firebase for analytics. Building the app requires `google-services.json` to be present inside the `app` dir. This file can be generated from the [Firebase Console](https://firebase.google.com/docs/android/setup). After that, run the following from the terminal.
 
-``` sh
-$ ./gradlew assembleDebug 
+```sh
+$ ./gradlew assembleDebug
 ```
 
 Or, use `Build > Rebuild Project`.
 
 ### Release
+
 Building the `release` version requires a `Keystore` file in the `app` dir. Also, a `keystore.properties` file needs to be created in the `rootDir`.
+
 ```
 storePassword=****
 keyPassword=*****
 keyAlias=****
 storeFile=keystore file name (e.g., key.jks)
 ```
+
 After that, run the following from the terminal.
-``` sh
-$ ./gradlew assembleRelease 
+
+```sh
+$ ./gradlew assembleRelease
 ```
 
 <p align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" /></p>
