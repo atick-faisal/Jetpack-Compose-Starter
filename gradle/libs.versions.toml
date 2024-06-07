@@ -13,7 +13,7 @@ secrets = "2.0.1"
 androidxCore = "1.13.1"
 kotlinxCoroutines = "1.8.1"
 kotlinxDatetime = "0.6.0"
-kotlinxSerializationJson = "1.6.3"
+kotlinxSerializationJson = "1.7.0"
 timber = "5.0.1"
 
 # ... CORE:UI ...
