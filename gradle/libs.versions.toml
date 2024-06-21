@@ -45,8 +45,8 @@ androidxCredentials = "1.2.2"
 identityGoogleId = "1.1.0"
 
 # ... FIREBASE ...
-firebaseBom = "33.1.0"
-firebaseCrashlyticsPlugin = "3.0.1"
+firebaseBom = "33.1.1"
+firebaseCrashlyticsPlugin = "3.0.2"
 
 # ... DAGGER-HILT ...
 daggerHilt = "2.51.1"
