@@ -17,7 +17,13 @@
 pluginManagement {
     includeBuild("build-logic")
     repositories {
-        google()
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
         mavenCentral()
         gradlePluginPortal()
     }
@@ -32,16 +38,14 @@ dependencyResolutionManagement {
 }
 
 plugins {
-    id("com.gradle.enterprise") version ("3.17.6")
+    id("com.gradle.develocity") version ("3.17.6")
 }
 
-gradleEnterprise {
+develocity {
     if (System.getenv("CI") != null) {
-        buildScan {
-            publishAlways()
-            termsOfServiceUrl = "https://gradle.com/terms-of-service"
-            termsOfServiceAgree = "yes"
-        }
+        server.set("https://develocity-samples.gradle.com")
+        buildScan.termsOfUseUrl = "https://gradle.com/terms-of-service"
+        buildScan.termsOfUseAgree = "yes"
     }
 }
 
