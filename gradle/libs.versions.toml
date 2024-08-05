@@ -26,7 +26,7 @@ androidxComposeBom = "2024.06.00"
 androidxComposeCompiler = "1.5.14"
 androidxCoreSplashscreen = "1.0.1"
 androidxHiltNavigationCompose = "1.2.0"
-lottieCompose = "6.4.1"
+lottieCompose = "6.5.0"
 
 # ... NETWORK ...
 okhttp = "4.12.0"
@@ -49,7 +49,7 @@ firebaseBom = "33.1.2"
 firebaseCrashlyticsPlugin = "3.0.2"
 
 # ... DAGGER-HILT ...
-daggerHilt = "2.51.1"
+daggerHilt = "2.52"
 daggerHiltExt = "1.2.0"
 
 # ... SDK-CONFIG ...
