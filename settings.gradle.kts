@@ -42,10 +42,10 @@ plugins {
 }
 
 develocity {
-    if (System.getenv("CI") != null) {
-        server.set("https://develocity-samples.gradle.com")
-        buildScan.termsOfUseUrl = "https://gradle.com/terms-of-service"
-        buildScan.termsOfUseAgree = "yes"
+    buildScan {
+        publishing.onlyIf { !System.getenv("CI").isNullOrEmpty() }
+        termsOfUseUrl.set("https://gradle.com/help/legal-terms-of-use")
+        termsOfUseAgree.set("yes")
     }
 }
 
