@@ -13,7 +13,7 @@ secrets = "2.0.1"
 androidxCore = "1.13.1"
 kotlinxCoroutines = "1.8.1"
 kotlinxDatetime = "0.6.1"
-kotlinxSerializationJson = "1.7.1"
+kotlinxSerializationJson = "1.7.2"
 timber = "5.0.1"
 
 # ... CORE:UI ...
@@ -26,7 +26,7 @@ androidxComposeBom = "2024.08.00"
 androidxComposeCompiler = "1.5.15"
 androidxCoreSplashscreen = "1.0.1"
 androidxHiltNavigationCompose = "1.2.0"
-lottieCompose = "6.5.0"
+lottieCompose = "6.5.1"
 
 # ... NETWORK ...
 okhttp = "4.12.0"
