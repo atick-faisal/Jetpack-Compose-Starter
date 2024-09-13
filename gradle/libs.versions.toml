@@ -11,7 +11,7 @@ secrets = "2.0.1"
 
 # ... CORE:ANDROID ...
 androidxCore = "1.13.1"
-kotlinxCoroutines = "1.8.1"
+kotlinxCoroutines = "1.9.0"
 kotlinxDatetime = "0.6.1"
 kotlinxSerializationJson = "1.7.2"
 timber = "5.0.1"
@@ -45,7 +45,7 @@ androidxCredentials = "1.2.2"
 identityGoogleId = "1.1.1"
 
 # ... FIREBASE ...
-firebaseBom = "33.2.0"
+firebaseBom = "33.3.0"
 firebaseCrashlyticsPlugin = "3.0.2"
 
 # ... DAGGER-HILT ...
