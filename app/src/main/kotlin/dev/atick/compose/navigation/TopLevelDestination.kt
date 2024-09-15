@@ -16,6 +16,7 @@
 
 package dev.atick.compose.navigation
 
+import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
@@ -23,6 +24,9 @@ import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.ui.graphics.vector.ImageVector
 import dev.atick.compose.R
+import dev.atick.compose.navigation.home.Home
+import dev.atick.compose.navigation.profile.Profile
+import kotlin.reflect.KClass
 
 /**
  * Enum class representing top-level destinations in a navigation system.
@@ -31,23 +35,27 @@ import dev.atick.compose.R
  * @property unselectedIcon The unselected icon associated with the destination.
  * @property iconTextId The resource ID for the icon's content description text.
  * @property titleTextId The resource ID for the title text.
+ * @property route The route associated with the destination.
  */
 enum class TopLevelDestination(
     val selectedIcon: ImageVector,
     val unselectedIcon: ImageVector,
-    val iconTextId: Int,
-    val titleTextId: Int,
+    @StringRes val iconTextId: Int,
+    @StringRes val titleTextId: Int,
+    val route: KClass<*>,
 ) {
     HOME(
         selectedIcon = Icons.Filled.Home,
         unselectedIcon = Icons.Outlined.Home,
         iconTextId = R.string.home,
         titleTextId = R.string.home,
+        route = Home::class,
     ),
     PROFILE(
         selectedIcon = Icons.Filled.Person,
         unselectedIcon = Icons.Outlined.Person,
         iconTextId = R.string.profile,
         titleTextId = R.string.profile,
+        route = Profile::class,
     ),
 }

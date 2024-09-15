@@ -19,9 +19,10 @@ package dev.atick.compose.ui.details
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.compose.data.home.UiPost
-import dev.atick.compose.navigation.details.postIdArg
+import dev.atick.compose.navigation.details.Details
 import dev.atick.compose.repository.home.PostsRepository
 import dev.atick.core.ui.utils.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -35,7 +36,7 @@ class DetailsViewModel @Inject constructor(
     postsRepository: PostsRepository,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
-    private val postId = checkNotNull(savedStateHandle.get<Int>(postIdArg))
+    private val postId = checkNotNull(savedStateHandle.toRoute<Details>().postId)
 
     private val _detailsUiState: MutableStateFlow<UiState<UiPost?>> =
         MutableStateFlow(UiState.Loading(null))

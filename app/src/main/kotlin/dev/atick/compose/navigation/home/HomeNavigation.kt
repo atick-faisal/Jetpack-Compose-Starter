@@ -22,12 +22,16 @@ import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import dev.atick.compose.ui.home.HomeRoute
+import kotlinx.serialization.Serializable
 
-const val homeNavigationRoute = "home"
-const val homeNavGraphRoute = "home_graph"
+@Serializable
+data object Home
+
+@Serializable
+data object HomeNavGraph
 
 fun NavController.navigateToHomeNavGraph(navOptions: NavOptions? = null) {
-    navigate(homeNavGraphRoute, navOptions)
+    navigate(HomeNavGraph, navOptions)
 }
 
 fun NavGraphBuilder.homeNavGraph(
@@ -35,11 +39,8 @@ fun NavGraphBuilder.homeNavGraph(
     onShowSnackbar: suspend (String, String?) -> Boolean,
     nestedNavGraphs: NavGraphBuilder.() -> Unit,
 ) {
-    navigation(
-        route = homeNavGraphRoute,
-        startDestination = homeNavigationRoute,
-    ) {
-        composable(route = homeNavigationRoute) {
+    navigation<HomeNavGraph>(startDestination = Home) {
+        composable<Home> {
             HomeRoute(onPostCLick = onPostClick, onShowSnackbar = onShowSnackbar)
         }
         nestedNavGraphs()

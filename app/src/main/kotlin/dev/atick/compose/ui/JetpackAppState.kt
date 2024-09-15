@@ -23,16 +23,15 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.NavDestination
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import dev.atick.compose.navigation.TopLevelDestination
-import dev.atick.compose.navigation.home.homeNavigationRoute
 import dev.atick.compose.navigation.home.navigateToHomeNavGraph
 import dev.atick.compose.navigation.profile.navigateProfile
-import dev.atick.compose.navigation.profile.profileNavigationRoute
 import dev.atick.core.extensions.stateInDelayed
 import dev.atick.network.utils.NetworkState
 import dev.atick.network.utils.NetworkUtils
@@ -81,10 +80,10 @@ class JetpackAppState(
             .currentBackStackEntryAsState().value?.destination
 
     val currentTopLevelDestination: TopLevelDestination?
-        @Composable get() = when (currentDestination?.route) {
-            homeNavigationRoute -> TopLevelDestination.HOME
-            profileNavigationRoute -> TopLevelDestination.PROFILE
-            else -> null
+        @Composable get() {
+            return TopLevelDestination.entries.firstOrNull { topLevelDestination ->
+                currentDestination?.hasRoute(route = topLevelDestination.route) ?: false
+            }
         }
 
     val shouldShowBottomBar: Boolean
@@ -99,7 +98,7 @@ class JetpackAppState(
         .map { it != NetworkState.CONNECTED }
         .stateInDelayed(false, coroutineScope)
 
-    val topLevelDestinations: List<TopLevelDestination> = TopLevelDestination.values().asList()
+    val topLevelDestinations: List<TopLevelDestination> = TopLevelDestination.entries
 
     val topLevelDestinationsWithUnreadResources: StateFlow<Set<TopLevelDestination>> =
         // TODO: Requires Implementation
