@@ -19,14 +19,14 @@ package dev.atick.compose.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
+import dev.atick.auth.navigation.AuthNavGraph
 import dev.atick.auth.navigation.authNavGraph
-import dev.atick.auth.navigation.authNavGraphRoute
 import dev.atick.auth.navigation.navigateToSignInRoute
 import dev.atick.auth.navigation.navigateToSignUpRoute
 import dev.atick.compose.navigation.details.detailsScreen
 import dev.atick.compose.navigation.details.navigateToDetailsScreen
+import dev.atick.compose.navigation.home.HomeNavGraph
 import dev.atick.compose.navigation.home.homeNavGraph
-import dev.atick.compose.navigation.home.homeNavGraphRoute
 import dev.atick.compose.navigation.profile.profileScreen
 import dev.atick.compose.ui.JetpackAppState
 
@@ -37,7 +37,8 @@ fun JetpackNavHost(
     modifier: Modifier = Modifier,
 ) {
     val navController = appState.navController
-    val startDestination = if (appState.isUserLoggedIn) homeNavGraphRoute else authNavGraphRoute
+    val startDestination =
+        if (appState.isUserLoggedIn) HomeNavGraph::class else AuthNavGraph::class
     NavHost(
         navController = navController,
         startDestination = startDestination,

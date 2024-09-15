@@ -18,27 +18,22 @@ package dev.atick.compose.navigation.details
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.NavType
 import androidx.navigation.compose.composable
-import androidx.navigation.navArgument
 import dev.atick.compose.ui.details.DetailsRoute
+import kotlinx.serialization.Serializable
 
-internal const val postIdArg = "postId"
+@Serializable
+data class Details(val postId: Int)
 
 fun NavController.navigateToDetailsScreen(postId: Int) {
-    navigate("details/$postId") { launchSingleTop = true }
+    navigate(Details(postId)) { launchSingleTop = true }
 }
 
 fun NavGraphBuilder.detailsScreen(
     onBackClick: () -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
 ) {
-    composable(
-        route = "details/{$postIdArg}",
-        arguments = listOf(
-            navArgument(postIdArg) { type = NavType.IntType },
-        ),
-    ) {
+    composable<Details> {
         DetailsRoute(
             onBackClick = onBackClick,
             onShowSnackbar = onShowSnackbar,

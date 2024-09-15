@@ -21,17 +21,19 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import dev.atick.compose.ui.profile.ProfileRoute
+import kotlinx.serialization.Serializable
 
-const val profileNavigationRoute = "profile"
+@Serializable
+data object Profile
 
 fun NavController.navigateProfile(navOptions: NavOptions?) {
-    navigate(profileNavigationRoute, navOptions)
+    navigate(Profile, navOptions)
 }
 
 fun NavGraphBuilder.profileScreen(
     onShowSnackbar: suspend (String, String?) -> Boolean,
 ) {
-    composable(route = profileNavigationRoute) {
+    composable<Profile> {
         ProfileRoute(onShowSnackbar = onShowSnackbar)
     }
 }
