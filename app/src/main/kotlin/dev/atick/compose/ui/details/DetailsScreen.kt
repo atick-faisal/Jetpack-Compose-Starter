@@ -34,7 +34,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,6 +41,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.SubcomposeAsyncImage
 import dev.atick.compose.R
 import dev.atick.compose.data.home.UiPost
@@ -55,7 +55,7 @@ internal fun DetailsRoute(
     onShowSnackbar: suspend (String, String?) -> Boolean,
     detailsViewModel: DetailsViewModel = hiltViewModel(),
 ) {
-    val detailsUiState by detailsViewModel.detailsUiState.collectAsState()
+    val detailsUiState by detailsViewModel.detailsUiState.collectAsStateWithLifecycle()
     StatefulComposable(state = detailsUiState, onShowSnackbar = onShowSnackbar) {
         DetailsScreen(post = detailsUiState.data, onBackClick = onBackClick)
     }

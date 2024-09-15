@@ -36,7 +36,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -48,6 +47,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.atick.auth.R
 import dev.atick.auth.models.AuthScreenData
 import dev.atick.auth.ui.AuthViewModel
@@ -66,7 +66,7 @@ fun SignUpRoute(
     onShowSnackbar: suspend (String, String?) -> Boolean,
     authViewModel: AuthViewModel = hiltViewModel(),
 ) {
-    val authState by authViewModel.authUiState.collectAsState()
+    val authState by authViewModel.authUiState.collectAsStateWithLifecycle()
 //    val googleSignInIntent = authState.data.googleSignInIntent
 
 //    val launcher = rememberLauncherForActivityResult(
