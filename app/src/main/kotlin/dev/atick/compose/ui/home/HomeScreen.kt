@@ -32,13 +32,13 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import dev.atick.compose.data.home.HomeScreenData
 import dev.atick.core.ui.utils.StatefulComposable
@@ -54,7 +54,7 @@ internal fun HomeRoute(
     onShowSnackbar: suspend (String, String?) -> Boolean,
     homeViewModel: HomeViewModel = hiltViewModel(),
 ) {
-    val homeState by homeViewModel.homeUiState.collectAsState()
+    val homeState by homeViewModel.homeUiState.collectAsStateWithLifecycle()
 
     StatefulComposable(
         state = homeState,
