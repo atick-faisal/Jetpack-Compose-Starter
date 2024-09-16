@@ -20,12 +20,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.Stable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import dev.atick.core.ui.components.JetpackOverlayLoadingWheel
 
-@Stable
 @Composable
 fun <T : Any> StatefulComposable(
     state: UiState<T>,
