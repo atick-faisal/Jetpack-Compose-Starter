@@ -99,26 +99,13 @@ fun SettingsDialog(
         text = {
             HorizontalDivider()
             Column(Modifier.verticalScroll(rememberScrollState())) {
-                when (settingsUiState) {
-                    is UiState.Loading -> {
-                        Text(
-                            text = stringResource(R.string.loading),
-                            modifier = Modifier.padding(vertical = 16.dp),
-                        )
-                    }
-
-                    is UiState.Success -> {
-                        SettingsPanel(
-                            settings = settingsUiState.data,
-                            supportDynamicColor = supportDynamicColor,
-                            onChangeThemeBrand = onChangeThemeBrand,
-                            onChangeDynamicColorPreference = onChangeDynamicColorPreference,
-                            onChangeDarkThemeConfig = onChangeDarkThemeConfig,
-                        )
-                    }
-
-                    else -> {}
-                }
+                SettingsPanel(
+                    settings = settingsUiState.data,
+                    supportDynamicColor = supportDynamicColor,
+                    onChangeThemeBrand = onChangeThemeBrand,
+                    onChangeDynamicColorPreference = onChangeDynamicColorPreference,
+                    onChangeDarkThemeConfig = onChangeDarkThemeConfig,
+                )
             }
         },
         confirmButton = {

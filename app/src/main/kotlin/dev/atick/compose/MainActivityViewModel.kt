@@ -43,7 +43,7 @@ class MainActivityViewModel @Inject constructor(
      * Represents the state of the UI for user data.
      */
     val uiState: StateFlow<UiState<UserData>> = userDataRepository.userData
-        .catch { throwable -> UiState.Error(UserData(), throwable) }
-        .map { userData -> UiState.Success(userData) }
-        .stateInDelayed(UiState.Loading(UserData()), viewModelScope)
+        .map { userData -> UiState(userData) }
+        .catch { e -> UiState(UserData(), error = e) }
+        .stateInDelayed(UiState(UserData(), loading = true), viewModelScope)
 }

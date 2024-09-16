@@ -32,10 +32,10 @@ data class HomeScreenData(
  * @property thumbnailUrl The URL of the thumbnail image associated with the network post.
  */
 data class UiPost(
-    val id: Int,
-    val title: String,
-    val url: String,
-    val thumbnailUrl: String,
+    val id: Int = 0,
+    val title: String = "",
+    val url: String = "",
+    val thumbnailUrl: String = "",
 )
 
 /**

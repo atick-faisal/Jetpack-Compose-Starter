@@ -35,9 +35,9 @@ class ProfileViewModel @Inject constructor(
 ) : ViewModel() {
     val profileUiState: StateFlow<UiState<ProfileScreenData>> =
         profileDataRepository.profileScreenData
-            .map { UiState.Success(it) }
-            .catch { UiState.Error(ProfileScreenData(), it) }
-            .stateInDelayed(UiState.Loading(ProfileScreenData()), viewModelScope)
+            .map { UiState(it) }
+            .catch { e -> UiState(ProfileScreenData(), error = e) }
+            .stateInDelayed(UiState(ProfileScreenData(), loading = true), viewModelScope)
 
     fun signOut() {
         viewModelScope.launch {

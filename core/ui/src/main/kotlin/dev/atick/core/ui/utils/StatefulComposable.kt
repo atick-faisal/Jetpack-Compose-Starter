@@ -27,37 +27,34 @@ import dev.atick.core.ui.components.JetpackOverlayLoadingWheel
 
 @Stable
 @Composable
-fun <T> StatefulComposable(
+fun <T : Any> StatefulComposable(
     state: UiState<T>,
     onShowSnackbar: suspend (String, String?) -> Boolean,
     content: @Composable (T) -> Unit,
 ) {
     content(state.data)
-    when (state) {
-        is UiState.Loading -> {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-            ) {
-                JetpackOverlayLoadingWheel(
-                    modifier = Modifier
-                        .align(Alignment.Center),
-                    contentDesc = "",
-                )
-            }
-        }
 
-        is UiState.Error -> {
-            LaunchedEffect(onShowSnackbar) {
-                onShowSnackbar(state.t?.message.toString(), null)
-            }
+    if (state.loading) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+        ) {
+            JetpackOverlayLoadingWheel(
+                modifier = Modifier
+                    .align(Alignment.Center),
+                contentDesc = "",
+            )
         }
+    }
 
-        else -> {}
+    if (state.error != null) {
+        LaunchedEffect(onShowSnackbar) {
+            onShowSnackbar(state.error.message.toString(), null)
+        }
     }
 }
 
-sealed class UiState<out T>(val data: T) {
-    data class Loading<T>(val d: T) : UiState<T>(d)
-    data class Success<T>(val d: T) : UiState<T>(d)
-    data class Error<T>(val d: T, val t: Throwable?) : UiState<T>(d)
-}
+data class UiState<T : Any>(
+    val data: T,
+    val loading: Boolean = false,
+    val error: Throwable? = null,
+)
