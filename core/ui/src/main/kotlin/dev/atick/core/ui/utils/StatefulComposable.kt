@@ -34,7 +34,7 @@ fun <T : Any> StatefulComposable(
 ) {
     content(state.data)
 
-    if (state.loading) {
+    if (state.isLoading) {
         Box(
             modifier = Modifier.fillMaxSize(),
         ) {
@@ -57,4 +57,7 @@ data class UiState<T : Any>(
     val data: T,
     val loading: Boolean = false,
     val error: Throwable? = null,
-)
+) {
+    val isLoading: Boolean
+        get() = loading && error == null
+}
