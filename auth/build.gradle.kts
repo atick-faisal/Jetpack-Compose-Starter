@@ -21,6 +21,10 @@ plugins {
 
 android {
     namespace = "dev.atick.auth"
+
+    defaultConfig {
+        consumerProguardFiles("consumer-rules.pro")
+    }
 }
 
 dependencies {
