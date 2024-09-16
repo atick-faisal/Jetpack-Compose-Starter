@@ -44,10 +44,12 @@ $dokka.location:dev.atick.auth.models/AuthUser/id/#/PointingToDeclaration/auth/
 $dokka.location:dev.atick.auth.models/AuthUser/name/#/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-user/name.md
 $dokka.location:dev.atick.auth.models/AuthUser/profilePictureUri/#/PointingToDeclaration/auth/auth/dev.atick.auth.models/-auth-user/profile-picture-uri.md
 $dokka.location:dev.atick.auth.navigation////PointingToDeclaration/auth/auth/dev.atick.auth.navigation/index.md
-$dokka.location:dev.atick.auth.navigation//authNavGraph/androidx.navigation.NavGraphBuilder#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#kotlin.coroutines.SuspendFunction2[kotlin.String,kotlin.String?,kotlin.Boolean]/PointingToDeclaration/auth/auth/dev.atick.auth.navigation/auth-nav-graph.md
+$dokka.location:dev.atick.auth.navigation//authNavGraph/androidx.navigation.NavGraphBuilder#kotlin.Function1[androidx.navigation.NavGraphBuilder,kotlin.Unit]/PointingToDeclaration/auth/auth/dev.atick.auth.navigation/auth-nav-graph.md
 $dokka.location:dev.atick.auth.navigation//navigateToAuthNavGraph/androidx.navigation.NavController#androidx.navigation.NavOptions?/PointingToDeclaration/auth/auth/dev.atick.auth.navigation/navigate-to-auth-nav-graph.md
 $dokka.location:dev.atick.auth.navigation//navigateToSignInRoute/androidx.navigation.NavController#androidx.navigation.NavOptions?/PointingToDeclaration/auth/auth/dev.atick.auth.navigation/navigate-to-sign-in-route.md
 $dokka.location:dev.atick.auth.navigation//navigateToSignUpRoute/androidx.navigation.NavController#androidx.navigation.NavOptions?/PointingToDeclaration/auth/auth/dev.atick.auth.navigation/navigate-to-sign-up-route.md
+$dokka.location:dev.atick.auth.navigation//signInScreen/androidx.navigation.NavGraphBuilder#kotlin.Function0[kotlin.Unit]#kotlin.coroutines.SuspendFunction2[kotlin.String,kotlin.String?,kotlin.Boolean]/PointingToDeclaration/auth/auth/dev.atick.auth.navigation/sign-in-screen.md
+$dokka.location:dev.atick.auth.navigation//signUpScreen/androidx.navigation.NavGraphBuilder#kotlin.Function0[kotlin.Unit]#kotlin.coroutines.SuspendFunction2[kotlin.String,kotlin.String?,kotlin.Boolean]/PointingToDeclaration/auth/auth/dev.atick.auth.navigation/sign-up-screen.md
 $dokka.location:dev.atick.auth.navigation/AuthNavGraph///PointingToDeclaration/auth/auth/dev.atick.auth.navigation/-auth-nav-graph/index.md
 $dokka.location:dev.atick.auth.navigation/SignIn///PointingToDeclaration/auth/auth/dev.atick.auth.navigation/-sign-in/index.md
 $dokka.location:dev.atick.auth.navigation/SignUp///PointingToDeclaration/auth/auth/dev.atick.auth.navigation/-sign-up/index.md
@@ -204,7 +206,8 @@ $dokka.location:dev.atick.compose.navigation.details/Details///PointingToDeclara
 $dokka.location:dev.atick.compose.navigation.details/Details/Details/#kotlin.Int/PointingToDeclaration/app/app/dev.atick.compose.navigation.details/-details/-details.md
 $dokka.location:dev.atick.compose.navigation.details/Details/postId/#/PointingToDeclaration/app/app/dev.atick.compose.navigation.details/-details/post-id.md
 $dokka.location:dev.atick.compose.navigation.home////PointingToDeclaration/app/app/dev.atick.compose.navigation.home/index.md
-$dokka.location:dev.atick.compose.navigation.home//homeNavGraph/androidx.navigation.NavGraphBuilder#kotlin.Function1[kotlin.Int,kotlin.Unit]#kotlin.coroutines.SuspendFunction2[kotlin.String,kotlin.String?,kotlin.Boolean]#kotlin.Function1[androidx.navigation.NavGraphBuilder,kotlin.Unit]/PointingToDeclaration/app/app/dev.atick.compose.navigation.home/home-nav-graph.md
+$dokka.location:dev.atick.compose.navigation.home//homeNavGraph/androidx.navigation.NavGraphBuilder#kotlin.Function1[androidx.navigation.NavGraphBuilder,kotlin.Unit]/PointingToDeclaration/app/app/dev.atick.compose.navigation.home/home-nav-graph.md
+$dokka.location:dev.atick.compose.navigation.home//homeScreen/androidx.navigation.NavGraphBuilder#kotlin.Function1[kotlin.Int,kotlin.Unit]#kotlin.coroutines.SuspendFunction2[kotlin.String,kotlin.String?,kotlin.Boolean]/PointingToDeclaration/app/app/dev.atick.compose.navigation.home/home-screen.md
 $dokka.location:dev.atick.compose.navigation.home//navigateToHomeNavGraph/androidx.navigation.NavController#androidx.navigation.NavOptions?/PointingToDeclaration/app/app/dev.atick.compose.navigation.home/navigate-to-home-nav-graph.md
 $dokka.location:dev.atick.compose.navigation.home/Home///PointingToDeclaration/app/app/dev.atick.compose.navigation.home/-home/index.md
 $dokka.location:dev.atick.compose.navigation.home/HomeNavGraph///PointingToDeclaration/app/app/dev.atick.compose.navigation.home/-home-nav-graph/index.md
