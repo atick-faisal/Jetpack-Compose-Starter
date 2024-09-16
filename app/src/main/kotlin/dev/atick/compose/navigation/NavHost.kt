@@ -23,10 +23,13 @@ import dev.atick.auth.navigation.AuthNavGraph
 import dev.atick.auth.navigation.authNavGraph
 import dev.atick.auth.navigation.navigateToSignInRoute
 import dev.atick.auth.navigation.navigateToSignUpRoute
+import dev.atick.auth.navigation.signInScreen
+import dev.atick.auth.navigation.signUpScreen
 import dev.atick.compose.navigation.details.detailsScreen
 import dev.atick.compose.navigation.details.navigateToDetailsScreen
 import dev.atick.compose.navigation.home.HomeNavGraph
 import dev.atick.compose.navigation.home.homeNavGraph
+import dev.atick.compose.navigation.home.homeScreen
 import dev.atick.compose.navigation.profile.profileScreen
 import dev.atick.compose.ui.JetpackAppState
 
@@ -45,14 +48,23 @@ fun JetpackNavHost(
         modifier = modifier,
     ) {
         authNavGraph(
-            onSignUpClick = navController::navigateToSignUpRoute,
-            onSignInCLick = navController::navigateToSignInRoute,
-            onShowSnackbar = onShowSnackbar,
+            nestedNavGraphs = {
+                signInScreen(
+                    onSignUpClick = navController::navigateToSignUpRoute,
+                    onShowSnackbar = onShowSnackbar,
+                )
+                signUpScreen(
+                    onSignInClick = navController::navigateToSignInRoute,
+                    onShowSnackbar = onShowSnackbar,
+                )
+            },
         )
         homeNavGraph(
-            onPostClick = navController::navigateToDetailsScreen,
-            onShowSnackbar = onShowSnackbar,
             nestedNavGraphs = {
+                homeScreen(
+                    onPostClick = navController::navigateToDetailsScreen,
+                    onShowSnackbar = onShowSnackbar,
+                )
                 detailsScreen(
                     onBackClick = navController::popBackStack,
                     onShowSnackbar = onShowSnackbar,

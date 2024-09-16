@@ -46,23 +46,34 @@ fun NavController.navigateToSignUpRoute(navOptions: NavOptions? = null) {
     navigate(SignUp, navOptions)
 }
 
-fun NavGraphBuilder.authNavGraph(
+fun NavGraphBuilder.signInScreen(
     onSignUpClick: () -> Unit,
-    onSignInCLick: () -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
 ) {
+    composable<SignIn> {
+        SignInRoute(
+            onSignUpClick = onSignUpClick,
+            onShowSnackbar = onShowSnackbar,
+        )
+    }
+}
+
+fun NavGraphBuilder.signUpScreen(
+    onSignInClick: () -> Unit,
+    onShowSnackbar: suspend (String, String?) -> Boolean,
+) {
+    composable<SignUp> {
+        SignUpRoute(
+            onSignInClick = onSignInClick,
+            onShowSnackbar = onShowSnackbar,
+        )
+    }
+}
+
+fun NavGraphBuilder.authNavGraph(
+    nestedNavGraphs: NavGraphBuilder.() -> Unit,
+) {
     navigation<AuthNavGraph>(startDestination = SignIn) {
-        composable<SignIn> {
-            SignInRoute(
-                onSignUpClick = onSignUpClick,
-                onShowSnackbar = onShowSnackbar,
-            )
-        }
-        composable<SignUp> {
-            SignUpRoute(
-                onSignInClick = onSignInCLick,
-                onShowSnackbar = onShowSnackbar,
-            )
-        }
+        nestedNavGraphs()
     }
 }
