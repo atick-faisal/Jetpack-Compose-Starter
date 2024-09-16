@@ -81,6 +81,18 @@ class AuthViewModel @Inject constructor(
         }
     }
 
+    fun signInWithSavedCredentials(activity: Activity) {
+        _authUiState.update { it.copy(loading = true) }
+        viewModelScope.launch {
+            val result = authRepository.signInWithSavedCredentials(activity)
+            if (result.isSuccess) {
+                _authUiState.update { UiState(AuthScreenData()) }
+            } else {
+                _authUiState.update { it.copy(error = result.exceptionOrNull()) }
+            }
+        }
+    }
+
     fun loginWithEmailAndPassword() {
         _authUiState.update { it.copy(loading = true) }
         viewModelScope.launch {
@@ -96,13 +108,14 @@ class AuthViewModel @Inject constructor(
         }
     }
 
-    fun registerWithEmailAndPassword() {
+    fun registerWithEmailAndPassword(activity: Activity) {
         _authUiState.update { it.copy(loading = true) }
         viewModelScope.launch {
             val result = authRepository.registerWithEmailAndPassword(
                 name = authUiState.value.data.name.value,
                 email = authUiState.value.data.email.value,
                 password = authUiState.value.data.email.value,
+                activity = activity,
             )
             if (result.isSuccess) {
                 _authUiState.update { UiState(AuthScreenData()) }

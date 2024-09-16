@@ -34,6 +34,20 @@ class AuthRepositoryImpl @Inject constructor(
 ) : AuthRepository {
 
     /**
+     * Sign in with saved credentials.
+     *
+     * @param activity The activity instance.
+     * @return A [Result] containing the authenticated [AuthUser] upon successful sign-in.
+     */
+    override suspend fun signInWithSavedCredentials(activity: Activity): Result<AuthUser> {
+        return runCatching {
+            val user = authDataSource.signInWithSavedCredentials(activity)
+            userPreferencesDataSource.setProfile(user.asProfile())
+            user
+        }
+    }
+
+    /**
      * Sign in with an email and password.
      *
      * @param email The user's email address.
@@ -63,9 +77,10 @@ class AuthRepositoryImpl @Inject constructor(
         name: String,
         email: String,
         password: String,
+        activity: Activity,
     ): Result<AuthUser> {
         return runCatching {
-            val user = authDataSource.registerWithEmailAndPassword(name, email, password)
+            val user = authDataSource.registerWithEmailAndPassword(name, email, password, activity)
             userPreferencesDataSource.setProfile(user.asProfile())
             user
         }

@@ -17,10 +17,14 @@
 package dev.atick.auth.data
 
 import android.app.Activity
+import androidx.credentials.CreatePasswordRequest
+import androidx.credentials.CreatePasswordResponse
 import androidx.credentials.CredentialManager
 import androidx.credentials.CustomCredential
 import androidx.credentials.GetCredentialRequest
 import androidx.credentials.GetCredentialResponse
+import androidx.credentials.GetPasswordOption
+import androidx.credentials.PasswordCredential
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.firebase.auth.FirebaseAuth
@@ -57,6 +61,23 @@ class AuthDataSourceImpl @Inject constructor(
         get() = firebaseAuth.currentUser?.run { asAuthUser() }
 
     /**
+     * Look for saved credentials.
+     *
+     * @param activity The activity instance.
+     * @return The authenticated [AuthUser] upon successful sign-in.
+     */
+    override suspend fun signInWithSavedCredentials(activity: Activity): AuthUser {
+        val request = getSignInRequest()
+        return withContext(ioDispatcher) {
+            val result = credentialManager.getCredential(
+                request = request,
+                context = activity,
+            )
+            handleAuthResult(result)
+        }
+    }
+
+    /**
      * Sign in with an email and password.
      *
      * @param email The user's email address.
@@ -85,11 +106,16 @@ class AuthDataSourceImpl @Inject constructor(
         name: String,
         email: String,
         password: String,
+        activity: Activity,
     ): AuthUser {
         return withContext(ioDispatcher) {
             val user = firebaseAuth.createUserWithEmailAndPassword(email, password).await().user!!
             user.updateProfile(UserProfileChangeRequest.Builder().setDisplayName(name).build())
                 .await()
+
+            // Save credentials
+            val request = CreatePasswordRequest(email, password)
+            credentialManager.createCredential(activity, request) as CreatePasswordResponse
             user.asAuthUser()
         }
     }
@@ -101,13 +127,13 @@ class AuthDataSourceImpl @Inject constructor(
      * @return The authenticated [AuthUser] upon successful sign-in.
      */
     override suspend fun signInWithGoogle(activity: Activity): AuthUser {
-        val request = getSignInWithGoogleRequest()
+        val request = getSignInRequest()
         return withContext(ioDispatcher) {
             val result = credentialManager.getCredential(
                 request = request,
                 context = activity,
             )
-            handleGoogleAuthResult(result)
+            handleAuthResult(result)
         }
     }
 
@@ -124,7 +150,7 @@ class AuthDataSourceImpl @Inject constructor(
                 request = request,
                 context = activity,
             )
-            handleGoogleAuthResult(result)
+            handleAuthResult(result)
         }
     }
 
@@ -138,14 +164,19 @@ class AuthDataSourceImpl @Inject constructor(
     }
 
     /**
-     * Get the sign-in request for Google.
+     * Get the sign-in request for Google and Password Auth.
      *
      * @return The [GetCredentialRequest] for Google sign-in.
      */
-    private fun getSignInWithGoogleRequest(): GetCredentialRequest {
-        val signInRequestOptions = GetGoogleIdOption.Builder().setFilterByAuthorizedAccounts(true)
+    private fun getSignInRequest(): GetCredentialRequest {
+        val getPasswordOption = GetPasswordOption()
+        val getGoogleIdOption = GetGoogleIdOption.Builder().setFilterByAuthorizedAccounts(true)
             .setServerClientId(Config.WEB_CLIENT_ID).setAutoSelectEnabled(true).build()
-        return GetCredentialRequest.Builder().addCredentialOption(signInRequestOptions).build()
+        return GetCredentialRequest
+            .Builder()
+            .addCredentialOption(getPasswordOption)
+            .addCredentialOption(getGoogleIdOption)
+            .build()
     }
 
     /**
@@ -165,22 +196,35 @@ class AuthDataSourceImpl @Inject constructor(
      * @param result The result of Google authentication.
      * @return The authenticated [AuthUser] upon successful authentication.
      */
-    private suspend fun handleGoogleAuthResult(result: GetCredentialResponse): AuthUser {
-        if (result.credential !is CustomCredential) throw Exception("Something went wrong when signing in with Google")
+    private suspend fun handleAuthResult(result: GetCredentialResponse): AuthUser {
+        return when (val credential = result.credential) {
+            is CustomCredential -> {
+                if (credential.type == GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
+                    val googleIdTokenCredential =
+                        GoogleIdTokenCredential.createFrom(credential.data)
+                    val googleCredentials =
+                        GoogleAuthProvider.getCredential(googleIdTokenCredential.idToken, null)
 
-        val credential = result.credential as CustomCredential
+                    val user = firebaseAuth.signInWithCredential(googleCredentials).await().user!!
+                    user.asAuthUser()
+                }
+                throw Exception(
+                    "Something went wrong when signing in with Google",
+                )
+            }
 
-        if (credential.type != GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
-            throw Exception(
-                "Something went wrong when signing in with Google",
-            )
+            is PasswordCredential -> {
+                signInWithEmailAndPassword(
+                    email = credential.id,
+                    password = credential.password,
+                )
+            }
+
+            else -> {
+                throw Exception(
+                    "Something went wrong when signing in",
+                )
+            }
         }
-
-        val googleIdTokenCredential = GoogleIdTokenCredential.createFrom(credential.data)
-        val googleCredentials =
-            GoogleAuthProvider.getCredential(googleIdTokenCredential.idToken, null)
-
-        val user = firebaseAuth.signInWithCredential(googleCredentials).await().user!!
-        return user.asAuthUser()
     }
 }

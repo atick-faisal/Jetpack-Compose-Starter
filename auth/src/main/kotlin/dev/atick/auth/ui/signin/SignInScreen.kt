@@ -35,6 +35,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -66,24 +67,6 @@ fun SignInRoute(
     authViewModel: AuthViewModel = hiltViewModel(),
 ) {
     val loginState by authViewModel.authUiState.collectAsStateWithLifecycle()
-//    val googleSignInIntent = loginState.data.googleSignInIntent
-//
-//    val launcher = rememberLauncherForActivityResult(
-//        contract = ActivityResultContracts.StartIntentSenderForResult(),
-//        onResult = { result ->
-//            if (result.resultCode == RESULT_OK) {
-//                result.data?.run {
-//                    authViewModel.signInWithIntent(this)
-//                }
-//            }
-//        },
-//    )
-//
-//    googleSignInIntent?.let { intentSender ->
-//        LaunchedEffect(key1 = googleSignInIntent) {
-//            launcher.launch(IntentSenderRequest.Builder(intentSender).build())
-//        }
-//    }
 
     StatefulComposable(
         state = loginState,
@@ -93,6 +76,7 @@ fun SignInRoute(
             homeScreenData,
             authViewModel::updateEmail,
             authViewModel::updatePassword,
+            authViewModel::signInWithSavedCredentials,
             authViewModel::signInWithGoogle,
             authViewModel::loginWithEmailAndPassword,
             onSignUpClick,
@@ -105,12 +89,16 @@ private fun SignInScreen(
     authScreenData: AuthScreenData,
     onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
+    onSignInWithSavedCredentials: (Activity) -> Unit,
     onSignInWithGoogleClick: (Activity) -> Unit,
     onSignInClick: () -> Unit,
     onSignUpClick: () -> Unit,
 ) {
     val focusManager = LocalFocusManager.current
     val activity = LocalContext.current.getActivity()
+
+    // Try sign in with saved credentials on launch
+    LaunchedEffect(Unit) { activity?.run(onSignInWithSavedCredentials) }
 
     Column(
         modifier = Modifier.padding(24.dp),
@@ -120,7 +108,7 @@ private fun SignInScreen(
         Text(stringResource(R.string.sign_in), style = MaterialTheme.typography.headlineLarge)
         Spacer(modifier = Modifier.height(24.dp))
         JetpackOutlinedButton(
-            onClick = { activity?.run { onSignInWithGoogleClick.invoke(this) } },
+            onClick = { activity?.run(onSignInWithGoogleClick) },
             text = { Text(text = "Sign In with Google") },
             leadingIcon = {
                 Icon(
@@ -192,6 +180,7 @@ fun SignInScreenPreview() {
         authScreenData = AuthScreenData(),
         onEmailChange = {},
         onPasswordChange = {},
+        onSignInWithSavedCredentials = {},
         onSignInWithGoogleClick = {},
         onSignInClick = {},
         onSignUpClick = {},

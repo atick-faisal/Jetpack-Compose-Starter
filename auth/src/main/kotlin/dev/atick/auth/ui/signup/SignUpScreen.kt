@@ -109,7 +109,7 @@ private fun SignUpScreen(
     onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
     onRegisterWithGoogleClick: (Activity) -> Unit,
-    onSignUpClick: () -> Unit,
+    onSignUpClick: (Activity) -> Unit,
     onSignInClick: () -> Unit,
 ) {
     val focusManager = LocalFocusManager.current
@@ -123,7 +123,7 @@ private fun SignUpScreen(
         Text(stringResource(id = R.string.sign_up), style = MaterialTheme.typography.headlineLarge)
         Spacer(modifier = Modifier.height(24.dp))
         JetpackOutlinedButton(
-            onClick = { activity?.run { onRegisterWithGoogleClick.invoke(this) } },
+            onClick = { activity?.run(onRegisterWithGoogleClick) },
             text = { Text(text = stringResource(R.string.sign_up_with_google)) },
             leadingIcon = {
                 Icon(
@@ -179,7 +179,7 @@ private fun SignUpScreen(
         JetpackButton(
             onClick = {
                 focusManager.clearFocus()
-                onSignUpClick.invoke()
+                activity?.run(onSignUpClick)
             },
             modifier = Modifier.fillMaxWidth(),
             text = { Text(stringResource(R.string.sign_up)) },
