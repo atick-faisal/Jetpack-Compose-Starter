@@ -32,6 +32,14 @@ interface AuthDataSource {
     val currentUser: AuthUser?
 
     /**
+     * Look for saved credentials.
+     *
+     * @param activity The activity instance.
+     * @return The authenticated [AuthUser] upon successful sign-in.
+     */
+    suspend fun signInWithSavedCredentials(activity: Activity): AuthUser
+
+    /**
      * Sign in with an email and password.
      *
      * @param email The user's email address.
@@ -52,6 +60,7 @@ interface AuthDataSource {
         name: String,
         email: String,
         password: String,
+        activity: Activity,
     ): AuthUser
 
     /**

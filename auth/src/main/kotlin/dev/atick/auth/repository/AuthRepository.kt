@@ -24,6 +24,14 @@ import dev.atick.auth.models.AuthUser
  */
 interface AuthRepository {
     /**
+     * Sign in with saved credentials.
+     *
+     * @param activity The activity instance.
+     * @return A [Result] containing the authenticated [AuthUser] upon successful sign-in.
+     */
+    suspend fun signInWithSavedCredentials(activity: Activity): Result<AuthUser>
+
+    /**
      * Sign in with an email and password.
      *
      * @param email The user's email address.
@@ -44,6 +52,7 @@ interface AuthRepository {
         name: String,
         email: String,
         password: String,
+        activity: Activity,
     ): Result<AuthUser>
 
     /**
