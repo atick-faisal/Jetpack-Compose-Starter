@@ -93,11 +93,11 @@ class JetpackAppState(
 
     val shouldShowBottomBar: Boolean
         @Composable get() = (windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact) &&
-                (currentTopLevelDestination != null)
+            (currentTopLevelDestination != null)
 
     val shouldShowNavRail: Boolean
         @Composable get() = (windowSizeClass.widthSizeClass != WindowWidthSizeClass.Compact) &&
-                (currentTopLevelDestination != null)
+            (currentTopLevelDestination != null)
 
     val isOffline = networkUtils.currentState
         .map { it != NetworkState.CONNECTED }

@@ -50,7 +50,7 @@ import dev.atick.core.ui.utils.StatefulComposable
  */
 @Composable
 internal fun HomeRoute(
-    onPostCLick: (Int) -> Unit,
+    onPostClick: (Int) -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
     homeViewModel: HomeViewModel = hiltViewModel(),
 ) {
@@ -60,7 +60,7 @@ internal fun HomeRoute(
         state = homeState,
         onShowSnackbar = onShowSnackbar,
     ) { homeScreenData ->
-        HomeScreen(homeScreenData, onPostCLick)
+        HomeScreen(homeScreenData, onPostClick)
     }
 }
 

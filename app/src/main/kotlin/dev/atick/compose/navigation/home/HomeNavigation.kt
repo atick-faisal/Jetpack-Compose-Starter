@@ -34,15 +34,22 @@ fun NavController.navigateToHomeNavGraph(navOptions: NavOptions? = null) {
     navigate(HomeNavGraph, navOptions)
 }
 
-fun NavGraphBuilder.homeNavGraph(
+fun NavGraphBuilder.homeScreen(
     onPostClick: (Int) -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
+) {
+    composable<Home> {
+        HomeRoute(
+            onPostClick = onPostClick,
+            onShowSnackbar = onShowSnackbar,
+        )
+    }
+}
+
+fun NavGraphBuilder.homeNavGraph(
     nestedNavGraphs: NavGraphBuilder.() -> Unit,
 ) {
     navigation<HomeNavGraph>(startDestination = Home) {
-        composable<Home> {
-            HomeRoute(onPostCLick = onPostClick, onShowSnackbar = onShowSnackbar)
-        }
         nestedNavGraphs()
     }
 }
