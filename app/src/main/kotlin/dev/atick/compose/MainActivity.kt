@@ -74,19 +74,14 @@ class MainActivity : ComponentActivity() {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
 
-        var uiState: UiState<UserData> by mutableStateOf(UiState.Loading(UserData()))
+        var uiState: UiState<UserData> by mutableStateOf(UiState(UserData(), loading = true))
 
         collectWithLifecycle(viewModel.uiState) { uiState = it }
 
         // Keep the splash screen on-screen until the UI state is loaded. This condition is
         // evaluated each time the app needs to be redrawn so it should be fast to avoid blocking
         // the UI.
-        splashScreen.setKeepOnScreenCondition {
-            when (uiState) {
-                is UiState.Loading -> true
-                else -> false
-            }
-        }
+        splashScreen.setKeepOnScreenCondition { uiState.loading }
 
         // Turn off the decor fitting system windows, which allows us to handle insets,
         // including IME animations, and go edge-to-edge
@@ -161,14 +156,12 @@ class MainActivity : ComponentActivity() {
 @Composable
 private fun shouldUseAndroidTheme(
     uiState: UiState<UserData>,
-): Boolean = when (uiState) {
-    is UiState.Loading,
-    is UiState.Error,
-    -> false
+): Boolean {
+    if (uiState.loading || uiState.error != null) return false
 
-    is UiState.Success -> when (uiState.data.themeBrand) {
-        ThemeBrand.DEFAULT -> false
+    return when (uiState.data.themeBrand) {
         ThemeBrand.ANDROID -> true
+        ThemeBrand.DEFAULT -> false
     }
 }
 
@@ -178,12 +171,12 @@ private fun shouldUseAndroidTheme(
 @Composable
 private fun shouldDisableDynamicTheming(
     uiState: UiState<UserData>,
-): Boolean = when (uiState) {
-    is UiState.Loading,
-    is UiState.Error,
-    -> false
-
-    is UiState.Success -> !uiState.data.useDynamicColor
+): Boolean {
+    return if (uiState.loading || uiState.error != null) {
+        false
+    } else {
+        !uiState.data.useDynamicColor
+    }
 }
 
 /**
@@ -193,15 +186,15 @@ private fun shouldDisableDynamicTheming(
 @Composable
 private fun shouldUseDarkTheme(
     uiState: UiState<UserData>,
-): Boolean = when (uiState) {
-    is UiState.Loading,
-    is UiState.Error,
-    -> isSystemInDarkTheme()
-
-    is UiState.Success -> when (uiState.data.darkThemeConfig) {
-        DarkThemeConfig.FOLLOW_SYSTEM -> isSystemInDarkTheme()
-        DarkThemeConfig.LIGHT -> false
-        DarkThemeConfig.DARK -> true
+): Boolean {
+    return if (uiState.loading || uiState.error != null) {
+        isSystemInDarkTheme()
+    } else {
+        when (uiState.data.darkThemeConfig) {
+            DarkThemeConfig.FOLLOW_SYSTEM -> isSystemInDarkTheme()
+            DarkThemeConfig.LIGHT -> false
+            DarkThemeConfig.DARK -> true
+        }
     }
 }
 
@@ -212,11 +205,8 @@ private fun shouldUseDarkTheme(
  * @return `true` if the user is considered logged in; `false` otherwise.
  */
 private fun isUserLoggedIn(uiState: UiState<UserData>): Boolean {
-    return when (uiState) {
-        is UiState.Loading -> true // User is considered logged in during loading (assuming ongoing session).
-        is UiState.Success -> uiState.data.id.isNotEmpty() // User is logged in if the data ID is not "-1".
-        is UiState.Error -> false // User is not logged in in case of an error.
-    }
+    // User is considered logged in during loading (assuming ongoing session).
+    return uiState.data.id.isNotEmpty() || uiState.loading
 }
 
 /**

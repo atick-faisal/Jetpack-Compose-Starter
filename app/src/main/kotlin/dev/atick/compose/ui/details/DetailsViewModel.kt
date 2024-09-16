@@ -38,17 +38,21 @@ class DetailsViewModel @Inject constructor(
 ) : ViewModel() {
     private val postId = checkNotNull(savedStateHandle.toRoute<Details>().postId)
 
-    private val _detailsUiState: MutableStateFlow<UiState<UiPost?>> =
-        MutableStateFlow(UiState.Loading(null))
+    private val _detailsUiState: MutableStateFlow<UiState<UiPost>> =
+        MutableStateFlow(UiState(UiPost(), loading = true))
     val detailsUiState = _detailsUiState.asStateFlow()
 
     init {
         viewModelScope.launch {
             val result = postsRepository.getPost(postId)
             if (result.isSuccess) {
-                _detailsUiState.update { UiState.Success(result.getOrNull()) }
+                result.getOrNull()?.let { post ->
+                    _detailsUiState.update { UiState(post) }
+                } ?: _detailsUiState.update {
+                    it.copy(error = IllegalStateException("Post not found"))
+                }
             } else {
-                _detailsUiState.update { UiState.Error(null, result.exceptionOrNull()) }
+                _detailsUiState.update { it.copy(error = result.exceptionOrNull()) }
             }
         }
     }

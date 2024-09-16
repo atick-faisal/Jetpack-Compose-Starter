@@ -21,13 +21,13 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.compose.data.settings.UserEditableSettings
 import dev.atick.compose.repository.user.UserDataRepository
+import dev.atick.core.extensions.stateInDelayed
 import dev.atick.core.ui.utils.UiState
 import dev.atick.storage.preferences.models.DarkThemeConfig
 import dev.atick.storage.preferences.models.ThemeBrand
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -39,7 +39,7 @@ class SettingsViewModel @Inject constructor(
     val settingsUiState: StateFlow<UiState<UserEditableSettings>> =
         userDataRepository.userData
             .map { userData ->
-                UiState.Success(
+                UiState(
                     UserEditableSettings(
                         brand = userData.themeBrand,
                         useDynamicColor = userData.useDynamicColor,
@@ -47,17 +47,8 @@ class SettingsViewModel @Inject constructor(
                     ),
                 )
             }
-            .stateIn(
-                scope = viewModelScope,
-                // Starting eagerly means the user data is ready when the SettingsDialog is laid out
-                // for the first time. Without this, due to b/221643630 the layout is done using the
-                // "Loading" text, then replaced with the user editable fields once loaded, however,
-                // the layout height doesn't change meaning all the fields are squashed into a small
-                // scrollable column.
-                // TODO: Change to SharingStarted.WhileSubscribed(5_000) when b/221643630 is fixed
-                started = SharingStarted.Eagerly,
-                initialValue = UiState.Loading(UserEditableSettings()),
-            )
+            .catch { e -> UiState(UserEditableSettings(), error = e) }
+            .stateInDelayed(UiState(UserEditableSettings(), loading = true), viewModelScope)
 
     fun updateThemeBrand(themeBrand: ThemeBrand) {
         viewModelScope.launch {

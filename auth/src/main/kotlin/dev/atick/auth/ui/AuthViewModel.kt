@@ -39,12 +39,12 @@ class AuthViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _authUiState: MutableStateFlow<UiState<AuthScreenData>> =
-        MutableStateFlow(UiState.Success(AuthScreenData()))
+        MutableStateFlow(UiState(AuthScreenData()))
     val authUiState = _authUiState.asStateFlow()
 
     fun updateName(name: String) {
         _authUiState.update {
-            UiState.Success(
+            UiState(
                 it.data.copy(
                     name = TextFiledData(
                         value = name,
@@ -57,7 +57,7 @@ class AuthViewModel @Inject constructor(
 
     fun updateEmail(email: String) {
         _authUiState.update {
-            UiState.Success(
+            UiState(
                 it.data.copy(
                     email = TextFiledData(
                         value = email,
@@ -70,7 +70,7 @@ class AuthViewModel @Inject constructor(
 
     fun updatePassword(password: String) {
         _authUiState.update {
-            UiState.Success(
+            UiState(
                 it.data.copy(
                     password = TextFiledData(
                         value = password,
@@ -82,27 +82,22 @@ class AuthViewModel @Inject constructor(
     }
 
     fun loginWithEmailAndPassword() {
-        _authUiState.update { UiState.Loading(authUiState.value.data) }
+        _authUiState.update { it.copy(loading = true) }
         viewModelScope.launch {
             val result = authRepository.signInWithEmailAndPassword(
                 email = authUiState.value.data.email.value,
                 password = authUiState.value.data.email.value,
             )
             if (result.isSuccess) {
-                _authUiState.update { UiState.Success(AuthScreenData()) }
+                _authUiState.update { UiState(AuthScreenData()) }
             } else {
-                _authUiState.update {
-                    UiState.Error(
-                        authUiState.value.data,
-                        result.exceptionOrNull(),
-                    )
-                }
+                _authUiState.update { it.copy(error = result.exceptionOrNull()) }
             }
         }
     }
 
     fun registerWithEmailAndPassword() {
-        _authUiState.update { UiState.Loading(authUiState.value.data) }
+        _authUiState.update { it.copy(loading = true) }
         viewModelScope.launch {
             val result = authRepository.registerWithEmailAndPassword(
                 name = authUiState.value.data.name.value,
@@ -110,48 +105,33 @@ class AuthViewModel @Inject constructor(
                 password = authUiState.value.data.email.value,
             )
             if (result.isSuccess) {
-                _authUiState.update { UiState.Success(AuthScreenData()) }
+                _authUiState.update { UiState(AuthScreenData()) }
             } else {
-                _authUiState.update {
-                    UiState.Error(
-                        authUiState.value.data,
-                        result.exceptionOrNull(),
-                    )
-                }
+                _authUiState.update { it.copy(error = result.exceptionOrNull()) }
             }
         }
     }
 
     fun signInWithGoogle(activity: Activity) {
-        _authUiState.update { UiState.Loading(authUiState.value.data) }
+        _authUiState.update { it.copy(loading = true) }
         viewModelScope.launch {
             val result = authRepository.signInWithGoogle(activity)
             if (result.isSuccess) {
-                _authUiState.update { UiState.Success(AuthScreenData()) }
+                _authUiState.update { UiState(AuthScreenData()) }
             } else {
-                _authUiState.update {
-                    UiState.Error(
-                        authUiState.value.data,
-                        result.exceptionOrNull(),
-                    )
-                }
+                _authUiState.update { it.copy(error = result.exceptionOrNull()) }
             }
         }
     }
 
     fun registerWithGoogle(activity: Activity) {
-        _authUiState.update { UiState.Loading(authUiState.value.data) }
+        _authUiState.update { it.copy(loading = true) }
         viewModelScope.launch {
             val result = authRepository.registerWithGoogle(activity)
             if (result.isSuccess) {
-                _authUiState.update { UiState.Success(AuthScreenData()) }
+                _authUiState.update { UiState(AuthScreenData()) }
             } else {
-                _authUiState.update {
-                    UiState.Error(
-                        authUiState.value.data,
-                        result.exceptionOrNull(),
-                    )
-                }
+                _authUiState.update { it.copy(error = result.exceptionOrNull()) }
             }
         }
     }
