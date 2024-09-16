@@ -20,6 +20,7 @@ import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.NavDestination
@@ -81,18 +82,22 @@ class JetpackAppState(
 
     val currentTopLevelDestination: TopLevelDestination?
         @Composable get() {
+            // Getting the current back stack entry here instead of using currentDestination
+            // solves the vanishing bottom bar issue
+            // (https://github.com/atick-faisal/Jetpack-Compose-Starter/issues/255)
+            val backStackEntry by navController.currentBackStackEntryAsState()
             return TopLevelDestination.entries.firstOrNull { topLevelDestination ->
-                currentDestination?.hasRoute(route = topLevelDestination.route) ?: false
+                backStackEntry?.destination?.hasRoute(route = topLevelDestination.route) ?: false
             }
         }
 
     val shouldShowBottomBar: Boolean
         @Composable get() = (windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact) &&
-            (currentTopLevelDestination != null)
+                (currentTopLevelDestination != null)
 
     val shouldShowNavRail: Boolean
         @Composable get() = (windowSizeClass.widthSizeClass != WindowWidthSizeClass.Compact) &&
-            (currentTopLevelDestination != null)
+                (currentTopLevelDestination != null)
 
     val isOffline = networkUtils.currentState
         .map { it != NetworkState.CONNECTED }
