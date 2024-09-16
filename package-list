@@ -422,6 +422,7 @@ $dokka.location:dev.atick.core.ui.utils/UiState///PointingToDeclaration/ui/ui/d
 $dokka.location:dev.atick.core.ui.utils/UiState/UiState/#TypeParam(bounds=[kotlin.Any])#kotlin.Boolean#kotlin.Throwable?/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/-ui-state.md
 $dokka.location:dev.atick.core.ui.utils/UiState/data/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/data.md
 $dokka.location:dev.atick.core.ui.utils/UiState/error/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/error.md
+$dokka.location:dev.atick.core.ui.utils/UiState/isLoading/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/is-loading.md
 $dokka.location:dev.atick.core.ui.utils/UiState/loading/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/loading.md
 $dokka.location:dev.atick.core.ui.utils/UiText.DynamicString///PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/-dynamic-string/index.md
 $dokka.location:dev.atick.core.ui.utils/UiText.DynamicString/DynamicString/#kotlin.String/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/-dynamic-string/-dynamic-string.md
