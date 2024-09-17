@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.Stable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import dev.atick.core.ui.components.JetpackOverlayLoadingWheel
@@ -32,7 +33,7 @@ fun <T : Any> StatefulComposable(
 ) {
     content(state.data)
 
-    if (state.isLoading) {
+    if (state.loading) {
         Box(
             modifier = Modifier.fillMaxSize(),
         ) {
@@ -51,11 +52,41 @@ fun <T : Any> StatefulComposable(
     }
 }
 
-data class UiState<T : Any>(
+@Stable
+class UiState<T : Any>(
     val data: T,
     val loading: Boolean = false,
     val error: Throwable? = null,
 ) {
-    val isLoading: Boolean
-        get() = loading && error == null
+    fun copy(
+        data: T = this.data,
+        loading: Boolean = this.loading,
+        error: Throwable? = this.error,
+    ): UiState<T> {
+        val newLoading = if (error != null && this.error == null) false else loading
+        val newError = if (loading && !this.loading) null else error
+
+        return UiState(
+            data = data,
+            loading = newLoading,
+            error = newError,
+        )
+    }
+
+    override fun toString(): String {
+        return "UiState(data=$data, loading=$loading, error=${error?.message})"
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is UiState<*>) return false
+        return data == other.data && loading == other.loading && error == other.error
+    }
+
+    override fun hashCode(): Int {
+        var result = data.hashCode()
+        result = 31 * result + loading.hashCode()
+        result = 31 * result + (error?.hashCode() ?: 0)
+        return result
+    }
 }
