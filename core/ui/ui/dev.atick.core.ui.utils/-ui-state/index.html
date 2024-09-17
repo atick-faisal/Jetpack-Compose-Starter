@@ -16634,6 +16634,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -16703,11 +16709,53 @@
   
   
     <li class="md-nav__item">
+      <a href="copy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Copy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="equals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Equals
   </span>
   
 
@@ -16745,11 +16793,11 @@
   
   
     <li class="md-nav__item">
-      <a href="is-loading/" class="md-nav__link">
+      <a href="hash-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Is loading
+    Hash code
   </span>
   
 
@@ -16771,6 +16819,27 @@
   
   <span class="md-ellipsis">
     Loading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="to-string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    To string
   </span>
   
 
@@ -23608,6 +23677,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -23637,7 +23715,8 @@
 <p>//<a href="../../../">ui</a>/<a href="../">dev.atick.core.ui.utils</a>/<a href="./">UiState</a></p>
 <h1 id="uistate">UiState</h1>
 <p>[androidJvm]\
-data class <a href="./">UiState</a>&lt;<a href="./">T</a> : <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a>&gt;(val data: <a href="./">T</a>, val loading: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = false, val error: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html">Throwable</a>? = null)</p>
+@<a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Stable.html">Stable</a></p>
+<p>class <a href="./">UiState</a>&lt;<a href="./">T</a> : <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a>&gt;(val data: <a href="./">T</a>, val loading: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = false, val error: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html">Throwable</a>? = null)</p>
 <h2 id="constructors">Constructors</h2>
 <table>
 <thead>
@@ -23671,12 +23750,35 @@ data class <a href="./">UiState</a>&lt;<a href="./">T</a> : <a href="https://kot
 <td>[androidJvm]<br>val <a href="error/">error</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html">Throwable</a>? = null</td>
 </tr>
 <tr>
-<td><a href="is-loading/">isLoading</a></td>
-<td>[androidJvm]<br>val <a href="is-loading/">isLoading</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></td>
-</tr>
-<tr>
 <td><a href="loading/">loading</a></td>
 <td>[androidJvm]<br>val <a href="loading/">loading</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = false</td>
+</tr>
+</tbody>
+</table>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="copy/">copy</a></td>
+<td>[androidJvm]<br>fun <a href="copy/">copy</a>(data: <a href="./">T</a> = this.data, loading: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = this.loading, error: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html">Throwable</a>? = this.error): <a href="./">UiState</a>&lt;<a href="./">T</a>&gt;</td>
+</tr>
+<tr>
+<td><a href="equals/">equals</a></td>
+<td>[androidJvm]<br>open operator override fun <a href="equals/">equals</a>(other: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a>?): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></td>
+</tr>
+<tr>
+<td><a href="hash-code/">hashCode</a></td>
+<td>[androidJvm]<br>open override fun <a href="hash-code/">hashCode</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></td>
+</tr>
+<tr>
+<td><a href="to-string/">toString</a></td>
+<td>[androidJvm]<br>open override fun <a href="to-string/">toString</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></td>
 </tr>
 </tbody>
 </table>

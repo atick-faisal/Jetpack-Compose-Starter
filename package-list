@@ -425,10 +425,13 @@ $dokka.location:dev.atick.core.ui.utils/TextFiledData/errorMessage/#/PointingToD
 $dokka.location:dev.atick.core.ui.utils/TextFiledData/value/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-text-filed-data/value.md
 $dokka.location:dev.atick.core.ui.utils/UiState///PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/index.md
 $dokka.location:dev.atick.core.ui.utils/UiState/UiState/#TypeParam(bounds=[kotlin.Any])#kotlin.Boolean#kotlin.Throwable?/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/-ui-state.md
+$dokka.location:dev.atick.core.ui.utils/UiState/copy/#TypeParam(bounds=[kotlin.Any])#kotlin.Boolean#kotlin.Throwable?/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/copy.md
 $dokka.location:dev.atick.core.ui.utils/UiState/data/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/data.md
+$dokka.location:dev.atick.core.ui.utils/UiState/equals/#kotlin.Any?/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/equals.md
 $dokka.location:dev.atick.core.ui.utils/UiState/error/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/error.md
-$dokka.location:dev.atick.core.ui.utils/UiState/isLoading/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/is-loading.md
+$dokka.location:dev.atick.core.ui.utils/UiState/hashCode/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/hash-code.md
 $dokka.location:dev.atick.core.ui.utils/UiState/loading/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/loading.md
+$dokka.location:dev.atick.core.ui.utils/UiState/toString/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/to-string.md
 $dokka.location:dev.atick.core.ui.utils/UiText.DynamicString///PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/-dynamic-string/index.md
 $dokka.location:dev.atick.core.ui.utils/UiText.DynamicString/DynamicString/#kotlin.String/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/-dynamic-string/-dynamic-string.md
 $dokka.location:dev.atick.core.ui.utils/UiText.DynamicString/value/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/-dynamic-string/value.md
