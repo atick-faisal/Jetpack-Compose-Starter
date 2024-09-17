@@ -16,9 +16,16 @@
 
 package dev.atick.compose.data.home
 
+import androidx.compose.runtime.Immutable
 import dev.atick.network.models.NetworkPost
 import dev.atick.storage.room.models.PostEntity
 
+/**
+ * Data class representing the data to be displayed on the home screen.
+ *
+ * @property posts The list of posts to be displayed on the home screen.
+ */
+@Immutable
 data class HomeScreenData(
     val posts: List<UiPost> = listOf(),
 )
