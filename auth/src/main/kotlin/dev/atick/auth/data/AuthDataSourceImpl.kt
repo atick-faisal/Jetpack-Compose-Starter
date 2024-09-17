@@ -207,10 +207,11 @@ class AuthDataSourceImpl @Inject constructor(
 
                     val user = firebaseAuth.signInWithCredential(googleCredentials).await().user!!
                     user.asAuthUser()
+                } else {
+                    throw Exception(
+                        "Something went wrong when signing in with Google",
+                    )
                 }
-                throw Exception(
-                    "Something went wrong when signing in with Google",
-                )
             }
 
             is PasswordCredential -> {
