@@ -23,6 +23,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.google.firebase.crashlytics.ktx.crashlytics
+import com.google.firebase.ktx.Firebase
 import dev.atick.core.ui.components.JetpackOverlayLoadingWheel
 
 @Composable
@@ -47,7 +49,8 @@ fun <T : Any> StatefulComposable(
 
     if (state.error != null) {
         LaunchedEffect(onShowSnackbar) {
-            onShowSnackbar(state.error.message.toString(), null)
+            val report = onShowSnackbar(state.error.message.toString(), "REPORT")
+            if (report) Firebase.crashlytics.recordException(state.error)
         }
     }
 }
