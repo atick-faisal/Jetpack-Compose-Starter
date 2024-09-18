@@ -32,6 +32,12 @@ jobs:
           distribution: 'zulu'
           cache: gradle
 
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+          bundler-cache: true
+
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
@@ -62,6 +68,9 @@ jobs:
         with:
           body_path: CHANGELOG.md
           files: app/build/outputs/apk/release/*.apk
+
+      - name: Upload to Play Store
+        run: bundle exec fastlane android deploy
 
 # https://github.com/softprops/action-gh-release/issues/236
 permissions:
