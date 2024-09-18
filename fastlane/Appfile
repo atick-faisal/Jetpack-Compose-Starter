@@ -1,0 +1,2 @@
+json_key_file("fastlane/play-store.json")
+package_name("dev.atick.compose")

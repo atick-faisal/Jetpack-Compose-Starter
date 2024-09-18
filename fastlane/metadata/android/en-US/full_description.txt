@@ -1,0 +1,21 @@
+This template offers Modern Android Development principles and Architecture guidelines. It provides an out-of-the-box template for:
+
+- Connecting to a remote API using Retrofit and OKHttp
+- Persistent database solution using Room and Datastore
+- Sign In Authentication using Firebase i.e. Google ID and Email
+- Bluetooth communication using classic and low-energy (upcoming) protocols
+
+Technologies
+- Kotlin 2.0
+- Jetpack Compose
+- Kotlin Coroutines
+- Kotlin Flow for Reactive Data
+- Retrofit and OkHttp
+- Firebase Auth
+- Firebase Crashlytics
+- Room Database
+- Preferences Datastore
+- Dependency Injection with Hilt
+- Gradle Kotlin DSL
+- Gradle Version Catalog
+- Convention Plugin

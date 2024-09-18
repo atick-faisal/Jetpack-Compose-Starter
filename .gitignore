@@ -40,3 +40,6 @@ output-metadata.json
 
 # k2 compiler build dir
 .kotlin
+
+# Fastlane Play Store Key
+play-store.json
