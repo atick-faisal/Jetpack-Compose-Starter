@@ -52,6 +52,10 @@ firebaseCrashlyticsPlugin = "3.0.2"
 daggerHilt = "2.52"
 daggerHiltExt = "1.2.0"
 
+# ... Open Source Licenses ...
+googleOss = "17.1.0"
+googleOssPlugin = "0.10.6"
+
 # ... SDK-CONFIG ...
 minSdk = "24"
 compileSdk = "34"
@@ -151,3 +155,7 @@ androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navig
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
 compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
+
+# ... Open Source Licenses ...
+google-oss-licenses = { group = "com.google.android.gms", name = "play-services-oss-licenses", version.ref = "googleOss" }
+google-oss-licenses-plugin = { group = "com.google.android.gms", name = "oss-licenses-plugin", version.ref = "googleOssPlugin" }
