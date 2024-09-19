@@ -76,6 +76,13 @@ dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secrets" }
 kotlin-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
+# ... Custom Plugins ...
+jetpack-library = { id = "dev.atick.library" }
+jetpack-ui-library = { id = "dev.atick.ui.library" }
+jetpack-application = { id = "dev.atick.application" }
+jetpack-dagger-hilt = { id = "dev.atick.dagger.hilt" }
+jetpack-firebase = { id = "dev.atick.firebase" }
+
 [libraries]
 
 # ... CORE:ANDROID ...

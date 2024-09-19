@@ -17,9 +17,9 @@
 @file:Suppress("UnstableApiUsage")
 
 plugins {
-    id("dev.atick.library")
-    id("dev.atick.dagger.hilt")
-    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+    alias(libs.plugins.jetpack.library)
+    alias(libs.plugins.jetpack.dagger.hilt)
+    alias(libs.plugins.secrets)
 }
 
 android {
