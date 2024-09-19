@@ -25,9 +25,9 @@ import java.util.Properties
 val keystorePropertiesFile: File = rootProject.file("keystore.properties")
 
 plugins {
-    id("dev.atick.application")
-    id("dev.atick.dagger.hilt")
-    id("dev.atick.firebase")
+    alias(libs.plugins.jetpack.application)
+    alias(libs.plugins.jetpack.dagger.hilt)
+    alias(libs.plugins.jetpack.firebase)
 }
 
 android {

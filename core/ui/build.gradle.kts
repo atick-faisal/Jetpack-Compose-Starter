@@ -15,7 +15,7 @@
  */
 
 plugins {
-    id("dev.atick.ui.library")
+    alias(libs.plugins.jetpack.ui.library)
 }
 
 android {

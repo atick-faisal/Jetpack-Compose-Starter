@@ -15,8 +15,8 @@
  */
 
 plugins {
-    id("dev.atick.ui.library")
-    id("dev.atick.dagger.hilt")
+    alias(libs.plugins.jetpack.ui.library)
+    alias(libs.plugins.jetpack.dagger.hilt)
 }
 
 android {

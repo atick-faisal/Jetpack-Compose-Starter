@@ -15,9 +15,9 @@
  */
 
 plugins {
-    id("dev.atick.library")
-    id("kotlinx-serialization")
-    id("dev.atick.dagger.hilt")
+    alias(libs.plugins.jetpack.library)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.jetpack.dagger.hilt)
 }
 
 android {
