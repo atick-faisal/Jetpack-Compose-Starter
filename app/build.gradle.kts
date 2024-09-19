@@ -114,4 +114,7 @@ dependencies {
 
     // ... Splash Screen
     implementation(libs.androidx.core.splashscreen)
+
+    // ... OSS Licenses
+    implementation(libs.google.oss.licenses)
 }

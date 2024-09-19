@@ -16,10 +16,14 @@
 
 package dev.atick.compose.ui.settings
 
+import android.content.Intent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -40,14 +44,18 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import dev.atick.compose.R
 import dev.atick.compose.data.settings.UserEditableSettings
+import dev.atick.core.ui.components.JetpackTextButton
 import dev.atick.core.ui.theme.supportsDynamicTheming
 import dev.atick.core.ui.utils.UiState
 import dev.atick.storage.preferences.models.DarkThemeConfig
@@ -106,6 +114,8 @@ fun SettingsDialog(
                     onChangeDynamicColorPreference = onChangeDynamicColorPreference,
                     onChangeDarkThemeConfig = onChangeDarkThemeConfig,
                 )
+                HorizontalDivider(Modifier.padding(top = 8.dp))
+                LinksPanel()
             }
         },
         confirmButton = {
@@ -214,3 +224,38 @@ fun SettingsDialogThemeChooserRow(
         Text(text)
     }
 }
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+private fun LinksPanel() {
+    FlowRow(
+        horizontalArrangement = Arrangement.spacedBy(
+            space = 16.dp,
+            alignment = Alignment.CenterHorizontally,
+        ),
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        val uriHandler = LocalUriHandler.current
+        JetpackTextButton(
+            onClick = { uriHandler.openUri(PRIVACY_POLICY_URL) },
+        ) {
+            Text(text = stringResource(R.string.privacy_policy))
+        }
+        val context = LocalContext.current
+        JetpackTextButton(
+            onClick = {
+                context.startActivity(Intent(context, OssLicensesMenuActivity::class.java))
+            },
+        ) {
+            Text(text = stringResource(R.string.licenses))
+        }
+        JetpackTextButton(
+            onClick = { uriHandler.openUri(FEEDBACK_URL) },
+        ) {
+            Text(text = stringResource(R.string.feedback))
+        }
+    }
+}
+
+private const val PRIVACY_POLICY_URL = "https://privacy.atick.dev"
+private const val FEEDBACK_URL = "https://forms.gle/muBdaD2HxJLtWo9a8"
