@@ -51,11 +51,12 @@ develocity {
 
 rootProject.name = "Jetpack"
 include(":app")
+include(":auth")
+include(":billing")
+include(":bluetooth:common")
+include(":bluetooth:classic")
 include(":core:ui")
 include(":core:android")
 include(":network")
 include(":storage:room")
 include(":storage:preferences")
-include(":bluetooth:common")
-include(":bluetooth:classic")
-include(":auth")
