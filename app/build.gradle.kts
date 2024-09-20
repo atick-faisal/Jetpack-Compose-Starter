@@ -117,4 +117,7 @@ dependencies {
 
     // ... OSS Licenses
     implementation(libs.google.oss.licenses)
+
+    // ... Billing
+    implementation(libs.play.billing.ktx)
 }
