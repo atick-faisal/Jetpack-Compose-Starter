@@ -42,6 +42,7 @@ import dev.atick.core.ui.utils.StatefulComposable
 
 @Composable
 internal fun ProfileRoute(
+    onPurchaseClick: () -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
     profileViewModel: ProfileViewModel = hiltViewModel(),
 ) {
@@ -54,6 +55,7 @@ internal fun ProfileRoute(
         ProfileScreen(
             profileScreenData = profileScreenData,
             onSignOutClick = profileViewModel::signOut,
+            onPurchaseClick = onPurchaseClick
         )
     }
 }
@@ -62,7 +64,7 @@ internal fun ProfileRoute(
 private fun ProfileScreen(
     profileScreenData: ProfileScreenData,
     onSignOutClick: () -> Unit,
-
+    onPurchaseClick: () -> Unit
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -83,6 +85,10 @@ private fun ProfileScreen(
         Spacer(modifier = Modifier.height(16.dp))
         JetpackButton(onClick = onSignOutClick) {
             Text(text = stringResource(id = R.string.sign_out))
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        JetpackButton(onClick = onPurchaseClick) {
+            Text(text = stringResource(id = R.string.purchase_premium))
         }
     }
 }

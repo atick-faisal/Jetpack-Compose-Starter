@@ -69,7 +69,7 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             applicationVariants.all {
                 outputs.all {
                     (this as BaseVariantOutputImpl).outputFileName =
@@ -111,6 +111,7 @@ dependencies {
     implementation(project(":storage:preferences"))
     implementation(project(":bluetooth:classic"))
     implementation(project(":auth"))
+    implementation(project(":billing"))
 
     // ... Splash Screen
     implementation(libs.androidx.core.splashscreen)

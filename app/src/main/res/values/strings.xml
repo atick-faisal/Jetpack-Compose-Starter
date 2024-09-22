@@ -47,4 +47,5 @@
     <string name="sign_out">Sign Out</string>
     <string name="profile_picture">Profile Picture</string>
     <string name="done">Done</string>
+    <string name="purchase_premium">Purchase Jetpack Premium</string>
 </resources>
