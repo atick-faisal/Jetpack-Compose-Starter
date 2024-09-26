@@ -15,6 +15,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,6 +23,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.atick.billing.models.BillingScreenData
 import dev.atick.billing.models.OneTimePurchaseState
@@ -46,6 +50,7 @@ fun BillingRoute(
         BillingScreen(
             billingScreenData = billingScreenData,
             onPurchaseProduct = billingViewModel::purchaseProduct,
+            onRefreshProducts = billingViewModel::updateProductsAndPurchases,
         )
     }
 }
@@ -54,8 +59,24 @@ fun BillingRoute(
 fun BillingScreen(
     billingScreenData: BillingScreenData,
     onPurchaseProduct: (Activity, Product) -> Unit,
+    onRefreshProducts: () -> Unit,
 ) {
     val scrollableState = rememberLazyListState()
+    val lifecycleOwner = LocalLifecycleOwner.current
+
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                onRefreshProducts()
+            }
+        }
+
+        lifecycleOwner.lifecycle.addObserver(observer)
+
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(observer)
+        }
+    }
 
     LazyColumn(
         modifier = Modifier.padding(horizontal = 24.dp),
@@ -87,7 +108,7 @@ fun ProductCard(
         ) {
             Column(
                 verticalArrangement = Arrangement.spacedBy(4.dp),
-                modifier = Modifier.weight(1f)
+                modifier = Modifier.weight(1f),
             ) {
                 Text(product.name, fontWeight = FontWeight.Bold)
                 Text(product.description)
@@ -138,5 +159,6 @@ fun BillingScreenPreview() {
             ),
         ),
         onPurchaseProduct = { _, _ -> },
+        onRefreshProducts = { },
     )
 }

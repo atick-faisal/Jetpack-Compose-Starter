@@ -27,11 +27,8 @@ import dev.atick.billing.models.asPlayStoreProductType
 import dev.atick.billing.models.asProduct
 import dev.atick.core.di.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -49,10 +46,6 @@ class BillingDataSourceImpl @Inject constructor(
     override val products: StateFlow<List<Product>>
         get() = _products.asStateFlow()
 
-    private val _purchases = MutableSharedFlow<List<OneTimePurchase>>()
-    override val purchases: SharedFlow<List<OneTimePurchase>>
-        get() = _purchases.asSharedFlow()
-
     private val purchasesUpdatedListener =
         PurchasesUpdatedListener { billingResult, purchases ->
             if (billingResult.responseCode == BillingResponseCode.OK && purchases != null) {
@@ -60,7 +53,6 @@ class BillingDataSourceImpl @Inject constructor(
                 _products.update { products ->
                     products.updatePurchaseState(oneTimePurchases)
                 }
-                _purchases.tryEmit(oneTimePurchases)
             }
         }
 
@@ -73,11 +65,6 @@ class BillingDataSourceImpl @Inject constructor(
         .setListener(purchasesUpdatedListener)
         .build()
 
-    override suspend fun initializeBilling() {
-        initializeGooglePlayBilling()
-        updateProductsAndPurchases()
-    }
-
     private suspend fun initializeGooglePlayBilling() {
         return suspendCancellableCoroutine { continuation ->
             val billingClientStateListener =
@@ -89,6 +76,7 @@ class BillingDataSourceImpl @Inject constructor(
 
                     override fun onBillingSetupFinished(billingResult: BillingResult) {
                         if (billingResult.responseCode == BillingResponseCode.OK) {
+                            Timber.d("Billing Client Connected: ${billingClient.isReady}")
                             continuation.resume(Unit)
                         } else {
                             continuation.cancel(Exception("Google Play Billing Not Available"))
@@ -102,26 +90,37 @@ class BillingDataSourceImpl @Inject constructor(
         }
     }
 
-    private suspend fun updateProductsAndPurchases() {
+    override suspend fun updateProductsAndPurchases() {
+        if (!billingClient.isReady) {
+            initializeGooglePlayBilling()
+        }
         Timber.d("Updating Purchases ... ")
         val products = getProducts()
-        Timber.d("Products: $products")
         val purchases = getPurchases()
+        verifyAndAcknowledgePurchases(products, purchases)
+        Timber.d("Products: $products")
         Timber.d("Purchases: $purchases")
-        val updatedProducts = products.updatePurchaseState(purchases)
-        Timber.d("Updated Products: $products")
-        verifyAndAcknowledgePurchases(purchases)
-        _products.update { updatedProducts }
     }
 
-    override suspend fun verifyAndAcknowledgePurchases(purchases: List<OneTimePurchase>) {
-        purchases.forEach { purchase ->
-            if ((purchase.oneTimePurchaseState == OneTimePurchaseState.Purchased) &&
-                !purchase.isAcknowledged
-            ) {
+    private suspend fun verifyAndAcknowledgePurchases(
+        products: List<Product>,
+        purchases: List<OneTimePurchase>,
+    ) {
+        Timber.d("Acknowledging Purchases ... ")
+        val updatedPurchases = purchases.map { purchase ->
+            if (purchase.oneTimePurchaseState == OneTimePurchaseState.Verifying) {
                 verifyPurchase(purchase)
                 acknowledgePurchase(purchase)
+                purchase.copy(
+                    isAcknowledged = true,
+                    oneTimePurchaseState = OneTimePurchaseState.Purchased,
+                )
+            } else {
+                purchase
             }
+        }
+        _products.update {
+            products.updatePurchaseState(updatedPurchases)
         }
     }
 
@@ -149,7 +148,9 @@ class BillingDataSourceImpl @Inject constructor(
         }
     }
 
+    @Suppress("UNUSED_PARAMETER")
     private suspend fun verifyPurchase(purchase: OneTimePurchase) {
+        // TODO: Implement Purchase Verification
         suspendCancellableCoroutine { continuation ->
             continuation.resume(Unit)
         }
