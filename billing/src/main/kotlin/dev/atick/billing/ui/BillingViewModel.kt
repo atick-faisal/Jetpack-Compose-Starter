@@ -31,19 +31,12 @@ class BillingViewModel @Inject constructor(
                 _billingUiState.update { UiState(it.data.copy(products = products)) }
             }
             .launchIn(viewModelScope)
-
-        billingRepository.purchases
-            .onEach {
-                billingRepository.verifyAndAcknowledgePurchases(it)
-            }
-            .launchIn(viewModelScope)
-        initializeBilling()
     }
 
-    private fun initializeBilling() {
+    fun updateProductsAndPurchases() {
         _billingUiState.update { it.copy(loading = true) }
         viewModelScope.launch {
-            val result = billingRepository.initializeBilling()
+            val result = billingRepository.updateProductsAndPurchases()
             if (result.isSuccess) {
                 _billingUiState.update { it.copy(loading = false) }
             } else {
