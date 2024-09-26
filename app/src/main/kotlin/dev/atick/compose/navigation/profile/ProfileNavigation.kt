@@ -37,7 +37,7 @@ fun NavGraphBuilder.profileScreen(
     composable<Profile> {
         ProfileRoute(
             onPurchaseClick = onPurchaseClick,
-            onShowSnackbar = onShowSnackbar
+            onShowSnackbar = onShowSnackbar,
         )
     }
 }

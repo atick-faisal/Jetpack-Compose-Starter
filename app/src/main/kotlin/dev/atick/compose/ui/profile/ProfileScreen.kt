@@ -96,7 +96,8 @@ private fun ProfileScreen(
         }
         Spacer(modifier = Modifier.height(8.dp))
         JetpackButton(
-            modifier = Modifier.fillMaxWidth(), onClick = onPurchaseClick,
+            modifier = Modifier.fillMaxWidth(),
+            onClick = onPurchaseClick,
             text = { Text(text = stringResource(id = R.string.purchase_premium)) },
             leadingIcon = {
                 Icon(
