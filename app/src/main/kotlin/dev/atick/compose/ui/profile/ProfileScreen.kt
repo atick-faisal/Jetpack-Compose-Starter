@@ -19,9 +19,14 @@ package dev.atick.compose.ui.profile
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.WorkspacePremium
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,6 +43,7 @@ import coil.compose.AsyncImage
 import dev.atick.compose.R
 import dev.atick.compose.data.profile.ProfileScreenData
 import dev.atick.core.ui.components.JetpackButton
+import dev.atick.core.ui.components.JetpackOutlinedButton
 import dev.atick.core.ui.utils.StatefulComposable
 
 @Composable
@@ -55,7 +61,7 @@ internal fun ProfileRoute(
         ProfileScreen(
             profileScreenData = profileScreenData,
             onSignOutClick = profileViewModel::signOut,
-            onPurchaseClick = onPurchaseClick
+            onPurchaseClick = onPurchaseClick,
         )
     }
 }
@@ -64,10 +70,12 @@ internal fun ProfileRoute(
 private fun ProfileScreen(
     profileScreenData: ProfileScreenData,
     onSignOutClick: () -> Unit,
-    onPurchaseClick: () -> Unit
+    onPurchaseClick: () -> Unit,
 ) {
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Spacer(modifier = Modifier.height(64.dp))
@@ -82,13 +90,22 @@ private fun ProfileScreen(
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = profileScreenData.name, style = MaterialTheme.typography.headlineLarge)
-        Spacer(modifier = Modifier.height(16.dp))
-        JetpackButton(onClick = onSignOutClick) {
+        Spacer(modifier = Modifier.weight(1f))
+        JetpackOutlinedButton(modifier = Modifier.fillMaxWidth(), onClick = onSignOutClick) {
             Text(text = stringResource(id = R.string.sign_out))
         }
-        Spacer(modifier = Modifier.height(16.dp))
-        JetpackButton(onClick = onPurchaseClick) {
-            Text(text = stringResource(id = R.string.purchase_premium))
-        }
+        Spacer(modifier = Modifier.height(8.dp))
+        JetpackButton(
+            modifier = Modifier.fillMaxWidth(), onClick = onPurchaseClick,
+            text = { Text(text = stringResource(id = R.string.purchase_premium)) },
+            leadingIcon = {
+                Icon(
+                    imageVector = Icons.Outlined.WorkspacePremium,
+                    contentDescription = null,
+                    modifier = Modifier.size(24.dp),
+                )
+            },
+        )
+        Spacer(modifier = Modifier.height(8.dp))
     }
 }

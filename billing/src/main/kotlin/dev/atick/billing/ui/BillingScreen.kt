@@ -3,16 +3,22 @@ package dev.atick.billing.ui
 import android.app.Activity
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -20,6 +26,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -27,6 +34,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import dev.atick.billing.R
 import dev.atick.billing.models.BillingScreenData
 import dev.atick.billing.models.OneTimePurchaseState
 import dev.atick.billing.models.Product
@@ -38,6 +46,7 @@ import dev.atick.core.ui.utils.StatefulComposable
 
 @Composable
 fun BillingRoute(
+    onBackClick: () -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
     billingViewModel: BillingViewModel = hiltViewModel(),
 ) {
@@ -48,6 +57,7 @@ fun BillingRoute(
         onShowSnackbar = onShowSnackbar,
     ) { billingScreenData ->
         BillingScreen(
+            onBackClick = onBackClick,
             billingScreenData = billingScreenData,
             onPurchaseProduct = billingViewModel::purchaseProduct,
             onRefreshProducts = billingViewModel::updateProductsAndPurchases,
@@ -57,6 +67,7 @@ fun BillingRoute(
 
 @Composable
 fun BillingScreen(
+    onBackClick: () -> Unit,
     billingScreenData: BillingScreenData,
     onPurchaseProduct: (Activity, Product) -> Unit,
     onRefreshProducts: () -> Unit,
@@ -78,14 +89,21 @@ fun BillingScreen(
         }
     }
 
-    LazyColumn(
-        modifier = Modifier.padding(horizontal = 24.dp),
-        contentPadding = PaddingValues(vertical = 16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-        state = scrollableState,
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 24.dp),
     ) {
-        items(billingScreenData.products) { product ->
-            ProductCard(product, onPurchaseProduct)
+        Spacer(Modifier.windowInsetsTopHeight(WindowInsets.safeDrawing))
+        BillingToolbar(onBackClick = onBackClick)
+
+        LazyColumn(
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            state = scrollableState,
+        ) {
+            items(billingScreenData.products) { product ->
+                ProductCard(product, onPurchaseProduct)
+            }
         }
     }
 }
@@ -126,10 +144,35 @@ fun ProductCard(
     }
 }
 
+@Composable
+private fun BillingToolbar(
+    modifier: Modifier = Modifier,
+    onBackClick: () -> Unit,
+) {
+    Row(
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(bottom = 32.dp),
+    ) {
+        IconButton(onClick = { onBackClick() }) {
+            Icon(
+                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                contentDescription = stringResource(id = R.string.back),
+            )
+        }
+        JetpackButton(onClick = onBackClick) {
+            Text(text = stringResource(R.string.done))
+        }
+    }
+}
+
 @DevicePreviews
 @Composable
 fun BillingScreenPreview() {
     BillingScreen(
+        onBackClick = { },
         billingScreenData = BillingScreenData(
             products = listOf(
                 Product(
