@@ -77,6 +77,9 @@ fun JetpackNavHost(
             onShowSnackbar = onShowSnackbar,
             onPurchaseClick = navController::navigateToBilling
         )
-        billingScreen(onShowSnackbar = onShowSnackbar)
+        billingScreen(
+            onBackClick = navController::popBackStack,
+            onShowSnackbar = onShowSnackbar
+        )
     }
 }

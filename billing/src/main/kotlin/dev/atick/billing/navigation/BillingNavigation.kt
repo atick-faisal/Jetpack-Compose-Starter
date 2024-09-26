@@ -15,10 +15,12 @@ fun NavController.navigateToBilling(navOptions: NavOptions? = null) {
 }
 
 fun NavGraphBuilder.billingScreen(
+    onBackClick: () -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
 ) {
     composable<Billing> {
         BillingRoute(
+            onBackClick = onBackClick,
             onShowSnackbar = onShowSnackbar,
         )
     }
