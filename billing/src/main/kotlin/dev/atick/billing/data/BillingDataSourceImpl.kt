@@ -1,3 +1,19 @@
+/*
+ * Copyright 2024 Atick Faisal
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package dev.atick.billing.data
 
 import android.app.Activity
@@ -37,15 +53,29 @@ import timber.log.Timber
 import javax.inject.Inject
 import kotlin.coroutines.resume
 
+/**
+ * Implementation of [BillingDataSource] that uses Google Play Billing.
+ *
+ * @param context The application context.
+ * @param ioDispatcher The [CoroutineDispatcher] for I/O operations.
+ *
+ * @see BillingDataSource
+ */
 class BillingDataSourceImpl @Inject constructor(
     @ApplicationContext context: Context,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : BillingDataSource {
 
+    /**
+     * Flow of available products.
+     */
     private val _products = MutableStateFlow(emptyList<Product>())
     override val products: StateFlow<List<Product>>
         get() = _products.asStateFlow()
 
+    /**
+     * Listener for purchases updated.
+     */
     private val purchasesUpdatedListener =
         PurchasesUpdatedListener { billingResult, purchases ->
             if (billingResult.responseCode == BillingResponseCode.OK && purchases != null) {
@@ -56,15 +86,24 @@ class BillingDataSourceImpl @Inject constructor(
             }
         }
 
+    /**
+     * Parameters for pending purchases.
+     */
     private val pendingPurchasesParams = PendingPurchasesParams.newBuilder()
         .enableOneTimeProducts()
         .build()
 
+    /**
+     * The [BillingClient] instance.
+     */
     private val billingClient: BillingClient = BillingClient.newBuilder(context)
         .enablePendingPurchases(pendingPurchasesParams)
         .setListener(purchasesUpdatedListener)
         .build()
 
+    /**
+     * Initializes Google Play Billing.
+     */
     private suspend fun initializeGooglePlayBilling() {
         return suspendCancellableCoroutine { continuation ->
             val billingClientStateListener =
@@ -90,6 +129,9 @@ class BillingDataSourceImpl @Inject constructor(
         }
     }
 
+    /**
+     * Updates the products and purchases.
+     */
     override suspend fun updateProductsAndPurchases() {
         if (!billingClient.isReady) {
             initializeGooglePlayBilling()
@@ -102,6 +144,12 @@ class BillingDataSourceImpl @Inject constructor(
         Timber.d("Purchases: $purchases")
     }
 
+    /**
+     * Verifies and acknowledges purchases.
+     *
+     * @param products The list of products.
+     * @param purchases The list of purchases.
+     */
     private suspend fun verifyAndAcknowledgePurchases(
         products: List<Product>,
         purchases: List<OneTimePurchase>,
@@ -124,6 +172,11 @@ class BillingDataSourceImpl @Inject constructor(
         }
     }
 
+    /**
+     * Acknowledges a purchase.
+     *
+     * @param purchase The purchase to acknowledge.
+     */
     private suspend fun acknowledgePurchase(purchase: OneTimePurchase) {
         val acknowledgePurchaseParams = AcknowledgePurchaseParams.newBuilder()
             .setPurchaseToken(purchase.purchaseToken)
@@ -148,6 +201,11 @@ class BillingDataSourceImpl @Inject constructor(
         }
     }
 
+    /**
+     * Verifies a purchase.
+     *
+     * @param purchase The purchase to verify.
+     */
     @Suppress("UNUSED_PARAMETER")
     private suspend fun verifyPurchase(purchase: OneTimePurchase) {
         // TODO: Implement Purchase Verification
@@ -156,6 +214,12 @@ class BillingDataSourceImpl @Inject constructor(
         }
     }
 
+    /**
+     * Updates the purchase state of products.
+     *
+     * @param purchases The list of purchases.
+     * @return The updated list of products.
+     */
     private fun List<Product>.updatePurchaseState(purchases: List<OneTimePurchase>): List<Product> {
         return map { product ->
             val matchingPurchase =
@@ -168,11 +232,22 @@ class BillingDataSourceImpl @Inject constructor(
         }
     }
 
+    /**
+     * Gets the list of products.
+     *
+     * @return The list of products.
+     */
     private suspend fun getProducts(): List<Product> {
         val params = getProductQueryParams(JetpackProducts)
         return getProductDetailsList(params).map { it.asProduct() }
     }
 
+    /**
+     * Gets the list of product details.
+     *
+     * @param params The query parameters.
+     * @return The list of product details.
+     */
     private suspend fun getProductDetailsList(
         params: QueryProductDetailsParams,
     ): List<ProductDetails> {
@@ -190,6 +265,11 @@ class BillingDataSourceImpl @Inject constructor(
         }
     }
 
+    /**
+     * Gets the list of purchases.
+     *
+     * @return The list of purchases.
+     */
     private suspend fun getPurchases(): List<OneTimePurchase> {
         val params = QueryPurchasesParams.newBuilder()
             .setProductType(BillingClient.ProductType.INAPP)
@@ -204,8 +284,9 @@ class BillingDataSourceImpl @Inject constructor(
                                 it.asOneTimePurchase()
                             },
                         )
-                    } else continuation.resume(emptyList())
-
+                    } else {
+                        continuation.resume(emptyList())
+                    }
                 }
                 billingClient.queryPurchasesAsync(params.build(), callback)
                 continuation.invokeOnCancellation {
@@ -215,6 +296,12 @@ class BillingDataSourceImpl @Inject constructor(
         }
     }
 
+    /**
+     * Gets the query parameters for products.
+     *
+     * @param products The map of product IDs and types.
+     * @return The query parameters.
+     */
     private fun getProductQueryParams(
         products: Map<String, ProductType>,
     ): QueryProductDetailsParams {
@@ -229,6 +316,12 @@ class BillingDataSourceImpl @Inject constructor(
             .build()
     }
 
+    /**
+     * Purchases a product.
+     *
+     * @param activity The activity instance.
+     * @param product The product to purchase.
+     */
     override suspend fun purchaseProduct(activity: Activity, product: Product) {
         val products = mapOf(product.id to product.productType)
         val params = getProductQueryParams(products)
@@ -252,7 +345,8 @@ class BillingDataSourceImpl @Inject constructor(
             .build()
 
         val billingResult = billingClient.launchBillingFlow(activity, billingFlowParams)
-        if (billingResult.responseCode != BillingResponseCode.OK)
+        if (billingResult.responseCode != BillingResponseCode.OK) {
             throw Exception("Purchase Failed")
+        }
     }
 }

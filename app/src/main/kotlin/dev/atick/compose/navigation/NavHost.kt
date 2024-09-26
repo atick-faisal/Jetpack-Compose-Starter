@@ -75,11 +75,11 @@ fun JetpackNavHost(
         )
         profileScreen(
             onShowSnackbar = onShowSnackbar,
-            onPurchaseClick = navController::navigateToBilling
+            onPurchaseClick = navController::navigateToBilling,
         )
         billingScreen(
             onBackClick = navController::popBackStack,
-            onShowSnackbar = onShowSnackbar
+            onShowSnackbar = onShowSnackbar,
         )
     }
 }
