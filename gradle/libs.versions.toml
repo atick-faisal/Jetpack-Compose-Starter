@@ -3,7 +3,7 @@
 # ... PROJECT ...
 java = "17"
 kotlin = "2.0.20"
-androidGradlePlugin = "8.6.1"
+androidGradlePlugin = "8.7.0"
 gmsPlugin = "4.4.2"
 ksp = "2.0.20-1.0.25"
 dokka = "1.9.20"
@@ -45,7 +45,7 @@ androidxCredentials = "1.2.2"
 identityGoogleId = "1.1.1"
 
 # ... FIREBASE ...
-firebaseBom = "33.3.0"
+firebaseBom = "33.4.0"
 firebaseCrashlyticsPlugin = "3.0.2"
 
 # ... DAGGER-HILT ...
