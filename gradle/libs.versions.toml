@@ -57,7 +57,7 @@ googleOss = "17.1.0"
 googleOssPlugin = "0.10.6"
 
 # ... Billing ...
-playBilling = "7.1.0"
+playBilling = "7.1.1"
 
 # ... SDK-CONFIG ...
 minSdk = "24"
