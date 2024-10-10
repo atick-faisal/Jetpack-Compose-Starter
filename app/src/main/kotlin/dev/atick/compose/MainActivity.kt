@@ -157,7 +157,7 @@ class MainActivity : ComponentActivity() {
 private fun shouldUseAndroidTheme(
     uiState: UiState<UserData>,
 ): Boolean {
-    if (uiState.loading || uiState.error != null) return false
+    if (uiState.loading || uiState.error.peekContent() != null) return false
 
     return when (uiState.data.themeBrand) {
         ThemeBrand.ANDROID -> true
@@ -172,7 +172,7 @@ private fun shouldUseAndroidTheme(
 private fun shouldDisableDynamicTheming(
     uiState: UiState<UserData>,
 ): Boolean {
-    return if (uiState.loading || uiState.error != null) {
+    return if (uiState.loading || uiState.error.peekContent() != null) {
         false
     } else {
         !uiState.data.useDynamicColor
@@ -187,7 +187,7 @@ private fun shouldDisableDynamicTheming(
 private fun shouldUseDarkTheme(
     uiState: UiState<UserData>,
 ): Boolean {
-    return if (uiState.loading || uiState.error != null) {
+    return if (uiState.loading || uiState.error.peekContent() != null) {
         isSystemInDarkTheme()
     } else {
         when (uiState.data.darkThemeConfig) {

@@ -23,13 +23,15 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.billing.models.BillingScreenData
 import dev.atick.billing.models.Product
 import dev.atick.billing.repository.BillingRepository
+import dev.atick.core.ui.utils.OneTimeEvent
 import dev.atick.core.ui.utils.UiState
+import dev.atick.core.ui.utils.updateWith
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -46,30 +48,15 @@ class BillingViewModel @Inject constructor(
             .onEach { products ->
                 _billingUiState.update { UiState(it.data.copy(products = products)) }
             }
+            .catch { e -> _billingUiState.update { it.copy(error = OneTimeEvent(e)) } }
             .launchIn(viewModelScope)
     }
 
     fun updateProductsAndPurchases() {
-        _billingUiState.update { it.copy(loading = true) }
-        viewModelScope.launch {
-            val result = billingRepository.updateProductsAndPurchases()
-            if (result.isSuccess) {
-                _billingUiState.update { it.copy(loading = false) }
-            } else {
-                _billingUiState.update { it.copy(error = result.exceptionOrNull()) }
-            }
-        }
+        _billingUiState.updateWith { billingRepository.updateProductsAndPurchases() }
     }
 
     fun purchaseProduct(activity: Activity, product: Product) {
-        _billingUiState.update { it.copy(loading = true) }
-        viewModelScope.launch {
-            val result = billingRepository.purchaseProduct(activity, product)
-            if (result.isSuccess) {
-                _billingUiState.update { it.copy(loading = false) }
-            } else {
-                _billingUiState.update { it.copy(error = result.exceptionOrNull()) }
-            }
-        }
+        _billingUiState.updateWith { billingRepository.purchaseProduct(activity, product) }
     }
 }

@@ -20,12 +20,16 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.Stable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.google.firebase.crashlytics.ktx.crashlytics
 import com.google.firebase.ktx.Firebase
 import dev.atick.core.ui.components.JetpackOverlayLoadingWheel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 @Composable
 fun <T : Any> StatefulComposable(
@@ -47,49 +51,85 @@ fun <T : Any> StatefulComposable(
         }
     }
 
-    if (state.error != null) {
+    state.error.getContentIfNotHandled()?.let { error ->
         LaunchedEffect(onShowSnackbar) {
-            val report = onShowSnackbar(state.error.message.toString(), "REPORT")
-            if (report) Firebase.crashlytics.recordException(state.error)
+            val report = onShowSnackbar(error.message.toString(), "REPORT")
+            if (report) Firebase.crashlytics.recordException(error)
         }
     }
 }
 
-@Stable
-class UiState<T : Any>(
+data class UiState<T : Any>(
     val data: T,
     val loading: Boolean = false,
-    val error: Throwable? = null,
+    val error: OneTimeEvent<Throwable?> = OneTimeEvent(null),
+)
+
+inline fun <T : Any> MutableStateFlow<UiState<T>>.updateState(update: T.() -> T) {
+    update { UiState(update(it.data)) }
+}
+
+context(ViewModel)
+inline fun <reified T : Any> MutableStateFlow<UiState<T>>.updateStateWith(
+    crossinline operation: suspend () -> Result<T>,
 ) {
-    fun copy(
-        data: T = this.data,
-        loading: Boolean = this.loading,
-        error: Throwable? = this.error,
-    ): UiState<T> {
-        val newLoading = if (error != null && this.error == null) false else loading
-        val newError = if (loading && !this.loading) null else error
+    if (value.loading) return
+    viewModelScope.launch {
+        update { it.copy(loading = true, error = OneTimeEvent(null)) }
 
-        return UiState(
-            data = data,
-            loading = newLoading,
-            error = newError,
-        )
+        val result = operation()
+
+        if (result.isSuccess) {
+            result.getOrNull()?.let { data ->
+                update { it.copy(data = data, loading = false) }
+            } ?: {
+                update { it.copy(loading = false) }
+            }
+        } else {
+            update {
+                it.copy(
+                    error = OneTimeEvent(result.exceptionOrNull()),
+                    loading = false,
+                )
+            }
+        }
+    }
+}
+
+context(ViewModel)
+inline fun <T : Any> MutableStateFlow<UiState<T>>.updateWith(
+    crossinline operation: suspend () -> Result<Unit>,
+) {
+    if (value.loading) return
+    viewModelScope.launch {
+        update { it.copy(loading = true, error = OneTimeEvent(null)) }
+
+        val result = operation()
+
+        if (result.isSuccess) {
+            update { it.copy(loading = false) }
+        } else {
+            update {
+                it.copy(
+                    error = OneTimeEvent(result.exceptionOrNull()),
+                    loading = false,
+                )
+            }
+        }
+    }
+}
+
+class OneTimeEvent<T>(private val content: T) {
+    private var hasBeenHandled = false
+
+    fun getContentIfNotHandled(): T? {
+        return if (hasBeenHandled) {
+            null
+        } else {
+            hasBeenHandled = true
+            content
+        }
     }
 
-    override fun toString(): String {
-        return "UiState(data=$data, loading=$loading, error=${error?.message})"
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is UiState<*>) return false
-        return data == other.data && loading == other.loading && error == other.error
-    }
-
-    override fun hashCode(): Int {
-        var result = data.hashCode()
-        result = 31 * result + loading.hashCode()
-        result = 31 * result + (error?.hashCode() ?: 0)
-        return result
-    }
+    fun peekContent(): T = content
 }

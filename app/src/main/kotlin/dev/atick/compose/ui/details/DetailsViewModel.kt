@@ -18,17 +18,15 @@ package dev.atick.compose.ui.details
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.compose.data.home.UiPost
 import dev.atick.compose.navigation.details.Details
 import dev.atick.compose.repository.home.PostsRepository
 import dev.atick.core.ui.utils.UiState
+import dev.atick.core.ui.utils.updateStateWith
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -43,17 +41,6 @@ class DetailsViewModel @Inject constructor(
     val detailsUiState = _detailsUiState.asStateFlow()
 
     init {
-        viewModelScope.launch {
-            val result = postsRepository.getPost(postId)
-            if (result.isSuccess) {
-                result.getOrNull()?.let { post ->
-                    _detailsUiState.update { UiState(post) }
-                } ?: _detailsUiState.update {
-                    it.copy(error = IllegalStateException("Post not found"))
-                }
-            } else {
-                _detailsUiState.update { it.copy(error = result.exceptionOrNull()) }
-            }
-        }
+        _detailsUiState.updateStateWith { postsRepository.getPost(postId) }
     }
 }
