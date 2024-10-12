@@ -44,16 +44,6 @@ class ApplicationConventionPlugin : Plugin<Project> {
                     targetCompatibility = JavaVersion.valueOf("VERSION_$javaVersion")
                 }
 
-                with(extensions.getByType<KotlinAndroidProjectExtension>()) {
-                    compilerOptions {
-                        jvmTarget.set(JvmTarget.fromTarget(javaVersion))
-                        freeCompilerArgs.addAll(
-                            "-opt-in=kotlin.RequiresOptIn",
-                            "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
-                        )
-                    }
-                }
-
                 buildFeatures {
                     compose = true
                     buildConfig = true
@@ -65,6 +55,17 @@ class ApplicationConventionPlugin : Plugin<Project> {
                     }
                 }
             }
+
+            extensions.configure<KotlinAndroidProjectExtension>() {
+                compilerOptions {
+                    jvmTarget.set(JvmTarget.fromTarget(javaVersion))
+                    freeCompilerArgs.addAll(
+                        "-opt-in=kotlin.RequiresOptIn",
+                        "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+                    )
+                }
+            }
+
             extensions.configure<ComposeCompilerGradlePluginExtension> {
                 fun Provider<String>.onlyIfTrue() =
                     flatMap { provider { it.takeIf(String::toBoolean) } }
