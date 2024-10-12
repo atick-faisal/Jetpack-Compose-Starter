@@ -565,10 +565,10 @@ $dokka.location:dev.atick.network.di.okhttp/InterceptorModule/provideLoggingInte
 $dokka.location:dev.atick.network.di.okhttp/OkHttpClientModule///PointingToDeclaration/network/network/dev.atick.network.di.okhttp/-ok-http-client-module/index.md
 $dokka.location:dev.atick.network.di.okhttp/OkHttpClientModule/provideOkHttpClient/#okhttp3.logging.HttpLoggingInterceptor/PointingToDeclaration/network/network/dev.atick.network.di.okhttp/-ok-http-client-module/provide-ok-http-client.md
 $dokka.location:dev.atick.network.di.retrofit////PointingToDeclaration/network/network/dev.atick.network.di.retrofit/index.md
-$dokka.location:dev.atick.network.di.retrofit/GsonConverterModule///PointingToDeclaration/network/network/dev.atick.network.di.retrofit/-gson-converter-module/index.md
-$dokka.location:dev.atick.network.di.retrofit/GsonConverterModule/provideGsonConverterFactory/#/PointingToDeclaration/network/network/dev.atick.network.di.retrofit/-gson-converter-module/provide-gson-converter-factory.md
+$dokka.location:dev.atick.network.di.retrofit/ConverterModule///PointingToDeclaration/network/network/dev.atick.network.di.retrofit/-converter-module/index.md
+$dokka.location:dev.atick.network.di.retrofit/ConverterModule/provideConverter/#/PointingToDeclaration/network/network/dev.atick.network.di.retrofit/-converter-module/provide-converter.md
 $dokka.location:dev.atick.network.di.retrofit/RetrofitModule///PointingToDeclaration/network/network/dev.atick.network.di.retrofit/-retrofit-module/index.md
-$dokka.location:dev.atick.network.di.retrofit/RetrofitModule/provideRetrofitClient/#retrofit2.converter.gson.GsonConverterFactory#okhttp3.OkHttpClient/PointingToDeclaration/network/network/dev.atick.network.di.retrofit/-retrofit-module/provide-retrofit-client.md
+$dokka.location:dev.atick.network.di.retrofit/RetrofitModule/provideRetrofitClient/#retrofit2.Converter.Factory#okhttp3.OkHttpClient/PointingToDeclaration/network/network/dev.atick.network.di.retrofit/-retrofit-module/provide-retrofit-client.md
 $dokka.location:dev.atick.network.di////PointingToDeclaration/network/network/dev.atick.network.di/index.md
 $dokka.location:dev.atick.network.di/ConnectivityManagerModule///PointingToDeclaration/network/network/dev.atick.network.di/-connectivity-manager-module/index.md
 $dokka.location:dev.atick.network.di/ConnectivityManagerModule/provideConnectivityManager/#android.content.Context/PointingToDeclaration/network/network/dev.atick.network.di/-connectivity-manager-module/provide-connectivity-manager.md
