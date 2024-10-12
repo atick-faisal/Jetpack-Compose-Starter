@@ -1,7 +1,7 @@
 [versions]
 
 # ... PROJECT ...
-java = "17"
+java = "21"
 kotlin = "2.0.21"
 androidGradlePlugin = "8.7.0"
 gmsPlugin = "4.4.2"
