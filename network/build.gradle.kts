@@ -46,7 +46,7 @@ dependencies {
 
     // ... Retrofit
     implementation(libs.retrofit.core)
-    implementation(libs.retrofit.converter.gson)
+    implementation(libs.retrofit.converter.kotlinx.serialization)
 
     // ... Coil
     implementation(libs.coil.kt)

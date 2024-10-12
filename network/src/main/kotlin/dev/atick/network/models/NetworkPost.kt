@@ -16,6 +16,8 @@
 
 package dev.atick.network.models
 
+import kotlinx.serialization.Serializable
+
 /**
  * Data class representing a network post retrieved from a remote source.
  *
@@ -24,6 +26,7 @@ package dev.atick.network.models
  * @property url The URL associated with the network post.
  * @property thumbnailUrl The URL of the thumbnail image associated with the network post.
  */
+@Serializable
 data class NetworkPost(
     val id: Int,
     val title: String,
