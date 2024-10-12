@@ -98,7 +98,7 @@ class AuthViewModel @Inject constructor(
         viewModelScope.launch {
             val result = authRepository.signInWithEmailAndPassword(
                 email = authUiState.value.data.email.value,
-                password = authUiState.value.data.email.value,
+                password = authUiState.value.data.password.value,
             )
             if (result.isSuccess) {
                 _authUiState.update { UiState(AuthScreenData()) }
@@ -114,7 +114,7 @@ class AuthViewModel @Inject constructor(
             val result = authRepository.registerWithEmailAndPassword(
                 name = authUiState.value.data.name.value,
                 email = authUiState.value.data.email.value,
-                password = authUiState.value.data.email.value,
+                password = authUiState.value.data.password.value,
                 activity = activity,
             )
             if (result.isSuccess) {
