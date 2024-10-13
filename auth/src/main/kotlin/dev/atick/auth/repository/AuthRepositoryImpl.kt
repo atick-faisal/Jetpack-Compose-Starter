@@ -19,6 +19,7 @@ package dev.atick.auth.repository
 import android.app.Activity
 import dev.atick.auth.data.AuthDataSource
 import dev.atick.auth.models.AuthUser
+import dev.atick.core.utils.suspendRunCatching
 import dev.atick.storage.preferences.data.UserPreferencesDataSource
 import javax.inject.Inject
 
@@ -40,7 +41,7 @@ class AuthRepositoryImpl @Inject constructor(
      * @return A [Result] containing the authenticated [AuthUser] upon successful sign-in.
      */
     override suspend fun signInWithSavedCredentials(activity: Activity): Result<AuthUser> {
-        return runCatching {
+        return suspendRunCatching {
             val user = authDataSource.signInWithSavedCredentials(activity)
             userPreferencesDataSource.setProfile(user.asProfile())
             user
@@ -58,7 +59,7 @@ class AuthRepositoryImpl @Inject constructor(
         email: String,
         password: String,
     ): Result<AuthUser> {
-        return runCatching {
+        return suspendRunCatching {
             val user = authDataSource.signInWithEmailAndPassword(email, password)
             userPreferencesDataSource.setProfile(user.asProfile())
             user
@@ -79,7 +80,7 @@ class AuthRepositoryImpl @Inject constructor(
         password: String,
         activity: Activity,
     ): Result<AuthUser> {
-        return runCatching {
+        return suspendRunCatching {
             val user = authDataSource.registerWithEmailAndPassword(name, email, password, activity)
             userPreferencesDataSource.setProfile(user.asProfile())
             user
@@ -93,7 +94,7 @@ class AuthRepositoryImpl @Inject constructor(
      * @return A [Result] containing the authenticated [AuthUser] upon successful sign-in.
      */
     override suspend fun signInWithGoogle(activity: Activity): Result<AuthUser> {
-        return runCatching {
+        return suspendRunCatching {
             val user = authDataSource.signInWithGoogle(activity)
             userPreferencesDataSource.setProfile(user.asProfile())
             user
@@ -107,7 +108,7 @@ class AuthRepositoryImpl @Inject constructor(
      * @return A [Result] containing the authenticated [AuthUser] upon successful registration.
      */
     override suspend fun registerWithGoogle(activity: Activity): Result<AuthUser> {
-        return kotlin.runCatching {
+        return suspendRunCatching {
             val user = authDataSource.registerWithGoogle(activity)
             userPreferencesDataSource.setProfile(user.asProfile())
             user

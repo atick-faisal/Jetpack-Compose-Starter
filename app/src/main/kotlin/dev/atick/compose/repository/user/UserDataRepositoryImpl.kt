@@ -16,6 +16,7 @@
 
 package dev.atick.compose.repository.user
 
+import dev.atick.core.utils.suspendRunCatching
 import dev.atick.storage.preferences.data.UserPreferencesDataSource
 import dev.atick.storage.preferences.models.DarkThemeConfig
 import dev.atick.storage.preferences.models.Profile
@@ -46,7 +47,7 @@ class UserDataRepositoryImpl @Inject constructor(
      * @return [Result] indicating the success or failure of the operation.
      */
     override suspend fun setUserProfile(profile: Profile): Result<Unit> {
-        return runCatching {
+        return suspendRunCatching {
             userPreferencesDataSource.setProfile(profile)
         }
     }
@@ -58,7 +59,7 @@ class UserDataRepositoryImpl @Inject constructor(
      * @return [Result] indicating the success or failure of the operation.
      */
     override suspend fun setThemeBrand(themeBrand: ThemeBrand): Result<Unit> {
-        return runCatching {
+        return suspendRunCatching {
             userPreferencesDataSource.setThemeBrand(themeBrand)
         }
     }
@@ -70,7 +71,7 @@ class UserDataRepositoryImpl @Inject constructor(
      * @return [Result] indicating the success or failure of the operation.
      */
     override suspend fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig): Result<Unit> {
-        return runCatching {
+        return suspendRunCatching {
             userPreferencesDataSource.setDarkThemeConfig(darkThemeConfig)
         }
     }
@@ -82,7 +83,7 @@ class UserDataRepositoryImpl @Inject constructor(
      * @return [Result] indicating the success or failure of the operation.
      */
     override suspend fun setDynamicColorPreference(useDynamicColor: Boolean): Result<Unit> {
-        return runCatching {
+        return suspendRunCatching {
             userPreferencesDataSource.setDynamicColorPreference(useDynamicColor)
         }
     }

@@ -20,6 +20,7 @@ import dev.atick.compose.data.home.UiPost
 import dev.atick.compose.data.home.mapToPostEntities
 import dev.atick.compose.data.home.mapToUiPost
 import dev.atick.compose.data.home.toUiPost
+import dev.atick.core.utils.suspendRunCatching
 import dev.atick.network.data.NetworkDataSource
 import dev.atick.storage.room.data.LocalDataSource
 import dev.atick.storage.room.models.PostEntity
@@ -44,7 +45,7 @@ class PostsRepositoryImpl @Inject constructor(
      * @return A [Result] indicating the outcome of the synchronization operation.
      */
     override suspend fun synchronizePosts(): Result<Unit> {
-        return runCatching {
+        return suspendRunCatching {
             val networkPosts = networkDataSource.getPosts()
             localDataSource.upsertPostEntities(networkPosts.mapToPostEntities())
         }
@@ -57,7 +58,7 @@ class PostsRepositoryImpl @Inject constructor(
      * @return A [Result] containing the retrieved [UiPost] object.
      */
     override suspend fun getPost(id: Int): Result<UiPost> {
-        return runCatching {
+        return suspendRunCatching {
             networkDataSource.getPost(id).toUiPost()
         }
     }
