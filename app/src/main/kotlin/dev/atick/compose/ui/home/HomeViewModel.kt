@@ -42,8 +42,7 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val postsRepository: PostsRepository,
 ) : ViewModel() {
-    private val _homeUiState: MutableStateFlow<UiState<HomeScreenData>> =
-        MutableStateFlow(UiState(HomeScreenData()))
+    private val _homeUiState = MutableStateFlow(UiState(HomeScreenData()))
     val homeUiState = _homeUiState.asStateFlow()
 
     init {

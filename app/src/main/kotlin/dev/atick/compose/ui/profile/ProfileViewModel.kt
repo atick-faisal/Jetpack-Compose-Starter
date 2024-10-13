@@ -41,14 +41,6 @@ class ProfileViewModel @Inject constructor(
     private val _profileUiState = MutableStateFlow(UiState(ProfileScreenData()))
     val profileUiState: StateFlow<UiState<ProfileScreenData>>
         get() = _profileUiState.asStateFlow()
-//
-//    init {
-//        profileDataRepository.profileScreenData
-//            .map { profileScreenData -> UiState(profileScreenData) }
-//            .onEach { _profileUiState.update { it } }
-//            .catch { e -> UiState(ProfileScreenData(), error = OneTimeEvent(e)) }
-//            .launchIn(viewModelScope)
-//    }
 
     fun updateProfileData() {
         profileDataRepository.profileScreenData

@@ -128,12 +128,9 @@ class OneTimeEvent<T>(private val content: T) {
     private var hasBeenHandled = false
 
     fun getContentIfNotHandled(): T? {
-        return if (hasBeenHandled) {
-            null
-        } else {
-            hasBeenHandled = true
-            content
-        }
+        if (hasBeenHandled) return null
+        hasBeenHandled = true
+        return content
     }
 
     fun peekContent(): T = content

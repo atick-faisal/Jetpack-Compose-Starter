@@ -37,8 +37,7 @@ class DetailsViewModel @Inject constructor(
 ) : ViewModel() {
     private val postId = checkNotNull(savedStateHandle.toRoute<Details>().postId)
 
-    private val _detailsUiState: MutableStateFlow<UiState<UiPost>> =
-        MutableStateFlow(UiState(UiPost(), loading = true))
+    private val _detailsUiState = MutableStateFlow(UiState(UiPost()))
     val detailsUiState = _detailsUiState.asStateFlow()
 
     init {

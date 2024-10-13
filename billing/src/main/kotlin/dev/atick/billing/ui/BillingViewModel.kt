@@ -39,8 +39,7 @@ class BillingViewModel @Inject constructor(
     private val billingRepository: BillingRepository,
 ) : ViewModel() {
 
-    private val _billingUiState: MutableStateFlow<UiState<BillingScreenData>> =
-        MutableStateFlow(UiState(BillingScreenData()))
+    private val _billingUiState = MutableStateFlow(UiState(BillingScreenData()))
     val billingUiState = _billingUiState.asStateFlow()
 
     init {

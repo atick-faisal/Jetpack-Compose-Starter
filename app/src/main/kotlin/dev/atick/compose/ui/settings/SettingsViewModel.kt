@@ -45,22 +45,6 @@ class SettingsViewModel @Inject constructor(
     val settingsUiState: StateFlow<UiState<UserEditableSettings>>
         get() = _settingsUiState.asStateFlow()
 
-//    init {
-//        userDataRepository.userData
-//            .map { userData ->
-//                UiState(
-//                    UserEditableSettings(
-//                        brand = userData.themeBrand,
-//                        useDynamicColor = userData.useDynamicColor,
-//                        darkThemeConfig = userData.darkThemeConfig,
-//                    ),
-//                )
-//            }
-//            .onEach { _settingsUiState.update { it } }
-//            .catch { e -> UiState(UserEditableSettings(), error = OneTimeEvent(e)) }
-//            .launchIn(viewModelScope)
-//    }
-
     fun updateUserData() {
         userDataRepository.userData
             .map { userData ->

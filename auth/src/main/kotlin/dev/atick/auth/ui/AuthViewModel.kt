@@ -39,8 +39,7 @@ class AuthViewModel @Inject constructor(
     private val authRepository: AuthRepository,
 ) : ViewModel() {
 
-    private val _authUiState: MutableStateFlow<UiState<AuthScreenData>> =
-        MutableStateFlow(UiState(AuthScreenData()))
+    private val _authUiState = MutableStateFlow(UiState(AuthScreenData()))
     val authUiState = _authUiState.asStateFlow()
 
     fun updateName(name: String) {
