@@ -21,27 +21,36 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.compose.data.profile.ProfileScreenData
 import dev.atick.compose.repository.profile.ProfileDataRepository
-import dev.atick.core.extensions.stateInDelayed
+import dev.atick.core.ui.utils.OneTimeEvent
 import dev.atick.core.ui.utils.UiState
+import dev.atick.core.ui.utils.updateWith
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val profileDataRepository: ProfileDataRepository,
 ) : ViewModel() {
-    val profileUiState: StateFlow<UiState<ProfileScreenData>> =
+    private val _profileUiState = MutableStateFlow(UiState(ProfileScreenData()))
+    val profileUiState: StateFlow<UiState<ProfileScreenData>>
+        get() = _profileUiState.asStateFlow()
+
+    fun updateProfileData() {
         profileDataRepository.profileScreenData
-            .map { UiState(it) }
-            .catch { e -> UiState(ProfileScreenData(), error = e) }
-            .stateInDelayed(UiState(ProfileScreenData(), loading = true), viewModelScope)
+            .map { profileScreenData -> UiState(profileScreenData) }
+            .onEach { data -> _profileUiState.update { data } }
+            .catch { e -> UiState(ProfileScreenData(), error = OneTimeEvent(e)) }
+            .launchIn(viewModelScope)
+    }
 
     fun signOut() {
-        viewModelScope.launch {
-            profileDataRepository.signOut()
-        }
+        _profileUiState.updateWith(viewModelScope) { profileDataRepository.signOut() }
     }
 }

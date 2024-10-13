@@ -27,10 +27,11 @@ import dev.atick.core.extensions.isPasswordValid
 import dev.atick.core.extensions.isValidFullName
 import dev.atick.core.ui.utils.TextFiledData
 import dev.atick.core.ui.utils.UiState
+import dev.atick.core.ui.utils.updateState
+import dev.atick.core.ui.utils.updateStateWith
+import dev.atick.core.ui.utils.updateWith
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -38,114 +39,81 @@ class AuthViewModel @Inject constructor(
     private val authRepository: AuthRepository,
 ) : ViewModel() {
 
-    private val _authUiState: MutableStateFlow<UiState<AuthScreenData>> =
-        MutableStateFlow(UiState(AuthScreenData()))
+    private val _authUiState = MutableStateFlow(UiState(AuthScreenData()))
     val authUiState = _authUiState.asStateFlow()
 
     fun updateName(name: String) {
-        _authUiState.update {
-            UiState(
-                it.data.copy(
-                    name = TextFiledData(
-                        value = name,
-                        errorMessage = if (name.isValidFullName()) null else "Name Not Valid",
-                    ),
+        _authUiState.updateState {
+            copy(
+                name = TextFiledData(
+                    value = name,
+                    errorMessage = if (name.isValidFullName()) null else "Name Not Valid",
                 ),
             )
         }
     }
 
     fun updateEmail(email: String) {
-        _authUiState.update {
-            UiState(
-                it.data.copy(
-                    email = TextFiledData(
-                        value = email,
-                        errorMessage = if (email.isEmailValid()) null else "Email Not Valid",
-                    ),
+        _authUiState.updateState {
+            copy(
+                email = TextFiledData(
+                    value = email,
+                    errorMessage = if (email.isEmailValid()) null else "Email Not Valid",
                 ),
             )
         }
     }
 
     fun updatePassword(password: String) {
-        _authUiState.update {
-            UiState(
-                it.data.copy(
-                    password = TextFiledData(
-                        value = password,
-                        errorMessage = if (password.isPasswordValid()) null else "Password Not Valid",
-                    ),
+        _authUiState.updateState {
+            copy(
+                password = TextFiledData(
+                    value = password,
+                    errorMessage = if (password.isPasswordValid()) null else "Password Not Valid",
                 ),
             )
         }
     }
 
     fun signInWithSavedCredentials(activity: Activity) {
-        _authUiState.update { it.copy(loading = true) }
-        viewModelScope.launch {
-            val result = authRepository.signInWithSavedCredentials(activity)
-            if (result.isSuccess) {
-                _authUiState.update { UiState(AuthScreenData()) }
-            } else {
-                _authUiState.update { it.copy(error = result.exceptionOrNull()) }
-            }
+        _authUiState.updateWith(viewModelScope) {
+            authRepository.signInWithSavedCredentials(activity)
+            Result.success(Unit)
         }
     }
 
     fun loginWithEmailAndPassword() {
-        _authUiState.update { it.copy(loading = true) }
-        viewModelScope.launch {
-            val result = authRepository.signInWithEmailAndPassword(
+        _authUiState.updateWith(viewModelScope) {
+            authRepository.signInWithEmailAndPassword(
                 email = authUiState.value.data.email.value,
                 password = authUiState.value.data.password.value,
             )
-            if (result.isSuccess) {
-                _authUiState.update { UiState(AuthScreenData()) }
-            } else {
-                _authUiState.update { it.copy(error = result.exceptionOrNull()) }
-            }
+            Result.success(Unit)
         }
     }
 
     fun registerWithEmailAndPassword(activity: Activity) {
-        _authUiState.update { it.copy(loading = true) }
-        viewModelScope.launch {
-            val result = authRepository.registerWithEmailAndPassword(
+        _authUiState.updateStateWith(viewModelScope) {
+            authRepository.registerWithEmailAndPassword(
                 name = authUiState.value.data.name.value,
                 email = authUiState.value.data.email.value,
                 password = authUiState.value.data.password.value,
                 activity = activity,
-            )
-            if (result.isSuccess) {
-                _authUiState.update { UiState(AuthScreenData()) }
-            } else {
-                _authUiState.update { it.copy(error = result.exceptionOrNull()) }
-            }
+            ).map { AuthScreenData() }
         }
     }
 
     fun signInWithGoogle(activity: Activity) {
-        _authUiState.update { it.copy(loading = true) }
-        viewModelScope.launch {
-            val result = authRepository.signInWithGoogle(activity)
-            if (result.isSuccess) {
-                _authUiState.update { UiState(AuthScreenData()) }
-            } else {
-                _authUiState.update { it.copy(error = result.exceptionOrNull()) }
-            }
+        _authUiState.updateStateWith(viewModelScope) {
+            authRepository.signInWithGoogle(activity)
+                .map { AuthScreenData() }
         }
     }
 
     fun registerWithGoogle(activity: Activity) {
-        _authUiState.update { it.copy(loading = true) }
-        viewModelScope.launch {
-            val result = authRepository.registerWithGoogle(activity)
-            if (result.isSuccess) {
-                _authUiState.update { UiState(AuthScreenData()) }
-            } else {
-                _authUiState.update { it.copy(error = result.exceptionOrNull()) }
-            }
+        _authUiState.updateStateWith(viewModelScope) {
+            authRepository.registerWithGoogle(activity)
+                .map { AuthScreenData() }
         }
     }
 }

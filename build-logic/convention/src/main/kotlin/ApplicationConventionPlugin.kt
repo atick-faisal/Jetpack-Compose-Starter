@@ -56,7 +56,7 @@ class ApplicationConventionPlugin : Plugin<Project> {
                 }
             }
 
-            extensions.configure<KotlinAndroidProjectExtension>() {
+            extensions.configure<KotlinAndroidProjectExtension> {
                 compilerOptions {
                     jvmTarget.set(JvmTarget.fromTarget(javaVersion))
                     freeCompilerArgs.addAll(

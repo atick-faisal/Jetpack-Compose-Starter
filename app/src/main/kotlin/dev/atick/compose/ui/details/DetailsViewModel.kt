@@ -25,10 +25,9 @@ import dev.atick.compose.data.home.UiPost
 import dev.atick.compose.navigation.details.Details
 import dev.atick.compose.repository.home.PostsRepository
 import dev.atick.core.ui.utils.UiState
+import dev.atick.core.ui.utils.updateStateWith
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -38,22 +37,10 @@ class DetailsViewModel @Inject constructor(
 ) : ViewModel() {
     private val postId = checkNotNull(savedStateHandle.toRoute<Details>().postId)
 
-    private val _detailsUiState: MutableStateFlow<UiState<UiPost>> =
-        MutableStateFlow(UiState(UiPost(), loading = true))
+    private val _detailsUiState = MutableStateFlow(UiState(UiPost()))
     val detailsUiState = _detailsUiState.asStateFlow()
 
     init {
-        viewModelScope.launch {
-            val result = postsRepository.getPost(postId)
-            if (result.isSuccess) {
-                result.getOrNull()?.let { post ->
-                    _detailsUiState.update { UiState(post) }
-                } ?: _detailsUiState.update {
-                    it.copy(error = IllegalStateException("Post not found"))
-                }
-            } else {
-                _detailsUiState.update { it.copy(error = result.exceptionOrNull()) }
-            }
-        }
+        _detailsUiState.updateStateWith(viewModelScope) { postsRepository.getPost(postId) }
     }
 }

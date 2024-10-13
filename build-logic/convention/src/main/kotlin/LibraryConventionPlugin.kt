@@ -35,7 +35,6 @@ class LibraryConventionPlugin : Plugin<Project> {
                     sourceCompatibility = JavaVersion.valueOf("VERSION_$javaVersion")
                     targetCompatibility = JavaVersion.valueOf("VERSION_$javaVersion")
                 }
-
             }
 
             extensions.configure<KotlinAndroidProjectExtension> {
