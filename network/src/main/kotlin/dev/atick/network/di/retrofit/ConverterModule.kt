@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Atick Faisal
+ * Copyright 2024 Atick Faisal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,24 +20,31 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import retrofit2.converter.gson.GsonConverterFactory
+import kotlinx.serialization.json.Json
+import okhttp3.MediaType.Companion.toMediaType
+import retrofit2.Converter
+import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import javax.inject.Singleton
 
 /**
- * Module for providing [GsonConverterFactory].
+ * Module for providing [Converter.Factory].
  */
 @Module
 @InstallIn(SingletonComponent::class)
-object GsonConverterModule {
-
+object ConverterModule {
     /**
-     * Provides [GsonConverterFactory].
+     * Provides kotlinx.serialization [Converter.Factory].
      *
-     * @return [GsonConverterFactory].
+     * @return [Converter.Factory].
      */
-    @Singleton
     @Provides
-    fun provideGsonConverterFactory(): GsonConverterFactory {
-        return GsonConverterFactory.create()
+    @Singleton
+    fun provideConverter(): Converter.Factory {
+        val json = Json {
+            ignoreUnknownKeys = true
+        }
+        return json.asConverterFactory(
+            "application/json; charset=UTF8".toMediaType(),
+        )
     }
 }

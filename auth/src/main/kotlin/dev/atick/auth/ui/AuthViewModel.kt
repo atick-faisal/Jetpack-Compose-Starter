@@ -86,7 +86,7 @@ class AuthViewModel @Inject constructor(
         _authUiState.updateWith(viewModelScope) {
             authRepository.signInWithEmailAndPassword(
                 email = authUiState.value.data.email.value,
-                password = authUiState.value.data.email.value,
+                password = authUiState.value.data.password.value,
             )
             Result.success(Unit)
         }
@@ -97,7 +97,7 @@ class AuthViewModel @Inject constructor(
             authRepository.registerWithEmailAndPassword(
                 name = authUiState.value.data.name.value,
                 email = authUiState.value.data.email.value,
-                password = authUiState.value.data.email.value,
+                password = authUiState.value.data.password.value,
                 activity = activity,
             ).map { AuthScreenData() }
         }

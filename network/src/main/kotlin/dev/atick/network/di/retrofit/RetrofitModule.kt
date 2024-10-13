@@ -23,8 +23,8 @@ import dagger.hilt.components.SingletonComponent
 import dev.atick.network.BuildConfig
 import dev.atick.network.di.okhttp.OkHttpClientModule
 import okhttp3.OkHttpClient
+import retrofit2.Converter
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 /**
@@ -41,14 +41,14 @@ object RetrofitModule {
     /**
      * Provides [Retrofit].
      *
-     * @param converterFactory [GsonConverterFactory].
+     * @param converterFactory [Converter.Factory].
      * @param okHttpClient [OkHttpClient].
      * @return [Retrofit].
      */
     @Singleton
     @Provides
     fun provideRetrofitClient(
-        converterFactory: GsonConverterFactory,
+        converterFactory: Converter.Factory,
         okHttpClient: OkHttpClient,
     ): Retrofit {
         return Retrofit.Builder()
