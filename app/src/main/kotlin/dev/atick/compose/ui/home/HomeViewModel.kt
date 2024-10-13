@@ -55,6 +55,6 @@ class HomeViewModel @Inject constructor(
             .catch { e -> _homeUiState.update { it.copy(error = OneTimeEvent(e)) } }
             .launchIn(viewModelScope)
 
-        _homeUiState.updateWith { postsRepository.synchronizePosts() }
+        _homeUiState.updateWith(viewModelScope) { postsRepository.synchronizePosts() }
     }
 }

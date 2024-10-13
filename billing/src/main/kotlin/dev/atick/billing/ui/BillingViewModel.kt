@@ -53,10 +53,14 @@ class BillingViewModel @Inject constructor(
     }
 
     fun updateProductsAndPurchases() {
-        _billingUiState.updateWith { billingRepository.updateProductsAndPurchases() }
+        _billingUiState.updateWith(viewModelScope) {
+            billingRepository.updateProductsAndPurchases()
+        }
     }
 
     fun purchaseProduct(activity: Activity, product: Product) {
-        _billingUiState.updateWith { billingRepository.purchaseProduct(activity, product) }
+        _billingUiState.updateWith(viewModelScope) {
+            billingRepository.purchaseProduct(activity, product)
+        }
     }
 }

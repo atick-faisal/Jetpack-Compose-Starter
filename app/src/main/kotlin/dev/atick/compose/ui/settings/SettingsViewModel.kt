@@ -78,15 +78,19 @@ class SettingsViewModel @Inject constructor(
     }
 
     fun updateThemeBrand(themeBrand: ThemeBrand) {
-        _settingsUiState.updateWith { userDataRepository.setThemeBrand(themeBrand) }
+        _settingsUiState.updateWith(viewModelScope) { userDataRepository.setThemeBrand(themeBrand) }
     }
 
     fun updateDarkThemeConfig(darkThemeConfig: DarkThemeConfig) {
-        _settingsUiState.updateWith { userDataRepository.setDarkThemeConfig(darkThemeConfig) }
+        _settingsUiState.updateWith(viewModelScope) {
+            userDataRepository.setDarkThemeConfig(
+                darkThemeConfig,
+            )
+        }
     }
 
     fun updateDynamicColorPreference(useDynamicColor: Boolean) {
-        _settingsUiState.updateWith {
+        _settingsUiState.updateWith(viewModelScope) {
             userDataRepository.setDynamicColorPreference(useDynamicColor)
         }
     }

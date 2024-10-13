@@ -18,6 +18,7 @@ package dev.atick.auth.ui
 
 import android.app.Activity
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.auth.models.AuthScreenData
 import dev.atick.auth.repository.AuthRepository
@@ -76,14 +77,14 @@ class AuthViewModel @Inject constructor(
     }
 
     fun signInWithSavedCredentials(activity: Activity) {
-        _authUiState.updateWith {
+        _authUiState.updateWith(viewModelScope) {
             authRepository.signInWithSavedCredentials(activity)
             Result.success(Unit)
         }
     }
 
     fun loginWithEmailAndPassword() {
-        _authUiState.updateWith {
+        _authUiState.updateWith(viewModelScope) {
             authRepository.signInWithEmailAndPassword(
                 email = authUiState.value.data.email.value,
                 password = authUiState.value.data.email.value,
@@ -93,7 +94,7 @@ class AuthViewModel @Inject constructor(
     }
 
     fun registerWithEmailAndPassword(activity: Activity) {
-        _authUiState.updateStateWith {
+        _authUiState.updateStateWith(viewModelScope) {
             authRepository.registerWithEmailAndPassword(
                 name = authUiState.value.data.name.value,
                 email = authUiState.value.data.email.value,
@@ -104,14 +105,14 @@ class AuthViewModel @Inject constructor(
     }
 
     fun signInWithGoogle(activity: Activity) {
-        _authUiState.updateStateWith {
+        _authUiState.updateStateWith(viewModelScope) {
             authRepository.signInWithGoogle(activity)
                 .map { AuthScreenData() }
         }
     }
 
     fun registerWithGoogle(activity: Activity) {
-        _authUiState.updateStateWith {
+        _authUiState.updateStateWith(viewModelScope) {
             authRepository.registerWithGoogle(activity)
                 .map { AuthScreenData() }
         }

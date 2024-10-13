@@ -18,6 +18,7 @@ package dev.atick.compose.ui.details
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.compose.data.home.UiPost
@@ -41,6 +42,6 @@ class DetailsViewModel @Inject constructor(
     val detailsUiState = _detailsUiState.asStateFlow()
 
     init {
-        _detailsUiState.updateStateWith { postsRepository.getPost(postId) }
+        _detailsUiState.updateStateWith(viewModelScope) { postsRepository.getPost(postId) }
     }
 }

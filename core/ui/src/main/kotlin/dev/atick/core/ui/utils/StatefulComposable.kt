@@ -22,11 +22,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.google.firebase.crashlytics.ktx.crashlytics
 import com.google.firebase.ktx.Firebase
 import dev.atick.core.ui.components.JetpackOverlayLoadingWheel
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -69,12 +68,15 @@ inline fun <T : Any> MutableStateFlow<UiState<T>>.updateState(update: T.() -> T)
     update { UiState(update(it.data)) }
 }
 
-context(ViewModel)
+// TODO: context params will be available after kotlin 2.2
+// until then, have to pass scope as a param
+// context(ViewModel)
 inline fun <reified T : Any> MutableStateFlow<UiState<T>>.updateStateWith(
+    scope: CoroutineScope,
     crossinline operation: suspend () -> Result<T>,
 ) {
     if (value.loading) return
-    viewModelScope.launch {
+    scope.launch {
         update { it.copy(loading = true, error = OneTimeEvent(null)) }
 
         val result = operation()
@@ -96,12 +98,15 @@ inline fun <reified T : Any> MutableStateFlow<UiState<T>>.updateStateWith(
     }
 }
 
-context(ViewModel)
+// TODO: context params will be available after kotlin 2.2
+// until then, have to pass scope as a param
+// context(ViewModel)
 inline fun <T : Any> MutableStateFlow<UiState<T>>.updateWith(
+    scope: CoroutineScope,
     crossinline operation: suspend () -> Result<Unit>,
 ) {
     if (value.loading) return
-    viewModelScope.launch {
+    scope.launch {
         update { it.copy(loading = true, error = OneTimeEvent(null)) }
 
         val result = operation()
