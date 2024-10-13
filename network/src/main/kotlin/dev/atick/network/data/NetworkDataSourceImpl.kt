@@ -21,7 +21,6 @@ import dev.atick.network.api.JetpackRestApi
 import dev.atick.network.models.NetworkPost
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
-import java.util.concurrent.CancellationException
 import javax.inject.Inject
 
 /**
@@ -45,7 +44,6 @@ class NetworkDataSourceImpl @Inject constructor(
     override suspend fun getPosts(): List<NetworkPost> {
         return withContext(ioDispatcher) {
             jetpackRestApi.getPosts()
-            throw CancellationException("Not yet implemented")
         }
     }
 
