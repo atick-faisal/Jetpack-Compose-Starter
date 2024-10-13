@@ -30,7 +30,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: 21
-          distribution: 'termurin'
+          distribution: 'temurin'
           cache: gradle
 
       - name: Setup Gradle
