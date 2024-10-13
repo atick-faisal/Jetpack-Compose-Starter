@@ -357,6 +357,7 @@ $dokka.location:dev.atick.compose.ui.profile/ProfileViewModel///PointingToDeclar
 $dokka.location:dev.atick.compose.ui.profile/ProfileViewModel/ProfileViewModel/#dev.atick.compose.repository.profile.ProfileDataRepository/PointingToDeclaration/app/app/dev.atick.compose.ui.profile/-profile-view-model/-profile-view-model.md
 $dokka.location:dev.atick.compose.ui.profile/ProfileViewModel/profileUiState/#/PointingToDeclaration/app/app/dev.atick.compose.ui.profile/-profile-view-model/profile-ui-state.md
 $dokka.location:dev.atick.compose.ui.profile/ProfileViewModel/signOut/#/PointingToDeclaration/app/app/dev.atick.compose.ui.profile/-profile-view-model/sign-out.md
+$dokka.location:dev.atick.compose.ui.profile/ProfileViewModel/updateProfileData/#/PointingToDeclaration/app/app/dev.atick.compose.ui.profile/-profile-view-model/update-profile-data.md
 $dokka.location:dev.atick.compose.ui.settings////PointingToDeclaration/app/app/dev.atick.compose.ui.settings/index.md
 $dokka.location:dev.atick.compose.ui.settings//SettingsDialog/#dev.atick.core.ui.utils.UiState[dev.atick.compose.data.settings.UserEditableSettings]#kotlin.Boolean#kotlin.Function0[kotlin.Unit]#kotlin.Function1[dev.atick.storage.preferences.models.ThemeBrand,kotlin.Unit]#kotlin.Function1[kotlin.Boolean,kotlin.Unit]#kotlin.Function1[dev.atick.storage.preferences.models.DarkThemeConfig,kotlin.Unit]/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-dialog.md
 $dokka.location:dev.atick.compose.ui.settings//SettingsDialog/#kotlin.Function0[kotlin.Unit]#dev.atick.compose.ui.settings.SettingsViewModel/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-dialog.md
@@ -367,6 +368,7 @@ $dokka.location:dev.atick.compose.ui.settings/SettingsViewModel/settingsUiState/
 $dokka.location:dev.atick.compose.ui.settings/SettingsViewModel/updateDarkThemeConfig/#dev.atick.storage.preferences.models.DarkThemeConfig/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-view-model/update-dark-theme-config.md
 $dokka.location:dev.atick.compose.ui.settings/SettingsViewModel/updateDynamicColorPreference/#kotlin.Boolean/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-view-model/update-dynamic-color-preference.md
 $dokka.location:dev.atick.compose.ui.settings/SettingsViewModel/updateThemeBrand/#dev.atick.storage.preferences.models.ThemeBrand/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-view-model/update-theme-brand.md
+$dokka.location:dev.atick.compose.ui.settings/SettingsViewModel/updateUserData/#/PointingToDeclaration/app/app/dev.atick.compose.ui.settings/-settings-view-model/update-user-data.md
 $dokka.location:dev.atick.compose.ui////PointingToDeclaration/app/app/dev.atick.compose.ui/index.md
 $dokka.location:dev.atick.compose.ui//JetpackApp/#kotlin.Boolean#androidx.compose.material3.windowsizeclass.WindowSizeClass#dev.atick.network.utils.NetworkUtils#dev.atick.compose.ui.JetpackAppState/PointingToDeclaration/app/app/dev.atick.compose.ui/-jetpack-app.md
 $dokka.location:dev.atick.compose.ui//JetpackBottomBar/#kotlin.collections.List[dev.atick.compose.navigation.TopLevelDestination]#kotlin.collections.Set[dev.atick.compose.navigation.TopLevelDestination]#kotlin.Function1[dev.atick.compose.navigation.TopLevelDestination,kotlin.Unit]#androidx.navigation.NavDestination?#androidx.compose.ui.Modifier/PointingToDeclaration/app/app/dev.atick.compose.ui/-jetpack-bottom-bar.md
@@ -492,7 +494,14 @@ $dokka.location:dev.atick.core.ui.theme/TintTheme/TintTheme/#androidx.compose.ui
 $dokka.location:dev.atick.core.ui.theme/TintTheme/iconTint/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.theme/-tint-theme/icon-tint.md
 $dokka.location:dev.atick.core.ui.utils////PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/index.md
 $dokka.location:dev.atick.core.ui.utils//StatefulComposable/#dev.atick.core.ui.utils.UiState[TypeParam(bounds=[kotlin.Any])]#kotlin.coroutines.SuspendFunction2[kotlin.String,kotlin.String?,kotlin.Boolean]#kotlin.Function1[TypeParam(bounds=[kotlin.Any]),kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-stateful-composable.md
+$dokka.location:dev.atick.core.ui.utils//updateState/kotlinx.coroutines.flow.MutableStateFlow[dev.atick.core.ui.utils.UiState[TypeParam(bounds=[kotlin.Any])]]#kotlin.Function1[TypeParam(bounds=[kotlin.Any]),TypeParam(bounds=[kotlin.Any])]/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/update-state.md
+$dokka.location:dev.atick.core.ui.utils//updateStateWith/kotlinx.coroutines.flow.MutableStateFlow[dev.atick.core.ui.utils.UiState[TypeParam(bounds=[kotlin.Any])]]#kotlinx.coroutines.CoroutineScope#kotlin.coroutines.SuspendFunction0[kotlin.Result[TypeParam(bounds=[kotlin.Any])]]/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/update-state-with.md
+$dokka.location:dev.atick.core.ui.utils//updateWith/kotlinx.coroutines.flow.MutableStateFlow[dev.atick.core.ui.utils.UiState[TypeParam(bounds=[kotlin.Any])]]#kotlinx.coroutines.CoroutineScope#kotlin.coroutines.SuspendFunction0[kotlin.Result[kotlin.Unit]]/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/update-with.md
 $dokka.location:dev.atick.core.ui.utils/DevicePreviews///PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-device-previews/index.md
+$dokka.location:dev.atick.core.ui.utils/OneTimeEvent///PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-one-time-event/index.md
+$dokka.location:dev.atick.core.ui.utils/OneTimeEvent/OneTimeEvent/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-one-time-event/-one-time-event.md
+$dokka.location:dev.atick.core.ui.utils/OneTimeEvent/getContentIfNotHandled/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-one-time-event/get-content-if-not-handled.md
+$dokka.location:dev.atick.core.ui.utils/OneTimeEvent/peekContent/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-one-time-event/peek-content.md
 $dokka.location:dev.atick.core.ui.utils/TakePictureActivityContract///PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-take-picture-activity-contract/index.md
 $dokka.location:dev.atick.core.ui.utils/TakePictureActivityContract/TakePictureActivityContract/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-take-picture-activity-contract/-take-picture-activity-contract.md
 $dokka.location:dev.atick.core.ui.utils/TakePictureActivityContract/createIntent/#android.content.Context#android.net.Uri/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-take-picture-activity-contract/create-intent.md
@@ -503,14 +512,10 @@ $dokka.location:dev.atick.core.ui.utils/TextFiledData/TextFiledData/#kotlin.Stri
 $dokka.location:dev.atick.core.ui.utils/TextFiledData/errorMessage/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-text-filed-data/error-message.md
 $dokka.location:dev.atick.core.ui.utils/TextFiledData/value/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-text-filed-data/value.md
 $dokka.location:dev.atick.core.ui.utils/UiState///PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/index.md
-$dokka.location:dev.atick.core.ui.utils/UiState/UiState/#TypeParam(bounds=[kotlin.Any])#kotlin.Boolean#kotlin.Throwable?/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/-ui-state.md
-$dokka.location:dev.atick.core.ui.utils/UiState/copy/#TypeParam(bounds=[kotlin.Any])#kotlin.Boolean#kotlin.Throwable?/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/copy.md
+$dokka.location:dev.atick.core.ui.utils/UiState/UiState/#TypeParam(bounds=[kotlin.Any])#kotlin.Boolean#dev.atick.core.ui.utils.OneTimeEvent[kotlin.Throwable?]/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/-ui-state.md
 $dokka.location:dev.atick.core.ui.utils/UiState/data/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/data.md
-$dokka.location:dev.atick.core.ui.utils/UiState/equals/#kotlin.Any?/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/equals.md
 $dokka.location:dev.atick.core.ui.utils/UiState/error/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/error.md
-$dokka.location:dev.atick.core.ui.utils/UiState/hashCode/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/hash-code.md
 $dokka.location:dev.atick.core.ui.utils/UiState/loading/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/loading.md
-$dokka.location:dev.atick.core.ui.utils/UiState/toString/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/to-string.md
 $dokka.location:dev.atick.core.ui.utils/UiText.DynamicString///PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/-dynamic-string/index.md
 $dokka.location:dev.atick.core.ui.utils/UiText.DynamicString/DynamicString/#kotlin.String/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/-dynamic-string/-dynamic-string.md
 $dokka.location:dev.atick.core.ui.utils/UiText.DynamicString/value/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-text/-dynamic-string/value.md
