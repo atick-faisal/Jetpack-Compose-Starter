@@ -19,6 +19,7 @@ package dev.atick.billing.repository
 import android.app.Activity
 import dev.atick.billing.data.BillingDataSource
 import dev.atick.billing.models.Product
+import dev.atick.core.utils.suspendRunCatching
 import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
@@ -45,7 +46,7 @@ class BillingRepositoryImpl @Inject constructor(
      * @return A [Result] of [Unit].
      */
     override suspend fun updateProductsAndPurchases(): Result<Unit> {
-        return runCatching {
+        return suspendRunCatching {
             billingDataSource.updateProductsAndPurchases()
         }
     }
@@ -58,7 +59,7 @@ class BillingRepositoryImpl @Inject constructor(
      * @return A [Result] of [Unit].
      */
     override suspend fun purchaseProduct(activity: Activity, product: Product): Result<Unit> {
-        return runCatching {
+        return suspendRunCatching {
             billingDataSource.purchaseProduct(activity, product)
         }
     }

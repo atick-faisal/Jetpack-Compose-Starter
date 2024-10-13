@@ -87,7 +87,7 @@ class JetpackAppState(
             // (https://github.com/atick-faisal/Jetpack-Compose-Starter/issues/255)
             val backStackEntry by navController.currentBackStackEntryAsState()
             return TopLevelDestination.entries.firstOrNull { topLevelDestination ->
-                backStackEntry?.destination?.hasRoute(route = topLevelDestination.route) ?: false
+                backStackEntry?.destination?.hasRoute(route = topLevelDestination.route) == true
             }
         }
 
