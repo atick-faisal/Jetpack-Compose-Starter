@@ -28,7 +28,6 @@ import dev.atick.core.extensions.isValidFullName
 import dev.atick.core.ui.utils.TextFiledData
 import dev.atick.core.ui.utils.UiState
 import dev.atick.core.ui.utils.updateState
-import dev.atick.core.ui.utils.updateStateWith
 import dev.atick.core.ui.utils.updateWith
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -78,7 +77,6 @@ class AuthViewModel @Inject constructor(
     fun signInWithSavedCredentials(activity: Activity) {
         _authUiState.updateWith(viewModelScope) {
             authRepository.signInWithSavedCredentials(activity)
-            Result.success(Unit)
         }
     }
 
@@ -88,32 +86,25 @@ class AuthViewModel @Inject constructor(
                 email = authUiState.value.data.email.value,
                 password = authUiState.value.data.password.value,
             )
-            Result.success(Unit)
         }
     }
 
     fun registerWithEmailAndPassword(activity: Activity) {
-        _authUiState.updateStateWith(viewModelScope) {
+        _authUiState.updateWith(viewModelScope) {
             authRepository.registerWithEmailAndPassword(
                 name = authUiState.value.data.name.value,
                 email = authUiState.value.data.email.value,
                 password = authUiState.value.data.password.value,
                 activity = activity,
-            ).map { AuthScreenData() }
+            )
         }
     }
 
     fun signInWithGoogle(activity: Activity) {
-        _authUiState.updateStateWith(viewModelScope) {
-            authRepository.signInWithGoogle(activity)
-                .map { AuthScreenData() }
-        }
+        _authUiState.updateWith(viewModelScope) { authRepository.signInWithGoogle(activity) }
     }
 
     fun registerWithGoogle(activity: Activity) {
-        _authUiState.updateStateWith(viewModelScope) {
-            authRepository.registerWithGoogle(activity)
-                .map { AuthScreenData() }
-        }
+        _authUiState.updateWith(viewModelScope) { authRepository.registerWithGoogle(activity) }
     }
 }

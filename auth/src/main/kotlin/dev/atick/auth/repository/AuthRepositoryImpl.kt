@@ -18,7 +18,6 @@ package dev.atick.auth.repository
 
 import android.app.Activity
 import dev.atick.auth.data.AuthDataSource
-import dev.atick.auth.models.AuthUser
 import dev.atick.core.utils.suspendRunCatching
 import dev.atick.storage.preferences.data.UserPreferencesDataSource
 import javax.inject.Inject
@@ -38,13 +37,13 @@ class AuthRepositoryImpl @Inject constructor(
      * Sign in with saved credentials.
      *
      * @param activity The activity instance.
-     * @return A [Result] containing the authenticated [AuthUser] upon successful sign-in.
+     * @return A [Result] representing the sign-in operation result. It contains [Unit] if
+     * the sign-in was successful, or an error if there was a problem.
      */
-    override suspend fun signInWithSavedCredentials(activity: Activity): Result<AuthUser> {
+    override suspend fun signInWithSavedCredentials(activity: Activity): Result<Unit> {
         return suspendRunCatching {
             val user = authDataSource.signInWithSavedCredentials(activity)
             userPreferencesDataSource.setProfile(user.asProfile())
-            user
         }
     }
 
@@ -53,16 +52,16 @@ class AuthRepositoryImpl @Inject constructor(
      *
      * @param email The user's email address.
      * @param password The user's password.
-     * @return A [Result] containing the authenticated [AuthUser] upon successful sign-in.
+     * @return A [Result] representing the sign-in operation result. It contains [Unit] if
+     * the sign-in was successful, or an error if there was a problem.
      */
     override suspend fun signInWithEmailAndPassword(
         email: String,
         password: String,
-    ): Result<AuthUser> {
+    ): Result<Unit> {
         return suspendRunCatching {
             val user = authDataSource.signInWithEmailAndPassword(email, password)
             userPreferencesDataSource.setProfile(user.asProfile())
-            user
         }
     }
 
@@ -72,18 +71,18 @@ class AuthRepositoryImpl @Inject constructor(
      * @param name The user's name.
      * @param email The user's email address.
      * @param password The user's password.
-     * @return A [Result] containing the authenticated [AuthUser] upon successful registration.
+     * @return A [Result] representing the registration operation result. It contains [Unit] if
+     * the registration was successful, or an error if there was a problem.
      */
     override suspend fun registerWithEmailAndPassword(
         name: String,
         email: String,
         password: String,
         activity: Activity,
-    ): Result<AuthUser> {
+    ): Result<Unit> {
         return suspendRunCatching {
             val user = authDataSource.registerWithEmailAndPassword(name, email, password, activity)
             userPreferencesDataSource.setProfile(user.asProfile())
-            user
         }
     }
 
@@ -91,13 +90,13 @@ class AuthRepositoryImpl @Inject constructor(
      * Sign in with Google.
      *
      * @param activity The current activity.
-     * @return A [Result] containing the authenticated [AuthUser] upon successful sign-in.
+     * @return A [Result] representing the sign-in operation result. It contains [Unit] if
+     * the sign-in was successful, or an error if there was a problem.
      */
-    override suspend fun signInWithGoogle(activity: Activity): Result<AuthUser> {
+    override suspend fun signInWithGoogle(activity: Activity): Result<Unit> {
         return suspendRunCatching {
             val user = authDataSource.signInWithGoogle(activity)
             userPreferencesDataSource.setProfile(user.asProfile())
-            user
         }
     }
 
@@ -105,13 +104,13 @@ class AuthRepositoryImpl @Inject constructor(
      * Register a new user with Google.
      *
      * @param activity The current activity.
-     * @return A [Result] containing the authenticated [AuthUser] upon successful registration.
+     * @return A [Result] representing the registration operation result. It contains [Unit] if
+     * the registration was successful, or an error if there was a problem.
      */
-    override suspend fun registerWithGoogle(activity: Activity): Result<AuthUser> {
+    override suspend fun registerWithGoogle(activity: Activity): Result<Unit> {
         return suspendRunCatching {
             val user = authDataSource.registerWithGoogle(activity)
             userPreferencesDataSource.setProfile(user.asProfile())
-            user
         }
     }
 }
