@@ -61,8 +61,8 @@ playBilling = "7.1.1"
 
 # ... SDK-CONFIG ...
 minSdk = "24"
-compileSdk = "34"
-targetSdk = "34"
+compileSdk = "35"
+targetSdk = "35"
 
 
 [plugins]
