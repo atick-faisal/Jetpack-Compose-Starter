@@ -82,10 +82,18 @@ inline fun <reified T : Any> MutableStateFlow<UiState<T>>.updateStateWith(
         val result = operation()
 
         if (result.isSuccess) {
-            result.getOrNull()?.let { data ->
+            val data = result.getOrNull()
+            if (data != null) {
                 update { it.copy(data = data, loading = false) }
-            } ?: {
-                update { it.copy(loading = false) }
+            } else {
+                update {
+                    it.copy(
+                        loading = false,
+                        error = OneTimeEvent(
+                            IllegalStateException("Operation succeeded but returned no data")
+                        )
+                    )
+                }
             }
         } else {
             update {
