@@ -29,6 +29,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import java.util.concurrent.atomic.AtomicBoolean
 
 @Composable
 fun <T : Any> StatefulComposable(
@@ -90,8 +91,8 @@ inline fun <reified T : Any> MutableStateFlow<UiState<T>>.updateStateWith(
                     it.copy(
                         loading = false,
                         error = OneTimeEvent(
-                            IllegalStateException("Operation succeeded but returned no data")
-                        )
+                            IllegalStateException("Operation succeeded but returned no data"),
+                        ),
                     )
                 }
             }
@@ -133,12 +134,10 @@ inline fun <T : Any> MutableStateFlow<UiState<T>>.updateWith(
 }
 
 class OneTimeEvent<T>(private val content: T) {
-    private var hasBeenHandled = false
+    private var hasBeenHandled = AtomicBoolean(false)
 
     fun getContentIfNotHandled(): T? {
-        if (hasBeenHandled) return null
-        hasBeenHandled = true
-        return content
+        return if (hasBeenHandled.compareAndSet(false, true)) content else null
     }
 
     fun peekContent(): T = content
