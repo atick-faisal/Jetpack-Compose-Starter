@@ -164,7 +164,7 @@ GEM
     mini_mime (1.1.5)
     multi_json (1.15.0)
     multipart-post (2.4.1)
-    mutex_m (0.2.0)
+    mutex_m (0.3.0)
     nanaimo (0.3.0)
     naturally (2.2.1)
     nkf (0.2.0)
