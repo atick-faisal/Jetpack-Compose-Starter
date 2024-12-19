@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
     
     
       
@@ -26904,11 +26904,11 @@
 <tbody>
 <tr>
 <td><a href="-home-screen-data/">HomeScreenData</a></td>
-<td>[androidJvm]<br>@<a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Immutable.html">Immutable</a><br>data class <a href="-home-screen-data/">HomeScreenData</a>(val posts: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="-ui-post/">UiPost</a>&gt; = listOf())<br>Data class representing the data to be displayed on the home screen.</td>
+<td>[androidJvm]<br>@<a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Immutable.html">Immutable</a><br>data class <a href="-home-screen-data/">HomeScreenData</a>(val posts: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="-ui-post/">UiPost</a>&gt; = listOf())<br>Data class representing the data to be displayed on the home screen.</td>
 </tr>
 <tr>
 <td><a href="-ui-post/">UiPost</a></td>
-<td>[androidJvm]<br>data class <a href="-ui-post/">UiPost</a>(val id: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> = 0, val title: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> = &quot;&quot;, val url: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> = &quot;&quot;, val thumbnailUrl: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> = &quot;&quot;)<br>Data class representing a post to be shown on the ui.</td>
+<td>[androidJvm]<br>data class <a href="-ui-post/">UiPost</a>(val id: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a> = 0, val title: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a> = &quot;&quot;, val url: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a> = &quot;&quot;, val thumbnailUrl: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a> = &quot;&quot;)<br>Data class representing a post to be shown on the ui.</td>
 </tr>
 </tbody>
 </table>
@@ -26923,15 +26923,15 @@
 <tbody>
 <tr>
 <td><a href="map-to-post-entities/">mapToPostEntities</a></td>
-<td>[androidJvm]<br>fun <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="../../../network/network/dev.atick.network.models/-network-post/">NetworkPost</a>&gt;.<a href="map-to-post-entities/">mapToPostEntities</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="../../../storage/room/room/dev.atick.storage.room.models/-post-entity/">PostEntity</a>&gt;<br>Converts a list of <a href="../../../network/network/dev.atick.network.models/-network-post/">NetworkPost</a> objects to a list of <a href="../../../storage/room/room/dev.atick.storage.room.models/-post-entity/">PostEntity</a> objects using the <a href="to-post-entity/">toPostEntity</a> conversion function.</td>
+<td>[androidJvm]<br>fun <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="../../../network/network/dev.atick.network.models/-network-post/">NetworkPost</a>&gt;.<a href="map-to-post-entities/">mapToPostEntities</a>(): <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="../../../storage/room/room/dev.atick.storage.room.models/-post-entity/">PostEntity</a>&gt;<br>Converts a list of <a href="../../../network/network/dev.atick.network.models/-network-post/">NetworkPost</a> objects to a list of <a href="../../../storage/room/room/dev.atick.storage.room.models/-post-entity/">PostEntity</a> objects using the <a href="to-post-entity/">toPostEntity</a> conversion function.</td>
 </tr>
 <tr>
 <td><a href="map-to-ui-post/">mapToUiPost</a></td>
-<td>[androidJvm]<br>fun <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="../../../storage/room/room/dev.atick.storage.room.models/-post-entity/">PostEntity</a>&gt;.<a href="map-to-ui-post/">mapToUiPost</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="-ui-post/">UiPost</a>&gt;<br>Converts a list of <a href="../../../storage/room/room/dev.atick.storage.room.models/-post-entity/">PostEntity</a> objects to a list of <a href="-ui-post/">UiPost</a> objects for displaying in the UI, using the <a href="to-ui-post/">toUiPost</a> conversion function.</td>
+<td>[androidJvm]<br>fun <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="../../../storage/room/room/dev.atick.storage.room.models/-post-entity/">PostEntity</a>&gt;.<a href="map-to-ui-post/">mapToUiPost</a>(): <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="-ui-post/">UiPost</a>&gt;<br>Converts a list of <a href="../../../storage/room/room/dev.atick.storage.room.models/-post-entity/">PostEntity</a> objects to a list of <a href="-ui-post/">UiPost</a> objects for displaying in the UI, using the <a href="to-ui-post/">toUiPost</a> conversion function.</td>
 </tr>
 <tr>
 <td><a href="map-to-ui-posts/">mapToUiPosts</a></td>
-<td>[androidJvm]<br>fun <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="../../../network/network/dev.atick.network.models/-network-post/">NetworkPost</a>&gt;.<a href="map-to-ui-posts/">mapToUiPosts</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="-ui-post/">UiPost</a>&gt;<br>Converts a list of <a href="../../../network/network/dev.atick.network.models/-network-post/">NetworkPost</a> objects to a list of corresponding <a href="-ui-post/">UiPost</a> objects.</td>
+<td>[androidJvm]<br>fun <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="../../../network/network/dev.atick.network.models/-network-post/">NetworkPost</a>&gt;.<a href="map-to-ui-posts/">mapToUiPosts</a>(): <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="-ui-post/">UiPost</a>&gt;<br>Converts a list of <a href="../../../network/network/dev.atick.network.models/-network-post/">NetworkPost</a> objects to a list of corresponding <a href="-ui-post/">UiPost</a> objects.</td>
 </tr>
 <tr>
 <td><a href="to-post-entity/">toPostEntity</a></td>
@@ -27126,7 +27126,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "content.action.view", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
   </body>
