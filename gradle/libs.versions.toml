@@ -6,7 +6,7 @@ kotlin = "2.1.0"
 androidGradlePlugin = "8.7.3"
 gmsPlugin = "4.4.2"
 ksp = "2.1.0-1.0.29"
-dokka = "1.9.20"
+dokka = "2.0.0"
 secrets = "2.0.1"
 
 # ... CORE:ANDROID ...
@@ -26,7 +26,7 @@ androidxComposeBom = "2024.12.01"
 androidxComposeCompiler = "1.5.15"
 androidxCoreSplashscreen = "1.0.1"
 androidxHiltNavigationCompose = "1.2.0"
-lottieCompose = "6.6.1"
+lottieCompose = "6.6.2"
 
 # ... NETWORK ...
 okhttp = "4.12.0"
