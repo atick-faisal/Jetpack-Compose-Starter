@@ -21,7 +21,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.compose.data.home.HomeScreenData
 import dev.atick.compose.repository.home.PostsRepository
-import dev.atick.core.ui.utils.OneTimeEvent
+import dev.atick.core.extensions.asOneTimeEvent
 import dev.atick.core.ui.utils.UiState
 import dev.atick.core.ui.utils.updateWith
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -48,10 +48,8 @@ class HomeViewModel @Inject constructor(
     init {
         postsRepository.getCachedPosts()
             .map(::HomeScreenData)
-            .onEach { homeScreenData ->
-                _homeUiState.update { UiState(homeScreenData) }
-            }
-            .catch { e -> _homeUiState.update { it.copy(error = OneTimeEvent(e)) } }
+            .onEach { homeScreenData -> _homeUiState.update { UiState(homeScreenData) } }
+            .catch { e -> _homeUiState.update { it.copy(error = e.asOneTimeEvent()) } }
             .launchIn(viewModelScope)
 
         _homeUiState.updateWith(viewModelScope) { postsRepository.synchronizePosts() }

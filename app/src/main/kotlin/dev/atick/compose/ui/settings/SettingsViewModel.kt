@@ -21,7 +21,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.compose.data.settings.UserEditableSettings
 import dev.atick.compose.repository.user.UserDataRepository
-import dev.atick.core.ui.utils.OneTimeEvent
+import dev.atick.core.extensions.asOneTimeEvent
 import dev.atick.core.ui.utils.UiState
 import dev.atick.core.ui.utils.updateWith
 import dev.atick.storage.preferences.models.DarkThemeConfig
@@ -57,7 +57,7 @@ class SettingsViewModel @Inject constructor(
                 )
             }
             .onEach { data -> _settingsUiState.update { data } }
-            .catch { e -> UiState(UserEditableSettings(), error = OneTimeEvent(e)) }
+            .catch { e -> UiState(UserEditableSettings(), error = e.asOneTimeEvent()) }
             .launchIn(viewModelScope)
     }
 
