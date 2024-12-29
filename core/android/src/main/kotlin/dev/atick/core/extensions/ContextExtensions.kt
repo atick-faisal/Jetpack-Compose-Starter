@@ -19,17 +19,26 @@ package dev.atick.core.extensions
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.webkit.MimeTypeMap
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.annotation.DrawableRes
+import androidx.annotation.IntDef
+import androidx.annotation.StringRes
+import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import java.io.File
+import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.InputStream
@@ -75,6 +84,147 @@ fun Context.hasPermission(permission: String): Boolean {
  */
 fun Context.isAllPermissionsGranted(permissions: List<String>): Boolean {
     return permissions.all { hasPermission(it) }
+}
+
+/**
+ * Annotation to define the valid options for notification importance levels.
+ *
+ * @property NotificationManager.IMPORTANCE_DEFAULT Default importance level.
+ * @property NotificationManager.IMPORTANCE_HIGH High importance level.
+ * @property NotificationManager.IMPORTANCE_LOW Low importance level.
+ * @property NotificationManager.IMPORTANCE_MIN Minimum importance level.
+ * @property NotificationManager.IMPORTANCE_NONE No importance level.
+ * @property NotificationManager.IMPORTANCE_UNSPECIFIED Unspecified importance level.
+ */
+@IntDef(
+    NotificationManager.IMPORTANCE_DEFAULT,
+    NotificationManager.IMPORTANCE_HIGH,
+    NotificationManager.IMPORTANCE_LOW,
+    NotificationManager.IMPORTANCE_MIN,
+    NotificationManager.IMPORTANCE_NONE,
+    NotificationManager.IMPORTANCE_UNSPECIFIED,
+)
+@Retention(AnnotationRetention.SOURCE)
+annotation class Options
+
+/**
+ * Creates a notification channel with the specified channel ID, name, description, and importance.
+ *
+ * @param channelId The ID of the notification channel.
+ * @param channelName The name of the notification channel.
+ * @param channelDescription The description of the notification channel.
+ * @param importance The importance level of the notification channel.
+ */
+fun Context.createNotificationChannel(
+    channelId: String,
+    @StringRes channelName: Int,
+    @StringRes channelDescription: Int,
+    @Options importance: Int,
+) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        val channel = NotificationChannel(
+            channelId,
+            getString(channelName),
+            importance,
+        ).apply {
+            description = getString(channelDescription)
+        }
+        val notificationManager: NotificationManager? =
+            getSystemService(Context.NOTIFICATION_SERVICE) as? NotificationManager
+
+        notificationManager?.createNotificationChannel(channel)
+    }
+}
+
+/**
+ * Creates a notification using the specified channel ID, title, content, and icon.
+ *
+ * @param channelId The ID of the notification channel.
+ * @param title The title of the notification.
+ * @param content The content of the notification.
+ * @param icon The icon of the notification.
+ * @return The notification object.
+ */
+fun Context.createNotification(
+    channelId: String,
+    @StringRes title: Int,
+    @StringRes content: Int,
+    icon: Int,
+    pendingIntent: PendingIntent? = null,
+): Notification {
+    return NotificationCompat.Builder(
+        this,
+        channelId,
+    )
+        .setSmallIcon(icon)
+        .setContentTitle(getString(title))
+        .setContentText(getString(content))
+        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+        .setOnlyAlertOnce(true)
+        .setContentIntent(pendingIntent)
+        .build()
+}
+
+/**
+ * Creates a notification using the specified channel ID, title, content, and icon.
+ *
+ * @param channelId The ID of the notification channel.
+ * @param title The title of the notification.
+ * @param content The content of the notification.
+ * @param icon The icon of the notification.
+ * @return The notification object.
+ */
+fun Context.createNotification(
+    channelId: String,
+    title: String,
+    content: String,
+    icon: Int,
+    pendingIntent: PendingIntent? = null,
+): Notification {
+    return NotificationCompat.Builder(
+        this,
+        channelId,
+    )
+        .setSmallIcon(icon)
+        .setContentTitle(title)
+        .setContentText(content)
+        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+        .setOnlyAlertOnce(true)
+        .setContentIntent(pendingIntent)
+        .build()
+}
+
+/**
+ * Creates a progress notification using the specified channel ID, title, total, current, and icon.
+ *
+ * @param channelId The ID of the notification channel.
+ * @param title The title of the notification.
+ * @param total The total progress value.
+ * @param current The current progress value.
+ * @param icon The icon of the notification.
+ * @return The notification object.
+ */
+fun Context.createProgressNotification(
+    channelId: String,
+    @StringRes title: Int,
+    total: Int,
+    current: Int,
+    @DrawableRes icon: Int,
+    pendingIntent: PendingIntent? = null,
+): Notification {
+    return NotificationCompat.Builder(
+        this,
+        channelId,
+    )
+        .setSmallIcon(icon)
+        // TODO: Generalize string formatting for title
+        .setContentTitle(getString(title, current, total))
+        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+        .setOngoing(true)
+        .setOnlyAlertOnce(true)
+        .setProgress(total, current, false)
+        .setContentIntent(pendingIntent)
+        .build()
 }
 
 /**
@@ -135,23 +285,29 @@ fun Context.getTmpFileUri(appId: String): Uri {
  * Retrieves a File object from the given content URI.
  *
  * @param contentUri The content URI of the file.
- * @return The File object representing the content URI, or `null` if an error occurred.
+ * @return The File object representing the content URI.
+ * @throws FileNotFoundException If the content URI cannot be opened or file cannot be created.
+ * @throws IOException If there is an error during file operations.
+ * @throws SecurityException If there are insufficient permissions to access the content.
  */
-fun Context.getFileFromContentUri(contentUri: Uri): File? {
-    return try {
-        val fileExtension = getFileExtension(this, contentUri)
-        val fileName = "temp_file" + if (fileExtension != null) ".$fileExtension" else ""
-        val tempFile = File(cacheDir, fileName)
-        tempFile.createNewFile()
-        val oStream = FileOutputStream(tempFile)
-        val inputStream = contentResolver.openInputStream(contentUri)
-        inputStream?.let { copy(inputStream, oStream) }
-        oStream.flush()
-        tempFile
-    } catch (e: Exception) {
-        e.printStackTrace()
-        null
+@Throws(FileNotFoundException::class, IOException::class, SecurityException::class)
+fun Context.getFileFromContentUri(contentUri: Uri): File {
+    val fileExtension = getFileExtension(this, contentUri)
+    val fileName = "temp_file" + if (fileExtension != null) ".$fileExtension" else ""
+    val tempFile = File(cacheDir, fileName)
+
+    if (!tempFile.createNewFile()) {
+        throw IOException("Failed to create temporary file: $fileName")
     }
+
+    FileOutputStream(tempFile).use { outputStream ->
+        contentResolver.openInputStream(contentUri)?.use { inputStream ->
+            copy(inputStream, outputStream)
+            outputStream.flush()
+        } ?: throw FileNotFoundException("Failed to open input stream for URI: $contentUri")
+    }
+
+    return tempFile
 }
 
 /**
