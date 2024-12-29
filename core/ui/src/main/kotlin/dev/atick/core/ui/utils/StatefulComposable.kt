@@ -25,11 +25,11 @@ import androidx.compose.ui.Modifier
 import com.google.firebase.crashlytics.ktx.crashlytics
 import com.google.firebase.ktx.Firebase
 import dev.atick.core.ui.components.JetpackOverlayLoadingWheel
+import dev.atick.core.utils.OneTimeEvent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import java.util.concurrent.atomic.AtomicBoolean
 
 @Composable
 fun <T : Any> StatefulComposable(
@@ -131,14 +131,4 @@ inline fun <T : Any> MutableStateFlow<UiState<T>>.updateWith(
             }
         }
     }
-}
-
-class OneTimeEvent<T>(private val content: T) {
-    private var hasBeenHandled = AtomicBoolean(false)
-
-    fun getContentIfNotHandled(): T? {
-        return if (hasBeenHandled.compareAndSet(false, true)) content else null
-    }
-
-    fun peekContent(): T = content
 }

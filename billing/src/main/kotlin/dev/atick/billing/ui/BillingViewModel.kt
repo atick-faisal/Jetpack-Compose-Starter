@@ -23,7 +23,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.billing.models.BillingScreenData
 import dev.atick.billing.models.Product
 import dev.atick.billing.repository.BillingRepository
-import dev.atick.core.ui.utils.OneTimeEvent
+import dev.atick.core.extensions.asOneTimeEvent
 import dev.atick.core.ui.utils.UiState
 import dev.atick.core.ui.utils.updateWith
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -47,7 +47,7 @@ class BillingViewModel @Inject constructor(
             .onEach { products ->
                 _billingUiState.update { UiState(it.data.copy(products = products)) }
             }
-            .catch { e -> _billingUiState.update { it.copy(error = OneTimeEvent(e)) } }
+            .catch { e -> _billingUiState.update { it.copy(error = e.asOneTimeEvent()) } }
             .launchIn(viewModelScope)
     }
 

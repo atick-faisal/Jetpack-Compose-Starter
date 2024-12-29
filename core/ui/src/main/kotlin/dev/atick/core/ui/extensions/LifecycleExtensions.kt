@@ -22,7 +22,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import dev.atick.core.utils.SingleLiveEvent
+import dev.atick.core.utils.OneTimeEvent
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
@@ -46,7 +46,7 @@ inline fun <T> LifecycleOwner.observe(
  * @param action The action to be executed when the value is changed.
  */
 inline fun <T> LifecycleOwner.observeEvent(
-    liveData: LiveData<SingleLiveEvent<T>>,
+    liveData: LiveData<OneTimeEvent<T>>,
     crossinline action: (T) -> Unit,
 ) {
     liveData.observe(this) {
@@ -60,7 +60,7 @@ inline fun <T> LifecycleOwner.observeEvent(
  * @param action The action to be executed when the value is changed.
  */
 inline fun <T> LifecycleOwner.observeEvent(
-    liveData: MutableLiveData<SingleLiveEvent<T>>,
+    liveData: MutableLiveData<OneTimeEvent<T>>,
     crossinline action: (T) -> Unit,
 ) {
     liveData.observe(this) {

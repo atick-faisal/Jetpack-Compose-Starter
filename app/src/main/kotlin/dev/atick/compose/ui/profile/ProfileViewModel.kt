@@ -21,7 +21,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.compose.data.profile.ProfileScreenData
 import dev.atick.compose.repository.profile.ProfileDataRepository
-import dev.atick.core.ui.utils.OneTimeEvent
+import dev.atick.core.extensions.asOneTimeEvent
 import dev.atick.core.ui.utils.UiState
 import dev.atick.core.ui.utils.updateWith
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -46,7 +46,7 @@ class ProfileViewModel @Inject constructor(
         profileDataRepository.profileScreenData
             .map { profileScreenData -> UiState(profileScreenData) }
             .onEach { data -> _profileUiState.update { data } }
-            .catch { e -> UiState(ProfileScreenData(), error = OneTimeEvent(e)) }
+            .catch { e -> UiState(ProfileScreenData(), error = e.asOneTimeEvent()) }
             .launchIn(viewModelScope)
     }
 
