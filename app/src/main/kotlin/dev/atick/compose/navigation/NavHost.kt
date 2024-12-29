@@ -25,8 +25,6 @@ import dev.atick.auth.navigation.navigateToSignInRoute
 import dev.atick.auth.navigation.navigateToSignUpRoute
 import dev.atick.auth.navigation.signInScreen
 import dev.atick.auth.navigation.signUpScreen
-import dev.atick.billing.navigation.billingScreen
-import dev.atick.billing.navigation.navigateToBilling
 import dev.atick.compose.navigation.details.detailsScreen
 import dev.atick.compose.navigation.details.navigateToDetailsScreen
 import dev.atick.compose.navigation.home.HomeNavGraph
@@ -74,11 +72,6 @@ fun JetpackNavHost(
             },
         )
         profileScreen(
-            onShowSnackbar = onShowSnackbar,
-            onPurchaseClick = navController::navigateToBilling,
-        )
-        billingScreen(
-            onBackClick = navController::popBackStack,
             onShowSnackbar = onShowSnackbar,
         )
     }

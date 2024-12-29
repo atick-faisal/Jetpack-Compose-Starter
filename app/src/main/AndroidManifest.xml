@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright 2023 Atick Faisal
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +18,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
         android:name=".App"
@@ -35,6 +33,7 @@
         <profileable
             android:shell="true"
             tools:targetApi="q" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

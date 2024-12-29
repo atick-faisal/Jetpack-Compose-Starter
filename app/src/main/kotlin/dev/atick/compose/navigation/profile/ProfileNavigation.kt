@@ -31,12 +31,10 @@ fun NavController.navigateProfile(navOptions: NavOptions?) {
 }
 
 fun NavGraphBuilder.profileScreen(
-    onPurchaseClick: () -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
 ) {
     composable<Profile> {
         ProfileRoute(
-            onPurchaseClick = onPurchaseClick,
             onShowSnackbar = onShowSnackbar,
         )
     }

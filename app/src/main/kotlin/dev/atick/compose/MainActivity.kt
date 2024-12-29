@@ -17,15 +17,12 @@
 package dev.atick.compose
 
 import android.Manifest
-import android.bluetooth.BluetoothAdapter
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.viewModels
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
@@ -37,13 +34,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dagger.hilt.android.AndroidEntryPoint
-import dev.atick.bluetooth.common.models.BtState
-import dev.atick.bluetooth.common.utils.BluetoothUtils
 import dev.atick.compose.ui.JetpackApp
-import dev.atick.core.extensions.isAllPermissionsGranted
-import dev.atick.core.ui.extensions.checkForPermissions
 import dev.atick.core.ui.extensions.collectWithLifecycle
-import dev.atick.core.ui.extensions.resultLauncher
 import dev.atick.core.ui.theme.JetpackTheme
 import dev.atick.core.ui.utils.UiState
 import dev.atick.network.utils.NetworkUtils
@@ -59,10 +51,6 @@ import javax.inject.Inject
 class MainActivity : ComponentActivity() {
 
     private val permissions = mutableListOf<String>()
-    private lateinit var btLauncher: ActivityResultLauncher<Intent>
-
-    @Inject
-    lateinit var bluetoothUtils: BluetoothUtils
 
     @Inject
     lateinit var networkUtils: NetworkUtils
@@ -125,27 +113,6 @@ class MainActivity : ComponentActivity() {
         // Configure required permissions
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             permissions.add(Manifest.permission.POST_NOTIFICATIONS)
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            permissions.add(Manifest.permission.BLUETOOTH_SCAN)
-            permissions.add(Manifest.permission.BLUETOOTH_CONNECT)
-        }
-
-        // Check for permissions and launch Bluetooth enable request
-        checkForPermissions(permissions) {
-            btLauncher.launch(
-                Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE),
-            )
-        }
-
-        // Configure Bluetooth state monitoring and enable request
-        btLauncher = resultLauncher(onFailure = { finishAffinity() })
-        collectWithLifecycle(bluetoothUtils.getBluetoothState()) { state ->
-            if (state == BtState.DISABLED && isAllPermissionsGranted(permissions)) {
-                btLauncher.launch(
-                    Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE),
-                )
-            }
         }
     }
 }

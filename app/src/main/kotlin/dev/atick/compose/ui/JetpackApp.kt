@@ -30,8 +30,7 @@ import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -162,15 +161,12 @@ fun JetpackApp(
                         if (destination != null) {
                             JetpackTopAppBar(
                                 titleRes = destination.titleTextId,
-                                navigationIcon = Icons.Default.Menu,
-                                navigationIconContentDescription = stringResource(id = R.string.search),
-                                actionIcon = Icons.Default.Settings,
+                                actionIcon = Icons.Default.MoreVert,
                                 actionIconContentDescription = stringResource(id = R.string.more),
                                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                                     containerColor = Color.Transparent,
                                 ),
                                 onActionClick = { showSettingsDialog = true },
-                                onNavigationClick = { },
                             )
                         }
                         JetpackNavHost(
