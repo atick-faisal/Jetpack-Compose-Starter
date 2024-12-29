@@ -92,7 +92,7 @@ android {
             }
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -105,13 +105,11 @@ android {
 }
 
 dependencies {
+    implementation(project(":auth"))
     implementation(project(":core:ui"))
     implementation(project(":network"))
-    implementation(project(":storage:room"))
     implementation(project(":storage:preferences"))
-    implementation(project(":bluetooth:classic"))
-    implementation(project(":auth"))
-    implementation(project(":billing"))
+    implementation(project(":storage:room"))
 
     // ... Splash Screen
     implementation(libs.androidx.core.splashscreen)
