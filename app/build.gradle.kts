@@ -69,7 +69,7 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             applicationVariants.all {
                 outputs.all {
                     (this as BaseVariantOutputImpl).outputFileName =
