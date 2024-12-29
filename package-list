@@ -87,166 +87,6 @@ $dokka.location:dev.atick.auth.ui/AuthViewModel/signInWithSavedCredentials/#andr
 $dokka.location:dev.atick.auth.ui/AuthViewModel/updateEmail/#kotlin.String/PointingToDeclaration/auth/auth/dev.atick.auth.ui/-auth-view-model/update-email.md
 $dokka.location:dev.atick.auth.ui/AuthViewModel/updateName/#kotlin.String/PointingToDeclaration/auth/auth/dev.atick.auth.ui/-auth-view-model/update-name.md
 $dokka.location:dev.atick.auth.ui/AuthViewModel/updatePassword/#kotlin.String/PointingToDeclaration/auth/auth/dev.atick.auth.ui/-auth-view-model/update-password.md
-$dokka.location:dev.atick.billing.config////PointingToDeclaration/billing/billing/dev.atick.billing.config/index.md
-$dokka.location:dev.atick.billing.config//JetpackProducts/#/PointingToDeclaration/billing/billing/dev.atick.billing.config/-jetpack-products.md
-$dokka.location:dev.atick.billing.data////PointingToDeclaration/billing/billing/dev.atick.billing.data/index.md
-$dokka.location:dev.atick.billing.data/BillingDataSource///PointingToDeclaration/billing/billing/dev.atick.billing.data/-billing-data-source/index.md
-$dokka.location:dev.atick.billing.data/BillingDataSource/products/#/PointingToDeclaration/billing/billing/dev.atick.billing.data/-billing-data-source/products.md
-$dokka.location:dev.atick.billing.data/BillingDataSource/purchaseProduct/#android.app.Activity#dev.atick.billing.models.Product/PointingToDeclaration/billing/billing/dev.atick.billing.data/-billing-data-source/purchase-product.md
-$dokka.location:dev.atick.billing.data/BillingDataSource/updateProductsAndPurchases/#/PointingToDeclaration/billing/billing/dev.atick.billing.data/-billing-data-source/update-products-and-purchases.md
-$dokka.location:dev.atick.billing.data/BillingDataSourceImpl///PointingToDeclaration/billing/billing/dev.atick.billing.data/-billing-data-source-impl/index.md
-$dokka.location:dev.atick.billing.data/BillingDataSourceImpl/BillingDataSourceImpl/#android.content.Context#kotlinx.coroutines.CoroutineDispatcher/PointingToDeclaration/billing/billing/dev.atick.billing.data/-billing-data-source-impl/-billing-data-source-impl.md
-$dokka.location:dev.atick.billing.data/BillingDataSourceImpl/products/#/PointingToDeclaration/billing/billing/dev.atick.billing.data/-billing-data-source-impl/products.md
-$dokka.location:dev.atick.billing.data/BillingDataSourceImpl/purchaseProduct/#android.app.Activity#dev.atick.billing.models.Product/PointingToDeclaration/billing/billing/dev.atick.billing.data/-billing-data-source-impl/purchase-product.md
-$dokka.location:dev.atick.billing.data/BillingDataSourceImpl/updateProductsAndPurchases/#/PointingToDeclaration/billing/billing/dev.atick.billing.data/-billing-data-source-impl/update-products-and-purchases.md
-$dokka.location:dev.atick.billing.di////PointingToDeclaration/billing/billing/dev.atick.billing.di/index.md
-$dokka.location:dev.atick.billing.di/DataSourceModule///PointingToDeclaration/billing/billing/dev.atick.billing.di/-data-source-module/index.md
-$dokka.location:dev.atick.billing.di/DataSourceModule/DataSourceModule/#/PointingToDeclaration/billing/billing/dev.atick.billing.di/-data-source-module/-data-source-module.md
-$dokka.location:dev.atick.billing.di/DataSourceModule/bindBillingDataSource/#dev.atick.billing.data.BillingDataSourceImpl/PointingToDeclaration/billing/billing/dev.atick.billing.di/-data-source-module/bind-billing-data-source.md
-$dokka.location:dev.atick.billing.di/RepositoryModule///PointingToDeclaration/billing/billing/dev.atick.billing.di/-repository-module/index.md
-$dokka.location:dev.atick.billing.di/RepositoryModule/RepositoryModule/#/PointingToDeclaration/billing/billing/dev.atick.billing.di/-repository-module/-repository-module.md
-$dokka.location:dev.atick.billing.di/RepositoryModule/binBillingRepository/#dev.atick.billing.repository.BillingRepositoryImpl/PointingToDeclaration/billing/billing/dev.atick.billing.di/-repository-module/bin-billing-repository.md
-$dokka.location:dev.atick.billing.models////PointingToDeclaration/billing/billing/dev.atick.billing.models/index.md
-$dokka.location:dev.atick.billing.models//asOneTimePurchase/com.android.billingclient.api.Purchase#/PointingToDeclaration/billing/billing/dev.atick.billing.models/as-one-time-purchase.md
-$dokka.location:dev.atick.billing.models//asPlayStoreProductType/dev.atick.billing.models.ProductType#/PointingToDeclaration/billing/billing/dev.atick.billing.models/as-play-store-product-type.md
-$dokka.location:dev.atick.billing.models//asProduct/com.android.billingclient.api.ProductDetails#/PointingToDeclaration/billing/billing/dev.atick.billing.models/as-product.md
-$dokka.location:dev.atick.billing.models/BillingScreenData///PointingToDeclaration/billing/billing/dev.atick.billing.models/-billing-screen-data/index.md
-$dokka.location:dev.atick.billing.models/BillingScreenData/BillingScreenData/#kotlin.collections.List[dev.atick.billing.models.Product]/PointingToDeclaration/billing/billing/dev.atick.billing.models/-billing-screen-data/-billing-screen-data.md
-$dokka.location:dev.atick.billing.models/BillingScreenData/products/#/PointingToDeclaration/billing/billing/dev.atick.billing.models/-billing-screen-data/products.md
-$dokka.location:dev.atick.billing.models/OneTimePurchase///PointingToDeclaration/billing/billing/dev.atick.billing.models/-one-time-purchase/index.md
-$dokka.location:dev.atick.billing.models/OneTimePurchase/OneTimePurchase/#kotlin.collections.List[kotlin.String]#kotlin.Long#kotlin.String#kotlin.Boolean#dev.atick.billing.models.OneTimePurchaseState/PointingToDeclaration/billing/billing/dev.atick.billing.models/-one-time-purchase/-one-time-purchase.md
-$dokka.location:dev.atick.billing.models/OneTimePurchase/isAcknowledged/#/PointingToDeclaration/billing/billing/dev.atick.billing.models/-one-time-purchase/is-acknowledged.md
-$dokka.location:dev.atick.billing.models/OneTimePurchase/oneTimePurchaseState/#/PointingToDeclaration/billing/billing/dev.atick.billing.models/-one-time-purchase/one-time-purchase-state.md
-$dokka.location:dev.atick.billing.models/OneTimePurchase/productIds/#/PointingToDeclaration/billing/billing/dev.atick.billing.models/-one-time-purchase/product-ids.md
-$dokka.location:dev.atick.billing.models/OneTimePurchase/purchaseTime/#/PointingToDeclaration/billing/billing/dev.atick.billing.models/-one-time-purchase/purchase-time.md
-$dokka.location:dev.atick.billing.models/OneTimePurchase/purchaseToken/#/PointingToDeclaration/billing/billing/dev.atick.billing.models/-one-time-purchase/purchase-token.md
-$dokka.location:dev.atick.billing.models/OneTimePurchaseState.Available///PointingToDeclaration/billing/billing/dev.atick.billing.models/-one-time-purchase-state/-available/index.md
-$dokka.location:dev.atick.billing.models/OneTimePurchaseState.Pending///PointingToDeclaration/billing/billing/dev.atick.billing.models/-one-time-purchase-state/-pending/index.md
-$dokka.location:dev.atick.billing.models/OneTimePurchaseState.Purchased///PointingToDeclaration/billing/billing/dev.atick.billing.models/-one-time-purchase-state/-purchased/index.md
-$dokka.location:dev.atick.billing.models/OneTimePurchaseState.Unavailable///PointingToDeclaration/billing/billing/dev.atick.billing.models/-one-time-purchase-state/-unavailable/index.md
-$dokka.location:dev.atick.billing.models/OneTimePurchaseState.Verifying///PointingToDeclaration/billing/billing/dev.atick.billing.models/-one-time-purchase-state/-verifying/index.md
-$dokka.location:dev.atick.billing.models/OneTimePurchaseState///PointingToDeclaration/billing/billing/dev.atick.billing.models/-one-time-purchase-state/index.md
-$dokka.location:dev.atick.billing.models/Product///PointingToDeclaration/billing/billing/dev.atick.billing.models/-product/index.md
-$dokka.location:dev.atick.billing.models/Product/Product/#kotlin.String#kotlin.String#kotlin.String#kotlin.String#dev.atick.billing.models.ProductType#dev.atick.billing.models.OneTimePurchaseState/PointingToDeclaration/billing/billing/dev.atick.billing.models/-product/-product.md
-$dokka.location:dev.atick.billing.models/Product/description/#/PointingToDeclaration/billing/billing/dev.atick.billing.models/-product/description.md
-$dokka.location:dev.atick.billing.models/Product/displayPrice/#/PointingToDeclaration/billing/billing/dev.atick.billing.models/-product/display-price.md
-$dokka.location:dev.atick.billing.models/Product/formattedPrice/#/PointingToDeclaration/billing/billing/dev.atick.billing.models/-product/formatted-price.md
-$dokka.location:dev.atick.billing.models/Product/id/#/PointingToDeclaration/billing/billing/dev.atick.billing.models/-product/id.md
-$dokka.location:dev.atick.billing.models/Product/name/#/PointingToDeclaration/billing/billing/dev.atick.billing.models/-product/name.md
-$dokka.location:dev.atick.billing.models/Product/oneTimePurchaseState/#/PointingToDeclaration/billing/billing/dev.atick.billing.models/-product/one-time-purchase-state.md
-$dokka.location:dev.atick.billing.models/Product/productType/#/PointingToDeclaration/billing/billing/dev.atick.billing.models/-product/product-type.md
-$dokka.location:dev.atick.billing.models/Product/purchasable/#/PointingToDeclaration/billing/billing/dev.atick.billing.models/-product/purchasable.md
-$dokka.location:dev.atick.billing.models/ProductType.ONE_TIME///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}billing/billing/dev.atick.billing.models/-product-type/-o-n-e_-t-i-m-e/index.md
-$dokka.location:dev.atick.billing.models/ProductType.SUBSCRIPTION///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}billing/billing/dev.atick.billing.models/-product-type/-s-u-b-s-c-r-i-p-t-i-o-n/index.md
-$dokka.location:dev.atick.billing.models/ProductType///PointingToDeclaration/billing/billing/dev.atick.billing.models/-product-type/index.md
-$dokka.location:dev.atick.billing.models/ProductType/entries/#/PointingToDeclaration/billing/billing/dev.atick.billing.models/-product-type/entries.md
-$dokka.location:dev.atick.billing.models/ProductType/valueOf/#kotlin.String/PointingToDeclaration/billing/billing/dev.atick.billing.models/-product-type/value-of.md
-$dokka.location:dev.atick.billing.models/ProductType/values/#/PointingToDeclaration/billing/billing/dev.atick.billing.models/-product-type/values.md
-$dokka.location:dev.atick.billing.navigation////PointingToDeclaration/billing/billing/dev.atick.billing.navigation/index.md
-$dokka.location:dev.atick.billing.navigation//billingScreen/androidx.navigation.NavGraphBuilder#kotlin.Function0[kotlin.Unit]#kotlin.coroutines.SuspendFunction2[kotlin.String,kotlin.String?,kotlin.Boolean]/PointingToDeclaration/billing/billing/dev.atick.billing.navigation/billing-screen.md
-$dokka.location:dev.atick.billing.navigation//navigateToBilling/androidx.navigation.NavController#androidx.navigation.NavOptions?/PointingToDeclaration/billing/billing/dev.atick.billing.navigation/navigate-to-billing.md
-$dokka.location:dev.atick.billing.navigation/Billing///PointingToDeclaration/billing/billing/dev.atick.billing.navigation/-billing/index.md
-$dokka.location:dev.atick.billing.repository////PointingToDeclaration/billing/billing/dev.atick.billing.repository/index.md
-$dokka.location:dev.atick.billing.repository/BillingRepository///PointingToDeclaration/billing/billing/dev.atick.billing.repository/-billing-repository/index.md
-$dokka.location:dev.atick.billing.repository/BillingRepository/products/#/PointingToDeclaration/billing/billing/dev.atick.billing.repository/-billing-repository/products.md
-$dokka.location:dev.atick.billing.repository/BillingRepository/purchaseProduct/#android.app.Activity#dev.atick.billing.models.Product/PointingToDeclaration/billing/billing/dev.atick.billing.repository/-billing-repository/purchase-product.md
-$dokka.location:dev.atick.billing.repository/BillingRepository/updateProductsAndPurchases/#/PointingToDeclaration/billing/billing/dev.atick.billing.repository/-billing-repository/update-products-and-purchases.md
-$dokka.location:dev.atick.billing.repository/BillingRepositoryImpl///PointingToDeclaration/billing/billing/dev.atick.billing.repository/-billing-repository-impl/index.md
-$dokka.location:dev.atick.billing.repository/BillingRepositoryImpl/BillingRepositoryImpl/#dev.atick.billing.data.BillingDataSource/PointingToDeclaration/billing/billing/dev.atick.billing.repository/-billing-repository-impl/-billing-repository-impl.md
-$dokka.location:dev.atick.billing.repository/BillingRepositoryImpl/products/#/PointingToDeclaration/billing/billing/dev.atick.billing.repository/-billing-repository-impl/products.md
-$dokka.location:dev.atick.billing.repository/BillingRepositoryImpl/purchaseProduct/#android.app.Activity#dev.atick.billing.models.Product/PointingToDeclaration/billing/billing/dev.atick.billing.repository/-billing-repository-impl/purchase-product.md
-$dokka.location:dev.atick.billing.repository/BillingRepositoryImpl/updateProductsAndPurchases/#/PointingToDeclaration/billing/billing/dev.atick.billing.repository/-billing-repository-impl/update-products-and-purchases.md
-$dokka.location:dev.atick.billing.ui////PointingToDeclaration/billing/billing/dev.atick.billing.ui/index.md
-$dokka.location:dev.atick.billing.ui//BillingRoute/#kotlin.Function0[kotlin.Unit]#kotlin.coroutines.SuspendFunction2[kotlin.String,kotlin.String?,kotlin.Boolean]#dev.atick.billing.ui.BillingViewModel/PointingToDeclaration/billing/billing/dev.atick.billing.ui/-billing-route.md
-$dokka.location:dev.atick.billing.ui//BillingScreen/#kotlin.Function0[kotlin.Unit]#dev.atick.billing.models.BillingScreenData#kotlin.Function2[android.app.Activity,dev.atick.billing.models.Product,kotlin.Unit]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/billing/billing/dev.atick.billing.ui/-billing-screen.md
-$dokka.location:dev.atick.billing.ui//BillingScreenPreview/#/PointingToDeclaration/billing/billing/dev.atick.billing.ui/-billing-screen-preview.md
-$dokka.location:dev.atick.billing.ui//ProductCard/#dev.atick.billing.models.Product#kotlin.Function2[android.app.Activity,dev.atick.billing.models.Product,kotlin.Unit]/PointingToDeclaration/billing/billing/dev.atick.billing.ui/-product-card.md
-$dokka.location:dev.atick.billing.ui/BillingViewModel///PointingToDeclaration/billing/billing/dev.atick.billing.ui/-billing-view-model/index.md
-$dokka.location:dev.atick.billing.ui/BillingViewModel/BillingViewModel/#dev.atick.billing.repository.BillingRepository/PointingToDeclaration/billing/billing/dev.atick.billing.ui/-billing-view-model/-billing-view-model.md
-$dokka.location:dev.atick.billing.ui/BillingViewModel/billingUiState/#/PointingToDeclaration/billing/billing/dev.atick.billing.ui/-billing-view-model/billing-ui-state.md
-$dokka.location:dev.atick.billing.ui/BillingViewModel/purchaseProduct/#android.app.Activity#dev.atick.billing.models.Product/PointingToDeclaration/billing/billing/dev.atick.billing.ui/-billing-view-model/purchase-product.md
-$dokka.location:dev.atick.billing.ui/BillingViewModel/updateProductsAndPurchases/#/PointingToDeclaration/billing/billing/dev.atick.billing.ui/-billing-view-model/update-products-and-purchases.md
-$dokka.location:dev.atick.bluetooth.classic.di////PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic.di/index.md
-$dokka.location:dev.atick.bluetooth.classic.di/BluetoothClassicModule///PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic.di/-bluetooth-classic-module/index.md
-$dokka.location:dev.atick.bluetooth.classic.di/BluetoothClassicModule/BluetoothClassicModule/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic.di/-bluetooth-classic-module/-bluetooth-classic-module.md
-$dokka.location:dev.atick.bluetooth.classic.di/BluetoothClassicModule/bindBluetoothDataSource/#dev.atick.bluetooth.classic.BluetoothClassic/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic.di/-bluetooth-classic-module/bind-bluetooth-data-source.md
-$dokka.location:dev.atick.bluetooth.classic.di/BluetoothClassicModule/bindBluetoothManager/#dev.atick.bluetooth.classic.BluetoothClassic/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic.di/-bluetooth-classic-module/bind-bluetooth-manager.md
-$dokka.location:dev.atick.bluetooth.classic.di/BluetoothClassicModule/provideBluetoothUtils/#dev.atick.bluetooth.classic.BluetoothClassic/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic.di/-bluetooth-classic-module/provide-bluetooth-utils.md
-$dokka.location:dev.atick.bluetooth.classic////PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/index.md
-$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic.Companion///PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/-companion/index.md
-$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic.Companion/BT_UUID/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/-companion/-b-t_-u-u-i-d.md
-$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic///PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/index.md
-$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/BluetoothClassic/#android.bluetooth.BluetoothAdapter?#android.content.Context#kotlinx.coroutines.CoroutineDispatcher/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/-bluetooth-classic.md
-$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/closeConnection/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/close-connection.md
-$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/connect/#kotlin.String/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/connect.md
-$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/getBluetoothDataStream/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/get-bluetooth-data-stream.md
-$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/getBluetoothState/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/get-bluetooth-state.md
-$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/getConnectedDeviceState/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/get-connected-device-state.md
-$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/getPairedDevices/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/get-paired-devices.md
-$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/getScannedDevices/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/get-scanned-devices.md
-$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/sendDataToBluetoothDevice/#kotlin.String/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/send-data-to-bluetooth-device.md
-$dokka.location:dev.atick.bluetooth.classic/BluetoothClassic/stopDiscovery/#/PointingToDeclaration/classic/classic/dev.atick.bluetooth.classic/-bluetooth-classic/stop-discovery.md
-$dokka.location:dev.atick.bluetooth.common.data////PointingToDeclaration/common/common/dev.atick.bluetooth.common.data/index.md
-$dokka.location:dev.atick.bluetooth.common.data/BluetoothDataSource///PointingToDeclaration/common/common/dev.atick.bluetooth.common.data/-bluetooth-data-source/index.md
-$dokka.location:dev.atick.bluetooth.common.data/BluetoothDataSource/getBluetoothDataStream/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.data/-bluetooth-data-source/get-bluetooth-data-stream.md
-$dokka.location:dev.atick.bluetooth.common.data/BluetoothDataSource/sendDataToBluetoothDevice/#kotlin.String/PointingToDeclaration/common/common/dev.atick.bluetooth.common.data/-bluetooth-data-source/send-data-to-bluetooth-device.md
-$dokka.location:dev.atick.bluetooth.common.di////PointingToDeclaration/common/common/dev.atick.bluetooth.common.di/index.md
-$dokka.location:dev.atick.bluetooth.common.di/BluetoothAdapterModule///PointingToDeclaration/common/common/dev.atick.bluetooth.common.di/-bluetooth-adapter-module/index.md
-$dokka.location:dev.atick.bluetooth.common.di/BluetoothAdapterModule/provideBluetoothAdapter/#android.content.Context/PointingToDeclaration/common/common/dev.atick.bluetooth.common.di/-bluetooth-adapter-module/provide-bluetooth-adapter.md
-$dokka.location:dev.atick.bluetooth.common.manager////PointingToDeclaration/common/common/dev.atick.bluetooth.common.manager/index.md
-$dokka.location:dev.atick.bluetooth.common.manager/BluetoothManager///PointingToDeclaration/common/common/dev.atick.bluetooth.common.manager/-bluetooth-manager/index.md
-$dokka.location:dev.atick.bluetooth.common.manager/BluetoothManager/closeConnection/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.manager/-bluetooth-manager/close-connection.md
-$dokka.location:dev.atick.bluetooth.common.manager/BluetoothManager/connect/#kotlin.String/PointingToDeclaration/common/common/dev.atick.bluetooth.common.manager/-bluetooth-manager/connect.md
-$dokka.location:dev.atick.bluetooth.common.manager/BluetoothManager/getConnectedDeviceState/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.manager/-bluetooth-manager/get-connected-device-state.md
-$dokka.location:dev.atick.bluetooth.common.models////PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/index.md
-$dokka.location:dev.atick.bluetooth.common.models//simplify/android.bluetooth.BluetoothDevice#kotlin.Boolean/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/simplify.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDevice///PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDevice/BtDevice/#kotlin.String#kotlin.String#dev.atick.bluetooth.common.models.BtDeviceType#kotlin.Boolean/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/-bt-device.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDevice/address/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/address.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDevice/connected/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/connected.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDevice/name/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/name.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDevice/type/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device/type.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.AUDIO_VIDEO///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-a-u-d-i-o_-v-i-d-e-o/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.COMPUTER///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-c-o-m-p-u-t-e-r/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.HEALTH///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-h-e-a-l-t-h/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.IMAGING///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-i-m-a-g-i-n-g/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.MISC///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-m-i-s-c/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.NETWORKING///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-n-e-t-w-o-r-k-i-n-g/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.PERIPHERAL///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-p-e-r-i-p-h-e-r-a-l/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.PHONE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-p-h-o-n-e/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.TOY///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-t-o-y/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.UNCATEGORIZED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-u-n-c-a-t-e-g-o-r-i-z-e-d/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType.WEARABLE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-device-type/-w-e-a-r-a-b-l-e/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType///PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device-type/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType/entries/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device-type/entries.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType/valueOf/#kotlin.String/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device-type/value-of.md
-$dokka.location:dev.atick.bluetooth.common.models/BtDeviceType/values/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-device-type/values.md
-$dokka.location:dev.atick.bluetooth.common.models/BtMessage///PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-message/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtMessage/BtMessage/#kotlin.Long#kotlin.CharSequence/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-message/-bt-message.md
-$dokka.location:dev.atick.bluetooth.common.models/BtMessage/message/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-message/message.md
-$dokka.location:dev.atick.bluetooth.common.models/BtMessage/timestamp/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-message/timestamp.md
-$dokka.location:dev.atick.bluetooth.common.models/BtState.DISABLED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-state/-d-i-s-a-b-l-e-d/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtState.ENABLED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}common/common/dev.atick.bluetooth.common.models/-bt-state/-e-n-a-b-l-e-d/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtState///PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-state/index.md
-$dokka.location:dev.atick.bluetooth.common.models/BtState/entries/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-state/entries.md
-$dokka.location:dev.atick.bluetooth.common.models/BtState/valueOf/#kotlin.String/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-state/value-of.md
-$dokka.location:dev.atick.bluetooth.common.models/BtState/values/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.models/-bt-state/values.md
-$dokka.location:dev.atick.bluetooth.common.receivers////PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/index.md
-$dokka.location:dev.atick.bluetooth.common.receivers/BluetoothStateReceiver///PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-bluetooth-state-receiver/index.md
-$dokka.location:dev.atick.bluetooth.common.receivers/BluetoothStateReceiver/BluetoothStateReceiver/#kotlin.Function1[dev.atick.bluetooth.common.models.BtState,kotlin.Unit]/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-bluetooth-state-receiver/-bluetooth-state-receiver.md
-$dokka.location:dev.atick.bluetooth.common.receivers/BluetoothStateReceiver/onReceive/#android.content.Context?#android.content.Intent?/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-bluetooth-state-receiver/on-receive.md
-$dokka.location:dev.atick.bluetooth.common.receivers/DeviceStateReceiver///PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-device-state-receiver/index.md
-$dokka.location:dev.atick.bluetooth.common.receivers/DeviceStateReceiver/DeviceStateReceiver/#kotlin.Function1[dev.atick.bluetooth.common.models.BtDevice,kotlin.Unit]/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-device-state-receiver/-device-state-receiver.md
-$dokka.location:dev.atick.bluetooth.common.receivers/DeviceStateReceiver/onReceive/#android.content.Context?#android.content.Intent?/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-device-state-receiver/on-receive.md
-$dokka.location:dev.atick.bluetooth.common.receivers/ScannedDeviceReceiver///PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-scanned-device-receiver/index.md
-$dokka.location:dev.atick.bluetooth.common.receivers/ScannedDeviceReceiver/ScannedDeviceReceiver/#kotlin.Function1[dev.atick.bluetooth.common.models.BtDevice,kotlin.Unit]/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-scanned-device-receiver/-scanned-device-receiver.md
-$dokka.location:dev.atick.bluetooth.common.receivers/ScannedDeviceReceiver/onReceive/#android.content.Context?#android.content.Intent?/PointingToDeclaration/common/common/dev.atick.bluetooth.common.receivers/-scanned-device-receiver/on-receive.md
-$dokka.location:dev.atick.bluetooth.common.utils////PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/index.md
-$dokka.location:dev.atick.bluetooth.common.utils/BluetoothUtils///PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/-bluetooth-utils/index.md
-$dokka.location:dev.atick.bluetooth.common.utils/BluetoothUtils/getBluetoothState/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/-bluetooth-utils/get-bluetooth-state.md
-$dokka.location:dev.atick.bluetooth.common.utils/BluetoothUtils/getPairedDevices/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/-bluetooth-utils/get-paired-devices.md
-$dokka.location:dev.atick.bluetooth.common.utils/BluetoothUtils/getScannedDevices/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/-bluetooth-utils/get-scanned-devices.md
-$dokka.location:dev.atick.bluetooth.common.utils/BluetoothUtils/stopDiscovery/#/PointingToDeclaration/common/common/dev.atick.bluetooth.common.utils/-bluetooth-utils/stop-discovery.md
 $dokka.location:dev.atick.compose.data.home////PointingToDeclaration/app/app/dev.atick.compose.data.home/index.md
 $dokka.location:dev.atick.compose.data.home//mapToPostEntities/kotlin.collections.List[dev.atick.network.models.NetworkPost]#/PointingToDeclaration/app/app/dev.atick.compose.data.home/map-to-post-entities.md
 $dokka.location:dev.atick.compose.data.home//mapToUiPost/kotlin.collections.List[dev.atick.storage.room.models.PostEntity]#/PointingToDeclaration/app/app/dev.atick.compose.data.home/map-to-ui-post.md
@@ -297,7 +137,7 @@ $dokka.location:dev.atick.compose.navigation.home/Home///PointingToDeclaration/
 $dokka.location:dev.atick.compose.navigation.home/HomeNavGraph///PointingToDeclaration/app/app/dev.atick.compose.navigation.home/-home-nav-graph/index.md
 $dokka.location:dev.atick.compose.navigation.profile////PointingToDeclaration/app/app/dev.atick.compose.navigation.profile/index.md
 $dokka.location:dev.atick.compose.navigation.profile//navigateProfile/androidx.navigation.NavController#androidx.navigation.NavOptions?/PointingToDeclaration/app/app/dev.atick.compose.navigation.profile/navigate-profile.md
-$dokka.location:dev.atick.compose.navigation.profile//profileScreen/androidx.navigation.NavGraphBuilder#kotlin.Function0[kotlin.Unit]#kotlin.coroutines.SuspendFunction2[kotlin.String,kotlin.String?,kotlin.Boolean]/PointingToDeclaration/app/app/dev.atick.compose.navigation.profile/profile-screen.md
+$dokka.location:dev.atick.compose.navigation.profile//profileScreen/androidx.navigation.NavGraphBuilder#kotlin.coroutines.SuspendFunction2[kotlin.String,kotlin.String?,kotlin.Boolean]/PointingToDeclaration/app/app/dev.atick.compose.navigation.profile/profile-screen.md
 $dokka.location:dev.atick.compose.navigation.profile/Profile///PointingToDeclaration/app/app/dev.atick.compose.navigation.profile/-profile/index.md
 $dokka.location:dev.atick.compose.navigation////PointingToDeclaration/app/app/dev.atick.compose.navigation/index.md
 $dokka.location:dev.atick.compose.navigation//JetpackNavHost/#dev.atick.compose.ui.JetpackAppState#kotlin.coroutines.SuspendFunction2[kotlin.String,kotlin.String?,kotlin.Boolean]#androidx.compose.ui.Modifier/PointingToDeclaration/app/app/dev.atick.compose.navigation/-jetpack-nav-host.md
@@ -393,7 +233,6 @@ $dokka.location:dev.atick.compose/App/App/#/PointingToDeclaration/app/app/dev.a
 $dokka.location:dev.atick.compose/App/onCreate/#/PointingToDeclaration/app/app/dev.atick.compose/-app/on-create.md
 $dokka.location:dev.atick.compose/MainActivity///PointingToDeclaration/app/app/dev.atick.compose/-main-activity/index.md
 $dokka.location:dev.atick.compose/MainActivity/MainActivity/#/PointingToDeclaration/app/app/dev.atick.compose/-main-activity/-main-activity.md
-$dokka.location:dev.atick.compose/MainActivity/bluetoothUtils/#/PointingToDeclaration/app/app/dev.atick.compose/-main-activity/bluetooth-utils.md
 $dokka.location:dev.atick.compose/MainActivity/networkUtils/#/PointingToDeclaration/app/app/dev.atick.compose/-main-activity/network-utils.md
 $dokka.location:dev.atick.compose/MainActivityViewModel///PointingToDeclaration/app/app/dev.atick.compose/-main-activity-view-model/index.md
 $dokka.location:dev.atick.compose/MainActivityViewModel/MainActivityViewModel/#dev.atick.compose.repository.user.UserDataRepository/PointingToDeclaration/app/app/dev.atick.compose/-main-activity-view-model/-main-activity-view-model.md
@@ -750,14 +589,6 @@ dev.atick.auth.repository
 dev.atick.auth.ui
 dev.atick.auth.ui.signin
 dev.atick.auth.ui.signup
-module:billing
-dev.atick.billing.config
-dev.atick.billing.data
-dev.atick.billing.di
-dev.atick.billing.models
-dev.atick.billing.navigation
-dev.atick.billing.repository
-dev.atick.billing.ui
 module:network
 dev.atick.network.api
 dev.atick.network.data
@@ -767,16 +598,6 @@ dev.atick.network.di.okhttp
 dev.atick.network.di.retrofit
 dev.atick.network.models
 dev.atick.network.utils
-module:classic
-dev.atick.bluetooth.classic
-dev.atick.bluetooth.classic.di
-module:common
-dev.atick.bluetooth.common.data
-dev.atick.bluetooth.common.di
-dev.atick.bluetooth.common.manager
-dev.atick.bluetooth.common.models
-dev.atick.bluetooth.common.receivers
-dev.atick.bluetooth.common.utils
 module:android
 dev.atick.core.di
 dev.atick.core.extensions
