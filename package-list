@@ -399,6 +399,9 @@ $dokka.location:dev.atick.compose/MainActivityViewModel///PointingToDeclaration/
 $dokka.location:dev.atick.compose/MainActivityViewModel/MainActivityViewModel/#dev.atick.compose.repository.user.UserDataRepository/PointingToDeclaration/app/app/dev.atick.compose/-main-activity-view-model/-main-activity-view-model.md
 $dokka.location:dev.atick.compose/MainActivityViewModel/uiState/#/PointingToDeclaration/app/app/dev.atick.compose/-main-activity-view-model/ui-state.md
 $dokka.location:dev.atick.core.di////PointingToDeclaration/android/android/dev.atick.core.di/index.md
+$dokka.location:dev.atick.core.di/ApplicationScope///PointingToDeclaration/android/android/dev.atick.core.di/-application-scope/index.md
+$dokka.location:dev.atick.core.di/CoroutineModule///PointingToDeclaration/android/android/dev.atick.core.di/-coroutine-module/index.md
+$dokka.location:dev.atick.core.di/CoroutineModule/providesCoroutineScope/#kotlinx.coroutines.CoroutineDispatcher/PointingToDeclaration/android/android/dev.atick.core.di/-coroutine-module/provides-coroutine-scope.md
 $dokka.location:dev.atick.core.di/DefaultDispatcher///PointingToDeclaration/android/android/dev.atick.core.di/-default-dispatcher/index.md
 $dokka.location:dev.atick.core.di/DispatcherModule///PointingToDeclaration/android/android/dev.atick.core.di/-dispatcher-module/index.md
 $dokka.location:dev.atick.core.di/DispatcherModule/providesDefaultDispatcher/#/PointingToDeclaration/android/android/dev.atick.core.di/-dispatcher-module/provides-default-dispatcher.md
@@ -410,9 +413,17 @@ $dokka.location:dev.atick.core.di/StringDecoderModule///PointingToDeclaration/a
 $dokka.location:dev.atick.core.di/StringDecoderModule/StringDecoderModule/#/PointingToDeclaration/android/android/dev.atick.core.di/-string-decoder-module/-string-decoder-module.md
 $dokka.location:dev.atick.core.di/StringDecoderModule/bindStringDecoder/#dev.atick.core.utils.UriDecoder/PointingToDeclaration/android/android/dev.atick.core.di/-string-decoder-module/bind-string-decoder.md
 $dokka.location:dev.atick.core.extensions////PointingToDeclaration/android/android/dev.atick.core.extensions/index.md
+$dokka.location:dev.atick.core.extensions//asFormattedDateTime/kotlin.Long#/PointingToDeclaration/android/android/dev.atick.core.extensions/as-formatted-date-time.md
+$dokka.location:dev.atick.core.extensions//asOneTimeEvent/kotlin.Throwable#/PointingToDeclaration/android/android/dev.atick.core.extensions/as-one-time-event.md
 $dokka.location:dev.atick.core.extensions//cancelNotification/android.content.Context#kotlin.Int/PointingToDeclaration/android/android/dev.atick.core.extensions/cancel-notification.md
+$dokka.location:dev.atick.core.extensions//createNotification/android.content.Context#kotlin.String#kotlin.Int#kotlin.Int#kotlin.Int#android.app.PendingIntent?/PointingToDeclaration/android/android/dev.atick.core.extensions/create-notification.md
+$dokka.location:dev.atick.core.extensions//createNotification/android.content.Context#kotlin.String#kotlin.String#kotlin.String#kotlin.Int#android.app.PendingIntent?/PointingToDeclaration/android/android/dev.atick.core.extensions/create-notification.md
+$dokka.location:dev.atick.core.extensions//createNotificationChannel/android.content.Context#kotlin.String#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/android/android/dev.atick.core.extensions/create-notification-channel.md
+$dokka.location:dev.atick.core.extensions//createProgressNotification/android.content.Context#kotlin.String#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#android.app.PendingIntent?/PointingToDeclaration/android/android/dev.atick.core.extensions/create-progress-notification.md
+$dokka.location:dev.atick.core.extensions//format/TypeParam(bounds=[kotlin.Number, kotlin.Comparable[^]])#kotlin.Int/PointingToDeclaration/android/android/dev.atick.core.extensions/format.md
 $dokka.location:dev.atick.core.extensions//getActivity/android.content.Context#/PointingToDeclaration/android/android/dev.atick.core.extensions/get-activity.md
 $dokka.location:dev.atick.core.extensions//getFileFromContentUri/android.content.Context#android.net.Uri/PointingToDeclaration/android/android/dev.atick.core.extensions/get-file-from-content-uri.md
+$dokka.location:dev.atick.core.extensions//getStackTraceString/kotlin.Throwable#/PointingToDeclaration/android/android/dev.atick.core.extensions/get-stack-trace-string.md
 $dokka.location:dev.atick.core.extensions//getTmpFileUri/android.content.Context#kotlin.String/PointingToDeclaration/android/android/dev.atick.core.extensions/get-tmp-file-uri.md
 $dokka.location:dev.atick.core.extensions//hasPermission/android.content.Context#kotlin.String/PointingToDeclaration/android/android/dev.atick.core.extensions/has-permission.md
 $dokka.location:dev.atick.core.extensions//isAllPermissionsGranted/android.content.Context#kotlin.collections.List[kotlin.String]/PointingToDeclaration/android/android/dev.atick.core.extensions/is-all-permissions-granted.md
@@ -422,6 +433,7 @@ $dokka.location:dev.atick.core.extensions//isValidFullName/kotlin.String?#/Point
 $dokka.location:dev.atick.core.extensions//showNotification/android.content.Context#kotlin.Int#android.app.Notification/PointingToDeclaration/android/android/dev.atick.core.extensions/show-notification.md
 $dokka.location:dev.atick.core.extensions//showToast/android.content.Context#kotlin.String/PointingToDeclaration/android/android/dev.atick.core.extensions/show-toast.md
 $dokka.location:dev.atick.core.extensions//stateInDelayed/kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]#TypeParam(bounds=[kotlin.Any?])#kotlinx.coroutines.CoroutineScope/PointingToDeclaration/android/android/dev.atick.core.extensions/state-in-delayed.md
+$dokka.location:dev.atick.core.extensions/Options///PointingToDeclaration/android/android/dev.atick.core.extensions/-options/index.md
 $dokka.location:dev.atick.core.ui.components////PointingToDeclaration/ui/ui/dev.atick.core.ui.components/index.md
 $dokka.location:dev.atick.core.ui.components//AppBackground/#androidx.compose.ui.Modifier#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-app-background.md
 $dokka.location:dev.atick.core.ui.components//AppGradientBackground/#androidx.compose.ui.Modifier#dev.atick.core.ui.theme.GradientColors#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.components/-app-gradient-background.md
@@ -461,8 +473,8 @@ $dokka.location:dev.atick.core.ui.extensions////PointingToDeclaration/ui/ui/dev
 $dokka.location:dev.atick.core.ui.extensions//checkForPermissions/androidx.activity.ComponentActivity#kotlin.collections.List[kotlin.String]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/check-for-permissions.md
 $dokka.location:dev.atick.core.ui.extensions//collectWithLifecycle/androidx.lifecycle.LifecycleOwner#kotlinx.coroutines.flow.Flow[TypeParam(bounds=[kotlin.Any?])]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/collect-with-lifecycle.md
 $dokka.location:dev.atick.core.ui.extensions//observe/androidx.lifecycle.LifecycleOwner#androidx.lifecycle.LiveData[TypeParam(bounds=[kotlin.Any?])]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/observe.md
-$dokka.location:dev.atick.core.ui.extensions//observeEvent/androidx.lifecycle.LifecycleOwner#androidx.lifecycle.LiveData[dev.atick.core.utils.SingleLiveEvent[TypeParam(bounds=[kotlin.Any?])]]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/observe-event.md
-$dokka.location:dev.atick.core.ui.extensions//observeEvent/androidx.lifecycle.LifecycleOwner#androidx.lifecycle.MutableLiveData[dev.atick.core.utils.SingleLiveEvent[TypeParam(bounds=[kotlin.Any?])]]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/observe-event.md
+$dokka.location:dev.atick.core.ui.extensions//observeEvent/androidx.lifecycle.LifecycleOwner#androidx.lifecycle.LiveData[dev.atick.core.utils.OneTimeEvent[TypeParam(bounds=[kotlin.Any?])]]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/observe-event.md
+$dokka.location:dev.atick.core.ui.extensions//observeEvent/androidx.lifecycle.LifecycleOwner#androidx.lifecycle.MutableLiveData[dev.atick.core.utils.OneTimeEvent[TypeParam(bounds=[kotlin.Any?])]]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/observe-event.md
 $dokka.location:dev.atick.core.ui.extensions//openPermissionSettings/androidx.activity.ComponentActivity#/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/open-permission-settings.md
 $dokka.location:dev.atick.core.ui.extensions//permissionLauncher/androidx.activity.ComponentActivity#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/permission-launcher.md
 $dokka.location:dev.atick.core.ui.extensions//resultLauncher/androidx.activity.ComponentActivity#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/ui/ui/dev.atick.core.ui.extensions/result-launcher.md
@@ -498,10 +510,6 @@ $dokka.location:dev.atick.core.ui.utils//updateState/kotlinx.coroutines.flow.Mut
 $dokka.location:dev.atick.core.ui.utils//updateStateWith/kotlinx.coroutines.flow.MutableStateFlow[dev.atick.core.ui.utils.UiState[TypeParam(bounds=[kotlin.Any])]]#kotlinx.coroutines.CoroutineScope#kotlin.coroutines.SuspendFunction0[kotlin.Result[TypeParam(bounds=[kotlin.Any])]]/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/update-state-with.md
 $dokka.location:dev.atick.core.ui.utils//updateWith/kotlinx.coroutines.flow.MutableStateFlow[dev.atick.core.ui.utils.UiState[TypeParam(bounds=[kotlin.Any])]]#kotlinx.coroutines.CoroutineScope#kotlin.coroutines.SuspendFunction0[kotlin.Result[kotlin.Unit]]/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/update-with.md
 $dokka.location:dev.atick.core.ui.utils/DevicePreviews///PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-device-previews/index.md
-$dokka.location:dev.atick.core.ui.utils/OneTimeEvent///PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-one-time-event/index.md
-$dokka.location:dev.atick.core.ui.utils/OneTimeEvent/OneTimeEvent/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-one-time-event/-one-time-event.md
-$dokka.location:dev.atick.core.ui.utils/OneTimeEvent/getContentIfNotHandled/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-one-time-event/get-content-if-not-handled.md
-$dokka.location:dev.atick.core.ui.utils/OneTimeEvent/peekContent/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-one-time-event/peek-content.md
 $dokka.location:dev.atick.core.ui.utils/TakePictureActivityContract///PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-take-picture-activity-contract/index.md
 $dokka.location:dev.atick.core.ui.utils/TakePictureActivityContract/TakePictureActivityContract/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-take-picture-activity-contract/-take-picture-activity-contract.md
 $dokka.location:dev.atick.core.ui.utils/TakePictureActivityContract/createIntent/#android.content.Context#android.net.Uri/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-take-picture-activity-contract/create-intent.md
@@ -512,7 +520,7 @@ $dokka.location:dev.atick.core.ui.utils/TextFiledData/TextFiledData/#kotlin.Stri
 $dokka.location:dev.atick.core.ui.utils/TextFiledData/errorMessage/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-text-filed-data/error-message.md
 $dokka.location:dev.atick.core.ui.utils/TextFiledData/value/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-text-filed-data/value.md
 $dokka.location:dev.atick.core.ui.utils/UiState///PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/index.md
-$dokka.location:dev.atick.core.ui.utils/UiState/UiState/#TypeParam(bounds=[kotlin.Any])#kotlin.Boolean#dev.atick.core.ui.utils.OneTimeEvent[kotlin.Throwable?]/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/-ui-state.md
+$dokka.location:dev.atick.core.ui.utils/UiState/UiState/#TypeParam(bounds=[kotlin.Any])#kotlin.Boolean#dev.atick.core.utils.OneTimeEvent[kotlin.Throwable?]/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/-ui-state.md
 $dokka.location:dev.atick.core.ui.utils/UiState/data/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/data.md
 $dokka.location:dev.atick.core.ui.utils/UiState/error/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/error.md
 $dokka.location:dev.atick.core.ui.utils/UiState/loading/#/PointingToDeclaration/ui/ui/dev.atick.core.ui.utils/-ui-state/loading.md
@@ -531,6 +539,10 @@ $dokka.location:dev.atick.core.utils//networkBoundResource/#kotlin.Function0[kot
 $dokka.location:dev.atick.core.utils//suspendCoroutineWithTimeout/#kotlin.Long#kotlin.Function1[kotlinx.coroutines.CancellableContinuation[TypeParam(bounds=[kotlin.Any?])],kotlin.Unit]/PointingToDeclaration/android/android/dev.atick.core.utils/suspend-coroutine-with-timeout.md
 $dokka.location:dev.atick.core.utils//suspendCoroutineWithTimeout/#kotlin.time.Duration#kotlin.Function1[kotlin.coroutines.Continuation[TypeParam(bounds=[kotlin.Any?])],kotlin.Unit]/PointingToDeclaration/android/android/dev.atick.core.utils/suspend-coroutine-with-timeout.md
 $dokka.location:dev.atick.core.utils//suspendRunCatching/#kotlin.coroutines.SuspendFunction0[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/android/android/dev.atick.core.utils/suspend-run-catching.md
+$dokka.location:dev.atick.core.utils/OneTimeEvent///PointingToDeclaration/android/android/dev.atick.core.utils/-one-time-event/index.md
+$dokka.location:dev.atick.core.utils/OneTimeEvent/OneTimeEvent/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/android/android/dev.atick.core.utils/-one-time-event/-one-time-event.md
+$dokka.location:dev.atick.core.utils/OneTimeEvent/getContentIfNotHandled/#/PointingToDeclaration/android/android/dev.atick.core.utils/-one-time-event/get-content-if-not-handled.md
+$dokka.location:dev.atick.core.utils/OneTimeEvent/peekContent/#/PointingToDeclaration/android/android/dev.atick.core.utils/-one-time-event/peek-content.md
 $dokka.location:dev.atick.core.utils/Resource.Error///PointingToDeclaration/android/android/dev.atick.core.utils/-resource/-error/index.md
 $dokka.location:dev.atick.core.utils/Resource.Error/Error/#TypeParam(bounds=[kotlin.Any?])?#kotlin.Throwable/PointingToDeclaration/android/android/dev.atick.core.utils/-resource/-error/-error.md
 $dokka.location:dev.atick.core.utils/Resource.Loading///PointingToDeclaration/android/android/dev.atick.core.utils/-resource/-loading/index.md
@@ -540,11 +552,6 @@ $dokka.location:dev.atick.core.utils/Resource.Success/Success/#TypeParam(bounds=
 $dokka.location:dev.atick.core.utils/Resource///PointingToDeclaration/android/android/dev.atick.core.utils/-resource/index.md
 $dokka.location:dev.atick.core.utils/Resource/data/#/PointingToDeclaration/android/android/dev.atick.core.utils/-resource/data.md
 $dokka.location:dev.atick.core.utils/Resource/error/#/PointingToDeclaration/android/android/dev.atick.core.utils/-resource/error.md
-$dokka.location:dev.atick.core.utils/SingleLiveEvent///PointingToDeclaration/android/android/dev.atick.core.utils/-single-live-event/index.md
-$dokka.location:dev.atick.core.utils/SingleLiveEvent/SingleLiveEvent/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/android/android/dev.atick.core.utils/-single-live-event/-single-live-event.md
-$dokka.location:dev.atick.core.utils/SingleLiveEvent/getContentIfNotHandled/#/PointingToDeclaration/android/android/dev.atick.core.utils/-single-live-event/get-content-if-not-handled.md
-$dokka.location:dev.atick.core.utils/SingleLiveEvent/hasBeenHandled/#/PointingToDeclaration/android/android/dev.atick.core.utils/-single-live-event/has-been-handled.md
-$dokka.location:dev.atick.core.utils/SingleLiveEvent/peekContent/#/PointingToDeclaration/android/android/dev.atick.core.utils/-single-live-event/peek-content.md
 $dokka.location:dev.atick.core.utils/StringDecoder///PointingToDeclaration/android/android/dev.atick.core.utils/-string-decoder/index.md
 $dokka.location:dev.atick.core.utils/StringDecoder/decodeString/#kotlin.String/PointingToDeclaration/android/android/dev.atick.core.utils/-string-decoder/decode-string.md
 $dokka.location:dev.atick.core.utils/UriDecoder///PointingToDeclaration/android/android/dev.atick.core.utils/-uri-decoder/index.md
