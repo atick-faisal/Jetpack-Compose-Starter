@@ -41,16 +41,19 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Format README.md
-        run: |
-          chmod +x format_readme.sh
-          ./format_readme.sh
-
       - name: Generate Docs
         run: |
           pip install mkdocs mkdocs-material Pygments
           ./gradlew dokkaGfmMultiModule --no-configuration-cache
           mv build/dokka/gfmMultiModule docs
+
+      - name: Format README.md
+        run: |
+          chmod +x format_readme.sh
+          ./format_readme.sh
+
+      - name: Deploy Docs
+        run: |
           mkdocs gh-deploy
 
 # https://github.com/softprops/action-gh-release/issues/236
