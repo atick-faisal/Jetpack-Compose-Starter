@@ -24,6 +24,12 @@ A robust, production-ready template for modern Android development that takes th
 > [!NOTE]
 > The codebase follows a set of conventions that prioritize simplicity and maintainability. Understanding these patterns will help you develop effectively.
 
+## Some Apps Built Using This Template
+
+![Feature Graphic](https://github.com/user-attachments/assets/17e81025-2184-4a5a-8485-8b18de3cbabb)
+
+Check out the whole list [here](https://github.com/atick-faisal?tab=repositories&q=&type=source&language=kotlin&sort=).
+
 ## Technical Stack
 
 ### Core Libraries
