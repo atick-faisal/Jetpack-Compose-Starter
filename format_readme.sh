@@ -18,7 +18,6 @@ while read -r line; do
             echo "   ${line:1}"
         fi
     else
-        # Pass through any line not part of a block
         echo "${line}" | sed -e 's/docs\/assets\/\([a-zA-Z0-9_\-]\+\.\(png\|jpg\|gif\)\)/assets\/\1/g'
     fi
 
