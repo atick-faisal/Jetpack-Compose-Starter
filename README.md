@@ -69,11 +69,11 @@ Check out the whole list [here](https://github.com/atick-faisal?tab=repositories
 ```mermaid
 graph TD
     A[App Module] --> B[Auth]
-    A --> C[Network]
+    A --> C[Storage:Preferences]
     A --> D[Storage:Room]
-    A --> E[Storage:Preferences]
+    A --> E[Network]
     B --> F[Core:UI]
-    B --> E
+    B --> C
     B --> G[Core:Android]
     C --> G
     D --> G
