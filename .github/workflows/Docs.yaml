@@ -43,7 +43,7 @@ jobs:
 
       - name: Generate Docs
         run: |
-          pip install mkdocs mkdocs-material Pygments
+          pip install mkdocs mkdocs-material mkdocs-github-admonitions-plugin Pygments
           ./gradlew dokkaGfmMultiModule --no-configuration-cache
           mv build/dokka/gfmMultiModule docs
 

@@ -78,8 +78,8 @@ extra:
       link: https://scholar.google.com/citations?user=ZiPKjAgAAAAJ&hl=en
 
 plugins:
+  - gh-admonitions
   - search
   - tags
-  - gh-admonitions
 
 copyright: Copyright &copy; 2023 Atick Faisal
