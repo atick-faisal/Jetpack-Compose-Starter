@@ -47,6 +47,9 @@ jobs:
           ./gradlew dokkaGfmMultiModule --no-configuration-cache
           mv build/dokka/gfmMultiModule docs
 
+      - name: Copy README.md
+        run: cp README.md docs/index.md
+
 #      - name: Format README.md
 #        run: |
 #          chmod +x format_readme.sh
