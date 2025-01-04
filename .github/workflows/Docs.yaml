@@ -47,10 +47,10 @@ jobs:
           ./gradlew dokkaGfmMultiModule --no-configuration-cache
           mv build/dokka/gfmMultiModule docs
 
-      - name: Format README.md
-        run: |
-          chmod +x format_readme.sh
-          ./format_readme.sh
+#      - name: Format README.md
+#        run: |
+#          chmod +x format_readme.sh
+#          ./format_readme.sh
 
       - name: Deploy Docs
         run: |
