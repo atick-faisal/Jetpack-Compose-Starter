@@ -50,11 +50,6 @@ jobs:
       - name: Copy README.md
         run: cp README.md docs/index.md
 
-#      - name: Format README.md
-#        run: |
-#          chmod +x format_readme.sh
-#          ./format_readme.sh
-
       - name: Deploy Docs
         run: |
           mkdocs gh-deploy
