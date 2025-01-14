@@ -3,7 +3,7 @@
 # ... PROJECT ...
 java = "21"
 kotlin = "2.1.0"
-androidGradlePlugin = "8.7.3"
+androidGradlePlugin = "8.8.0"
 gmsPlugin = "4.4.2"
 ksp = "2.1.0-1.0.29"
 dokka = "2.0.0"
@@ -49,7 +49,7 @@ firebaseBom = "33.7.0"
 firebaseCrashlyticsPlugin = "3.0.2"
 
 # ... DAGGER-HILT ...
-daggerHilt = "2.54"
+daggerHilt = "2.55"
 daggerHiltExt = "1.2.0"
 
 # ... Open Source Licenses ...
