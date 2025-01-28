@@ -17,41 +17,23 @@
 package dev.atick.compose.ui.home
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.compose.data.home.HomeScreenData
-import dev.atick.compose.repository.home.PostsRepository
-import dev.atick.core.extensions.asOneTimeEvent
+import dev.atick.compose.repository.home.HomeRepository
 import dev.atick.core.ui.utils.UiState
-import dev.atick.core.ui.utils.updateWith
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
 /**
  * View model for the home screen.
  *
- * @param postsRepository The repository for accessing home screen data.
+ * @param homeRepository The repository for accessing home screen data.
  */
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val postsRepository: PostsRepository,
+    private val homeRepository: HomeRepository,
 ) : ViewModel() {
     private val _homeUiState = MutableStateFlow(UiState(HomeScreenData()))
     val homeUiState = _homeUiState.asStateFlow()
-
-    init {
-        postsRepository.getCachedPosts()
-            .map(::HomeScreenData)
-            .onEach { homeScreenData -> _homeUiState.update { UiState(homeScreenData) } }
-            .catch { e -> _homeUiState.update { it.copy(error = e.asOneTimeEvent()) } }
-            .launchIn(viewModelScope)
-
-        _homeUiState.updateWith(viewModelScope) { postsRepository.synchronizePosts() }
-    }
 }

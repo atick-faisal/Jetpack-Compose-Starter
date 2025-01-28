@@ -31,8 +31,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import dev.atick.compose.navigation.TopLevelDestination
-import dev.atick.compose.navigation.home.navigateToHomeNavGraph
-import dev.atick.compose.navigation.profile.navigateProfile
+import dev.atick.compose.navigation.home.navigateToHome
 import dev.atick.core.extensions.stateInDelayed
 import dev.atick.network.utils.NetworkState
 import dev.atick.network.utils.NetworkUtils
@@ -119,8 +118,7 @@ class JetpackAppState(
         }
 
         when (topLevelDestination) {
-            TopLevelDestination.HOME -> navController.navigateToHomeNavGraph(topLevelNavOptions)
-            TopLevelDestination.PROFILE -> navController.navigateProfile(topLevelNavOptions)
+            TopLevelDestination.HOME -> navController.navigateToHome(topLevelNavOptions)
         }
     }
 }

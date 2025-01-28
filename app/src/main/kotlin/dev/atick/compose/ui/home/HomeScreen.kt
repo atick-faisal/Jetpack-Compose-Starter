@@ -16,30 +16,16 @@
 
 package dev.atick.compose.ui.home
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Add
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.ListItem
-import androidx.compose.material3.ListItemDefaults
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import coil.compose.AsyncImage
 import dev.atick.compose.data.home.HomeScreenData
 import dev.atick.core.ui.utils.StatefulComposable
 
@@ -50,7 +36,6 @@ import dev.atick.core.ui.utils.StatefulComposable
  */
 @Composable
 internal fun HomeRoute(
-    onPostClick: (Int) -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
     homeViewModel: HomeViewModel = hiltViewModel(),
 ) {
@@ -60,46 +45,21 @@ internal fun HomeRoute(
         state = homeState,
         onShowSnackbar = onShowSnackbar,
     ) { homeScreenData ->
-        HomeScreen(homeScreenData, onPostClick)
+        HomeScreen(homeScreenData)
     }
 }
 
 @Composable
 private fun HomeScreen(
     homeScreenData: HomeScreenData,
-    onPostCLick: (Int) -> Unit,
 ) {
-    val scrollableState = rememberLazyListState()
-
-    LazyColumn(
-        modifier = Modifier.padding(horizontal = 24.dp),
-        contentPadding = PaddingValues(vertical = 16.dp),
-        state = scrollableState,
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center,
     ) {
-        items(homeScreenData.posts) { post ->
-            ListItem(
-                leadingContent = {
-                    AsyncImage(
-                        model = post.thumbnailUrl,
-                        contentDescription = null,
-                        modifier = Modifier.clip(CircleShape),
-                    )
-                },
-                headlineContent = { Text(text = post.title) },
-                trailingContent = {
-                    IconButton(onClick = {}) {
-                        Icon(
-                            imageVector = Icons.Outlined.Add,
-                            contentDescription = null,
-                            modifier = Modifier.size(64.dp),
-                        )
-                    }
-                },
-                colors = ListItemDefaults.colors(
-                    containerColor = Color.Transparent,
-                ),
-                modifier = Modifier.clickable { onPostCLick(post.id) },
-            )
-        }
+        Text(
+            text = homeScreenData.hello,
+            style = MaterialTheme.typography.bodyLarge,
+        )
     }
 }

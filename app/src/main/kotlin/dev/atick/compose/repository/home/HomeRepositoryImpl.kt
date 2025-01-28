@@ -14,15 +14,8 @@
  * limitations under the License.
  */
 
-package dev.atick.compose.data.profile
+package dev.atick.compose.repository.home
 
-/**
- * Represents data for displaying a user's profile screen.
- *
- * @property name The user's name to be displayed on the profile screen.
- * @property profilePictureUri The URI for the user's profile picture, or null if not available.
- */
-data class ProfileScreenData(
-    val name: String = String(),
-    val profilePictureUri: String? = null,
-)
+import javax.inject.Inject
+
+class HomeRepositoryImpl @Inject constructor() : HomeRepository
