@@ -18,7 +18,6 @@ package dev.atick.storage.preferences.data
 
 import dev.atick.storage.preferences.models.DarkThemeConfig
 import dev.atick.storage.preferences.models.Profile
-import dev.atick.storage.preferences.models.ThemeBrand
 import dev.atick.storage.preferences.models.UserData
 import kotlinx.coroutines.flow.Flow
 
@@ -38,13 +37,6 @@ interface UserPreferencesDataSource {
      * @param profile The user ID to be set.
      */
     suspend fun setProfile(profile: Profile)
-
-    /**
-     * Sets the theme brand in the user preferences.
-     *
-     * @param themeBrand The theme brand to be set.
-     */
-    suspend fun setThemeBrand(themeBrand: ThemeBrand)
 
     /**
      * Sets the dark theme configuration in the user preferences.

@@ -19,7 +19,6 @@ package dev.atick.storage.preferences.utils
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer
 import dev.atick.storage.preferences.models.DarkThemeConfig
-import dev.atick.storage.preferences.models.ThemeBrand
 import dev.atick.storage.preferences.models.UserData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -106,36 +105,5 @@ object DarkThemeConfigSerializer : KSerializer<DarkThemeConfig> {
      */
     override fun deserialize(decoder: Decoder): DarkThemeConfig {
         return DarkThemeConfig.valueOf(decoder.decodeString())
-    }
-}
-
-/**
- * Custom serializer for serializing and deserializing [ThemeBrand] enums.
- */
-object ThemeBrandSerializer : KSerializer<ThemeBrand> {
-    /**
-     * The descriptor for the serialized form of [ThemeBrand].
-     */
-    override val descriptor: SerialDescriptor =
-        PrimitiveSerialDescriptor("ThemeBrand", PrimitiveKind.STRING)
-
-    /**
-     * Serializes the provided [value] of [ThemeBrand] enum to a string representation.
-     *
-     * @param encoder The encoder to write the serialized data to.
-     * @param value The [ThemeBrand] value to be serialized.
-     */
-    override fun serialize(encoder: Encoder, value: ThemeBrand) {
-        encoder.encodeString(value.name)
-    }
-
-    /**
-     * Deserializes the string representation from the provided [decoder] and converts it to a [ThemeBrand] enum.
-     *
-     * @param decoder The decoder to read the serialized data from.
-     * @return The deserialized [ThemeBrand] enum value.
-     */
-    override fun deserialize(decoder: Decoder): ThemeBrand {
-        return ThemeBrand.valueOf(decoder.decodeString())
     }
 }

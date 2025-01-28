@@ -60,7 +60,6 @@ import dev.atick.core.ui.theme.supportsDynamicTheming
 import dev.atick.core.ui.utils.UiState
 import dev.atick.demo.R
 import dev.atick.storage.preferences.models.DarkThemeConfig
-import dev.atick.storage.preferences.models.ThemeBrand
 
 @Composable
 fun SettingsDialog(
@@ -76,7 +75,6 @@ fun SettingsDialog(
     SettingsDialog(
         onDismiss = onDismiss,
         settingsUiState = settingsUiState,
-        onChangeThemeBrand = viewModel::updateThemeBrand,
         onChangeDynamicColorPreference = viewModel::updateDynamicColorPreference,
         onChangeDarkThemeConfig = viewModel::updateDarkThemeConfig,
     )
@@ -87,7 +85,6 @@ fun SettingsDialog(
     settingsUiState: UiState<UserEditableSettings>,
     supportDynamicColor: Boolean = supportsDynamicTheming(),
     onDismiss: () -> Unit,
-    onChangeThemeBrand: (themeBrand: ThemeBrand) -> Unit,
     onChangeDynamicColorPreference: (useDynamicColor: Boolean) -> Unit,
     onChangeDarkThemeConfig: (darkThemeConfig: DarkThemeConfig) -> Unit,
 ) {
@@ -116,7 +113,6 @@ fun SettingsDialog(
                 SettingsPanel(
                     settings = settingsUiState.data,
                     supportDynamicColor = supportDynamicColor,
-                    onChangeThemeBrand = onChangeThemeBrand,
                     onChangeDynamicColorPreference = onChangeDynamicColorPreference,
                     onChangeDarkThemeConfig = onChangeDarkThemeConfig,
                 )
@@ -142,24 +138,11 @@ fun SettingsDialog(
 private fun ColumnScope.SettingsPanel(
     settings: UserEditableSettings,
     supportDynamicColor: Boolean,
-    onChangeThemeBrand: (themeBrand: ThemeBrand) -> Unit,
     onChangeDynamicColorPreference: (useDynamicColor: Boolean) -> Unit,
     onChangeDarkThemeConfig: (darkThemeConfig: DarkThemeConfig) -> Unit,
 ) {
     SettingsDialogSectionTitle(text = stringResource(R.string.theme))
-    Column(Modifier.selectableGroup()) {
-        SettingsDialogThemeChooserRow(
-            text = stringResource(R.string.brand_default),
-            selected = settings.brand == ThemeBrand.DEFAULT,
-            onClick = { onChangeThemeBrand(ThemeBrand.DEFAULT) },
-        )
-        SettingsDialogThemeChooserRow(
-            text = stringResource(R.string.brand_android),
-            selected = settings.brand == ThemeBrand.ANDROID,
-            onClick = { onChangeThemeBrand(ThemeBrand.ANDROID) },
-        )
-    }
-    AnimatedVisibility(visible = settings.brand == ThemeBrand.DEFAULT && supportDynamicColor) {
+    AnimatedVisibility(visible = supportDynamicColor) {
         Column {
             SettingsDialogSectionTitle(text = stringResource(R.string.dynamic_color_preference))
             Column(Modifier.selectableGroup()) {

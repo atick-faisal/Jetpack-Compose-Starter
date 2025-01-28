@@ -20,7 +20,6 @@ import dev.atick.core.utils.suspendRunCatching
 import dev.atick.storage.preferences.data.UserPreferencesDataSource
 import dev.atick.storage.preferences.models.DarkThemeConfig
 import dev.atick.storage.preferences.models.Profile
-import dev.atick.storage.preferences.models.ThemeBrand
 import dev.atick.storage.preferences.models.UserData
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -49,18 +48,6 @@ class UserDataRepositoryImpl @Inject constructor(
     override suspend fun setUserProfile(profile: Profile): Result<Unit> {
         return suspendRunCatching {
             userPreferencesDataSource.setProfile(profile)
-        }
-    }
-
-    /**
-     * Sets the theme brand in the user preferences.
-     *
-     * @param themeBrand The theme brand to be set.
-     * @return [Result] indicating the success or failure of the operation.
-     */
-    override suspend fun setThemeBrand(themeBrand: ThemeBrand): Result<Unit> {
-        return suspendRunCatching {
-            userPreferencesDataSource.setThemeBrand(themeBrand)
         }
     }
 

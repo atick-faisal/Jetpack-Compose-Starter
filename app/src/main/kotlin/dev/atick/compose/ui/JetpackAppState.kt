@@ -46,11 +46,13 @@ fun rememberJetpackAppState(
     isUserLoggedIn: Boolean,
     windowSizeClass: WindowSizeClass,
     networkUtils: NetworkUtils,
+    userProfilePictureUri: String? = null,
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
     navController: NavHostController = rememberNavController(),
 ): JetpackAppState {
     return remember(
         isUserLoggedIn,
+        userProfilePictureUri,
         navController,
         windowSizeClass,
         coroutineScope,
@@ -58,6 +60,7 @@ fun rememberJetpackAppState(
     ) {
         JetpackAppState(
             isUserLoggedIn,
+            userProfilePictureUri,
             navController,
             windowSizeClass,
             coroutineScope,
@@ -70,6 +73,7 @@ fun rememberJetpackAppState(
 @Stable
 class JetpackAppState(
     val isUserLoggedIn: Boolean,
+    val userProfilePictureUri: String?,
     val navController: NavHostController,
     val windowSizeClass: WindowSizeClass,
     coroutineScope: CoroutineScope,

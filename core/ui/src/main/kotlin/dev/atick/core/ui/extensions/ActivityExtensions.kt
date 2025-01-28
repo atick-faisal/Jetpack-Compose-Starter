@@ -18,13 +18,19 @@ package dev.atick.core.ui.extensions
 
 import android.app.Activity
 import android.content.Intent
+import android.content.res.Configuration
 import android.net.Uri
 import android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS
 import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.util.Consumer
 import dev.atick.core.extensions.isAllPermissionsGranted
 import dev.atick.core.extensions.showToast
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.conflate
+import kotlinx.coroutines.flow.distinctUntilChanged
 
 /**
  * Launch an activity for result.
@@ -108,3 +114,27 @@ fun ComponentActivity.openPermissionSettings() {
     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
     startActivity(intent)
 }
+
+/**
+ * Convenience wrapper for dark mode checking
+ */
+val Configuration.isSystemInDarkTheme
+    get() = (uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
+
+/**
+ * Registers listener for configuration changes to retrieve whether system is in dark theme or not.
+ * Immediately upon subscribing, it sends the current value and then registers listener for changes.
+ */
+fun ComponentActivity.isSystemInDarkTheme() = callbackFlow {
+    channel.trySend(resources.configuration.isSystemInDarkTheme)
+
+    val listener = Consumer<Configuration> {
+        channel.trySend(it.isSystemInDarkTheme)
+    }
+
+    addOnConfigurationChangedListener(listener)
+
+    awaitClose { removeOnConfigurationChangedListener(listener) }
+}
+    .distinctUntilChanged()
+    .conflate()

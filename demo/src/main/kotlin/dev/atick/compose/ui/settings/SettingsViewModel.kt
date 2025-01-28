@@ -25,7 +25,6 @@ import dev.atick.core.extensions.asOneTimeEvent
 import dev.atick.core.ui.utils.UiState
 import dev.atick.core.ui.utils.updateWith
 import dev.atick.storage.preferences.models.DarkThemeConfig
-import dev.atick.storage.preferences.models.ThemeBrand
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -50,7 +49,6 @@ class SettingsViewModel @Inject constructor(
             .map { userData ->
                 UiState(
                     UserEditableSettings(
-                        brand = userData.themeBrand,
                         useDynamicColor = userData.useDynamicColor,
                         darkThemeConfig = userData.darkThemeConfig,
                     ),
@@ -59,10 +57,6 @@ class SettingsViewModel @Inject constructor(
             .onEach { data -> _settingsUiState.update { data } }
             .catch { e -> UiState(UserEditableSettings(), error = e.asOneTimeEvent()) }
             .launchIn(viewModelScope)
-    }
-
-    fun updateThemeBrand(themeBrand: ThemeBrand) {
-        _settingsUiState.updateWith(viewModelScope) { userDataRepository.setThemeBrand(themeBrand) }
     }
 
     fun updateDarkThemeConfig(darkThemeConfig: DarkThemeConfig) {
