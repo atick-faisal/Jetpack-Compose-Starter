@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Atick Faisal
+ * Copyright 2025 Atick Faisal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,31 +14,31 @@
  * limitations under the License.
  */
 
-package dev.atick.compose.di.repository
+package dev.atick.settings.di
 
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.compose.repository.home.HomeRepository
-import dev.atick.compose.repository.home.HomeRepositoryImpl
+import dev.atick.settings.repository.SettingsRepository
+import dev.atick.settings.repository.SettingsRepositoryImpl
 import javax.inject.Singleton
 
 /**
- * Dagger module that provides the binding for the Repository interfaces.
+ * Dagger module for providing repository dependencies.
  */
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
     /**
-     * Binds the [HomeRepositoryImpl] implementation to the [HomeRepository] interface.
+     * Binds the [SettingsRepositoryImpl] implementation to the [SettingsRepository] interface.
      *
-     * @param homeRepositoryImpl The implementation of [HomeRepository] to be bound.
-     * @return The [HomeRepository] interface.
+     * @param settingsRepositoryImpl The implementation of [SettingsRepository] to be bound.
+     * @return The [SettingsRepository] interface.
      */
     @Binds
     @Singleton
-    abstract fun bindHomeRepository(
-        homeRepositoryImpl: HomeRepositoryImpl,
-    ): HomeRepository
+    abstract fun bindSettingsRepository(
+        settingsRepositoryImpl: SettingsRepositoryImpl,
+    ): SettingsRepository
 }

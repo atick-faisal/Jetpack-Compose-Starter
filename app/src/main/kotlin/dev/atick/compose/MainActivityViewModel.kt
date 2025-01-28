@@ -19,10 +19,10 @@ package dev.atick.compose
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.atick.compose.repository.user.UserDataRepository
 import dev.atick.core.extensions.asOneTimeEvent
 import dev.atick.core.extensions.stateInDelayed
 import dev.atick.core.ui.utils.UiState
+import dev.atick.settings.repository.SettingsRepository
 import dev.atick.storage.preferences.models.UserData
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
@@ -33,17 +33,17 @@ import javax.inject.Inject
  * Annotates a ViewModel class that is managed by Hilt's dependency injection system.
  *
  * @constructor Creates a [MainActivityViewModel] instance.
- * @param userDataRepository The repository providing access to user data.
+ * @param settingsRepository The repository providing access to user data.
  */
 @HiltViewModel
 class MainActivityViewModel @Inject constructor(
-    userDataRepository: UserDataRepository,
+    settingsRepository: SettingsRepository,
 ) : ViewModel() {
 
     /**
      * Represents the state of the UI for user data.
      */
-    val uiState: StateFlow<UiState<UserData>> = userDataRepository.userData
+    val uiState: StateFlow<UiState<UserData>> = settingsRepository.userData
         .map { userData -> UiState(userData) }
         .catch { e -> UiState(UserData(), error = e.asOneTimeEvent()) }
         .stateInDelayed(UiState(UserData(), loading = true), viewModelScope)

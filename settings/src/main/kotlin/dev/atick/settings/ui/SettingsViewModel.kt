@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package dev.atick.compose.ui.settings
+package dev.atick.settings.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.atick.compose.data.settings.UserEditableSettings
-import dev.atick.compose.repository.user.UserDataRepository
 import dev.atick.core.extensions.asOneTimeEvent
 import dev.atick.core.ui.utils.UiState
 import dev.atick.core.ui.utils.updateWith
+import dev.atick.settings.data.UserSettings
+import dev.atick.settings.repository.SettingsRepository
 import dev.atick.storage.preferences.models.DarkThemeConfig
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -37,31 +37,32 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
-    private val userDataRepository: UserDataRepository,
+    private val settingsRepository: SettingsRepository,
 ) : ViewModel() {
 
-    private val _settingsUiState = MutableStateFlow(UiState(UserEditableSettings()))
-    val settingsUiState: StateFlow<UiState<UserEditableSettings>>
+    private val _settingsUiState = MutableStateFlow(UiState(UserSettings()))
+    val settingsUiState: StateFlow<UiState<UserSettings>>
         get() = _settingsUiState.asStateFlow()
 
     fun updateUserData() {
-        userDataRepository.userData
+        settingsRepository.userData
             .map { userData ->
                 UiState(
-                    UserEditableSettings(
+                    UserSettings(
+                        userName = userData.name,
                         useDynamicColor = userData.useDynamicColor,
                         darkThemeConfig = userData.darkThemeConfig,
                     ),
                 )
             }
             .onEach { data -> _settingsUiState.update { data } }
-            .catch { e -> UiState(UserEditableSettings(), error = e.asOneTimeEvent()) }
+            .catch { e -> UiState(UserSettings(), error = e.asOneTimeEvent()) }
             .launchIn(viewModelScope)
     }
 
     fun updateDarkThemeConfig(darkThemeConfig: DarkThemeConfig) {
         _settingsUiState.updateWith(viewModelScope) {
-            userDataRepository.setDarkThemeConfig(
+            settingsRepository.setDarkThemeConfig(
                 darkThemeConfig,
             )
         }
@@ -69,7 +70,7 @@ class SettingsViewModel @Inject constructor(
 
     fun updateDynamicColorPreference(useDynamicColor: Boolean) {
         _settingsUiState.updateWith(viewModelScope) {
-            userDataRepository.setDynamicColorPreference(useDynamicColor)
+            settingsRepository.setDynamicColorPreference(useDynamicColor)
         }
     }
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.compose.repository.user
+package dev.atick.settings.repository
 
 import dev.atick.core.utils.suspendRunCatching
 import dev.atick.storage.preferences.data.UserPreferencesDataSource
@@ -25,13 +25,13 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 /**
- * Implementation of [UserDataRepository] that utilizes [UserPreferencesDataSource] to manage user data and preferences.
+ * Implementation of [dev.atick.settings.repository.SettingsRepository] that utilizes [UserPreferencesDataSource] to manage user data and preferences.
  *
  * @property userPreferencesDataSource The data source for user preferences.
  */
-class UserDataRepositoryImpl @Inject constructor(
+class SettingsRepositoryImpl @Inject constructor(
     private val userPreferencesDataSource: UserPreferencesDataSource,
-) : UserDataRepository {
+) : SettingsRepository {
 
     /**
      * A [Flow] that emits [UserData] representing user-specific data.

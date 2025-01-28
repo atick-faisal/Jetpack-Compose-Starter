@@ -14,42 +14,30 @@
  * limitations under the License.
  */
 
-package dev.atick.compose.repository.user
+package dev.atick.settings.repository
 
-import dev.atick.core.utils.suspendRunCatching
-import dev.atick.storage.preferences.data.UserPreferencesDataSource
 import dev.atick.storage.preferences.models.DarkThemeConfig
 import dev.atick.storage.preferences.models.Profile
 import dev.atick.storage.preferences.models.UserData
 import kotlinx.coroutines.flow.Flow
-import javax.inject.Inject
 
 /**
- * Implementation of [UserDataRepository] that utilizes [UserPreferencesDataSource] to manage user data and preferences.
- *
- * @property userPreferencesDataSource The data source for user preferences.
+ * Interface defining methods to interact with user data and preferences.
  */
-class UserDataRepositoryImpl @Inject constructor(
-    private val userPreferencesDataSource: UserPreferencesDataSource,
-) : UserDataRepository {
+interface SettingsRepository {
 
     /**
      * A [Flow] that emits [UserData] representing user-specific data.
      */
-    override val userData: Flow<UserData>
-        get() = userPreferencesDataSource.userData
+    val userData: Flow<UserData>
 
     /**
-     * Sets the user [Profile] in the user preferences.
+     * Sets the user ID in the user preferences.
      *
-     * @param profile The user [Profile] to be set.
+     * @param profile The user ID to be set.
      * @return [Result] indicating the success or failure of the operation.
      */
-    override suspend fun setUserProfile(profile: Profile): Result<Unit> {
-        return suspendRunCatching {
-            userPreferencesDataSource.setProfile(profile)
-        }
-    }
+    suspend fun setUserProfile(profile: Profile): Result<Unit>
 
     /**
      * Sets the dark theme configuration in the user preferences.
@@ -57,11 +45,7 @@ class UserDataRepositoryImpl @Inject constructor(
      * @param darkThemeConfig The dark theme configuration to be set.
      * @return [Result] indicating the success or failure of the operation.
      */
-    override suspend fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig): Result<Unit> {
-        return suspendRunCatching {
-            userPreferencesDataSource.setDarkThemeConfig(darkThemeConfig)
-        }
-    }
+    suspend fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig): Result<Unit>
 
     /**
      * Sets the dynamic color preferences in the user preferences.
@@ -69,9 +53,5 @@ class UserDataRepositoryImpl @Inject constructor(
      * @param useDynamicColor A boolean indicating whether dynamic colors should be used.
      * @return [Result] indicating the success or failure of the operation.
      */
-    override suspend fun setDynamicColorPreference(useDynamicColor: Boolean): Result<Unit> {
-        return suspendRunCatching {
-            userPreferencesDataSource.setDynamicColorPreference(useDynamicColor)
-        }
-    }
+    suspend fun setDynamicColorPreference(useDynamicColor: Boolean): Result<Unit>
 }

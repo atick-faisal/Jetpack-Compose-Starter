@@ -24,8 +24,6 @@ import dev.atick.compose.repository.home.PostsRepository
 import dev.atick.compose.repository.home.PostsRepositoryImpl
 import dev.atick.compose.repository.profile.ProfileDataRepository
 import dev.atick.compose.repository.profile.ProfileDataRepositoryImpl
-import dev.atick.compose.repository.user.UserDataRepository
-import dev.atick.compose.repository.user.UserDataRepositoryImpl
 import javax.inject.Singleton
 
 /**
@@ -46,18 +44,6 @@ abstract class RepositoryModule {
     abstract fun bindPostsRepository(
         postsRepositoryImpl: PostsRepositoryImpl,
     ): PostsRepository
-
-    /**
-     * Binds the [UserDataRepositoryImpl] implementation to the [UserDataRepository] interface.
-     *
-     * @param userDataRepositoryImpl The implementation of [UserDataRepository] to be bound.
-     * @return The [UserDataRepository] interface.
-     */
-    @Binds
-    @Singleton
-    abstract fun bindUserDataRepository(
-        userDataRepositoryImpl: UserDataRepositoryImpl,
-    ): UserDataRepository
 
     /**
      * This method is used to bind a [ProfileDataRepositoryImpl] instance to the [ProfileDataRepository] interface.

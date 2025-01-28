@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.compose.data.settings
+package dev.atick.settings.data
 
 import dev.atick.storage.preferences.models.DarkThemeConfig
 
@@ -23,9 +23,10 @@ import dev.atick.storage.preferences.models.DarkThemeConfig
  *
  * @property useDynamicColor Indicates whether dynamic colors are enabled.
  * @property darkThemeConfig Configuration for the dark theme.
- * @constructor Creates a [UserEditableSettings] instance with optional parameters.
+ * @constructor Creates a [UserSettings] instance with optional parameters.
  */
-data class UserEditableSettings(
+data class UserSettings(
+    val userName: String? = null,
     val useDynamicColor: Boolean = true,
     val darkThemeConfig: DarkThemeConfig = DarkThemeConfig.FOLLOW_SYSTEM,
 )
