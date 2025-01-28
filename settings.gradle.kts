@@ -57,3 +57,7 @@ include(":core:ui")
 include(":network")
 include(":storage:preferences")
 include(":storage:room")
+
+// Demo Application
+// Can be removed if not needed
+include(":demo")
