@@ -17,18 +17,16 @@
 package dev.atick.compose.data.settings
 
 import dev.atick.storage.preferences.models.DarkThemeConfig
-import dev.atick.storage.preferences.models.ThemeBrand
 
 /**
  * Data class representing editable user settings related to themes and appearance.
  *
- * @property brand The selected brand for the theme.
  * @property useDynamicColor Indicates whether dynamic colors are enabled.
  * @property darkThemeConfig Configuration for the dark theme.
- * @constructor Creates a [UserEditableSettings] instance with optional parameters.
+ * @constructor Creates a [UserSettings] instance with optional parameters.
  */
-data class UserEditableSettings(
-    val brand: ThemeBrand = ThemeBrand.DEFAULT,
+data class UserSettings(
+    val userName: String? = null,
     val useDynamicColor: Boolean = true,
     val darkThemeConfig: DarkThemeConfig = DarkThemeConfig.FOLLOW_SYSTEM,
 )

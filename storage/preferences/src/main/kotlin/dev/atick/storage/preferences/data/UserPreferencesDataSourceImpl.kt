@@ -20,7 +20,6 @@ import androidx.datastore.core.DataStore
 import dev.atick.core.di.IoDispatcher
 import dev.atick.storage.preferences.models.DarkThemeConfig
 import dev.atick.storage.preferences.models.Profile
-import dev.atick.storage.preferences.models.ThemeBrand
 import dev.atick.storage.preferences.models.UserData
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
@@ -58,19 +57,6 @@ class UserPreferencesDataSourceImpl @Inject constructor(
                     name = profile.name,
                     profilePictureUriString = profile.profilePictureUriString,
                 )
-            }
-        }
-    }
-
-    /**
-     * Sets the theme brand in the user preferences.
-     *
-     * @param themeBrand The theme brand to be set.
-     */
-    override suspend fun setThemeBrand(themeBrand: ThemeBrand) {
-        withContext(ioDispatcher) {
-            datastore.updateData { userData ->
-                userData.copy(themeBrand = themeBrand)
             }
         }
     }

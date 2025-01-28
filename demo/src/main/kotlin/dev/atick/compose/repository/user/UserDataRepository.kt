@@ -18,7 +18,6 @@ package dev.atick.compose.repository.user
 
 import dev.atick.storage.preferences.models.DarkThemeConfig
 import dev.atick.storage.preferences.models.Profile
-import dev.atick.storage.preferences.models.ThemeBrand
 import dev.atick.storage.preferences.models.UserData
 import kotlinx.coroutines.flow.Flow
 
@@ -39,14 +38,6 @@ interface UserDataRepository {
      * @return [Result] indicating the success or failure of the operation.
      */
     suspend fun setUserProfile(profile: Profile): Result<Unit>
-
-    /**
-     * Sets the theme brand in the user preferences.
-     *
-     * @param themeBrand The theme brand to be set.
-     * @return [Result] indicating the success or failure of the operation.
-     */
-    suspend fun setThemeBrand(themeBrand: ThemeBrand): Result<Unit>
 
     /**
      * Sets the dark theme configuration in the user preferences.

@@ -17,9 +17,8 @@
 package dev.atick.core.ui.components
 
 import androidx.annotation.StringRes
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -30,9 +29,14 @@ import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
+import dev.atick.core.ui.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -99,14 +103,42 @@ fun JetpackTopAppBar(
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun JetpackTopAppBarWithAvatar(
+    @StringRes titleRes: Int,
+    avatarUri: String?,
+    avatarContentDescription: String?,
+    modifier: Modifier = Modifier,
+    colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(),
+    onAvatarClick: () -> Unit = {},
+) {
+    CenterAlignedTopAppBar(
+        title = { Text(text = stringResource(id = titleRes)) },
+        actions = {
+            IconButton(onClick = onAvatarClick) {
+                AsyncImage(
+                    model = avatarUri,
+                    contentDescription = avatarContentDescription,
+                    placeholder = painterResource(id = R.drawable.ic_avatar),
+                    fallback = painterResource(id = R.drawable.ic_avatar),
+                    modifier = Modifier
+                        .size(30.dp)
+                        .clip(CircleShape),
+                )
+            }
+        },
+        colors = colors,
+        modifier = modifier,
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
 private fun JetpackTopAppBarPreview() {
-    JetpackTopAppBar(
+    JetpackTopAppBarWithAvatar(
         titleRes = android.R.string.untitled,
-        navigationIcon = Icons.Default.Search,
-        navigationIconContentDescription = "Navigation icon",
-        actionIcon = Icons.Default.MoreVert,
-        actionIconContentDescription = "Action icon",
+        avatarUri = null,
+        avatarContentDescription = "Action icon",
     )
 }

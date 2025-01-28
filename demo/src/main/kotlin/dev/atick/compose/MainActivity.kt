@@ -40,7 +40,6 @@ import dev.atick.core.ui.theme.JetpackTheme
 import dev.atick.core.ui.utils.UiState
 import dev.atick.network.utils.NetworkUtils
 import dev.atick.storage.preferences.models.DarkThemeConfig
-import dev.atick.storage.preferences.models.ThemeBrand
 import dev.atick.storage.preferences.models.UserData
 import javax.inject.Inject
 
@@ -99,7 +98,6 @@ class MainActivity : ComponentActivity() {
 
             JetpackTheme(
                 darkTheme = darkTheme,
-                androidTheme = shouldUseAndroidTheme(uiState),
                 disableDynamicTheming = shouldDisableDynamicTheming(uiState),
             ) {
                 JetpackApp(
@@ -114,21 +112,6 @@ class MainActivity : ComponentActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             permissions.add(Manifest.permission.POST_NOTIFICATIONS)
         }
-    }
-}
-
-/**
- * Returns `true` if the Android theme should be used, as a function of the [uiState].
- */
-@Composable
-private fun shouldUseAndroidTheme(
-    uiState: UiState<UserData>,
-): Boolean {
-    if (uiState.loading || uiState.error.peekContent() != null) return false
-
-    return when (uiState.data.themeBrand) {
-        ThemeBrand.ANDROID -> true
-        ThemeBrand.DEFAULT -> false
     }
 }
 

@@ -44,7 +44,7 @@ class ProfileDataRepositoryImpl @Inject constructor(
     override val profileScreenData: Flow<ProfileScreenData> =
         userPreferencesDataSource.userData.map { userData ->
             ProfileScreenData(
-                name = userData.name,
+                name = userData.name ?: "Anonymous",
                 profilePictureUri = userData.profilePictureUriString,
             )
         }

@@ -29,8 +29,6 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -40,7 +38,6 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -68,21 +65,13 @@ import dev.atick.core.ui.components.JetpackNavigationBar
 import dev.atick.core.ui.components.JetpackNavigationBarItem
 import dev.atick.core.ui.components.JetpackNavigationRail
 import dev.atick.core.ui.components.JetpackNavigationRailItem
-import dev.atick.core.ui.components.JetpackTopAppBar
+import dev.atick.core.ui.components.JetpackTopAppBarWithAvatar
 import dev.atick.core.ui.theme.GradientColors
 import dev.atick.core.ui.theme.LocalGradientColors
-import dev.atick.network.utils.NetworkUtils
 
 @Composable
 fun JetpackApp(
-    isUserLoggedIn: Boolean,
-    windowSizeClass: WindowSizeClass,
-    networkUtils: NetworkUtils,
-    appState: JetpackAppState = rememberJetpackAppState(
-        isUserLoggedIn = isUserLoggedIn,
-        windowSizeClass = windowSizeClass,
-        networkUtils = networkUtils,
-    ),
+    appState: JetpackAppState,
 ) {
     val shouldShowGradientBackground =
         appState.currentTopLevelDestination == TopLevelDestination.HOME
@@ -159,14 +148,14 @@ fun JetpackApp(
                         // Show the top app bar on top level destinations.
                         val destination = appState.currentTopLevelDestination
                         if (destination != null) {
-                            JetpackTopAppBar(
+                            JetpackTopAppBarWithAvatar(
                                 titleRes = destination.titleTextId,
-                                actionIcon = Icons.Default.MoreVert,
-                                actionIconContentDescription = stringResource(id = R.string.more),
+                                avatarUri = appState.userProfilePictureUri,
+                                avatarContentDescription = stringResource(id = R.string.settings_title),
                                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                                     containerColor = Color.Transparent,
                                 ),
-                                onActionClick = { showSettingsDialog = true },
+                                onAvatarClick = { showSettingsDialog = true },
                             )
                         }
                         JetpackNavHost(

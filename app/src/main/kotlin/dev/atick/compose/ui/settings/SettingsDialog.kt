@@ -49,18 +49,19 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import dev.atick.compose.R
-import dev.atick.compose.data.settings.UserEditableSettings
+import dev.atick.compose.data.settings.UserSettings
+import dev.atick.core.ui.components.JetpackOutlinedButton
 import dev.atick.core.ui.components.JetpackTextButton
 import dev.atick.core.ui.theme.supportsDynamicTheming
 import dev.atick.core.ui.utils.UiState
 import dev.atick.storage.preferences.models.DarkThemeConfig
-import dev.atick.storage.preferences.models.ThemeBrand
 
 @Composable
 fun SettingsDialog(
@@ -76,7 +77,6 @@ fun SettingsDialog(
     SettingsDialog(
         onDismiss = onDismiss,
         settingsUiState = settingsUiState,
-        onChangeThemeBrand = viewModel::updateThemeBrand,
         onChangeDynamicColorPreference = viewModel::updateDynamicColorPreference,
         onChangeDarkThemeConfig = viewModel::updateDarkThemeConfig,
     )
@@ -84,10 +84,9 @@ fun SettingsDialog(
 
 @Composable
 fun SettingsDialog(
-    settingsUiState: UiState<UserEditableSettings>,
+    settingsUiState: UiState<UserSettings>,
     supportDynamicColor: Boolean = supportsDynamicTheming(),
     onDismiss: () -> Unit,
-    onChangeThemeBrand: (themeBrand: ThemeBrand) -> Unit,
     onChangeDynamicColorPreference: (useDynamicColor: Boolean) -> Unit,
     onChangeDarkThemeConfig: (darkThemeConfig: DarkThemeConfig) -> Unit,
 ) {
@@ -106,8 +105,10 @@ fun SettingsDialog(
         onDismissRequest = { onDismiss() },
         title = {
             Text(
-                text = stringResource(R.string.settings_title),
+                modifier = Modifier.fillMaxWidth(),
+                text = settingsUiState.data.userName ?: stringResource(R.string.settings_title),
                 style = MaterialTheme.typography.titleLarge,
+                textAlign = TextAlign.Center,
             )
         },
         text = {
@@ -116,7 +117,6 @@ fun SettingsDialog(
                 SettingsPanel(
                     settings = settingsUiState.data,
                     supportDynamicColor = supportDynamicColor,
-                    onChangeThemeBrand = onChangeThemeBrand,
                     onChangeDynamicColorPreference = onChangeDynamicColorPreference,
                     onChangeDarkThemeConfig = onChangeDarkThemeConfig,
                 )
@@ -140,26 +140,13 @@ fun SettingsDialog(
 // [ColumnScope] is used for using the [ColumnScope.AnimatedVisibility] extension overload composable.
 @Composable
 private fun ColumnScope.SettingsPanel(
-    settings: UserEditableSettings,
+    settings: UserSettings,
     supportDynamicColor: Boolean,
-    onChangeThemeBrand: (themeBrand: ThemeBrand) -> Unit,
     onChangeDynamicColorPreference: (useDynamicColor: Boolean) -> Unit,
     onChangeDarkThemeConfig: (darkThemeConfig: DarkThemeConfig) -> Unit,
 ) {
     SettingsDialogSectionTitle(text = stringResource(R.string.theme))
-    Column(Modifier.selectableGroup()) {
-        SettingsDialogThemeChooserRow(
-            text = stringResource(R.string.brand_default),
-            selected = settings.brand == ThemeBrand.DEFAULT,
-            onClick = { onChangeThemeBrand(ThemeBrand.DEFAULT) },
-        )
-        SettingsDialogThemeChooserRow(
-            text = stringResource(R.string.brand_android),
-            selected = settings.brand == ThemeBrand.ANDROID,
-            onClick = { onChangeThemeBrand(ThemeBrand.ANDROID) },
-        )
-    }
-    AnimatedVisibility(visible = settings.brand == ThemeBrand.DEFAULT && supportDynamicColor) {
+    AnimatedVisibility(visible = supportDynamicColor) {
         Column {
             SettingsDialogSectionTitle(text = stringResource(R.string.dynamic_color_preference))
             Column(Modifier.selectableGroup()) {
@@ -193,6 +180,9 @@ private fun ColumnScope.SettingsPanel(
             selected = settings.darkThemeConfig == DarkThemeConfig.DARK,
             onClick = { onChangeDarkThemeConfig(DarkThemeConfig.DARK) },
         )
+    }
+    JetpackOutlinedButton(onClick = {}, modifier = Modifier.fillMaxWidth()) {
+        Text(text = stringResource(R.string.sign_out))
     }
 }
 
