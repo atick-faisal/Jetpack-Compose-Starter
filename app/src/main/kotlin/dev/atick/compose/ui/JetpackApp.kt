@@ -58,7 +58,6 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import dev.atick.compose.R
 import dev.atick.compose.navigation.JetpackNavHost
 import dev.atick.compose.navigation.TopLevelDestination
-import dev.atick.compose.ui.settings.SettingsDialog
 import dev.atick.core.ui.components.AppBackground
 import dev.atick.core.ui.components.AppGradientBackground
 import dev.atick.core.ui.components.JetpackNavigationBar
@@ -68,6 +67,7 @@ import dev.atick.core.ui.components.JetpackNavigationRailItem
 import dev.atick.core.ui.components.JetpackTopAppBarWithAvatar
 import dev.atick.core.ui.theme.GradientColors
 import dev.atick.core.ui.theme.LocalGradientColors
+import dev.atick.settings.ui.SettingsDialog
 
 @Composable
 fun JetpackApp(

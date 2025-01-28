@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.compose.ui.settings
+package dev.atick.settings.ui
 
 import android.content.Intent
 import androidx.compose.animation.AnimatedVisibility
@@ -49,16 +49,18 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
-import dev.atick.compose.data.settings.UserEditableSettings
+import dev.atick.core.ui.components.JetpackOutlinedButton
 import dev.atick.core.ui.components.JetpackTextButton
 import dev.atick.core.ui.theme.supportsDynamicTheming
 import dev.atick.core.ui.utils.UiState
-import dev.atick.demo.R
+import dev.atick.settings.R
+import dev.atick.settings.data.UserSettings
 import dev.atick.storage.preferences.models.DarkThemeConfig
 
 @Composable
@@ -82,7 +84,7 @@ fun SettingsDialog(
 
 @Composable
 fun SettingsDialog(
-    settingsUiState: UiState<UserEditableSettings>,
+    settingsUiState: UiState<UserSettings>,
     supportDynamicColor: Boolean = supportsDynamicTheming(),
     onDismiss: () -> Unit,
     onChangeDynamicColorPreference: (useDynamicColor: Boolean) -> Unit,
@@ -103,8 +105,10 @@ fun SettingsDialog(
         onDismissRequest = { onDismiss() },
         title = {
             Text(
-                text = stringResource(R.string.settings_title),
+                modifier = Modifier.fillMaxWidth(),
+                text = settingsUiState.data.userName ?: stringResource(R.string.settings),
                 style = MaterialTheme.typography.titleLarge,
+                textAlign = TextAlign.Center,
             )
         },
         text = {
@@ -136,7 +140,7 @@ fun SettingsDialog(
 // [ColumnScope] is used for using the [ColumnScope.AnimatedVisibility] extension overload composable.
 @Composable
 private fun ColumnScope.SettingsPanel(
-    settings: UserEditableSettings,
+    settings: UserSettings,
     supportDynamicColor: Boolean,
     onChangeDynamicColorPreference: (useDynamicColor: Boolean) -> Unit,
     onChangeDarkThemeConfig: (darkThemeConfig: DarkThemeConfig) -> Unit,
@@ -176,6 +180,9 @@ private fun ColumnScope.SettingsPanel(
             selected = settings.darkThemeConfig == DarkThemeConfig.DARK,
             onClick = { onChangeDarkThemeConfig(DarkThemeConfig.DARK) },
         )
+    }
+    JetpackOutlinedButton(onClick = {}, modifier = Modifier.fillMaxWidth()) {
+        Text(text = stringResource(R.string.sign_out))
     }
 }
 

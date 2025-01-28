@@ -60,7 +60,6 @@ import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import dev.atick.compose.navigation.JetpackNavHost
 import dev.atick.compose.navigation.TopLevelDestination
-import dev.atick.compose.ui.settings.SettingsDialog
 import dev.atick.core.ui.components.AppBackground
 import dev.atick.core.ui.components.AppGradientBackground
 import dev.atick.core.ui.components.JetpackNavigationBar
@@ -72,6 +71,7 @@ import dev.atick.core.ui.theme.GradientColors
 import dev.atick.core.ui.theme.LocalGradientColors
 import dev.atick.demo.R
 import dev.atick.network.utils.NetworkUtils
+import dev.atick.settings.ui.SettingsDialog
 
 @Composable
 fun JetpackApp(
@@ -278,5 +278,5 @@ private fun Modifier.notificationDot(): Modifier =
 
 private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) =
     this?.hierarchy?.any {
-        it.route?.contains(destination.name, true) ?: false
-    } ?: false
+        it.route?.contains(destination.name, true) == true
+    } == true

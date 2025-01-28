@@ -55,6 +55,7 @@ include(":auth")
 include(":core:android")
 include(":core:ui")
 include(":network")
+include(":settings")
 include(":storage:preferences")
 include(":storage:room")
 

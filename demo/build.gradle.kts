@@ -108,14 +108,12 @@ dependencies {
     implementation(project(":auth"))
     implementation(project(":core:ui"))
     implementation(project(":network"))
+    implementation(project(":settings"))
     implementation(project(":storage:preferences"))
     implementation(project(":storage:room"))
 
     // ... Splash Screen
     implementation(libs.androidx.core.splashscreen)
-
-    // ... OSS Licenses
-    implementation(libs.google.oss.licenses)
 
     // ... Billing
     implementation(libs.play.billing.ktx)
