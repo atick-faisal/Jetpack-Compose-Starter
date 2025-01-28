@@ -127,7 +127,7 @@ fun JetpackApp(
                     if (appState.shouldShowBottomBar) {
                         JetpackBottomBar(
                             destinations = appState.topLevelDestinations,
-                            destinationsWithUnreadResources = setOf(TopLevelDestination.PROFILE),
+                            destinationsWithUnreadResources = setOf(), // Not used in this example
                             onNavigateToDestination = appState::navigateToTopLevelDestination,
                             currentDestination = appState.currentDestination,
                         )
@@ -278,5 +278,5 @@ private fun Modifier.notificationDot(): Modifier =
 
 private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) =
     this?.hierarchy?.any {
-        it.route?.contains(destination.name, true) ?: false
-    } ?: false
+        it.route?.contains(destination.name, true) == true
+    } == true

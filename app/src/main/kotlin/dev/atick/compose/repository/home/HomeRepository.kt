@@ -16,25 +16,7 @@
 
 package dev.atick.compose.repository.home
 
-import dev.atick.compose.data.home.UiPost
-import kotlinx.coroutines.flow.Flow
-
 /**
  * Interface defining operations for interacting with the home repository.
  */
-interface PostsRepository {
-
-    suspend fun synchronizePosts(): Result<Unit>
-
-    /**
-     * Retrieves a UI post with the specified ID wrapped in a [Result] from a data source.
-     *
-     * This function asynchronously fetches a UI post with the given ID and encapsulates the result in a [Result] wrapper.
-     *
-     * @param id The ID of the UI post to retrieve.
-     * @return A [Result] instance containing either the fetched [UiPost] object on success or an error on failure.
-     */
-    suspend fun getPost(id: Int): Result<UiPost>
-
-    fun getCachedPosts(): Flow<List<UiPost>>
-}
+interface HomeRepository

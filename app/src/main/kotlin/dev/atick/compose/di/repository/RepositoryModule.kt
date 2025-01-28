@@ -20,32 +20,29 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.compose.repository.home.PostsRepository
-import dev.atick.compose.repository.home.PostsRepositoryImpl
-import dev.atick.compose.repository.profile.ProfileDataRepository
-import dev.atick.compose.repository.profile.ProfileDataRepositoryImpl
+import dev.atick.compose.repository.home.HomeRepository
+import dev.atick.compose.repository.home.HomeRepositoryImpl
 import dev.atick.compose.repository.user.UserDataRepository
 import dev.atick.compose.repository.user.UserDataRepositoryImpl
 import javax.inject.Singleton
 
 /**
- * Dagger module that provides the binding for the [PostsRepository] interface.
+ * Dagger module that provides the binding for the Repository interfaces.
  */
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
-
     /**
-     * Binds the [PostsRepositoryImpl] implementation to the [PostsRepository] interface.
+     * Binds the [HomeRepositoryImpl] implementation to the [HomeRepository] interface.
      *
-     * @param postsRepositoryImpl The implementation of [PostsRepository] to be bound.
-     * @return The [PostsRepository] interface.
+     * @param homeRepositoryImpl The implementation of [HomeRepository] to be bound.
+     * @return The [HomeRepository] interface.
      */
     @Binds
     @Singleton
-    abstract fun bindPostsRepository(
-        postsRepositoryImpl: PostsRepositoryImpl,
-    ): PostsRepository
+    abstract fun bindHomeRepository(
+        homeRepositoryImpl: HomeRepositoryImpl,
+    ): HomeRepository
 
     /**
      * Binds the [UserDataRepositoryImpl] implementation to the [UserDataRepository] interface.
@@ -58,18 +55,4 @@ abstract class RepositoryModule {
     abstract fun bindUserDataRepository(
         userDataRepositoryImpl: UserDataRepositoryImpl,
     ): UserDataRepository
-
-    /**
-     * This method is used to bind a [ProfileDataRepositoryImpl] instance to the [ProfileDataRepository] interface.
-     * It is annotated with [@Binds](https://developer.android.com/reference/dagger/Binds) and [@Singleton](https://developer.android.com/reference/javax/inject/Singleton), indicating that a single instance
-     * of [ProfileDataRepositoryImpl] should be used as the implementation of [ProfileDataRepository] throughout the application.
-     *
-     * @param profileDataRepositoryImpl The [ProfileDataRepositoryImpl] instance to be bound to [ProfileDataRepository].
-     * @return An instance of [ProfileDataRepository] representing the bound implementation.
-     */
-    @Binds
-    @Singleton
-    abstract fun bindProfileDataRepository(
-        profileDataRepositoryImpl: ProfileDataRepositoryImpl,
-    ): ProfileDataRepository
 }

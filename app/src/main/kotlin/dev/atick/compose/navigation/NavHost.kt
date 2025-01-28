@@ -25,12 +25,8 @@ import dev.atick.auth.navigation.navigateToSignInRoute
 import dev.atick.auth.navigation.navigateToSignUpRoute
 import dev.atick.auth.navigation.signInScreen
 import dev.atick.auth.navigation.signUpScreen
-import dev.atick.compose.navigation.details.detailsScreen
-import dev.atick.compose.navigation.details.navigateToDetailsScreen
-import dev.atick.compose.navigation.home.HomeNavGraph
-import dev.atick.compose.navigation.home.homeNavGraph
+import dev.atick.compose.navigation.home.Home
 import dev.atick.compose.navigation.home.homeScreen
-import dev.atick.compose.navigation.profile.profileScreen
 import dev.atick.compose.ui.JetpackAppState
 
 @Composable
@@ -41,7 +37,7 @@ fun JetpackNavHost(
 ) {
     val navController = appState.navController
     val startDestination =
-        if (appState.isUserLoggedIn) HomeNavGraph::class else AuthNavGraph::class
+        if (appState.isUserLoggedIn) Home::class else AuthNavGraph::class
     NavHost(
         navController = navController,
         startDestination = startDestination,
@@ -59,19 +55,7 @@ fun JetpackNavHost(
                 )
             },
         )
-        homeNavGraph(
-            nestedNavGraphs = {
-                homeScreen(
-                    onPostClick = navController::navigateToDetailsScreen,
-                    onShowSnackbar = onShowSnackbar,
-                )
-                detailsScreen(
-                    onBackClick = navController::popBackStack,
-                    onShowSnackbar = onShowSnackbar,
-                )
-            },
-        )
-        profileScreen(
+        homeScreen(
             onShowSnackbar = onShowSnackbar,
         )
     }
