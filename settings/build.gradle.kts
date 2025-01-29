@@ -30,5 +30,5 @@ dependencies {
     implementation(project(":storage:preferences"))
 
     // ... OSS Licenses
-    implementation(libs.google.oss.licenses)
+    api(libs.google.oss.licenses)
 }
