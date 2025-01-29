@@ -16,6 +16,7 @@
 
 package dev.atick.settings.repository
 
+import dev.atick.auth.data.AuthDataSource
 import dev.atick.core.utils.suspendRunCatching
 import dev.atick.storage.preferences.data.UserPreferencesDataSource
 import dev.atick.storage.preferences.models.DarkThemeConfig
@@ -30,6 +31,7 @@ import javax.inject.Inject
  * @property userPreferencesDataSource The data source for user preferences.
  */
 class SettingsRepositoryImpl @Inject constructor(
+    private val authDataSource: AuthDataSource,
     private val userPreferencesDataSource: UserPreferencesDataSource,
 ) : SettingsRepository {
 
@@ -72,6 +74,22 @@ class SettingsRepositoryImpl @Inject constructor(
     override suspend fun setDynamicColorPreference(useDynamicColor: Boolean): Result<Unit> {
         return suspendRunCatching {
             userPreferencesDataSource.setDynamicColorPreference(useDynamicColor)
+        }
+    }
+
+    /**
+     * Suspend function to sign the user out.
+     *
+     * This function signs the user out by delegating to the [AuthDataSource] and then updates the user's
+     * profile data in [UserPreferencesDataSource].
+     *
+     * @return A [Result] representing the sign-out operation result. It contains [Unit] if
+     * the sign-out was successful, or an error if there was a problem.
+     */
+    override suspend fun signOut(): Result<Unit> {
+        return suspendRunCatching {
+            authDataSource.signOut()
+            userPreferencesDataSource.setProfile(Profile())
         }
     }
 }

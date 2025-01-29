@@ -79,6 +79,7 @@ fun SettingsDialog(
         settingsUiState = settingsUiState,
         onChangeDynamicColorPreference = viewModel::updateDynamicColorPreference,
         onChangeDarkThemeConfig = viewModel::updateDarkThemeConfig,
+        onSignOut = viewModel::signOut,
     )
 }
 
@@ -89,6 +90,7 @@ fun SettingsDialog(
     onDismiss: () -> Unit,
     onChangeDynamicColorPreference: (useDynamicColor: Boolean) -> Unit,
     onChangeDarkThemeConfig: (darkThemeConfig: DarkThemeConfig) -> Unit,
+    onSignOut: () -> Unit,
 ) {
     val configuration = LocalConfiguration.current
 
@@ -119,6 +121,8 @@ fun SettingsDialog(
                     supportDynamicColor = supportDynamicColor,
                     onChangeDynamicColorPreference = onChangeDynamicColorPreference,
                     onChangeDarkThemeConfig = onChangeDarkThemeConfig,
+                    onSignOut = onSignOut,
+                    onDismiss = onDismiss,
                 )
                 HorizontalDivider(Modifier.padding(top = 8.dp))
                 LinksPanel()
@@ -144,6 +148,8 @@ private fun ColumnScope.SettingsPanel(
     supportDynamicColor: Boolean,
     onChangeDynamicColorPreference: (useDynamicColor: Boolean) -> Unit,
     onChangeDarkThemeConfig: (darkThemeConfig: DarkThemeConfig) -> Unit,
+    onSignOut: () -> Unit,
+    onDismiss: () -> Unit,
 ) {
     SettingsDialogSectionTitle(text = stringResource(R.string.theme))
     AnimatedVisibility(visible = supportDynamicColor) {
@@ -181,7 +187,13 @@ private fun ColumnScope.SettingsPanel(
             onClick = { onChangeDarkThemeConfig(DarkThemeConfig.DARK) },
         )
     }
-    JetpackOutlinedButton(onClick = {}, modifier = Modifier.fillMaxWidth()) {
+    JetpackOutlinedButton(
+        onClick = {
+            onSignOut()
+            onDismiss()
+        },
+        modifier = Modifier.fillMaxWidth(),
+    ) {
         Text(text = stringResource(R.string.sign_out))
     }
 }

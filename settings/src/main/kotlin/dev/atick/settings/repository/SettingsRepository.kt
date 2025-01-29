@@ -54,4 +54,12 @@ interface SettingsRepository {
      * @return [Result] indicating the success or failure of the operation.
      */
     suspend fun setDynamicColorPreference(useDynamicColor: Boolean): Result<Unit>
+
+    /**
+     * Suspend function to sign the user out.
+     *
+     * @return A [Result] representing the sign-out operation result. It contains [Unit] if
+     * the sign-out was successful, or an error if there was a problem.
+     */
+    suspend fun signOut(): Result<Unit>
 }

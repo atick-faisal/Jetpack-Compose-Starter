@@ -40,7 +40,6 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -70,20 +69,10 @@ import dev.atick.core.ui.components.JetpackTopAppBar
 import dev.atick.core.ui.theme.GradientColors
 import dev.atick.core.ui.theme.LocalGradientColors
 import dev.atick.demo.R
-import dev.atick.network.utils.NetworkUtils
 import dev.atick.settings.ui.SettingsDialog
 
 @Composable
-fun JetpackApp(
-    isUserLoggedIn: Boolean,
-    windowSizeClass: WindowSizeClass,
-    networkUtils: NetworkUtils,
-    appState: JetpackAppState = rememberJetpackAppState(
-        isUserLoggedIn = isUserLoggedIn,
-        windowSizeClass = windowSizeClass,
-        networkUtils = networkUtils,
-    ),
-) {
+fun JetpackApp(appState: JetpackAppState) {
     val shouldShowGradientBackground =
         appState.currentTopLevelDestination == TopLevelDestination.HOME
     var showSettingsDialog by rememberSaveable { mutableStateOf(false) }
