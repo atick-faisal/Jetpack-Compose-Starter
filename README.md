@@ -69,10 +69,13 @@ Check out the whole list [here](https://github.com/atick-faisal?tab=repositories
 ```mermaid
 graph TD
     A[App Module] --> B[Auth]
+    A --> H[Settings]
     A --> C[Storage:Preferences]
     A --> D[Storage:Room]
     A --> E[Network]
     B --> F[Core:UI]
+    H --> B
+    H --> C
     B --> C
     B --> G[Core:Android]
     C --> G
@@ -374,10 +377,15 @@ git clone https://github.com/atick-faisal/Jetpack-Compose-Starter.git
 > Firebase authentication and crashlytics requires Firebase console setup and the `google-services.json` file. I have provided a template to ensure a successful build. However, you need to provide your own in order to use all the functionalities.
 
 
-3. Debug builds:
-```bash
-./gradlew assembleDebug
-```
+3. Running the App or Demo:
+   
+   There is a demo application bundled with the template. To run it, select `demo` from the run configurations. To run the app, select `app` instead.
+   <img src="https://github.com/user-attachments/assets/a135d4e2-2a8b-4b20-a140-e54224d9b513" alt="run configs" width=240 align="right"/> 
+> [!IMPORTANT]
+> The demo module is completely optional and can be removed by:  
+> - Deleting the `demo` directory
+> - Removing its entry from `settings.gradle.kts` 
+
 
 ### Release Setup
 
