@@ -73,4 +73,8 @@ class SettingsViewModel @Inject constructor(
             settingsRepository.setDynamicColorPreference(useDynamicColor)
         }
     }
+
+    fun signOut() {
+        _settingsUiState.updateWith(viewModelScope) { settingsRepository.signOut() }
+    }
 }
