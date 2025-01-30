@@ -22953,6 +22953,7 @@
 <p>[androidJvm]\
 @<a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Stable.html">Stable</a></p>
 <p>class <a href="./">JetpackAppState</a>(val isUserLoggedIn: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a>, val userProfilePictureUri: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a>?, val navController: <a href="https://developer.android.com/reference/kotlin/androidx/navigation/NavHostController.html">NavHostController</a>, val windowSizeClass: <a href="https://developer.android.com/reference/kotlin/androidx/compose/material3/windowsizeclass/WindowSizeClass.html">WindowSizeClass</a>, coroutineScope: CoroutineScope, networkUtils: <a href="../../../../network/network/dev.atick.network.utils/-network-utils/">NetworkUtils</a>)</p>
+<p>State holder class for the Jetpack Compose application.</p>
 <h2 id="constructors">Constructors</h2>
 <table>
 <thead>
@@ -22979,47 +22980,47 @@
 <tbody>
 <tr>
 <td><a href="current-destination/">currentDestination</a></td>
-<td>[androidJvm]<br>@get:<a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html">Composable</a><br>val <a href="current-destination/">currentDestination</a>: <a href="https://developer.android.com/reference/kotlin/androidx/navigation/NavDestination.html">NavDestination</a>?</td>
+<td>[androidJvm]<br>@get:<a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html">Composable</a><br>val <a href="current-destination/">currentDestination</a>: <a href="https://developer.android.com/reference/kotlin/androidx/navigation/NavDestination.html">NavDestination</a>?<br>The current navigation destination.</td>
 </tr>
 <tr>
 <td><a href="current-top-level-destination/">currentTopLevelDestination</a></td>
-<td>[androidJvm]<br>@get:<a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html">Composable</a><br>val <a href="current-top-level-destination/">currentTopLevelDestination</a>: <a href="../../dev.atick.compose.navigation/-top-level-destination/">TopLevelDestination</a>?</td>
+<td>[androidJvm]<br>@get:<a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html">Composable</a><br>val <a href="current-top-level-destination/">currentTopLevelDestination</a>: <a href="../../dev.atick.compose.navigation/-top-level-destination/">TopLevelDestination</a>?<br>The current top-level navigation destination.</td>
 </tr>
 <tr>
 <td><a href="is-offline/">isOffline</a></td>
-<td>[androidJvm]<br>val <a href="is-offline/">isOffline</a>: StateFlow&lt;<a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a>&gt;</td>
+<td>[androidJvm]<br>val <a href="is-offline/">isOffline</a>: StateFlow&lt;<a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a>&gt;<br>Indicates if the application is offline.</td>
 </tr>
 <tr>
 <td><a href="is-user-logged-in/">isUserLoggedIn</a></td>
-<td>[androidJvm]<br>val <a href="is-user-logged-in/">isUserLoggedIn</a>: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></td>
+<td>[androidJvm]<br>val <a href="is-user-logged-in/">isUserLoggedIn</a>: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><br>Indicates if the user is logged in.</td>
 </tr>
 <tr>
 <td><a href="nav-controller/">navController</a></td>
-<td>[androidJvm]<br>val <a href="nav-controller/">navController</a>: <a href="https://developer.android.com/reference/kotlin/androidx/navigation/NavHostController.html">NavHostController</a></td>
+<td>[androidJvm]<br>val <a href="nav-controller/">navController</a>: <a href="https://developer.android.com/reference/kotlin/androidx/navigation/NavHostController.html">NavHostController</a><br>The navigation controller for managing navigation.</td>
 </tr>
 <tr>
 <td><a href="should-show-bottom-bar/">shouldShowBottomBar</a></td>
-<td>[androidJvm]<br>@get:<a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html">Composable</a><br>val <a href="should-show-bottom-bar/">shouldShowBottomBar</a>: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></td>
+<td>[androidJvm]<br>@get:<a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html">Composable</a><br>val <a href="should-show-bottom-bar/">shouldShowBottomBar</a>: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><br>Indicates if the bottom bar should be shown.</td>
 </tr>
 <tr>
 <td><a href="should-show-nav-rail/">shouldShowNavRail</a></td>
-<td>[androidJvm]<br>@get:<a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html">Composable</a><br>val <a href="should-show-nav-rail/">shouldShowNavRail</a>: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></td>
+<td>[androidJvm]<br>@get:<a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html">Composable</a><br>val <a href="should-show-nav-rail/">shouldShowNavRail</a>: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><br>Indicates if the navigation rail should be shown.</td>
 </tr>
 <tr>
 <td><a href="top-level-destinations/">topLevelDestinations</a></td>
-<td>[androidJvm]<br>val <a href="top-level-destinations/">topLevelDestinations</a>: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="../../dev.atick.compose.navigation/-top-level-destination/">TopLevelDestination</a>&gt;</td>
+<td>[androidJvm]<br>val <a href="top-level-destinations/">topLevelDestinations</a>: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="../../dev.atick.compose.navigation/-top-level-destination/">TopLevelDestination</a>&gt;<br>List of top-level destinations.</td>
 </tr>
 <tr>
 <td><a href="top-level-destinations-with-unread-resources/">topLevelDestinationsWithUnreadResources</a></td>
-<td>[androidJvm]<br>val <a href="top-level-destinations-with-unread-resources/">topLevelDestinationsWithUnreadResources</a>: StateFlow&lt;<a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a>&lt;<a href="../../dev.atick.compose.navigation/-top-level-destination/">TopLevelDestination</a>&gt;&gt;</td>
+<td>[androidJvm]<br>val <a href="top-level-destinations-with-unread-resources/">topLevelDestinationsWithUnreadResources</a>: StateFlow&lt;<a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a>&lt;<a href="../../dev.atick.compose.navigation/-top-level-destination/">TopLevelDestination</a>&gt;&gt;<br>State flow of top-level destinations with unread resources.</td>
 </tr>
 <tr>
 <td><a href="user-profile-picture-uri/">userProfilePictureUri</a></td>
-<td>[androidJvm]<br>val <a href="user-profile-picture-uri/">userProfilePictureUri</a>: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a>?</td>
+<td>[androidJvm]<br>val <a href="user-profile-picture-uri/">userProfilePictureUri</a>: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a>?<br>The URI of the user's profile picture.</td>
 </tr>
 <tr>
 <td><a href="window-size-class/">windowSizeClass</a></td>
-<td>[androidJvm]<br>val <a href="window-size-class/">windowSizeClass</a>: <a href="https://developer.android.com/reference/kotlin/androidx/compose/material3/windowsizeclass/WindowSizeClass.html">WindowSizeClass</a></td>
+<td>[androidJvm]<br>val <a href="window-size-class/">windowSizeClass</a>: <a href="https://developer.android.com/reference/kotlin/androidx/compose/material3/windowsizeclass/WindowSizeClass.html">WindowSizeClass</a><br>The current window size class.</td>
 </tr>
 </tbody>
 </table>
@@ -23034,7 +23035,7 @@
 <tbody>
 <tr>
 <td><a href="navigate-to-top-level-destination/">navigateToTopLevelDestination</a></td>
-<td>[androidJvm]<br>fun <a href="navigate-to-top-level-destination/">navigateToTopLevelDestination</a>(topLevelDestination: <a href="../../dev.atick.compose.navigation/-top-level-destination/">TopLevelDestination</a>)</td>
+<td>[androidJvm]<br>fun <a href="navigate-to-top-level-destination/">navigateToTopLevelDestination</a>(topLevelDestination: <a href="../../dev.atick.compose.navigation/-top-level-destination/">TopLevelDestination</a>)<br>Navigates to the specified top-level destination.</td>
 </tr>
 </tbody>
 </table>

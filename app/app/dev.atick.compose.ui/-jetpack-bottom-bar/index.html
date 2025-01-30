@@ -2318,6 +2318,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+     jetpack bottom bar
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2327,6 +2338,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -22897,6 +22936,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -22926,6 +22982,39 @@
 <p>[androidJvm]\</p>
 <p>@<a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html">Composable</a></p>
 <p>fun <a href="./">JetpackBottomBar</a>(destinations: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="../../dev.atick.compose.navigation/-top-level-destination/">TopLevelDestination</a>&gt;, destinationsWithUnreadResources: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a>&lt;<a href="../../dev.atick.compose.navigation/-top-level-destination/">TopLevelDestination</a>&gt;, onNavigateToDestination: (<a href="../../dev.atick.compose.navigation/-top-level-destination/">TopLevelDestination</a>) -&gt; <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a>, currentDestination: <a href="https://developer.android.com/reference/kotlin/androidx/navigation/NavDestination.html">NavDestination</a>?, modifier: <a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.html">Modifier</a> = Modifier)</p>
+<p>Composable function that represents the bottom navigation bar for the Jetpack Compose application.</p>
+<h4 id="parameters">Parameters</h4>
+<p>androidJvm</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>destinations</td>
+<td>A list of top-level destinations to be displayed in the bottom navigation bar.</td>
+</tr>
+<tr>
+<td>destinationsWithUnreadResources</td>
+<td>A set of destinations that have unread resources.</td>
+</tr>
+<tr>
+<td>onNavigateToDestination</td>
+<td>A lambda function to handle navigation to a selected destination.</td>
+</tr>
+<tr>
+<td>currentDestination</td>
+<td>The current navigation destination.</td>
+</tr>
+<tr>
+<td>modifier</td>
+<td>The modifier to be applied to the bottom navigation bar.</td>
+</tr>
+</tbody>
+</table>
 
 
 

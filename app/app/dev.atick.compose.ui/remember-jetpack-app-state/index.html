@@ -2360,6 +2360,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Remember jetpack app state
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2369,6 +2380,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      Return
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -22897,6 +22945,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      Return
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -22926,6 +23000,45 @@
 <p>[androidJvm]\</p>
 <p>@<a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html">Composable</a></p>
 <p>fun <a href="./">rememberJetpackAppState</a>(isUserLoggedIn: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a>, windowSizeClass: <a href="https://developer.android.com/reference/kotlin/androidx/compose/material3/windowsizeclass/WindowSizeClass.html">WindowSizeClass</a>, networkUtils: <a href="../../../../network/network/dev.atick.network.utils/-network-utils/">NetworkUtils</a>, userProfilePictureUri: <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a>? = null, coroutineScope: CoroutineScope = rememberCoroutineScope(), navController: <a href="https://developer.android.com/reference/kotlin/androidx/navigation/NavHostController.html">NavHostController</a> = rememberNavController()): <a href="../-jetpack-app-state/">JetpackAppState</a></p>
+<p>Remembers and creates an instance of <a href="../-jetpack-app-state/">JetpackAppState</a>.</p>
+<h4 id="return">Return</h4>
+<p>An instance of <a href="../-jetpack-app-state/">JetpackAppState</a>.</p>
+<h4 id="parameters">Parameters</h4>
+<p>androidJvm</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isUserLoggedIn</td>
+<td>Indicates if the user is logged in.</td>
+</tr>
+<tr>
+<td>windowSizeClass</td>
+<td>The current window size class.</td>
+</tr>
+<tr>
+<td>networkUtils</td>
+<td>Utility for network state management.</td>
+</tr>
+<tr>
+<td>userProfilePictureUri</td>
+<td>The URI of the user's profile picture.</td>
+</tr>
+<tr>
+<td>coroutineScope</td>
+<td>The coroutine scope for managing coroutines.</td>
+</tr>
+<tr>
+<td>navController</td>
+<td>The navigation controller for managing navigation.</td>
+</tr>
+</tbody>
+</table>
 
 
 
