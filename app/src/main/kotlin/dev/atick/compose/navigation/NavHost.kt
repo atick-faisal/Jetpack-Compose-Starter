@@ -29,6 +29,13 @@ import dev.atick.compose.navigation.home.Home
 import dev.atick.compose.navigation.home.homeScreen
 import dev.atick.compose.ui.JetpackAppState
 
+/**
+ * Composable function that sets up the navigation host for the Jetpack Compose application.
+ *
+ * @param appState The state of the Jetpack application, containing the navigation controller and user login status.
+ * @param onShowSnackbar A lambda function to show a snackbar with a message and optional action.
+ * @param modifier The modifier to be applied to the NavHost.
+ */
 @Composable
 fun JetpackNavHost(
     appState: JetpackAppState,

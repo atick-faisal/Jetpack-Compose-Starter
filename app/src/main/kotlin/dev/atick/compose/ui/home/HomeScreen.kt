@@ -49,6 +49,11 @@ internal fun HomeRoute(
     }
 }
 
+/**
+ * Composable function that displays the home screen.
+ *
+ * @param homeScreenData The data to be displayed on the home screen.
+ */
 @Composable
 private fun HomeScreen(
     homeScreenData: HomeScreenData,

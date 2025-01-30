@@ -18,4 +18,10 @@ package dev.atick.compose.repository.home
 
 import javax.inject.Inject
 
+/**
+ * Implementation of the [HomeRepository] interface.
+ *
+ * This class is responsible for providing the data related to the Home feature.
+ * It is injected using Dagger's @Inject annotation.
+ */
 class HomeRepositoryImpl @Inject constructor() : HomeRepository

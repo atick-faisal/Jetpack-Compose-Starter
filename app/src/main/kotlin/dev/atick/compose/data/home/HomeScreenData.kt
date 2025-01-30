@@ -16,6 +16,11 @@
 
 package dev.atick.compose.data.home
 
+/**
+ * Data class representing the data to be displayed on the home screen.
+ *
+ * @property hello A greeting message to be displayed on the home screen.
+ */
 data class HomeScreenData(
     val hello: String = "Hello, World!",
 )

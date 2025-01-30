@@ -69,6 +69,11 @@ import dev.atick.core.ui.theme.GradientColors
 import dev.atick.core.ui.theme.LocalGradientColors
 import dev.atick.settings.ui.SettingsDialog
 
+/**
+ * Composable function that represents the Jetpack Compose application.
+ *
+ * @param appState The state of the Jetpack application.
+ */
 @Composable
 fun JetpackApp(
     appState: JetpackAppState,
@@ -176,6 +181,15 @@ fun JetpackApp(
     }
 }
 
+/**
+ * Composable function that represents the navigation rail for the Jetpack Compose application.
+ *
+ * @param destinations A list of top-level destinations to be displayed in the navigation rail.
+ * @param destinationsWithUnreadResources A set of destinations that have unread resources.
+ * @param onNavigateToDestination A lambda function to handle navigation to a selected destination.
+ * @param currentDestination The current navigation destination.
+ * @param modifier The modifier to be applied to the navigation rail.
+ */
 @Composable
 fun JetpackNavRail(
     destinations: List<TopLevelDestination>,
@@ -210,6 +224,15 @@ fun JetpackNavRail(
     }
 }
 
+/**
+ * Composable function that represents the bottom navigation bar for the Jetpack Compose application.
+ *
+ * @param destinations A list of top-level destinations to be displayed in the bottom navigation bar.
+ * @param destinationsWithUnreadResources A set of destinations that have unread resources.
+ * @param onNavigateToDestination A lambda function to handle navigation to a selected destination.
+ * @param currentDestination The current navigation destination.
+ * @param modifier The modifier to be applied to the bottom navigation bar.
+ */
 @Composable
 fun JetpackBottomBar(
     destinations: List<TopLevelDestination>,
@@ -246,6 +269,13 @@ fun JetpackBottomBar(
     }
 }
 
+/**
+ * Extension function for Modifier to add a notification dot.
+ *
+ * This function draws a small circle (dot) on the top-right corner of the content.
+ *
+ * @return A Modifier with the notification dot applied.
+ */
 private fun Modifier.notificationDot(): Modifier =
     composed {
         val tertiaryColor = MaterialTheme.colorScheme.tertiary
@@ -265,6 +295,12 @@ private fun Modifier.notificationDot(): Modifier =
         }
     }
 
+/**
+ * Extension function to check if the current NavDestination is a top-level destination.
+ *
+ * @param destination The top-level destination to check against.
+ * @return True if the current NavDestination is in the hierarchy of the given top-level destination, false otherwise.
+ */
 private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) =
     this?.hierarchy?.any {
         it.route?.contains(destination.name, true) == true

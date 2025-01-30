@@ -41,6 +41,17 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 
+/**
+ * Remembers and creates an instance of [JetpackAppState].
+ *
+ * @param isUserLoggedIn Indicates if the user is logged in.
+ * @param windowSizeClass The current window size class.
+ * @param networkUtils Utility for network state management.
+ * @param userProfilePictureUri The URI of the user's profile picture.
+ * @param coroutineScope The coroutine scope for managing coroutines.
+ * @param navController The navigation controller for managing navigation.
+ * @return An instance of [JetpackAppState].
+ */
 @Composable
 fun rememberJetpackAppState(
     isUserLoggedIn: Boolean,
@@ -69,6 +80,16 @@ fun rememberJetpackAppState(
     }
 }
 
+/**
+ * State holder class for the Jetpack Compose application.
+ *
+ * @property isUserLoggedIn Indicates if the user is logged in.
+ * @property userProfilePictureUri The URI of the user's profile picture.
+ * @property navController The navigation controller for managing navigation.
+ * @property windowSizeClass The current window size class.
+ * @property coroutineScope The coroutine scope for managing coroutines.
+ * @property networkUtils Utility for network state management.
+ */
 @Suppress("MemberVisibilityCanBePrivate", "UNUSED")
 @Stable
 class JetpackAppState(
@@ -79,10 +100,16 @@ class JetpackAppState(
     coroutineScope: CoroutineScope,
     networkUtils: NetworkUtils,
 ) {
+    /**
+     * The current navigation destination.
+     */
     val currentDestination: NavDestination?
         @Composable get() = navController
             .currentBackStackEntryAsState().value?.destination
 
+    /**
+     * The current top-level navigation destination.
+     */
     val currentTopLevelDestination: TopLevelDestination?
         @Composable get() {
             // Getting the current back stack entry here instead of using currentDestination
@@ -94,24 +121,44 @@ class JetpackAppState(
             }
         }
 
+    /**
+     * Indicates if the bottom bar should be shown.
+     */
     val shouldShowBottomBar: Boolean
         @Composable get() = (windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact) &&
             (currentTopLevelDestination != null)
 
+    /**
+     * Indicates if the navigation rail should be shown.
+     */
     val shouldShowNavRail: Boolean
         @Composable get() = (windowSizeClass.widthSizeClass != WindowWidthSizeClass.Compact) &&
             (currentTopLevelDestination != null)
 
+    /**
+     * Indicates if the application is offline.
+     */
     val isOffline = networkUtils.currentState
         .map { it != NetworkState.CONNECTED }
         .stateInDelayed(false, coroutineScope)
 
+    /**
+     * List of top-level destinations.
+     */
     val topLevelDestinations: List<TopLevelDestination> = TopLevelDestination.entries
 
+    /**
+     * State flow of top-level destinations with unread resources.
+     */
     val topLevelDestinationsWithUnreadResources: StateFlow<Set<TopLevelDestination>> =
         // TODO: Requires Implementation
         MutableStateFlow(setOf<TopLevelDestination>()).asStateFlow()
 
+    /**
+     * Navigates to the specified top-level destination.
+     *
+     * @param topLevelDestination The top-level destination to navigate to.
+     */
     fun navigateToTopLevelDestination(topLevelDestination: TopLevelDestination) {
         val topLevelNavOptions = navOptions {
             popUpTo(navController.graph.findStartDestination().id) {

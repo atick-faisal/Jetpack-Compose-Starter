@@ -23,13 +23,26 @@ import androidx.navigation.compose.composable
 import dev.atick.compose.ui.home.HomeRoute
 import kotlinx.serialization.Serializable
 
+/**
+ * Serializable data object representing the Home screen.
+ */
 @Serializable
 data object Home
 
+/**
+ * Extension function for [NavController] to navigate to the Home screen.
+ *
+ * @param navOptions Optional navigation options.
+ */
 fun NavController.navigateToHome(navOptions: NavOptions? = null) {
     navigate(Home, navOptions)
 }
 
+/**
+ * Adds the Home screen to the [NavGraphBuilder].
+ *
+ * @param onShowSnackbar Lambda function to show a snackbar with a message and optional action.
+ */
 fun NavGraphBuilder.homeScreen(
     onShowSnackbar: suspend (String, String?) -> Boolean,
 ) {
