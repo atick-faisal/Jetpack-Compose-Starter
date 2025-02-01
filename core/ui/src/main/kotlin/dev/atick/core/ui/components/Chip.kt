@@ -74,10 +74,10 @@ fun JetpackFilterChip(
             borderColor = MaterialTheme.colorScheme.onBackground,
             selectedBorderColor = MaterialTheme.colorScheme.onBackground,
             disabledBorderColor = MaterialTheme.colorScheme.onBackground.copy(
-                alpha = JetpackChipDefaults.DisabledChipContentAlpha,
+                alpha = JetpackChipDefaults.DISABLED_CHIP_CONTENT_ALPHA,
             ),
             disabledSelectedBorderColor = MaterialTheme.colorScheme.onBackground.copy(
-                alpha = JetpackChipDefaults.DisabledChipContentAlpha,
+                alpha = JetpackChipDefaults.DISABLED_CHIP_CONTENT_ALPHA,
             ),
             selectedBorderWidth = JetpackChipDefaults.ChipBorderWidth,
         ),
@@ -86,16 +86,16 @@ fun JetpackFilterChip(
             iconColor = MaterialTheme.colorScheme.onBackground,
             disabledContainerColor = if (selected) {
                 MaterialTheme.colorScheme.onBackground.copy(
-                    alpha = JetpackChipDefaults.DisabledChipContainerAlpha,
+                    alpha = JetpackChipDefaults.DISABLED_CHIP_CONTAINER_ALPHA,
                 )
             } else {
                 Color.Transparent
             },
             disabledLabelColor = MaterialTheme.colorScheme.onBackground.copy(
-                alpha = JetpackChipDefaults.DisabledChipContentAlpha,
+                alpha = JetpackChipDefaults.DISABLED_CHIP_CONTENT_ALPHA,
             ),
             disabledLeadingIconColor = MaterialTheme.colorScheme.onBackground.copy(
-                alpha = JetpackChipDefaults.DisabledChipContentAlpha,
+                alpha = JetpackChipDefaults.DISABLED_CHIP_CONTENT_ALPHA,
             ),
             selectedContainerColor = MaterialTheme.colorScheme.primaryContainer,
             selectedLabelColor = MaterialTheme.colorScheme.onBackground,
@@ -110,7 +110,7 @@ fun JetpackFilterChip(
 object JetpackChipDefaults {
     // TODO: File bug
     // FilterChip default values aren't exposed via FilterChipDefaults
-    const val DisabledChipContainerAlpha = 0.12f
-    const val DisabledChipContentAlpha = 0.38f
+    const val DISABLED_CHIP_CONTAINER_ALPHA = 0.12f
+    const val DISABLED_CHIP_CONTENT_ALPHA = 0.38f
     val ChipBorderWidth = 1.dp
 }
