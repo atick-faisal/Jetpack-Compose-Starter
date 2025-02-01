@@ -87,6 +87,7 @@ fun JetpackLoadingWheel(
     // Specifies the color animation for the base-to-progress line color change
     val baseLineColor = MaterialTheme.colorScheme.onBackground
     val progressLineColor = MaterialTheme.colorScheme.inversePrimary
+
     val colorAnimValues = (0 until NUM_OF_LINES).map { index ->
         infiniteTransition.animateColor(
             initialValue = baseLineColor,

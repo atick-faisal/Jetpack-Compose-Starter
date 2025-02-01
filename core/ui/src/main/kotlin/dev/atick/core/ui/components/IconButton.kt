@@ -57,7 +57,7 @@ fun JetpackIconToggleButton(
             checkedContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
             disabledContainerColor = if (checked) {
                 MaterialTheme.colorScheme.onBackground.copy(
-                    alpha = JetpackIconButtonDefaults.DisabledIconButtonContainerAlpha,
+                    alpha = JetpackIconButtonDefaults.DISABLED_ICON_BUTTON_CONTAINER_ALPHA,
                 )
             } else {
                 Color.Transparent
@@ -74,5 +74,5 @@ fun JetpackIconToggleButton(
 object JetpackIconButtonDefaults {
     // TODO: File bug
     // IconToggleButton disabled container alpha not exposed by IconButtonDefaults
-    const val DisabledIconButtonContainerAlpha = 0.12f
+    const val DISABLED_ICON_BUTTON_CONTAINER_ALPHA = 0.12f
 }
