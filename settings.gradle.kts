@@ -59,6 +59,7 @@ include(":settings")
 include(":storage:firebase")
 include(":storage:preferences")
 include(":storage:room")
+include(":sync")
 
 // Demo Application
 // Can be removed if not needed
