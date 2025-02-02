@@ -17,9 +17,12 @@
 package dev.atick.storage.room.data
 
 import androidx.room.Dao
-import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import androidx.room.Upsert
+import dev.atick.storage.room.models.JetpackEntity
 import dev.atick.storage.room.models.PostEntity
 import kotlinx.coroutines.flow.Flow
 
@@ -28,46 +31,73 @@ import kotlinx.coroutines.flow.Flow
  */
 @Dao
 interface JetpackDao {
+//
+//    /**
+//     * Upsert operation (Insert an entity into the database. If the entity already exists, replace it.)
+//     * @param postEntity The entity to be inserted or updated.
+//     */
+//    @Upsert
+//    suspend fun insertOrUpdatePostEntity(postEntity: PostEntity)
+//
+//    /**
+//     * Delete a [PostEntity] from the database.
+//     * @param postEntity The entity to be deleted.
+//     */
+//    @Delete
+//    suspend fun deletePostEntity(postEntity: PostEntity)
+//
+//    /**
+//     * Retrieve a [PostEntity] by ID.
+//     * @param id The id of the entity.
+//     * @return The entity with the given id, or null if no such entity exists.
+//     */
+//    @Query("SELECT * FROM posts WHERE id = :id")
+//    suspend fun getPostEntity(id: Int): PostEntity?
+//
+//    /**
+//     * Retrieve all [PostEntity] from the database.
+//     * @return A [Flow] that emits the list of entities.
+//     */
+//    @Query("SELECT * FROM posts")
+//    fun getPostEntities(): Flow<List<PostEntity>>
+//
+//    /**
+//     * Upsert operation (Insert a list of entities into the database. If an entity already exists, replace it.)
+//     * @param postEntities The list of entities to be inserted or updated.
+//     */
+//    @Upsert
+//    suspend fun upsertPostEntities(postEntities: List<PostEntity>)
+//
+//    /**
+//     * Delete all [PostEntity] items from the database.
+//     */
+//    @Query("DELETE FROM posts")
+//    suspend fun deleteAllPostEntities()
 
-    /**
-     * Upsert operation (Insert an entity into the database. If the entity already exists, replace it.)
-     * @param postEntity The entity to be inserted or updated.
-     */
+    @Query("SELECT * FROM jetpacks WHERE id = :id")
+    suspend fun getJetpack(id: String): JetpackEntity?
+
+    @Query("SELECT * FROM jetpacks WHERE isDeleted = 0")
+    fun getJetpacks(): Flow<List<JetpackEntity>>
+
+    @Query("SELECT * FROM jetpacks WHERE needsSync = 1")
+    suspend fun getUnsyncedJetpacks(): List<JetpackEntity>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertJetpack(jetpackEntity: JetpackEntity)
+
     @Upsert
-    suspend fun insertOrUpdatePostEntity(postEntity: PostEntity)
+    suspend fun upsertJetpack(jetpackEntity: JetpackEntity)
 
-    /**
-     * Delete a [PostEntity] from the database.
-     * @param postEntity The entity to be deleted.
-     */
-    @Delete
-    suspend fun deletePostEntity(postEntity: PostEntity)
+    @Update
+    suspend fun updateJetpack(jetpackEntity: JetpackEntity)
 
-    /**
-     * Retrieve a [PostEntity] by ID.
-     * @param id The id of the entity.
-     * @return The entity with the given id, or null if no such entity exists.
-     */
-    @Query("SELECT * FROM posts WHERE id = :id")
-    suspend fun getPostEntity(id: Int): PostEntity?
+    @Query("UPDATE jetpacks SET isDeleted = 1, needsSync = 1, syncAction = 'DELETE' WHERE id = :id")
+    suspend fun markJetpackAsDeleted(id: String)
 
-    /**
-     * Retrieve all [PostEntity] from the database.
-     * @return A [Flow] that emits the list of entities.
-     */
-    @Query("SELECT * FROM posts")
-    fun getPostEntities(): Flow<List<PostEntity>>
+    @Query("DELETE FROM jetpacks WHERE id = :id")
+    suspend fun deleteJetpackPermanently(id: String)
 
-    /**
-     * Upsert operation (Insert a list of entities into the database. If an entity already exists, replace it.)
-     * @param postEntities The list of entities to be inserted or updated.
-     */
-    @Upsert
-    suspend fun upsertPostEntities(postEntities: List<PostEntity>)
-
-    /**
-     * Delete all [PostEntity] items from the database.
-     */
-    @Query("DELETE FROM posts")
-    suspend fun deleteAllPostEntities()
+    @Query("UPDATE jetpacks SET needsSync = 0, syncAction = 'NONE', lastSynced = :timestamp WHERE id = :id")
+    suspend fun markAsSynced(id: String, timestamp: Long = System.currentTimeMillis())
 }
