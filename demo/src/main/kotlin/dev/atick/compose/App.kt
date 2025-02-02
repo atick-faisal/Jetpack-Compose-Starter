@@ -17,15 +17,22 @@
 package dev.atick.compose
 
 import android.app.Application
+import coil.ImageLoader
+import coil.ImageLoaderFactory
 import dagger.hilt.android.HiltAndroidApp
 import dev.atick.demo.BuildConfig
+import dev.atick.sync.manager.Sync
 import timber.log.Timber
+import javax.inject.Inject
 
 /**
  * The main application class that extends [Application] and is annotated with [HiltAndroidApp].
  */
 @HiltAndroidApp
-class App : Application() {
+class App : Application(), ImageLoaderFactory {
+
+    @Inject
+    lateinit var imageLoader: dagger.Lazy<ImageLoader>
 
     /**
      * Called when the application is first created.
@@ -34,6 +41,10 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         if (BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
-        Timber.plant(Timber.DebugTree())
+        Sync.initialize(this)
+    }
+
+    override fun newImageLoader(): ImageLoader {
+        return imageLoader.get()
     }
 }

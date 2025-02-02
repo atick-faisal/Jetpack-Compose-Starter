@@ -20,67 +20,24 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Transaction
 import androidx.room.Update
 import androidx.room.Upsert
 import dev.atick.storage.room.models.JetpackEntity
-import dev.atick.storage.room.models.PostEntity
 import kotlinx.coroutines.flow.Flow
 
 /**
- * DAO for handling [PostEntity] operations.
+ * DAO for handling [JetpackEntity] operations.
  */
 @Dao
 interface JetpackDao {
-//
-//    /**
-//     * Upsert operation (Insert an entity into the database. If the entity already exists, replace it.)
-//     * @param postEntity The entity to be inserted or updated.
-//     */
-//    @Upsert
-//    suspend fun insertOrUpdatePostEntity(postEntity: PostEntity)
-//
-//    /**
-//     * Delete a [PostEntity] from the database.
-//     * @param postEntity The entity to be deleted.
-//     */
-//    @Delete
-//    suspend fun deletePostEntity(postEntity: PostEntity)
-//
-//    /**
-//     * Retrieve a [PostEntity] by ID.
-//     * @param id The id of the entity.
-//     * @return The entity with the given id, or null if no such entity exists.
-//     */
-//    @Query("SELECT * FROM posts WHERE id = :id")
-//    suspend fun getPostEntity(id: Int): PostEntity?
-//
-//    /**
-//     * Retrieve all [PostEntity] from the database.
-//     * @return A [Flow] that emits the list of entities.
-//     */
-//    @Query("SELECT * FROM posts")
-//    fun getPostEntities(): Flow<List<PostEntity>>
-//
-//    /**
-//     * Upsert operation (Insert a list of entities into the database. If an entity already exists, replace it.)
-//     * @param postEntities The list of entities to be inserted or updated.
-//     */
-//    @Upsert
-//    suspend fun upsertPostEntities(postEntities: List<PostEntity>)
-//
-//    /**
-//     * Delete all [PostEntity] items from the database.
-//     */
-//    @Query("DELETE FROM posts")
-//    suspend fun deleteAllPostEntities()
+    @Query("SELECT * FROM jetpacks WHERE deleted = 0")
+    fun getJetpacks(): Flow<List<JetpackEntity>>
 
     @Query("SELECT * FROM jetpacks WHERE id = :id")
     suspend fun getJetpack(id: String): JetpackEntity?
 
-    @Query("SELECT * FROM jetpacks WHERE deleted = 0")
-    fun getJetpacks(): Flow<List<JetpackEntity>>
-
-    @Query("SELECT * FROM jetpacks WHERE needsSync = 1")
+    @Query("SELECT * FROM jetpacks WHERE lastUpdated > lastSynced OR needsSync = 1")
     suspend fun getUnsyncedJetpacks(): List<JetpackEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -88,6 +45,18 @@ interface JetpackDao {
 
     @Upsert
     suspend fun upsertJetpack(jetpackEntity: JetpackEntity)
+
+    /**
+     * Upserts (insert or update) jetpacks from a remote source.
+     * If a jetpack already exists locally (matching ID), it will be updated with the remote version.
+     * If it doesn't exist locally, a new entry will be created.
+     *
+     * @param remoteJetpacks List of jetpack entities from the remote source to be upserted
+     * @return List of row IDs for the inserted rows
+     */
+    @Transaction
+    @Upsert
+    suspend fun upsertJetpacks(remoteJetpacks: List<JetpackEntity>)
 
     @Update
     suspend fun updateJetpack(jetpackEntity: JetpackEntity)
@@ -100,4 +69,13 @@ interface JetpackDao {
 
     @Query("UPDATE jetpacks SET needsSync = 0, syncAction = 'NONE', lastSynced = :timestamp WHERE id = :id")
     suspend fun markAsSynced(id: String, timestamp: Long = System.currentTimeMillis())
+
+    /**
+     * Gets the most recent lastUpdated timestamp from all jetpacks in the database.
+     * This can be used as a reference point for fetching only newer items from remote.
+     *
+     * @return The most recent lastUpdated timestamp, or 0 if no jetpacks exist
+     */
+    @Query("SELECT MAX(lastUpdated) FROM jetpacks WHERE deleted = 0")
+    suspend fun getLatestUpdateTimestamp(): Long?
 }

@@ -17,30 +17,35 @@
 package dev.atick.compose.ui.home
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Add
+import androidx.compose.material.icons.rounded.Sync
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.ListItem
-import androidx.compose.material3.ListItemDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import coil.compose.AsyncImage
 import dev.atick.compose.data.home.HomeScreenData
+import dev.atick.compose.data.home.Jetpack
+import dev.atick.core.extensions.format
 import dev.atick.core.ui.utils.StatefulComposable
 
 /**
@@ -50,7 +55,7 @@ import dev.atick.core.ui.utils.StatefulComposable
  */
 @Composable
 internal fun HomeRoute(
-    onPostClick: (Int) -> Unit,
+    onJetpackClick: (String) -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
     homeViewModel: HomeViewModel = hiltViewModel(),
 ) {
@@ -60,14 +65,14 @@ internal fun HomeRoute(
         state = homeState,
         onShowSnackbar = onShowSnackbar,
     ) { homeScreenData ->
-        HomeScreen(homeScreenData, onPostClick)
+        HomeScreen(homeScreenData, onJetpackClick)
     }
 }
 
 @Composable
 private fun HomeScreen(
     homeScreenData: HomeScreenData,
-    onPostCLick: (Int) -> Unit,
+    onJetpackCLick: (String) -> Unit,
 ) {
     val scrollableState = rememberLazyListState()
 
@@ -76,30 +81,83 @@ private fun HomeScreen(
         contentPadding = PaddingValues(vertical = 16.dp),
         state = scrollableState,
     ) {
-        items(homeScreenData.posts) { post ->
-            ListItem(
-                leadingContent = {
-                    AsyncImage(
-                        model = post.thumbnailUrl,
-                        contentDescription = null,
-                        modifier = Modifier.clip(CircleShape),
-                    )
-                },
-                headlineContent = { Text(text = post.title) },
-                trailingContent = {
-                    IconButton(onClick = {}) {
-                        Icon(
-                            imageVector = Icons.Outlined.Add,
-                            contentDescription = null,
-                            modifier = Modifier.size(64.dp),
-                        )
-                    }
-                },
-                colors = ListItemDefaults.colors(
-                    containerColor = Color.Transparent,
-                ),
-                modifier = Modifier.clickable { onPostCLick(post.id) },
+        items(homeScreenData.jetpacks) { jetpack ->
+            JetpackCard(
+                jetpack = jetpack,
+                onClick = { onJetpackCLick(jetpack.id) },
             )
+        }
+    }
+}
+
+@Composable
+fun JetpackCard(
+    jetpack: Jetpack,
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit = {},
+) {
+    ElevatedCard(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .clickable(onClick = onClick),
+        shape = MaterialTheme.shapes.medium,
+        elevation = CardDefaults.elevatedCardElevation(),
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth(),
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = jetpack.name,
+                    style = MaterialTheme.typography.titleLarge,
+                    color = MaterialTheme.colorScheme.onSurface,
+                )
+
+                // Sync status indicator
+                if (jetpack.needsSync) {
+                    Icon(
+                        imageVector = Icons.Rounded.Sync,
+                        contentDescription = "Needs sync",
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(20.dp),
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text(
+                text = "ID: ${jetpack.id}",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = jetpack.price.format(2),
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+
+                Text(
+                    text = "Last updated: ${jetpack.formattedDate}",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
         }
     }
 }

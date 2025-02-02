@@ -20,6 +20,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Call
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit.SECONDS
@@ -49,6 +50,25 @@ object OkHttpClientModule {
     fun provideOkHttpClient(
         loggingInterceptor: HttpLoggingInterceptor,
     ): OkHttpClient {
+        return OkHttpClient.Builder()
+            .connectTimeout(TIME_OUT, SECONDS)
+            .readTimeout(TIME_OUT, SECONDS)
+            .writeTimeout(TIME_OUT, SECONDS)
+            .addInterceptor(loggingInterceptor)
+            .build()
+    }
+
+    /**
+     * Provides [Call.Factory].
+     *
+     * @param loggingInterceptor [HttpLoggingInterceptor].
+     * @return [Call.Factory].
+     */
+    @Provides
+    @Singleton
+    fun provideOkHttpCallFactory(
+        loggingInterceptor: HttpLoggingInterceptor,
+    ): Call.Factory {
         return OkHttpClient.Builder()
             .connectTimeout(TIME_OUT, SECONDS)
             .readTimeout(TIME_OUT, SECONDS)

@@ -21,26 +21,55 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.atick.compose.data.home.UiPost
+import dev.atick.compose.data.home.Jetpack
 import dev.atick.compose.navigation.details.Details
-import dev.atick.compose.repository.home.PostsRepository
+import dev.atick.compose.repository.home.HomeRepository
 import dev.atick.core.ui.utils.UiState
+import dev.atick.core.ui.utils.updateState
 import dev.atick.core.ui.utils.updateStateWith
+import dev.atick.core.ui.utils.updateWith
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
-    postsRepository: PostsRepository,
+    private val homeRepository: HomeRepository,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
-    private val postId = checkNotNull(savedStateHandle.toRoute<Details>().postId)
+    private val jetpackId = savedStateHandle.toRoute<Details>().jetpackId
 
-    private val _detailsUiState = MutableStateFlow(UiState(UiPost()))
+    private val _detailsUiState = MutableStateFlow(UiState(Jetpack()))
     val detailsUiState = _detailsUiState.asStateFlow()
 
+    fun updateName(name: String) {
+        _detailsUiState.updateState { copy(name = name) }
+    }
+
+    fun updatePrice(priceString: String) {
+        val price = priceString.toDoubleOrNull() ?: return
+        _detailsUiState.updateState { copy(price = price) }
+    }
+
+    fun updateOrInsertJetpack() {
+        if (jetpackId == null) {
+            _detailsUiState.updateWith(viewModelScope) {
+                homeRepository.insertJetpack(
+                    detailsUiState.value.data,
+                )
+            }
+        } else {
+            _detailsUiState.updateWith(viewModelScope) {
+                homeRepository.updateJetpack(
+                    detailsUiState.value.data,
+                )
+            }
+        }
+    }
+
     init {
-        _detailsUiState.updateStateWith(viewModelScope) { postsRepository.getPost(postId) }
+        jetpackId?.let {
+            _detailsUiState.updateStateWith(viewModelScope) { homeRepository.getJetpack(jetpackId) }
+        }
     }
 }

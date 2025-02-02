@@ -27,5 +27,5 @@ interface SyncManager {
     /**
      * Starts the sync operation.
      */
-    suspend fun startSync()
+    suspend fun requestSync()
 }

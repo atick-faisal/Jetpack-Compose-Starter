@@ -23,10 +23,10 @@ import dev.atick.compose.ui.details.DetailsRoute
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Details(val postId: Int)
+data class Details(val jetpackId: String?)
 
-fun NavController.navigateToDetailsScreen(postId: Int) {
-    navigate(Details(postId)) { launchSingleTop = true }
+fun NavController.navigateToDetailsScreen(jetpackId: String?) {
+    navigate(Details(jetpackId)) { launchSingleTop = true }
 }
 
 fun NavGraphBuilder.detailsScreen(

@@ -26,26 +26,26 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsTopHeight
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.RocketLaunch
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import coil.compose.SubcomposeAsyncImage
-import dev.atick.compose.data.home.UiPost
+import dev.atick.compose.data.home.Jetpack
+import dev.atick.core.extensions.format
 import dev.atick.core.ui.components.JetpackButton
-import dev.atick.core.ui.components.JetpackLoadingWheel
+import dev.atick.core.ui.components.JetpackTextFiled
 import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.demo.R
 
@@ -57,13 +57,22 @@ internal fun DetailsRoute(
 ) {
     val detailsUiState by detailsViewModel.detailsUiState.collectAsStateWithLifecycle()
     StatefulComposable(state = detailsUiState, onShowSnackbar = onShowSnackbar) {
-        DetailsScreen(post = detailsUiState.data, onBackClick = onBackClick)
+        DetailsScreen(
+            jetpack = detailsUiState.data,
+            onUpdateName = detailsViewModel::updateName,
+            onUpdatePrice = detailsViewModel::updatePrice,
+            onSaveClick = detailsViewModel::updateOrInsertJetpack,
+            onBackClick = onBackClick,
+        )
     }
 }
 
 @Composable
 private fun DetailsScreen(
-    post: UiPost?,
+    jetpack: Jetpack,
+    onUpdateName: (String) -> Unit,
+    onUpdatePrice: (String) -> Unit,
+    onSaveClick: () -> Unit,
     onBackClick: () -> Unit,
 ) {
     Column(
@@ -72,30 +81,42 @@ private fun DetailsScreen(
             .padding(horizontal = 24.dp),
     ) {
         Spacer(Modifier.windowInsetsTopHeight(WindowInsets.safeDrawing))
-        DetailsToolbar(onBackClick = onBackClick)
-        post?.let {
-            SubcomposeAsyncImage(
-                model = post.url,
-                contentDescription = post.title,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clip(RoundedCornerShape(16.dp)),
-                loading = {
-                    JetpackLoadingWheel(contentDesc = post.title)
-                },
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                text = post.title,
-                style = MaterialTheme.typography.bodyLarge,
-            )
-        }
+        DetailsToolbar(
+            onSaveClick = onSaveClick,
+            onBackClick = onBackClick,
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        JetpackTextFiled(
+            value = jetpack.name,
+            onValueChange = onUpdateName,
+            label = { Text(text = stringResource(id = R.string.name)) },
+            leadingIcon = {
+                Icon(
+                    imageVector = Icons.Default.RocketLaunch,
+                    contentDescription = stringResource(id = R.string.name),
+                )
+            },
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        JetpackTextFiled(
+            value = jetpack.price.format(2),
+            onValueChange = onUpdatePrice,
+            label = { Text(text = stringResource(id = R.string.price)) },
+            leadingIcon = {
+                Icon(
+                    imageVector = Icons.Default.RocketLaunch,
+                    contentDescription = stringResource(id = R.string.price),
+                )
+            },
+            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+        )
     }
 }
 
 @Composable
 private fun DetailsToolbar(
     modifier: Modifier = Modifier,
+    onSaveClick: () -> Unit,
     onBackClick: () -> Unit,
 ) {
     Row(
@@ -111,8 +132,8 @@ private fun DetailsToolbar(
                 contentDescription = stringResource(id = R.string.back),
             )
         }
-        JetpackButton(onClick = onBackClick) {
-            Text(text = stringResource(R.string.done))
+        JetpackButton(onClick = onSaveClick) {
+            Text(text = stringResource(R.string.save))
         }
     }
 }

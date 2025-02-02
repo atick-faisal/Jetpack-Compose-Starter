@@ -109,8 +109,10 @@ dependencies {
     implementation(project(":core:ui"))
     implementation(project(":network"))
     implementation(project(":settings"))
+    implementation(project(":storage:firebase"))
     implementation(project(":storage:preferences"))
     implementation(project(":storage:room"))
+    implementation(project(":sync"))
 
     // ... Splash Screen
     implementation(libs.androidx.core.splashscreen)

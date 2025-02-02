@@ -62,7 +62,7 @@ fun JetpackNavHost(
         homeNavGraph(
             nestedNavGraphs = {
                 homeScreen(
-                    onPostClick = navController::navigateToDetailsScreen,
+                    onJetpackClick = navController::navigateToDetailsScreen,
                     onShowSnackbar = onShowSnackbar,
                 )
                 detailsScreen(
