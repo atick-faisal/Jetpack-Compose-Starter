@@ -20,30 +20,30 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.compose.repository.home.PostsRepository
-import dev.atick.compose.repository.home.PostsRepositoryImpl
+import dev.atick.compose.repository.home.HomeRepository
+import dev.atick.compose.repository.home.HomeRepositoryImpl
 import dev.atick.compose.repository.profile.ProfileDataRepository
 import dev.atick.compose.repository.profile.ProfileDataRepositoryImpl
 import javax.inject.Singleton
 
 /**
- * Dagger module that provides the binding for the [PostsRepository] interface.
+ * Dagger module that provides the binding for the [HomeRepository] interface.
  */
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
 
     /**
-     * Binds the [PostsRepositoryImpl] implementation to the [PostsRepository] interface.
+     * Binds the [HomeRepositoryImpl] implementation to the [HomeRepository] interface.
      *
-     * @param postsRepositoryImpl The implementation of [PostsRepository] to be bound.
-     * @return The [PostsRepository] interface.
+     * @param postsRepositoryImpl The implementation of [HomeRepository] to be bound.
+     * @return The [HomeRepository] interface.
      */
     @Binds
     @Singleton
     abstract fun bindPostsRepository(
-        postsRepositoryImpl: PostsRepositoryImpl,
-    ): PostsRepository
+        postsRepositoryImpl: HomeRepositoryImpl,
+    ): HomeRepository
 
     /**
      * This method is used to bind a [ProfileDataRepositoryImpl] instance to the [ProfileDataRepository] interface.

@@ -17,7 +17,7 @@
 package dev.atick.storage.room.data
 
 import dev.atick.core.di.IoDispatcher
-import dev.atick.storage.room.models.PostEntity
+import dev.atick.storage.room.models.JetpackEntity
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
@@ -35,66 +35,47 @@ class LocalDataSourceImpl @Inject constructor(
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : LocalDataSource {
 
-    /**
-     * Inserts or updates a [PostEntity] object in the local storage.
-     *
-     * @param postEntity The [PostEntity] object to be inserted or updated.
-     */
-    override suspend fun insertOrUpdatePostEntity(postEntity: PostEntity) {
+    override fun getJetpacks(): Flow<List<JetpackEntity>> =
+        jetpackDao.getJetpacks().flowOn(ioDispatcher)
+
+    override suspend fun getJetpack(id: String): JetpackEntity? = withContext(ioDispatcher) {
+        jetpackDao.getJetpack(id)
+    }
+
+    override suspend fun getUnsyncedJetpacks(): List<JetpackEntity> = withContext(ioDispatcher) {
+        jetpackDao.getUnsyncedJetpacks()
+    }
+
+    override suspend fun insertJetpack(jetpackEntity: JetpackEntity) = withContext(ioDispatcher) {
+        jetpackDao.insertJetpack(jetpackEntity)
+    }
+
+    override suspend fun upsertJetpack(jetpackEntity: JetpackEntity) = withContext(ioDispatcher) {
+        jetpackDao.upsertJetpack(jetpackEntity)
+    }
+
+    override suspend fun upsertJetpacks(remoteJetpacks: List<JetpackEntity>) =
         withContext(ioDispatcher) {
-            jetpackDao.insertOrUpdatePostEntity(postEntity)
+            jetpackDao.upsertJetpacks(remoteJetpacks)
         }
+
+    override suspend fun updateJetpack(jetpackEntity: JetpackEntity) = withContext(ioDispatcher) {
+        jetpackDao.updateJetpack(jetpackEntity)
     }
 
-    /**
-     * Deletes a [PostEntity] object from the local storage.
-     *
-     * @param postEntity The [PostEntity] object to be deleted.
-     */
-    override suspend fun deletePostEntity(postEntity: PostEntity) {
-        withContext(ioDispatcher) {
-            jetpackDao.deletePostEntity(postEntity)
-        }
+    override suspend fun markJetpackAsDeleted(id: String) = withContext(ioDispatcher) {
+        jetpackDao.markJetpackAsDeleted(id)
     }
 
-    /**
-     * Retrieves a [PostEntity] object from the local storage based on its unique identifier.
-     *
-     * @param id The unique identifier of the [PostEntity] to retrieve.
-     * @return The retrieved [PostEntity] object, or null if not found.
-     */
-    override suspend fun getPostEntity(id: Int): PostEntity? {
-        return withContext(ioDispatcher) {
-            jetpackDao.getPostEntity(id)
-        }
+    override suspend fun deleteJetpackPermanently(id: String) = withContext(ioDispatcher) {
+        jetpackDao.deleteJetpackPermanently(id)
     }
 
-    /**
-     * Retrieves a [Flow] of [List] of [PostEntity] objects from the local storage.
-     *
-     * @return A [Flow] emitting a list of [PostEntity] objects.
-     */
-    override fun getPostEntities(): Flow<List<PostEntity>> {
-        return jetpackDao.getPostEntities().flowOn(ioDispatcher)
+    override suspend fun markAsSynced(id: String, timestamp: Long) = withContext(ioDispatcher) {
+        jetpackDao.markAsSynced(id, timestamp)
     }
 
-    /**
-     * Inserts or updates a list of [PostEntity] objects in the local storage.
-     *
-     * @param postEntities The list of [PostEntity] objects to be inserted or updated.
-     */
-    override suspend fun upsertPostEntities(postEntities: List<PostEntity>) {
-        withContext(ioDispatcher) {
-            jetpackDao.upsertPostEntities(postEntities)
-        }
-    }
-
-    /**
-     * Deletes all [PostEntity] objects from the local storage.
-     */
-    override suspend fun deleteAllPostEntities() {
-        withContext(ioDispatcher) {
-            jetpackDao.deleteAllPostEntities()
-        }
+    override suspend fun getLatestUpdateTimestamp(): Long = withContext(ioDispatcher) {
+        jetpackDao.getLatestUpdateTimestamp() ?: 0
     }
 }

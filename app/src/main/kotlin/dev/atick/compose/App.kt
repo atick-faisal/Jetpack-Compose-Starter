@@ -33,6 +33,5 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         if (BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
-        Timber.plant(Timber.DebugTree())
     }
 }

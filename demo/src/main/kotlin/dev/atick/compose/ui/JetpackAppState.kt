@@ -17,20 +17,20 @@
 package dev.atick.compose.ui
 
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
-import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import dev.atick.compose.navigation.TopLevelDestination
+import dev.atick.compose.navigation.details.navigateToDetailsScreen
 import dev.atick.compose.navigation.home.navigateToHomeNavGraph
 import dev.atick.compose.navigation.profile.navigateProfile
 import dev.atick.core.extensions.stateInDelayed
@@ -42,6 +42,17 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 
+/**
+ * Remembers and creates an instance of [JetpackAppState].
+ *
+ * @param isUserLoggedIn Indicates if the user is logged in.
+ * @param windowSizeClass The current window size class.
+ * @param networkUtils Utility for network state management.
+ * @param userProfilePictureUri The URI of the user's profile picture.
+ * @param coroutineScope The coroutine scope for managing coroutines.
+ * @param navController The navigation controller for managing navigation.
+ * @return An instance of [JetpackAppState].
+ */
 @Composable
 fun rememberJetpackAppState(
     isUserLoggedIn: Boolean,
@@ -70,6 +81,16 @@ fun rememberJetpackAppState(
     }
 }
 
+/**
+ * State holder class for the Jetpack Compose application.
+ *
+ * @property isUserLoggedIn Indicates if the user is logged in.
+ * @property userProfilePictureUri The URI of the user's profile picture.
+ * @property navController The navigation controller for managing navigation.
+ * @property windowSizeClass The current window size class.
+ * @property coroutineScope The coroutine scope for managing coroutines.
+ * @property networkUtils Utility for network state management.
+ */
 @Suppress("MemberVisibilityCanBePrivate", "UNUSED")
 @Stable
 class JetpackAppState(
@@ -80,45 +101,87 @@ class JetpackAppState(
     coroutineScope: CoroutineScope,
     networkUtils: NetworkUtils,
 ) {
-    val currentDestination: NavDestination?
-        @Composable get() = navController
-            .currentBackStackEntryAsState().value?.destination
+    /**
+     * The previous navigation destination.
+     */
+    private val previousDestination = mutableStateOf<NavDestination?>(null)
 
+    /**
+     * The current navigation destination.
+     */
+    val currentDestination: NavDestination?
+        @Composable get() {
+            // Collect the currentBackStackEntryFlow as a state
+            val currentEntry = navController.currentBackStackEntryFlow
+                .collectAsState(initial = null)
+
+            // Fallback to previousDestination if currentEntry is null
+            return currentEntry.value?.destination.also { destination ->
+                if (destination != null) {
+                    previousDestination.value = destination
+                }
+            } ?: previousDestination.value
+        }
+
+    /**
+     * The current top-level navigation destination.
+     */
     val currentTopLevelDestination: TopLevelDestination?
         @Composable get() {
-            // Getting the current back stack entry here instead of using currentDestination
-            // solves the vanishing bottom bar issue
-            // (https://github.com/atick-faisal/Jetpack-Compose-Starter/issues/255)
-            val backStackEntry by navController.currentBackStackEntryAsState()
             return TopLevelDestination.entries.firstOrNull { topLevelDestination ->
-                backStackEntry?.destination?.hasRoute(route = topLevelDestination.route) == true
+                currentDestination?.hasRoute(route = topLevelDestination.route) == true
             }
         }
 
-    val shouldShowBottomBar: Boolean
-        @Composable get() = (windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact) &&
-            (currentTopLevelDestination != null)
-
-    val shouldShowNavRail: Boolean
-        @Composable get() = (windowSizeClass.widthSizeClass != WindowWidthSizeClass.Compact) &&
-            (currentTopLevelDestination != null)
-
+    /**
+     * Indicates if the application is offline.
+     */
     val isOffline = networkUtils.currentState
         .map { it != NetworkState.CONNECTED }
         .stateInDelayed(false, coroutineScope)
 
+    /**
+     * List of top-level destinations.
+     */
     val topLevelDestinations: List<TopLevelDestination> = TopLevelDestination.entries
 
+    /**
+     * State flow of top-level destinations with unread resources.
+     */
     val topLevelDestinationsWithUnreadResources: StateFlow<Set<TopLevelDestination>> =
         // TODO: Requires Implementation
         MutableStateFlow(setOf<TopLevelDestination>()).asStateFlow()
 
+    /**
+     * Indicates if the FAB should be shown.
+     */
+    val shouldShowFab: Boolean
+        @Composable get() = currentTopLevelDestination == TopLevelDestination.HOME
+
+    /**
+     * Navigates to the details screen.
+     */
+    fun navigateToDetailsScreen() {
+        navController.navigateToDetailsScreen(null)
+    }
+
+    /**
+     * Navigates to the specified top-level destination.
+     *
+     * @param topLevelDestination The top-level destination to navigate to.
+     */
     fun navigateToTopLevelDestination(topLevelDestination: TopLevelDestination) {
         val topLevelNavOptions = navOptions {
+            // Pop up to the start destination of the graph to
+            // avoid building up a large stack of destinations
+            // on the back stack as users select items
             popUpTo(navController.graph.findStartDestination().id) {
                 saveState = true
             }
+            // Avoid multiple copies of the same destination when
+            // re-selecting the same item
             launchSingleTop = true
+            // Restore state when re-selecting a previously selected item
             restoreState = true
         }
 

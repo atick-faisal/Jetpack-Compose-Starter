@@ -48,4 +48,8 @@
     <string name="profile_picture">Profile Picture</string>
     <string name="done">Done</string>
     <string name="purchase_premium">Purchase Jetpack Premium</string>
+    <string name="name">Name</string>
+    <string name="price">Price</string>
+    <string name="save">Save</string>
+    <string name="add">Add</string>
 </resources>

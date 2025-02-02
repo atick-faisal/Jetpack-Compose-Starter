@@ -35,12 +35,12 @@ fun NavController.navigateToHomeNavGraph(navOptions: NavOptions? = null) {
 }
 
 fun NavGraphBuilder.homeScreen(
-    onPostClick: (Int) -> Unit,
+    onJetpackClick: (String) -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
 ) {
     composable<Home> {
         HomeRoute(
-            onPostClick = onPostClick,
+            onJetpackClick = onJetpackClick,
             onShowSnackbar = onShowSnackbar,
         )
     }

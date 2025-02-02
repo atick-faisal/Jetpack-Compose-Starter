@@ -226,7 +226,7 @@ internal fun JetpackScaffold(
                 JetpackTopAppBarWithAvatar(
                     titleRes = destination.titleTextId,
                     avatarUri = appState.userProfilePictureUri,
-                    avatarContentDescription = stringResource(id = R.string.settings_title),
+                    avatarContentDescription = stringResource(id = R.string.settings),
                     colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                         containerColor = Color.Transparent,
                     ),

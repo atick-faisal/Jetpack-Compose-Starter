@@ -37,7 +37,7 @@ class SyncManagerImpl @Inject constructor(
             .map(List<WorkInfo>::anyRunning)
             .conflate()
 
-    override suspend fun startSync() {
+    override suspend fun requestSync() {
         Sync.initialize(context)
     }
 }

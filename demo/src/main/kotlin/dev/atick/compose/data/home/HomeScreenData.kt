@@ -17,8 +17,11 @@
 package dev.atick.compose.data.home
 
 import androidx.compose.runtime.Immutable
+import dev.atick.core.extensions.asFormattedDateTime
 import dev.atick.network.models.NetworkPost
+import dev.atick.storage.room.models.JetpackEntity
 import dev.atick.storage.room.models.PostEntity
+import java.util.UUID
 
 /**
  * Data class representing the data to be displayed on the home screen.
@@ -27,7 +30,7 @@ import dev.atick.storage.room.models.PostEntity
  */
 @Immutable
 data class HomeScreenData(
-    val posts: List<UiPost> = listOf(),
+    val jetpacks: List<Jetpack> = listOf(),
 )
 
 /**
@@ -44,6 +47,40 @@ data class UiPost(
     val url: String = "",
     val thumbnailUrl: String = "",
 )
+
+data class Jetpack(
+    val id: String = UUID.randomUUID().toString(),
+    val name: String = "",
+    val price: Double = 0.0,
+    val lastUpdated: Long = 0,
+    val needsSync: Boolean = false,
+    val formattedDate: String = lastUpdated.asFormattedDateTime(),
+)
+
+fun JetpackEntity.toJetpack(): Jetpack {
+    return Jetpack(
+        id = id,
+        name = name,
+        price = price,
+        lastUpdated = lastUpdated,
+        needsSync = needsSync,
+        formattedDate = lastUpdated.asFormattedDateTime(),
+    )
+}
+
+fun List<JetpackEntity>.mapToJetpacks(): List<Jetpack> {
+    return map(JetpackEntity::toJetpack)
+}
+
+fun Jetpack.toJetpackEntity(): JetpackEntity {
+    return JetpackEntity(
+        id = id,
+        name = name,
+        price = price,
+        lastUpdated = lastUpdated,
+        needsSync = needsSync,
+    )
+}
 
 /**
  * Converts a [PostEntity] object to a [UiPost] object for displaying in the UI.

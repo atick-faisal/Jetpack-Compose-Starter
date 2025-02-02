@@ -18,6 +18,7 @@ package dev.atick.storage.room.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.UUID
 
 /**
  * Represents a PostEntity, which is a data structure for storing information about a post.
@@ -48,7 +49,7 @@ data class PostEntity(
  */
 @Entity(tableName = "jetpacks")
 data class JetpackEntity(
-    @PrimaryKey val id: String,
+    @PrimaryKey val id: String = UUID.randomUUID().toString(),
     val name: String,
     val price: Double,
 
