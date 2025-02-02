@@ -15,6 +15,8 @@
      limitations under the License.
 -->
 
-<manifest>
-
-</manifest>
+<resources>
+    <string name="sync_work_notification_channel_name">Sync</string>
+    <string name="sync_work_notification_channel_description">Data synchronization notification</string>
+    <string name="sync_work_notification_title">Syncing data (%1$d/%2$d)</string>
+</resources>
