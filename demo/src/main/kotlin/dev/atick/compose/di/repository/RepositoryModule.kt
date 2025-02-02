@@ -24,6 +24,7 @@ import dev.atick.compose.repository.home.HomeRepository
 import dev.atick.compose.repository.home.HomeRepositoryImpl
 import dev.atick.compose.repository.profile.ProfileDataRepository
 import dev.atick.compose.repository.profile.ProfileDataRepositoryImpl
+import dev.atick.sync.utils.SyncableRepository
 import javax.inject.Singleton
 
 /**
@@ -58,4 +59,10 @@ abstract class RepositoryModule {
     abstract fun bindProfileDataRepository(
         profileDataRepositoryImpl: ProfileDataRepositoryImpl,
     ): ProfileDataRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindSyncableRepository(
+        homeRepositoryImpl: HomeRepositoryImpl,
+    ): SyncableRepository
 }

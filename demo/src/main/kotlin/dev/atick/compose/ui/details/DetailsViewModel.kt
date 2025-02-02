@@ -21,15 +21,20 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dev.atick.compose.data.details.DetailsScreenData
 import dev.atick.compose.data.home.Jetpack
 import dev.atick.compose.navigation.details.Details
 import dev.atick.compose.repository.home.HomeRepository
+import dev.atick.core.extensions.asOneTimeEvent
 import dev.atick.core.ui.utils.UiState
 import dev.atick.core.ui.utils.updateState
 import dev.atick.core.ui.utils.updateStateWith
-import dev.atick.core.ui.utils.updateWith
+import dev.atick.core.utils.OneTimeEvent
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
@@ -39,7 +44,7 @@ class DetailsViewModel @Inject constructor(
 ) : ViewModel() {
     private val jetpackId = savedStateHandle.toRoute<Details>().jetpackId
 
-    private val _detailsUiState = MutableStateFlow(UiState(Jetpack()))
+    private val _detailsUiState = MutableStateFlow(UiState(DetailsScreenData()))
     val detailsUiState = _detailsUiState.asStateFlow()
 
     fun updateName(name: String) {
@@ -53,23 +58,44 @@ class DetailsViewModel @Inject constructor(
 
     fun updateOrInsertJetpack() {
         if (jetpackId == null) {
-            _detailsUiState.updateWith(viewModelScope) {
+            _detailsUiState.updateStateWith(viewModelScope) {
                 homeRepository.insertJetpack(
-                    detailsUiState.value.data,
+                    Jetpack(
+                        id = detailsUiState.value.data.id,
+                        name = detailsUiState.value.data.name,
+                        price = detailsUiState.value.data.price,
+                    ),
                 )
+                Result.success(detailsUiState.value.data.copy(navigateBack = OneTimeEvent(true)))
             }
         } else {
-            _detailsUiState.updateWith(viewModelScope) {
+            _detailsUiState.updateStateWith(viewModelScope) {
                 homeRepository.updateJetpack(
-                    detailsUiState.value.data,
+                    Jetpack(
+                        id = detailsUiState.value.data.id,
+                        name = detailsUiState.value.data.name,
+                        price = detailsUiState.value.data.price,
+                    ),
                 )
+                Result.success(detailsUiState.value.data.copy(navigateBack = OneTimeEvent(true)))
             }
         }
     }
 
-    init {
+    fun getJetpack() {
         jetpackId?.let {
-            _detailsUiState.updateStateWith(viewModelScope) { homeRepository.getJetpack(jetpackId) }
+            homeRepository.getJetpack(jetpackId)
+                .onEach { jetpack ->
+                    _detailsUiState.updateState {
+                        copy(
+                            id = jetpack.id,
+                            name = jetpack.name,
+                            price = jetpack.price,
+                        )
+                    }
+                }
+                .catch { e -> UiState(DetailsScreenData(), error = e.asOneTimeEvent()) }
+                .launchIn(viewModelScope)
         }
     }
 }

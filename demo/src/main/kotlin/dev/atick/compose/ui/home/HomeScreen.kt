@@ -77,8 +77,9 @@ private fun HomeScreen(
     val scrollableState = rememberLazyListState()
 
     LazyColumn(
-        modifier = Modifier.padding(horizontal = 24.dp),
-        contentPadding = PaddingValues(vertical = 16.dp),
+        modifier = Modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        contentPadding = PaddingValues(16.dp),
         state = scrollableState,
     ) {
         items(homeScreenData.jetpacks) { jetpack ->
@@ -99,7 +100,6 @@ fun JetpackCard(
     ElevatedCard(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp)
             .clickable(onClick = onClick),
         shape = MaterialTheme.shapes.medium,
         elevation = CardDefaults.elevatedCardElevation(),
@@ -147,13 +147,13 @@ fun JetpackCard(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    text = jetpack.price.format(2),
+                    text = "$ ${jetpack.price.format(2)}",
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.primary,
                 )
 
                 Text(
-                    text = "Last updated: ${jetpack.formattedDate}",
+                    text = jetpack.formattedDate,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )

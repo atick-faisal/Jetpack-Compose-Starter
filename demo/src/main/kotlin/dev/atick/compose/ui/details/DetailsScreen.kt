@@ -34,6 +34,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,8 +43,6 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import dev.atick.compose.data.home.Jetpack
-import dev.atick.core.extensions.format
 import dev.atick.core.ui.components.JetpackButton
 import dev.atick.core.ui.components.JetpackTextFiled
 import dev.atick.core.ui.utils.StatefulComposable
@@ -56,9 +55,25 @@ internal fun DetailsRoute(
     detailsViewModel: DetailsViewModel = hiltViewModel(),
 ) {
     val detailsUiState by detailsViewModel.detailsUiState.collectAsStateWithLifecycle()
-    StatefulComposable(state = detailsUiState, onShowSnackbar = onShowSnackbar) {
+
+    LaunchedEffect(Unit) {
+        detailsViewModel.getJetpack()
+    }
+
+    StatefulComposable(
+        state = detailsUiState,
+        onShowSnackbar = onShowSnackbar,
+    ) { data ->
+
+        LaunchedEffect(data.navigateBack) {
+            if (data.navigateBack.getContentIfNotHandled() == true) {
+                onBackClick()
+            }
+        }
+
         DetailsScreen(
-            jetpack = detailsUiState.data,
+            name = data.name,
+            price = data.price,
             onUpdateName = detailsViewModel::updateName,
             onUpdatePrice = detailsViewModel::updatePrice,
             onSaveClick = detailsViewModel::updateOrInsertJetpack,
@@ -69,7 +84,8 @@ internal fun DetailsRoute(
 
 @Composable
 private fun DetailsScreen(
-    jetpack: Jetpack,
+    name: String,
+    price: Double,
     onUpdateName: (String) -> Unit,
     onUpdatePrice: (String) -> Unit,
     onSaveClick: () -> Unit,
@@ -87,7 +103,7 @@ private fun DetailsScreen(
         )
         Spacer(modifier = Modifier.height(16.dp))
         JetpackTextFiled(
-            value = jetpack.name,
+            value = name,
             onValueChange = onUpdateName,
             label = { Text(text = stringResource(id = R.string.name)) },
             leadingIcon = {
@@ -99,7 +115,7 @@ private fun DetailsScreen(
         )
         Spacer(modifier = Modifier.height(16.dp))
         JetpackTextFiled(
-            value = jetpack.price.format(2),
+            value = price.toString(),
             onValueChange = onUpdatePrice,
             label = { Text(text = stringResource(id = R.string.price)) },
             leadingIcon = {
@@ -122,9 +138,7 @@ private fun DetailsToolbar(
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(bottom = 32.dp),
+        modifier = modifier.fillMaxWidth(),
     ) {
         IconButton(onClick = { onBackClick() }) {
             Icon(
