@@ -59,6 +59,9 @@ googleOssPlugin = "0.10.6"
 # ... Billing ...
 playBilling = "7.1.1"
 
+# ... WORK MANAGER ...
+workVersion = "2.10.0"
+
 # ... SDK-CONFIG ...
 minSdk = "24"
 compileSdk = "35"
@@ -177,3 +180,6 @@ google-oss-licenses-plugin = { group = "com.google.android.gms", name = "oss-lic
 
 # ... Billing ...
 play-billing-ktx = { group = "com.android.billingclient", name = "billing-ktx", version.ref = "playBilling" }
+
+# ... WORK_MANAGER ...
+androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workVersion" }
