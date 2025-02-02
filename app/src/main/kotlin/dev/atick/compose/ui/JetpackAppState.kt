@@ -17,17 +17,16 @@
 package dev.atick.compose.ui
 
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
-import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import dev.atick.compose.navigation.TopLevelDestination
@@ -101,39 +100,36 @@ class JetpackAppState(
     networkUtils: NetworkUtils,
 ) {
     /**
+     * The previous navigation destination.
+     */
+    private val previousDestination = mutableStateOf<NavDestination?>(null)
+
+    /**
      * The current navigation destination.
      */
     val currentDestination: NavDestination?
-        @Composable get() = navController
-            .currentBackStackEntryAsState().value?.destination
+        @Composable get() {
+            // Collect the currentBackStackEntryFlow as a state
+            val currentEntry = navController.currentBackStackEntryFlow
+                .collectAsState(initial = null)
+
+            // Fallback to previousDestination if currentEntry is null
+            return currentEntry.value?.destination.also { destination ->
+                if (destination != null) {
+                    previousDestination.value = destination
+                }
+            } ?: previousDestination.value
+        }
 
     /**
      * The current top-level navigation destination.
      */
     val currentTopLevelDestination: TopLevelDestination?
         @Composable get() {
-            // Getting the current back stack entry here instead of using currentDestination
-            // solves the vanishing bottom bar issue
-            // (https://github.com/atick-faisal/Jetpack-Compose-Starter/issues/255)
-            val backStackEntry by navController.currentBackStackEntryAsState()
             return TopLevelDestination.entries.firstOrNull { topLevelDestination ->
-                backStackEntry?.destination?.hasRoute(route = topLevelDestination.route) == true
+                currentDestination?.hasRoute(route = topLevelDestination.route) == true
             }
         }
-
-    /**
-     * Indicates if the bottom bar should be shown.
-     */
-    val shouldShowBottomBar: Boolean
-        @Composable get() = (windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact) &&
-            (currentTopLevelDestination != null)
-
-    /**
-     * Indicates if the navigation rail should be shown.
-     */
-    val shouldShowNavRail: Boolean
-        @Composable get() = (windowSizeClass.widthSizeClass != WindowWidthSizeClass.Compact) &&
-            (currentTopLevelDestination != null)
 
     /**
      * Indicates if the application is offline.
@@ -161,10 +157,16 @@ class JetpackAppState(
      */
     fun navigateToTopLevelDestination(topLevelDestination: TopLevelDestination) {
         val topLevelNavOptions = navOptions {
+            // Pop up to the start destination of the graph to
+            // avoid building up a large stack of destinations
+            // on the back stack as users select items
             popUpTo(navController.graph.findStartDestination().id) {
                 saveState = true
             }
+            // Avoid multiple copies of the same destination when
+            // re-selecting the same item
             launchSingleTop = true
+            // Restore state when re-selecting a previously selected item
             restoreState = true
         }
 

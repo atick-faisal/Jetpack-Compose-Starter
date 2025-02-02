@@ -16,8 +16,8 @@
 
 package dev.atick.compose.ui
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
@@ -26,7 +26,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
-import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Icon
@@ -38,6 +37,8 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.adaptive.WindowAdaptiveInfo
+import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -60,10 +61,8 @@ import dev.atick.compose.navigation.JetpackNavHost
 import dev.atick.compose.navigation.TopLevelDestination
 import dev.atick.core.ui.components.AppBackground
 import dev.atick.core.ui.components.AppGradientBackground
-import dev.atick.core.ui.components.JetpackNavigationBar
-import dev.atick.core.ui.components.JetpackNavigationBarItem
-import dev.atick.core.ui.components.JetpackNavigationRail
-import dev.atick.core.ui.components.JetpackNavigationRailItem
+import dev.atick.core.ui.components.JetpackNavigationSuiteScaffold
+import dev.atick.core.ui.components.JetpackNavigationSuiteScope
 import dev.atick.core.ui.components.JetpackTopAppBarWithAvatar
 import dev.atick.core.ui.theme.GradientColors
 import dev.atick.core.ui.theme.LocalGradientColors
@@ -73,16 +72,20 @@ import dev.atick.settings.ui.SettingsDialog
  * Composable function that represents the Jetpack Compose application.
  *
  * @param appState The state of the Jetpack application.
+ * @param modifier The modifier to be applied to the Jetpack application.
+ * @param windowAdaptiveInfo The window adaptive information.
  */
 @Composable
 fun JetpackApp(
     appState: JetpackAppState,
+    modifier: Modifier = Modifier,
+    windowAdaptiveInfo: WindowAdaptiveInfo = currentWindowAdaptiveInfo(),
 ) {
     val shouldShowGradientBackground =
         appState.currentTopLevelDestination == TopLevelDestination.HOME
     var showSettingsDialog by rememberSaveable { mutableStateOf(false) }
 
-    AppBackground {
+    AppBackground(modifier = modifier) {
         AppGradientBackground(
             gradientColors = if (shouldShowGradientBackground) {
                 LocalGradientColors.current
@@ -91,7 +94,6 @@ fun JetpackApp(
             },
         ) {
             val snackbarHostState = remember { SnackbarHostState() }
-            val unreadDestinations by appState.topLevelDestinationsWithUnreadResources.collectAsStateWithLifecycle()
             val isOffline by appState.isOffline.collectAsStateWithLifecycle()
 
             // If user is not connected to the internet show a snack bar to inform them.
@@ -105,168 +107,220 @@ fun JetpackApp(
                 }
             }
 
-            if (showSettingsDialog) {
-                SettingsDialog(
-                    onDismiss = { showSettingsDialog = false },
+            JetpackApp(
+                appState = appState,
+                snackbarHostState = snackbarHostState,
+                showSettingsDialog = showSettingsDialog,
+                onSettingsDismissed = { showSettingsDialog = false },
+                onTopAppBarActionClick = { showSettingsDialog = true },
+                windowAdaptiveInfo = windowAdaptiveInfo,
+            )
+        }
+    }
+}
+
+/**
+ * Composable function that represents the Jetpack Compose application.
+ *
+ * @param appState The state of the Jetpack application.
+ * @param snackbarHostState The state of the snack bar host.
+ * @param showSettingsDialog Flag to show the settings dialog.
+ * @param onSettingsDismissed Callback when the settings dialog is dismissed.
+ * @param onTopAppBarActionClick Callback when the top app bar action is clicked.
+ * @param modifier The modifier to be applied to the Jetpack application.
+ * @param windowAdaptiveInfo The window adaptive information.
+ */
+@Composable
+internal fun JetpackApp(
+    appState: JetpackAppState,
+    snackbarHostState: SnackbarHostState,
+    showSettingsDialog: Boolean,
+    onSettingsDismissed: () -> Unit,
+    onTopAppBarActionClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    windowAdaptiveInfo: WindowAdaptiveInfo = currentWindowAdaptiveInfo(),
+) {
+    // Collect the state of top-level destinations with unread resources
+    val unreadDestinations by appState.topLevelDestinationsWithUnreadResources.collectAsStateWithLifecycle()
+
+    // Get the current navigation destination
+    val currentDestination = appState.currentDestination
+
+    // Show the settings dialog if the flag is set
+    if (showSettingsDialog) {
+        SettingsDialog(
+            onDismiss = { onSettingsDismissed() },
+        )
+    }
+
+    // If there is no top-level destination, show the main scaffold
+    if (appState.currentTopLevelDestination == null) {
+        JetpackScaffold(
+            appState = appState,
+            snackbarHostState = snackbarHostState,
+            onTopAppBarActionClick = onTopAppBarActionClick,
+            modifier = modifier,
+        )
+        return
+    }
+
+    // Otherwise, show the navigation suite scaffold with navigation items
+    JetpackNavigationSuiteScaffold(
+        navigationSuiteItems = {
+            navigationItems(
+                appState = appState,
+                unreadDestinations = unreadDestinations,
+                currentDestination = currentDestination,
+            )
+        },
+        windowAdaptiveInfo = windowAdaptiveInfo,
+    ) {
+        JetpackScaffold(
+            appState = appState,
+            snackbarHostState = snackbarHostState,
+            onTopAppBarActionClick = onTopAppBarActionClick,
+            modifier = modifier,
+        )
+    }
+}
+
+/**
+ * Composable function that represents the Jetpack Compose scaffold.
+ *
+ * @param appState The state of the Jetpack application.
+ * @param snackbarHostState The state of the snack bar host.
+ * @param onTopAppBarActionClick Callback when the top app bar action is clicked.
+ * @param modifier The modifier to be applied to the Jetpack scaffold.
+ */
+@Composable
+internal fun JetpackScaffold(
+    appState: JetpackAppState,
+    snackbarHostState: SnackbarHostState,
+    onTopAppBarActionClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Scaffold(
+        modifier = modifier,
+        containerColor = Color.Transparent,
+        contentColor = MaterialTheme.colorScheme.onBackground,
+        contentWindowInsets = WindowInsets(0, 0, 0, 0),
+        snackbarHost = { SnackbarHost(snackbarHostState) },
+    ) { padding ->
+        Column(
+            Modifier
+                .fillMaxSize()
+                .padding(padding)
+                .consumeWindowInsets(padding)
+                .windowInsetsPadding(
+                    WindowInsets.safeDrawing.only(
+                        WindowInsetsSides.Horizontal,
+                    ),
+                ),
+        ) {
+            // Show the top app bar on top level destinations.
+            val destination = appState.currentTopLevelDestination
+            var shouldShowTopAppBar = false
+
+            if (destination != null) {
+                shouldShowTopAppBar = true
+                JetpackTopAppBarWithAvatar(
+                    titleRes = destination.titleTextId,
+                    avatarUri = appState.userProfilePictureUri,
+                    avatarContentDescription = stringResource(id = R.string.settings_title),
+                    colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                        containerColor = Color.Transparent,
+                    ),
+                    onAvatarClick = { onTopAppBarActionClick() },
                 )
             }
 
-            Scaffold(
-                containerColor = Color.Transparent,
-                contentColor = MaterialTheme.colorScheme.onBackground,
-                // Snackbar displays incorrectly if used
-                // contentWindowInsets = WindowInsets(0, 0, 0, 0),
-                snackbarHost = { SnackbarHost(snackbarHostState) },
-                bottomBar = {
-                    if (appState.shouldShowBottomBar) {
-                        JetpackBottomBar(
-                            destinations = appState.topLevelDestinations,
-                            destinationsWithUnreadResources = setOf(), // Not used in this example
-                            onNavigateToDestination = appState::navigateToTopLevelDestination,
-                            currentDestination = appState.currentDestination,
-                        )
-                    }
-                },
-            ) { padding ->
-                Row(
-                    Modifier
-                        .fillMaxSize()
-                        .padding(padding)
-                        .consumeWindowInsets(padding)
-                        .windowInsetsPadding(
-                            WindowInsets.safeDrawing.only(
-                                WindowInsetsSides.Horizontal,
-                            ),
-                        ),
-                ) {
-                    if (appState.shouldShowNavRail) {
-                        JetpackNavRail(
-                            destinations = appState.topLevelDestinations,
-                            destinationsWithUnreadResources = unreadDestinations,
-                            onNavigateToDestination = appState::navigateToTopLevelDestination,
-                            currentDestination = appState.currentDestination,
-                            modifier = Modifier.safeDrawingPadding(),
-                        )
-                    }
-
-                    Column(Modifier.fillMaxSize()) {
-                        // Show the top app bar on top level destinations.
-                        val destination = appState.currentTopLevelDestination
-                        if (destination != null) {
-                            JetpackTopAppBarWithAvatar(
-                                titleRes = destination.titleTextId,
-                                avatarUri = appState.userProfilePictureUri,
-                                avatarContentDescription = stringResource(id = R.string.settings_title),
-                                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                                    containerColor = Color.Transparent,
-                                ),
-                                onAvatarClick = { showSettingsDialog = true },
-                            )
-                        }
-                        JetpackNavHost(
-                            appState = appState,
-                            onShowSnackbar = { message, action ->
-                                snackbarHostState.showSnackbar(
-                                    message = message,
-                                    actionLabel = action,
-                                    duration = SnackbarDuration.Short,
-                                ) == SnackbarResult.ActionPerformed
-                            },
-                        )
-                        Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.safeDrawing))
-                    }
-                }
+            Box(
+                // Workaround for https://issuetracker.google.com/338478720
+                modifier = Modifier.consumeWindowInsets(
+                    if (shouldShowTopAppBar) {
+                        WindowInsets.safeDrawing.only(WindowInsetsSides.Top)
+                    } else {
+                        WindowInsets(0, 0, 0, 0)
+                    },
+                ),
+            ) {
+                JetpackNavHost(
+                    appState = appState,
+                    onShowSnackbar = { message, action ->
+                        snackbarHostState.showSnackbar(
+                            message = message,
+                            actionLabel = action,
+                            duration = SnackbarDuration.Short,
+                        ) == SnackbarResult.ActionPerformed
+                    },
+                )
             }
+            // TODO: We may want to add padding or spacer when the snackbar is shown so that
+            //  content doesn't display behind it.
+            Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.safeDrawing))
         }
     }
 }
 
 /**
- * Composable function that represents the navigation rail for the Jetpack Compose application.
+ * Composable function that represents the navigation items in the Jetpack Navigation Suite.
  *
- * @param destinations A list of top-level destinations to be displayed in the navigation rail.
- * @param destinationsWithUnreadResources A set of destinations that have unread resources.
- * @param onNavigateToDestination A lambda function to handle navigation to a selected destination.
+ * @param appState The state of the Jetpack application.
+ * @param unreadDestinations The set of top-level destinations with unread resources.
  * @param currentDestination The current navigation destination.
- * @param modifier The modifier to be applied to the navigation rail.
  */
-@Composable
-fun JetpackNavRail(
-    destinations: List<TopLevelDestination>,
-    destinationsWithUnreadResources: Set<TopLevelDestination>,
-    onNavigateToDestination: (TopLevelDestination) -> Unit,
+private fun JetpackNavigationSuiteScope.navigationItems(
+    appState: JetpackAppState,
+    unreadDestinations: Set<TopLevelDestination>,
     currentDestination: NavDestination?,
-    modifier: Modifier = Modifier,
 ) {
-    JetpackNavigationRail(modifier = modifier) {
-        destinations.forEach { destination ->
-            val selected = currentDestination.isTopLevelDestinationInHierarchy(destination)
-            val hasUnread = destinationsWithUnreadResources.contains(destination)
-            JetpackNavigationRailItem(
-                selected = selected,
-                onClick = { onNavigateToDestination(destination) },
-                icon = {
-                    Icon(
-                        imageVector = destination.unselectedIcon,
-                        contentDescription = null,
-                    )
-                },
-                selectedIcon = {
-                    Icon(
-                        imageVector = destination.selectedIcon,
-                        contentDescription = null,
-                    )
-                },
-                label = { Text(stringResource(destination.iconTextId)) },
-                modifier = if (hasUnread) Modifier.notificationDot() else Modifier,
-            )
-        }
+    appState.topLevelDestinations.forEach { destination ->
+        val hasUnread = unreadDestinations.contains(destination)
+        val selected = currentDestination.isTopLevelDestinationInHierarchy(destination)
+
+        navigationItem(
+            destination = destination,
+            selected = selected,
+            hasUnread = hasUnread,
+            onNavigate = { appState.navigateToTopLevelDestination(destination) },
+        )
     }
 }
 
 /**
- * Composable function that represents the bottom navigation bar for the Jetpack Compose application.
+ * Composable function that represents a navigation item in the Jetpack Navigation Suite.
  *
- * @param destinations A list of top-level destinations to be displayed in the bottom navigation bar.
- * @param destinationsWithUnreadResources A set of destinations that have unread resources.
- * @param onNavigateToDestination A lambda function to handle navigation to a selected destination.
- * @param currentDestination The current navigation destination.
- * @param modifier The modifier to be applied to the bottom navigation bar.
+ * @param destination The top-level destination to navigate to.
+ * @param selected Flag to indicate if the item is selected.
+ * @param hasUnread Flag to indicate if the item has unread resources.
+ * @param onNavigate Callback when the item is clicked.
  */
-@Composable
-fun JetpackBottomBar(
-    destinations: List<TopLevelDestination>,
-    destinationsWithUnreadResources: Set<TopLevelDestination>,
-    onNavigateToDestination: (TopLevelDestination) -> Unit,
-    currentDestination: NavDestination?,
-    modifier: Modifier = Modifier,
+private fun JetpackNavigationSuiteScope.navigationItem(
+    destination: TopLevelDestination,
+    selected: Boolean,
+    hasUnread: Boolean,
+    onNavigate: () -> Unit,
 ) {
-    JetpackNavigationBar(
-        modifier = modifier,
-    ) {
-        destinations.forEach { destination ->
-            val hasUnread = destinationsWithUnreadResources.contains(destination)
-            val selected = currentDestination.isTopLevelDestinationInHierarchy(destination)
-            JetpackNavigationBarItem(
-                selected = selected,
-                onClick = { onNavigateToDestination(destination) },
-                icon = {
-                    Icon(
-                        imageVector = destination.unselectedIcon,
-                        contentDescription = null,
-                    )
-                },
-                selectedIcon = {
-                    Icon(
-                        imageVector = destination.selectedIcon,
-                        contentDescription = null,
-                    )
-                },
-                label = { Text(stringResource(destination.iconTextId)) },
-                modifier = if (hasUnread) Modifier.notificationDot() else Modifier,
+    item(
+        selected = selected,
+        onClick = onNavigate,
+        icon = {
+            Icon(
+                imageVector = destination.unselectedIcon,
+                contentDescription = null,
             )
-        }
-    }
+        },
+        selectedIcon = {
+            Icon(
+                imageVector = destination.selectedIcon,
+                contentDescription = null,
+            )
+        },
+        label = { Text(stringResource(destination.iconTextId)) },
+        modifier = Modifier.then(
+            if (hasUnread) Modifier.notificationDot() else Modifier,
+        ),
+    )
 }
 
 /**
@@ -276,24 +330,23 @@ fun JetpackBottomBar(
  *
  * @return A Modifier with the notification dot applied.
  */
-private fun Modifier.notificationDot(): Modifier =
-    composed {
-        val tertiaryColor = MaterialTheme.colorScheme.tertiary
-        drawWithContent {
-            drawContent()
-            drawCircle(
-                tertiaryColor,
-                radius = 5.dp.toPx(),
-                // This is based on the dimensions of the NavigationBar's "indicator pill";
-                // however, its parameters are private, so we must depend on them implicitly
-                // (NavigationBarTokens.ActiveIndicatorWidth = 64.dp)
-                center = center + Offset(
-                    64.dp.toPx() * .45f,
-                    32.dp.toPx() * -.45f - 6.dp.toPx(),
-                ),
-            )
-        }
+private fun Modifier.notificationDot(): Modifier = composed {
+    val tertiaryColor = MaterialTheme.colorScheme.tertiary
+    drawWithContent {
+        drawContent()
+        drawCircle(
+            tertiaryColor,
+            radius = 5.dp.toPx(),
+            // This is based on the dimensions of the NavigationBar's "indicator pill";
+            // however, its parameters are private, so we must depend on them implicitly
+            // (NavigationBarTokens.ActiveIndicatorWidth = 64.dp)
+            center = center + Offset(
+                64.dp.toPx() * .45f,
+                32.dp.toPx() * -.45f - 6.dp.toPx(),
+            ),
+        )
     }
+}
 
 /**
  * Extension function to check if the current NavDestination is a top-level destination.
