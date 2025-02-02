@@ -35,7 +35,7 @@ interface JetpackDao {
     fun getJetpacks(): Flow<List<JetpackEntity>>
 
     @Query("SELECT * FROM jetpacks WHERE id = :id")
-    suspend fun getJetpack(id: String): JetpackEntity?
+    fun getJetpack(id: String): Flow<JetpackEntity>
 
     @Query("SELECT * FROM jetpacks WHERE lastUpdated > lastSynced OR needsSync = 1")
     suspend fun getUnsyncedJetpacks(): List<JetpackEntity>

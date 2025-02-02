@@ -29,11 +29,13 @@ class FirebaseDataSourceImpl @Inject constructor(
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : FirebaseDataSource {
 
-    private val jetpacksCollection = firestore.collection(FirebaseDataSource.COLLECTION_NAME)
+    private val jetpackDatabase = firestore.collection(FirebaseDataSource.DATABASE_NAME)
 
-    override suspend fun pull(lastSynced: Long): List<FirebaseJetpack> {
+    override suspend fun pull(userId: String, lastSynced: Long): List<FirebaseJetpack> {
         return withContext(ioDispatcher) {
-            jetpacksCollection
+            jetpackDatabase
+                .document(userId)
+                .collection(FirebaseDataSource.COLLECTION_NAME)
                 .whereGreaterThan("lastUpdated", lastSynced)
                 .get()
                 .await()
@@ -41,26 +43,32 @@ class FirebaseDataSourceImpl @Inject constructor(
         }
     }
 
-    override suspend fun create(firebaseJetpack: FirebaseJetpack) {
+    override suspend fun create(userId: String, firebaseJetpack: FirebaseJetpack) {
         withContext(ioDispatcher) {
-            jetpacksCollection
+            jetpackDatabase
+                .document(userId)
+                .collection(FirebaseDataSource.COLLECTION_NAME)
                 .add(firebaseJetpack)
                 .await()
         }
     }
 
-    override suspend fun update(firebaseJetpack: FirebaseJetpack) {
+    override suspend fun update(userId: String, firebaseJetpack: FirebaseJetpack) {
         withContext(ioDispatcher) {
-            jetpacksCollection
+            jetpackDatabase
+                .document(userId)
+                .collection(FirebaseDataSource.COLLECTION_NAME)
                 .document(firebaseJetpack.id)
                 .set(firebaseJetpack)
                 .await()
         }
     }
 
-    override suspend fun delete(firebaseJetpack: FirebaseJetpack) {
+    override suspend fun delete(userId: String, firebaseJetpack: FirebaseJetpack) {
         withContext(ioDispatcher) {
-            jetpacksCollection
+            jetpackDatabase
+                .document(userId)
+                .collection(FirebaseDataSource.COLLECTION_NAME)
                 .document(firebaseJetpack.id)
                 .delete()
                 .await()

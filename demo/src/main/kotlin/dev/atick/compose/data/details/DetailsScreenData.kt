@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Atick Faisal
+ * Copyright 2025 Atick Faisal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,14 @@
  * limitations under the License.
  */
 
-package dev.atick.compose.repository.home
+package dev.atick.compose.data.details
 
-import dev.atick.compose.data.home.Jetpack
-import kotlinx.coroutines.flow.Flow
+import dev.atick.core.utils.OneTimeEvent
+import java.util.UUID
 
-/**
- * Interface defining operations for interacting with the home repository.
- */
-interface HomeRepository {
-    fun getJetpacks(): Flow<List<Jetpack>>
-    fun getJetpack(id: String): Flow<Jetpack>
-    suspend fun insertJetpack(jetpack: Jetpack): Result<Unit>
-    suspend fun updateJetpack(jetpack: Jetpack): Result<Unit>
-    suspend fun markJetpackAsDeleted(jetpack: Jetpack): Result<Unit>
-}
+data class DetailsScreenData(
+    val id: String = UUID.randomUUID().toString(),
+    val name: String = "",
+    val price: Double = 0.0,
+    val navigateBack: OneTimeEvent<Boolean> = OneTimeEvent(false),
+)

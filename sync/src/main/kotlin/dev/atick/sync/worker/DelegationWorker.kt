@@ -37,7 +37,7 @@ interface HiltWorkerFactoryEntryPoint {
     fun hiltWorkerFactory(): HiltWorkerFactory
 }
 
-private const val WORKER_CLASS_NAME = "JetpackWorkerDelegateClassName"
+private const val WORKER_CLASS_NAME = "dev.atick.jetpack.worker.WorkerClassName"
 
 /**
  * Adds metadata to a WorkRequest to identify what [CoroutineWorker] the [DelegatingWorker] should

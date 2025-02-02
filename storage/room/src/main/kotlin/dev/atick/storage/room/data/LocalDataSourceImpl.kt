@@ -38,9 +38,8 @@ class LocalDataSourceImpl @Inject constructor(
     override fun getJetpacks(): Flow<List<JetpackEntity>> =
         jetpackDao.getJetpacks().flowOn(ioDispatcher)
 
-    override suspend fun getJetpack(id: String): JetpackEntity? = withContext(ioDispatcher) {
-        jetpackDao.getJetpack(id)
-    }
+    override fun getJetpack(id: String): Flow<JetpackEntity> =
+        jetpackDao.getJetpack(id).flowOn(ioDispatcher)
 
     override suspend fun getUnsyncedJetpacks(): List<JetpackEntity> = withContext(ioDispatcher) {
         jetpackDao.getUnsyncedJetpacks()

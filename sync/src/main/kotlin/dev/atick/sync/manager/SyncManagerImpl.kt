@@ -24,6 +24,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.conflate
 import kotlinx.coroutines.flow.map
+import timber.log.Timber
 import javax.inject.Inject
 
 class SyncManagerImpl @Inject constructor(
@@ -38,6 +39,7 @@ class SyncManagerImpl @Inject constructor(
             .conflate()
 
     override suspend fun requestSync() {
+        Timber.d("Requesting sync")
         Sync.initialize(context)
     }
 }

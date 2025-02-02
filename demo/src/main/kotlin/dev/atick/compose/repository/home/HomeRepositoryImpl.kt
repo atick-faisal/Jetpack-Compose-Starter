@@ -24,6 +24,7 @@ import dev.atick.core.utils.suspendRunCatching
 import dev.atick.firebase.data.FirebaseDataSource
 import dev.atick.firebase.models.FirebaseJetpack
 import dev.atick.network.data.NetworkDataSource
+import dev.atick.storage.preferences.data.UserPreferencesDataSource
 import dev.atick.storage.room.data.LocalDataSource
 import dev.atick.storage.room.models.JetpackEntity
 import dev.atick.storage.room.models.SyncAction
@@ -31,6 +32,7 @@ import dev.atick.sync.manager.SyncManager
 import dev.atick.sync.utils.SyncProgress
 import dev.atick.sync.utils.SyncableRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -45,6 +47,7 @@ class HomeRepositoryImpl @Inject constructor(
     private val networkDataSource: NetworkDataSource,
     private val localDataSource: LocalDataSource,
     private val firebaseDataSource: FirebaseDataSource,
+    private val preferencesDataSource: UserPreferencesDataSource,
     private val syncManager: SyncManager,
 ) : HomeRepository, SyncableRepository {
     override suspend fun sync(): Flow<SyncProgress> {
@@ -55,10 +58,8 @@ class HomeRepositoryImpl @Inject constructor(
         return localDataSource.getJetpacks().map { it.mapToJetpacks() }
     }
 
-    override suspend fun getJetpack(id: String): Result<Jetpack> {
-        return suspendRunCatching {
-            localDataSource.getJetpack(id)!!.toJetpack()
-        }
+    override fun getJetpack(id: String): Flow<Jetpack> {
+        return localDataSource.getJetpack(id).map { it.toJetpack() }
     }
 
     override suspend fun insertJetpack(jetpack: Jetpack): Result<Unit> {
@@ -105,8 +106,10 @@ class HomeRepositoryImpl @Inject constructor(
 
     private fun syncWithFirebase(): Flow<SyncProgress> {
         return flow {
+            val userId = preferencesDataSource.userData.map { it.id }.first()
+
             val lastSynced = localDataSource.getLatestUpdateTimestamp()
-            val remoteJetpacks = firebaseDataSource.pull(lastSynced)
+            val remoteJetpacks = firebaseDataSource.pull(userId, lastSynced)
             val totalRemoteJetpacks = remoteJetpacks.size
 
             val unsyncedJetpacks = localDataSource.getUnsyncedJetpacks()
@@ -116,12 +119,7 @@ class HomeRepositoryImpl @Inject constructor(
 
             // Pull updates from remote
             remoteJetpacks.forEachIndexed { index, remoteJetpack ->
-                val localJetpack = localDataSource.getJetpack(remoteJetpack.id)
-                if (localJetpack == null) {
-                    localDataSource.insertJetpack(remoteJetpack.toJetpackEntity())
-                } else {
-                    localDataSource.updateJetpack(remoteJetpack.toJetpackEntity())
-                }
+                localDataSource.upsertJetpack(remoteJetpack.toJetpackEntity())
                 emit(SyncProgress(total = totalSync, current = index + 1))
             }
 
@@ -129,15 +127,15 @@ class HomeRepositoryImpl @Inject constructor(
             unsyncedJetpacks.forEachIndexed { index, unsyncedJetpack ->
                 when (unsyncedJetpack.syncAction) {
                     SyncAction.CREATE -> {
-                        firebaseDataSource.create(unsyncedJetpack.toFirebaseJetpack())
+                        firebaseDataSource.create(userId, unsyncedJetpack.toFirebaseJetpack())
                     }
 
                     SyncAction.UPDATE -> {
-                        firebaseDataSource.update(unsyncedJetpack.toFirebaseJetpack())
+                        firebaseDataSource.update(userId, unsyncedJetpack.toFirebaseJetpack())
                     }
 
                     SyncAction.DELETE -> {
-                        firebaseDataSource.delete(unsyncedJetpack.toFirebaseJetpack())
+                        firebaseDataSource.delete(userId, unsyncedJetpack.toFirebaseJetpack())
                     }
 
                     SyncAction.NONE -> {

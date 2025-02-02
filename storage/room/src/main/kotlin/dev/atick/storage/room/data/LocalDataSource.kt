@@ -24,7 +24,7 @@ import kotlinx.coroutines.flow.Flow
  */
 interface LocalDataSource {
     fun getJetpacks(): Flow<List<JetpackEntity>>
-    suspend fun getJetpack(id: String): JetpackEntity?
+    fun getJetpack(id: String): Flow<JetpackEntity>
     suspend fun getUnsyncedJetpacks(): List<JetpackEntity>
     suspend fun insertJetpack(jetpackEntity: JetpackEntity)
     suspend fun upsertJetpack(jetpackEntity: JetpackEntity)

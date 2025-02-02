@@ -20,10 +20,11 @@ import dev.atick.firebase.models.FirebaseJetpack
 
 interface FirebaseDataSource {
     companion object {
+        const val DATABASE_NAME = "dev.atick.jetpack"
         const val COLLECTION_NAME = "jetpacks"
     }
-    suspend fun pull(lastSynced: Long): List<FirebaseJetpack>
-    suspend fun create(firebaseJetpack: FirebaseJetpack)
-    suspend fun update(firebaseJetpack: FirebaseJetpack)
-    suspend fun delete(firebaseJetpack: FirebaseJetpack)
+    suspend fun pull(userId: String, lastSynced: Long): List<FirebaseJetpack>
+    suspend fun create(userId: String, firebaseJetpack: FirebaseJetpack)
+    suspend fun update(userId: String, firebaseJetpack: FirebaseJetpack)
+    suspend fun delete(userId: String, firebaseJetpack: FirebaseJetpack)
 }

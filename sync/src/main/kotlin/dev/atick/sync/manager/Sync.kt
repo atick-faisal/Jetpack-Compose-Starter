@@ -47,4 +47,4 @@ object Sync {
  * This name is used to uniquely identify the sync worker.
  * It is used to enqueue the sync worker and to check if the sync worker is already running.
  */
-internal const val SYNC_WORK_NAME = "SyncWorkName"
+internal const val SYNC_WORK_NAME = "dev.atick.jetpack.sync.worker"
