@@ -43,7 +43,7 @@ data class PostEntity(
  * @property price The price of the jetpack.
  * @property lastSynced The timestamp of the last sync operation.
  * @property needsSync A flag indicating whether the jetpack needs to be synced.
- * @property isDeleted A flag indicating whether the jetpack has been deleted.
+ * @property deleted A flag indicating whether the jetpack has been deleted.
  * @property syncAction The action to take when syncing the jetpack.
  */
 @Entity(tableName = "jetpacks")
@@ -53,9 +53,10 @@ data class JetpackEntity(
     val price: Double,
 
     // Sync metadata
+    val lastUpdated: Long = 0,
     val lastSynced: Long = 0,
     val needsSync: Boolean = false,
-    val isDeleted: Boolean = false,
+    val deleted: Boolean = false,
     val syncAction: SyncAction = SyncAction.NONE,
 )
 

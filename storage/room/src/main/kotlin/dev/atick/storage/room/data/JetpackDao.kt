@@ -77,7 +77,7 @@ interface JetpackDao {
     @Query("SELECT * FROM jetpacks WHERE id = :id")
     suspend fun getJetpack(id: String): JetpackEntity?
 
-    @Query("SELECT * FROM jetpacks WHERE isDeleted = 0")
+    @Query("SELECT * FROM jetpacks WHERE deleted = 0")
     fun getJetpacks(): Flow<List<JetpackEntity>>
 
     @Query("SELECT * FROM jetpacks WHERE needsSync = 1")
@@ -92,7 +92,7 @@ interface JetpackDao {
     @Update
     suspend fun updateJetpack(jetpackEntity: JetpackEntity)
 
-    @Query("UPDATE jetpacks SET isDeleted = 1, needsSync = 1, syncAction = 'DELETE' WHERE id = :id")
+    @Query("UPDATE jetpacks SET deleted = 1, needsSync = 1, syncAction = 'DELETE' WHERE id = :id")
     suspend fun markJetpackAsDeleted(id: String)
 
     @Query("DELETE FROM jetpacks WHERE id = :id")
