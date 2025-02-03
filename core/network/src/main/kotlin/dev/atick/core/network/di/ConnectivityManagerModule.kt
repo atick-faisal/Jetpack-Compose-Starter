@@ -14,47 +14,37 @@
  * limitations under the License.
  */
 
-package dev.atick.network.di.retrofit
+package dev.atick.core.network.di
 
+import android.content.Context
+import android.net.ConnectivityManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import dev.atick.network.BuildConfig
-import dev.atick.network.di.okhttp.OkHttpClientModule
-import okhttp3.OkHttpClient
-import retrofit2.Converter
-import retrofit2.Retrofit
 import javax.inject.Singleton
 
 /**
- * Module for providing [Retrofit].
+ * Module for providing [ConnectivityManager].
  */
-@Module(
-    includes = [
-        OkHttpClientModule::class,
-    ],
-)
+@Module
 @InstallIn(SingletonComponent::class)
-object RetrofitModule {
+object ConnectivityManagerModule {
 
     /**
-     * Provides [Retrofit].
+     * Provides [ConnectivityManager].
      *
-     * @param converterFactory [Converter.Factory].
-     * @param okHttpClient [OkHttpClient].
-     * @return [Retrofit].
+     * @param context [Context].
+     * @return [ConnectivityManager].
      */
-    @Singleton
     @Provides
-    fun provideRetrofitClient(
-        converterFactory: Converter.Factory,
-        okHttpClient: OkHttpClient,
-    ): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(BuildConfig.BACKEND_URL)
-            .addConverterFactory(converterFactory)
-            .client(okHttpClient)
-            .build()
+    @Singleton
+    fun provideConnectivityManager(
+        @ApplicationContext context: Context,
+    ): ConnectivityManager {
+        return context.getSystemService(
+            Context.CONNECTIVITY_SERVICE,
+        ) as ConnectivityManager
     }
 }

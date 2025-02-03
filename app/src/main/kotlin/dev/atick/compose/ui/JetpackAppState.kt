@@ -32,8 +32,8 @@ import androidx.navigation.navOptions
 import dev.atick.compose.navigation.TopLevelDestination
 import dev.atick.compose.navigation.home.navigateToHome
 import dev.atick.core.extensions.stateInDelayed
-import dev.atick.network.utils.NetworkState
-import dev.atick.network.utils.NetworkUtils
+import dev.atick.core.network.utils.NetworkState
+import dev.atick.core.network.utils.NetworkUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

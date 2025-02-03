@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package dev.atick.network.di
+package dev.atick.core.network.di
 
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.network.utils.NetworkUtils
-import dev.atick.network.utils.NetworkUtilsImpl
+import dev.atick.core.network.utils.NetworkUtils
+import dev.atick.core.network.utils.NetworkUtilsImpl
 import javax.inject.Singleton
 
 /**

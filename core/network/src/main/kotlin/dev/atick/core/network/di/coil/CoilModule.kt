@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.network.di.coil
+package dev.atick.core.network.di.coil
 
 import android.content.Context
 import coil.ImageLoader
@@ -25,7 +25,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import dev.atick.network.BuildConfig
+import dev.atick.core.network.BuildConfig
 import okhttp3.Call
 import javax.inject.Singleton
 

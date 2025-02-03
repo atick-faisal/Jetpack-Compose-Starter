@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package dev.atick.network.data
+package dev.atick.core.network.data
 
 import dev.atick.core.di.IoDispatcher
-import dev.atick.network.api.JetpackRestApi
-import dev.atick.network.models.NetworkPost
+import dev.atick.core.network.api.JetpackRestApi
+import dev.atick.core.network.models.NetworkPost
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

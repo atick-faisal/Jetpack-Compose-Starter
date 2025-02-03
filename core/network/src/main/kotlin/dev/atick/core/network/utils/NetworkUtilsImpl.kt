@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.network.utils
+package dev.atick.core.network.utils
 
 import android.net.ConnectivityManager
 import android.net.LinkProperties

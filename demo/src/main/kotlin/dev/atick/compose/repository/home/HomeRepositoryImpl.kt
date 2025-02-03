@@ -20,10 +20,10 @@ import dev.atick.compose.data.home.Jetpack
 import dev.atick.compose.data.home.mapToJetpacks
 import dev.atick.compose.data.home.toJetpack
 import dev.atick.compose.data.home.toJetpackEntity
+import dev.atick.core.network.data.NetworkDataSource
 import dev.atick.core.utils.suspendRunCatching
 import dev.atick.firebase.data.FirebaseDataSource
 import dev.atick.firebase.models.FirebaseJetpack
-import dev.atick.network.data.NetworkDataSource
 import dev.atick.storage.preferences.data.UserPreferencesDataSource
 import dev.atick.storage.room.data.LocalDataSource
 import dev.atick.storage.room.models.JetpackEntity

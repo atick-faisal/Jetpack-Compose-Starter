@@ -34,8 +34,8 @@ import dev.atick.compose.navigation.details.navigateToDetailsScreen
 import dev.atick.compose.navigation.home.navigateToHomeNavGraph
 import dev.atick.compose.navigation.profile.navigateProfile
 import dev.atick.core.extensions.stateInDelayed
-import dev.atick.network.utils.NetworkState
-import dev.atick.network.utils.NetworkUtils
+import dev.atick.core.network.utils.NetworkState
+import dev.atick.core.network.utils.NetworkUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

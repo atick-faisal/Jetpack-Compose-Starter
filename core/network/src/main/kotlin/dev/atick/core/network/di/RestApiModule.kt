@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package dev.atick.network.di
+package dev.atick.core.network.di
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.network.api.JetpackRestApi
-import dev.atick.network.di.retrofit.RetrofitModule
+import dev.atick.core.network.api.JetpackRestApi
+import dev.atick.core.network.di.retrofit.RetrofitModule
 import retrofit2.Retrofit
 import javax.inject.Singleton
 

@@ -56,6 +56,7 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -258,12 +259,13 @@ internal fun JetpackScaffold(
                     },
                 ),
             ) {
+                val context = LocalContext.current
                 JetpackNavHost(
                     appState = appState,
                     onShowSnackbar = { message, action ->
                         snackbarHostState.showSnackbar(
                             message = message,
-                            actionLabel = action,
+                            actionLabel = context.getString(action.actionText),
                             duration = SnackbarDuration.Short,
                         ) == SnackbarResult.ActionPerformed
                     },
