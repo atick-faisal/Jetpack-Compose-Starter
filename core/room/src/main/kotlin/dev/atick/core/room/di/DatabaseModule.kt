@@ -14,32 +14,42 @@
  * limitations under the License.
  */
 
-package dev.atick.storage.room.di
+package dev.atick.core.room.di
 
-import dagger.Binds
+import android.content.Context
+import androidx.room.Room
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import dev.atick.storage.room.data.LocalDataSource
-import dev.atick.storage.room.data.LocalDataSourceImpl
+import dev.atick.core.room.data.JetpackDatabase
 import javax.inject.Singleton
 
 /**
- * Dagger Hilt module responsible for providing implementations of data source interfaces.
+ * Dagger module for database.
  */
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class DataSourceModule {
+object DatabaseModule {
+
+    private const val ROOM_DATABASE_NAME = "dev.atick.jetpack.room"
 
     /**
-     * Binds the [LocalDataSourceImpl] implementation to the [LocalDataSource] interface.
+     * Get the database for Jetpack.
      *
-     * @param localDataSourceImpl The concrete implementation of [LocalDataSourceImpl].
-     * @return An instance of [LocalDataSource] representing the local data source.
+     * @param appContext The application context.
+     * @return The database for Jetpack.
      */
-    @Binds
     @Singleton
-    abstract fun bindLocalDataSource(
-        localDataSourceImpl: LocalDataSourceImpl,
-    ): LocalDataSource
+    @Provides
+    fun provideRoomDatabase(
+        @ApplicationContext appContext: Context,
+    ): JetpackDatabase {
+        return Room.databaseBuilder(
+            appContext,
+            JetpackDatabase::class.java,
+            ROOM_DATABASE_NAME,
+        ).fallbackToDestructiveMigration().build()
+    }
 }

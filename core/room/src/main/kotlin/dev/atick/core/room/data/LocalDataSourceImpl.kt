@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package dev.atick.storage.room.data
+package dev.atick.core.room.data
 
 import dev.atick.core.di.IoDispatcher
-import dev.atick.storage.room.models.JetpackEntity
+import dev.atick.core.room.data.LocalDataSource
+import dev.atick.core.room.models.JetpackEntity
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
