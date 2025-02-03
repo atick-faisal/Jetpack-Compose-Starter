@@ -37,7 +37,7 @@ fun NavController.navigateToHomeNavGraph(navOptions: NavOptions? = null) {
 
 fun NavGraphBuilder.homeScreen(
     onJetpackClick: (String) -> Unit,
-    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
 ) {
     composable<Home> {
         HomeRoute(

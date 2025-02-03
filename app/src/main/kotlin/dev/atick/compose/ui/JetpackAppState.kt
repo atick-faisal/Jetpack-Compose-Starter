@@ -34,6 +34,7 @@ import dev.atick.compose.navigation.home.navigateToHome
 import dev.atick.core.extensions.stateInDelayed
 import dev.atick.core.network.utils.NetworkState
 import dev.atick.core.network.utils.NetworkUtils
+import dev.atick.firebase.analytics.utils.CrashReporter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -46,6 +47,7 @@ import kotlinx.coroutines.flow.map
  * @param isUserLoggedIn Indicates if the user is logged in.
  * @param windowSizeClass The current window size class.
  * @param networkUtils Utility for network state management.
+ * @param crashReporter Utility for reporting exceptions.
  * @param userProfilePictureUri The URI of the user's profile picture.
  * @param coroutineScope The coroutine scope for managing coroutines.
  * @param navController The navigation controller for managing navigation.
@@ -56,6 +58,7 @@ fun rememberJetpackAppState(
     isUserLoggedIn: Boolean,
     windowSizeClass: WindowSizeClass,
     networkUtils: NetworkUtils,
+    crashReporter: CrashReporter,
     userProfilePictureUri: String? = null,
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
     navController: NavHostController = rememberNavController(),
@@ -67,14 +70,16 @@ fun rememberJetpackAppState(
         windowSizeClass,
         coroutineScope,
         networkUtils,
+        crashReporter,
     ) {
         JetpackAppState(
-            isUserLoggedIn,
-            userProfilePictureUri,
-            navController,
-            windowSizeClass,
-            coroutineScope,
-            networkUtils,
+            isUserLoggedIn = isUserLoggedIn,
+            userProfilePictureUri = userProfilePictureUri,
+            navController = navController,
+            windowSizeClass = windowSizeClass,
+            crashReporter = crashReporter,
+            coroutineScope = coroutineScope,
+            networkUtils = networkUtils,
         )
     }
 }
@@ -86,8 +91,9 @@ fun rememberJetpackAppState(
  * @property userProfilePictureUri The URI of the user's profile picture.
  * @property navController The navigation controller for managing navigation.
  * @property windowSizeClass The current window size class.
- * @property coroutineScope The coroutine scope for managing coroutines.
- * @property networkUtils Utility for network state management.
+ * @property crashReporter Utility for reporting exceptions.
+ * @param coroutineScope The coroutine scope for managing coroutines.
+ * @param networkUtils Utility for network state management.
  */
 @Suppress("MemberVisibilityCanBePrivate", "UNUSED")
 @Stable
@@ -96,6 +102,7 @@ class JetpackAppState(
     val userProfilePictureUri: String?,
     val navController: NavHostController,
     val windowSizeClass: WindowSizeClass,
+    val crashReporter: CrashReporter,
     coroutineScope: CoroutineScope,
     networkUtils: NetworkUtils,
 ) {

@@ -37,7 +37,7 @@ import dev.atick.core.ui.utils.SnackbarAction
 @Composable
 fun JetpackNavHost(
     appState: JetpackAppState,
-    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
     modifier: Modifier = Modifier,
 ) {
     val navController = appState.navController

@@ -57,7 +57,7 @@ import dev.atick.core.ui.utils.StatefulComposable
 @Composable
 internal fun HomeRoute(
     onJetpackClick: (String) -> Unit,
-    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
     homeViewModel: HomeViewModel = hiltViewModel(),
 ) {
     val homeState by homeViewModel.homeUiState.collectAsStateWithLifecycle()

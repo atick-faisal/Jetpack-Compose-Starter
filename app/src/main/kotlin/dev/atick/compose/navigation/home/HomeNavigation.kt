@@ -45,7 +45,7 @@ fun NavController.navigateToHome(navOptions: NavOptions? = null) {
  * @param onShowSnackbar Lambda function to show a snackbar with a message and an action.
  */
 fun NavGraphBuilder.homeScreen(
-    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
 ) {
     composable<Home> {
         HomeRoute(

@@ -52,7 +52,7 @@ import dev.atick.demo.R
 @Composable
 internal fun DetailsRoute(
     onBackClick: () -> Unit,
-    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
     detailsViewModel: DetailsViewModel = hiltViewModel(),
 ) {
     val detailsUiState by detailsViewModel.detailsUiState.collectAsStateWithLifecycle()

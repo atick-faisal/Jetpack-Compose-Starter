@@ -46,7 +46,7 @@ import dev.atick.demo.R
 
 @Composable
 internal fun ProfileRoute(
-    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
     profileViewModel: ProfileViewModel = hiltViewModel(),
 ) {
     val profileState by profileViewModel.profileUiState.collectAsStateWithLifecycle()

@@ -32,7 +32,7 @@ fun NavController.navigateProfile(navOptions: NavOptions?) {
 }
 
 fun NavGraphBuilder.profileScreen(
-    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
 ) {
     composable<Profile> {
         ProfileRoute(

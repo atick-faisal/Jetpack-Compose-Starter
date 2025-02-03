@@ -49,7 +49,7 @@ fun NavController.navigateToSignUpRoute(navOptions: NavOptions? = null) {
 
 fun NavGraphBuilder.signInScreen(
     onSignUpClick: () -> Unit,
-    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
 ) {
     composable<SignIn> {
         SignInRoute(
@@ -61,7 +61,7 @@ fun NavGraphBuilder.signInScreen(
 
 fun NavGraphBuilder.signUpScreen(
     onSignInClick: () -> Unit,
-    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
 ) {
     composable<SignUp> {
         SignUpRoute(

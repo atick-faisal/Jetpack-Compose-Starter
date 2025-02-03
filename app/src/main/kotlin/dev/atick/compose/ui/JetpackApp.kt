@@ -249,14 +249,16 @@ internal fun JetpackScaffold(
                 val context = LocalContext.current
                 JetpackNavHost(
                     appState = appState,
-                    onShowSnackbar = { message, action ->
+                    onShowSnackbar = { message, action, throwable ->
                         val actionPerformed = snackbarHostState.showSnackbar(
                             message = message,
                             actionLabel = context.getString(action.actionText),
                             duration = SnackbarDuration.Short,
                         ) == SnackbarResult.ActionPerformed
                         if (actionPerformed && action == SnackbarAction.REPORT) {
-                            // TODO: Add firebase crash reporter here
+                            throwable?.let {
+                                appState.crashReporter.reportException(throwable)
+                            }
                         }
                         actionPerformed
                     },

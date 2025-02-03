@@ -32,7 +32,7 @@ fun NavController.navigateToDetailsScreen(jetpackId: String?) {
 
 fun NavGraphBuilder.detailsScreen(
     onBackClick: () -> Unit,
-    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
 ) {
     composable<Details> {
         DetailsRoute(

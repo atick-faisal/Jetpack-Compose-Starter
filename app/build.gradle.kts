@@ -111,6 +111,7 @@ dependencies {
     implementation(project(":settings"))
     implementation(project(":core:preferences"))
     implementation(project(":core:room"))
+    implementation(project(":firebase:analytics"))
 
     // ... Splash Screen
     implementation(libs.androidx.core.splashscreen)

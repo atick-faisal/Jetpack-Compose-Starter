@@ -71,6 +71,7 @@ import dev.atick.core.ui.components.JetpackNavigationSuiteScope
 import dev.atick.core.ui.components.JetpackTopAppBarWithAvatar
 import dev.atick.core.ui.theme.GradientColors
 import dev.atick.core.ui.theme.LocalGradientColors
+import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.demo.R
 import dev.atick.settings.ui.SettingsDialog
 
@@ -262,12 +263,18 @@ internal fun JetpackScaffold(
                 val context = LocalContext.current
                 JetpackNavHost(
                     appState = appState,
-                    onShowSnackbar = { message, action ->
-                        snackbarHostState.showSnackbar(
+                    onShowSnackbar = { message, action, throwable ->
+                        val actionPerformed = snackbarHostState.showSnackbar(
                             message = message,
                             actionLabel = context.getString(action.actionText),
                             duration = SnackbarDuration.Short,
                         ) == SnackbarResult.ActionPerformed
+                        if (actionPerformed && action == SnackbarAction.REPORT) {
+                            throwable?.let {
+                                appState.crashReporter.reportException(throwable)
+                            }
+                        }
+                        actionPerformed
                     },
                 )
             }

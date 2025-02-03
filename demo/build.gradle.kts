@@ -112,6 +112,7 @@ dependencies {
     implementation(project(":storage:firebase"))
     implementation(project(":core:preferences"))
     implementation(project(":core:room"))
+    implementation(project(":firebase:analytics"))
     implementation(project(":sync"))
 
     // ... Splash Screen
