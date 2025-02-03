@@ -38,11 +38,11 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.atick.compose.ui.JetpackApp
 import dev.atick.compose.ui.rememberJetpackAppState
 import dev.atick.core.network.utils.NetworkUtils
+import dev.atick.core.preferences.models.DarkThemeConfig
+import dev.atick.core.preferences.models.UserData
 import dev.atick.core.ui.extensions.isSystemInDarkTheme
 import dev.atick.core.ui.theme.JetpackTheme
 import dev.atick.core.ui.utils.UiState
-import dev.atick.storage.preferences.models.DarkThemeConfig
-import dev.atick.storage.preferences.models.UserData
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map

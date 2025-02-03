@@ -14,22 +14,23 @@
  * limitations under the License.
  */
 
-package dev.atick.storage.preferences.models
+package dev.atick.core.preferences.models
 
+import dev.atick.core.preferences.models.DarkThemeConfig.DARK
+import dev.atick.core.preferences.models.DarkThemeConfig.FOLLOW_SYSTEM
+import dev.atick.core.preferences.models.DarkThemeConfig.LIGHT
 import kotlinx.serialization.Serializable
 
 /**
- * Represents a user profile.
+ * Enum class representing configuration options for the dark theme.
  *
- * This data class is used for storing information about a user's profile.
- *
- * @property id The unique identifier for the profile. Defaults to empty if not provided.
- * @property name The name of the user. Defaults to empty if not provided.
- * @property profilePictureUriString The URI string for the user's profile picture, if available. Defaults to `null` if not provided.
+ * @property FOLLOW_SYSTEM The dark theme configuration follows the system-wide setting.
+ * @property LIGHT The app's dark theme is disabled, using the light theme.
+ * @property DARK The app's dark theme is enabled, using the dark theme.
  */
 @Serializable
-data class Profile(
-    val id: String = String(),
-    val name: String = String(),
-    val profilePictureUriString: String? = null,
-)
+enum class DarkThemeConfig {
+    FOLLOW_SYSTEM,
+    LIGHT,
+    DARK,
+}

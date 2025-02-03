@@ -21,9 +21,9 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.core.extensions.asOneTimeEvent
 import dev.atick.core.extensions.stateInDelayed
+import dev.atick.core.preferences.models.UserData
 import dev.atick.core.ui.utils.UiState
 import dev.atick.settings.repository.SettingsRepository
-import dev.atick.storage.preferences.models.UserData
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map

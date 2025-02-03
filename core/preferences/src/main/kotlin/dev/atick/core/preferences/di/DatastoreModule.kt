@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.storage.preferences.di
+package dev.atick.core.preferences.di
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -26,8 +26,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dev.atick.core.di.IoDispatcher
-import dev.atick.storage.preferences.models.UserData
-import dev.atick.storage.preferences.utils.UserDataSerializer
+import dev.atick.core.preferences.models.UserData
+import dev.atick.core.preferences.utils.UserDataSerializer
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob

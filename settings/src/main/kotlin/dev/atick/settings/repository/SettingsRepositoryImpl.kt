@@ -17,11 +17,11 @@
 package dev.atick.settings.repository
 
 import dev.atick.auth.data.AuthDataSource
+import dev.atick.core.preferences.data.UserPreferencesDataSource
+import dev.atick.core.preferences.models.DarkThemeConfig
+import dev.atick.core.preferences.models.Profile
+import dev.atick.core.preferences.models.UserData
 import dev.atick.core.utils.suspendRunCatching
-import dev.atick.storage.preferences.data.UserPreferencesDataSource
-import dev.atick.storage.preferences.models.DarkThemeConfig
-import dev.atick.storage.preferences.models.Profile
-import dev.atick.storage.preferences.models.UserData
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

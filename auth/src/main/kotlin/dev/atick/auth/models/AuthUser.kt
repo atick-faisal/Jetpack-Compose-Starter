@@ -18,7 +18,7 @@ package dev.atick.auth.models
 
 import android.net.Uri
 import com.google.firebase.auth.FirebaseUser
-import dev.atick.storage.preferences.models.Profile
+import dev.atick.core.preferences.models.Profile
 
 /**
  * Represents an authenticated user with basic information.

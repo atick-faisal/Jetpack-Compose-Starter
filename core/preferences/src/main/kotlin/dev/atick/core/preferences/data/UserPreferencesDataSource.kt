@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package dev.atick.storage.preferences.data
+package dev.atick.core.preferences.data
 
-import dev.atick.storage.preferences.models.DarkThemeConfig
-import dev.atick.storage.preferences.models.Profile
-import dev.atick.storage.preferences.models.UserData
+import dev.atick.core.preferences.models.DarkThemeConfig
+import dev.atick.core.preferences.models.Profile
+import dev.atick.core.preferences.models.UserData
 import kotlinx.coroutines.flow.Flow
 
 /**

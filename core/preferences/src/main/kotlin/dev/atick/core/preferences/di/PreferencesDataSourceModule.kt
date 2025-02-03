@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package dev.atick.storage.preferences.di
+package dev.atick.core.preferences.di
 
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.storage.preferences.data.UserPreferencesDataSource
-import dev.atick.storage.preferences.data.UserPreferencesDataSourceImpl
+import dev.atick.core.preferences.data.UserPreferencesDataSource
+import dev.atick.core.preferences.data.UserPreferencesDataSourceImpl
 import javax.inject.Singleton
 
 /**

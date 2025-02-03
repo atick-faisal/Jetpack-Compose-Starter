@@ -57,7 +57,7 @@ include(":core:network")
 include(":core:ui")
 include(":settings")
 include(":storage:firebase")
-include(":storage:preferences")
+include(":core:preferences")
 include(":core:room")
 include(":sync")
 

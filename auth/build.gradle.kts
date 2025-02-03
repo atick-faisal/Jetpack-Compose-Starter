@@ -30,7 +30,7 @@ android {
 dependencies {
     // ... Modules
     implementation(project(":core:ui"))
-    implementation(project(":storage:preferences"))
+    implementation(project(":core:preferences"))
 
     // ... Firebase Auth
     implementation(platform(libs.firebase.bom))

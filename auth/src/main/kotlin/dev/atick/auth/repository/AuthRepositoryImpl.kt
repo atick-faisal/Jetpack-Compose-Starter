@@ -18,8 +18,8 @@ package dev.atick.auth.repository
 
 import android.app.Activity
 import dev.atick.auth.data.AuthDataSource
+import dev.atick.core.preferences.data.UserPreferencesDataSource
 import dev.atick.core.utils.suspendRunCatching
-import dev.atick.storage.preferences.data.UserPreferencesDataSource
 import javax.inject.Inject
 
 /**
