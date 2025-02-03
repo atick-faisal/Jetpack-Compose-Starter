@@ -59,6 +59,7 @@ include(":settings")
 include(":storage:firebase")
 include(":core:preferences")
 include(":core:room")
+include(":firebase:analytics")
 include(":sync")
 
 // Demo Application
