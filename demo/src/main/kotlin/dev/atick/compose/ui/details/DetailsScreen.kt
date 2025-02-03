@@ -45,13 +45,14 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.atick.core.ui.components.JetpackButton
 import dev.atick.core.ui.components.JetpackTextFiled
+import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.demo.R
 
 @Composable
 internal fun DetailsRoute(
     onBackClick: () -> Unit,
-    onShowSnackbar: suspend (String, String?) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
     detailsViewModel: DetailsViewModel = hiltViewModel(),
 ) {
     val detailsUiState by detailsViewModel.detailsUiState.collectAsStateWithLifecycle()

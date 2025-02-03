@@ -32,11 +32,12 @@ import dev.atick.compose.navigation.home.homeNavGraph
 import dev.atick.compose.navigation.home.homeScreen
 import dev.atick.compose.navigation.profile.profileScreen
 import dev.atick.compose.ui.JetpackAppState
+import dev.atick.core.ui.utils.SnackbarAction
 
 @Composable
 fun JetpackNavHost(
     appState: JetpackAppState,
-    onShowSnackbar: suspend (String, String?) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
     modifier: Modifier = Modifier,
 ) {
     val navController = appState.navController

@@ -40,12 +40,13 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import dev.atick.compose.data.profile.ProfileScreenData
 import dev.atick.core.ui.components.JetpackOutlinedButton
+import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.demo.R
 
 @Composable
 internal fun ProfileRoute(
-    onShowSnackbar: suspend (String, String?) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
     profileViewModel: ProfileViewModel = hiltViewModel(),
 ) {
     val profileState by profileViewModel.profileUiState.collectAsStateWithLifecycle()
