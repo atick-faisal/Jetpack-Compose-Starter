@@ -29,7 +29,7 @@ android {
     defaultConfig {
         consumerProguardFiles("consumer-rules.pro")
     }
-    namespace = "dev.atick.network"
+    namespace = "dev.atick.core.network"
 }
 
 secrets {
