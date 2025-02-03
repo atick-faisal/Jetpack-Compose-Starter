@@ -64,28 +64,10 @@ import dev.atick.core.ui.utils.StatefulComposable
 @Composable
 fun SignUpRoute(
     onSignInClick: () -> Unit,
-    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
     authViewModel: AuthViewModel = hiltViewModel(),
 ) {
     val authState by authViewModel.authUiState.collectAsStateWithLifecycle()
-//    val googleSignInIntent = authState.data.googleSignInIntent
-
-//    val launcher = rememberLauncherForActivityResult(
-//        contract = ActivityResultContracts.StartIntentSenderForResult(),
-//        onResult = { result ->
-//            if (result.resultCode == Activity.RESULT_OK) {
-//                result.data?.run {
-//                    authViewModel.signInWithIntent(this)
-//                }
-//            }
-//        },
-//    )
-//
-//    googleSignInIntent?.let { intentSender ->
-//        LaunchedEffect(key1 = googleSignInIntent) {
-//            launcher.launch(IntentSenderRequest.Builder(intentSender).build())
-//        }
-//    }
 
     StatefulComposable(
         state = authState,

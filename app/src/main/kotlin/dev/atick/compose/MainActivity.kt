@@ -43,6 +43,7 @@ import dev.atick.core.preferences.models.UserData
 import dev.atick.core.ui.extensions.isSystemInDarkTheme
 import dev.atick.core.ui.theme.JetpackTheme
 import dev.atick.core.ui.utils.UiState
+import dev.atick.firebase.analytics.utils.CrashReporter
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
@@ -60,6 +61,9 @@ class MainActivity : ComponentActivity() {
 
     @Inject
     lateinit var networkUtils: NetworkUtils
+
+    @Inject
+    lateinit var crashReporter: CrashReporter
 
     private val viewModel: MainActivityViewModel by viewModels()
 
@@ -121,6 +125,7 @@ class MainActivity : ComponentActivity() {
                 userProfilePictureUri = getUserProfilePictureUri(uiState),
                 windowSizeClass = calculateWindowSizeClass(this),
                 networkUtils = networkUtils,
+                crashReporter = crashReporter,
             )
             JetpackTheme(
                 darkTheme = themeSettings.darkTheme,

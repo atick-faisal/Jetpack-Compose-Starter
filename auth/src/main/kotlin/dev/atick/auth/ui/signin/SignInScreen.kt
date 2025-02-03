@@ -64,7 +64,7 @@ import dev.atick.core.ui.utils.StatefulComposable
 @Composable
 fun SignInRoute(
     onSignUpClick: () -> Unit,
-    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
     authViewModel: AuthViewModel = hiltViewModel(),
 ) {
     val loginState by authViewModel.authUiState.collectAsStateWithLifecycle()

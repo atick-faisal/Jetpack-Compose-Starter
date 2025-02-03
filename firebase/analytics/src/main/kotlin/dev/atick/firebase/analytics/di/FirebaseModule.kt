@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Atick Faisal
+ * Copyright 2025 Atick Faisal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,33 +14,31 @@
  * limitations under the License.
  */
 
-package dev.atick.core.ui.utils
+package dev.atick.firebase.analytics.di
 
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.crashlytics.ktx.crashlytics
 import com.google.firebase.ktx.Firebase
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 /**
- * Interface for reporting exceptions.
+ * Dagger module for providing Firebase Crashlytics instance.
  */
-interface CrashReporter {
+@Module
+@InstallIn(SingletonComponent::class)
+object FirebaseModule {
     /**
-     * Reports an exception.
+     * Provides a singleton instance of FirebaseCrashlytics.
      *
-     * @param throwable The exception to be reported.
+     * @return FirebaseCrashlytics instance.
      */
-    fun reportException(throwable: Throwable)
-}
-
-/**
- * Implementation of [CrashReporter] that uses Firebase Crashlytics.
- */
-class FirebaseCrashReporter() : CrashReporter {
-    /**
-     * Reports an exception to Firebase Crashlytics.
-     *
-     * @param throwable The exception to be reported.
-     */
-    override fun reportException(throwable: Throwable) {
-        Firebase.crashlytics.recordException(throwable)
+    @Provides
+    @Singleton
+    fun provideFirebaseCrashlytics(): FirebaseCrashlytics {
+        return Firebase.crashlytics
     }
 }

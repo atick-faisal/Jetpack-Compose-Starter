@@ -40,7 +40,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun <T : Any> StatefulComposable(
     state: UiState<T>,
-    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
     content: @Composable (T) -> Unit,
 ) {
     content(state.data)
@@ -59,7 +59,7 @@ fun <T : Any> StatefulComposable(
 
     state.error.getContentIfNotHandled()?.let { error ->
         LaunchedEffect(onShowSnackbar) {
-            onShowSnackbar(error.message.toString(), SnackbarAction.REPORT)
+            onShowSnackbar(error.message.toString(), SnackbarAction.REPORT, error)
         }
     }
 }
