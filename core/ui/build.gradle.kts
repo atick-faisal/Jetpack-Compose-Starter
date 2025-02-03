@@ -69,8 +69,4 @@ dependencies {
 
     // ... Lottie
     api(libs.lottie.compose)
-
-    // ... Firebase Crashlytics
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.crashlytics)
 }
