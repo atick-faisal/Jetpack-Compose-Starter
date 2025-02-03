@@ -21,6 +21,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import dev.atick.compose.ui.home.HomeRoute
+import dev.atick.core.ui.utils.SnackbarAction
 import kotlinx.serialization.Serializable
 
 /**
@@ -41,10 +42,10 @@ fun NavController.navigateToHome(navOptions: NavOptions? = null) {
 /**
  * Adds the Home screen to the [NavGraphBuilder].
  *
- * @param onShowSnackbar Lambda function to show a snackbar with a message and optional action.
+ * @param onShowSnackbar Lambda function to show a snackbar with a message and an action.
  */
 fun NavGraphBuilder.homeScreen(
-    onShowSnackbar: suspend (String, String?) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
 ) {
     composable<Home> {
         HomeRoute(

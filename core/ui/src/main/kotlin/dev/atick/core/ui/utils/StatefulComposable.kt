@@ -34,15 +34,13 @@ import kotlinx.coroutines.launch
  *
  * @param T The type of the data.
  * @param state The current state of the UI.
- * @param onShowSnackbar A suspend function to show a snackbar with a message and an optional action.
- * @param crashReporter An optional crash reporter to report exceptions (default is FirebaseCrashReporter).
+ * @param onShowSnackbar A suspend function to show a snackbar with a message and an action.
  * @param content A composable function that defines the UI content based on the state data.
  */
 @Composable
 fun <T : Any> StatefulComposable(
     state: UiState<T>,
-    onShowSnackbar: suspend (String, String?) -> Boolean,
-    crashReporter: CrashReporter = FirebaseCrashReporter(),
+    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
     content: @Composable (T) -> Unit,
 ) {
     content(state.data)
@@ -61,8 +59,7 @@ fun <T : Any> StatefulComposable(
 
     state.error.getContentIfNotHandled()?.let { error ->
         LaunchedEffect(onShowSnackbar) {
-            val report = onShowSnackbar(error.message.toString(), "REPORT")
-            if (report) crashReporter.reportException(error)
+            onShowSnackbar(error.message.toString(), SnackbarAction.REPORT)
         }
     }
 }

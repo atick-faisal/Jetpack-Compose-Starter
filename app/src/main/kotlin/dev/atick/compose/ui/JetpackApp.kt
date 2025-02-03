@@ -51,6 +51,7 @@ import androidx.compose.ui.composed
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -66,6 +67,7 @@ import dev.atick.core.ui.components.JetpackNavigationSuiteScope
 import dev.atick.core.ui.components.JetpackTopAppBarWithAvatar
 import dev.atick.core.ui.theme.GradientColors
 import dev.atick.core.ui.theme.LocalGradientColors
+import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.settings.ui.SettingsDialog
 
 /**
@@ -244,14 +246,19 @@ internal fun JetpackScaffold(
                     },
                 ),
             ) {
+                val context = LocalContext.current
                 JetpackNavHost(
                     appState = appState,
                     onShowSnackbar = { message, action ->
-                        snackbarHostState.showSnackbar(
+                        val actionPerformed = snackbarHostState.showSnackbar(
                             message = message,
-                            actionLabel = action,
+                            actionLabel = context.getString(action.actionText),
                             duration = SnackbarDuration.Short,
                         ) == SnackbarResult.ActionPerformed
+                        if (actionPerformed && action == SnackbarAction.REPORT) {
+                            // TODO: Add firebase crash reporter here
+                        }
+                        actionPerformed
                     },
                 )
             }

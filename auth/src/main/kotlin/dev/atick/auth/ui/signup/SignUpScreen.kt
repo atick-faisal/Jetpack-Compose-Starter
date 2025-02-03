@@ -58,12 +58,13 @@ import dev.atick.core.ui.components.JetpackPasswordFiled
 import dev.atick.core.ui.components.JetpackTextButton
 import dev.atick.core.ui.components.JetpackTextFiled
 import dev.atick.core.ui.utils.DevicePreviews
+import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
 
 @Composable
 fun SignUpRoute(
     onSignInClick: () -> Unit,
-    onShowSnackbar: suspend (String, String?) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
     authViewModel: AuthViewModel = hiltViewModel(),
 ) {
     val authState by authViewModel.authUiState.collectAsStateWithLifecycle()

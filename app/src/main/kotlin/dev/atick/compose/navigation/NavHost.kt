@@ -28,18 +28,19 @@ import dev.atick.auth.navigation.signUpScreen
 import dev.atick.compose.navigation.home.Home
 import dev.atick.compose.navigation.home.homeScreen
 import dev.atick.compose.ui.JetpackAppState
+import dev.atick.core.ui.utils.SnackbarAction
 
 /**
  * Composable function that sets up the navigation host for the Jetpack Compose application.
  *
  * @param appState The state of the Jetpack application, containing the navigation controller and user login status.
- * @param onShowSnackbar A lambda function to show a snackbar with a message and optional action.
+ * @param onShowSnackbar A lambda function to show a snackbar with a message and an action.
  * @param modifier The modifier to be applied to the NavHost.
  */
 @Composable
 fun JetpackNavHost(
     appState: JetpackAppState,
-    onShowSnackbar: suspend (String, String?) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
     modifier: Modifier = Modifier,
 ) {
     val navController = appState.navController

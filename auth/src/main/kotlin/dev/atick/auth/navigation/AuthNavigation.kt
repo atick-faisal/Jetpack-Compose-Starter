@@ -23,6 +23,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import dev.atick.auth.ui.signin.SignInRoute
 import dev.atick.auth.ui.signup.SignUpRoute
+import dev.atick.core.ui.utils.SnackbarAction
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -48,7 +49,7 @@ fun NavController.navigateToSignUpRoute(navOptions: NavOptions? = null) {
 
 fun NavGraphBuilder.signInScreen(
     onSignUpClick: () -> Unit,
-    onShowSnackbar: suspend (String, String?) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
 ) {
     composable<SignIn> {
         SignInRoute(
@@ -60,7 +61,7 @@ fun NavGraphBuilder.signInScreen(
 
 fun NavGraphBuilder.signUpScreen(
     onSignInClick: () -> Unit,
-    onShowSnackbar: suspend (String, String?) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
 ) {
     composable<SignUp> {
         SignUpRoute(
