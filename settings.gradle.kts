@@ -60,6 +60,7 @@ include(":storage:firebase")
 include(":core:preferences")
 include(":core:room")
 include(":firebase:analytics")
+include(":firebase:auth")
 include(":sync")
 
 // Demo Application
