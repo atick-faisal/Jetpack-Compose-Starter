@@ -22,6 +22,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import dev.atick.compose.ui.home.HomeRoute
+import dev.atick.core.ui.utils.SnackbarAction
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -36,7 +37,7 @@ fun NavController.navigateToHomeNavGraph(navOptions: NavOptions? = null) {
 
 fun NavGraphBuilder.homeScreen(
     onJetpackClick: (String) -> Unit,
-    onShowSnackbar: suspend (String, String?) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
 ) {
     composable<Home> {
         HomeRoute(

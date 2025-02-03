@@ -20,6 +20,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import dev.atick.compose.ui.details.DetailsRoute
+import dev.atick.core.ui.utils.SnackbarAction
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -31,7 +32,7 @@ fun NavController.navigateToDetailsScreen(jetpackId: String?) {
 
 fun NavGraphBuilder.detailsScreen(
     onBackClick: () -> Unit,
-    onShowSnackbar: suspend (String, String?) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
 ) {
     composable<Details> {
         DetailsRoute(

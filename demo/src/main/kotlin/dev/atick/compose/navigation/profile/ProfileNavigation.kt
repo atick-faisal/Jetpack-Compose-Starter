@@ -21,6 +21,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import dev.atick.compose.ui.profile.ProfileRoute
+import dev.atick.core.ui.utils.SnackbarAction
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -31,7 +32,7 @@ fun NavController.navigateProfile(navOptions: NavOptions?) {
 }
 
 fun NavGraphBuilder.profileScreen(
-    onShowSnackbar: suspend (String, String?) -> Boolean,
+    onShowSnackbar: suspend (String, SnackbarAction) -> Boolean,
 ) {
     composable<Profile> {
         ProfileRoute(
