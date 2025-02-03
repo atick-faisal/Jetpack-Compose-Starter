@@ -32,7 +32,9 @@ dependencies {
     // ... Modules
     implementation(project(":core:android"))
 
-    // ... Firebase Firestore
+    // ... Firebase Auth and Firestore
+    // ... Firebase Auth is required for Firestore
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.firestore)
+    implementation(libs.firebase.auth)
 }
