@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 Atick Faisal
+ * Copyright 2023 Atick Faisal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,37 +14,47 @@
  * limitations under the License.
  */
 
-package dev.atick.network.di.retrofit
+package dev.atick.core.network.di.retrofit
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import kotlinx.serialization.json.Json
-import okhttp3.MediaType.Companion.toMediaType
+import dev.atick.core.network.BuildConfig
+import dev.atick.core.network.di.okhttp.OkHttpClientModule
+import okhttp3.OkHttpClient
 import retrofit2.Converter
-import retrofit2.converter.kotlinx.serialization.asConverterFactory
+import retrofit2.Retrofit
 import javax.inject.Singleton
 
 /**
- * Module for providing [Converter.Factory].
+ * Module for providing [Retrofit].
  */
-@Module
+@Module(
+    includes = [
+        OkHttpClientModule::class,
+    ],
+)
 @InstallIn(SingletonComponent::class)
-object ConverterModule {
+object RetrofitModule {
+
     /**
-     * Provides kotlinx.serialization [Converter.Factory].
+     * Provides [Retrofit].
      *
-     * @return [Converter.Factory].
+     * @param converterFactory [Converter.Factory].
+     * @param okHttpClient [OkHttpClient].
+     * @return [Retrofit].
      */
-    @Provides
     @Singleton
-    fun provideConverter(): Converter.Factory {
-        val json = Json {
-            ignoreUnknownKeys = true
-        }
-        return json.asConverterFactory(
-            "application/json; charset=UTF8".toMediaType(),
-        )
+    @Provides
+    fun provideRetrofitClient(
+        converterFactory: Converter.Factory,
+        okHttpClient: OkHttpClient,
+    ): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(BuildConfig.BACKEND_URL)
+            .addConverterFactory(converterFactory)
+            .client(okHttpClient)
+            .build()
     }
 }

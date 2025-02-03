@@ -14,37 +14,32 @@
  * limitations under the License.
  */
 
-package dev.atick.network.di
+package dev.atick.core.network.di
 
-import android.content.Context
-import android.net.ConnectivityManager
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import dev.atick.core.network.data.NetworkDataSource
+import dev.atick.core.network.data.NetworkDataSourceImpl
 import javax.inject.Singleton
 
 /**
- * Module for providing [ConnectivityManager].
+ * Module for providing [NetworkDataSource].
  */
 @Module
 @InstallIn(SingletonComponent::class)
-object ConnectivityManagerModule {
+abstract class DataSourceModule {
 
     /**
-     * Provides [ConnectivityManager].
+     * Binds [NetworkDataSourceImpl] to [NetworkDataSource].
      *
-     * @param context [Context].
-     * @return [ConnectivityManager].
+     * @param jetpackDataSourceImpl [NetworkDataSourceImpl].
+     * @return [NetworkDataSource].
      */
-    @Provides
+    @Binds
     @Singleton
-    fun provideConnectivityManager(
-        @ApplicationContext context: Context,
-    ): ConnectivityManager {
-        return context.getSystemService(
-            Context.CONNECTIVITY_SERVICE,
-        ) as ConnectivityManager
-    }
+    abstract fun bindJetpackDataSource(
+        jetpackDataSourceImpl: NetworkDataSourceImpl,
+    ): NetworkDataSource
 }

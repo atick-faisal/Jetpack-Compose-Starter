@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.network.models
+package dev.atick.core.network.models
 
 import kotlinx.serialization.Serializable
 

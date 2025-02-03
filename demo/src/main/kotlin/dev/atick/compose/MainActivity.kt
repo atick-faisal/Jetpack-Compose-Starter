@@ -37,10 +37,10 @@ import androidx.lifecycle.repeatOnLifecycle
 import dagger.hilt.android.AndroidEntryPoint
 import dev.atick.compose.ui.JetpackApp
 import dev.atick.compose.ui.rememberJetpackAppState
+import dev.atick.core.network.utils.NetworkUtils
 import dev.atick.core.ui.extensions.isSystemInDarkTheme
 import dev.atick.core.ui.theme.JetpackTheme
 import dev.atick.core.ui.utils.UiState
-import dev.atick.network.utils.NetworkUtils
 import dev.atick.storage.preferences.models.DarkThemeConfig
 import dev.atick.storage.preferences.models.UserData
 import kotlinx.coroutines.flow.combine

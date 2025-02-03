@@ -18,7 +18,7 @@ package dev.atick.compose.data.home
 
 import androidx.compose.runtime.Immutable
 import dev.atick.core.extensions.asFormattedDateTime
-import dev.atick.network.models.NetworkPost
+import dev.atick.core.network.models.NetworkPost
 import dev.atick.storage.room.models.JetpackEntity
 import dev.atick.storage.room.models.PostEntity
 import java.util.UUID

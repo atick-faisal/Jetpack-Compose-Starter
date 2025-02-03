@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Atick Faisal
+ * Copyright 2024 Atick Faisal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,32 +14,37 @@
  * limitations under the License.
  */
 
-package dev.atick.network.di
+package dev.atick.core.network.di.retrofit
 
-import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.network.data.NetworkDataSource
-import dev.atick.network.data.NetworkDataSourceImpl
+import kotlinx.serialization.json.Json
+import okhttp3.MediaType.Companion.toMediaType
+import retrofit2.Converter
+import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import javax.inject.Singleton
 
 /**
- * Module for providing [NetworkDataSource].
+ * Module for providing [Converter.Factory].
  */
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class DataSourceModule {
-
+object ConverterModule {
     /**
-     * Binds [NetworkDataSourceImpl] to [NetworkDataSource].
+     * Provides kotlinx.serialization [Converter.Factory].
      *
-     * @param jetpackDataSourceImpl [NetworkDataSourceImpl].
-     * @return [NetworkDataSource].
+     * @return [Converter.Factory].
      */
-    @Binds
+    @Provides
     @Singleton
-    abstract fun bindJetpackDataSource(
-        jetpackDataSourceImpl: NetworkDataSourceImpl,
-    ): NetworkDataSource
+    fun provideConverter(): Converter.Factory {
+        val json = Json {
+            ignoreUnknownKeys = true
+        }
+        return json.asConverterFactory(
+            "application/json; charset=UTF8".toMediaType(),
+        )
+    }
 }

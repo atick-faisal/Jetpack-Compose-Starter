@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.network.di.okhttp
+package dev.atick.core.network.di.okhttp
 
 import dagger.Module
 import dagger.Provides

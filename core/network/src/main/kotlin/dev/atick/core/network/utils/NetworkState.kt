@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package dev.atick.network.utils
+package dev.atick.core.network.utils
 
 import androidx.annotation.StringRes
-import dev.atick.network.R
+import dev.atick.core.network.R
 
 /**
  * Network state.

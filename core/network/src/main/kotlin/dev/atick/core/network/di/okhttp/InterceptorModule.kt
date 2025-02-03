@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package dev.atick.network.di.okhttp
+package dev.atick.core.network.di.okhttp
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.network.BuildConfig
+import dev.atick.core.network.BuildConfig
 import okhttp3.logging.HttpLoggingInterceptor
 import timber.log.Timber
 import javax.inject.Singleton
