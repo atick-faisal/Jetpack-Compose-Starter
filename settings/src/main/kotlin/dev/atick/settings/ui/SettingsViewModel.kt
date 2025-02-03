@@ -20,11 +20,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.core.extensions.asOneTimeEvent
+import dev.atick.core.preferences.models.DarkThemeConfig
 import dev.atick.core.ui.utils.UiState
 import dev.atick.core.ui.utils.updateWith
 import dev.atick.settings.data.UserSettings
 import dev.atick.settings.repository.SettingsRepository
-import dev.atick.storage.preferences.models.DarkThemeConfig
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

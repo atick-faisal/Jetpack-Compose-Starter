@@ -110,7 +110,7 @@ dependencies {
     implementation(project(":core:network"))
     implementation(project(":settings"))
     implementation(project(":storage:firebase"))
-    implementation(project(":storage:preferences"))
+    implementation(project(":core:preferences"))
     implementation(project(":core:room"))
     implementation(project(":sync"))
 

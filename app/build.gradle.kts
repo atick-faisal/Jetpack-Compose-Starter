@@ -109,7 +109,7 @@ dependencies {
     implementation(project(":core:ui"))
     implementation(project(":core:network"))
     implementation(project(":settings"))
-    implementation(project(":storage:preferences"))
+    implementation(project(":core:preferences"))
     implementation(project(":core:room"))
 
     // ... Splash Screen

@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package dev.atick.storage.preferences.utils
+package dev.atick.core.preferences.utils
 
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer
-import dev.atick.storage.preferences.models.DarkThemeConfig
-import dev.atick.storage.preferences.models.UserData
+import dev.atick.core.preferences.models.DarkThemeConfig
+import dev.atick.core.preferences.models.UserData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.KSerializer

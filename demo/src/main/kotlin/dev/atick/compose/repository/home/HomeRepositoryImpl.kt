@@ -21,13 +21,13 @@ import dev.atick.compose.data.home.mapToJetpacks
 import dev.atick.compose.data.home.toJetpack
 import dev.atick.compose.data.home.toJetpackEntity
 import dev.atick.core.network.data.NetworkDataSource
-import dev.atick.core.utils.suspendRunCatching
-import dev.atick.firebase.data.FirebaseDataSource
-import dev.atick.firebase.models.FirebaseJetpack
-import dev.atick.storage.preferences.data.UserPreferencesDataSource
+import dev.atick.core.preferences.data.UserPreferencesDataSource
 import dev.atick.core.room.data.LocalDataSource
 import dev.atick.core.room.models.JetpackEntity
 import dev.atick.core.room.models.SyncAction
+import dev.atick.core.utils.suspendRunCatching
+import dev.atick.firebase.data.FirebaseDataSource
+import dev.atick.firebase.models.FirebaseJetpack
 import dev.atick.sync.manager.SyncManager
 import dev.atick.sync.utils.SyncProgress
 import dev.atick.sync.utils.SyncableRepository

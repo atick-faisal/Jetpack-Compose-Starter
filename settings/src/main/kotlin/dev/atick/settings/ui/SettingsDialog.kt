@@ -55,13 +55,13 @@ import androidx.compose.ui.window.DialogProperties
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
+import dev.atick.core.preferences.models.DarkThemeConfig
 import dev.atick.core.ui.components.JetpackOutlinedButton
 import dev.atick.core.ui.components.JetpackTextButton
 import dev.atick.core.ui.theme.supportsDynamicTheming
 import dev.atick.core.ui.utils.UiState
 import dev.atick.settings.R
 import dev.atick.settings.data.UserSettings
-import dev.atick.storage.preferences.models.DarkThemeConfig
 
 @Composable
 fun SettingsDialog(
