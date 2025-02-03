@@ -110,7 +110,7 @@ dependencies {
     implementation(project(":core:network"))
     implementation(project(":settings"))
     implementation(project(":storage:preferences"))
-    implementation(project(":storage:room"))
+    implementation(project(":core:room"))
 
     // ... Splash Screen
     implementation(libs.androidx.core.splashscreen)

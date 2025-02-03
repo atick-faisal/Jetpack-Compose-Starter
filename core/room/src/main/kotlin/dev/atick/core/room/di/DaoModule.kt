@@ -14,27 +14,33 @@
  * limitations under the License.
  */
 
-package dev.atick.storage.room.data
+package dev.atick.core.room.di
 
-import androidx.room.Database
-import androidx.room.RoomDatabase
-import dev.atick.storage.room.models.JetpackEntity
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import dev.atick.core.room.data.JetpackDatabase
+import javax.inject.Singleton
 
 /**
- * Room database for Jetpack.
+ * Dagger module for data access object.
  */
-@Database(
-    version = 1,
-    exportSchema = false,
-    entities = [
-        JetpackEntity::class,
+@Module(
+    includes = [
+        DatabaseModule::class,
     ],
 )
-abstract class JetpackDatabase : RoomDatabase() {
+@InstallIn(SingletonComponent::class)
+object DaoModule {
+
     /**
-     * Get the data access object for [JetpackEntity] entity.
+     * Get the data access.
      *
-     * @return The data access object for [JetpackEntity] entity.
+     * @param jetpackDatabase The database for Jetpack.
+     * @return The data access object.
      */
-    abstract fun getJetpackDao(): JetpackDao
+    @Singleton
+    @Provides
+    fun provideJetpackDao(jetpackDatabase: JetpackDatabase) = jetpackDatabase.getJetpackDao()
 }

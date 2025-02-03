@@ -14,21 +14,27 @@
  * limitations under the License.
  */
 
-plugins {
-    alias(libs.plugins.jetpack.library)
-    alias(libs.plugins.jetpack.dagger.hilt)
-}
+package dev.atick.core.room.data
 
-android {
-    namespace = "dev.atick.storage.room"
-}
+import androidx.room.Database
+import androidx.room.RoomDatabase
+import dev.atick.core.room.models.JetpackEntity
 
-dependencies {
-    // ... Modules
-    implementation(project(":core:android"))
-
-    // ... Room
-    implementation(libs.room.ktx)
-    implementation(libs.room.runtime)
-    ksp(libs.room.compiler)
+/**
+ * Room database for Jetpack.
+ */
+@Database(
+    version = 1,
+    exportSchema = false,
+    entities = [
+        JetpackEntity::class,
+    ],
+)
+abstract class JetpackDatabase : RoomDatabase() {
+    /**
+     * Get the data access object for [JetpackEntity] entity.
+     *
+     * @return The data access object for [JetpackEntity] entity.
+     */
+    abstract fun getJetpackDao(): JetpackDao
 }

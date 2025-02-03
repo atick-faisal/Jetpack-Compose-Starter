@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.storage.room.models
+package dev.atick.core.room.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

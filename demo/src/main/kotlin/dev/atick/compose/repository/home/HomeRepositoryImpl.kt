@@ -25,9 +25,9 @@ import dev.atick.core.utils.suspendRunCatching
 import dev.atick.firebase.data.FirebaseDataSource
 import dev.atick.firebase.models.FirebaseJetpack
 import dev.atick.storage.preferences.data.UserPreferencesDataSource
-import dev.atick.storage.room.data.LocalDataSource
-import dev.atick.storage.room.models.JetpackEntity
-import dev.atick.storage.room.models.SyncAction
+import dev.atick.core.room.data.LocalDataSource
+import dev.atick.core.room.models.JetpackEntity
+import dev.atick.core.room.models.SyncAction
 import dev.atick.sync.manager.SyncManager
 import dev.atick.sync.utils.SyncProgress
 import dev.atick.sync.utils.SyncableRepository

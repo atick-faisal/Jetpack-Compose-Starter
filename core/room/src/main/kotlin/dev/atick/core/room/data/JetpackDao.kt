@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.storage.room.data
+package dev.atick.core.room.data
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -23,7 +23,7 @@ import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
 import androidx.room.Upsert
-import dev.atick.storage.room.models.JetpackEntity
+import dev.atick.core.room.models.JetpackEntity
 import kotlinx.coroutines.flow.Flow
 
 /**
