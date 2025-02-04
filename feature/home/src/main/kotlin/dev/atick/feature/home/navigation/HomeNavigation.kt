@@ -14,42 +14,63 @@
  * limitations under the License.
  */
 
-package dev.atick.compose.navigation.home
+package dev.atick.feature.home.navigation
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
-import dev.atick.compose.ui.home.HomeRoute
+import androidx.navigation.navigation
 import dev.atick.core.ui.utils.SnackbarAction
+import dev.atick.feature.home.ui.home.HomeRoute
+import dev.atick.feature.home.ui.item.ItemRoute
 import kotlinx.serialization.Serializable
 
-/**
- * Serializable data object representing the Home screen.
- */
 @Serializable
 data object Home
 
-/**
- * Extension function for [NavController] to navigate to the Home screen.
- *
- * @param navOptions Optional navigation options.
- */
-fun NavController.navigateToHome(navOptions: NavOptions? = null) {
-    navigate(Home, navOptions)
+@Serializable
+data object HomeNavGraph
+
+@Serializable
+data class Item(val itemId: String?)
+
+fun NavController.navigateToHomeNavGraph(navOptions: NavOptions? = null) {
+    navigate(HomeNavGraph, navOptions)
 }
 
-/**
- * Adds the Home screen to the [NavGraphBuilder].
- *
- * @param onShowSnackbar Lambda function to show a snackbar with a message and an action.
- */
+fun NavController.navigateToItemScreen(itemId: String?) {
+    navigate(Item(itemId)) { launchSingleTop = true }
+}
+
 fun NavGraphBuilder.homeScreen(
+    onJetpackClick: (String) -> Unit,
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
 ) {
     composable<Home> {
         HomeRoute(
+            onJetpackClick = onJetpackClick,
             onShowSnackbar = onShowSnackbar,
         )
+    }
+}
+
+fun NavGraphBuilder.itemScreen(
+    onBackClick: () -> Unit,
+    onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
+) {
+    composable<Item> {
+        ItemRoute(
+            onBackClick = onBackClick,
+            onShowSnackbar = onShowSnackbar,
+        )
+    }
+}
+
+fun NavGraphBuilder.homeNavGraph(
+    nestedNavGraphs: NavGraphBuilder.() -> Unit,
+) {
+    navigation<HomeNavGraph>(startDestination = Home) {
+        nestedNavGraphs()
     }
 }

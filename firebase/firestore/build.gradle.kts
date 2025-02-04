@@ -31,9 +31,9 @@ android {
 dependencies {
     // ... Modules
     implementation(project(":core:android"))
+    implementation(project(":firebase:auth")) // Required for Firestore Authenticated Access
 
-    // ... Firebase Auth and Firestore
-    // ... Firebase Auth is required for Firestore
+    // ... Firebase Firestore and Auth
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.auth)

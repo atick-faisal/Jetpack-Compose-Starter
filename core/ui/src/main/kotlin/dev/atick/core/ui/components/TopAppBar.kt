@@ -19,12 +19,15 @@ package dev.atick.core.ui.components
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -127,6 +130,33 @@ fun JetpackTopAppBarWithAvatar(
             }
         },
         colors = colors,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun JetpackActionBar(
+    @StringRes titleRes: Int,
+    @StringRes actionRes: Int,
+    onActionClick: () -> Unit,
+    onNavigateBackClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    TopAppBar(
+        title = { Text(text = stringResource(id = titleRes)) },
+        navigationIcon = {
+            IconButton(onClick = onNavigateBackClick) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = stringResource(id = R.string.back),
+                )
+            }
+        },
+        actions = {
+            JetpackButton(onClick = onActionClick) {
+                Text(text = stringResource(id = actionRes))
+            }
+        },
         modifier = modifier,
     )
 }
