@@ -4,7 +4,7 @@ import dev.atick.core.preferences.models.PreferencesUserProfile
 import dev.atick.core.preferences.models.UserDataPreferences
 
 data class Profile(
-    val userName: String,
+    val userName: String = String(),
     val profilePictureUri: String? = null,
 )
 

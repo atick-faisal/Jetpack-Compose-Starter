@@ -68,7 +68,7 @@ import dev.atick.core.ui.components.JetpackTopAppBarWithAvatar
 import dev.atick.core.ui.theme.GradientColors
 import dev.atick.core.ui.theme.LocalGradientColors
 import dev.atick.core.ui.utils.SnackbarAction
-import dev.atick.settings.ui.SettingsDialog
+import dev.atick.feature.settings.ui.SettingsDialog
 
 /**
  * Composable function that represents the Jetpack Compose application.
@@ -148,10 +148,25 @@ internal fun JetpackApp(
     // Get the current navigation destination
     val currentDestination = appState.currentDestination
 
+    val context = LocalContext.current
+
     // Show the settings dialog if the flag is set
     if (showSettingsDialog) {
         SettingsDialog(
             onDismiss = { onSettingsDismissed() },
+            onShowSnackbar = { message, action, throwable ->
+                val actionPerformed = snackbarHostState.showSnackbar(
+                    message = message,
+                    actionLabel = context.getString(action.actionText),
+                    duration = SnackbarDuration.Short,
+                ) == SnackbarResult.ActionPerformed
+                if (actionPerformed && action == SnackbarAction.REPORT) {
+                    throwable?.let {
+                        appState.crashReporter.reportException(throwable)
+                    }
+                }
+                actionPerformed
+            },
         )
     }
 

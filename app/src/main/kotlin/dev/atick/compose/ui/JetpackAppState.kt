@@ -30,10 +30,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import dev.atick.compose.navigation.TopLevelDestination
-import dev.atick.compose.navigation.home.navigateToHome
 import dev.atick.core.extensions.stateInDelayed
 import dev.atick.core.network.utils.NetworkState
 import dev.atick.core.network.utils.NetworkUtils
+import dev.atick.feature.home.navigation.navigateToHomeNavGraph
+import dev.atick.feature.profile.navigation.navigateToProfile
 import dev.atick.firebase.analytics.utils.CrashReporter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -178,7 +179,8 @@ class JetpackAppState(
         }
 
         when (topLevelDestination) {
-            TopLevelDestination.HOME -> navController.navigateToHome(topLevelNavOptions)
+            TopLevelDestination.HOME -> navController.navigateToHomeNavGraph(topLevelNavOptions)
+            TopLevelDestination.PROFILE -> navController.navigateToProfile(topLevelNavOptions)
         }
     }
 }

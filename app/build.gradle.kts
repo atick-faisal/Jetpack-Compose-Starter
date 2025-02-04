@@ -105,17 +105,23 @@ android {
 }
 
 dependencies {
+    // ... Core
     implementation(project(":core:ui"))
     implementation(project(":core:network"))
-    implementation(project(":settings"))
     implementation(project(":core:preferences"))
-    implementation(project(":core:room"))
-    implementation(project(":firebase:analytics"))
+
+    // ... Features
     implementation(project(":feature:auth"))
+    implementation(project(":feature:home"))
+    implementation(project(":feature:profile"))
+    implementation(project(":feature:settings"))
+
+    // ... Analytics
+    implementation(project(":firebase:analytics"))
 
     // ... Splash Screen
     implementation(libs.androidx.core.splashscreen)
 
-    // ... Billing
-    implementation(libs.play.billing.ktx)
+    // ... OSS Licenses
+    implementation(libs.google.oss.licenses)
 }

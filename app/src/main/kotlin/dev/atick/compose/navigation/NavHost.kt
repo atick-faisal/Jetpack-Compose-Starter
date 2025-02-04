@@ -19,16 +19,21 @@ package dev.atick.compose.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
-import dev.atick.auth.navigation.AuthNavGraph
-import dev.atick.auth.navigation.authNavGraph
-import dev.atick.auth.navigation.navigateToSignInRoute
-import dev.atick.auth.navigation.navigateToSignUpRoute
-import dev.atick.auth.navigation.signInScreen
-import dev.atick.auth.navigation.signUpScreen
-import dev.atick.compose.navigation.home.Home
-import dev.atick.compose.navigation.home.homeScreen
 import dev.atick.compose.ui.JetpackAppState
 import dev.atick.core.ui.utils.SnackbarAction
+import dev.atick.feature.auth.navigation.AuthNavGraph
+import dev.atick.feature.auth.navigation.authNavGraph
+import dev.atick.feature.auth.navigation.navigateToSignInRoute
+import dev.atick.feature.auth.navigation.navigateToSignUpRoute
+import dev.atick.feature.auth.navigation.signInScreen
+import dev.atick.feature.auth.navigation.signUpScreen
+import dev.atick.feature.home.navigation.Home
+import dev.atick.feature.home.navigation.HomeNavGraph
+import dev.atick.feature.home.navigation.homeNavGraph
+import dev.atick.feature.home.navigation.homeScreen
+import dev.atick.feature.home.navigation.itemScreen
+import dev.atick.feature.home.navigation.navigateToItemScreen
+import dev.atick.feature.profile.navigation.profileScreen
 
 /**
  * Composable function that sets up the navigation host for the Jetpack Compose application.
@@ -45,7 +50,7 @@ fun JetpackNavHost(
 ) {
     val navController = appState.navController
     val startDestination =
-        if (appState.isUserLoggedIn) Home::class else AuthNavGraph::class
+        if (appState.isUserLoggedIn) HomeNavGraph::class else AuthNavGraph::class
     NavHost(
         navController = navController,
         startDestination = startDestination,
@@ -63,7 +68,19 @@ fun JetpackNavHost(
                 )
             },
         )
-        homeScreen(
+        homeNavGraph(
+            nestedNavGraphs = {
+                homeScreen(
+                    onJetpackClick = navController::navigateToItemScreen,
+                    onShowSnackbar = onShowSnackbar,
+                )
+                itemScreen(
+                    onBackClick = navController::popBackStack,
+                    onShowSnackbar = onShowSnackbar,
+                )
+            },
+        )
+        profileScreen(
             onShowSnackbar = onShowSnackbar,
         )
     }

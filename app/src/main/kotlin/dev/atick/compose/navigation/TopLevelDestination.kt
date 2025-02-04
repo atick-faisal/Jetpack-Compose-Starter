@@ -19,10 +19,13 @@ package dev.atick.compose.navigation
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Person
 import androidx.compose.ui.graphics.vector.ImageVector
 import dev.atick.compose.R
-import dev.atick.compose.navigation.home.Home
+import dev.atick.feature.home.navigation.Home
+import dev.atick.feature.profile.navigation.Profile
 import kotlin.reflect.KClass
 
 /**
@@ -47,5 +50,12 @@ enum class TopLevelDestination(
         iconTextId = R.string.home,
         titleTextId = R.string.home,
         route = Home::class,
+    ),
+    PROFILE(
+        selectedIcon = Icons.Filled.Person,
+        unselectedIcon = Icons.Outlined.Person,
+        iconTextId = R.string.profile,
+        titleTextId = R.string.profile,
+        route = Profile::class,
     ),
 }

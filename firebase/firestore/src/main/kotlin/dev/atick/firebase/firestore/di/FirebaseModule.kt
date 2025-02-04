@@ -34,17 +34,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object FirebaseModule {
     /**
-     * Provides a singleton instance of [FirebaseAuth].
-     *
-     * @return An instance of [FirebaseAuth] for authentication operations.
-     */
-    @Provides
-    @Singleton
-    fun provideFirebaseAuth(): FirebaseAuth {
-        return Firebase.auth
-    }
-
-    /**
      * Provides a singleton instance of FirebaseFirestore.
      *
      * @return A FirebaseFirestore instance.
