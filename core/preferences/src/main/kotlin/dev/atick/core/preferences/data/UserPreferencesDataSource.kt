@@ -17,7 +17,7 @@
 package dev.atick.core.preferences.data
 
 import dev.atick.core.preferences.models.DarkThemeConfigPreferences
-import dev.atick.core.preferences.models.Profile
+import dev.atick.core.preferences.models.PreferencesUserProfile
 import dev.atick.core.preferences.models.UserDataPreferences
 import kotlinx.coroutines.flow.Flow
 
@@ -34,9 +34,9 @@ interface UserPreferencesDataSource {
     /**
      * Sets the user profile in the user preferences.
      *
-     * @param profile The user ID to be set.
+     * @param preferencesUserProfile The user ID to be set.
      */
-    suspend fun setProfile(profile: Profile)
+    suspend fun setUserProfile(preferencesUserProfile: PreferencesUserProfile)
 
     /**
      * Sets the dark theme configuration in the user preferences.
@@ -51,4 +51,9 @@ interface UserPreferencesDataSource {
      * @param useDynamicColor A boolean indicating whether dynamic colors should be used.
      */
     suspend fun setDynamicColorPreference(useDynamicColor: Boolean)
+
+    /**
+     * Resets the user preferences to their default values.
+     */
+    suspend fun resetUserPreferences()
 }

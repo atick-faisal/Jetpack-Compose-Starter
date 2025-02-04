@@ -19,7 +19,7 @@ package dev.atick.compose.repository.profile
 import dev.atick.auth.data.AuthDataSource
 import dev.atick.compose.data.profile.ProfileScreenData
 import dev.atick.core.preferences.data.UserPreferencesDataSource
-import dev.atick.core.preferences.models.Profile
+import dev.atick.core.preferences.models.PreferencesUserProfile
 import dev.atick.core.utils.suspendRunCatching
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -61,7 +61,7 @@ class ProfileDataRepositoryImpl @Inject constructor(
     override suspend fun signOut(): Result<Unit> {
         return suspendRunCatching {
             authDataSource.signOut()
-            userPreferencesDataSource.setProfile(Profile())
+            userPreferencesDataSource.setUserProfile(PreferencesUserProfile())
         }
     }
 }

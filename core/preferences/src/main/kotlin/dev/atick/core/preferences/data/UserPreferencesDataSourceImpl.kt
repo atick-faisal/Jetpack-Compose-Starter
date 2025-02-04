@@ -19,7 +19,7 @@ package dev.atick.core.preferences.data
 import androidx.datastore.core.DataStore
 import dev.atick.core.di.IoDispatcher
 import dev.atick.core.preferences.models.DarkThemeConfigPreferences
-import dev.atick.core.preferences.models.Profile
+import dev.atick.core.preferences.models.PreferencesUserProfile
 import dev.atick.core.preferences.models.UserDataPreferences
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
@@ -47,15 +47,15 @@ class UserPreferencesDataSourceImpl @Inject constructor(
     /**
      * Sets the user profile in the user preferences.
      *
-     * @param profile The user [Profile] to be set.
+     * @param preferencesUserProfile The user [PreferencesUserProfile] to be set.
      */
-    override suspend fun setProfile(profile: Profile) {
+    override suspend fun setUserProfile(preferencesUserProfile: PreferencesUserProfile) {
         withContext(ioDispatcher) {
             datastore.updateData { userData ->
                 userData.copy(
-                    id = profile.id,
-                    userName = profile.name,
-                    profilePictureUriString = profile.profilePictureUriString,
+                    id = preferencesUserProfile.id,
+                    userName = preferencesUserProfile.userName,
+                    profilePictureUriString = preferencesUserProfile.profilePictureUriString,
                 )
             }
         }
@@ -84,6 +84,15 @@ class UserPreferencesDataSourceImpl @Inject constructor(
             datastore.updateData { userData ->
                 userData.copy(useDynamicColor = useDynamicColor)
             }
+        }
+    }
+
+    /**
+     * Resets the user preferences to their default values.
+     */
+    override suspend fun resetUserPreferences() {
+        withContext(ioDispatcher) {
+            datastore.updateData { UserDataPreferences() }
         }
     }
 }

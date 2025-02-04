@@ -22,6 +22,12 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dev.atick.data.repository.auth.AuthRepository
 import dev.atick.data.repository.auth.AuthRepositoryImpl
+import dev.atick.data.repository.home.HomeRepository
+import dev.atick.data.repository.home.HomeRepositoryImpl
+import dev.atick.data.repository.profile.ProfileRepository
+import dev.atick.data.repository.profile.ProfileRepositoryImpl
+import dev.atick.data.repository.settings.SettingsRepository
+import dev.atick.data.repository.settings.SettingsRepositoryImpl
 import javax.inject.Singleton
 
 @Module
@@ -32,4 +38,22 @@ abstract class RepositoryModule {
     abstract fun bindAuthRepository(
         authRepositoryImpl: AuthRepositoryImpl,
     ): AuthRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindHomeRepository(
+        homeRepositoryImpl: HomeRepositoryImpl,
+    ): HomeRepository
+
+    @Binds
+    @Singleton
+    abstract fun binProfileRepository(
+        profileRepositoryImpl: ProfileRepositoryImpl,
+    ): ProfileRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindSettingsRepository(
+        settingsRepositoryImpl: SettingsRepositoryImpl,
+    ): SettingsRepository
 }
