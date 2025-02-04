@@ -38,8 +38,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.atick.compose.ui.JetpackApp
 import dev.atick.compose.ui.rememberJetpackAppState
 import dev.atick.core.network.utils.NetworkUtils
-import dev.atick.core.preferences.models.DarkThemeConfig
-import dev.atick.core.preferences.models.UserData
+import dev.atick.core.preferences.models.DarkThemeConfigPreferences
+import dev.atick.core.preferences.models.UserDataPreferences
 import dev.atick.core.ui.extensions.isSystemInDarkTheme
 import dev.atick.core.ui.theme.JetpackTheme
 import dev.atick.core.ui.utils.UiState
@@ -146,7 +146,7 @@ class MainActivity : ComponentActivity() {
  * Returns `true` if the dynamic color is disabled, as a function of the [uiState].
  */
 private fun shouldDisableDynamicTheming(
-    uiState: UiState<UserData>,
+    uiState: UiState<UserDataPreferences>,
 ): Boolean {
     return if (uiState.loading || uiState.error.peekContent() != null) {
         false
@@ -161,15 +161,15 @@ private fun shouldDisableDynamicTheming(
  */
 private fun shouldUseDarkTheme(
     isSystemInDarkTheme: Boolean,
-    uiState: UiState<UserData>,
+    uiState: UiState<UserDataPreferences>,
 ): Boolean {
     return if (uiState.loading || uiState.error.peekContent() != null) {
         isSystemInDarkTheme
     } else {
-        when (uiState.data.darkThemeConfig) {
-            DarkThemeConfig.FOLLOW_SYSTEM -> isSystemInDarkTheme
-            DarkThemeConfig.LIGHT -> false
-            DarkThemeConfig.DARK -> true
+        when (uiState.data.darkThemeConfigPreferences) {
+            DarkThemeConfigPreferences.FOLLOW_SYSTEM -> isSystemInDarkTheme
+            DarkThemeConfigPreferences.LIGHT -> false
+            DarkThemeConfigPreferences.DARK -> true
         }
     }
 }
@@ -180,7 +180,7 @@ private fun shouldUseDarkTheme(
  * @param uiState The UI state representing the user data.
  * @return `true` if the user is considered logged in; `false` otherwise.
  */
-private fun isUserLoggedIn(uiState: UiState<UserData>): Boolean {
+private fun isUserLoggedIn(uiState: UiState<UserDataPreferences>): Boolean {
     // User is considered logged in during loading (assuming ongoing session).
     return uiState.data.id.isNotEmpty() || uiState.loading
 }
@@ -191,7 +191,7 @@ private fun isUserLoggedIn(uiState: UiState<UserData>): Boolean {
  * @param uiState The UI state representing the user data.
  * @return The user profile picture URI string, or `null` if the user is not logged in or an error occurred.
  */
-private fun getUserProfilePictureUri(uiState: UiState<UserData>): String? {
+private fun getUserProfilePictureUri(uiState: UiState<UserDataPreferences>): String? {
     return if (uiState.loading || uiState.error.peekContent() != null) {
         null
     } else {

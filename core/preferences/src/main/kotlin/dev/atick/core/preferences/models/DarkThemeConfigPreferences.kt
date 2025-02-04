@@ -16,9 +16,9 @@
 
 package dev.atick.core.preferences.models
 
-import dev.atick.core.preferences.models.DarkThemeConfig.DARK
-import dev.atick.core.preferences.models.DarkThemeConfig.FOLLOW_SYSTEM
-import dev.atick.core.preferences.models.DarkThemeConfig.LIGHT
+import dev.atick.core.preferences.models.DarkThemeConfigPreferences.DARK
+import dev.atick.core.preferences.models.DarkThemeConfigPreferences.FOLLOW_SYSTEM
+import dev.atick.core.preferences.models.DarkThemeConfigPreferences.LIGHT
 import kotlinx.serialization.Serializable
 
 /**
@@ -29,7 +29,7 @@ import kotlinx.serialization.Serializable
  * @property DARK The app's dark theme is enabled, using the dark theme.
  */
 @Serializable
-enum class DarkThemeConfig {
+enum class DarkThemeConfigPreferences {
     FOLLOW_SYSTEM,
     LIGHT,
     DARK,

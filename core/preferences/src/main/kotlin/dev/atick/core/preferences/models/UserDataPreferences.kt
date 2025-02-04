@@ -19,22 +19,22 @@ package dev.atick.core.preferences.models
 import kotlinx.serialization.Serializable
 
 /**
- * Represents user data.
+ * Represents user data saved in Shared Preferences.
  *
  * This data class is used to store information about a user, including their ID, name, profile picture URI string,
  * preferred theme brand, dark theme configuration, and dynamic color preference.
  *
  * @property id The unique identifier for the user. Defaults to empty if not provided.
- * @property name The name of the user. Defaults to "No Name" if not provided.
+ * @property userName The name of the user. Defaults to "No Name" if not provided.
  * @property profilePictureUriString The URI string for the user's profile picture, if available. Defaults to `null` if not provided.
- * @property darkThemeConfig The user's preferred dark theme configuration. Defaults to [DarkThemeConfig.FOLLOW_SYSTEM].
+ * @property darkThemeConfigPreferences The user's preferred dark theme configuration. Defaults to [DarkThemeConfigPreferences.FOLLOW_SYSTEM].
  * @property useDynamicColor A boolean indicating whether the user prefers dynamic colors. Defaults to `true`.
  */
 @Serializable
-data class UserData(
+data class UserDataPreferences(
     val id: String = String(),
-    val name: String? = null,
+    val userName: String? = null,
     val profilePictureUriString: String? = null,
-    val darkThemeConfig: DarkThemeConfig = DarkThemeConfig.FOLLOW_SYSTEM,
+    val darkThemeConfigPreferences: DarkThemeConfigPreferences = DarkThemeConfigPreferences.FOLLOW_SYSTEM,
     val useDynamicColor: Boolean = true,
 )

@@ -16,9 +16,9 @@
 
 package dev.atick.core.preferences.data
 
-import dev.atick.core.preferences.models.DarkThemeConfig
+import dev.atick.core.preferences.models.DarkThemeConfigPreferences
 import dev.atick.core.preferences.models.Profile
-import dev.atick.core.preferences.models.UserData
+import dev.atick.core.preferences.models.UserDataPreferences
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -27,9 +27,9 @@ import kotlinx.coroutines.flow.Flow
 interface UserPreferencesDataSource {
 
     /**
-     * A [Flow] that emits [UserData] representing user-specific data.
+     * A [Flow] that emits [UserDataPreferences] representing user-specific data.
      */
-    val userData: Flow<UserData>
+    val userDataPreferences: Flow<UserDataPreferences>
 
     /**
      * Sets the user profile in the user preferences.
@@ -41,9 +41,9 @@ interface UserPreferencesDataSource {
     /**
      * Sets the dark theme configuration in the user preferences.
      *
-     * @param darkThemeConfig The dark theme configuration to be set.
+     * @param darkThemeConfigPreferences The dark theme configuration to be set.
      */
-    suspend fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig)
+    suspend fun setDarkThemeConfig(darkThemeConfigPreferences: DarkThemeConfigPreferences)
 
     /**
      * Sets the dynamic color preferences in the user preferences.

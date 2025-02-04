@@ -21,7 +21,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.core.extensions.asOneTimeEvent
 import dev.atick.core.extensions.stateInDelayed
-import dev.atick.core.preferences.models.UserData
+import dev.atick.core.preferences.models.UserDataPreferences
 import dev.atick.core.ui.utils.UiState
 import dev.atick.settings.repository.SettingsRepository
 import kotlinx.coroutines.flow.StateFlow
@@ -43,8 +43,8 @@ class MainActivityViewModel @Inject constructor(
     /**
      * Represents the state of the UI for user data.
      */
-    val uiState: StateFlow<UiState<UserData>> = settingsRepository.userData
+    val uiState: StateFlow<UiState<UserDataPreferences>> = settingsRepository.userDataPreferences
         .map { userData -> UiState(userData) }
-        .catch { e -> UiState(UserData(), error = e.asOneTimeEvent()) }
-        .stateInDelayed(UiState(UserData(), loading = true), viewModelScope)
+        .catch { e -> UiState(UserDataPreferences(), error = e.asOneTimeEvent()) }
+        .stateInDelayed(UiState(UserDataPreferences(), loading = true), viewModelScope)
 }

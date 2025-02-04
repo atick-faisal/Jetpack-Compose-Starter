@@ -18,9 +18,9 @@ package dev.atick.core.preferences.data
 
 import androidx.datastore.core.DataStore
 import dev.atick.core.di.IoDispatcher
-import dev.atick.core.preferences.models.DarkThemeConfig
+import dev.atick.core.preferences.models.DarkThemeConfigPreferences
 import dev.atick.core.preferences.models.Profile
-import dev.atick.core.preferences.models.UserData
+import dev.atick.core.preferences.models.UserDataPreferences
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
@@ -34,14 +34,14 @@ import javax.inject.Inject
  * @property ioDispatcher The CoroutineDispatcher for performing I/O operations.
  */
 class UserPreferencesDataSourceImpl @Inject constructor(
-    private val datastore: DataStore<UserData>,
+    private val datastore: DataStore<UserDataPreferences>,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : UserPreferencesDataSource {
 
     /**
-     * A [Flow] that emits [UserData] representing user-specific data.
+     * A [Flow] that emits [UserDataPreferences] representing user-specific data.
      */
-    override val userData: Flow<UserData>
+    override val userDataPreferences: Flow<UserDataPreferences>
         get() = datastore.data.flowOn(ioDispatcher)
 
     /**
@@ -54,7 +54,7 @@ class UserPreferencesDataSourceImpl @Inject constructor(
             datastore.updateData { userData ->
                 userData.copy(
                     id = profile.id,
-                    name = profile.name,
+                    userName = profile.name,
                     profilePictureUriString = profile.profilePictureUriString,
                 )
             }
@@ -64,12 +64,12 @@ class UserPreferencesDataSourceImpl @Inject constructor(
     /**
      * Sets the dark theme configuration in the user preferences.
      *
-     * @param darkThemeConfig The dark theme configuration to be set.
+     * @param darkThemeConfigPreferences The dark theme configuration to be set.
      */
-    override suspend fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig) {
+    override suspend fun setDarkThemeConfig(darkThemeConfigPreferences: DarkThemeConfigPreferences) {
         withContext(ioDispatcher) {
             datastore.updateData { userData ->
-                userData.copy(darkThemeConfig = darkThemeConfig)
+                userData.copy(darkThemeConfigPreferences = darkThemeConfigPreferences)
             }
         }
     }

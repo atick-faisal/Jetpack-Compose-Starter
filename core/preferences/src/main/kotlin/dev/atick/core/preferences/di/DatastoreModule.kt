@@ -26,7 +26,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dev.atick.core.di.IoDispatcher
-import dev.atick.core.preferences.models.UserData
+import dev.atick.core.preferences.models.UserDataPreferences
 import dev.atick.core.preferences.utils.UserDataSerializer
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
@@ -53,7 +53,7 @@ object DatastoreModule {
     fun providePreferencesDataStore(
         @ApplicationContext appContext: Context,
         @IoDispatcher ioDispatcher: CoroutineDispatcher,
-    ): DataStore<UserData> {
+    ): DataStore<UserDataPreferences> {
         return DataStoreFactory.create(
             serializer = UserDataSerializer,
             produceFile = { appContext.dataStoreFile(DATA_STORE_FILE_NAME) },

@@ -55,42 +55,51 @@ import androidx.compose.ui.window.DialogProperties
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
-import dev.atick.core.preferences.models.DarkThemeConfigPreferences
 import dev.atick.core.ui.components.JetpackOutlinedButton
 import dev.atick.core.ui.components.JetpackTextButton
 import dev.atick.core.ui.theme.supportsDynamicTheming
-import dev.atick.core.ui.utils.UiState
-import dev.atick.settings.R
-import dev.atick.settings.data.UserSettings
+import dev.atick.core.ui.utils.SnackbarAction
+import dev.atick.core.ui.utils.StatefulComposable
+import dev.atick.data.models.settings.DarkThemeConfig
+import dev.atick.data.models.settings.Settings
+import dev.atick.feature.settings.R
+import dev.atick.feature.settings.ui.SettingsViewModel
 
 @Composable
 fun SettingsDialog(
     onDismiss: () -> Unit,
-    viewModel: SettingsViewModel = hiltViewModel(),
+    onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
+    settingsViewModel: SettingsViewModel = hiltViewModel(),
 ) {
-    val settingsUiState by viewModel.settingsUiState.collectAsStateWithLifecycle()
+    val settingsState by settingsViewModel.settingsUiState.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
-        viewModel.updateUserData()
+        settingsViewModel.updateSettings()
     }
 
-    SettingsDialog(
-        onDismiss = onDismiss,
-        settingsUiState = settingsUiState,
-        onChangeDynamicColorPreference = viewModel::updateDynamicColorPreference,
-        onChangeDarkThemeConfig = viewModel::updateDarkThemeConfig,
-        onSignOut = viewModel::signOut,
-    )
+    StatefulComposable(
+        state = settingsState,
+        onShowSnackbar = onShowSnackbar,
+    ) { settings ->
+        SettingsDialog(
+            settings = settings,
+            onDismiss = onDismiss,
+            onChangeDynamicColorPreference = settingsViewModel::updateDynamicColorPreference,
+            onChangeDarkThemeConfig = settingsViewModel::updateDarkThemeConfig,
+            onSignOut = settingsViewModel::signOut,
+        )
+
+    }
 }
 
 @Composable
 fun SettingsDialog(
-    settingsUiState: UiState<UserSettings>,
-    supportDynamicColor: Boolean = supportsDynamicTheming(),
+    settings: Settings,
     onDismiss: () -> Unit,
     onChangeDynamicColorPreference: (useDynamicColor: Boolean) -> Unit,
-    onChangeDarkThemeConfig: (darkThemeConfigPreferences: DarkThemeConfigPreferences) -> Unit,
+    onChangeDarkThemeConfig: (darkThemeConfig: DarkThemeConfig) -> Unit,
     onSignOut: () -> Unit,
+    supportDynamicColor: Boolean = supportsDynamicTheming(),
 ) {
     val configuration = LocalConfiguration.current
 
@@ -108,7 +117,7 @@ fun SettingsDialog(
         title = {
             Text(
                 modifier = Modifier.fillMaxWidth(),
-                text = settingsUiState.data.userName ?: stringResource(R.string.settings),
+                text = settings.userName ?: stringResource(R.string.settings),
                 style = MaterialTheme.typography.titleLarge,
                 textAlign = TextAlign.Center,
             )
@@ -117,7 +126,7 @@ fun SettingsDialog(
             HorizontalDivider()
             Column(Modifier.verticalScroll(rememberScrollState())) {
                 SettingsPanel(
-                    settings = settingsUiState.data,
+                    settings = settings,
                     supportDynamicColor = supportDynamicColor,
                     onChangeDynamicColorPreference = onChangeDynamicColorPreference,
                     onChangeDarkThemeConfig = onChangeDarkThemeConfig,
@@ -144,10 +153,10 @@ fun SettingsDialog(
 // [ColumnScope] is used for using the [ColumnScope.AnimatedVisibility] extension overload composable.
 @Composable
 private fun ColumnScope.SettingsPanel(
-    settings: UserSettings,
+    settings: Settings,
     supportDynamicColor: Boolean,
     onChangeDynamicColorPreference: (useDynamicColor: Boolean) -> Unit,
-    onChangeDarkThemeConfig: (darkThemeConfigPreferences: DarkThemeConfigPreferences) -> Unit,
+    onChangeDarkThemeConfig: (darkThemeConfig: DarkThemeConfig) -> Unit,
     onSignOut: () -> Unit,
     onDismiss: () -> Unit,
 ) {
@@ -173,18 +182,18 @@ private fun ColumnScope.SettingsPanel(
     Column(Modifier.selectableGroup()) {
         SettingsDialogThemeChooserRow(
             text = stringResource(R.string.dark_mode_config_system_default),
-            selected = settings.darkThemeConfigPreferences == DarkThemeConfigPreferences.FOLLOW_SYSTEM,
-            onClick = { onChangeDarkThemeConfig(DarkThemeConfigPreferences.FOLLOW_SYSTEM) },
+            selected = settings.darkThemeConfig == DarkThemeConfig.FOLLOW_SYSTEM,
+            onClick = { onChangeDarkThemeConfig(DarkThemeConfig.FOLLOW_SYSTEM) },
         )
         SettingsDialogThemeChooserRow(
             text = stringResource(R.string.dark_mode_config_light),
-            selected = settings.darkThemeConfigPreferences == DarkThemeConfigPreferences.LIGHT,
-            onClick = { onChangeDarkThemeConfig(DarkThemeConfigPreferences.LIGHT) },
+            selected = settings.darkThemeConfig == DarkThemeConfig.LIGHT,
+            onClick = { onChangeDarkThemeConfig(DarkThemeConfig.LIGHT) },
         )
         SettingsDialogThemeChooserRow(
             text = stringResource(R.string.dark_mode_config_dark),
-            selected = settings.darkThemeConfigPreferences == DarkThemeConfigPreferences.DARK,
-            onClick = { onChangeDarkThemeConfig(DarkThemeConfigPreferences.DARK) },
+            selected = settings.darkThemeConfig == DarkThemeConfig.DARK,
+            onClick = { onChangeDarkThemeConfig(DarkThemeConfig.DARK) },
         )
     }
     JetpackOutlinedButton(

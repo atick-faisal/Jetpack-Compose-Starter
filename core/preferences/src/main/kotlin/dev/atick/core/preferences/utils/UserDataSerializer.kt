@@ -18,8 +18,8 @@ package dev.atick.core.preferences.utils
 
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer
-import dev.atick.core.preferences.models.DarkThemeConfig
-import dev.atick.core.preferences.models.UserData
+import dev.atick.core.preferences.models.DarkThemeConfigPreferences
+import dev.atick.core.preferences.models.UserDataPreferences
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.KSerializer
@@ -34,26 +34,26 @@ import java.io.InputStream
 import java.io.OutputStream
 
 /**
- * Serializer implementation for serializing and deserializing [UserData] objects.
+ * Serializer implementation for serializing and deserializing [UserDataPreferences] objects.
  */
-object UserDataSerializer : Serializer<UserData> {
+object UserDataSerializer : Serializer<UserDataPreferences> {
 
     /**
-     * The default value of [UserData] to be used when deserialization fails.
+     * The default value of [UserDataPreferences] to be used when deserialization fails.
      */
-    override val defaultValue: UserData = UserData()
+    override val defaultValue: UserDataPreferences = UserDataPreferences()
 
     /**
-     * Reads a [UserData] object from the provided [InputStream].
+     * Reads a [UserDataPreferences] object from the provided [InputStream].
      *
      * @param input The input stream to read data from.
-     * @return The deserialized [UserData] object.
+     * @return The deserialized [UserDataPreferences] object.
      * @throws CorruptionException if there's an issue with deserialization.
      */
-    override suspend fun readFrom(input: InputStream): UserData {
+    override suspend fun readFrom(input: InputStream): UserDataPreferences {
         try {
             return Json.decodeFromString(
-                UserData.serializer(),
+                UserDataPreferences.serializer(),
                 input.readBytes().decodeToString(),
             )
         } catch (serialization: SerializationException) {
@@ -62,15 +62,15 @@ object UserDataSerializer : Serializer<UserData> {
     }
 
     /**
-     * Writes a [UserData] object to the provided [OutputStream].
+     * Writes a [UserDataPreferences] object to the provided [OutputStream].
      *
-     * @param t The [UserData] object to be serialized.
+     * @param t The [UserDataPreferences] object to be serialized.
      * @param output The output stream to write data to.
      */
-    override suspend fun writeTo(t: UserData, output: OutputStream) {
+    override suspend fun writeTo(t: UserDataPreferences, output: OutputStream) {
         withContext(Dispatchers.IO) {
             output.write(
-                Json.encodeToString(UserData.serializer(), t)
+                Json.encodeToString(UserDataPreferences.serializer(), t)
                     .encodeToByteArray(),
             )
         }
@@ -78,32 +78,32 @@ object UserDataSerializer : Serializer<UserData> {
 }
 
 /**
- * Custom serializer for serializing and deserializing [DarkThemeConfig] enums.
+ * Custom serializer for serializing and deserializing [DarkThemeConfigPreferences] enums.
  */
-object DarkThemeConfigSerializer : KSerializer<DarkThemeConfig> {
+object DarkThemeConfigSerializer : KSerializer<DarkThemeConfigPreferences> {
     /**
-     * The descriptor for the serialized form of [DarkThemeConfig].
+     * The descriptor for the serialized form of [DarkThemeConfigPreferences].
      */
     override val descriptor: SerialDescriptor =
         PrimitiveSerialDescriptor("DarkThemeConfig", PrimitiveKind.STRING)
 
     /**
-     * Serializes the provided [value] of [DarkThemeConfig] enum to a string representation.
+     * Serializes the provided [value] of [DarkThemeConfigPreferences] enum to a string representation.
      *
      * @param encoder The encoder to write the serialized data to.
-     * @param value The [DarkThemeConfig] value to be serialized.
+     * @param value The [DarkThemeConfigPreferences] value to be serialized.
      */
-    override fun serialize(encoder: Encoder, value: DarkThemeConfig) {
+    override fun serialize(encoder: Encoder, value: DarkThemeConfigPreferences) {
         encoder.encodeString(value.name)
     }
 
     /**
-     * Deserializes the string representation from the provided [decoder] and converts it to a [DarkThemeConfig] enum.
+     * Deserializes the string representation from the provided [decoder] and converts it to a [DarkThemeConfigPreferences] enum.
      *
      * @param decoder The decoder to read the serialized data from.
-     * @return The deserialized [DarkThemeConfig] enum value.
+     * @return The deserialized [DarkThemeConfigPreferences] enum value.
      */
-    override fun deserialize(decoder: Decoder): DarkThemeConfig {
-        return DarkThemeConfig.valueOf(decoder.decodeString())
+    override fun deserialize(decoder: Decoder): DarkThemeConfigPreferences {
+        return DarkThemeConfigPreferences.valueOf(decoder.decodeString())
     }
 }
