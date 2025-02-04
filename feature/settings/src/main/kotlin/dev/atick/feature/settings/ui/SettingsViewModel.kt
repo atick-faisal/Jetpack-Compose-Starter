@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package dev.atick.settings.ui
+package dev.atick.feature.settings.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.core.extensions.asOneTimeEvent
-import dev.atick.core.preferences.models.DarkThemeConfigPreferences
 import dev.atick.core.ui.utils.UiState
 import dev.atick.core.ui.utils.updateWith
-import dev.atick.settings.data.UserSettings
-import dev.atick.settings.repository.SettingsRepository
+import dev.atick.data.models.settings.DarkThemeConfig
+import dev.atick.data.models.settings.Settings
+import dev.atick.data.repository.settings.SettingsRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -40,30 +40,22 @@ class SettingsViewModel @Inject constructor(
     private val settingsRepository: SettingsRepository,
 ) : ViewModel() {
 
-    private val _settingsUiState = MutableStateFlow(UiState(UserSettings()))
-    val settingsUiState: StateFlow<UiState<UserSettings>>
+    private val _settingsUiState = MutableStateFlow(UiState(Settings()))
+    val settingsUiState: StateFlow<UiState<Settings>>
         get() = _settingsUiState.asStateFlow()
 
-    fun updateUserData() {
-        settingsRepository.userDataPreferences
-            .map { userData ->
-                UiState(
-                    UserSettings(
-                        userName = userData.userName,
-                        useDynamicColor = userData.useDynamicColor,
-                        darkThemeConfigPreferences = userData.darkThemeConfigPreferences,
-                    ),
-                )
-            }
-            .onEach { data -> _settingsUiState.update { data } }
-            .catch { e -> UiState(UserSettings(), error = e.asOneTimeEvent()) }
+    fun updateSettings() {
+        settingsRepository.settings
+            .map { UiState(it) }
+            .onEach { state -> _settingsUiState.update { state } }
+            .catch { e -> UiState(Settings(), error = e.asOneTimeEvent()) }
             .launchIn(viewModelScope)
     }
 
-    fun updateDarkThemeConfig(darkThemeConfigPreferences: DarkThemeConfigPreferences) {
+    fun updateDarkThemeConfig(darkThemeConfig: DarkThemeConfig) {
         _settingsUiState.updateWith(viewModelScope) {
             settingsRepository.setDarkThemeConfig(
-                darkThemeConfigPreferences,
+                darkThemeConfig,
             )
         }
     }

@@ -16,17 +16,17 @@
 
 package dev.atick.settings.data
 
-import dev.atick.core.preferences.models.DarkThemeConfig
+import dev.atick.core.preferences.models.DarkThemeConfigPreferences
 
 /**
  * Data class representing editable user settings related to themes and appearance.
  *
  * @property useDynamicColor Indicates whether dynamic colors are enabled.
- * @property darkThemeConfig Configuration for the dark theme.
+ * @property darkThemeConfigPreferences Configuration for the dark theme.
  * @constructor Creates a [UserSettings] instance with optional parameters.
  */
 data class UserSettings(
     val userName: String? = null,
     val useDynamicColor: Boolean = true,
-    val darkThemeConfig: DarkThemeConfig = DarkThemeConfig.FOLLOW_SYSTEM,
+    val darkThemeConfigPreferences: DarkThemeConfigPreferences = DarkThemeConfigPreferences.FOLLOW_SYSTEM,
 )

@@ -106,7 +106,7 @@ class HomeRepositoryImpl @Inject constructor(
 
     private fun syncWithFirebase(): Flow<SyncProgress> {
         return flow {
-            val userId = preferencesDataSource.userData.map { it.id }.first()
+            val userId = preferencesDataSource.userDataPreferences.map { it.id }.first()
 
             val lastSynced = localDataSource.getLatestUpdateTimestamp()
             val remoteJetpacks = firebaseDataSource.pull(userId, lastSynced)

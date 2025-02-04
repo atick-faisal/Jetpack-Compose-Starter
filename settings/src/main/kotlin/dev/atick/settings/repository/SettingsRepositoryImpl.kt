@@ -18,9 +18,9 @@ package dev.atick.settings.repository
 
 import dev.atick.auth.data.AuthDataSource
 import dev.atick.core.preferences.data.UserPreferencesDataSource
-import dev.atick.core.preferences.models.DarkThemeConfig
+import dev.atick.core.preferences.models.DarkThemeConfigPreferences
 import dev.atick.core.preferences.models.Profile
-import dev.atick.core.preferences.models.UserData
+import dev.atick.core.preferences.models.UserDataPreferences
 import dev.atick.core.utils.suspendRunCatching
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -36,10 +36,10 @@ class SettingsRepositoryImpl @Inject constructor(
 ) : SettingsRepository {
 
     /**
-     * A [Flow] that emits [UserData] representing user-specific data.
+     * A [Flow] that emits [UserDataPreferences] representing user-specific data.
      */
-    override val userData: Flow<UserData>
-        get() = userPreferencesDataSource.userData
+    override val userDataPreferences: Flow<UserDataPreferences>
+        get() = userPreferencesDataSource.userDataPreferences
 
     /**
      * Sets the user [Profile] in the user preferences.
@@ -56,12 +56,12 @@ class SettingsRepositoryImpl @Inject constructor(
     /**
      * Sets the dark theme configuration in the user preferences.
      *
-     * @param darkThemeConfig The dark theme configuration to be set.
+     * @param darkThemeConfigPreferences The dark theme configuration to be set.
      * @return [Result] indicating the success or failure of the operation.
      */
-    override suspend fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig): Result<Unit> {
+    override suspend fun setDarkThemeConfig(darkThemeConfigPreferences: DarkThemeConfigPreferences): Result<Unit> {
         return suspendRunCatching {
-            userPreferencesDataSource.setDarkThemeConfig(darkThemeConfig)
+            userPreferencesDataSource.setDarkThemeConfig(darkThemeConfigPreferences)
         }
     }
 

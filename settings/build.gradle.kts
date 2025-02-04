@@ -27,6 +27,7 @@ dependencies {
     // ... Modules
     implementation(project(":core:ui"))
     implementation(project(":core:preferences"))
+    implementation(project(":feature:auth"))
 
     // ... OSS Licenses
     api(libs.google.oss.licenses)
