@@ -19,7 +19,7 @@ package dev.atick.settings.repository
 import dev.atick.auth.data.AuthDataSource
 import dev.atick.core.preferences.data.UserPreferencesDataSource
 import dev.atick.core.preferences.models.DarkThemeConfigPreferences
-import dev.atick.core.preferences.models.Profile
+import dev.atick.core.preferences.models.PreferencesUserProfile
 import dev.atick.core.preferences.models.UserDataPreferences
 import dev.atick.core.utils.suspendRunCatching
 import kotlinx.coroutines.flow.Flow
@@ -42,14 +42,14 @@ class SettingsRepositoryImpl @Inject constructor(
         get() = userPreferencesDataSource.userDataPreferences
 
     /**
-     * Sets the user [Profile] in the user preferences.
+     * Sets the user [PreferencesUserProfile] in the user preferences.
      *
-     * @param profile The user [Profile] to be set.
+     * @param preferencesUserProfile The user [PreferencesUserProfile] to be set.
      * @return [Result] indicating the success or failure of the operation.
      */
-    override suspend fun setUserProfile(profile: Profile): Result<Unit> {
+    override suspend fun setUserProfile(preferencesUserProfile: PreferencesUserProfile): Result<Unit> {
         return suspendRunCatching {
-            userPreferencesDataSource.setProfile(profile)
+            userPreferencesDataSource.setUserProfile(preferencesUserProfile)
         }
     }
 
@@ -89,7 +89,7 @@ class SettingsRepositoryImpl @Inject constructor(
     override suspend fun signOut(): Result<Unit> {
         return suspendRunCatching {
             authDataSource.signOut()
-            userPreferencesDataSource.setProfile(Profile())
+            userPreferencesDataSource.setUserProfile(PreferencesUserProfile())
         }
     }
 }

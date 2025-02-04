@@ -17,7 +17,7 @@
 package dev.atick.settings.repository
 
 import dev.atick.core.preferences.models.DarkThemeConfigPreferences
-import dev.atick.core.preferences.models.Profile
+import dev.atick.core.preferences.models.PreferencesUserProfile
 import dev.atick.core.preferences.models.UserDataPreferences
 import kotlinx.coroutines.flow.Flow
 
@@ -34,10 +34,10 @@ interface SettingsRepository {
     /**
      * Sets the user ID in the user preferences.
      *
-     * @param profile The user ID to be set.
+     * @param preferencesUserProfile The user ID to be set.
      * @return [Result] indicating the success or failure of the operation.
      */
-    suspend fun setUserProfile(profile: Profile): Result<Unit>
+    suspend fun setUserProfile(preferencesUserProfile: PreferencesUserProfile): Result<Unit>
 
     /**
      * Sets the dark theme configuration in the user preferences.

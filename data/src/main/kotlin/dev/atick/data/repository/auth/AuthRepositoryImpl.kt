@@ -18,7 +18,7 @@ package dev.atick.data.repository.auth
 
 import android.app.Activity
 import dev.atick.core.preferences.data.UserPreferencesDataSource
-import dev.atick.core.preferences.models.Profile
+import dev.atick.core.preferences.models.PreferencesUserProfile
 import dev.atick.core.utils.suspendRunCatching
 import dev.atick.firebase.auth.data.AuthDataSource
 import dev.atick.firebase.auth.models.AuthUser
@@ -45,7 +45,7 @@ class AuthRepositoryImpl @Inject constructor(
     override suspend fun signInWithSavedCredentials(activity: Activity): Result<Unit> {
         return suspendRunCatching {
             val user = authDataSource.signInWithSavedCredentials(activity)
-            userPreferencesDataSource.setProfile(user.asProfile())
+            userPreferencesDataSource.setUserProfile(user.asPreferencesUserProfile())
         }
     }
 
@@ -63,7 +63,7 @@ class AuthRepositoryImpl @Inject constructor(
     ): Result<Unit> {
         return suspendRunCatching {
             val user = authDataSource.signInWithEmailAndPassword(email, password)
-            userPreferencesDataSource.setProfile(user.asProfile())
+            userPreferencesDataSource.setUserProfile(user.asPreferencesUserProfile())
         }
     }
 
@@ -84,7 +84,7 @@ class AuthRepositoryImpl @Inject constructor(
     ): Result<Unit> {
         return suspendRunCatching {
             val user = authDataSource.registerWithEmailAndPassword(name, email, password, activity)
-            userPreferencesDataSource.setProfile(user.asProfile())
+            userPreferencesDataSource.setUserProfile(user.asPreferencesUserProfile())
         }
     }
 
@@ -98,7 +98,7 @@ class AuthRepositoryImpl @Inject constructor(
     override suspend fun signInWithGoogle(activity: Activity): Result<Unit> {
         return suspendRunCatching {
             val user = authDataSource.signInWithGoogle(activity)
-            userPreferencesDataSource.setProfile(user.asProfile())
+            userPreferencesDataSource.setUserProfile(user.asPreferencesUserProfile())
         }
     }
 
@@ -112,16 +112,16 @@ class AuthRepositoryImpl @Inject constructor(
     override suspend fun registerWithGoogle(activity: Activity): Result<Unit> {
         return suspendRunCatching {
             val user = authDataSource.registerWithGoogle(activity)
-            userPreferencesDataSource.setProfile(user.asProfile())
+            userPreferencesDataSource.setUserProfile(user.asPreferencesUserProfile())
         }
     }
 
     /**
-     * Convert an [AuthUser] to a [Profile].
+     * Convert an [AuthUser] to a [PreferencesUserProfile].
      */
-    private fun AuthUser.asProfile() = Profile(
+    private fun AuthUser.asPreferencesUserProfile() = PreferencesUserProfile(
         id = id,
-        name = name,
+        userName = name,
         profilePictureUriString = profilePictureUri?.toString(),
     )
 }

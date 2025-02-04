@@ -17,7 +17,6 @@
 package dev.atick.data.repository.settings
 
 import dev.atick.core.preferences.data.UserPreferencesDataSource
-import dev.atick.core.preferences.models.Profile
 import dev.atick.core.utils.suspendRunCatching
 import dev.atick.data.models.settings.DarkThemeConfig
 import dev.atick.data.models.settings.Settings
@@ -52,7 +51,7 @@ class SettingsRepositoryImpl @Inject constructor(
     override suspend fun signOut(): Result<Unit> {
         return suspendRunCatching {
             authDataSource.signOut()
-            userPreferencesDataSource.setProfile(Profile())
+            userPreferencesDataSource.resetUserPreferences()
         }
     }
 }
