@@ -63,6 +63,10 @@ include(":core:room")
 include(":firebase:analytics")
 include(":firebase:firestore")
 include(":firebase:auth")
+include(":feature:auth")
+include(":feature:home")
+include(":feature:profile")
+include(":feature:settings")
 include(":sync")
 
 // Demo Application
