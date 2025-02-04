@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Atick Faisal
+ * Copyright 2025 Atick Faisal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,46 +14,32 @@
  * limitations under the License.
  */
 
-package dev.atick.auth.ui
+package dev.atick.feature.auth.ui.signin
 
 import android.app.Activity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.atick.auth.models.AuthScreenData
-import dev.atick.auth.repository.AuthRepository
 import dev.atick.core.extensions.isEmailValid
 import dev.atick.core.extensions.isPasswordValid
-import dev.atick.core.extensions.isValidFullName
 import dev.atick.core.ui.utils.TextFiledData
 import dev.atick.core.ui.utils.UiState
 import dev.atick.core.ui.utils.updateState
 import dev.atick.core.ui.utils.updateWith
+import dev.atick.data.repository.auth.AuthRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class AuthViewModel @Inject constructor(
+class SignInViewModel @Inject constructor(
     private val authRepository: AuthRepository,
 ) : ViewModel() {
-
-    private val _authUiState = MutableStateFlow(UiState(AuthScreenData()))
-    val authUiState = _authUiState.asStateFlow()
-
-    fun updateName(name: String) {
-        _authUiState.updateState {
-            copy(
-                name = TextFiledData(
-                    value = name,
-                    errorMessage = if (name.isValidFullName()) null else "Name Not Valid",
-                ),
-            )
-        }
-    }
+    private val _signInUiState = MutableStateFlow(UiState(SignInScreenData()))
+    val signInUiState = _signInUiState.asStateFlow()
 
     fun updateEmail(email: String) {
-        _authUiState.updateState {
+        _signInUiState.updateState {
             copy(
                 email = TextFiledData(
                     value = email,
@@ -64,7 +50,7 @@ class AuthViewModel @Inject constructor(
     }
 
     fun updatePassword(password: String) {
-        _authUiState.updateState {
+        _signInUiState.updateState {
             copy(
                 password = TextFiledData(
                     value = password,
@@ -75,36 +61,26 @@ class AuthViewModel @Inject constructor(
     }
 
     fun signInWithSavedCredentials(activity: Activity) {
-        _authUiState.updateWith(viewModelScope) {
+        _signInUiState.updateWith(viewModelScope) {
             authRepository.signInWithSavedCredentials(activity)
         }
     }
 
-    fun loginWithEmailAndPassword() {
-        _authUiState.updateWith(viewModelScope) {
-            authRepository.signInWithEmailAndPassword(
-                email = authUiState.value.data.email.value,
-                password = authUiState.value.data.password.value,
-            )
-        }
-    }
-
-    fun registerWithEmailAndPassword(activity: Activity) {
-        _authUiState.updateWith(viewModelScope) {
-            authRepository.registerWithEmailAndPassword(
-                name = authUiState.value.data.name.value,
-                email = authUiState.value.data.email.value,
-                password = authUiState.value.data.password.value,
-                activity = activity,
-            )
-        }
-    }
-
     fun signInWithGoogle(activity: Activity) {
-        _authUiState.updateWith(viewModelScope) { authRepository.signInWithGoogle(activity) }
+        _signInUiState.updateWith(viewModelScope) { authRepository.signInWithGoogle(activity) }
     }
 
-    fun registerWithGoogle(activity: Activity) {
-        _authUiState.updateWith(viewModelScope) { authRepository.registerWithGoogle(activity) }
+    fun loginWithEmailAndPassword() {
+        _signInUiState.updateWith(viewModelScope) {
+            authRepository.signInWithEmailAndPassword(
+                email = email.value,
+                password = password.value,
+            )
+        }
     }
 }
+
+data class SignInScreenData(
+    val email: TextFiledData = TextFiledData(String()),
+    val password: TextFiledData = TextFiledData(String()),
+)
