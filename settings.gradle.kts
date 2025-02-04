@@ -51,7 +51,6 @@ develocity {
 
 rootProject.name = "Jetpack"
 include(":app")
-include(":auth")
 include(":core:android")
 include(":core:network")
 include(":core:ui")

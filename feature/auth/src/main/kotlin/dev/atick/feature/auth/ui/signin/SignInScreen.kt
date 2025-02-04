@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.auth.ui.signin
+package dev.atick.feature.auth.ui.signin
 
 import android.app.Activity
 import androidx.compose.foundation.layout.Arrangement
@@ -48,9 +48,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import dev.atick.auth.R
-import dev.atick.auth.models.AuthScreenData
-import dev.atick.auth.ui.AuthViewModel
 import dev.atick.core.extensions.getActivity
 import dev.atick.core.ui.components.JetpackButton
 import dev.atick.core.ui.components.JetpackOutlinedButton
@@ -60,26 +57,27 @@ import dev.atick.core.ui.components.JetpackTextFiled
 import dev.atick.core.ui.utils.DevicePreviews
 import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
+import dev.atick.feature.auth.R
 
 @Composable
 fun SignInRoute(
     onSignUpClick: () -> Unit,
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
-    authViewModel: AuthViewModel = hiltViewModel(),
+    signInViewModel: SignInViewModel = hiltViewModel(),
 ) {
-    val loginState by authViewModel.authUiState.collectAsStateWithLifecycle()
+    val signInState by signInViewModel.signInUiState.collectAsStateWithLifecycle()
 
     StatefulComposable(
-        state = loginState,
+        state = signInState,
         onShowSnackbar = onShowSnackbar,
     ) { homeScreenData ->
         SignInScreen(
             homeScreenData,
-            authViewModel::updateEmail,
-            authViewModel::updatePassword,
-            authViewModel::signInWithSavedCredentials,
-            authViewModel::signInWithGoogle,
-            authViewModel::loginWithEmailAndPassword,
+            signInViewModel::updateEmail,
+            signInViewModel::updatePassword,
+            signInViewModel::signInWithSavedCredentials,
+            signInViewModel::signInWithGoogle,
+            signInViewModel::loginWithEmailAndPassword,
             onSignUpClick,
         )
     }
@@ -87,7 +85,7 @@ fun SignInRoute(
 
 @Composable
 private fun SignInScreen(
-    authScreenData: AuthScreenData,
+    screenData: SignInScreenData,
     onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
     onSignInWithSavedCredentials: (Activity) -> Unit,
@@ -124,8 +122,8 @@ private fun SignInScreen(
         )
         Text(text = "or", modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
         JetpackTextFiled(
-            value = authScreenData.email.value,
-            errorMessage = authScreenData.email.errorMessage,
+            value = screenData.email.value,
+            errorMessage = screenData.email.errorMessage,
             onValueChange = onEmailChange,
             label = { Text(stringResource(R.string.email)) },
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Email),
@@ -137,8 +135,8 @@ private fun SignInScreen(
             },
         )
         JetpackPasswordFiled(
-            value = authScreenData.password.value,
-            errorMessage = authScreenData.password.errorMessage,
+            value = screenData.password.value,
+            errorMessage = screenData.password.errorMessage,
             onValueChange = onPasswordChange,
             label = { Text(stringResource(R.string.password)) },
             leadingIcon = {
@@ -178,7 +176,7 @@ private fun SignInScreen(
 @Composable
 fun SignInScreenPreview() {
     SignInScreen(
-        authScreenData = AuthScreenData(),
+        screenData = SignInScreenData(),
         onEmailChange = {},
         onPasswordChange = {},
         onSignInWithSavedCredentials = {},

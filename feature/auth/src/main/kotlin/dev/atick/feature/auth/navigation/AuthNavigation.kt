@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package dev.atick.auth.navigation
+package dev.atick.feature.auth.navigation
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import dev.atick.auth.ui.signin.SignInRoute
-import dev.atick.auth.ui.signup.SignUpRoute
 import dev.atick.core.ui.utils.SnackbarAction
+import dev.atick.feature.auth.ui.signin.SignInRoute
+import dev.atick.feature.auth.ui.signup.SignUpRoute
 import kotlinx.serialization.Serializable
 
 @Serializable

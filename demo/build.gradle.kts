@@ -105,7 +105,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":auth"))
     implementation(project(":core:ui"))
     implementation(project(":core:network"))
     implementation(project(":settings"))

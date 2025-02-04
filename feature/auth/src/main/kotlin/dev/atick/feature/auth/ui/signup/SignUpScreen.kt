@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.auth.ui.signup
+package dev.atick.feature.auth.ui.signup
 
 import android.app.Activity
 import androidx.compose.foundation.layout.Arrangement
@@ -48,9 +48,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import dev.atick.auth.R
-import dev.atick.auth.models.AuthScreenData
-import dev.atick.auth.ui.AuthViewModel
 import dev.atick.core.extensions.getActivity
 import dev.atick.core.ui.components.JetpackButton
 import dev.atick.core.ui.components.JetpackOutlinedButton
@@ -60,26 +57,27 @@ import dev.atick.core.ui.components.JetpackTextFiled
 import dev.atick.core.ui.utils.DevicePreviews
 import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
+import dev.atick.feature.auth.R
 
 @Composable
 fun SignUpRoute(
     onSignInClick: () -> Unit,
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
-    authViewModel: AuthViewModel = hiltViewModel(),
+    signUpViewModel: SignUpViewModel = hiltViewModel(),
 ) {
-    val authState by authViewModel.authUiState.collectAsStateWithLifecycle()
+    val signUpState by signUpViewModel.signUpUiState.collectAsStateWithLifecycle()
 
     StatefulComposable(
-        state = authState,
+        state = signUpState,
         onShowSnackbar = onShowSnackbar,
     ) { authScreenData ->
         SignUpScreen(
             authScreenData,
-            authViewModel::updateName,
-            authViewModel::updateEmail,
-            authViewModel::updatePassword,
-            authViewModel::registerWithGoogle,
-            authViewModel::registerWithEmailAndPassword,
+            signUpViewModel::updateName,
+            signUpViewModel::updateEmail,
+            signUpViewModel::updatePassword,
+            signUpViewModel::registerWithGoogle,
+            signUpViewModel::registerWithEmailAndPassword,
             onSignInClick,
         )
     }
@@ -87,7 +85,7 @@ fun SignUpRoute(
 
 @Composable
 private fun SignUpScreen(
-    authScreenData: AuthScreenData,
+    screenData: SignUpScreenData,
     onNameChange: (String) -> Unit,
     onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
@@ -121,8 +119,8 @@ private fun SignUpScreen(
         )
         Text(text = "or", modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
         JetpackTextFiled(
-            value = authScreenData.name.value,
-            errorMessage = authScreenData.name.errorMessage,
+            value = screenData.name.value,
+            errorMessage = screenData.name.errorMessage,
             onValueChange = onNameChange,
             label = { Text(stringResource(R.string.name)) },
             leadingIcon = {
@@ -133,8 +131,8 @@ private fun SignUpScreen(
             },
         )
         JetpackTextFiled(
-            value = authScreenData.email.value,
-            errorMessage = authScreenData.email.errorMessage,
+            value = screenData.email.value,
+            errorMessage = screenData.email.errorMessage,
             onValueChange = onEmailChange,
             label = { Text(stringResource(R.string.email)) },
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Email),
@@ -146,8 +144,8 @@ private fun SignUpScreen(
             },
         )
         JetpackPasswordFiled(
-            value = authScreenData.password.value,
-            errorMessage = authScreenData.password.errorMessage,
+            value = screenData.password.value,
+            errorMessage = screenData.password.errorMessage,
             onValueChange = onPasswordChange,
             label = { Text(stringResource(R.string.password)) },
             leadingIcon = {
@@ -187,7 +185,7 @@ private fun SignUpScreen(
 @Composable
 fun SignUpScreenPreview() {
     SignUpScreen(
-        authScreenData = AuthScreenData(),
+        screenData = SignUpScreenData(),
         onNameChange = {},
         onEmailChange = {},
         onPasswordChange = {},

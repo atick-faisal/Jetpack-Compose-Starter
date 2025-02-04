@@ -25,7 +25,6 @@ android {
 
 dependencies {
     // ... Modules
-    implementation(project(":auth"))
     implementation(project(":core:ui"))
     implementation(project(":core:preferences"))
 

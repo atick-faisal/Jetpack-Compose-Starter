@@ -97,13 +97,13 @@ inline fun <T : Any> MutableStateFlow<UiState<T>>.updateState(update: T.() -> T)
  */
 inline fun <reified T : Any> MutableStateFlow<UiState<T>>.updateStateWith(
     scope: CoroutineScope,
-    crossinline operation: suspend () -> Result<T>,
+    crossinline operation: suspend T.() -> Result<T>,
 ) {
     if (value.loading) return
     scope.launch {
         update { it.copy(loading = true, error = OneTimeEvent(null)) }
 
-        val result = operation()
+        val result = value.data.operation()
 
         if (result.isSuccess) {
             val data = result.getOrNull()
@@ -139,13 +139,13 @@ inline fun <reified T : Any> MutableStateFlow<UiState<T>>.updateStateWith(
  */
 inline fun <T : Any> MutableStateFlow<UiState<T>>.updateWith(
     scope: CoroutineScope,
-    crossinline operation: suspend () -> Result<Unit>,
+    crossinline operation: suspend T.() -> Result<Unit>,
 ) {
     if (value.loading) return
     scope.launch {
         update { it.copy(loading = true, error = OneTimeEvent(null)) }
 
-        val result = operation()
+        val result = value.data.operation()
 
         if (result.isSuccess) {
             update { it.copy(loading = false) }
