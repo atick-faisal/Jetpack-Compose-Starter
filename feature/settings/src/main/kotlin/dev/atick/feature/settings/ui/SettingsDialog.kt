@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.settings.ui
+package dev.atick.feature.settings.ui
 
 import android.content.Intent
 import androidx.compose.animation.AnimatedVisibility
@@ -63,7 +63,6 @@ import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.data.models.settings.DarkThemeConfig
 import dev.atick.data.models.settings.Settings
 import dev.atick.feature.settings.R
-import dev.atick.feature.settings.ui.SettingsViewModel
 
 @Composable
 fun SettingsDialog(
@@ -88,7 +87,6 @@ fun SettingsDialog(
             onChangeDarkThemeConfig = settingsViewModel::updateDarkThemeConfig,
             onSignOut = settingsViewModel::signOut,
         )
-
     }
 }
 
