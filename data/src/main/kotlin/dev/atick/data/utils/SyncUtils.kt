@@ -2,6 +2,18 @@ package dev.atick.data.utils
 
 import kotlinx.coroutines.flow.Flow
 
+interface SyncManager {
+    /**
+     * Flow that emits a boolean value indicating whether the sync operation is in progress.
+     */
+    val isSyncing: Flow<Boolean>
+
+    /**
+     * Starts the sync operation.
+     */
+    fun requestSync()
+}
+
 /**
  * Interface representing a syncable entity.
  */

@@ -26,8 +26,10 @@ android {
 dependencies {
     // ... Modules
     implementation(project(":core:android"))
+    implementation(project(":data"))
 
     // ... Work Manager
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.hilt.work)
+    ksp(libs.androidx.hilt.compiler)
 }

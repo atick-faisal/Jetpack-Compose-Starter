@@ -32,11 +32,11 @@ class ItemViewModel @Inject constructor(
     val itemUiState = _itemUiState.asStateFlow()
 
     fun updateName(name: String) {
-        _itemUiState.updateState { copy(jetpackName = name) }
+        _itemUiState.updateState { copy(jetpackName = name.trim()) }
     }
 
     fun updatePrice(priceString: String) {
-        val price = priceString.toDoubleOrNull() ?: return
+        val price = priceString.trim().toDoubleOrNull() ?: return
         _itemUiState.updateState { copy(jetpackPrice = price) }
     }
 

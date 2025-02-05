@@ -67,7 +67,6 @@ data class JetpackEntity(
  */
 enum class SyncAction {
     NONE,
-    CREATE,
-    UPDATE,
+    UPSERT,
     DELETE,
 }

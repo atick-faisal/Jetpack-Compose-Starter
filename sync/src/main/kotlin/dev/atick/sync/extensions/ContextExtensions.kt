@@ -55,7 +55,7 @@ private fun Context.syncWorkNotification(total: Int, current: Int): Notification
         channelId = SYNC_NOTIFICATION_CHANNEL_ID,
         channelName = R.string.sync_work_notification_channel_name,
         channelDescription = R.string.sync_work_notification_channel_description,
-        importance = NotificationManager.IMPORTANCE_DEFAULT,
+        importance = NotificationManager.IMPORTANCE_LOW,
     )
 
     return createProgressNotification(

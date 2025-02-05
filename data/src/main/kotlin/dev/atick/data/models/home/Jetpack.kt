@@ -2,7 +2,6 @@ package dev.atick.data.models.home
 
 import dev.atick.core.extensions.asFormattedDateTime
 import dev.atick.core.room.models.JetpackEntity
-import dev.atick.core.room.models.SyncAction
 import dev.atick.firebase.firestore.models.FirebaseJetpack
 import java.util.UUID
 
@@ -37,9 +36,8 @@ fun Jetpack.toJetpackEntity(): JetpackEntity {
         id = id,
         name = name,
         price = price,
-        lastUpdated = System.currentTimeMillis(),
+        lastUpdated = lastUpdated,
         lastSynced = lastSynced,
-        needsSync = true,
     )
 }
 
@@ -49,7 +47,7 @@ fun Jetpack.toFirebaseJetpack(): FirebaseJetpack {
         name = name,
         price = price,
         lastUpdated = lastUpdated,
-        lastSynced = System.currentTimeMillis(),
+        lastSynced = lastSynced,
     )
 }
 
@@ -70,9 +68,7 @@ fun FirebaseJetpack.toJetpackEntity(): JetpackEntity {
         name = name,
         price = price,
         lastUpdated = lastUpdated,
-        lastSynced = System.currentTimeMillis(),
-        needsSync = false,
+        lastSynced = lastSynced,
         deleted = deleted,
-        syncAction = SyncAction.NONE,
     )
 }

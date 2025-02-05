@@ -17,6 +17,7 @@
 package dev.atick.sync.worker
 
 import android.content.Context
+import androidx.hilt.work.HiltWorker
 import androidx.work.Constraints
 import androidx.work.CoroutineWorker
 import androidx.work.ForegroundInfo
@@ -28,18 +29,19 @@ import androidx.work.WorkerParameters
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import dev.atick.core.di.IoDispatcher
+import dev.atick.data.repository.home.HomeRepository
 import dev.atick.sync.extensions.syncForegroundInfo
-import dev.atick.sync.utils.SyncableRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 
+@HiltWorker
 class SyncWorker @AssistedInject constructor(
     @Assisted private val context: Context,
     @Assisted workerParameters: WorkerParameters,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
-    private val syncableRepository: SyncableRepository,
+    private val homeRepository: HomeRepository,
 ) : CoroutineWorker(context, workerParameters) {
 
     /**
@@ -63,7 +65,8 @@ class SyncWorker @AssistedInject constructor(
     override suspend fun doWork(): Result {
         return withContext(ioDispatcher) {
             try {
-                syncableRepository.sync()
+                setForeground(getForegroundInfo())
+                homeRepository.sync()
                     .flowOn(ioDispatcher)
                     .collect { progress ->
                         Timber.d("SyncWorker: Progress: $progress")
