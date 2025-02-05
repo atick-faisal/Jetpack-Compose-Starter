@@ -119,6 +119,9 @@ dependencies {
     // ... Analytics
     implementation(project(":firebase:analytics"))
 
+    // ... Sync
+    implementation(project(":sync"))
+
     // ... Splash Screen
     implementation(libs.androidx.core.splashscreen)
 

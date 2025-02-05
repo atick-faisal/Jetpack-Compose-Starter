@@ -8,16 +8,20 @@ import dev.atick.data.models.home.mapToJetpacks
 import dev.atick.data.models.home.toFirebaseJetpack
 import dev.atick.data.models.home.toJetpack
 import dev.atick.data.models.home.toJetpackEntity
+import dev.atick.data.utils.SyncManager
 import dev.atick.data.utils.SyncProgress
 import dev.atick.firebase.firestore.data.FirebaseDataSource
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import timber.log.Timber
 import javax.inject.Inject
 
 class HomeRepositoryImpl @Inject constructor(
     private val localDataSource: LocalDataSource,
     private val firebaseDataSource: FirebaseDataSource,
+    private val syncManager: SyncManager,
 ) : HomeRepository {
     override fun getJetpacks(): Flow<List<Jetpack>> {
         return localDataSource.getJetpacks().map { it.mapToJetpacks() }
@@ -29,17 +33,23 @@ class HomeRepositoryImpl @Inject constructor(
 
     override suspend fun createOrUpdateJetpack(jetpack: Jetpack): Result<Unit> {
         return suspendRunCatching {
-            localDataSource.updateJetpack(jetpack.toJetpackEntity())
-            firebaseDataSource.createOrUpdate(jetpack.toFirebaseJetpack())
-            localDataSource.markAsSynced(jetpack.id)
+            localDataSource.upsertJetpack(
+                jetpack
+                    .toJetpackEntity()
+                    .copy(
+                        lastUpdated = System.currentTimeMillis(),
+                        needsSync = true,
+                        syncAction = SyncAction.UPSERT,
+                    ),
+            )
+            syncManager.requestSync()
         }
     }
 
     override suspend fun markJetpackAsDeleted(jetpack: Jetpack): Result<Unit> {
         return suspendRunCatching {
             localDataSource.markJetpackAsDeleted(jetpack.id)
-            firebaseDataSource.delete(jetpack.toFirebaseJetpack())
-            localDataSource.markAsSynced(jetpack.id)
+            syncManager.requestSync()
         }
     }
 
@@ -49,10 +59,16 @@ class HomeRepositoryImpl @Inject constructor(
             val remoteJetpacks = firebaseDataSource.pull(lastSynced)
             val totalRemoteJetpacks = remoteJetpacks.size
 
+            Timber.d("Syncing $totalRemoteJetpacks remote jetpacks")
+
             val unsyncedJetpacks = localDataSource.getUnsyncedJetpacks()
             val totalUnsyncedJetpacks = unsyncedJetpacks.size
 
+            Timber.d("Syncing $totalUnsyncedJetpacks unsynced jetpacks")
+
             val totalSync = totalRemoteJetpacks + totalUnsyncedJetpacks
+
+            Timber.d("Total sync: $totalSync")
 
             // Pull updates from remote
             remoteJetpacks.forEachIndexed { index, remoteJetpack ->
@@ -63,16 +79,26 @@ class HomeRepositoryImpl @Inject constructor(
             // Push updates to remote
             unsyncedJetpacks.forEachIndexed { index, unsyncedJetpack ->
                 when (unsyncedJetpack.syncAction) {
-                    SyncAction.CREATE -> {
-                        firebaseDataSource.create(unsyncedJetpack.toFirebaseJetpack())
-                    }
-
-                    SyncAction.UPDATE -> {
-                        firebaseDataSource.createOrUpdate(unsyncedJetpack.toFirebaseJetpack())
+                    SyncAction.UPSERT -> {
+                        delay(10000L)
+                        Timber.d("Syncing create/update jetpack: ${unsyncedJetpack.id}")
+                        firebaseDataSource.createOrUpdate(
+                            unsyncedJetpack
+                                .toFirebaseJetpack()
+                                .copy(
+                                    lastSynced = System.currentTimeMillis(),
+                                ),
+                        )
                     }
 
                     SyncAction.DELETE -> {
-                        firebaseDataSource.delete(unsyncedJetpack.toFirebaseJetpack())
+                        firebaseDataSource.delete(
+                            unsyncedJetpack
+                                .toFirebaseJetpack()
+                                .copy(
+                                    lastSynced = System.currentTimeMillis(),
+                                ),
+                        )
                     }
 
                     SyncAction.NONE -> {

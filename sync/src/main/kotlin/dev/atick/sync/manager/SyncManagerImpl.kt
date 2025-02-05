@@ -21,6 +21,7 @@ import androidx.work.WorkInfo
 import androidx.work.WorkInfo.State
 import androidx.work.WorkManager
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dev.atick.data.utils.SyncManager
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.conflate
 import kotlinx.coroutines.flow.map
@@ -38,7 +39,7 @@ class SyncManagerImpl @Inject constructor(
             .map(List<WorkInfo>::anyRunning)
             .conflate()
 
-    override suspend fun requestSync() {
+    override fun requestSync() {
         Timber.d("Requesting sync")
         Sync.initialize(context)
     }

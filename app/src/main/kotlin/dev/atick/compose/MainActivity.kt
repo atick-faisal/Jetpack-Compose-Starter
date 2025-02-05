@@ -40,6 +40,7 @@ import dev.atick.compose.ui.rememberJetpackAppState
 import dev.atick.core.network.utils.NetworkUtils
 import dev.atick.core.preferences.models.DarkThemeConfigPreferences
 import dev.atick.core.preferences.models.UserDataPreferences
+import dev.atick.core.ui.extensions.checkForPermissions
 import dev.atick.core.ui.extensions.isSystemInDarkTheme
 import dev.atick.core.ui.theme.JetpackTheme
 import dev.atick.core.ui.utils.UiState
@@ -138,6 +139,10 @@ class MainActivity : ComponentActivity() {
         // Configure required permissions
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             permissions.add(Manifest.permission.POST_NOTIFICATIONS)
+        }
+
+        checkForPermissions(permissions) {
+            // Permissions granted
         }
     }
 }

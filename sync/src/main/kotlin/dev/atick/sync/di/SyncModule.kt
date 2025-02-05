@@ -20,7 +20,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.sync.manager.SyncManager
+import dev.atick.data.utils.SyncManager
 import dev.atick.sync.manager.SyncManagerImpl
 import javax.inject.Singleton
 
