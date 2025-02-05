@@ -28,6 +28,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.RocketLaunch
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -62,6 +64,7 @@ import dev.atick.compose.navigation.JetpackNavHost
 import dev.atick.compose.navigation.TopLevelDestination
 import dev.atick.core.ui.components.AppBackground
 import dev.atick.core.ui.components.AppGradientBackground
+import dev.atick.core.ui.components.JetpackExtendedFab
 import dev.atick.core.ui.components.JetpackNavigationSuiteScaffold
 import dev.atick.core.ui.components.JetpackNavigationSuiteScope
 import dev.atick.core.ui.components.JetpackTopAppBarWithAvatar
@@ -222,6 +225,15 @@ internal fun JetpackScaffold(
         contentColor = MaterialTheme.colorScheme.onBackground,
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
         snackbarHost = { SnackbarHost(snackbarHostState) },
+        floatingActionButton = {
+            if (appState.shouldShowFab) {
+                JetpackExtendedFab(
+                    icon = Icons.Default.RocketLaunch,
+                    text = R.string.add,
+                    onClick = appState::navigateToItemScreen,
+                )
+            }
+        },
     ) { padding ->
         Column(
             Modifier

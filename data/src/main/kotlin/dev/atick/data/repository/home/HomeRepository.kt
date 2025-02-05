@@ -23,7 +23,7 @@ import kotlinx.coroutines.flow.Flow
 /**
  * Interface defining operations for interacting with the home repository.
  */
-interface HomeRepository: Syncable {
+interface HomeRepository : Syncable {
     /**
      * Retrieves a list of all jetpacks.
      *
@@ -40,20 +40,12 @@ interface HomeRepository: Syncable {
     fun getJetpack(id: String): Flow<Jetpack>
 
     /**
-     * Inserts a new jetpack into the repository.
+     * Creates or updates a jetpack in the repository.
      *
-     * @param jetpack The Jetpack object to insert.
+     * @param jetpack The Jetpack object to create or update.
      * @return A Result indicating the success or failure of the operation.
      */
-    suspend fun insertJetpack(jetpack: Jetpack): Result<Unit>
-
-    /**
-     * Updates an existing jetpack in the repository.
-     *
-     * @param jetpack The Jetpack object to update.
-     * @return A Result indicating the success or failure of the operation.
-     */
-    suspend fun updateJetpack(jetpack: Jetpack): Result<Unit>
+    suspend fun createOrUpdateJetpack(jetpack: Jetpack): Result<Unit>
 
     /**
      * Marks a jetpack as deleted in the repository.

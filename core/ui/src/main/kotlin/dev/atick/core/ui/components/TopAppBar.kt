@@ -17,6 +17,7 @@
 package dev.atick.core.ui.components
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -140,6 +141,7 @@ fun JetpackActionBar(
     @StringRes actionRes: Int,
     onActionClick: () -> Unit,
     onNavigateBackClick: () -> Unit,
+    colors: TopAppBarColors = TopAppBarDefaults.topAppBarColors(),
     modifier: Modifier = Modifier,
 ) {
     TopAppBar(
@@ -153,10 +155,11 @@ fun JetpackActionBar(
             }
         },
         actions = {
-            JetpackButton(onClick = onActionClick) {
+            JetpackButton(onClick = onActionClick, modifier = Modifier.padding(end = 16.dp)) {
                 Text(text = stringResource(id = actionRes))
             }
         },
+        colors = colors,
         modifier = modifier,
     )
 }

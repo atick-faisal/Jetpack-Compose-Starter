@@ -56,7 +56,7 @@ class FirebaseDataSourceImpl @Inject constructor(
         }
     }
 
-    override suspend fun update(firebaseJetpack: FirebaseJetpack) {
+    override suspend fun createOrUpdate(firebaseJetpack: FirebaseJetpack) {
         withContext(ioDispatcher) {
             database
                 .document(checkAuthentication(userId))

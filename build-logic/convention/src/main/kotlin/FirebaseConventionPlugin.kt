@@ -19,7 +19,7 @@ class FirebaseConventionPlugin : Plugin<Project> {
                 add("implementation", platform(firebaseBom))
                 "implementation"(libs.findLibrary("firebase.analytics").get())
                 "implementation"(libs.findLibrary("firebase.crashlytics").get())
-//                "implementation"(libs.findLibrary("firebase.perf").get())
+                "implementation"(libs.findLibrary("firebase.perf").get())
             }
         }
     }

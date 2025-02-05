@@ -34,6 +34,7 @@ import dev.atick.core.extensions.stateInDelayed
 import dev.atick.core.network.utils.NetworkState
 import dev.atick.core.network.utils.NetworkUtils
 import dev.atick.feature.home.navigation.navigateToHomeNavGraph
+import dev.atick.feature.home.navigation.navigateToItemScreen
 import dev.atick.feature.profile.navigation.navigateToProfile
 import dev.atick.firebase.analytics.utils.CrashReporter
 import kotlinx.coroutines.CoroutineScope
@@ -157,6 +158,19 @@ class JetpackAppState(
     val topLevelDestinationsWithUnreadResources: StateFlow<Set<TopLevelDestination>> =
         // TODO: Requires Implementation
         MutableStateFlow(setOf<TopLevelDestination>()).asStateFlow()
+
+    /**
+     * Indicates if the FAB should be shown.
+     */
+    val shouldShowFab: Boolean
+        @Composable get() = currentTopLevelDestination == TopLevelDestination.HOME
+
+    /**
+     * Navigates to the item screen with no item ID (creates new item).
+     */
+    fun navigateToItemScreen() {
+        navController.navigateToItemScreen(null)
+    }
 
     /**
      * Navigates to the specified top-level destination.

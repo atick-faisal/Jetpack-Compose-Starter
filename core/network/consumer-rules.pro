@@ -20,7 +20,7 @@
 # ... (https://github.com/square/retrofit/issues/3751)
 
 # Keep model classes used for deserialization by Retrofit.
--keep class dev.atick.network.models.** { *; }
+-keep class dev.atick.core.network.models.** { *; }
 
 # Retrofit does reflection on generic parameters. InnerClasses is required to use Signature and
 # EnclosingMethod is required to use InnerClasses.

@@ -49,7 +49,7 @@ fun Jetpack.toFirebaseJetpack(): FirebaseJetpack {
         name = name,
         price = price,
         lastUpdated = lastUpdated,
-        lastSynced = lastSynced,
+        lastSynced = System.currentTimeMillis(),
     )
 }
 

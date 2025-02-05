@@ -50,11 +50,11 @@ interface FirebaseDataSource {
     suspend fun create(firebaseJetpack: FirebaseJetpack)
 
     /**
-     * Updates an existing FirebaseJetpack object in the database.
+     * Creates or updates a FirebaseJetpack object in the database.
      *
-     * @param firebaseJetpack The FirebaseJetpack object to update.
+     * @param firebaseJetpack The FirebaseJetpack object to create or update.
      */
-    suspend fun update(firebaseJetpack: FirebaseJetpack)
+    suspend fun createOrUpdate(firebaseJetpack: FirebaseJetpack)
 
     /**
      * Deletes a FirebaseJetpack object from the database.
