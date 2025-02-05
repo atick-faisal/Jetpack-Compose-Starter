@@ -62,16 +62,16 @@ include(":core:ui")
 // ... Data
 include(":data")
 
-// ... Firebase
-include(":firebase:analytics")
-include(":firebase:firestore")
-include(":firebase:auth")
-
 // ... Feature
 include(":feature:auth")
 include(":feature:home")
 include(":feature:profile")
 include(":feature:settings")
+
+// ... Firebase
+include(":firebase:analytics")
+include(":firebase:firestore")
+include(":firebase:auth")
 
 // ... Sync
 include(":sync")
