@@ -40,13 +40,23 @@ rootProject {
                         "android" to "true",
                     ),
                 )
+                /* TODO: Add custom ruleset
+                    .customRuleSets(
+                        listOf(
+                            "io.nlopez.compose.rules:ktlint:0.4.16",
+                        ),
+                    )
+                 */
                 licenseHeaderFile(rootProject.file("spotless/copyright.kt"))
             }
             groovy {
                 target("**/*.gradle")
                 targetExclude("**/build/**/*.gradle")
                 // Look for the first line that doesn't have a block comment (assumed to be the license)
-                licenseHeaderFile(rootProject.file("spotless/copyright.gradle"), "(^(?![\\/ ]\\*).*$)")
+                licenseHeaderFile(
+                    rootProject.file("spotless/copyright.gradle"),
+                    "(^(?![\\/ ]\\*).*$)",
+                )
             }
             format("kts") {
                 target("**/*.kts")

@@ -91,7 +91,7 @@ fun SettingsDialog(
 }
 
 @Composable
-fun SettingsDialog(
+private fun SettingsDialog(
     settings: Settings,
     onDismiss: () -> Unit,
     onChangeDynamicColorPreference: (useDynamicColor: Boolean) -> Unit,

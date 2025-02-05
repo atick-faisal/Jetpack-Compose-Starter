@@ -45,7 +45,7 @@ import dev.atick.data.models.Profile
 import dev.atick.feature.profile.R
 
 @Composable
-internal fun ProfileRoute(
+fun ProfileRoute(
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
     profileViewModel: ProfileViewModel = hiltViewModel(),
 ) {
