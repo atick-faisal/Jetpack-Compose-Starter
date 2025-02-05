@@ -32,6 +32,14 @@ interface UserPreferencesDataSource {
     val userDataPreferences: Flow<UserDataPreferences>
 
     /**
+     * Retrieves the user ID or throws an exception if the user is not authenticated.
+     *
+     * @return The user ID as a [String].
+     * @throws IllegalStateException if the user is not authenticated.
+     */
+    suspend fun getUserIdOrThrow(): String
+
+    /**
      * Sets the user profile in the user preferences.
      *
      * @param preferencesUserProfile The user ID to be set.

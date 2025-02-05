@@ -37,10 +37,11 @@ interface FirebaseDataSource {
     /**
      * Pulls a list of FirebaseJetpack objects that have been updated since the last sync.
      *
+     * @param userId The unique identifier of the user.
      * @param lastSynced The timestamp of the last sync.
      * @return A list of FirebaseJetpack objects.
      */
-    suspend fun pull(lastSynced: Long): List<FirebaseJetpack>
+    suspend fun pull(userId: String, lastSynced: Long): List<FirebaseJetpack>
 
     /**
      * Creates a new FirebaseJetpack object in the database.

@@ -33,7 +33,7 @@ import javax.inject.Inject
  * Annotates a ViewModel class that is managed by Hilt's dependency injection system.
  *
  * @constructor Creates a [MainActivityViewModel] instance.
- * @param settingsRepository The repository providing access to user data.
+ * @param userPreferencesDataSource The repository providing access to user data.
  */
 @HiltViewModel
 class MainActivityViewModel @Inject constructor(

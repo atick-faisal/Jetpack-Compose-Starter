@@ -16,7 +16,6 @@
 
 package dev.atick.firebase.firestore.data
 
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import dev.atick.core.di.IoDispatcher
 import dev.atick.firebase.firestore.models.FirebaseJetpack
@@ -27,14 +26,12 @@ import javax.inject.Inject
 
 class FirebaseDataSourceImpl @Inject constructor(
     firestore: FirebaseFirestore,
-    firebaseAuth: FirebaseAuth,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : FirebaseDataSource {
 
     private val database = firestore.collection(FirebaseDataSource.DATABASE_NAME)
-    private val userId by lazy { firebaseAuth.currentUser?.uid }
 
-    override suspend fun pull(lastSynced: Long): List<FirebaseJetpack> {
+    override suspend fun pull(userId: String, lastSynced: Long): List<FirebaseJetpack> {
         return withContext(ioDispatcher) {
             database
                 .document(checkAuthentication(userId))
@@ -49,7 +46,7 @@ class FirebaseDataSourceImpl @Inject constructor(
     override suspend fun create(firebaseJetpack: FirebaseJetpack) {
         withContext(ioDispatcher) {
             database
-                .document(checkAuthentication(userId))
+                .document(checkAuthentication(firebaseJetpack.userId))
                 .collection(FirebaseDataSource.COLLECTION_NAME)
                 .add(firebaseJetpack)
                 .await()
@@ -59,7 +56,7 @@ class FirebaseDataSourceImpl @Inject constructor(
     override suspend fun createOrUpdate(firebaseJetpack: FirebaseJetpack) {
         withContext(ioDispatcher) {
             database
-                .document(checkAuthentication(userId))
+                .document(checkAuthentication(firebaseJetpack.userId))
                 .collection(FirebaseDataSource.COLLECTION_NAME)
                 .document(firebaseJetpack.id)
                 .set(firebaseJetpack)
@@ -70,7 +67,7 @@ class FirebaseDataSourceImpl @Inject constructor(
     override suspend fun delete(firebaseJetpack: FirebaseJetpack) {
         withContext(ioDispatcher) {
             database
-                .document(checkAuthentication(userId))
+                .document(checkAuthentication(firebaseJetpack.userId))
                 .collection(FirebaseDataSource.COLLECTION_NAME)
                 .document(firebaseJetpack.id)
                 .delete()

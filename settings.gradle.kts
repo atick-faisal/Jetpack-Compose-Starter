@@ -52,28 +52,26 @@ develocity {
 rootProject.name = "Jetpack"
 include(":app")
 
+// ... Core
 include(":core:android")
 include(":core:network")
 include(":core:preferences")
 include(":core:room")
 include(":core:ui")
 
+// ... Data
 include(":data")
-//include(":settings")
-//include(":storage:firebase")
 
-
+// ... Firebase
 include(":firebase:analytics")
 include(":firebase:firestore")
 include(":firebase:auth")
 
+// ... Feature
 include(":feature:auth")
 include(":feature:home")
 include(":feature:profile")
 include(":feature:settings")
 
+// ... Sync
 include(":sync")
-
-// Demo Application
-// Can be removed if not needed
-//include(":demo")
