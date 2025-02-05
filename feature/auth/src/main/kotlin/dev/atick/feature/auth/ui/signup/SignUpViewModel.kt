@@ -17,6 +17,7 @@
 package dev.atick.feature.auth.ui.signup
 
 import android.app.Activity
+import androidx.compose.runtime.Immutable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -32,6 +33,11 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
+/**
+ * [ViewModel] for [SignUpScreen].
+ *
+ * @param authRepository [AuthRepository].
+ */
 @HiltViewModel
 class SignUpViewModel @Inject constructor(
     private val authRepository: AuthRepository,
@@ -88,6 +94,14 @@ class SignUpViewModel @Inject constructor(
     }
 }
 
+/**
+ * Data for [SignUpScreen].
+ *
+ * @param name [TextFiledData].
+ * @param email [TextFiledData].
+ * @param password [TextFiledData].
+ */
+@Immutable
 data class SignUpScreenData(
     val name: TextFiledData = TextFiledData(String()),
     val email: TextFiledData = TextFiledData(String()),

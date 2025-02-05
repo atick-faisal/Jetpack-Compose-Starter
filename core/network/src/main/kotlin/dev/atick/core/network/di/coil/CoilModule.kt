@@ -29,6 +29,9 @@ import dev.atick.core.network.BuildConfig
 import okhttp3.Call
 import javax.inject.Singleton
 
+/**
+ * Module that provides the [ImageLoader] instance for Coil.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object CoilModule {

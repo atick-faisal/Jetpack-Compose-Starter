@@ -28,6 +28,11 @@ import kotlinx.coroutines.flow.map
 import timber.log.Timber
 import javax.inject.Inject
 
+/**
+ * Implementation of [SyncManager].
+ *
+ * @param context [Context].
+ */
 class SyncManagerImpl @Inject constructor(
     @ApplicationContext private val context: Context,
 ) : SyncManager {
@@ -39,6 +44,9 @@ class SyncManagerImpl @Inject constructor(
             .map(List<WorkInfo>::anyRunning)
             .conflate()
 
+    /**
+     * Requests a sync operation.
+     */
     override fun requestSync() {
         Timber.d("Requesting sync")
         Sync.initialize(context)

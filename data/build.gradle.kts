@@ -24,11 +24,13 @@ android {
 }
 
 dependencies {
-    // ... Modules
+    // ... Core
     implementation(project(":core:android"))
     implementation(project(":core:network"))
     implementation(project(":core:preferences"))
     implementation(project(":core:room"))
+
+    // ... Firebase
     implementation(project(":firebase:auth"))
     implementation(project(":firebase:firestore"))
 }

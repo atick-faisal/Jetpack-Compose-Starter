@@ -16,6 +16,7 @@
 
 package dev.atick.feature.home.ui.item
 
+import androidx.compose.runtime.Immutable
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -37,6 +38,12 @@ import kotlinx.coroutines.flow.onEach
 import java.util.UUID
 import javax.inject.Inject
 
+/**
+ * Item view model.
+ *
+ * @param homeRepository [HomeRepository].
+ * @param savedStateHandle [SavedStateHandle].
+ */
 @HiltViewModel
 class ItemViewModel @Inject constructor(
     private val homeRepository: HomeRepository,
@@ -86,6 +93,15 @@ class ItemViewModel @Inject constructor(
     }
 }
 
+/**
+ * Item screen data.
+ *
+ * @param jetpackId The jetpack ID.
+ * @param jetpackName The jetpack name.
+ * @param jetpackPrice The jetpack price.
+ * @param navigateBack The navigate back event.
+ */
+@Immutable
 data class ItemScreenData(
     val jetpackId: String = UUID.randomUUID().toString(),
     val jetpackName: String = "",

@@ -19,11 +19,22 @@ package dev.atick.data.models
 import dev.atick.core.preferences.models.PreferencesUserProfile
 import dev.atick.core.preferences.models.UserDataPreferences
 
+/**
+ * Data class representing a user profile.
+ *
+ * @property userName The name of the user.
+ * @property profilePictureUri The URI of the user's profile picture.
+ */
 data class Profile(
     val userName: String = String(),
     val profilePictureUri: String? = null,
 )
 
+/**
+ * Extension function to convert UserDataPreferences to Profile.
+ *
+ * @return A Profile object with data from UserDataPreferences.
+ */
 fun UserDataPreferences.toProfile(): Profile {
     return Profile(
         userName = userName ?: "Anonymous",
@@ -31,6 +42,11 @@ fun UserDataPreferences.toProfile(): Profile {
     )
 }
 
+/**
+ * Extension function to convert Profile to PreferencesUserProfile.
+ *
+ * @return A PreferencesUserProfile object with data from Profile.
+ */
 fun Profile.toPreferencesUserProfile(): PreferencesUserProfile {
     return PreferencesUserProfile(
         userName = userName,

@@ -35,6 +35,14 @@ import kotlinx.coroutines.flow.map
 import timber.log.Timber
 import javax.inject.Inject
 
+/**
+ * Implementation of [HomeRepository].
+ *
+ * @param localDataSource [LocalDataSource].
+ * @param preferencesDataSource [UserPreferencesDataSource].
+ * @param firebaseDataSource [FirebaseDataSource].
+ * @param syncManager [SyncManager].
+ */
 class HomeRepositoryImpl @Inject constructor(
     private val localDataSource: LocalDataSource,
     private val preferencesDataSource: UserPreferencesDataSource,
@@ -44,6 +52,11 @@ class HomeRepositoryImpl @Inject constructor(
 
     // TODO: Implement userId caching that respects sign out
 
+    /**
+     * Get all jetpacks.
+     *
+     * @return A [Flow] of a list of [Jetpack].
+     */
     override fun getJetpacks(): Flow<List<Jetpack>> {
         // Request a sync when fetching jetpacks
         // TODO: This should be done in a more efficient way
@@ -56,10 +69,22 @@ class HomeRepositoryImpl @Inject constructor(
         }
     }
 
+    /**
+     * Get a jetpack by its ID.
+     *
+     * @param id The ID of the jetpack.
+     * @return A [Flow] of a [Jetpack].
+     */
     override fun getJetpack(id: String): Flow<Jetpack> {
         return localDataSource.getJetpack(id).map { it.toJetpack() }
     }
 
+    /**
+     * Create or update a jetpack.
+     *
+     * @param jetpack The jetpack to create or update.
+     * @return A [Result] indicating the success or failure of the operation.
+     */
     override suspend fun createOrUpdateJetpack(jetpack: Jetpack): Result<Unit> {
         val userId = preferencesDataSource.getUserIdOrThrow()
         return suspendRunCatching {
@@ -77,6 +102,12 @@ class HomeRepositoryImpl @Inject constructor(
         }
     }
 
+    /**
+     * Mark a jetpack as deleted.
+     *
+     * @param jetpack The jetpack to mark as deleted.
+     * @return A [Result] indicating the success or failure of the operation.
+     */
     override suspend fun markJetpackAsDeleted(jetpack: Jetpack): Result<Unit> {
         return suspendRunCatching {
             localDataSource.markJetpackAsDeleted(jetpack.id)
@@ -84,6 +115,11 @@ class HomeRepositoryImpl @Inject constructor(
         }
     }
 
+    /**
+     * Sync jetpacks with the remote data source.
+     *
+     * @return A [Flow] of [SyncProgress].
+     */
     override suspend fun sync(): Flow<SyncProgress> {
         return flow {
             val userId = preferencesDataSource.getUserIdOrThrow()

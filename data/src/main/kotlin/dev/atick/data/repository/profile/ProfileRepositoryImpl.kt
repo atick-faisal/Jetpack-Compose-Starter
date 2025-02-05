@@ -25,14 +25,31 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
+/**
+ * Implementation of the ProfileRepository interface.
+ *
+ * @property userPreferencesDataSource Data source for user preferences.
+ * @property authDataSource Data source for authentication.
+ */
 class ProfileRepositoryImpl @Inject constructor(
     private val userPreferencesDataSource: UserPreferencesDataSource,
     private val authDataSource: AuthDataSource,
 ) : ProfileRepository {
+
+    /**
+     * Retrieves the user profile as a Flow.
+     *
+     * @return A Flow emitting the user profile.
+     */
     override fun getProfile(): Flow<Profile> {
         return userPreferencesDataSource.userDataPreferences.map { it.toProfile() }
     }
 
+    /**
+     * Signs out the user and resets user preferences.
+     *
+     * @return A Result indicating the success or failure of the operation.
+     */
     override suspend fun signOut(): Result<Unit> {
         return suspendRunCatching {
             authDataSource.signOut()

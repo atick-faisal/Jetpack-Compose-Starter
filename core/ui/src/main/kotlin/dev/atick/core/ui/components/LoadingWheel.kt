@@ -49,6 +49,12 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 
+/**
+ * Composable function that represents the loading wheel in the Jetpack application.
+ *
+ * @param contentDesc The content description for the loading wheel.
+ * @param modifier The modifier to be applied to the loading wheel.
+ */
 @Composable
 fun JetpackLoadingWheel(
     contentDesc: String,
@@ -130,6 +136,12 @@ fun JetpackLoadingWheel(
     }
 }
 
+/**
+ * Composable function that represents the loading wheel in the Jetpack application with an overlay.
+ *
+ * @param contentDesc The content description for the loading wheel.
+ * @param modifier The modifier to be applied to the loading wheel.
+ */
 @Composable
 fun JetpackOverlayLoadingWheel(
     contentDesc: String,

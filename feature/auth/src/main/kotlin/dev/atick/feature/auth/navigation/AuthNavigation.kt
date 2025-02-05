@@ -26,27 +26,57 @@ import dev.atick.feature.auth.ui.signin.SignInRoute
 import dev.atick.feature.auth.ui.signup.SignUpRoute
 import kotlinx.serialization.Serializable
 
+/**
+ * Auth navigation graph.
+ */
 @Serializable
 data object AuthNavGraph
 
+/**
+ * Sign in route.
+ */
 @Serializable
 data object SignIn
 
+/**
+ * Sign up route.
+ */
 @Serializable
 data object SignUp
 
+/**
+ * Navigate to the auth navigation graph.
+ *
+ * @param navOptions [NavOptions].
+ */
 fun NavController.navigateToAuthNavGraph(navOptions: NavOptions? = null) {
     navigate(AuthNavGraph, navOptions)
 }
 
+/**
+ * Navigate to the sign in route.
+ *
+ * @param navOptions [NavOptions].
+ */
 fun NavController.navigateToSignInRoute(navOptions: NavOptions? = null) {
     navigate(SignIn, navOptions)
 }
 
+/**
+ * Navigate to the sign up route.
+ *
+ * @param navOptions [NavOptions].
+ */
 fun NavController.navigateToSignUpRoute(navOptions: NavOptions? = null) {
     navigate(SignUp, navOptions)
 }
 
+/**
+ * Sign in screen.
+ *
+ * @param onSignUpClick Callback when sign up is clicked.
+ * @param onShowSnackbar Callback to show a snackbar.
+ */
 fun NavGraphBuilder.signInScreen(
     onSignUpClick: () -> Unit,
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
@@ -59,6 +89,12 @@ fun NavGraphBuilder.signInScreen(
     }
 }
 
+/**
+ * Sign up screen.
+ *
+ * @param onSignInClick Callback when sign in is clicked.
+ * @param onShowSnackbar Callback to show a snackbar.
+ */
 fun NavGraphBuilder.signUpScreen(
     onSignInClick: () -> Unit,
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
@@ -71,6 +107,11 @@ fun NavGraphBuilder.signUpScreen(
     }
 }
 
+/**
+ * Auth navigation graph.
+ *
+ * @param nestedNavGraphs Nested navigation graphs.
+ */
 fun NavGraphBuilder.authNavGraph(
     nestedNavGraphs: NavGraphBuilder.() -> Unit,
 ) {

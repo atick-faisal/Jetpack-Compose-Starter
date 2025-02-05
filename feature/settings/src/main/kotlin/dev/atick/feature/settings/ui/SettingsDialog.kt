@@ -64,6 +64,13 @@ import dev.atick.data.models.settings.DarkThemeConfig
 import dev.atick.data.models.settings.Settings
 import dev.atick.feature.settings.R
 
+/**
+ * Settings dialog.
+ *
+ * @param onDismiss Callback when the dialog is dismissed.
+ * @param onShowSnackbar Callback to show a snackbar.
+ * @param settingsViewModel [SettingsViewModel].
+ */
 @Composable
 fun SettingsDialog(
     onDismiss: () -> Unit,
@@ -90,6 +97,16 @@ fun SettingsDialog(
     }
 }
 
+/**
+ * Settings dialog.
+ *
+ * @param settings [Settings].
+ * @param onDismiss Callback when the dialog is dismissed.
+ * @param onChangeDynamicColorPreference Callback when the dynamic color preference is changed.
+ * @param onChangeDarkThemeConfig Callback when the dark theme config is changed.
+ * @param onSignOut Callback when the user signs out.
+ * @param supportDynamicColor Whether dynamic color is supported.
+ */
 @Composable
 private fun SettingsDialog(
     settings: Settings,
@@ -148,7 +165,17 @@ private fun SettingsDialog(
     )
 }
 
-// [ColumnScope] is used for using the [ColumnScope.AnimatedVisibility] extension overload composable.
+/**
+ * Settings panel.
+ * ColumnScope] is used for using the [ColumnScope.AnimatedVisibility] extension overload composable.
+ *
+ * @param settings [Settings].
+ * @param supportDynamicColor Whether dynamic color is supported.
+ * @param onChangeDynamicColorPreference Callback when the dynamic color preference is changed.
+ * @param onChangeDarkThemeConfig Callback when the dark theme config is changed.
+ * @param onSignOut Callback when the user signs out.
+ * @param onDismiss Callback when the dialog is dismissed.
+ */
 @Composable
 private fun ColumnScope.SettingsPanel(
     settings: Settings,
@@ -205,6 +232,11 @@ private fun ColumnScope.SettingsPanel(
     }
 }
 
+/**
+ * Settings dialog section title.
+ *
+ * @param text The title text.
+ */
 @Composable
 private fun SettingsDialogSectionTitle(text: String) {
     Text(
@@ -214,6 +246,13 @@ private fun SettingsDialogSectionTitle(text: String) {
     )
 }
 
+/**
+ * Settings dialog theme chooser row.
+ *
+ * @param text The text to display.
+ * @param selected Whether the row is selected.
+ * @param onClick Callback when the row is clicked.
+ */
 @Composable
 fun SettingsDialogThemeChooserRow(
     text: String,
@@ -240,6 +279,9 @@ fun SettingsDialogThemeChooserRow(
     }
 }
 
+/**
+ * Links panel.
+ */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun LinksPanel() {

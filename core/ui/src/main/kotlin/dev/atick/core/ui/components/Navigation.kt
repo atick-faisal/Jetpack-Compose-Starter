@@ -230,7 +230,10 @@ fun JetpackNavigationSuiteScaffold(
 }
 
 /**
- * A wrapper around [NavigationSuiteScope] to declare navigation items.
+ * Jetpack navigation suite scope for setting item properties.
+ *
+ * @param navigationSuiteScope The navigation suite scope.
+ * @param navigationSuiteItemColors The navigation suite item colors.
  */
 class JetpackNavigationSuiteScope internal constructor(
     private val navigationSuiteScope: NavigationSuiteScope,

@@ -21,7 +21,9 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 /**
- * A class to model background color and tonal elevation values.
+ * Data class that holds the tint theme.
+ *
+ * @param iconTint The color of the icon tint.
  */
 @Immutable
 data class TintTheme(

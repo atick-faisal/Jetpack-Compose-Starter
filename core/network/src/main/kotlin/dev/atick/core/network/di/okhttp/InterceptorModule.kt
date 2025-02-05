@@ -33,9 +33,9 @@ import javax.inject.Singleton
 object InterceptorModule {
 
     /**
-     * Provides [HttpLoggingInterceptor].
+     * Provides a [HttpLoggingInterceptor] for logging network requests and responses.
      *
-     * @return [HttpLoggingInterceptor].
+     * @return A [HttpLoggingInterceptor] instance.
      */
     @Provides
     @Singleton

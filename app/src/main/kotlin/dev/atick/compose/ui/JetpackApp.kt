@@ -136,7 +136,7 @@ fun JetpackApp(
  * @param windowAdaptiveInfo The window adaptive information.
  */
 @Composable
-internal fun JetpackApp(
+private fun JetpackApp(
     appState: JetpackAppState,
     snackbarHostState: SnackbarHostState,
     showSettingsDialog: Boolean,
@@ -213,7 +213,7 @@ internal fun JetpackApp(
  * @param modifier The modifier to be applied to the Jetpack scaffold.
  */
 @Composable
-internal fun JetpackScaffold(
+private fun JetpackScaffold(
     appState: JetpackAppState,
     snackbarHostState: SnackbarHostState,
     onTopAppBarActionClick: () -> Unit,

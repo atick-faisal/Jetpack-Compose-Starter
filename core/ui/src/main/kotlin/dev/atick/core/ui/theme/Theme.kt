@@ -154,5 +154,8 @@ fun JetpackTheme(
     }
 }
 
+/**
+ * Checks if the current device supports dynamic theming.
+ */
 @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.S)
 fun supportsDynamicTheming() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S

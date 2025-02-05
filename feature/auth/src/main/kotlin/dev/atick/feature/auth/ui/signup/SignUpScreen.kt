@@ -59,6 +59,13 @@ import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.feature.auth.R
 
+/**
+ * Composable function for the SignUp route.
+ *
+ * @param onSignInClick Callback to be invoked when the sign-in button is clicked.
+ * @param onShowSnackbar Callback to show a snackbar with a message, action, and optional error.
+ * @param signUpViewModel ViewModel for the SignUp screen, default is provided by Hilt.
+ */
 @Composable
 fun SignUpRoute(
     onSignInClick: () -> Unit,
@@ -83,6 +90,17 @@ fun SignUpRoute(
     }
 }
 
+/**
+ * Composable function for the SignUp screen.
+ *
+ * @param screenData [SignUpScreenData].
+ * @param onNameChange Callback to update the name.
+ * @param onEmailChange Callback to update the email.
+ * @param onPasswordChange Callback to update the password.
+ * @param onRegisterWithGoogleClick Callback to register with Google.
+ * @param onSignUpClick Callback to register with email and password.
+ * @param onSignInClick Callback to navigate to the sign-in screen.
+ */
 @Composable
 private fun SignUpScreen(
     screenData: SignUpScreenData,

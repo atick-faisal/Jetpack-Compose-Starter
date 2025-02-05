@@ -97,6 +97,9 @@ fun JetpackTabRow(
     )
 }
 
+/**
+ * Jetpack tab default values.
+ */
 object JetpackTabDefaults {
     val TabTopPadding = 7.dp
 }

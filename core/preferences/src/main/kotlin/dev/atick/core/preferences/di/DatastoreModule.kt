@@ -43,10 +43,11 @@ object DatastoreModule {
     private const val DATA_STORE_FILE_NAME = "user_preferences.json"
 
     /**
-     * Provide preferences datastore
+     * Provides the [DataStore] for [UserDataPreferences].
      *
-     * @param appContext application context
-     * @return DataStore
+     * @param appContext The application [Context].
+     * @param ioDispatcher The [CoroutineDispatcher] for performing I/O operations.
+     * @return The [DataStore] for [UserDataPreferences].
      */
     @Singleton
     @Provides

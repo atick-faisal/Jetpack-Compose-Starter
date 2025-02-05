@@ -25,6 +25,16 @@ import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
+/**
+ * Jetpack tag.
+ *
+ * @param modifier Modifier to be applied to the tag.
+ * @param followed Whether this tag is followed or not.
+ * @param onClick The callback to be invoked when this tag is clicked.
+ * @param enabled Controls the enabled state of the tag. When `false`, this tag will not be
+ * clickable and will appear disabled to accessibility services.
+ * @param text The text label content.
+ */
 @Composable
 fun JetpackTag(
     modifier: Modifier = Modifier,
