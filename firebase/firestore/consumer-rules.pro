@@ -1,2 +1,2 @@
 # Keep model classes used for deserialization.
--keep class dev.atick.storage.preferences.models.** { *; }
+-keep class dev.atick.firebase.firestore.models.** { *; }

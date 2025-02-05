@@ -18,21 +18,20 @@ package dev.atick.feature.home.ui.item
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawing
-import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.RocketLaunch
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -72,7 +71,7 @@ internal fun ItemRoute(
             price = screenData.jetpackPrice,
             onUpdateName = itemViewModel::updateName,
             onUpdatePrice = itemViewModel::updatePrice,
-            onSaveClick = itemViewModel::updateOrInsertJetpack,
+            onSaveClick = itemViewModel::createOrUpdateJetpack,
             onBackClick = onBackClick,
         )
     }
@@ -87,18 +86,37 @@ private fun ItemScreen(
     onSaveClick: () -> Unit,
     onBackClick: () -> Unit,
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 24.dp),
-    ) {
-        Spacer(Modifier.windowInsetsTopHeight(WindowInsets.safeDrawing))
+    Column(modifier = Modifier.fillMaxWidth()) {
         JetpackActionBar(
             titleRes = R.string.jetpack,
             actionRes = R.string.save,
             onActionClick = onSaveClick,
             onNavigateBackClick = onBackClick,
+            colors = TopAppBarDefaults.topAppBarColors(
+                containerColor = Color.Transparent,
+            ),
         )
+        EditItemForm(
+            name = name,
+            price = price,
+            onUpdateName = onUpdateName,
+            onUpdatePrice = onUpdatePrice,
+        )
+    }
+}
+
+@Composable
+private fun EditItemForm(
+    name: String,
+    price: Double,
+    onUpdateName: (String) -> Unit,
+    onUpdatePrice: (String) -> Unit,
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 24.dp),
+    ) {
         Spacer(modifier = Modifier.height(16.dp))
         JetpackTextFiled(
             value = name,

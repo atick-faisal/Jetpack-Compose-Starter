@@ -27,18 +27,10 @@ class HomeRepositoryImpl @Inject constructor(
         return localDataSource.getJetpack(id).map { it.toJetpack() }
     }
 
-    override suspend fun insertJetpack(jetpack: Jetpack): Result<Unit> {
-        return suspendRunCatching {
-            localDataSource.insertJetpack(jetpack.toJetpackEntity())
-            firebaseDataSource.create(jetpack.toFirebaseJetpack())
-            localDataSource.markAsSynced(jetpack.id)
-        }
-    }
-
-    override suspend fun updateJetpack(jetpack: Jetpack): Result<Unit> {
+    override suspend fun createOrUpdateJetpack(jetpack: Jetpack): Result<Unit> {
         return suspendRunCatching {
             localDataSource.updateJetpack(jetpack.toJetpackEntity())
-            firebaseDataSource.update(jetpack.toFirebaseJetpack())
+            firebaseDataSource.createOrUpdate(jetpack.toFirebaseJetpack())
             localDataSource.markAsSynced(jetpack.id)
         }
     }
@@ -76,7 +68,7 @@ class HomeRepositoryImpl @Inject constructor(
                     }
 
                     SyncAction.UPDATE -> {
-                        firebaseDataSource.update(unsyncedJetpack.toFirebaseJetpack())
+                        firebaseDataSource.createOrUpdate(unsyncedJetpack.toFirebaseJetpack())
                     }
 
                     SyncAction.DELETE -> {
