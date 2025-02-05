@@ -27,7 +27,6 @@ import dev.atick.feature.auth.navigation.navigateToSignInRoute
 import dev.atick.feature.auth.navigation.navigateToSignUpRoute
 import dev.atick.feature.auth.navigation.signInScreen
 import dev.atick.feature.auth.navigation.signUpScreen
-import dev.atick.feature.home.navigation.Home
 import dev.atick.feature.home.navigation.HomeNavGraph
 import dev.atick.feature.home.navigation.homeNavGraph
 import dev.atick.feature.home.navigation.homeScreen

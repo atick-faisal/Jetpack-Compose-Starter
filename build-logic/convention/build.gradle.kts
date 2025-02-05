@@ -19,6 +19,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 plugins {
     `kotlin-dsl`
+    alias(libs.plugins.android.lint)
 }
 
 group = "dev.atick.build.logic"
@@ -30,7 +31,7 @@ java {
     targetCompatibility = JavaVersion.values()[javaVersion - 1]
 }
 
-tasks.withType<KotlinJvmCompile>().configureEach {
+kotlin {
     compilerOptions {
         jvmTarget.set(JvmTarget.valueOf("JVM_$javaVersion"))
     }
@@ -40,6 +41,7 @@ dependencies {
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.compose.gradlePlugin)
+    lintChecks(libs.androidx.lint.gradle)
 }
 
 gradlePlugin {

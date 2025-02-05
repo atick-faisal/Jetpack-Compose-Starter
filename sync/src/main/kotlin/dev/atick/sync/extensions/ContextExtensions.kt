@@ -75,8 +75,10 @@ private fun Context.syncWorkNotification(total: Int, current: Int): Notification
  * @return The default pending intent for the notification.
  */
 private fun getDefaultIntent(context: Context) = PendingIntent.getActivity(
-    /* context = */ context,
-    /* requestCode = */ MAIN_DEFAULT_INTENT_REQUEST_CODE,
+    /* context = */
+    context,
+    /* requestCode = */
+    MAIN_DEFAULT_INTENT_REQUEST_CODE,
     /* intent = */
     Intent().apply {
         setClassName(
@@ -85,5 +87,6 @@ private fun getDefaultIntent(context: Context) = PendingIntent.getActivity(
         )
         addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     },
-    /* flags = */ PendingIntent.FLAG_IMMUTABLE,
+    /* flags = */
+    PendingIntent.FLAG_IMMUTABLE,
 )

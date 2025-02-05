@@ -116,7 +116,7 @@ fun JetpackApp(
                 appState = appState,
                 snackbarHostState = snackbarHostState,
                 showSettingsDialog = showSettingsDialog,
-                onSettingsDismissed = { showSettingsDialog = false },
+                onDismissSettings = { showSettingsDialog = false },
                 onTopAppBarActionClick = { showSettingsDialog = true },
                 windowAdaptiveInfo = windowAdaptiveInfo,
             )
@@ -130,7 +130,7 @@ fun JetpackApp(
  * @param appState The state of the Jetpack application.
  * @param snackbarHostState The state of the snack bar host.
  * @param showSettingsDialog Flag to show the settings dialog.
- * @param onSettingsDismissed Callback when the settings dialog is dismissed.
+ * @param onDismissSettings Callback when the settings dialog is dismissed.
  * @param onTopAppBarActionClick Callback when the top app bar action is clicked.
  * @param modifier The modifier to be applied to the Jetpack application.
  * @param windowAdaptiveInfo The window adaptive information.
@@ -140,7 +140,7 @@ internal fun JetpackApp(
     appState: JetpackAppState,
     snackbarHostState: SnackbarHostState,
     showSettingsDialog: Boolean,
-    onSettingsDismissed: () -> Unit,
+    onDismissSettings: () -> Unit,
     onTopAppBarActionClick: () -> Unit,
     modifier: Modifier = Modifier,
     windowAdaptiveInfo: WindowAdaptiveInfo = currentWindowAdaptiveInfo(),
@@ -156,7 +156,7 @@ internal fun JetpackApp(
     // Show the settings dialog if the flag is set
     if (showSettingsDialog) {
         SettingsDialog(
-            onDismiss = { onSettingsDismissed() },
+            onDismiss = { onDismissSettings() },
             onShowSnackbar = { message, action, throwable ->
                 val actionPerformed = snackbarHostState.showSnackbar(
                     message = message,

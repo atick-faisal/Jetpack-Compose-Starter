@@ -183,7 +183,7 @@ private fun SignUpScreen(
 
 @DevicePreviews
 @Composable
-fun SignUpScreenPreview() {
+private fun SignUpScreenPreview() {
     SignUpScreen(
         screenData = SignUpScreenData(),
         onNameChange = {},
