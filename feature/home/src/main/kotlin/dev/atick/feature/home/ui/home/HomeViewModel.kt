@@ -33,6 +33,11 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
+/**
+ * Home view model.
+ *
+ * @param homeRepository [HomeRepository].
+ */
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val homeRepository: HomeRepository,
@@ -49,6 +54,11 @@ class HomeViewModel @Inject constructor(
     }
 }
 
+/**
+ * Home screen data.
+ *
+ * @param jetpacks List of [Jetpack].
+ */
 @Immutable
 data class HomeScreenData(
     val jetpacks: List<Jetpack> = emptyList(),

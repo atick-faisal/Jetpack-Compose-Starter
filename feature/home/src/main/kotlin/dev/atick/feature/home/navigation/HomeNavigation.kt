@@ -26,23 +26,48 @@ import dev.atick.feature.home.ui.home.HomeRoute
 import dev.atick.feature.home.ui.item.ItemRoute
 import kotlinx.serialization.Serializable
 
+/**
+ * Home navigation.
+ */
 @Serializable
 data object Home
 
+/**
+ * Home navigation graph.
+ */
 @Serializable
 data object HomeNavGraph
 
+/**
+ * Item navigation.
+ */
 @Serializable
 data class Item(val itemId: String?)
 
+/**
+ * Navigates to the Home navigation graph.
+ *
+ * @param navOptions Optional navigation options to configure the navigation behavior.
+ */
 fun NavController.navigateToHomeNavGraph(navOptions: NavOptions? = null) {
     navigate(HomeNavGraph, navOptions)
 }
 
+/**
+ * Navigates to the Item screen.
+ *
+ * @param itemId The item ID.
+ */
 fun NavController.navigateToItemScreen(itemId: String?) {
     navigate(Item(itemId)) { launchSingleTop = true }
 }
 
+/**
+ * Home screen.
+ *
+ * @param onJetpackClick The click listener for the jetpack.
+ * @param onShowSnackbar The snackbar listener.
+ */
 fun NavGraphBuilder.homeScreen(
     onJetpackClick: (String) -> Unit,
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
@@ -55,6 +80,12 @@ fun NavGraphBuilder.homeScreen(
     }
 }
 
+/**
+ * Item screen.
+ *
+ * @param onBackClick The back click listener.
+ * @param onShowSnackbar The snackbar listener.
+ */
 fun NavGraphBuilder.itemScreen(
     onBackClick: () -> Unit,
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
@@ -67,6 +98,11 @@ fun NavGraphBuilder.itemScreen(
     }
 }
 
+/**
+ * Home navigation graph.
+ *
+ * @param nestedNavGraphs The nested navigation graphs.
+ */
 fun NavGraphBuilder.homeNavGraph(
     nestedNavGraphs: NavGraphBuilder.() -> Unit,
 ) {

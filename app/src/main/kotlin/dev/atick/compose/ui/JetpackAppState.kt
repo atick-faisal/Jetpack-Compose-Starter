@@ -97,7 +97,6 @@ fun rememberJetpackAppState(
  * @param coroutineScope The coroutine scope for managing coroutines.
  * @param networkUtils Utility for network state management.
  */
-@Suppress("MemberVisibilityCanBePrivate", "UNUSED")
 @Stable
 class JetpackAppState(
     val isUserLoggedIn: Boolean,

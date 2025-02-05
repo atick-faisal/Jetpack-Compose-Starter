@@ -34,6 +34,11 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
+/**
+ * [ViewModel] for [ProfileRoute].
+ *
+ * @param profileRepository [ProfileRepository].
+ */
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val profileRepository: ProfileRepository,

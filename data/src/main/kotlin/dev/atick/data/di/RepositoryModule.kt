@@ -30,27 +30,54 @@ import dev.atick.data.repository.settings.SettingsRepository
 import dev.atick.data.repository.settings.SettingsRepositoryImpl
 import javax.inject.Singleton
 
+/**
+ * Dagger module for providing repository implementations.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
+    /**
+     * Binds the implementation of [AuthRepository] to [AuthRepositoryImpl].
+     *
+     * @param authRepositoryImpl The implementation of [AuthRepository].
+     * @return The bound [AuthRepository] instance.
+     */
     @Binds
     @Singleton
     abstract fun bindAuthRepository(
         authRepositoryImpl: AuthRepositoryImpl,
     ): AuthRepository
 
+    /**
+     * Binds the implementation of [HomeRepository] to [HomeRepositoryImpl].
+     *
+     * @param homeRepositoryImpl The implementation of [HomeRepository].
+     * @return The bound [HomeRepository] instance.
+     */
     @Binds
     @Singleton
     abstract fun bindHomeRepository(
         homeRepositoryImpl: HomeRepositoryImpl,
     ): HomeRepository
 
+    /**
+     * Binds the implementation of [ProfileRepository] to [ProfileRepositoryImpl].
+     *
+     * @param profileRepositoryImpl The implementation of [ProfileRepository].
+     * @return The bound [ProfileRepository] instance.
+     */
     @Binds
     @Singleton
     abstract fun binProfileRepository(
         profileRepositoryImpl: ProfileRepositoryImpl,
     ): ProfileRepository
 
+    /**
+     * Binds the implementation of [SettingsRepository] to [SettingsRepositoryImpl].
+     *
+     * @param settingsRepositoryImpl The implementation of [SettingsRepository].
+     * @return The bound [SettingsRepository] instance.
+     */
     @Binds
     @Singleton
     abstract fun bindSettingsRepository(

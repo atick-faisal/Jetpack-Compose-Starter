@@ -17,6 +17,7 @@
 package dev.atick.feature.auth.ui.signin
 
 import android.app.Activity
+import androidx.compose.runtime.Immutable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -31,6 +32,11 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
+/**
+ * [ViewModel] for [SignInScreen].
+ *
+ * @param authRepository [AuthRepository].
+ */
 @HiltViewModel
 class SignInViewModel @Inject constructor(
     private val authRepository: AuthRepository,
@@ -80,6 +86,13 @@ class SignInViewModel @Inject constructor(
     }
 }
 
+/**
+ * Data for [SignInScreen].
+ *
+ * @param email [TextFiledData].
+ * @param password [TextFiledData].
+ */
+@Immutable
 data class SignInScreenData(
     val email: TextFiledData = TextFiledData(String()),
     val password: TextFiledData = TextFiledData(String()),

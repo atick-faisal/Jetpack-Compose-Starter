@@ -50,9 +50,11 @@ import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.data.models.home.Jetpack
 
 /**
- * Composable function that represents the home screen.
+ * Home route.
  *
- * @param homeViewModel The view model for the home screen.
+ * @param onJetpackClick The click listener for jetpacks.
+ * @param onShowSnackbar The snackbar callback.
+ * @param homeViewModel The [HomeViewModel].
  */
 @Composable
 internal fun HomeRoute(
@@ -74,6 +76,12 @@ internal fun HomeRoute(
     }
 }
 
+/**
+ * Home screen.
+ *
+ * @param screenData The screen data.
+ * @param onJetpackCLick The click listener for jetpacks.
+ */
 @Composable
 private fun HomeScreen(
     screenData: HomeScreenData,
@@ -96,6 +104,13 @@ private fun HomeScreen(
     }
 }
 
+/**
+ * Jetpack card.
+ *
+ * @param jetpack The jetpack.
+ * @param modifier The modifier.
+ * @param onClick The click listener.
+ */
 @Composable
 fun JetpackCard(
     jetpack: Jetpack,

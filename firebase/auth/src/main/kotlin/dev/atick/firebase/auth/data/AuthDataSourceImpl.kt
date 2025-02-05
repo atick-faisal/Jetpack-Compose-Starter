@@ -100,6 +100,7 @@ class AuthDataSourceImpl @Inject constructor(
      * @param name The user's name.
      * @param email The user's email address.
      * @param password The user's password.
+     * @param activity The activity instance.
      * @return The authenticated [AuthUser] upon successful registration.
      */
     override suspend fun registerWithEmailAndPassword(

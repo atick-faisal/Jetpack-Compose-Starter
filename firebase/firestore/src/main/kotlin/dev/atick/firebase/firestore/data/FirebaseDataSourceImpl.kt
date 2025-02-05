@@ -24,13 +24,29 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
+/**
+ * Implementation of [FirebaseDataSource].
+ *
+ * @param firestore [FirebaseFirestore].
+ * @param ioDispatcher [CoroutineDispatcher].
+ */
 class FirebaseDataSourceImpl @Inject constructor(
     firestore: FirebaseFirestore,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : FirebaseDataSource {
 
+    /**
+     * Firestore database reference.
+     */
     private val database = firestore.collection(FirebaseDataSource.DATABASE_NAME)
 
+    /**
+     * Pulls a list of [FirebaseJetpack] objects that have been updated since the last sync.
+     *
+     * @param userId The unique identifier of the user.
+     * @param lastSynced The timestamp of the last sync.
+     * @return A list of [FirebaseJetpack] objects.
+     */
     override suspend fun pull(userId: String, lastSynced: Long): List<FirebaseJetpack> {
         return withContext(ioDispatcher) {
             database
@@ -43,6 +59,11 @@ class FirebaseDataSourceImpl @Inject constructor(
         }
     }
 
+    /**
+     * Creates a new [FirebaseJetpack] object in the database.
+     *
+     * @param firebaseJetpack The [FirebaseJetpack] object to create.
+     */
     override suspend fun create(firebaseJetpack: FirebaseJetpack) {
         withContext(ioDispatcher) {
             database
@@ -53,6 +74,11 @@ class FirebaseDataSourceImpl @Inject constructor(
         }
     }
 
+    /**
+     * Creates or updates a [FirebaseJetpack] object in the database.
+     *
+     * @param firebaseJetpack The [FirebaseJetpack] object to create or update.
+     */
     override suspend fun createOrUpdate(firebaseJetpack: FirebaseJetpack) {
         withContext(ioDispatcher) {
             database
@@ -64,6 +90,11 @@ class FirebaseDataSourceImpl @Inject constructor(
         }
     }
 
+    /**
+     * Deletes a [FirebaseJetpack] object from the database.
+     *
+     * @param firebaseJetpack The [FirebaseJetpack] object to delete.
+     */
     override suspend fun delete(firebaseJetpack: FirebaseJetpack) {
         withContext(ioDispatcher) {
             database
@@ -75,6 +106,12 @@ class FirebaseDataSourceImpl @Inject constructor(
         }
     }
 
+    /**
+     * Checks if the user is authenticated.
+     *
+     * @param userId The unique identifier of the user.
+     * @return The user ID.
+     */
     private fun checkAuthentication(userId: String?): String {
         return userId ?: throw IllegalStateException("User not authenticated")
     }

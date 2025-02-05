@@ -59,6 +59,13 @@ import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.feature.auth.R
 
+/**
+ * Sign in route.
+ *
+ * @param onSignUpClick Navigate to sign up screen.
+ * @param onShowSnackbar Show snackbar.
+ * @param signInViewModel [SignInViewModel].
+ */
 @Composable
 fun SignInRoute(
     onSignUpClick: () -> Unit,
@@ -83,6 +90,17 @@ fun SignInRoute(
     }
 }
 
+/**
+ * Sign in screen.
+ *
+ * @param screenData [SignInScreenData].
+ * @param onEmailChange Callback when email is changed.
+ * @param onPasswordChange Callback when password is changed.
+ * @param onSignInWithSavedCredentials Callback when sign in with saved credentials is clicked.
+ * @param onSignInWithGoogleClick Callback when sign in with Google is clicked.
+ * @param onSignInClick Callback when sign in is clicked.
+ * @param onSignUpClick Callback when sign up is clicked.
+ */
 @Composable
 private fun SignInScreen(
     screenData: SignInScreenData,

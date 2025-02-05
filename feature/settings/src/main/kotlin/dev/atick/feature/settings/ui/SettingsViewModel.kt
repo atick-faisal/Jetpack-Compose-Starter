@@ -35,6 +35,11 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
+/**
+ * [ViewModel] for [SettingsScreen].
+ *
+ * @param settingsRepository [SettingsRepository].
+ */
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
     private val settingsRepository: SettingsRepository,

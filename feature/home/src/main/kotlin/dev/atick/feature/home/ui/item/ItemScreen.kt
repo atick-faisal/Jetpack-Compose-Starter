@@ -43,6 +43,13 @@ import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.feature.home.R
 
+/**
+ * Item route.
+ *
+ * @param onBackClick The back click listener.
+ * @param onShowSnackbar The snackbar callback.
+ * @param itemViewModel The [ItemViewModel].
+ */
 @Composable
 internal fun ItemRoute(
     onBackClick: () -> Unit,
@@ -77,6 +84,16 @@ internal fun ItemRoute(
     }
 }
 
+/**
+ * Item screen.
+ *
+ * @param name The name.
+ * @param price The price.
+ * @param onUpdateName The name update listener.
+ * @param onUpdatePrice The price update listener.
+ * @param onSaveClick The save click listener.
+ * @param onBackClick The back click listener.
+ */
 @Composable
 private fun ItemScreen(
     name: String,
@@ -105,6 +122,14 @@ private fun ItemScreen(
     }
 }
 
+/**
+ * Edit item form.
+ *
+ * @param name The name.
+ * @param price The price.
+ * @param onUpdateName The name update listener.
+ * @param onUpdatePrice The price update listener.
+ */
 @Composable
 private fun EditItemForm(
     name: String,

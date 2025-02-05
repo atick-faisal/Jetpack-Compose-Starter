@@ -21,6 +21,17 @@ import dev.atick.core.room.models.JetpackEntity
 import dev.atick.firebase.firestore.models.FirebaseJetpack
 import java.util.UUID
 
+/**
+ * Data class representing a Jetpack.
+ *
+ * @param id The unique identifier of the Jetpack.
+ * @param name The name of the Jetpack.
+ * @param price The price of the Jetpack.
+ * @param lastUpdated The last updated timestamp of the Jetpack.
+ * @param lastSynced The last synced timestamp of the Jetpack.
+ * @param needsSync The sync status of the Jetpack.
+ * @param formattedDate The formatted date of the Jetpack.
+ */
 data class Jetpack(
     val id: String = UUID.randomUUID().toString(),
     val name: String = String(),
@@ -31,6 +42,11 @@ data class Jetpack(
     val formattedDate: String = lastUpdated.asFormattedDateTime(),
 )
 
+/**
+ * Extension function to map a [JetpackEntity] to a [Jetpack].
+ *
+ * @return The mapped [Jetpack].
+ */
 fun JetpackEntity.toJetpack(): Jetpack {
     return Jetpack(
         id = id,
@@ -43,10 +59,20 @@ fun JetpackEntity.toJetpack(): Jetpack {
     )
 }
 
+/**
+ * Extension function to map a list of [JetpackEntity] to a list of [Jetpack].
+ *
+ * @return The mapped list of [Jetpack].
+ */
 fun List<JetpackEntity>.mapToJetpacks(): List<Jetpack> {
     return map(JetpackEntity::toJetpack)
 }
 
+/**
+ * Extension function to map a [Jetpack] to a [JetpackEntity].
+ *
+ * @return The mapped [JetpackEntity].
+ */
 fun Jetpack.toJetpackEntity(): JetpackEntity {
     return JetpackEntity(
         id = id,
@@ -57,6 +83,11 @@ fun Jetpack.toJetpackEntity(): JetpackEntity {
     )
 }
 
+/**
+ * Extension function to map a [Jetpack] to a [FirebaseJetpack].
+ *
+ * @return The mapped [FirebaseJetpack].
+ */
 fun Jetpack.toFirebaseJetpack(): FirebaseJetpack {
     return FirebaseJetpack(
         id = id,
@@ -67,6 +98,11 @@ fun Jetpack.toFirebaseJetpack(): FirebaseJetpack {
     )
 }
 
+/**
+ * Extension function to map a [JetpackEntity] to a [FirebaseJetpack].
+ *
+ * @return The mapped [FirebaseJetpack].
+ */
 fun JetpackEntity.toFirebaseJetpack(): FirebaseJetpack {
     return FirebaseJetpack(
         id = id,
@@ -79,6 +115,11 @@ fun JetpackEntity.toFirebaseJetpack(): FirebaseJetpack {
     )
 }
 
+/**
+ * Extension function to map a [FirebaseJetpack] to a [JetpackEntity].
+ *
+ * @return The mapped [JetpackEntity].
+ */
 fun FirebaseJetpack.toJetpackEntity(): JetpackEntity {
     return JetpackEntity(
         id = id,

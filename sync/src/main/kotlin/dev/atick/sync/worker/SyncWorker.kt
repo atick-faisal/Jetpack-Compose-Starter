@@ -36,6 +36,14 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 
+/**
+ * Worker to sync data.
+ *
+ * @param context The [Context].
+ * @param workerParameters The [WorkerParameters].
+ * @param ioDispatcher The [CoroutineDispatcher] for I/O operations.
+ * @param homeRepository The [HomeRepository].
+ */
 @HiltWorker
 class SyncWorker @AssistedInject constructor(
     @Assisted private val context: Context,
@@ -62,6 +70,10 @@ class SyncWorker @AssistedInject constructor(
         return context.syncForegroundInfo(total, current)
     }
 
+    /**
+     * Performs the work to sync data.
+     * @return The result of the work.
+     */
     override suspend fun doWork(): Result {
         return withContext(ioDispatcher) {
             try {

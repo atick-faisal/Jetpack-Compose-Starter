@@ -44,6 +44,12 @@ import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.data.models.Profile
 import dev.atick.feature.profile.R
 
+/**
+ * Profile screen route.
+ *
+ * @param onShowSnackbar Lambda function to show a snackbar message.
+ * @param profileViewModel [ProfileViewModel].
+ */
 @Composable
 fun ProfileRoute(
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
@@ -66,6 +72,12 @@ fun ProfileRoute(
     }
 }
 
+/**
+ * Profile screen.
+ *
+ * @param profile [Profile].
+ * @param onSignOutClick Lambda function to sign out.
+ */
 @Composable
 private fun ProfileScreen(
     profile: Profile,

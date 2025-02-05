@@ -24,13 +24,26 @@ import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.feature.profile.ui.ProfileRoute
 import kotlinx.serialization.Serializable
 
+/**
+ * Serializable data object representing the Profile.
+ */
 @Serializable
 data object Profile
 
+/**
+ * Extension function to navigate to the Profile screen.
+ *
+ * @param navOptions Options to configure the navigation behavior.
+ */
 fun NavController.navigateToProfile(navOptions: NavOptions?) {
     navigate(Profile, navOptions)
 }
 
+/**
+ * Adds the Profile screen to the navigation graph.
+ *
+ * @param onShowSnackbar Lambda function to show a snackbar message.
+ */
 fun NavGraphBuilder.profileScreen(
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
 ) {

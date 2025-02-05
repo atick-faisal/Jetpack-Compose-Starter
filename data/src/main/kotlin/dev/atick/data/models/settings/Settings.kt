@@ -45,6 +45,11 @@ enum class DarkThemeConfig {
     DARK,
 }
 
+/**
+ * Extension function to map [UserDataPreferences] to [Settings].
+ *
+ * @return The mapped [Settings].
+ */
 fun UserDataPreferences.asSettings(): Settings {
     return Settings(
         userName = userName,
@@ -53,6 +58,11 @@ fun UserDataPreferences.asSettings(): Settings {
     )
 }
 
+/**
+ * Extension function to map [DarkThemeConfigPreferences] to [DarkThemeConfig].
+ *
+ * @return The mapped [DarkThemeConfig].
+ */
 fun DarkThemeConfigPreferences.asDarkThemeConfig(): DarkThemeConfig {
     return when (this) {
         DarkThemeConfigPreferences.FOLLOW_SYSTEM -> DarkThemeConfig.FOLLOW_SYSTEM
@@ -61,6 +71,11 @@ fun DarkThemeConfigPreferences.asDarkThemeConfig(): DarkThemeConfig {
     }
 }
 
+/**
+ * Extension function to map [DarkThemeConfig] to [DarkThemeConfigPreferences].
+ *
+ * @return The mapped [DarkThemeConfigPreferences].
+ */
 fun DarkThemeConfig.asDarkThemeConfigPreferences(): DarkThemeConfigPreferences {
     return when (this) {
         DarkThemeConfig.FOLLOW_SYSTEM -> DarkThemeConfigPreferences.FOLLOW_SYSTEM

@@ -41,6 +41,19 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import dev.atick.core.ui.R
 
+/**
+ * A Jetpack Compose top app bar with a title, navigation icon, and action icon.
+ *
+ * @param titleRes The string resource ID for the title of the top app bar.
+ * @param navigationIcon The navigation icon to be displayed on the top app bar.
+ * @param navigationIconContentDescription The content description for the navigation icon.
+ * @param actionIcon The action icon to be displayed on the top app bar.
+ * @param actionIconContentDescription The content description for the action icon.
+ * @param modifier The modifier for this top app bar.
+ * @param colors The colors for this top app bar.
+ * @param onNavigationClick The callback when the navigation icon is clicked.
+ * @param onActionClick The callback when the action icon is clicked.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun JetpackTopAppBar(
@@ -79,6 +92,16 @@ fun JetpackTopAppBar(
     )
 }
 
+/**
+ * A Jetpack Compose top app bar with a title and action icon.
+ *
+ * @param titleRes The string resource ID for the title of the top app bar.
+ * @param actionIcon The action icon to be displayed on the top app bar.
+ * @param actionIconContentDescription The content description for the action icon.
+ * @param modifier The modifier for this top app bar.
+ * @param colors The colors for this top app bar.
+ * @param onActionClick The callback when the action icon is clicked.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun JetpackTopAppBar(
@@ -105,6 +128,16 @@ fun JetpackTopAppBar(
     )
 }
 
+/**
+ * A Jetpack Compose top app bar with a title and avatar.
+ *
+ * @param titleRes The string resource ID for the title of the top app bar.
+ * @param avatarUri The URI for the avatar image.
+ * @param avatarContentDescription The content description for the avatar.
+ * @param modifier The modifier for this top app bar.
+ * @param colors The colors for this top app bar.
+ * @param onAvatarClick The callback when the avatar is clicked.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun JetpackTopAppBarWithAvatar(
@@ -135,6 +168,16 @@ fun JetpackTopAppBarWithAvatar(
     )
 }
 
+/**
+ * A Jetpack Compose top app bar with a title, navigation icon, and action button.
+ *
+ * @param titleRes The string resource ID for the title of the top app bar.
+ * @param actionRes The string resource ID for the action button.
+ * @param onActionClick The callback when the action button is clicked.
+ * @param onNavigateBackClick The callback when the navigation icon is clicked.
+ * @param colors The colors for this top app bar.
+ * @param modifier The modifier for this top app bar.
+ */
 @Composable
 fun JetpackActionBar(
     @StringRes titleRes: Int,
