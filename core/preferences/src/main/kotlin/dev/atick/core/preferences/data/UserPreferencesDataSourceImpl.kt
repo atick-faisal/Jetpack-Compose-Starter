@@ -23,6 +23,7 @@ import dev.atick.core.preferences.models.PreferencesUserProfile
 import dev.atick.core.preferences.models.UserDataPreferences
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -43,6 +44,20 @@ class UserPreferencesDataSourceImpl @Inject constructor(
      */
     override val userDataPreferences: Flow<UserDataPreferences>
         get() = datastore.data.flowOn(ioDispatcher)
+
+    /**
+     * Retrieves the user ID or throws an exception if the user is not authenticated.
+     *
+     * @return The user ID as a [String].
+     * @throws IllegalStateException if the user is not authenticated.
+     */
+    override suspend fun getUserIdOrThrow(): String {
+        return withContext(ioDispatcher) {
+            val userId = datastore.data.first().id
+            if (userId.isEmpty()) throw IllegalStateException("User not authenticated")
+            userId
+        }
+    }
 
     /**
      * Sets the user profile in the user preferences.

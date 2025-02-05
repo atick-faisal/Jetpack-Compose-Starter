@@ -23,9 +23,9 @@ import kotlinx.coroutines.flow.Flow
  * Data source interface for managing local storage operations related to [JetpackEntity] objects.
  */
 interface LocalDataSource {
-    fun getJetpacks(): Flow<List<JetpackEntity>>
+    fun getJetpacks(userId: String): Flow<List<JetpackEntity>>
     fun getJetpack(id: String): Flow<JetpackEntity>
-    suspend fun getUnsyncedJetpacks(): List<JetpackEntity>
+    suspend fun getUnsyncedJetpacks(userId: String): List<JetpackEntity>
     suspend fun insertJetpack(jetpackEntity: JetpackEntity)
     suspend fun upsertJetpack(jetpackEntity: JetpackEntity)
     suspend fun upsertJetpacks(remoteJetpacks: List<JetpackEntity>)
@@ -33,5 +33,5 @@ interface LocalDataSource {
     suspend fun markJetpackAsDeleted(id: String)
     suspend fun deleteJetpackPermanently(id: String)
     suspend fun markAsSynced(id: String, timestamp: Long = System.currentTimeMillis())
-    suspend fun getLatestUpdateTimestamp(): Long
+    suspend fun getLatestUpdateTimestamp(userId: String): Long
 }

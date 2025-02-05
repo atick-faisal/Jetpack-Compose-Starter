@@ -31,14 +31,14 @@ import kotlinx.coroutines.flow.Flow
  */
 @Dao
 interface JetpackDao {
-    @Query("SELECT * FROM jetpacks WHERE deleted = 0")
-    fun getJetpacks(): Flow<List<JetpackEntity>>
+    @Query("SELECT * FROM jetpacks WHERE userId = :userId AND deleted = 0 ORDER BY lastUpdated DESC")
+    fun getJetpacks(userId: String): Flow<List<JetpackEntity>>
 
     @Query("SELECT * FROM jetpacks WHERE id = :id")
     fun getJetpack(id: String): Flow<JetpackEntity>
 
-    @Query("SELECT * FROM jetpacks WHERE lastUpdated > lastSynced OR needsSync = 1")
-    suspend fun getUnsyncedJetpacks(): List<JetpackEntity>
+    @Query("SELECT * FROM jetpacks WHERE userId = :userId AND (lastUpdated > lastSynced OR needsSync = 1)")
+    suspend fun getUnsyncedJetpacks(userId: String): List<JetpackEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertJetpack(jetpackEntity: JetpackEntity)
@@ -71,11 +71,12 @@ interface JetpackDao {
     suspend fun markAsSynced(id: String, timestamp: Long = System.currentTimeMillis())
 
     /**
-     * Gets the most recent lastUpdated timestamp from all jetpacks in the database.
+     * Gets the most recent lastUpdated timestamp for a specific user's jetpacks.
      * This can be used as a reference point for fetching only newer items from remote.
      *
-     * @return The most recent lastUpdated timestamp, or 0 if no jetpacks exist
+     * @param userId The ID of the user whose jetpacks to check
+     * @return The most recent lastUpdated timestamp for that user's jetpacks, or 0 if no jetpacks exist
      */
-    @Query("SELECT MAX(lastUpdated) FROM jetpacks WHERE deleted = 0")
-    suspend fun getLatestUpdateTimestamp(): Long?
+    @Query("SELECT MAX(lastUpdated) FROM jetpacks WHERE userId = :userId AND deleted = 0")
+    suspend fun getLatestUpdateTimestamp(userId: String): Long?
 }

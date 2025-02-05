@@ -35,15 +35,16 @@ class LocalDataSourceImpl @Inject constructor(
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : LocalDataSource {
 
-    override fun getJetpacks(): Flow<List<JetpackEntity>> =
-        jetpackDao.getJetpacks().flowOn(ioDispatcher)
+    override fun getJetpacks(userId: String): Flow<List<JetpackEntity>> =
+        jetpackDao.getJetpacks(userId).flowOn(ioDispatcher)
 
     override fun getJetpack(id: String): Flow<JetpackEntity> =
         jetpackDao.getJetpack(id).flowOn(ioDispatcher)
 
-    override suspend fun getUnsyncedJetpacks(): List<JetpackEntity> = withContext(ioDispatcher) {
-        jetpackDao.getUnsyncedJetpacks()
-    }
+    override suspend fun getUnsyncedJetpacks(userId: String): List<JetpackEntity> =
+        withContext(ioDispatcher) {
+            jetpackDao.getUnsyncedJetpacks(userId)
+        }
 
     override suspend fun insertJetpack(jetpackEntity: JetpackEntity) = withContext(ioDispatcher) {
         jetpackDao.insertJetpack(jetpackEntity)
@@ -74,7 +75,8 @@ class LocalDataSourceImpl @Inject constructor(
         jetpackDao.markAsSynced(id, timestamp)
     }
 
-    override suspend fun getLatestUpdateTimestamp(): Long = withContext(ioDispatcher) {
-        jetpackDao.getLatestUpdateTimestamp() ?: 0
-    }
+    override suspend fun getLatestUpdateTimestamp(userId: String): Long =
+        withContext(ioDispatcher) {
+            jetpackDao.getLatestUpdateTimestamp(userId) ?: 0
+        }
 }

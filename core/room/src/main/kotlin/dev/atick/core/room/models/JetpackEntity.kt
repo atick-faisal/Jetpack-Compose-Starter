@@ -53,6 +53,9 @@ data class JetpackEntity(
     val name: String,
     val price: Double,
 
+    // User metadata
+    val userId: String = String(),
+
     // Sync metadata
     val lastUpdated: Long = 0,
     val lastSynced: Long = 0,

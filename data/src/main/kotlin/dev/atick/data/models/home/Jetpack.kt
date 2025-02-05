@@ -7,7 +7,7 @@ import java.util.UUID
 
 data class Jetpack(
     val id: String = UUID.randomUUID().toString(),
-    val name: String = "",
+    val name: String = String(),
     val price: Double = 0.0,
     val lastUpdated: Long = System.currentTimeMillis(),
     val lastSynced: Long = 0L,
@@ -56,6 +56,7 @@ fun JetpackEntity.toFirebaseJetpack(): FirebaseJetpack {
         id = id,
         name = name,
         price = price,
+        userId = userId,
         lastUpdated = lastUpdated,
         lastSynced = lastSynced,
         deleted = deleted,
@@ -67,6 +68,7 @@ fun FirebaseJetpack.toJetpackEntity(): JetpackEntity {
         id = id,
         name = name,
         price = price,
+        userId = userId,
         lastUpdated = lastUpdated,
         lastSynced = lastSynced,
         deleted = deleted,
