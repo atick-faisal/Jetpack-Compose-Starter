@@ -63,9 +63,6 @@ playBilling = "7.1.1"
 # ... WORK MANAGER ...
 workVersion = "2.10.0"
 
-# ... LINT ...
-androidxLintGradle = "1.0.0-alpha03"
-
 # ... SDK-CONFIG ...
 minSdk = "24"
 compileSdk = "35"
@@ -77,7 +74,6 @@ targetSdk = "35"
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
-android-lint = { id = "com.android.lint", version.ref = "androidGradlePlugin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlyticsPlugin" }
 firebase-perf = { id = "com.google.firebase.firebase-perf", version.ref = "firebasePerfPlugin" }
@@ -190,6 +186,3 @@ play-billing-ktx = { group = "com.android.billingclient", name = "billing-ktx", 
 
 # ... WORK_MANAGER ...
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workVersion" }
-
-# ... LINT ...
-androidx-lint-gradle = { group = "androidx.lint", name = "lint-gradle", version.ref = "androidxLintGradle" }
