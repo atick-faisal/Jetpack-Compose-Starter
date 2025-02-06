@@ -19,7 +19,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 plugins {
     `kotlin-dsl`
-    alias(libs.plugins.android.lint)
 }
 
 group = "dev.atick.build.logic"
@@ -41,7 +40,6 @@ dependencies {
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.compose.gradlePlugin)
-    lintChecks(libs.androidx.lint.gradle)
 }
 
 gradlePlugin {
