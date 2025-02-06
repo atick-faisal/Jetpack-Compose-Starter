@@ -26,9 +26,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
+import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
+import androidx.compose.foundation.lazy.staggeredgrid.items
+import androidx.compose.foundation.lazy.staggeredgrid.rememberLazyStaggeredGridState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Sync
 import androidx.compose.material3.CardDefaults
@@ -45,6 +46,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.atick.core.extensions.format
+import dev.atick.core.ui.components.SwipeToDismiss
+import dev.atick.core.ui.utils.DevicePreviews
 import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.data.models.home.Jetpack
@@ -72,34 +75,43 @@ internal fun HomeRoute(
         state = homeState,
         onShowSnackbar = onShowSnackbar,
     ) { homeScreenData ->
-        HomeScreen(homeScreenData, onJetpackClick)
+        HomeScreen(
+            jetpacks = homeScreenData.jetpacks,
+            onJetpackCLick = onJetpackClick,
+            onDeleteJetpack = homeViewModel::deleteJetpack,
+        )
     }
 }
 
 /**
  * Home screen.
  *
- * @param screenData The screen data.
+ * @param jetpacks The list of jetpacks.
  * @param onJetpackCLick The click listener for jetpacks.
+ * @param onDeleteJetpack The delete listener for jetpacks.
  */
 @Composable
 private fun HomeScreen(
-    screenData: HomeScreenData,
+    jetpacks: List<Jetpack>,
     onJetpackCLick: (String) -> Unit,
+    onDeleteJetpack: (Jetpack) -> Unit,
 ) {
-    val scrollableState = rememberLazyListState()
+    val state = rememberLazyStaggeredGridState()
 
-    LazyColumn(
-        modifier = Modifier.fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
+    LazyVerticalStaggeredGrid(
+        columns = StaggeredGridCells.Adaptive(300.dp),
         contentPadding = PaddingValues(16.dp),
-        state = scrollableState,
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        verticalItemSpacing = 16.dp,
+        state = state,
     ) {
-        items(screenData.jetpacks) { jetpack ->
-            JetpackCard(
-                jetpack = jetpack,
-                onClick = { onJetpackCLick(jetpack.id) },
-            )
+        items(items = jetpacks, key = { it.id }) { jetpack ->
+            SwipeToDismiss(onDelete = { onDeleteJetpack(jetpack) }) {
+                JetpackCard(
+                    jetpack = jetpack,
+                    onClick = { onJetpackCLick(jetpack.id) },
+                )
+            }
         }
     }
 }
@@ -180,4 +192,36 @@ fun JetpackCard(
             }
         }
     }
+}
+
+@DevicePreviews
+@Composable
+private fun HomeScreenPreview() {
+    HomeScreen(
+        jetpacks = listOf(
+            Jetpack(
+                id = "1",
+                name = "Jetpack 1",
+                price = 100.0,
+                formattedDate = "JANUARY 3, 2023-10-01 at 8:45 PM",
+                needsSync = false,
+            ),
+            Jetpack(
+                id = "2",
+                name = "Jetpack 2",
+                price = 200.0,
+                formattedDate = "FEBRUARY 3, 2023-10-02 at 8:45 PM",
+                needsSync = true,
+            ),
+            Jetpack(
+                id = "3",
+                name = "Jetpack 3",
+                price = 300.0,
+                formattedDate = "MARCH 3, 2023-10-03 at 8:45 PM",
+                needsSync = false,
+            ),
+        ),
+        onJetpackCLick = {},
+        onDeleteJetpack = {},
+    )
 }

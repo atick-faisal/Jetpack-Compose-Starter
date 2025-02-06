@@ -18,6 +18,6 @@
 <resources>
     <string name="jetpack">Jetpack</string>
     <string name="save">Save</string>
-    <string name="name">Name</string>
+    <string name="jetpack_name">Jetpack Name</string>
     <string name="price">Price</string>
 </resources>

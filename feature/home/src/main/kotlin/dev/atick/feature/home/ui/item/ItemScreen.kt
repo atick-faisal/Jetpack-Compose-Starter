@@ -24,6 +24,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.RocketLaunch
+import androidx.compose.material.icons.filled.Wallet
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
@@ -146,11 +147,11 @@ private fun EditItemForm(
         JetpackTextFiled(
             value = name,
             onValueChange = onUpdateName,
-            label = { Text(text = stringResource(id = R.string.name)) },
+            label = { Text(text = stringResource(id = R.string.jetpack_name)) },
             leadingIcon = {
                 Icon(
                     imageVector = Icons.Default.RocketLaunch,
-                    contentDescription = stringResource(id = R.string.name),
+                    contentDescription = stringResource(id = R.string.jetpack_name),
                 )
             },
         )
@@ -161,7 +162,7 @@ private fun EditItemForm(
             label = { Text(text = stringResource(id = R.string.price)) },
             leadingIcon = {
                 Icon(
-                    imageVector = Icons.Default.RocketLaunch,
+                    imageVector = Icons.Default.Wallet,
                     contentDescription = stringResource(id = R.string.price),
                 )
             },
