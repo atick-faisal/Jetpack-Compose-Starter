@@ -185,7 +185,6 @@ private fun ColumnScope.SettingsPanel(
     onSignOut: () -> Unit,
     onDismiss: () -> Unit,
 ) {
-    SettingsDialogSectionTitle(text = stringResource(R.string.theme))
     AnimatedVisibility(visible = supportDynamicColor) {
         Column {
             SettingsDialogSectionTitle(text = stringResource(R.string.dynamic_color_preference))
