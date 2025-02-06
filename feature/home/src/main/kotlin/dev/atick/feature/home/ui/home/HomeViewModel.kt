@@ -22,6 +22,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.core.extensions.asOneTimeEvent
 import dev.atick.core.ui.utils.UiState
+import dev.atick.core.ui.utils.updateWith
 import dev.atick.data.models.home.Jetpack
 import dev.atick.data.repository.home.HomeRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -51,6 +52,12 @@ class HomeViewModel @Inject constructor(
             .onEach { homeScreenData -> _homeUiState.update { UiState(homeScreenData) } }
             .catch { e -> _homeUiState.update { it.copy(error = e.asOneTimeEvent()) } }
             .launchIn(viewModelScope)
+    }
+
+    fun deleteJetpack(jetpack: Jetpack) {
+        _homeUiState.updateWith(viewModelScope) {
+            homeRepository.markJetpackAsDeleted(jetpack)
+        }
     }
 }
 

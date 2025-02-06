@@ -55,7 +55,7 @@ class ItemViewModel @Inject constructor(
     val itemUiState = _itemUiState.asStateFlow()
 
     fun updateName(name: String) {
-        _itemUiState.updateState { copy(jetpackName = name.trim()) }
+        _itemUiState.updateState { copy(jetpackName = name) }
     }
 
     fun updatePrice(priceString: String) {
@@ -67,7 +67,7 @@ class ItemViewModel @Inject constructor(
         _itemUiState.updateStateWith(viewModelScope) {
             val jetpack = Jetpack(
                 id = jetpackId,
-                name = jetpackName,
+                name = jetpackName.trim(),
                 price = jetpackPrice,
             )
             homeRepository.createOrUpdateJetpack(jetpack)

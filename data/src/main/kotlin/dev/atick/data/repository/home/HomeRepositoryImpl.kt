@@ -123,26 +123,11 @@ class HomeRepositoryImpl @Inject constructor(
     override suspend fun sync(): Flow<SyncProgress> {
         return flow {
             val userId = preferencesDataSource.getUserIdOrThrow()
-            val lastSynced = localDataSource.getLatestUpdateTimestamp(userId)
-            val remoteJetpacks = firebaseDataSource.pull(userId, lastSynced)
-            val totalRemoteJetpacks = remoteJetpacks.size
 
-            Timber.d("Syncing $totalRemoteJetpacks remote jetpacks")
-
+            // Unsynced jetpacks
             val unsyncedJetpacks = localDataSource.getUnsyncedJetpacks(userId)
             val totalUnsyncedJetpacks = unsyncedJetpacks.size
-
             Timber.d("Syncing $totalUnsyncedJetpacks unsynced jetpacks")
-
-            val totalSync = totalRemoteJetpacks + totalUnsyncedJetpacks
-
-            Timber.d("Total sync: $totalSync")
-
-            // Pull updates from remote
-            remoteJetpacks.forEachIndexed { index, remoteJetpack ->
-                localDataSource.upsertJetpack(remoteJetpack.toJetpackEntity())
-                emit(SyncProgress(total = totalSync, current = index + 1))
-            }
 
             // Push updates to remote
             unsyncedJetpacks.forEachIndexed { index, unsyncedJetpack ->
@@ -174,7 +159,33 @@ class HomeRepositoryImpl @Inject constructor(
                 }
 
                 localDataSource.markAsSynced(unsyncedJetpack.id)
-                emit(SyncProgress(total = totalSync, current = totalRemoteJetpacks + index + 1))
+                emit(
+                    SyncProgress(
+                        total = totalUnsyncedJetpacks,
+                        current = index + 1,
+                        message = "Syncing jetpacks with the cloud",
+                    ),
+                )
+            }
+
+            // Remote jetpacks
+            val lastSynced = localDataSource.getLatestUpdateTimestamp(userId)
+            val remoteJetpacks = firebaseDataSource.pull(userId, lastSynced)
+            val totalRemoteJetpacks = remoteJetpacks.size
+            Timber.d("Syncing $totalRemoteJetpacks remote jetpacks")
+
+            // Pull updates from remote
+            // We pull after pushing local changes to save the local changes to the cloud first
+            // and avoid accidentally overwriting them with stale data
+            remoteJetpacks.forEachIndexed { index, remoteJetpack ->
+                localDataSource.upsertJetpack(remoteJetpack.toJetpackEntity())
+                emit(
+                    SyncProgress(
+                        total = totalRemoteJetpacks,
+                        current = index + 1,
+                        message = "Fetching jetpacks from the cloud",
+                    ),
+                )
             }
         }
     }
