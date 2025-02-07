@@ -40,6 +40,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.atick.core.ui.components.JetpackActionBar
 import dev.atick.core.ui.components.JetpackTextFiled
+import dev.atick.core.ui.utils.PreviewDevices
+import dev.atick.core.ui.utils.PreviewThemes
 import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.feature.home.R
@@ -68,7 +70,7 @@ internal fun ItemRoute(
         onShowSnackbar = onShowSnackbar,
     ) { screenData ->
 
-        LaunchedEffect(screenData.navigateBack) {
+        LaunchedEffect(screenData.navigateBack, onBackClick) {
             if (screenData.navigateBack.getContentIfNotHandled() == true) {
                 onBackClick()
             }
@@ -169,4 +171,18 @@ private fun EditItemForm(
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
         )
     }
+}
+
+@Composable
+@PreviewThemes
+@PreviewDevices
+private fun ItemScreenPreview() {
+    ItemScreen(
+        name = "Jetpack",
+        price = 100.0,
+        onUpdateName = {},
+        onUpdatePrice = {},
+        onSaveClick = {},
+        onBackClick = {},
+    )
 }

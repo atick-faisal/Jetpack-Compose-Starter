@@ -28,18 +28,18 @@ import androidx.compose.ui.Modifier
 /**
  * Jetpack tag.
  *
- * @param modifier Modifier to be applied to the tag.
  * @param followed Whether this tag is followed or not.
  * @param onClick The callback to be invoked when this tag is clicked.
+ * @param modifier Modifier to be applied to the tag.
  * @param enabled Controls the enabled state of the tag. When `false`, this tag will not be
  * clickable and will appear disabled to accessibility services.
  * @param text The text label content.
  */
 @Composable
 fun JetpackTag(
-    modifier: Modifier = Modifier,
     followed: Boolean,
     onClick: () -> Unit,
+    modifier: Modifier = Modifier,
     enabled: Boolean = true,
     text: @Composable () -> Unit,
 ) {

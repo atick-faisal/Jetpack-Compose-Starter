@@ -19,9 +19,11 @@ package dev.atick.core.ui.components
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.sizeIn
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -66,18 +68,18 @@ fun JetpackButton(
  * Jetpack filled button with text and icon content slots.
  *
  * @param onClick Will be called when the user clicks the button.
+ * @param text The button text label content.
  * @param modifier Modifier to be applied to the button.
  * @param enabled Controls the enabled state of the button. When `false`, this button will not be
  * clickable and will appear disabled to accessibility services.
- * @param text The button text label content.
  * @param leadingIcon The button leading icon content. Pass `null` here for no leading icon.
  */
 @Composable
 fun JetpackButton(
     onClick: () -> Unit,
+    text: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    text: @Composable () -> Unit,
     leadingIcon: @Composable (() -> Unit)? = null,
 ) {
     JetpackButton(
@@ -151,9 +153,9 @@ fun JetpackOutlinedButton(
 @Composable
 fun JetpackOutlinedButton(
     onClick: () -> Unit,
+    text: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    text: @Composable () -> Unit,
     leadingIcon: @Composable (() -> Unit)? = null,
 ) {
     JetpackOutlinedButton(
@@ -213,9 +215,9 @@ fun JetpackTextButton(
 @Composable
 fun JetpackTextButton(
     onClick: () -> Unit,
+    text: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    text: @Composable () -> Unit,
     leadingIcon: @Composable (() -> Unit)? = null,
 ) {
     JetpackTextButton(
@@ -241,21 +243,13 @@ private fun JetpackButtonContent(
     text: @Composable () -> Unit,
     leadingIcon: @Composable (() -> Unit)? = null,
 ) {
-    if (leadingIcon != null) {
-        Box(Modifier.sizeIn(maxHeight = ButtonDefaults.IconSize)) {
-            leadingIcon()
+    Row {
+        if (leadingIcon != null) {
+            Box(Modifier.sizeIn(maxHeight = ButtonDefaults.IconSize)) {
+                leadingIcon()
+            }
+            Spacer(Modifier.width(ButtonDefaults.IconSpacing))
         }
-    }
-    Box(
-        Modifier
-            .padding(
-                start = if (leadingIcon != null) {
-                    ButtonDefaults.IconSpacing
-                } else {
-                    0.dp
-                },
-            ),
-    ) {
         text()
     }
 }

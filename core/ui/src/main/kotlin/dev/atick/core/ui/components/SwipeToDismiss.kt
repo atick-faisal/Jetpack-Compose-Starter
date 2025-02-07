@@ -40,11 +40,13 @@ import androidx.compose.ui.unit.dp
  * A composable that allows swiping to dismiss an item.
  *
  * @param onDelete The callback to be invoked when the item is swiped to dismiss.
+ * @param modifier The modifier to be applied to the composable.
  * @param content The content to be displayed.
  */
 @Composable
 fun SwipeToDismiss(
     onDelete: () -> Unit,
+    modifier: Modifier = Modifier,
     content: @Composable () -> Unit,
 ) {
     val dismissState = rememberSwipeToDismissBoxState(
@@ -92,5 +94,6 @@ fun SwipeToDismiss(
         enableDismissFromStartToEnd = false,
         enableDismissFromEndToStart = true,
         gesturesEnabled = true,
+        modifier = modifier,
     )
 }

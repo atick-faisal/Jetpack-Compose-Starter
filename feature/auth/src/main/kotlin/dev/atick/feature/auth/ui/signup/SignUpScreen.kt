@@ -54,7 +54,8 @@ import dev.atick.core.ui.components.JetpackOutlinedButton
 import dev.atick.core.ui.components.JetpackPasswordFiled
 import dev.atick.core.ui.components.JetpackTextButton
 import dev.atick.core.ui.components.JetpackTextFiled
-import dev.atick.core.ui.utils.DevicePreviews
+import dev.atick.core.ui.utils.PreviewDevices
+import dev.atick.core.ui.utils.PreviewThemes
 import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.feature.auth.R
@@ -199,8 +200,9 @@ private fun SignUpScreen(
     }
 }
 
-@DevicePreviews
 @Composable
+@PreviewThemes
+@PreviewDevices
 private fun SignUpScreenPreview() {
     SignUpScreen(
         screenData = SignUpScreenData(),

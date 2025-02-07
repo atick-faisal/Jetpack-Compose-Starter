@@ -40,9 +40,9 @@ import androidx.compose.ui.graphics.Color
 fun JetpackIconToggleButton(
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
+    icon: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    icon: @Composable () -> Unit,
     checkedIcon: @Composable () -> Unit = icon,
 ) {
     // TODO: File bug

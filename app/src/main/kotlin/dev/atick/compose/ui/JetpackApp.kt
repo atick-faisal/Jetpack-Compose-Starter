@@ -363,6 +363,8 @@ private fun JetpackNavigationSuiteScope.navigationItem(
  *
  * @return A Modifier with the notification dot applied.
  */
+@Suppress("ktlint:compose:modifier-composed-check")
+// TODO: Fix issues with composed modifier lint rules
 private fun Modifier.notificationDot(): Modifier = composed {
     val tertiaryColor = MaterialTheme.colorScheme.tertiary
     drawWithContent {
