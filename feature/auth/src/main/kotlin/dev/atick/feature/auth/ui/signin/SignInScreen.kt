@@ -54,7 +54,8 @@ import dev.atick.core.ui.components.JetpackOutlinedButton
 import dev.atick.core.ui.components.JetpackPasswordFiled
 import dev.atick.core.ui.components.JetpackTextButton
 import dev.atick.core.ui.components.JetpackTextFiled
-import dev.atick.core.ui.utils.DevicePreviews
+import dev.atick.core.ui.utils.PreviewDevices
+import dev.atick.core.ui.utils.PreviewThemes
 import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.feature.auth.R
@@ -115,7 +116,9 @@ private fun SignInScreen(
     val activity = LocalContext.current.getActivity()
 
     // Try sign in with saved credentials on launch
-    LaunchedEffect(Unit) { activity?.run(onSignInWithSavedCredentials) }
+    LaunchedEffect(Unit, onSignInWithSavedCredentials) {
+        activity?.run(onSignInWithSavedCredentials)
+    }
 
     Column(
         modifier = Modifier.padding(24.dp),
@@ -190,9 +193,10 @@ private fun SignInScreen(
     }
 }
 
-@DevicePreviews
 @Composable
-fun SignInScreenPreview() {
+@PreviewThemes
+@PreviewDevices
+private fun SignInScreenPreview() {
     SignInScreen(
         screenData = SignInScreenData(),
         onEmailChange = {},

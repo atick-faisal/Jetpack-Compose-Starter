@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+@file:Suppress("ktlint:compose:compositionlocal-allowlist")
+// TODO: Fix issues with composition local lint rules
+
 package dev.atick.core.ui.theme
 
 import androidx.compose.runtime.Immutable

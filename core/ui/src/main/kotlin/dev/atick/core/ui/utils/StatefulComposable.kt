@@ -37,6 +37,7 @@ import kotlinx.coroutines.launch
  * @param onShowSnackbar A suspend function to show a snackbar with a message and an action.
  * @param content A composable function that defines the UI content based on the state data.
  */
+@Suppress("ktlint:compose:modifier-missing-check")
 @Composable
 fun <T : Any> StatefulComposable(
     state: UiState<T>,

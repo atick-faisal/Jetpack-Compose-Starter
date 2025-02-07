@@ -42,6 +42,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import dev.atick.core.ui.components.JetpackOutlinedButton
+import dev.atick.core.ui.utils.PreviewDevices
+import dev.atick.core.ui.utils.PreviewThemes
 import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.data.models.Profile
@@ -110,4 +112,17 @@ private fun ProfileScreen(
         }
         Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.safeDrawing))
     }
+}
+
+@Composable
+@PreviewThemes
+@PreviewDevices
+private fun ProfileScreenPreview() {
+    ProfileScreen(
+        profile = Profile(
+            userName = "Atick Faisal",
+            profilePictureUri = "https://example.com/avatar.png",
+        ),
+        onSignOutClick = {},
+    )
 }

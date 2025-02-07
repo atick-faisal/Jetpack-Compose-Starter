@@ -253,7 +253,7 @@ private fun SettingsDialogSectionTitle(text: String) {
  * @param onClick Callback when the row is clicked.
  */
 @Composable
-fun SettingsDialogThemeChooserRow(
+private fun SettingsDialogThemeChooserRow(
     text: String,
     selected: Boolean,
     onClick: () -> Unit,

@@ -39,14 +39,11 @@ rootProject {
                     mapOf(
                         "android" to "true",
                     ),
+                ).customRuleSets(
+                    listOf(
+                        "io.nlopez.compose.rules:ktlint:0.4.16",
+                    ),
                 )
-                /* TODO: Add custom ruleset
-                    .customRuleSets(
-                        listOf(
-                            "io.nlopez.compose.rules:ktlint:0.4.16",
-                        ),
-                    )
-                 */
                 licenseHeaderFile(rootProject.file("spotless/copyright.kt"))
             }
             groovy {

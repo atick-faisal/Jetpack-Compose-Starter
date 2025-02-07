@@ -47,7 +47,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.atick.core.extensions.format
 import dev.atick.core.ui.components.SwipeToDismiss
-import dev.atick.core.ui.utils.DevicePreviews
+import dev.atick.core.ui.utils.PreviewDevices
+import dev.atick.core.ui.utils.PreviewThemes
 import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.data.models.home.Jetpack
@@ -194,8 +195,9 @@ fun JetpackCard(
     }
 }
 
-@DevicePreviews
 @Composable
+@PreviewThemes
+@PreviewDevices
 private fun HomeScreenPreview() {
     HomeScreen(
         jetpacks = listOf(

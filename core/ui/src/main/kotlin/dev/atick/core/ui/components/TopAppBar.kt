@@ -184,8 +184,8 @@ fun JetpackActionBar(
     @StringRes actionRes: Int,
     onActionClick: () -> Unit,
     onNavigateBackClick: () -> Unit,
-    colors: TopAppBarColors = TopAppBarDefaults.topAppBarColors(),
     modifier: Modifier = Modifier,
+    colors: TopAppBarColors = TopAppBarDefaults.topAppBarColors(),
 ) {
     TopAppBar(
         title = { Text(text = stringResource(id = titleRes)) },
