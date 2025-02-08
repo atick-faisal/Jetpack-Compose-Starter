@@ -45,8 +45,8 @@ androidxCredentials = "1.3.0"
 identityGoogleId = "1.1.1"
 
 # ... FIREBASE ...
-firebaseBom = "33.8.0"
-firebaseCrashlyticsPlugin = "3.0.2"
+firebaseBom = "33.9.0"
+firebaseCrashlyticsPlugin = "3.0.3"
 firebasePerfPlugin = "1.4.2"
 
 # ... DAGGER-HILT ...
