@@ -21,16 +21,44 @@ buildscript {
 }
 
 plugins {
-    alias(libs.plugins.kotlin) apply(false)
-    alias(libs.plugins.android.library) apply(false)
-    alias(libs.plugins.android.application) apply(false)
-    alias(libs.plugins.kotlin.serialization) apply(false)
-    alias(libs.plugins.dagger.hilt.android) apply(false)
-    alias(libs.plugins.firebase.crashlytics) apply(false)
+    alias(libs.plugins.kotlin) apply (false)
+    alias(libs.plugins.android.library) apply (false)
+    alias(libs.plugins.android.application) apply (false)
+    alias(libs.plugins.kotlin.serialization) apply (false)
+    alias(libs.plugins.dagger.hilt.android) apply (false)
+    alias(libs.plugins.firebase.crashlytics) apply (false)
     alias(libs.plugins.firebase.perf) apply false
-    alias(libs.plugins.kotlin.compose.compiler) apply(false)
-    alias(libs.plugins.secrets) apply(false)
-    alias(libs.plugins.gms) apply(false)
-    alias(libs.plugins.ksp) apply(false)
+    alias(libs.plugins.kotlin.compose.compiler) apply (false)
+    alias(libs.plugins.secrets) apply (false)
+    alias(libs.plugins.gms) apply (false)
+    alias(libs.plugins.ksp) apply (false)
     alias(libs.plugins.dokka)
+}
+
+dependencies {
+    dokka(project(":app"))
+
+    // ... Core
+    dokka(project(":core:android"))
+    dokka(project(":core:network"))
+    dokka(project(":core:preferences"))
+    dokka(project(":core:room"))
+    dokka(project(":core:ui"))
+
+    // ... Data
+    dokka(project(":data"))
+
+    // ... Feature
+    dokka(project(":feature:auth"))
+    dokka(project(":feature:home"))
+    dokka(project(":feature:profile"))
+    dokka(project(":feature:settings"))
+
+    // ... Firebase
+    dokka(project(":firebase:analytics"))
+    dokka(project(":firebase:firestore"))
+    dokka(project(":firebase:auth"))
+
+    // ... Sync
+    dokka(project(":sync"))
 }

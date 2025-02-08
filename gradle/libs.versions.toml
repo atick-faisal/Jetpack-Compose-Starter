@@ -57,9 +57,6 @@ daggerHiltExt = "1.2.0"
 googleOss = "17.1.0"
 googleOssPlugin = "0.10.6"
 
-# ... Billing ...
-playBilling = "7.1.1"
-
 # ... WORK MANAGER ...
 workVersion = "2.10.0"
 
@@ -141,11 +138,11 @@ coil-kt = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 coil-kt-svg = { group = "io.coil-kt", name = "coil-svg", version.ref = "coil" }
 
-# ... STORAGE:PREFERENCES ...
+# ... PREFERENCES ...
 androidx-dataStore-core = { group = "androidx.datastore", name = "datastore", version.ref = "androidxDataStore" }
 androidx-dataStore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "androidxDataStore" }
 
-# ... STORAGE:ROOM ...
+# ... ROOM ...
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
@@ -176,13 +173,11 @@ androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navig
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
 compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
+dokka-gradlePlugin = { group = "org.jetbrains.dokka", name = "org.jetbrains.dokka.gradle.plugin", version.ref = "dokka" }
 
 # ... OSS ...
 google-oss-licenses = { group = "com.google.android.gms", name = "play-services-oss-licenses", version.ref = "googleOss" }
 google-oss-licenses-plugin = { group = "com.google.android.gms", name = "oss-licenses-plugin", version.ref = "googleOssPlugin" }
-
-# ... BILLING ...
-play-billing-ktx = { group = "com.android.billingclient", name = "billing-ktx", version.ref = "playBilling" }
 
 # ... WORK_MANAGER ...
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workVersion" }

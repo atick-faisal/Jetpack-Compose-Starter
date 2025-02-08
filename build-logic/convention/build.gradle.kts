@@ -14,8 +14,10 @@
  *   limitations under the License.
  */
 
+import org.gradle.kotlin.dsl.compileOnly
+import org.gradle.kotlin.dsl.gradlePlugin
+import org.gradle.kotlin.dsl.libs
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 plugins {
     `kotlin-dsl`
@@ -40,6 +42,7 @@ dependencies {
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.compose.gradlePlugin)
+    compileOnly(libs.dokka.gradlePlugin)
 }
 
 gradlePlugin {
