@@ -19,6 +19,8 @@ A robust, production-ready template for modern Android development that takes th
 - **Type-Safe Navigation**: Fully typed navigation using Kotlin serialization
 - **Robust Data Management**: Complete data layer with Repository pattern, Room database, and Preferences DataStore
 - **Network Communication**: Retrofit + OkHttp setup with proper error handling and interceptors
+- **Firebase Integration**: Full Firebase suite including Authentication, Firestore, and Analytics
+- **Background Sync**: Robust data synchronization system using WorkManager
 - **CI/CD**: Automate build, release and Play Store deployment using GitHub actions and Fastlane
 
 > [!NOTE]
@@ -38,6 +40,8 @@ Check out the whole list [here](https://github.com/atick-faisal?tab=repositories
 - **Async**: Kotlin Coroutines & Flow
 - **Network**: Retrofit, OkHttp, Kotlinx Serialization
 - **Storage**: Room DB, DataStore Preferences
+- **Firebase**: Auth, Firestore, Analytics, Crashlytics
+- **Background Processing**: WorkManager
 - **Images**: Coil
 
 ### Build & Tools
@@ -45,17 +49,19 @@ Check out the whole list [here](https://github.com/atick-faisal?tab=repositories
 - Gradle 8.11.1 with Version Catalogs
 - Java 21
 - Custom Gradle Convention Plugins
+- Dokka and MKDocs for documentation
 - Spotless for code formatting
 
 ### Architecture Components
 - MVVM with Clean Architecture
-- Repository Pattern  
+- Repository Pattern
 - Modular design with feature isolation
-- Firebase Authentication
+- Firebase Authentication & Firestore
 - Single Activity
 - DataStore for preferences
 - Kotlinx Serialization for JSON
 - Type-safe navigation
+- Background sync with WorkManager
 
 ### Development Features
 - Debug/Release variants 
@@ -68,20 +74,18 @@ Check out the whole list [here](https://github.com/atick-faisal?tab=repositories
 
 ```mermaid
 graph TD
-    A[App Module] --> B[Auth]
-    A --> H[Settings]
-    A --> C[Storage:Preferences]
-    A --> D[Storage:Room]
-    A --> E[Network]
-    B --> F[Core:UI]
-    H --> B
-    H --> C
-    B --> C
-    B --> G[Core:Android]
-    C --> G
-    D --> G
-    E --> G
-    F --> G
+    A[App] --> B[Firebase: Analytics]
+    A --> C[Features: Auth, Home, Profile, Settings]
+    A --> D[Sync]
+    A --> I[Core: UI]
+    C --> I
+    C --> E[Data]
+    D --> E
+    E --> F[Firebase: Auth, Firestore]
+    E --> G[Core: Network, Preferences, Room]
+    F --> H[Core: Android]
+    G --> H
+    B --> H
 ```
 
 ## Architecture Layers
@@ -356,36 +360,74 @@ class AuthViewModel @Inject constructor(
 ### Prerequisites
 - Android Studio Hedgehog or newer
 - JDK 21
-- Firebase account for authentication and crashlytics
+- Firebase account for authentication, firestore and analytics
 
 ### Initial Setup
 
-1. Clone and open project:
+1. Clone and open project. The depth flag is added to reduce the clone size:
 ```bash
-git clone https://github.com/atick-faisal/Jetpack-Compose-Starter.git
+git clone --depth 1 -b main https://github.com/atick-faisal/Jetpack-Compose-Starter.git
 ```
 
 2. Firebase setup:
 - Create project in Firebase Console
+- Add Authentication and Firestore and add the following rules:
+``` javascript
+    rules_version = '2';
+    service cloud.firestore {
+      match /databases/{database}/documents {
+        // Helper function to check if user is authenticated
+        function isAuthenticated() {
+          return request.auth != null;
+        }
+    
+        // Helper function to check if the user is accessing their own data
+        function isUserOwner(userId) {
+          return isAuthenticated() && request.auth.uid == userId;
+        }
+    
+        // Helper function to validate Jetpack data structure
+        function isValidJetpack(jetpack) {
+          return jetpack.size() == 7
+            && 'id' in jetpack && jetpack.id is string
+            // ... other validations
+        }
+    
+        // Match the specific path structure: dev.atick.jetpack/{userId}/jetpacks/{jetpackId}
+        match /dev.atick.jetpack/{userId}/jetpacks/{jetpackId} {
+          allow read: if isUserOwner(userId);
+          
+          allow create: if isUserOwner(userId) 
+            && isValidJetpack(request.resource.data);
+          
+          allow update: if isUserOwner(userId) 
+            && isValidJetpack(request.resource.data)
+            && request.resource.data.id == resource.data.id;
+          
+          allow delete: if isUserOwner(userId);
+        }
+        
+        // Deny access to all other documents by default
+        match /{document=**} {
+          allow read, write: if false;
+        }
+      }
+    }
+```
 - Download `google-services.json` to `app/`
 - Add SHA fingerprint to Firebase Console for Google Sign-In:
 ```bash
 ./gradlew signingReport
 ```
+Or, you can run the `signingReport` task from the run configurations.
+Then get the SHA-1 fingerprint for the debug and release builds of the `app` module and add them to Firebase Console.
 
 > [!NOTE]
-> Firebase authentication and crashlytics requires Firebase console setup and the `google-services.json` file. I have provided a template to ensure a successful build. However, you need to provide your own in order to use all the functionalities.
+> Firebase authentication, firestore and crashlytics requires Firebase console setup and the `google-services.json` file. I have provided a template to ensure a successful build. However, you need to provide your own in order to use all the functionalities.
 
 
-3. Running the App or Demo:
-   
-   There is a demo application bundled with the template. To run it, select `demo` from the run configurations. To run the app, select `app` instead.
-   <img src="https://github.com/user-attachments/assets/a135d4e2-2a8b-4b20-a140-e54224d9b513" alt="run configs" width=240 align="right"/> 
-> [!IMPORTANT]
-> The demo module is completely optional and can be removed by:  
-> - Deleting the `demo` directory
-> - Removing its entry from `settings.gradle.kts` 
-
+3. Running the App:
+To run the app, select `app` from the run configurations and hit run.
 
 ### Release Setup
 
@@ -399,10 +441,29 @@ storeFile=keystore-file-name.jks
 
 2. Place keystore file in `app/`
 
-3. Build release:
+3. To get the release apk file:
 ```bash
 ./gradlew assembleRelease
 ```
+Or, to get the bundle file:
+```bash
+./gradlew bundleRelease
+```
+
+### CI/CD Setup
+The template contains 3 GitHub actions workflows:
+- **Build**: Runs the build and tests on every push
+- **Docs**: Generates the documentation and deploys to GitHub Pages
+- **Release**: Builds and deploys the app to the Play Store
+
+The release workflow requires the following secrets:
+- `KEYSTORE`: Base64 encoded keystore file
+- `KEYSTORE_PROPERTIES`: Base64 encoded keystore.properties file
+- `GOOGLE_SERVICES_JSON`: Base64 encoded google-services.json file
+
+> [!IMPORTANT]
+> The release workflow is set up to deploy to the Play Store. Make sure to update the `fastlane/Appfile` and `fastlane/Fastfile` with your own app details.
+> Also, get the play store service account json file and add it to the `fastlane` directory. The instructions can be found [here](https://docs.fastlane.tools/actions/upload_to_play_store/).
 
 ## Adding a New Feature: Step-by-Step Guide
 
@@ -412,9 +473,9 @@ This guide walks through the process of adding a new feature to the app, followi
 
 Start by defining your data models in the appropriate layer:
 
-1. **Network Models** (if feature requires API calls):
+1. **Data Source Models**: These are the raw data models from your network, database or other sources. You should put them in `core:<data-source>/models/src/main/kotlin/dev/atick/core/<data-source>/models/`. For example:
 ```kotlin
-// network/src/main/kotlin/dev/atick/network/models/
+// core/network/src/main/kotlin/dev/atick/network/models/
 @Serializable
 data class NetworkFeatureData(
     val id: Int,
@@ -422,9 +483,12 @@ data class NetworkFeatureData(
 )
 ```
 
+2. **Repository Models**: These are the domain models (this template doesn't use domain layer, but you are free to add one) that your repository will work with. Put them in `core:<feature>/models/src/main/kotlin/dev/atick/core/<feature>/models/`. For example:
+```kotlin
+
 2. **UI Models** (what your screen will display):
 ```kotlin
-// feature/src/main/kotlin/dev/atick/feature/models/
+// feature/feature-name/src/main/kotlin/dev/atick/feature/models/
 data class FeatureScreenData(
     val title: String,
     val description: String = "",
