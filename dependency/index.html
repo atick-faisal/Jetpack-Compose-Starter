@@ -981,18 +981,22 @@
 
 
 <h1 id="dependency-management">Dependency Management</h1>
-<p>This project uses Version Catalogs and automated dependency updates to maintain a clean and up-to-date dependency management system.</p>
+<p>This project uses Version Catalogs and automated dependency updates to maintain a clean and
+up-to-date dependency management system.</p>
 <h2 id="version-catalog">Version Catalog</h2>
-<p>Dependencies and versions are centrally managed in <code>gradle/libs.versions.toml</code>. This file serves as a single source of truth for:
-- Library dependencies
-- Plugin versions
-- Project configuration
-- SDK versions</p>
+<p>Dependencies and versions are centrally managed in <code>gradle/libs.versions.toml</code>. This file serves as
+a single source of truth for:</p>
+<ul>
+<li>Library dependencies</li>
+<li>Plugin versions</li>
+<li>Project configuration</li>
+<li>SDK versions</li>
+</ul>
 <h3 id="structure">Structure</h3>
 <p>The version catalog is organized into several sections:</p>
 <ol>
-<li>
-<p><strong>Versions</strong>
+<li><strong>Versions</strong></li>
+</ol>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[versions]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Core versions</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">java</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;21&quot;</span>
@@ -1002,25 +1006,24 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">minSdk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;24&quot;</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">compileSdk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;35&quot;</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">targetSdk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;35&quot;</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Plugins</strong>
+</span></code></pre></div>
+<ol>
+<li><strong>Plugins</strong></li>
+</ol>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[plugins]</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">kotlin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;org.jetbrains.kotlin.android&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="p">.</span><span class="n">ref</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;kotlin&quot;</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">android-library</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;com.android.library&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="p">.</span><span class="n">ref</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;androidGradlePlugin&quot;</span><span class="w"> </span><span class="p">}</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Libraries</strong>
+</span></code></pre></div>
+<ol>
+<li><strong>Libraries</strong></li>
+</ol>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[libraries]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">androidx-core-ktx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;androidx.core&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;core-ktx&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="p">.</span><span class="n">ref</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;androidxCore&quot;</span><span class="w"> </span><span class="p">}</span>
-</span></code></pre></div></p>
-</li>
-</ol>
+</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Some versions in the catalog, like <code>java</code> and SDK versions, are not direct dependencies but are used by convention plugins and build configuration.</p>
+<p>Some versions in the catalog, like <code>java</code> and SDK versions, are not direct dependencies but are
+ used by convention plugins and build configuration.</p>
 </div>
 <h3 id="using-dependencies">Using Dependencies</h3>
 <p>In your module's <code>build.gradle.kts</code>:</p>
@@ -1029,16 +1032,16 @@
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="n">platform</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">androidx</span><span class="p">.</span><span class="na">compose</span><span class="p">.</span><span class="na">bom</span><span class="p">))</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>For plugins:
+<p>For plugins:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">alias</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">plugins</span><span class="p">.</span><span class="na">kotlin</span><span class="p">)</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">alias</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">plugins</span><span class="p">.</span><span class="na">android</span><span class="p">.</span><span class="na">library</span><span class="p">)</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 <h2 id="automated-dependency-updates">Automated Dependency Updates</h2>
 <p>This project uses both Renovate and Dependabot to automate dependency updates.</p>
 <h3 id="renovate-setup">Renovate Setup</h3>
-<p>The project includes a <code>renovate.json</code> configuration:
+<p>The project includes a <code>renovate.json</code> configuration:</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://docs.renovatebot.com/renovate-schema.json&quot;</span><span class="p">,</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">&quot;extends&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -1049,9 +1052,9 @@
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="p">]</span>
 </span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">}</span>
 </span></code></pre></div>
-To enable Renovate, install the <a href="https://github.com/apps/renovate">Renovate app</a> in your repository</p>
+<p>To enable Renovate, install the <a href="https://github.com/apps/renovate">Renovate app</a> in your repository</p>
 <h3 id="dependabot-setup">Dependabot Setup</h3>
-<p>The project includes a <code>.github/dependabot.yml</code> configuration:
+<p>The project includes a <code>.github/dependabot.yml</code> configuration:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">updates</span><span class="p">:</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package-ecosystem</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;github-actions&quot;</span>
@@ -1069,60 +1072,64 @@ To enable Renovate, install the <a href="https://github.com/apps/renovate">Renov
 </span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;org.jetbrains.kotlin:*&quot;</span>
 </span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;com.google.devtools.ksp&quot;</span>
 </span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;androidx.compose.compiler:compiler&quot;</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p>To enable Dependabot, ensure Dependabot is enabled in your repository settings</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>You can group dependencies that you want to get updated together in dependabot config as it has been done for the <code>kotlin-ksp-group</code>.</p>
+<p>You can group dependencies that you want to get updated together in dependabot config as it has
+ been done for the <code>kotlin-ksp-group</code>.</p>
 </div>
 <h2 id="best-practices">Best Practices</h2>
 <ol>
-<li><strong>Version Organization</strong>:</li>
+<li>
+<p><strong>Version Organization</strong>:</p>
+<ul>
 <li>Group related versions together</li>
 <li>Use comments to separate sections</li>
-<li>
-<p>Keep SDK configurations in a dedicated section</p>
+<li>Keep SDK configurations in a dedicated section</li>
+</ul>
 </li>
 <li>
-<p><strong>Version References</strong>:
+<p><strong>Version References</strong>:</p>
+</li>
+</ol>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">[versions]</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">compose-compiler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1.5.3&quot;</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">[libraries]</span>
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">compose-compiler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;androidx.compose.compiler&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;compiler&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="p">.</span><span class="n">ref</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;compose-compiler&quot;</span><span class="w"> </span><span class="p">}</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Version Bundles</strong>:
-   Use BOM (Bill of Materials) when available:
+</span></code></pre></div>
+<ol>
+<li><strong>Version Bundles</strong>:
+   Use BOM (Bill of Materials) when available:</li>
+</ol>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">[libraries]</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">compose-bom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;androidx.compose&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;compose-bom&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="p">.</span><span class="n">ref</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;androidxComposeBom&quot;</span><span class="w"> </span><span class="p">}</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Custom Properties</strong>:
-   Store important project configuration in the version catalog:
+</span></code></pre></div>
+<ol>
+<li><strong>Custom Properties</strong>:
+   Store important project configuration in the version catalog:</li>
+</ol>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">[versions]</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">minSdk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;24&quot;</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">compileSdk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;35&quot;</span>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">targetSdk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;35&quot;</span>
-</span></code></pre></div></p>
-</li>
-</ol>
+</span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Don't mix different versions of the same library family. Use BOMs when available to ensure compatibility.</p>
+<p>Don't mix different versions of the same library family. Use BOMs when available to ensure
+ compatibility.</p>
 </div>
 <h2 id="adding-new-dependencies">Adding New Dependencies</h2>
 <ol>
 <li>Add the version to <code>[versions]</code> section if needed</li>
 <li>Add the library definition to <code>[libraries]</code> section</li>
-<li>Use the new dependency in your module:
+<li>Use the new dependency in your module:</li>
+</ol>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">dependencies</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">your</span><span class="p">.</span><span class="na">new</span><span class="p">.</span><span class="na">dependency</span><span class="p">)</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">}</span>
-</span></code></pre></div></li>
-</ol>
+</span></code></pre></div>
 
 
 

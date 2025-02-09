@@ -939,7 +939,8 @@
 
 
 <h1 id="firebase-setup">Firebase Setup</h1>
-<p>This project uses Firebase for authentication, Firestore database, and analytics. Follow this guide to set up Firebase for your project.</p>
+<p>This project uses Firebase for authentication, Firestore database, and analytics. Follow this guide
+to set up Firebase for your project.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>A Google account</li>
@@ -948,16 +949,18 @@
 </ul>
 <h2 id="firebase-console-setup">Firebase Console Setup</h2>
 <ol>
-<li>Create a new project in Firebase Console:</li>
+<li>
+<p>Create a new project in Firebase Console:</p>
+<ul>
 <li>Go to <a href="https://console.firebase.google.com">Firebase Console</a></li>
 <li>Click "Add project"</li>
 <li>Enter your project name</li>
-<li>
-<p>Follow the setup wizard</p>
+<li>Follow the setup wizard</li>
+</ul>
 </li>
 <li>
 <p>Add Android app to your Firebase project:</p>
-</li>
+<ul>
 <li>Click on Android icon in project overview</li>
 <li>Register app using your package name (<code>dev.your.package.name</code>)</li>
 <li>Get the SHA-1 using the provided Signing Report configuration:<ul>
@@ -966,88 +969,105 @@
 <li>Copy the SHA-1 hash</li>
 </ul>
 </li>
-<li>
-<p>Enter the SHA-1 in Firebase console</p>
+<li>Enter the SHA-1 in Firebase console</li>
+</ul>
 </li>
 <li>
 <p>Enable Required Services:</p>
 </li>
 </ol>
 <p>a. <strong>Authentication</strong>:
-   - Go to "Authentication" in Firebase Console
-   - Click "Get Started"
-   - Enable "Google" sign-in method
-   - Enable "Email/Password" sign-in method
-   - Add your support email</p>
+    - Go to "Authentication" in Firebase Console
+    - Click "Get Started"
+    - Enable "Google" sign-in method
+    - Enable "Email/Password" sign-in method
+    - Add your support email</p>
 <p>b. <strong>Firestore</strong>:
-   - Go to "Firestore Database"
-   - Click "Create Database"
-   - Choose your location
-   - Start in production mode</p>
+    - Go to "Firestore Database"
+    - Click "Create Database"
+    - Choose your location
+    - Start in production mode</p>
 <h2 id="local-project-setup">Local Project Setup</h2>
 <ol>
-<li>Download Configuration File:</li>
+<li>
+<p>Download Configuration File:</p>
+<ul>
 <li>Download <code>google-services.json</code> from Firebase Console</li>
 <li>Before replacing the template file, stop Git from tracking it:
    <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>update-index<span class="w"> </span>--skip-worktree<span class="w"> </span>app/google-services.json
 </span></code></pre></div></li>
 <li>Replace the template <code>google-services.json</code> in the <code>app</code> directory with your downloaded file</li>
-</ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Never commit your actual <code>google-services.json</code> to version control. The template file is provided only to ensure successful builds.</p>
-</div>
-<ol>
-<li>Verify Firebase Setup:</li>
+</ul>
+</li>
+<li>
+<p>Verify Firebase Setup:</p>
+<ul>
 <li>Build and run the app</li>
 <li>Try signing in with Google</li>
 <li>Check Firebase Console to verify authentication is working</li>
+</ul>
+</li>
 </ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Never commit your actual <code>google-services.json</code> to version control. The template file is provided
+ only to ensure successful builds.</p>
+</div>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>Common issues and solutions:</p>
 <ol>
-<li><strong>Google Sign-In Not Working</strong>:</li>
+<li>
+<p><strong>Google Sign-In Not Working</strong>:</p>
+<ul>
 <li>Verify SHA-1 is correctly added in Firebase Console</li>
 <li>Check if <code>google-services.json</code> is up to date</li>
-<li>
-<p>Ensure the OAuth consent screen is configured</p>
+<li>Ensure the OAuth consent screen is configured</li>
+</ul>
 </li>
 <li>
 <p><strong>Firestore Access Issues</strong>:</p>
-</li>
+<ul>
 <li>Check your Firestore rules</li>
 <li>Verify your device has internet connection</li>
-<li>
-<p>Check if the user is properly authenticated</p>
+<li>Check if the user is properly authenticated</li>
+</ul>
 </li>
 <li>
 <p><strong>Build Issues</strong>:</p>
-</li>
+<ul>
 <li>Clean and rebuild the project</li>
 <li>Verify <code>google-services.json</code> is in the correct location</li>
 <li>Check if all Firebase dependencies are resolved</li>
+</ul>
+</li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If you need to get the SHA-1 hash again later, you can always run the "Signing Report" configuration from Android Studio.</p>
+<p>If you need to get the SHA-1 hash again later, you can always run the "Signing Report"
+ configuration from Android Studio.</p>
 </div>
 <h2 id="firebase-configuration-files">Firebase Configuration Files</h2>
 <p>The project handles Firebase configuration files in several ways:</p>
 <ol>
-<li><strong>Development</strong>:</li>
-<li>Use your local <code>google-services.json</code></li>
 <li>
-<p>Keep it private using <code>git update-index --skip-worktree</code></p>
+<p><strong>Development</strong>:</p>
+<ul>
+<li>Use your local <code>google-services.json</code></li>
+<li>Keep it private using <code>git update-index --skip-worktree</code></li>
+</ul>
 </li>
 <li>
 <p><strong>CI/CD</strong>:</p>
-</li>
+<ul>
 <li>GitHub Actions workflow uses encoded secrets</li>
 <li>See <a href="../github/">GitHub CI/CD Setup</a> for details</li>
+</ul>
+</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The template <code>google-services.json</code> allows the project to build but won't enable Firebase services. You must replace it with your own configuration file.</p>
+<p>The template <code>google-services.json</code> allows the project to build but won't enable Firebase
+ services. You must replace it with your own configuration file.</p>
 </div>
 <h2 id="firestore-security-rules">Firestore Security Rules</h2>
 <p>Set up security rules in Firebase Console to protect your data:</p>
@@ -1097,39 +1117,45 @@
 </span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>These rules implement several security features:
-- User authentication check
-- Data ownership validation
-- Document structure validation
-- Explicit deny-by-default for unmatched paths</p>
+<p>These rules implement several security features:</p>
+<ul>
+<li>User authentication check</li>
+<li>Data ownership validation</li>
+<li>Document structure validation</li>
+<li>Explicit deny-by-default for unmatched paths</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">Important</p>
-<p>Always test your security rules thoroughly using the Firebase Console Rules Playground before deploying to production.</p>
+<p>Always test your security rules thoroughly using the Firebase Console Rules Playground before
+ deploying to production.</p>
 </div>
 <h2 id="additional-setup">Additional Setup</h2>
 <ol>
-<li>
-<p><strong>Test Your Configuration</strong>:
+<li><strong>Test Your Configuration</strong>:</li>
+</ol>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Add this in an activity or fragment</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">FirebaseAuth</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">currentUser</span><span class="o">?.</span><span class="na">let</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">Timber</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="s">&quot;Firebase Auth is working: </span><span class="si">${</span><span class="nb">it</span><span class="p">.</span><span class="na">email</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Reset Git Tracking</strong> (if needed):
+</span></code></pre></div>
+<ol>
+<li><strong>Reset Git Tracking</strong> (if needed):</li>
+</ol>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>update-index<span class="w"> </span>--no-skip-worktree<span class="w"> </span>app/google-services.json
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Multiple Environments</strong>:</p>
-</li>
+</span></code></pre></div>
+<ol>
+<li><strong>Multiple Environments</strong>:<ul>
 <li>Create separate Firebase projects for development and production</li>
 <li>Manage different <code>google-services.json</code> files for each build variant</li>
+</ul>
+</li>
 </ol>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Remember to add your <code>google-services.json</code> to <code>.gitignore</code> if you're setting up the project from</p>
+</div>
 <blockquote>
-<p>[!IMPORTANT]
-Remember to add your <code>google-services.json</code> to <code>.gitignore</code> if you're setting up the project from scratch.</p>
+<p>scratch.</p>
 </blockquote>
 
 

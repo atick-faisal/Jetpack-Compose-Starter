@@ -1053,10 +1053,12 @@
 
 
 <h1 id="design-philosophy">Design Philosophy</h1>
-<p>This project prioritizes pragmatic simplicity over theoretical purity, making conscious trade-offs that favor maintainability and readability over absolute correctness or flexibility.</p>
+<p>This project prioritizes pragmatic simplicity over theoretical purity, making conscious trade-offs
+that favor maintainability and readability over absolute correctness or flexibility.</p>
 <h2 id="core-principles">Core Principles</h2>
 <h3 id="1-pragmatic-simplicity">1. Pragmatic Simplicity</h3>
-<p>We favor straightforward, understandable solutions over complex but theoretically "pure" ones. This means:</p>
+<p>We favor straightforward, understandable solutions over complex but theoretically "pure" ones. This
+means:</p>
 <ul>
 <li>Using direct state management approaches</li>
 <li>Minimizing layers when possible</li>
@@ -1064,15 +1066,16 @@
 </ul>
 <h3 id="2-centralized-state-management">2. Centralized State Management</h3>
 <h4 id="uistate-wrapper">UiState Wrapper</h4>
-<p>All UI state is wrapped in a consistent structure:
+<p>All UI state is wrapped in a consistent structure:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">UiState</span><span class="o">&lt;</span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">Any</span><span class="o">&gt;</span><span class="p">(</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="n">T</span><span class="p">,</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">loading</span><span class="p">:</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">error</span><span class="p">:</span><span class="w"> </span><span class="n">OneTimeEvent</span><span class="o">&lt;</span><span class="n">Throwable?&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OneTimeEvent</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">)</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 <h4 id="statefulcomposable-pattern">StatefulComposable Pattern</h4>
-<p>Instead of implementing error and loading states individually for each screen, we handle these centrally:</p>
+<p>Instead of implementing error and loading states individually for each screen, we handle these
+centrally:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@Composable</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">fun</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Any</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">StatefulComposable</span><span class="p">(</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">UiState</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span>
@@ -1107,39 +1110,39 @@
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><strong>Trade-offs Made:</strong>
-- ✅ Readability: State changes are explicit and easy to trace
-- ✅ Debuggability: Direct state mutations are easier to debug
-- ✅ Simplicity: Easier to manage multiple UI events
-- ❌ Purity: Less adherence to functional programming principles</p>
+<p><strong>Trade-offs Made:</strong></p>
+<ul>
+<li>✅ Readability: State changes are explicit and easy to trace</li>
+<li>✅ Debuggability: Direct state mutations are easier to debug</li>
+<li>✅ Simplicity: Easier to manage multiple UI events</li>
+<li>❌ Purity: Less adherence to functional programming principles</li>
+</ul>
 <h3 id="4-error-handling">4. Error Handling</h3>
 <p>We use a consistent error handling approach throughout the app:</p>
 <ol>
-<li>
-<p><strong>Repository Layer</strong>: Uses <code>Result</code> type
+<li><strong>Repository Layer</strong>: Uses <code>Result</code> type</li>
+</ol>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getData</span><span class="p">():</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">Data</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">suspendRunCatching</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">dataSource</span><span class="p">.</span><span class="na">getData</span><span class="p">()</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">}</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>ViewModel Layer</strong>: Converts to <code>OneTimeEvent</code>
+</span></code></pre></div>
+<ol>
+<li><strong>ViewModel Layer</strong>: Converts to <code>OneTimeEvent</code></li>
+</ol>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">viewModelScope</span><span class="p">.</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">repository</span><span class="p">.</span><span class="na">getData</span><span class="p">()</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="p">.</span><span class="na">onSuccess</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="p">.</span><span class="na">onSuccess</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">-&gt;</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">            </span><span class="n">_uiState</span><span class="p">.</span><span class="na">updateState</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">copy</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="p">}</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="p">.</span><span class="na">onFailure</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="o">-&gt;</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">            </span><span class="n">_uiState</span><span class="p">.</span><span class="na">updateState</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">            </span><span class="n">_uiState</span><span class="p">.</span><span class="na">updateState</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">                </span><span class="n">copy</span><span class="p">(</span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OneTimeEvent</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">            </span><span class="p">}</span>
 </span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="p">}</span>
 </span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">}</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>UI Layer</strong>: Handled by <code>StatefulComposable</code></p>
-</li>
+</span></code></pre></div>
+<ol>
+<li><strong>UI Layer</strong>: Handled by <code>StatefulComposable</code></li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1148,8 +1151,8 @@
 <h3 id="5-state-updates">5. State Updates</h3>
 <p>We provide extension functions for common state update patterns:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// Regular state updates</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">_uiState</span><span class="p">.</span><span class="na">updateState</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">copy</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newValue</span><span class="p">)</span><span class="w"> </span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">_uiState</span><span class="p">.</span><span class="na">updateState</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">copy</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newValue</span><span class="p">)</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">// Async operations with loading state</span>
@@ -1158,71 +1161,80 @@
 </span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="6-feature-organization">6. Feature Organization</h3>
-<p>Each feature is self-contained and follows a consistent structure:
+<p>Each feature is self-contained and follows a consistent structure:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>feature/
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>└── auth/
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    ├── navigation/    # Navigation-related code
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    ├── ui/           # UI components and ViewModels
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    └── models/       # Feature-specific models
-</span></code></pre></div></p>
+</span></code></pre></div>
 <h2 id="conscious-trade-offs">Conscious Trade-offs</h2>
 <p>Our design philosophy makes several conscious trade-offs:</p>
 <ol>
-<li><strong>Simplicity vs. Flexibility</strong></li>
-<li>We choose simpler solutions even if they're less flexible</li>
 <li>
-<p>Custom solutions are added only when really needed</p>
+<p><strong>Simplicity vs. Flexibility</strong></p>
+<ul>
+<li>We choose simpler solutions even if they're less flexible</li>
+<li>Custom solutions are added only when really needed</li>
+</ul>
 </li>
 <li>
 <p><strong>Convention vs. Configuration</strong></p>
-</li>
+<ul>
 <li>We favor strong conventions over configuration options</li>
-<li>
-<p>This reduces decision fatigue but may limit customization</p>
+<li>This reduces decision fatigue but may limit customization</li>
+</ul>
 </li>
 <li>
 <p><strong>Pragmatism vs. Purity</strong></p>
-</li>
+<ul>
 <li>We prioritize practical solutions over theoretical purity</li>
-<li>
-<p>This may mean occasionally breaking "clean" architecture rules</p>
+<li>This may mean occasionally breaking "clean" architecture rules</li>
+</ul>
 </li>
 <li>
 <p><strong>Consistency vs. Optimization</strong></p>
-</li>
+<ul>
 <li>We prefer consistent patterns across the codebase</li>
 <li>This might mean using the same solution even when a specialized one might be marginally better</li>
+</ul>
+</li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Important</p>
-<p>These patterns are guidelines, not rules. The goal is to make the codebase more maintainable and easier to understand, not to restrict flexibility where it's truly needed.</p>
+<p>These patterns are guidelines, not rules. The goal is to make the codebase more maintainable and
+ easier to understand, not to restrict flexibility where it's truly needed.</p>
 </div>
 <h2 id="benefits-of-this-approach">Benefits of This Approach</h2>
 <ol>
-<li><strong>Reduced Cognitive Load</strong></li>
-<li>Developers can predict where to find things</li>
 <li>
-<p>Common patterns reduce decision fatigue</p>
+<p><strong>Reduced Cognitive Load</strong></p>
+<ul>
+<li>Developers can predict where to find things</li>
+<li>Common patterns reduce decision fatigue</li>
+</ul>
 </li>
 <li>
 <p><strong>Easier Onboarding</strong></p>
-</li>
+<ul>
 <li>New team members can quickly understand the codebase</li>
-<li>
-<p>Consistent patterns make learning curve smoother</p>
+<li>Consistent patterns make learning curve smoother</li>
+</ul>
 </li>
 <li>
 <p><strong>Better Maintainability</strong></p>
-</li>
+<ul>
 <li>Common patterns make code more predictable</li>
-<li>
-<p>Centralized handling reduces bugs</p>
+<li>Centralized handling reduces bugs</li>
+</ul>
 </li>
 <li>
 <p><strong>Improved Debugging</strong></p>
-</li>
+<ul>
 <li>State changes are explicit and traceable</li>
 <li>Error handling is consistent and predictable</li>
+</ul>
+</li>
 </ol>
 <h2 id="when-to-break-these-rules">When to Break These Rules</h2>
 <p>While these patterns serve well for most cases, consider alternatives when:</p>
@@ -1232,9 +1244,12 @@
 <li>Complex business logic demands more separation</li>
 <li>Third-party integration requires different patterns</li>
 </ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When deviating from these patterns, document your reasoning to help other developers understand</p>
+</div>
 <blockquote>
-<p>[!TIP]
-When deviating from these patterns, document your reasoning to help other developers understand the context of your decisions.</p>
+<p>the context of your decisions.</p>
 </blockquote>
 
 

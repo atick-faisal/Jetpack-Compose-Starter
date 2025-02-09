@@ -1097,14 +1097,17 @@
 <h1 id="performance-optimizations">Performance Optimizations</h1>
 <p>This guide covers various performance optimization features available in the project.</p>
 <h2 id="compose-compiler-metrics">Compose Compiler Metrics</h2>
-<p>The project includes built-in support for Compose compiler metrics to help optimize your composables.</p>
-<p>Check the <code>gradle.properties</code> file to ensure the following:
+<p>The project includes built-in support for Compose compiler metrics to help optimize your
+composables.</p>
+<p>Check the <code>gradle.properties</code> file to ensure the following:</p>
 <div class="language-properties highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">enableComposeCompilerMetrics</span><span class="o">=</span><span class="s">true</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">enableComposeCompilerReports</span><span class="o">=</span><span class="s">true</span>
-</span></code></pre></div></p>
-<p>This configuration will generate detailed reports in:
-- <code>build/&lt;module&gt;/compose-metrics</code>: Composition metrics
-- <code>build/&lt;module&gt;/compose-reports</code>: Compiler reports</p>
+</span></code></pre></div>
+<p>This configuration will generate detailed reports in:</p>
+<ul>
+<li><code>build/&lt;module&gt;/compose-metrics</code>: Composition metrics</li>
+<li><code>build/&lt;module&gt;/compose-reports</code>: Compiler reports</li>
+</ul>
 <h3 id="using-the-reports">Using the Reports</h3>
 <ol>
 <li><strong>Skippability Report</strong>: Shows which composables can't skip recomposition</li>
@@ -1124,7 +1127,7 @@
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">list</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">// Immutable type</span>
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">)</span>
 </span></code></pre></div>
-<p>Common optimizations:
+<p>Common optimizations:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Mark data classes as stable</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nd">@Stable</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">YourData</span><span class="p">(...)</span>
@@ -1136,23 +1139,26 @@
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="kd">val</span><span class="w"> </span><span class="nv">filteredList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">remember</span><span class="p">(</span><span class="n">items</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="n">items</span><span class="p">.</span><span class="na">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Use <code>@Immutable</code> for classes that never change and <code>@Stable</code> for classes whose properties may change but maintain identity.</p>
+<p>Use <code>@Immutable</code> for classes that never change and <code>@Stable</code> for classes whose properties may
+ change but maintain identity.</p>
 </div>
 <h2 id="r8-and-proguard-optimization">R8 and ProGuard Optimization</h2>
 <h3 id="project-structure-for-obfuscation">Project Structure for Obfuscation</h3>
-<p>The project follows a consistent pattern for data models to simplify ProGuard/R8 rules:
+<p>The project follows a consistent pattern for data models to simplify ProGuard/R8 rules:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>├── feature/
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>│   └── your-feature/
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>│       └── models/  // Models kept unobfuscated
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>└── core/
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    └── network/
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        └── models/  // Data models kept unobfuscated
-</span></code></pre></div></p>
+</span></code></pre></div>
 <h3 id="proguard-and-consumer-rules">ProGuard and Consumer Rules</h3>
-<p>If your app works in <code>debug</code> build but not in <code>release</code> build that typically indicates obfuscation issues. In that case you need to add or edit the proguard rules. These can be found in <module>/proguard-rules.pro for <module>/consumer-rules.pro files. For example:</p>
+<p>If your app works in <code>debug</code> build but not in <code>release</code> build that typically indicates obfuscation
+issues. In that case you need to add or edit the proguard rules. These can be found in <module>
+/proguard-rules.pro for <module>/consumer-rules.pro files. For example:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># Keep all models
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>-keep class **.models.** { *; }
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
@@ -1162,7 +1168,8 @@
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The project's model organization makes it easy to keep data models unobfuscated while allowing safe obfuscation of implementation classes.</p>
+<p>The project's model organization makes it easy to keep data models unobfuscated while allowing
+ safe obfuscation of implementation classes.</p>
 </div>
 <h2 id="gradle-build-optimization">Gradle Build Optimization</h2>
 <h3 id="build-scan">Build Scan</h3>
@@ -1180,17 +1187,21 @@
 </span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Use build scans to:
-- Identify slow tasks
-- Find configuration issues
-- Optimize dependency resolution</p>
+<p>Use build scans to:</p>
+<ul>
+<li>Identify slow tasks</li>
+<li>Find configuration issues</li>
+<li>Optimize dependency resolution</li>
+</ul>
 <h3 id="multi-module-build-optimization">Multi-Module Build Optimization</h3>
 <p>Take advantage of the project's modular structure:</p>
 <ol>
-<li><strong>Make Module</strong>: Instead of rebuilding the entire project, use Make Module:</li>
-<li>Android Studio: Right-click module → Make Module</li>
 <li>
-<p>Command Line: <code>./gradlew :module:name:assembleDebug</code></p>
+<p><strong>Make Module</strong>: Instead of rebuilding the entire project, use Make Module:</p>
+<ul>
+<li>Android Studio: Right-click module → Make Module</li>
+<li>Command Line: <code>./gradlew :module:name:assembleDebug</code></li>
+</ul>
 </li>
 <li>
 <p><strong>Parallel Execution</strong>: Enabled in <code>gradle.properties</code>:
@@ -1203,7 +1214,8 @@
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>When working on a feature, use Make Module on just that feature's module to significantly reduce build time.</p>
+<p>When working on a feature, use Make Module on just that feature's module to significantly reduce
+ build time.</p>
 </div>
 <h2 id="baseline-profiles">Baseline Profiles</h2>
 <div class="admonition note">
@@ -1218,10 +1230,12 @@
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>This will include:
-- Startup trace collection
-- Critical user path optimization
-- Ahead-of-time compilation for key paths</p>
+<p>This will include:</p>
+<ul>
+<li>Startup trace collection</li>
+<li>Critical user path optimization</li>
+<li>Ahead-of-time compilation for key paths</li>
+</ul>
 <h2 id="firebase-performance-monitoring">Firebase Performance Monitoring</h2>
 <p>This template includes Firebase Performance Monitoring setup through the Firebase convention plugin:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// FirebaseConventionPlugin.kt</span>
@@ -1239,35 +1253,37 @@
 </span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>This gives you automatic monitoring of:
-- Network requests
-- App startup time
-- Screen render time
-- Frozen frames</p>
-<p>You can also add custom traces:
+<p>This gives you automatic monitoring of:</p>
+<ul>
+<li>Network requests</li>
+<li>App startup time</li>
+<li>Screen render time</li>
+<li>Frozen frames</li>
+</ul>
+<p>You can also add custom traces:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">FirebasePerformance</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">newTrace</span><span class="p">(</span><span class="s">&quot;custom_operation&quot;</span><span class="p">).</span><span class="na">apply</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="n">start</span><span class="p">()</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Your code here</span>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="n">stop</span><span class="p">()</span>
 </span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">}</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Use the Firebase Console to view performance metrics and identify bottlenecks in your app.</p>
 </div>
 <h2 id="additional-performance-tips">Additional Performance Tips</h2>
 <ol>
-<li>
-<p><strong>Image Loading</strong>:
+<li><strong>Image Loading</strong>:</li>
+</ol>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// Use Coil&#39;s memory cache</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">ImageLoader</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="n">memoryCachePolicy</span><span class="p">(</span><span class="n">CachePolicy</span><span class="p">.</span><span class="na">ENABLED</span><span class="p">)</span>
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="n">diskCachePolicy</span><span class="p">(</span><span class="n">CachePolicy</span><span class="p">.</span><span class="na">ENABLED</span><span class="p">)</span>
 </span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="p">}</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>List Performance</strong>:
+</span></code></pre></div>
+<ol>
+<li><strong>List Performance</strong>:</li>
+</ol>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// Use LazyColumn with keys</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">LazyColumn</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">items</span><span class="p">(</span>
@@ -1277,31 +1293,32 @@
 </span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">        </span><span class="c1">// Item content</span>
 </span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="p">}</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>State Hoisting</strong>:
+</span></code></pre></div>
+<ol>
+<li><strong>State Hoisting</strong>:</li>
+</ol>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// Hoist state for better recomposition control</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nd">@Composable</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">StatefulComponent</span><span class="p">(</span>
 </span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="c1">// Hoisted state</span>
 </span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="n">onStateChange</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">State</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Unit</span>
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="p">)</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Navigation Performance</strong>:
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span></code></pre></div>
+<ol>
+<li><strong>Navigation Performance</strong>:</li>
+</ol>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// Use NavOptions to control back stack. In JetpackAppState.kt:</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">navController</span><span class="p">.</span><span class="na">navigate</span><span class="p">(</span><span class="n">route</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="n">launchSingleTop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 </span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="n">restoreState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 </span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">}</span>
-</span></code></pre></div></p>
-</li>
-</ol>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Always profile your app's performance using Android Studio's CPU Profiler and Layout Inspector</p>
+</div>
 <blockquote>
-<p>[!IMPORTANT]
-Always profile your app's performance using Android Studio's CPU Profiler and Layout Inspector before and after optimizations to ensure they're effective.</p>
+<p>before and after optimizations to ensure they're effective.</p>
 </blockquote>
 
 

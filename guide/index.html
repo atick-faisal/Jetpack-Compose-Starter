@@ -1215,7 +1215,8 @@
 
 
 <h1 id="adding-a-new-feature">Adding a New Feature</h1>
-<p>This guide walks through the process of adding a new feature to the app, following our established patterns and best practices.</p>
+<p>This guide walks through the process of adding a new feature to the app, following our established
+patterns and best practices.</p>
 <h2 id="overview-of-steps">Overview of Steps</h2>
 <ol>
 <li>Define data models</li>
@@ -1227,7 +1228,8 @@
 </ol>
 <h2 id="step-1-data-models">Step 1: Data Models</h2>
 <h3 id="11-data-source-models">1.1 Data Source Models</h3>
-<p>Create models in appropriate core module (for example, <code>core:network</code> or <code>core:room</code>). Feel free to create your own if its not present in the template:</p>
+<p>Create models in appropriate core module (for example, <code>core:network</code> or <code>core:room</code>). Feel free to
+create your own if its not present in the template:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// core/network/src/main/kotlin/dev/atick/core/network/models/NetworkFeature.kt</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nd">@Serializable</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">NetworkFeature</span><span class="p">(</span>
@@ -1491,38 +1493,43 @@
 </span></code></pre></div>
 <h2 id="best-practices-reminder">Best Practices Reminder</h2>
 <ol>
-<li><strong>Data Sources</strong>:</li>
+<li>
+<p><strong>Data Sources</strong>:</p>
+<ul>
 <li>Use <code>withContext(ioDispatcher)</code> for IO operations</li>
 <li>Handle raw data models</li>
-<li>
-<p>One responsibility per data source</p>
+<li>One responsibility per data source</li>
+</ul>
 </li>
 <li>
 <p><strong>Repositories</strong>:</p>
-</li>
+<ul>
 <li>Use <code>suspendRunCatching</code> for error handling</li>
 <li>Convert between data models</li>
-<li>
-<p>Coordinate between data sources</p>
+<li>Coordinate between data sources</li>
+</ul>
 </li>
 <li>
 <p><strong>ViewModels</strong>:</p>
-</li>
+<ul>
 <li>Use <code>updateState</code> and <code>updateStateWith</code> utilities</li>
 <li>Handle UI logic and state management</li>
-<li>
-<p>Convert to UI models</p>
+<li>Convert to UI models</li>
+</ul>
 </li>
 <li>
 <p><strong>UI Components</strong>:</p>
-</li>
+<ul>
 <li>Use <code>StatefulComposable</code> for consistent loading/error handling</li>
 <li>Keep composables pure and state-driven</li>
 <li>Separate route from screen implementation</li>
+</ul>
+</li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Important</p>
-<p>Always follow the unidirectional data flow pattern: UI Events → ViewModel → Repository → Data Sources → Back to UI through StateFlow.</p>
+<p>Always follow the unidirectional data flow pattern: UI Events → ViewModel → Repository → Data
+ Sources → Back to UI through StateFlow.</p>
 </div>
 <h2 id="testing-upcoming">Testing (Upcoming 🚧)</h2>
 <p>Remember to add tests for your new feature:</p>

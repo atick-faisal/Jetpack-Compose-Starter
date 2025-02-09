@@ -1005,52 +1005,63 @@
 
 
 <h1 id="convention-plugins">Convention Plugins</h1>
-<p>This project uses Gradle Convention Plugins to centralize common build logic and simplify module-level build files. These plugins are located in the <code>build-logic</code> directory.</p>
+<p>This project uses Gradle Convention Plugins to centralize common build logic and simplify
+module-level build files. These plugins are located in the <code>build-logic</code> directory.</p>
 <h2 id="available-plugins">Available Plugins</h2>
 <h3 id="1-application-plugin-devatickapplication">1. Application Plugin (<code>dev.atick.application</code>)</h3>
-<p>Used for the main application module:
-- Configures Android application defaults
-- Sets up Compose
-- Enables BuildConfig
-- Configures Kotlin and Java versions
-- Sets up Compose compiler metrics and reports</p>
+<p>Used for the main application module:</p>
+<ul>
+<li>Configures Android application defaults</li>
+<li>Sets up Compose</li>
+<li>Enables BuildConfig</li>
+<li>Configures Kotlin and Java versions</li>
+<li>Sets up Compose compiler metrics and reports</li>
+</ul>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">alias</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">plugins</span><span class="p">.</span><span class="na">jetpack</span><span class="p">.</span><span class="na">application</span><span class="p">)</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="2-library-plugin-devaticklibrary">2. Library Plugin (<code>dev.atick.library</code>)</h3>
-<p>Base plugin for Android library modules:
-- Configures Android library defaults
-- Sets up Kotlin
-- Configures Java versions
-- Enables KotlinX Serialization</p>
+<p>Base plugin for Android library modules:</p>
+<ul>
+<li>Configures Android library defaults</li>
+<li>Sets up Kotlin</li>
+<li>Configures Java versions</li>
+<li>Enables KotlinX Serialization</li>
+</ul>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">alias</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">plugins</span><span class="p">.</span><span class="na">jetpack</span><span class="p">.</span><span class="na">library</span><span class="p">)</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="3-ui-library-plugin-devatickuilibrary">3. UI Library Plugin (<code>dev.atick.ui.library</code>)</h3>
-<p>Extended library plugin for UI modules:
-- Includes all Library Plugin features
-- Enables Jetpack Compose
-- Adds Material3 experimental opt-ins</p>
+<p>Extended library plugin for UI modules:</p>
+<ul>
+<li>Includes all Library Plugin features</li>
+<li>Enables Jetpack Compose</li>
+<li>Adds Material3 experimental opt-ins</li>
+</ul>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">alias</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">plugins</span><span class="p">.</span><span class="na">jetpack</span><span class="p">.</span><span class="na">ui</span><span class="p">.</span><span class="na">library</span><span class="p">)</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="4-dagger-hilt-plugin-devatickdaggerhilt">4. Dagger Hilt Plugin (<code>dev.atick.dagger.hilt</code>)</h3>
-<p>Sets up Dagger Hilt in a module:
-- Applies Hilt Android plugin
-- Adds KSP for annotation processing
-- Configures Hilt dependencies</p>
+<p>Sets up Dagger Hilt in a module:</p>
+<ul>
+<li>Applies Hilt Android plugin</li>
+<li>Adds KSP for annotation processing</li>
+<li>Configures Hilt dependencies</li>
+</ul>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">alias</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">plugins</span><span class="p">.</span><span class="na">jetpack</span><span class="p">.</span><span class="na">dagger</span><span class="p">.</span><span class="na">hilt</span><span class="p">)</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="5-firebase-plugin-devatickfirebase">5. Firebase Plugin (<code>dev.atick.firebase</code>)</h3>
-<p>Configures Firebase services:
-- Sets up Firebase BoM
-- Configures Analytics, Crashlytics, and Performance
-- Applies necessary Google Services plugins</p>
+<p>Configures Firebase services:</p>
+<ul>
+<li>Sets up Firebase BoM</li>
+<li>Configures Analytics, Crashlytics, and Performance</li>
+<li>Applies necessary Google Services plugins</li>
+</ul>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">alias</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">plugins</span><span class="p">.</span><span class="na">jetpack</span><span class="p">.</span><span class="na">firebase</span><span class="p">)</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">}</span>
@@ -1065,13 +1076,14 @@
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The plugins are already registered in the version catalog (<code>libs.versions.toml</code>), making them easily accessible across all modules.</p>
+<p>The plugins are already registered in the version catalog (<code>libs.versions.toml</code>), making them
+ easily accessible across all modules.</p>
 </div>
 <h2 id="creating-custom-plugins">Creating Custom Plugins</h2>
 <p>To create your own convention plugin:</p>
 <ol>
-<li>Add your plugin class in <code>build-logic/convention/src/main/kotlin</code>:</li>
-</ol>
+<li>
+<p>Add your plugin class in <code>build-logic/convention/src/main/kotlin</code>:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">CustomConventionPlugin</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Plugin</span><span class="o">&lt;</span><span class="n">Project</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="n">Project</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">        </span><span class="n">with</span><span class="p">(</span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1080,9 +1092,9 @@
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<ol>
-<li>Register it in <code>build-logic/convention/build.gradle.kts</code>:</li>
-</ol>
+</li>
+<li>
+<p>Register it in <code>build-logic/convention/build.gradle.kts</code>:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">gradlePlugin</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="n">register</span><span class="p">(</span><span class="s">&quot;customPlugin&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1092,65 +1104,75 @@
 </span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<ol>
-<li>Add it to <code>libs.versions.toml</code>:</li>
-</ol>
+</li>
+<li>
+<p>Add it to <code>libs.versions.toml</code>:</p>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">[plugins]</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">custom-plugin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;dev.your.plugin.id&quot;</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
+</li>
+</ol>
 <h2 id="plugin-development-tips">Plugin Development Tips</h2>
 <ol>
 <li>
-<p><strong>Accessing Version Catalog</strong>:
+<p><strong>Accessing Version Catalog</strong>:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">libs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">extensions</span><span class="p">.</span><span class="na">getByType</span><span class="o">&lt;</span><span class="n">VersionCatalogsExtension</span><span class="o">&gt;</span><span class="p">().</span><span class="na">named</span><span class="p">(</span><span class="s">&quot;libs&quot;</span><span class="p">)</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">libs</span><span class="p">.</span><span class="na">findVersion</span><span class="p">(</span><span class="s">&quot;your.version&quot;</span><span class="p">).</span><span class="na">get</span><span class="p">()</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 </li>
 <li>
-<p><strong>Configuring Android Extensions</strong>:
+<p><strong>Configuring Android Extensions</strong>:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">extensions</span><span class="p">.</span><span class="na">configure</span><span class="o">&lt;</span><span class="n">LibraryExtension</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="c1">// Your configuration</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">}</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 </li>
 <li>
-<p><strong>Adding Dependencies</strong>:
+<p><strong>Adding Dependencies</strong>:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">dependencies</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="s">&quot;implementation&quot;</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">findLibrary</span><span class="p">(</span><span class="s">&quot;library.name&quot;</span><span class="p">).</span><span class="na">get</span><span class="p">())</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">}</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 </li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Keep your plugins focused and single-purpose. Create new plugins for distinct functionality rather than overloading existing ones.</p>
+<p>Keep your plugins focused and single-purpose. Create new plugins for distinct functionality rather
+ than overloading existing ones.</p>
 </div>
 <h2 id="best-practices">Best Practices</h2>
 <ol>
-<li><strong>Module Organization</strong>:</li>
+<li>
+<p><strong>Module Organization</strong>:</p>
+<ul>
 <li>Use <code>jetpack.application</code> for the app module</li>
 <li>Use <code>jetpack.ui.library</code> for feature modules with UI</li>
-<li>
-<p>Use <code>jetpack.library</code> for core modules without UI</p>
+<li>Use <code>jetpack.library</code> for core modules without UI</li>
+</ul>
 </li>
 <li>
-<p><strong>Plugin Combinations</strong>:
+<p><strong>Plugin Combinations</strong>:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="n">alias</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">plugins</span><span class="p">.</span><span class="na">jetpack</span><span class="p">.</span><span class="na">ui</span><span class="p">.</span><span class="na">library</span><span class="p">)</span><span class="w"> </span><span class="c1">// Base UI setup</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">alias</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">plugins</span><span class="p">.</span><span class="na">jetpack</span><span class="p">.</span><span class="na">dagger</span><span class="p">.</span><span class="na">hilt</span><span class="p">)</span><span class="w"> </span><span class="c1">// Add Hilt support</span>
 </span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="n">alias</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">plugins</span><span class="p">.</span><span class="na">jetpack</span><span class="p">.</span><span class="na">firebase</span><span class="p">)</span><span class="w"> </span><span class="c1">// Add Firebase if needed</span>
 </span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="p">}</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 </li>
 <li>
 <p><strong>Version Management</strong>:</p>
-</li>
+<ul>
 <li>Keep versions in the version catalog</li>
 <li>Reference them in plugins using <code>libs.findVersion()</code></li>
+</ul>
+</li>
 </ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Don't repeat plugin configurations in module-level build files. If you find yourself doing this,</p>
+</div>
 <blockquote>
-<p>[!WARNING]
-Don't repeat plugin configurations in module-level build files. If you find yourself doing this, consider creating a new convention plugin instead.</p>
+<p>consider creating a new convention plugin instead.</p>
 </blockquote>
 
 

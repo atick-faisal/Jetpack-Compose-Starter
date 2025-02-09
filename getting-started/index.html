@@ -938,23 +938,25 @@
 <p>This guide will help you set up and run the project on your local machine.</p>
 <h2 id="quick-start">Quick Start</h2>
 <ol>
-<li>
-<p>Clone the repository (with depth 1 to reduce clone size):
+<li>Clone the repository (with depth 1 to reduce clone size):</li>
+</ol>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>-b<span class="w"> </span>main<span class="w"> </span>https://github.com/atick-faisal/Jetpack-Compose-Starter.git
-</span></code></pre></div></p>
-</li>
+</span></code></pre></div>
+<ol>
 <li>
 <p>Open the project in Android Studio Hedgehog or newer</p>
 </li>
 <li>
-<p>Run the debug build variant:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./gradlew<span class="w"> </span>assembleDebug
-</span></code></pre></div></p>
+<p>Run the debug build variant:</p>
 </li>
 </ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./gradlew<span class="w"> </span>assembleDebug
+</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The debug variant should work out of the box with the template <code>google-services.json</code> file. However, Firebase features like authentication and Firestore won't be functional until you set up your own Firebase project.</p>
+<p>The debug variant should work out of the box with the template <code>google-services.json</code> file.
+ However, Firebase features like authentication and Firestore won't be functional until you set up
+ your own Firebase project.</p>
 </div>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
@@ -965,51 +967,52 @@
 <h2 id="setting-up-firebase-features">Setting Up Firebase Features</h2>
 <p>To use Firebase authentication, Firestore, and analytics:</p>
 <ol>
-<li>Follow our <a href="../firebase/">Firebase Setup Guide</a> to:</li>
+<li>
+<p>Follow our <a href="../firebase/">Firebase Setup Guide</a> to:</p>
+<ul>
 <li>Create your Firebase project</li>
 <li>Configure Authentication</li>
 <li>Set up Firestore</li>
-<li>
-<p>Get your <code>google-services.json</code></p>
+<li>Get your <code>google-services.json</code></li>
+</ul>
 </li>
 <li>
-<p>Before replacing the template <code>google-services.json</code>, prevent Git from tracking changes:
+<p>Before replacing the template <code>google-services.json</code>, prevent Git from tracking changes:</p>
+</li>
+</ol>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>update-index<span class="w"> </span>--skip-worktree<span class="w"> </span>app/google-services.json
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Replace the template file at <code>app/google-services.json</code> with your own</p>
-</li>
+</span></code></pre></div>
+<ol>
+<li>Replace the template file at <code>app/google-services.json</code> with your own</li>
 </ol>
 <h2 id="release-build-setup">Release Build Setup</h2>
 <p>To create release builds, you'll need to set up signing:</p>
 <ol>
 <li>Create a keystore file</li>
-<li>
-<p>Create <code>keystore.properties</code> in the project root:
+<li>Create <code>keystore.properties</code> in the project root:</li>
+</ol>
 <div class="language-properties highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">storePassword</span><span class="o">=</span><span class="s">your-store-password</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">keyPassword</span><span class="o">=</span><span class="s">your-key-password</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">keyAlias</span><span class="o">=</span><span class="s">your-key-alias</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="na">storeFile</span><span class="o">=</span><span class="s">your-keystore-file.jks</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Place your keystore file in the <code>app/</code> directory</p>
-</li>
+</span></code></pre></div>
+<ol>
+<li>Place your keystore file in the <code>app/</code> directory</li>
+<li>Build the release variant:</li>
 </ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./gradlew<span class="w"> </span>assembleRelease
+</span></code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Use Android Studio's "Generate Signed Bundle/APK" tool to help create your keystore if you don't have one.</p>
+<p>Use Android Studio's "Generate Signed Bundle/APK" tool to help create your keystore if you
+ don't
+ have one.</p>
 </div>
-<ol>
-<li>Build the release variant:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./gradlew<span class="w"> </span>assembleRelease
-</span></code></pre></div></li>
-</ol>
 <h2 id="next-steps">Next Steps</h2>
 <ol>
 <li>
-<p><strong>Understand the Architecture</strong>: Read our <a href="../architecture/">Architecture Overview</a> to understand how the app is structured</p>
+<p><strong>Understand the Architecture</strong>: Read our <a href="../architecture/">Architecture Overview</a> to understand
+   how the app is structured</p>
 </li>
 <li>
 <p><strong>Setup CI/CD</strong>: Follow the <a href="../github/">GitHub CI/CD Guide</a> to set up automation</p>
@@ -1020,52 +1023,61 @@
 </ol>
 <h2 id="common-issues">Common Issues</h2>
 <ol>
-<li><strong>Build Fails</strong>:</li>
+<li>
+<p><strong>Build Fails</strong>:</p>
+<ul>
 <li>Ensure you have JDK 21 set in Android Studio</li>
 <li>Run <code>./gradlew clean</code> and try again</li>
-<li>
-<p>Check if all dependencies are resolved</p>
+<li>Check if all dependencies are resolved</li>
+</ul>
 </li>
 <li>
 <p><strong>Firebase Features Not Working</strong>:</p>
-</li>
+<ul>
 <li>Verify you've replaced <code>google-services.json</code></li>
 <li>Check Firebase Console for proper setup</li>
-<li>
-<p>Ensure SHA-1 is added for authentication</p>
+<li>Ensure SHA-1 is added for authentication</li>
+</ul>
 </li>
 <li>
 <p><strong>Release Build Fails</strong>:</p>
-</li>
+<ul>
 <li>Verify keystore.properties exists and has correct values</li>
 <li>Confirm keystore file is in the correct location</li>
 <li>Check signing configuration in build.gradle</li>
+</ul>
+</li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Important</p>
-<p>Never commit sensitive files like <code>keystore.properties</code>, your keystore file, or your real <code>google-services.json</code> to version control.</p>
+<p>Never commit sensitive files like <code>keystore.properties</code>, your keystore file, or your real</p>
 </div>
+<p><code>google-services.json</code> to version control.</p>
 <h2 id="ide-setup">IDE Setup</h2>
 <p>For the best development experience:</p>
 <ol>
-<li><strong>Enable Compose Preview</strong>:</li>
-<li>Ensure "Live Edit of Literals" is enabled</li>
 <li>
-<p>Configure appropriate preview devices</p>
+<p><strong>Enable Compose Preview</strong>:</p>
+<ul>
+<li>Ensure "Live Edit of Literals" is enabled</li>
+<li>Configure appropriate preview devices</li>
+</ul>
 </li>
 <li>
 <p><strong>Run Configurations</strong>:</p>
-</li>
+<ul>
 <li>Use provided run configurations for common tasks</li>
-<li>
-<p>Signing Report configuration helps get SHA-1 for Firebase</p>
+<li>Signing Report configuration helps get SHA-1 for Firebase</li>
+</ul>
 </li>
 <li>
 <p><strong>Code Style</strong>:</p>
-</li>
+<ul>
 <li>Import the project's <code>.editorconfig</code></li>
 <li>Enable "Format on Save" for Kotlin files</li>
 <li>Use the Spotless plugin for consistent formatting</li>
+</ul>
+</li>
 </ol>
 
 

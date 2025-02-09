@@ -999,54 +999,65 @@
 
 
 <h1 id="spotless-linting-setup">Spotless Linting Setup</h1>
-<p>This project uses Spotless for code formatting and license header management. Spotless is configured to work with Kotlin, Groovy, Gradle KTS files, and XML files.</p>
+<p>This project uses Spotless for code formatting and license header management. Spotless is configured
+to work with Kotlin, Groovy, Gradle KTS files, and XML files.</p>
 <h2 id="features">Features</h2>
-<p>The Spotless configuration includes:
-- Kotlin formatting using <a href="https://github.com/pinterest/ktlint">ktlint</a>
-- Customizable formatting using <code>ktlint</code> and the <code>.editorconfig</code> file
-- <a href="https://github.com/mrmans0n/compose-rules?ref=nlopez.io">Custom Compose UI rules</a> for better Jetpack Compose code formatting
-- License header management for all supported file types
-- Gradle and XML file formatting</p>
+<p>The Spotless configuration includes:</p>
+<ul>
+<li>Kotlin formatting using <a href="https://github.com/pinterest/ktlint">ktlint</a></li>
+<li>Customizable formatting using <code>ktlint</code> and the <code>.editorconfig</code> file</li>
+<li><a href="https://github.com/mrmans0n/compose-rules?ref=nlopez.io">Custom Compose UI rules</a> for better
+  Jetpack Compose code formatting</li>
+<li>License header management for all supported file types</li>
+<li>Gradle and XML file formatting</li>
+</ul>
 <h2 id="using-spotless">Using Spotless</h2>
 <h3 id="intellijandroid-studio-run-configurations">IntelliJ/Android Studio Run Configurations</h3>
 <p>The project includes pre-configured run configurations in the <code>.run</code> directory:</p>
 <ol>
-<li><strong>Spotless Check</strong>: Verifies if all files conform to the formatting rules</li>
-<li>Run using: <code>./gradlew spotlessCheck</code></li>
 <li>
-<p>Or use the "Spotless Check" run configuration in Android Studio</p>
+<p><strong>Spotless Check</strong>: Verifies if all files conform to the formatting rules</p>
+<ul>
+<li>Run using: <code>./gradlew spotlessCheck</code></li>
+<li>Or use the "Spotless Check" run configuration in Android Studio</li>
+</ul>
 </li>
 <li>
 <p><strong>Spotless Apply</strong>: Automatically formats all files according to the rules</p>
-</li>
+<ul>
 <li>Run using: <code>./gradlew spotlessApply</code></li>
 <li>Or use the "Spotless Apply" run configuration in Android Studio</li>
+</ul>
+</li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Always run Spotless Apply before committing your changes to ensure consistent code formatting.</p>
 </div>
 <h3 id="cicd-integration">CI/CD Integration</h3>
-<p>The project's GitHub Actions workflow automatically runs <code>spotlessCheck</code> on pull requests. Your PR will fail if there are any formatting issues.</p>
+<p>The project's GitHub Actions workflow automatically runs <code>spotlessCheck</code> on pull requests. Your PR
+will fail if there are any formatting issues.</p>
 <h2 id="customizing-copyright-headers">Customizing Copyright Headers</h2>
-<p>The project includes default copyright headers in the <code>spotless</code> directory:
-- <code>copyright.kt</code> - For Kotlin files
-- <code>copyright.gradle</code> - For Gradle files
-- <code>copyright.kts</code> - For Kotlin Script files
-- <code>copyright.xml</code> - For XML files</p>
+<p>The project includes default copyright headers in the <code>spotless</code> directory:</p>
+<ul>
+<li><code>copyright.kt</code> - For Kotlin files</li>
+<li><code>copyright.gradle</code> - For Gradle files</li>
+<li><code>copyright.kts</code> - For Kotlin Script files</li>
+<li><code>copyright.xml</code> - For XML files</li>
+</ul>
 <p>To use your own copyright headers:</p>
 <ol>
 <li>Navigate to the <code>spotless</code> directory</li>
 <li>Replace the content of the copyright files with your own headers</li>
 <li>Maintain the proper file format for each type</li>
 </ol>
-<p>Example copyright header for Kotlin files:
+<p>Example copyright header for Kotlin files:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/*</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm"> * Copyright (c) 2024 Your Name/Organization</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cm"> * </span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cm"> * Licensed under ...</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="cm"> */</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Make sure to update all copyright files to maintain consistency across different file types.</p>
@@ -1070,13 +1081,16 @@
 </span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="other-file-types">Other File Types</h3>
-<p>The configuration includes similar setups for:
-- Groovy (Gradle) files
-- Kotlin Script (<code>.kts</code>) files
-- XML files</p>
+<p>The configuration includes similar setups for:</p>
+<ul>
+<li>Groovy (Gradle) files</li>
+<li>Kotlin Script (<code>.kts</code>) files</li>
+<li>XML files</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">Important</p>
-<p>The build task will fail if any files don't match the formatting rules. Always run <code>spotlessApply</code> if <code>spotlessCheck</code> fails.</p>
+<p>The build task will fail if any files don't match the formatting rules. Always run <code>spotlessApply</code>
+ if <code>spotlessCheck</code> fails.</p>
 </div>
 <h2 id="best-practices">Best Practices</h2>
 <ol>
@@ -1086,18 +1100,23 @@
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>IDE Integration</strong>: Use the provided run configurations in Android Studio for easy access to Spotless commands.</p>
+<p><strong>IDE Integration</strong>: Use the provided run configurations in Android Studio for easy access to
+   Spotless commands.</p>
 </li>
 <li>
 <p><strong>Regular Checks</strong>: Run Spotless Check periodically during development, not just before commits.</p>
 </li>
 <li>
-<p><strong>Copyright Updates</strong>: Remember to update copyright years and organization information in the header files when necessary.</p>
+<p><strong>Copyright Updates</strong>: Remember to update copyright years and organization information in the
+   header files when necessary.</p>
 </li>
 </ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you're using Android Studio, you can bind the Spotless Apply run configuration to a keyboard</p>
+</div>
 <blockquote>
-<p>[!TIP]
-If you're using Android Studio, you can bind the Spotless Apply run configuration to a keyboard shortcut for quick formatting.</p>
+<p>shortcut for quick formatting.</p>
 </blockquote>
 
 
