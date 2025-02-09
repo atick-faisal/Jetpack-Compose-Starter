@@ -47,3 +47,6 @@ output-metadata.json
 
 # Fastlane Play Store Key
 play-store.json
+
+# Mac OS
+.DS_Store

@@ -20,7 +20,6 @@ class LibraryConventionPlugin : Plugin<Project> {
                 apply("com.android.library")
                 apply("org.jetbrains.kotlin.android")
                 apply("kotlinx-serialization")
-                apply("org.jetbrains.dokka")
             }
 
             extensions.configure<LibraryExtension> {
@@ -42,6 +41,8 @@ class LibraryConventionPlugin : Plugin<Project> {
                     jvmTarget.set(JvmTarget.fromTarget(javaVersion))
                 }
             }
+
+            applyDokka()
         }
     }
 }

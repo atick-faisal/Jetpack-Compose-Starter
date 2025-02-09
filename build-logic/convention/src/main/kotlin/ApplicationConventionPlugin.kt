@@ -25,7 +25,6 @@ class ApplicationConventionPlugin : Plugin<Project> {
                 apply("org.jetbrains.kotlin.plugin.compose")
                 apply("com.google.android.gms.oss-licenses-plugin")
                 apply("kotlinx-serialization")
-                apply("org.jetbrains.dokka")
             }
 
             extensions.configure<ApplicationExtension> {
@@ -84,6 +83,8 @@ class ApplicationConventionPlugin : Plugin<Project> {
                     .relativeToRootProject("compose-reports")
                     .let(reportsDestination::set)
             }
+
+            applyDokka()
         }
     }
 }

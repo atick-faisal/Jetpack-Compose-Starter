@@ -21,7 +21,6 @@ class UiLibraryConventionPlugin : Plugin<Project> {
                 apply("org.jetbrains.kotlin.android")
                 apply("org.jetbrains.kotlin.plugin.compose")
                 apply("kotlinx-serialization")
-                apply("org.jetbrains.dokka")
             }
 
             extensions.configure<LibraryExtension> {
@@ -50,6 +49,8 @@ class UiLibraryConventionPlugin : Plugin<Project> {
                     )
                 }
             }
+
+            applyDokka()
         }
     }
 }

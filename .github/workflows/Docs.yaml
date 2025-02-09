@@ -44,11 +44,15 @@ jobs:
       - name: Generate Docs
         run: |
           pip install mkdocs mkdocs-material mkdocs-github-admonitions-plugin Pygments
-          ./gradlew dokkaGfmMultiModule --no-configuration-cache
-          mv build/dokka/gfmMultiModule docs
+          ./gradlew dokkaGeneratePublicationHtml
+          mkdir -p docs/api
+          mv build/dokka/html/* docs/api/
 
-      - name: Copy README.md
-        run: cp README.md docs/index.md
+      - name: Copy Repo Contents
+        run: |
+          cp README.md docs/index.md
+          sed -i 's/docs\///' docs/index.md
+          cp LICENSE docs/LICENSE
 
       - name: Deploy Docs
         run: |

@@ -181,3 +181,6 @@ google-oss-licenses-plugin = { group = "com.google.android.gms", name = "oss-lic
 
 # ... WORK_MANAGER ...
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workVersion" }
+
+# ... DOKKA ANDROID ...
+dokka-android-plugin = { module = "org.jetbrains.dokka:android-documentation-plugin", version.ref = "dokka" }

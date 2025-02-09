@@ -53,6 +53,24 @@ markdown_extensions:
   - pymdownx.details
   - admonition
 
+nav:
+  - Getting Started: getting-started.md
+  - Development Guide:
+      - Guide: guide.md
+      - Architecture: architecture.md
+      - Dependencies: dependency.md
+      - Philosophy: philosophy.md
+  - Tools & Configuration:
+      - Spotless: spotless.md
+      - Fastlane: fastlane.md
+      - Firebase: firebase.md
+      - GitHub: github.md
+      - Plugins: plugins.md
+  - Best Practices:
+      - Performance: performance.md
+      - Tips: tips.md
+  - API Reference: api/index.html
+  - License: LICENSE
 
 extra:
   consent:
