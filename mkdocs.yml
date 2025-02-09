@@ -50,7 +50,7 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.details
-  # - admonition
+  - admonition
 
 nav:
   - Getting Started: getting-started.md
