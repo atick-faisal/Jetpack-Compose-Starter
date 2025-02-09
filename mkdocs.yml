@@ -68,8 +68,8 @@ nav:
   - Best Practices:
       - Performance: performance.md
       - Tips: tips.md
-  - API Reference: api/index.html
-  - License: LICENSE
+  - 📚 API Reference: api/index.html
+  - ⚖️ License: license.md
 
 extra:
   consent:

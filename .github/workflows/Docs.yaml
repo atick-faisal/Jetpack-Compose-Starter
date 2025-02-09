@@ -52,7 +52,6 @@ jobs:
         run: |
           cp README.md docs/index.md
           sed -i 's/docs\///' docs/index.md
-          cp LICENSE docs/LICENSE
 
       - name: Deploy Docs
         run: |

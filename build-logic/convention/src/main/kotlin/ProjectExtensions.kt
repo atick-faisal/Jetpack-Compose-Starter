@@ -15,8 +15,9 @@ internal fun Project.applyDokka() {
     }
 
     extensions.configure<DokkaExtension> {
+        moduleName.set(path)
         dokkaSourceSets.configureEach {
-            moduleName.set(path)
+            includes.from("README.md")
             documentedVisibilities(
                 VisibilityModifier.Public,
                 VisibilityModifier.Private,
@@ -38,9 +39,15 @@ internal fun Project.applyDokka() {
                 suppress.set(true)
             }
         }
+        /* TODO: Setup footer
+        pluginsConfiguration.withType<DokkaHtmlPluginParameters> {
+            footerMessage.set("Footer Message")
+        }
+        */
     }
 
     dependencies {
         "dokkaPlugin"(libs.findLibrary("dokka.android.plugin").get())
+        "dokkaPlugin"(libs.findLibrary("dokka.mermaid.plugin").get())
     }
 }
