@@ -1,0 +1,266 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>AuthRepositoryImpl</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    Jetpack
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":data/release">androidJvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":data/release" data-filter=":data/release">
+                                <span class="checkbox--icon"></span>
+                                androidJvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    Jetpack
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids=":data::dev.atick.data.repository.auth/AuthRepositoryImpl///PointingToDeclaration//-364231819">
+  <div class="breadcrumbs"><a href="../../index.html">:data</a><span class="delimiter">/</span><a href="../index.html">dev.atick.data.repository.auth</a><span class="delimiter">/</span><span class="current">AuthRepositoryImpl</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Auth</span><wbr><span>Repository</span><wbr><span><span>Impl</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">AuthRepositoryImpl</a>&nbsp;<span><span class="token annotation builtin">@</span><span data-unresolved-link="javax.inject/Inject///PointingToDeclaration/"><span class="token annotation builtin">Inject</span></span>&nbsp;</span><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>authDataSource<span class="token operator">: </span><a href="../../../firebase/auth/dev.atick.firebase.auth.data/-auth-data-source/index.html">AuthDataSource</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>userPreferencesDataSource<span class="token operator">: </span><a href="../../../core/preferences/dev.atick.core.preferences.data/-user-preferences-data-source/index.html">UserPreferencesDataSource</a></span></span><span class="token punctuation">)</span> : <a href="../-auth-repository/index.html">AuthRepository</a></div><p class="paragraph">Implementation of the <a href="../-auth-repository/index.html">AuthRepository</a> interface responsible for handling authentication operations.</p><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":data/release" data-filterable-set=":data/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>auth</span><wbr><span>Data</span><wbr><span><span>Source</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The data source for authentication operations.</p></div></div></div></div><div class="table-row" data-filterable-current=":data/release" data-filterable-set=":data/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>user</span><wbr><span>Preferences</span><wbr><span>Data</span><wbr><span><span>Source</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The data source for user preferences.</p></div></div></div></div></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="133791174%2FConstructors%2F-364231819" anchor-label="AuthRepositoryImpl" id="133791174%2FConstructors%2F-364231819" data-filterable-set=":data/release"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":data/release" data-filterable-set=":data/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-auth-repository-impl.html"><span>Auth</span><wbr><span>Repository</span><wbr><span><span>Impl</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="133791174%2FConstructors%2F-364231819"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="javax.inject/Inject///PointingToDeclaration/"><span class="token annotation builtin">Inject</span></span></div></div><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">authDataSource<span class="token operator">: </span><a href="../../../firebase/auth/dev.atick.firebase.auth.data/-auth-data-source/index.html">AuthDataSource</a><span class="token punctuation">, </span></span><span class="parameter ">userPreferencesDataSource<span class="token operator">: </span><a href="../../../core/preferences/dev.atick.core.preferences.data/-user-preferences-data-source/index.html">UserPreferencesDataSource</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1287514353%2FProperties%2F-364231819" anchor-label="authDataSource" id="1287514353%2FProperties%2F-364231819" data-filterable-set=":data/release"></a>
+          <div class="table-row" data-filterable-current=":data/release" data-filterable-set=":data/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="auth-data-source.html"><span>auth</span><wbr><span>Data</span><wbr><span><span>Source</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1287514353%2FProperties%2F-364231819"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data/release"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">val </span><a href="auth-data-source.html">authDataSource</a><span class="token operator">: </span><a href="../../../firebase/auth/dev.atick.firebase.auth.data/-auth-data-source/index.html">AuthDataSource</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1439745578%2FProperties%2F-364231819" anchor-label="userPreferencesDataSource" id="1439745578%2FProperties%2F-364231819" data-filterable-set=":data/release"></a>
+          <div class="table-row" data-filterable-current=":data/release" data-filterable-set=":data/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="user-preferences-data-source.html"><span>user</span><wbr><span>Preferences</span><wbr><span>Data</span><wbr><span><span>Source</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1439745578%2FProperties%2F-364231819"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data/release"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">val </span><a href="user-preferences-data-source.html">userPreferencesDataSource</a><span class="token operator">: </span><a href="../../../core/preferences/dev.atick.core.preferences.data/-user-preferences-data-source/index.html">UserPreferencesDataSource</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1401596123%2FFunctions%2F-364231819" anchor-label="asPreferencesUserProfile" id="-1401596123%2FFunctions%2F-364231819" data-filterable-set=":data/release"></a>
+          <div class="table-row" data-filterable-current=":data/release" data-filterable-set=":data/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="as-preferences-user-profile.html"><span>as</span><wbr><span>Preferences</span><wbr><span>User</span><wbr><span><span>Profile</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1401596123%2FFunctions%2F-364231819"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data/release"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">fun </span><a href="../../../firebase/auth/dev.atick.firebase.auth.models/-auth-user/index.html">AuthUser</a><span class="token punctuation">.</span><a href="as-preferences-user-profile.html"><span class="token function">asPreferencesUserProfile</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../core/preferences/dev.atick.core.preferences.models/-preferences-user-profile/index.html">PreferencesUserProfile</a></div><div class="brief "><p class="paragraph">Convert an <a href="../../../firebase/auth/dev.atick.firebase.auth.models/-auth-user/index.html">AuthUser</a> to a <a href="../../../core/preferences/dev.atick.core.preferences.models/-preferences-user-profile/index.html">PreferencesUserProfile</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="761860917%2FFunctions%2F-364231819" anchor-label="registerWithEmailAndPassword" id="761860917%2FFunctions%2F-364231819" data-filterable-set=":data/release"></a>
+          <div class="table-row" data-filterable-current=":data/release" data-filterable-set=":data/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="register-with-email-and-password.html"><span>register</span><wbr><span>With</span><wbr><span>Email</span><wbr><span>And</span><wbr><span><span>Password</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="761860917%2FFunctions%2F-364231819"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="register-with-email-and-password.html"><span class="token function">registerWithEmailAndPassword</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">email<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">password<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">activity<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/app/Activity.html">Activity</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-result/index.html">Result</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Register a new user with an email and password.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-178797247%2FFunctions%2F-364231819" anchor-label="registerWithGoogle" id="-178797247%2FFunctions%2F-364231819" data-filterable-set=":data/release"></a>
+          <div class="table-row" data-filterable-current=":data/release" data-filterable-set=":data/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="register-with-google.html"><span>register</span><wbr><span>With</span><wbr><span><span>Google</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-178797247%2FFunctions%2F-364231819"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="register-with-google.html"><span class="token function">registerWithGoogle</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">activity<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/app/Activity.html">Activity</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-result/index.html">Result</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Register a new user with Google.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-71513527%2FFunctions%2F-364231819" anchor-label="signInWithEmailAndPassword" id="-71513527%2FFunctions%2F-364231819" data-filterable-set=":data/release"></a>
+          <div class="table-row" data-filterable-current=":data/release" data-filterable-set=":data/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="sign-in-with-email-and-password.html"><span>sign</span><wbr><span>In</span><wbr><span>With</span><wbr><span>Email</span><wbr><span>And</span><wbr><span><span>Password</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-71513527%2FFunctions%2F-364231819"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="sign-in-with-email-and-password.html"><span class="token function">signInWithEmailAndPassword</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">email<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">password<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-result/index.html">Result</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Sign in with an email and password.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2123328898%2FFunctions%2F-364231819" anchor-label="signInWithGoogle" id="2123328898%2FFunctions%2F-364231819" data-filterable-set=":data/release"></a>
+          <div class="table-row" data-filterable-current=":data/release" data-filterable-set=":data/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="sign-in-with-google.html"><span>sign</span><wbr><span>In</span><wbr><span>With</span><wbr><span><span>Google</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2123328898%2FFunctions%2F-364231819"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="sign-in-with-google.html"><span class="token function">signInWithGoogle</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">activity<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/app/Activity.html">Activity</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-result/index.html">Result</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Sign in with Google.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="675768326%2FFunctions%2F-364231819" anchor-label="signInWithSavedCredentials" id="675768326%2FFunctions%2F-364231819" data-filterable-set=":data/release"></a>
+          <div class="table-row" data-filterable-current=":data/release" data-filterable-set=":data/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="sign-in-with-saved-credentials.html"><span>sign</span><wbr><span>In</span><wbr><span>With</span><wbr><span>Saved</span><wbr><span><span>Credentials</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="675768326%2FFunctions%2F-364231819"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="sign-in-with-saved-credentials.html"><span class="token function">signInWithSavedCredentials</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">activity<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/app/Activity.html">Activity</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-result/index.html">Result</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Sign in with saved credentials.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

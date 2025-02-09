@@ -1,0 +1,461 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>[androidJvm]JetpackDao_Impl</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../../index.html">
+                    Jetpack
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":core:room/release">androidJvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":core:room/release" data-filter=":core:room/release">
+                                <span class="checkbox--icon"></span>
+                                androidJvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    Jetpack
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids=":core:room::dev.atick.core.room.data/JetpackDao_Impl///PointingToDeclaration//1861475215">
+  <div class="breadcrumbs"><a href="../../index.html">:core:room</a><span class="delimiter">/</span><a href="../index.html">dev.atick.core.room.data</a><span class="delimiter">/</span><span class="current">[androidJvm]JetpackDao_Impl</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>JetpackDao_</span><wbr><span>Impl</span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/javax/annotation/processing/Generated.html"><span class="token annotation builtin">Generated</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"androidx.room.RoomProcessor"</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">class </span><a href="index.html">JetpackDao_Impl</a></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-117602814%2FConstructors%2F1861475215" anchor-label="JetpackDao_Impl" id="-117602814%2FConstructors%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-jetpack-dao_-impl.html"><span>JetpackDao_</span><wbr><span>Impl</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-117602814%2FConstructors%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>__db<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/room/RoomDatabase.html">RoomDatabase</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="952897527%2FProperties%2F1861475215" anchor-label="__db" id="952897527%2FProperties%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="__db.html"><span>_</span><wbr><span>_</span><wbr><span>db</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="952897527%2FProperties%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">val </span><a href="__db.html">__db</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/room/RoomDatabase.html">RoomDatabase</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="676974887%2FProperties%2F1861475215" anchor-label="__insertionAdapterOfJetpackEntity" id="676974887%2FProperties%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="__insertion-adapter-of-jetpack-entity.html"><span>_</span><wbr><span>_</span><wbr><span>insertion</span><wbr><span>Adapter</span><wbr><span>Of</span><wbr><span>Jetpack</span><wbr><span><span>Entity</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="676974887%2FProperties%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">val </span><a href="__insertion-adapter-of-jetpack-entity.html">__insertionAdapterOfJetpackEntity</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/room/EntityInsertionAdapter.html">EntityInsertionAdapter</a><span class="token operator">&lt;</span>JetpackEntity<span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2118166021%2FProperties%2F1861475215" anchor-label="__preparedStmtOfDeleteJetpackPermanently" id="2118166021%2FProperties%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="__prepared-stmt-of-delete-jetpack-permanently.html"><span>_</span><wbr><span>_</span><wbr><span>prepared</span><wbr><span>Stmt</span><wbr><span>Of</span><wbr><span>Delete</span><wbr><span>Jetpack</span><wbr><span><span>Permanently</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2118166021%2FProperties%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">val </span><a href="__prepared-stmt-of-delete-jetpack-permanently.html">__preparedStmtOfDeleteJetpackPermanently</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/room/SharedSQLiteStatement.html">SharedSQLiteStatement</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="628187808%2FProperties%2F1861475215" anchor-label="__preparedStmtOfMarkAsSynced" id="628187808%2FProperties%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="__prepared-stmt-of-mark-as-synced.html"><span>_</span><wbr><span>_</span><wbr><span>prepared</span><wbr><span>Stmt</span><wbr><span>Of</span><wbr><span>Mark</span><wbr><span>As</span><wbr><span><span>Synced</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="628187808%2FProperties%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">val </span><a href="__prepared-stmt-of-mark-as-synced.html">__preparedStmtOfMarkAsSynced</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/room/SharedSQLiteStatement.html">SharedSQLiteStatement</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2004212631%2FProperties%2F1861475215" anchor-label="__preparedStmtOfMarkJetpackAsDeleted" id="2004212631%2FProperties%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="__prepared-stmt-of-mark-jetpack-as-deleted.html"><span>_</span><wbr><span>_</span><wbr><span>prepared</span><wbr><span>Stmt</span><wbr><span>Of</span><wbr><span>Mark</span><wbr><span>Jetpack</span><wbr><span>As</span><wbr><span><span>Deleted</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2004212631%2FProperties%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">val </span><a href="__prepared-stmt-of-mark-jetpack-as-deleted.html">__preparedStmtOfMarkJetpackAsDeleted</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/room/SharedSQLiteStatement.html">SharedSQLiteStatement</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1744850109%2FProperties%2F1861475215" anchor-label="__updateAdapterOfJetpackEntity" id="1744850109%2FProperties%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="__update-adapter-of-jetpack-entity.html"><span>_</span><wbr><span>_</span><wbr><span>update</span><wbr><span>Adapter</span><wbr><span>Of</span><wbr><span>Jetpack</span><wbr><span><span>Entity</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1744850109%2FProperties%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">val </span><a href="__update-adapter-of-jetpack-entity.html">__updateAdapterOfJetpackEntity</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/room/EntityDeletionOrUpdateAdapter.html">EntityDeletionOrUpdateAdapter</a><span class="token operator">&lt;</span>JetpackEntity<span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1987158499%2FProperties%2F1861475215" anchor-label="__upsertionAdapterOfJetpackEntity" id="-1987158499%2FProperties%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="__upsertion-adapter-of-jetpack-entity.html"><span>_</span><wbr><span>_</span><wbr><span>upsertion</span><wbr><span>Adapter</span><wbr><span>Of</span><wbr><span>Jetpack</span><wbr><span><span>Entity</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1987158499%2FProperties%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">val </span><a href="__upsertion-adapter-of-jetpack-entity.html">__upsertionAdapterOfJetpackEntity</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/room/EntityUpsertionAdapter.html">EntityUpsertionAdapter</a><span class="token operator">&lt;</span>JetpackEntity<span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-483880519%2FFunctions%2F1861475215" anchor-label="__SyncAction_enumToString" id="-483880519%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="__-sync-action_enum-to-string.html"><span>_</span><wbr><span>_</span><wbr><span>SyncAction_</span><wbr><span>enum</span><wbr><span>To</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-483880519%2FFunctions%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">open </span><span class="token keyword">fun </span><a href="__-sync-action_enum-to-string.html"><span class="token function">__SyncAction_enumToString</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>_value<span class="token operator">: </span>SyncAction</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="17906661%2FFunctions%2F1861475215" anchor-label="__SyncAction_stringToEnum" id="17906661%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="__-sync-action_string-to-enum.html"><span>_</span><wbr><span>_</span><wbr><span>SyncAction_</span><wbr><span>string</span><wbr><span>To</span><wbr><span><span>Enum</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="17906661%2FFunctions%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">private </span><span class="token keyword">open </span><span class="token keyword">fun </span><a href="__-sync-action_string-to-enum.html"><span class="token function">__SyncAction_stringToEnum</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>_value<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span>SyncAction</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1014596621%2FFunctions%2F1861475215" anchor-label="deleteJetpackPermanently" id="1014596621%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="delete-jetpack-permanently.html"><span>delete</span><wbr><span>Jetpack</span><wbr><span><span>Permanently</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1014596621%2FFunctions%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="delete-jetpack-permanently.html"><span class="token function">deleteJetpackPermanently</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">$completion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/index.html">Continuation</a><span class="token operator">&lt;</span><span class="token keyword">in </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1280577516%2FFunctions%2F1861475215" anchor-label="getJetpack" id="-1280577516%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-jetpack.html"><span>get</span><wbr><span><span>Jetpack</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1280577516%2FFunctions%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-jetpack.html"><span class="token function">getJetpack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span><span class="token operator">&lt;</span>JetpackEntity<span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1638719433%2FFunctions%2F1861475215" anchor-label="getJetpacks" id="1638719433%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-jetpacks.html"><span>get</span><wbr><span><span>Jetpacks</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1638719433%2FFunctions%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-jetpacks.html"><span class="token function">getJetpacks</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">userId<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a><span class="token operator">&lt;</span>JetpackEntity<span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-21085546%2FFunctions%2F1861475215" anchor-label="getLatestUpdateTimestamp" id="-21085546%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-latest-update-timestamp.html"><span>get</span><wbr><span>Latest</span><wbr><span>Update</span><wbr><span><span>Timestamp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-21085546%2FFunctions%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-latest-update-timestamp.html"><span class="token function">getLatestUpdateTimestamp</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">userId<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">$completion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/index.html">Continuation</a><span class="token operator">&lt;</span><span class="token keyword">in </span><a href="https://developer.android.com/reference/kotlin/java/lang/Long.html">Long</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-755015907%2FFunctions%2F1861475215" anchor-label="getRequiredConverters" id="-755015907%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-required-converters.html"><span>get</span><wbr><span>Required</span><wbr><span><span>Converters</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-755015907%2FFunctions%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a></div></div><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-required-converters.html"><span class="token function">getRequiredConverters</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1420082659%2FFunctions%2F1861475215" anchor-label="getUnsyncedJetpacks" id="-1420082659%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-unsynced-jetpacks.html"><span>get</span><wbr><span>Unsynced</span><wbr><span><span>Jetpacks</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1420082659%2FFunctions%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-unsynced-jetpacks.html"><span class="token function">getUnsyncedJetpacks</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">userId<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">$completion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/index.html">Continuation</a><span class="token operator">&lt;</span><span class="token keyword">in </span><a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a><span class="token operator">&lt;</span>JetpackEntity<span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1707440562%2FFunctions%2F1861475215" anchor-label="insertJetpack" id="1707440562%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="insert-jetpack.html"><span>insert</span><wbr><span><span>Jetpack</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1707440562%2FFunctions%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="insert-jetpack.html"><span class="token function">insertJetpack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">jetpackEntity<span class="token operator">: </span>JetpackEntity<span class="token punctuation">, </span></span><span class="parameter ">$completion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/index.html">Continuation</a><span class="token operator">&lt;</span><span class="token keyword">in </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-72992355%2FFunctions%2F1861475215" anchor-label="markAsSynced" id="-72992355%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mark-as-synced.html"><span>mark</span><wbr><span>As</span><wbr><span><span>Synced</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-72992355%2FFunctions%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="mark-as-synced.html"><span class="token function">markAsSynced</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">timestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter ">$completion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/index.html">Continuation</a><span class="token operator">&lt;</span><span class="token keyword">in </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="526179999%2FFunctions%2F1861475215" anchor-label="markJetpackAsDeleted" id="526179999%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mark-jetpack-as-deleted.html"><span>mark</span><wbr><span>Jetpack</span><wbr><span>As</span><wbr><span><span>Deleted</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="526179999%2FFunctions%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="mark-jetpack-as-deleted.html"><span class="token function">markJetpackAsDeleted</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">$completion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/index.html">Continuation</a><span class="token operator">&lt;</span><span class="token keyword">in </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1759410782%2FFunctions%2F1861475215" anchor-label="updateJetpack" id="-1759410782%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="update-jetpack.html"><span>update</span><wbr><span><span>Jetpack</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1759410782%2FFunctions%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="update-jetpack.html"><span class="token function">updateJetpack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">jetpackEntity<span class="token operator">: </span>JetpackEntity<span class="token punctuation">, </span></span><span class="parameter ">$completion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/index.html">Continuation</a><span class="token operator">&lt;</span><span class="token keyword">in </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="525269500%2FFunctions%2F1861475215" anchor-label="upsertJetpack" id="525269500%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="upsert-jetpack.html"><span>upsert</span><wbr><span><span>Jetpack</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="525269500%2FFunctions%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="upsert-jetpack.html"><span class="token function">upsertJetpack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">jetpackEntity<span class="token operator">: </span>JetpackEntity<span class="token punctuation">, </span></span><span class="parameter ">$completion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/index.html">Continuation</a><span class="token operator">&lt;</span><span class="token keyword">in </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="810195911%2FFunctions%2F1861475215" anchor-label="upsertJetpacks" id="810195911%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+          <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="upsert-jetpacks.html"><span>upsert</span><wbr><span><span>Jetpacks</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="810195911%2FFunctions%2F1861475215"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="upsert-jetpacks.html"><span class="token function">upsertJetpacks</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">remoteJetpacks<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a><span class="token operator">&lt;</span>JetpackEntity<span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">$completion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/index.html">Continuation</a><span class="token operator">&lt;</span><span class="token keyword">in </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
