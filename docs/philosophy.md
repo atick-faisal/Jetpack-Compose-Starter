@@ -1,12 +1,14 @@
 # Design Philosophy
 
-This project prioritizes pragmatic simplicity over theoretical purity, making conscious trade-offs that favor maintainability and readability over absolute correctness or flexibility.
+This project prioritizes pragmatic simplicity over theoretical purity, making conscious trade-offs
+that favor maintainability and readability over absolute correctness or flexibility.
 
 ## Core Principles
 
 ### 1. Pragmatic Simplicity
 
-We favor straightforward, understandable solutions over complex but theoretically "pure" ones. This means:
+We favor straightforward, understandable solutions over complex but theoretically "pure" ones. This
+means:
 
 - Using direct state management approaches
 - Minimizing layers when possible
@@ -15,7 +17,9 @@ We favor straightforward, understandable solutions over complex but theoreticall
 ### 2. Centralized State Management
 
 #### UiState Wrapper
+
 All UI state is wrapped in a consistent structure:
+
 ```kotlin
 data class UiState<T : Any>(
     val data: T,
@@ -25,7 +29,9 @@ data class UiState<T : Any>(
 ```
 
 #### StatefulComposable Pattern
-Instead of implementing error and loading states individually for each screen, we handle these centrally:
+
+Instead of implementing error and loading states individually for each screen, we handle these
+centrally:
 
 ```kotlin
 @Composable
@@ -67,6 +73,7 @@ class AuthViewModel @Inject constructor(
 ```
 
 **Trade-offs Made:**
+
 - ✅ Readability: State changes are explicit and easy to trace
 - ✅ Debuggability: Direct state mutations are easier to debug
 - ✅ Simplicity: Easier to manage multiple UI events
@@ -77,26 +84,28 @@ class AuthViewModel @Inject constructor(
 We use a consistent error handling approach throughout the app:
 
 1. **Repository Layer**: Uses `Result` type
-```kotlin
-suspend fun getData(): Result<Data> = suspendRunCatching {
-    dataSource.getData()
-}
-```
+
+   ```kotlin
+   suspend fun getData(): Result<Data> = suspendRunCatching {
+       dataSource.getData()
+   }
+   ```
 
 2. **ViewModel Layer**: Converts to `OneTimeEvent`
-```kotlin
-viewModelScope.launch {
-    repository.getData()
-        .onSuccess { data -> 
-            _uiState.updateState { copy(data = data) }
-        }
-        .onFailure { error ->
-            _uiState.updateState { 
-                copy(error = OneTimeEvent(error))
-            }
-        }
-}
-```
+
+   ```kotlin
+   viewModelScope.launch {
+       repository.getData()
+           .onSuccess { data ->
+               _uiState.updateState { copy(data = data) }
+           }
+           .onFailure { error ->
+               _uiState.updateState {
+                   copy(error = OneTimeEvent(error))
+               }
+           }
+   }
+   ```
 
 3. **UI Layer**: Handled by `StatefulComposable`
 
@@ -109,8 +118,8 @@ We provide extension functions for common state update patterns:
 
 ```kotlin
 // Regular state updates
-_uiState.updateState { 
-    copy(value = newValue) 
+_uiState.updateState {
+    copy(value = newValue)
 }
 
 // Async operations with loading state
@@ -122,6 +131,7 @@ _uiState.updateStateWith(viewModelScope) {
 ### 6. Feature Organization
 
 Each feature is self-contained and follows a consistent structure:
+
 ```
 feature/
 └── auth/
@@ -135,41 +145,42 @@ feature/
 Our design philosophy makes several conscious trade-offs:
 
 1. **Simplicity vs. Flexibility**
-   - We choose simpler solutions even if they're less flexible
-   - Custom solutions are added only when really needed
+    - We choose simpler solutions even if they're less flexible
+    - Custom solutions are added only when really needed
 
 2. **Convention vs. Configuration**
-   - We favor strong conventions over configuration options
-   - This reduces decision fatigue but may limit customization
+    - We favor strong conventions over configuration options
+    - This reduces decision fatigue but may limit customization
 
 3. **Pragmatism vs. Purity**
-   - We prioritize practical solutions over theoretical purity
-   - This may mean occasionally breaking "clean" architecture rules
+    - We prioritize practical solutions over theoretical purity
+    - This may mean occasionally breaking "clean" architecture rules
 
 4. **Consistency vs. Optimization**
-   - We prefer consistent patterns across the codebase
-   - This might mean using the same solution even when a specialized one might be marginally better
+    - We prefer consistent patterns across the codebase
+    - This might mean using the same solution even when a specialized one might be marginally better
 
 > [!IMPORTANT]
-> These patterns are guidelines, not rules. The goal is to make the codebase more maintainable and easier to understand, not to restrict flexibility where it's truly needed.
+> These patterns are guidelines, not rules. The goal is to make the codebase more maintainable and
+> easier to understand, not to restrict flexibility where it's truly needed.
 
 ## Benefits of This Approach
 
 1. **Reduced Cognitive Load**
-   - Developers can predict where to find things
-   - Common patterns reduce decision fatigue
+    - Developers can predict where to find things
+    - Common patterns reduce decision fatigue
 
 2. **Easier Onboarding**
-   - New team members can quickly understand the codebase
-   - Consistent patterns make learning curve smoother
+    - New team members can quickly understand the codebase
+    - Consistent patterns make learning curve smoother
 
 3. **Better Maintainability**
-   - Common patterns make code more predictable
-   - Centralized handling reduces bugs
+    - Common patterns make code more predictable
+    - Centralized handling reduces bugs
 
 4. **Improved Debugging**
-   - State changes are explicit and traceable
-   - Error handling is consistent and predictable
+    - State changes are explicit and traceable
+    - Error handling is consistent and predictable
 
 ## When to Break These Rules
 
@@ -181,4 +192,5 @@ While these patterns serve well for most cases, consider alternatives when:
 4. Third-party integration requires different patterns
 
 > [!TIP]
-> When deviating from these patterns, document your reasoning to help other developers understand the context of your decisions.
+> When deviating from these patterns, document your reasoning to help other developers understand
+> the context of your decisions.

@@ -9,17 +9,22 @@
 
 # Jetpack Compose Starter 🚀
 
-A robust, production-ready template for modern Android development that takes the pain out of setting up a new project. Built on the foundation of [Now In Android](https://github.com/android/nowinandroid)'s architecture, this template provides a comprehensive starting point for both new and experienced Android developers.
+A robust, production-ready template for modern Android development that takes the pain out of
+setting up a new project. Built on the foundation
+of [Now In Android](https://github.com/android/nowinandroid)'s architecture, this template provides
+a comprehensive starting point for both new and experienced Android developers.
 
 ## Apps Built With This Template
 
 ![Feature Graphic](https://github.com/user-attachments/assets/17e81025-2184-4a5a-8485-8b18de3cbabb)
 
-Check out apps built with this template [here](https://github.com/atick-faisal?tab=repositories&q=&type=source&language=kotlin&sort=).
+Check out apps built with this
+template [here](https://github.com/atick-faisal?tab=repositories&q=&type=source&language=kotlin&sort=).
 
 ## Why This Template?
 
-- **Production-Ready Authentication**: Firebase authentication with Google Sign-In and email/password
+- **Production-Ready Authentication**: Firebase authentication with Google Sign-In and
+  email/password
 - **Clean Architecture**: Clear separation of concerns with a modular, scalable architecture
 - **Modern Tech Stack**: Latest Android development tools including Jetpack Compose
 - **Type-Safe Navigation**: Fully typed navigation using Kotlin serialization
@@ -31,6 +36,7 @@ Check out apps built with this template [here](https://github.com/atick-faisal?t
 ## Technical Stack
 
 ### Core Libraries
+
 - **UI**: Jetpack Compose, Material3
 - **DI**: Dagger Hilt
 - **Async**: Kotlin Coroutines & Flow
@@ -40,6 +46,7 @@ Check out apps built with this template [here](https://github.com/atick-faisal?t
 - **Others**: WorkManager, Coil
 
 ### Build & Tools
+
 - Kotlin 2.0
 - Gradle 8.11.1 with Version Catalogs
 - Java 21
@@ -49,27 +56,29 @@ Check out apps built with this template [here](https://github.com/atick-faisal?t
 
 ## Documentation
 
-<p align="center">
-    <a href="https://atick.dev/Jetpack-Compose-Starter">📚 Full Documentation</a>
-</p>
+### [📚 Full Documentation](https://atick.dev/Jetpack-Compose-Starter)
 
 ### Getting Started
+
 - [Quick Start Guide](docs/getting-started.md)
 - [Firebase Setup](docs/firebase.md)
 - [Dependency Management](docs/dependency.md)
 
 ### Architecture & Design
+
 - [Architecture Overview](docs/architecture.md)
 - [Design Philosophy](docs/philosophy.md)
 - [Adding New Features](docs/guide.md)
 
 ### Development Tools
+
 - [Convention Plugins](docs/plugins.md)
 - [Code Style with Spotless](docs/spotless.md)
 - [Performance Optimization](docs/performance.md)
 - [Useful Tips & Tricks](docs/tips.md)
 
 ### Deployment
+
 - [GitHub CI/CD Setup](docs/github.md)
 - [Fastlane Configuration](docs/fastlane.md)
 

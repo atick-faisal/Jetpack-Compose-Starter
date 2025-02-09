@@ -40,7 +40,8 @@ SwipeToDismiss(onDelete = {})
 ```
 
 > [!TIP]
-> Always use these pre-built components instead of creating new ones. They provide consistent styling and can be modified centrally.
+> Always use these pre-built components instead of creating new ones. They provide consistent
+> styling and can be modified centrally.
 
 ### Theming System
 
@@ -76,8 +77,10 @@ class YourViewModel @Inject constructor(
             .onEach { state ->
                 when (state) {
                     NetworkState.CONNECTED -> // Handle connected state
-                    NetworkState.LOST -> // Handle disconnected state
-                    NetworkState.UNAVAILABLE -> // Handle unavailable state
+                        NetworkState.LOST
+                    -> // Handle disconnected state
+                        NetworkState.UNAVAILABLE
+                    -> // Handle unavailable state
                 }
             }
             .launchIn(viewModelScope)
@@ -120,7 +123,8 @@ class SyncWorker @AssistedInject constructor(
 ```
 
 > [!NOTE]
-> The sync module is already integrated with WorkManager for background synchronization. Just implement the Syncable interface in your repositories and inject them into the SyncWorker.
+> The sync module is already integrated with WorkManager for background synchronization. Just
+> implement the Syncable interface in your repositories and inject them into the SyncWorker.
 
 ## Secrets Management
 
@@ -130,7 +134,6 @@ The template includes the gradle-secrets-plugin for secure credentials managemen
 # local.properties (git-ignored)
 API_KEY=your_actual_api_key
 API_SECRET=your_actual_secret
-
 # secrets.defaults.properties (version controlled)
 API_KEY=dummy_api_key
 API_SECRET=dummy_secret
@@ -143,7 +146,8 @@ Access secrets as `BuildConfig` fields:
 ```
 
 > [!TIP]
-> Use secrets.defaults.properties to provide dummy values for CI/CD environments while keeping sensitive data in local.properties.
+> Use secrets.defaults.properties to provide dummy values for CI/CD environments while keeping
+> sensitive data in local.properties.
 
 ## Documentation Generation
 
@@ -168,7 +172,8 @@ MkDocs is also configured to create beautiful Material theme documentation:
 ```
 
 > [!NOTE]
-> If you're using GitHub, the documentation is automatically generated and published through the docs workflow.
+> If you're using GitHub, the documentation is automatically generated and published through the
+> docs workflow.
 
 ## Error Handling and Loading States
 
@@ -176,8 +181,8 @@ MkDocs is also configured to create beautiful Material theme documentation:
 
 ```kotlin
 // Regular state updates
-_uiState.updateState { 
-    copy(value = newValue) 
+_uiState.updateState {
+    copy(value = newValue)
 }
 
 // Async operations that doesn't return anything
@@ -208,7 +213,8 @@ fun YourScreen(
 ```
 
 > [!NOTE]
-> The error snackbar automatically includes a "Report" button that logs the error stack trace to Firebase Analytics.
+> The error snackbar automatically includes a "Report" button that logs the error stack trace to
+> Firebase Analytics.
 
 ### Custom Snackbar Actions
 
@@ -223,22 +229,22 @@ class ScreenViewModel : ViewModel() {
 }
 
 // In UI
-    StatefulComposable(
-        state = screenUiState,
-        onShowSnackbar = onShowSnackbar,
-    ) { screenData ->
-        LaunchedEffect(screenData.deletedItemId, onShowSnackbar) {
-            val itemId = screenData.deletedItemId.getContentIfNotHandled()
-            if (itemId != null) {
-                val actionPerformed = onShowSnackbar(
-                    "Item deleted",
-                    SnackbarAction.UNDO,
-                    null
-                )
-                if (actionPerformed) viewModel.undoDelete(itemId)
-            }
+StatefulComposable(
+    state = screenUiState,
+    onShowSnackbar = onShowSnackbar,
+) { screenData ->
+    LaunchedEffect(screenData.deletedItemId, onShowSnackbar) {
+        val itemId = screenData.deletedItemId.getContentIfNotHandled()
+        if (itemId != null) {
+            val actionPerformed = onShowSnackbar(
+                "Item deleted",
+                SnackbarAction.UNDO,
+                null
+            )
+            if (actionPerformed) viewModel.undoDelete(itemId)
         }
     }
+}
 ```
 
 ## Composable Previews
@@ -257,6 +263,7 @@ fun YourComposablePreview() {
 ```
 
 Preview devices include:
+
 - Phone (360x640dp)
 - Landscape (640x360dp)
 - Foldable (673x841dp)
@@ -281,10 +288,10 @@ val result = suspendRunCatching {
 ```kotlin
 // Network-bound resource handling
 fun getData(): Flow<Resource<Data>> = networkBoundResource(
-    query = { localDataSource.getData() },
-    fetch = { apiService.getData() },
-    saveFetchResult = { localDataSource.saveData(it) }
-)
+        query = { localDataSource.getData() },
+        fetch = { apiService.getData() },
+        saveFetchResult = { localDataSource.saveData(it) }
+    )
 ```
 
 ## UI Extensions
@@ -309,39 +316,40 @@ lifeCycleOwner.observeEvent(eventLiveData) { event ->
 ## Best Practices
 
 1. **Use Pre-built Components**
-   - Leverage the components in `core:ui/components`
-   - Maintain consistent styling across the app
-   - Centralize design system changes
+    - Leverage the components in `core:ui/components`
+    - Maintain consistent styling across the app
+    - Centralize design system changes
 
 2. **Error Handling**
-   - Use `suspendRunCatching` in repositories
-   - Let `StatefulComposable` handle UI states
-   - Leverage the built-in error reporting
+    - Use `suspendRunCatching` in repositories
+    - Let `StatefulComposable` handle UI states
+    - Leverage the built-in error reporting
 
 3. **State Management**
-   - Use state update helpers consistently
-   - Leverage `JetpackAppState` for app-wide state
-   - Follow unidirectional data flow
+    - Use state update helpers consistently
+    - Leverage `JetpackAppState` for app-wide state
+    - Follow unidirectional data flow
 
 4. **Network Handling**
-   - Monitor network state with `NetworkUtils`
-   - Use network-bound resources for caching
-   - Handle offline scenarios gracefully
+    - Monitor network state with `NetworkUtils`
+    - Use network-bound resources for caching
+    - Handle offline scenarios gracefully
 
 5. **Resource Loading**
-   - Use `DynamicAsyncImage` for images
-   - Leverage `JetpackLoadingWheel`
-   - Follow Material3 loading patterns
+    - Use `DynamicAsyncImage` for images
+    - Leverage `JetpackLoadingWheel`
+    - Follow Material3 loading patterns
 
 6. **Documentation**
-   - Use Dokka for code documentation
-   - Keep documentation up to date
-   - Leverage the automated docs workflow
+    - Use Dokka for code documentation
+    - Keep documentation up to date
+    - Leverage the automated docs workflow
 
 7. **Secrets Management**
-   - Store sensitive data in local.properties
-   - Provide defaults in secrets.defaults.properties
-   - Use buildConfigField for config values
+    - Store sensitive data in local.properties
+    - Provide defaults in secrets.defaults.properties
+    - Use buildConfigField for config values
 
 > [!TIP]
-> Explore the `core` modules thoroughly - they contain many utilities that can save you time and ensure consistency across your app.
+> Explore the `core` modules thoroughly - they contain many utilities that can save you time and
+> ensure consistency across your app.

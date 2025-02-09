@@ -1,6 +1,7 @@
 # Adding a New Feature
 
-This guide walks through the process of adding a new feature to the app, following our established patterns and best practices.
+This guide walks through the process of adding a new feature to the app, following our established
+patterns and best practices.
 
 ## Overview of Steps
 
@@ -15,7 +16,8 @@ This guide walks through the process of adding a new feature to the app, followi
 
 ### 1.1 Data Source Models
 
-Create models in appropriate core module (for example, `core:network` or `core:room`). Feel free to create your own if its not present in the template:
+Create models in appropriate core module (for example, `core:network` or `core:room`). Feel free to
+create your own if its not present in the template:
 
 ```kotlin
 // core/network/src/main/kotlin/dev/atick/core/network/models/NetworkFeature.kt
@@ -315,27 +317,28 @@ abstract class RepositoryModule {
 ## Best Practices Reminder
 
 1. **Data Sources**:
-   - Use `withContext(ioDispatcher)` for IO operations
-   - Handle raw data models
-   - One responsibility per data source
+    - Use `withContext(ioDispatcher)` for IO operations
+    - Handle raw data models
+    - One responsibility per data source
 
 2. **Repositories**:
-   - Use `suspendRunCatching` for error handling
-   - Convert between data models
-   - Coordinate between data sources
+    - Use `suspendRunCatching` for error handling
+    - Convert between data models
+    - Coordinate between data sources
 
 3. **ViewModels**:
-   - Use `updateState` and `updateStateWith` utilities
-   - Handle UI logic and state management
-   - Convert to UI models
+    - Use `updateState` and `updateStateWith` utilities
+    - Handle UI logic and state management
+    - Convert to UI models
 
 4. **UI Components**:
-   - Use `StatefulComposable` for consistent loading/error handling
-   - Keep composables pure and state-driven
-   - Separate route from screen implementation
+    - Use `StatefulComposable` for consistent loading/error handling
+    - Keep composables pure and state-driven
+    - Separate route from screen implementation
 
 > [!IMPORTANT]
-> Always follow the unidirectional data flow pattern: UI Events → ViewModel → Repository → Data Sources → Back to UI through StateFlow.
+> Always follow the unidirectional data flow pattern: UI Events → ViewModel → Repository → Data
+> Sources → Back to UI through StateFlow.
 
 ## Testing (Upcoming 🚧)
 

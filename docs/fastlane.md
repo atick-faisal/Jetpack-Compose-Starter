@@ -1,6 +1,7 @@
 # Fastlane and Play Store Setup
 
-This project uses Fastlane to automate Play Store deployments. This guide will help you set up Fastlane for your deployment needs.
+This project uses Fastlane to automate Play Store deployments. This guide will help you set up
+Fastlane for your deployment needs.
 
 ## Prerequisites
 
@@ -18,15 +19,19 @@ Before you begin, make sure you have:
    gem install fastlane
    ```
 
-> [!NOTE]
-> For detailed instructions about setting up Fastlane for Android, refer to the [official Android setup guide](https://docs.fastlane.tools/getting-started/android/setup/).
-
 2. Set up Play Store authentication:
-   - Follow the [Fastlane Play Store Setup Guide](https://docs.fastlane.tools/actions/upload_to_play_store/) to create and download your `play-store.json` service account key
-   - Place the `play-store.json` file in your fastlane directory
+    - Follow
+      the [Fastlane Play Store Setup Guide](https://docs.fastlane.tools/actions/upload_to_play_store/)
+      to create and download your `play-store.json` service account key
+    - Place the `play-store.json` file in your fastlane directory
+
+> [!NOTE]
+> For detailed instructions about setting up Fastlane for Android, refer to
+> the [official Android setup guide](https://docs.fastlane.tools/getting-started/android/setup/).
 
 > [!WARNING]
-> Never commit your `play-store.json` file to the repository. Make sure it's included in your `.gitignore`.
+> Never commit your `play-store.json` file to the repository. Make sure it's included in your
+`.gitignore`.
 
 ## Configure Fastlane Files
 
@@ -80,25 +85,28 @@ metadata/
 ```
 
 To pull existing metadata from Play Store:
+
 ```bash
 fastlane supply init
 ```
 
 > [!IMPORTANT]
-> For `supply` to be able to initialize, you need to have successfully uploaded an APK to your app in the Google Play Console at least once.
+> For `supply` to be able to initialize, you need to have successfully uploaded an APK to your app
+> in the Google Play Console at least once.
 
 > [!NOTE]
-> This command downloads all your existing Play Store metadata and screenshots. It's useful when setting up a new machine or CI environment.
+> This command downloads all your existing Play Store metadata and screenshots. It's useful when
+> setting up a new machine or CI environment.
 
 ## Deploying Updates
 
 1. Update your changelog:
-   - Edit `fastlane/metadata/android/en-US/changelogs/default.txt`
-   - Or create a version-specific changelog: `changelogs/<version_code>.txt`
+    - Edit `fastlane/metadata/android/en-US/changelogs/default.txt`
+    - Or create a version-specific changelog: `changelogs/<version_code>.txt`
 
 2. Update app metadata (if needed):
-   - Edit relevant files in `metadata/android/en-US/`
-   - Update screenshots in `metadata/android/en-US/images/`
+    - Edit relevant files in `metadata/android/en-US/`
+    - Update screenshots in `metadata/android/en-US/images/`
 
 3. Run deployment:
    ```bash
@@ -106,24 +114,26 @@ fastlane supply init
    ```
 
 > [!TIP]
-> Our GitHub Actions workflow automatically runs the deployment when you create a new release tag. See the [GitHub CI/CD](github.md) guide for details.
+> Our GitHub Actions workflow automatically runs the deployment when you create a new release tag.
+> See the [GitHub CI/CD](github.md) guide for details.
 
 ## Troubleshooting Common Issues
 
 1. **Authentication Errors**:
-   - Verify your `play-store.json` file is correctly placed
-   - Ensure the service account has appropriate permissions in Play Console
-   - Check if the JSON key is properly formatted
+    - Verify your `play-store.json` file is correctly placed
+    - Ensure the service account has appropriate permissions in Play Console
+    - Check if the JSON key is properly formatted
 
 2. **Upload Failures**:
-   - Verify your app's version code is incremented
-   - Ensure the APK/AAB is properly signed
-   - Check if the track (internal/alpha/beta/production) exists
+    - Verify your app's version code is incremented
+    - Ensure the APK/AAB is properly signed
+    - Check if the track (internal/alpha/beta/production) exists
 
 3. **Metadata Issues**:
-   - Validate all required metadata files exist
-   - Check character limits in descriptions
-   - Ensure screenshot dimensions meet Play Store requirements
+    - Validate all required metadata files exist
+    - Check character limits in descriptions
+    - Ensure screenshot dimensions meet Play Store requirements
 
 > [!NOTE]
-> For more detailed information about Fastlane commands and options, refer to the [Fastlane supply action documentation](https://docs.fastlane.tools/actions/supply/).
+> For more detailed information about Fastlane commands and options, refer to
+> the [Fastlane supply action documentation](https://docs.fastlane.tools/actions/supply/).

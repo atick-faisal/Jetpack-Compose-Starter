@@ -4,15 +4,18 @@ This guide covers various performance optimization features available in the pro
 
 ## Compose Compiler Metrics
 
-The project includes built-in support for Compose compiler metrics to help optimize your composables.
+The project includes built-in support for Compose compiler metrics to help optimize your
+composables.
 
 Check the `gradle.properties` file to ensure the following:
+
 ```properties
 enableComposeCompilerMetrics=true
 enableComposeCompilerReports=true
 ```
 
 This configuration will generate detailed reports in:
+
 - `build/<module>/compose-metrics`: Composition metrics
 - `build/<module>/compose-reports`: Compiler reports
 
@@ -40,6 +43,7 @@ data class UiState(
 ```
 
 Common optimizations:
+
 ```kotlin
 // Mark data classes as stable
 @Stable
@@ -55,13 +59,15 @@ val filteredList = remember(items) {
 ```
 
 > [!TIP]
-> Use `@Immutable` for classes that never change and `@Stable` for classes whose properties may change but maintain identity.
+> Use `@Immutable` for classes that never change and `@Stable` for classes whose properties may
+> change but maintain identity.
 
 ## R8 and ProGuard Optimization
 
 ### Project Structure for Obfuscation
 
 The project follows a consistent pattern for data models to simplify ProGuard/R8 rules:
+
 ```
 ├── feature/
 │   └── your-feature/
@@ -72,7 +78,10 @@ The project follows a consistent pattern for data models to simplify ProGuard/R8
 ```
 
 ### ProGuard and Consumer Rules
-If your app works in `debug` build but not in `release` build that typically indicates obfuscation issues. In that case you need to add or edit the proguard rules. These can be found in <module>/proguard-rules.pro for <module>/consumer-rules.pro files. For example:
+
+If your app works in `debug` build but not in `release` build that typically indicates obfuscation
+issues. In that case you need to add or edit the proguard rules. These can be found in <module>
+/proguard-rules.pro for <module>/consumer-rules.pro files. For example:
 
 ```proguard
 # Keep all models
@@ -84,7 +93,8 @@ If your app works in `debug` build but not in `release` build that typically ind
 ```
 
 > [!NOTE]
-> The project's model organization makes it easy to keep data models unobfuscated while allowing safe obfuscation of implementation classes.
+> The project's model organization makes it easy to keep data models unobfuscated while allowing
+> safe obfuscation of implementation classes.
 
 ## Gradle Build Optimization
 
@@ -108,6 +118,7 @@ develocity {
 ```
 
 Use build scans to:
+
 - Identify slow tasks
 - Find configuration issues
 - Optimize dependency resolution
@@ -117,8 +128,8 @@ Use build scans to:
 Take advantage of the project's modular structure:
 
 1. **Make Module**: Instead of rebuilding the entire project, use Make Module:
-   - Android Studio: Right-click module → Make Module
-   - Command Line: `./gradlew :module:name:assembleDebug`
+    - Android Studio: Right-click module → Make Module
+    - Command Line: `./gradlew :module:name:assembleDebug`
 
 2. **Parallel Execution**: Enabled in `gradle.properties`:
    ```properties
@@ -128,7 +139,8 @@ Take advantage of the project's modular structure:
 3. **Configuration Caching**: Already enabled for supported tasks
 
 > [!TIP]
-> When working on a feature, use Make Module on just that feature's module to significantly reduce build time.
+> When working on a feature, use Make Module on just that feature's module to significantly reduce
+> build time.
 
 ## Baseline Profiles
 
@@ -147,6 +159,7 @@ androidApplication {
 ```
 
 This will include:
+
 - Startup trace collection
 - Critical user path optimization
 - Ahead-of-time compilation for key paths
@@ -163,7 +176,7 @@ class FirebaseConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply("com.google.firebase.firebase-perf")
             }
-            
+
             dependencies {
                 "implementation"(libs.findLibrary("firebase.perf").get())
             }
@@ -173,12 +186,14 @@ class FirebaseConventionPlugin : Plugin<Project> {
 ```
 
 This gives you automatic monitoring of:
+
 - Network requests
 - App startup time
 - Screen render time
 - Frozen frames
 
 You can also add custom traces:
+
 ```kotlin
 FirebasePerformance.getInstance().newTrace("custom_operation").apply {
     start()
@@ -193,45 +208,50 @@ FirebasePerformance.getInstance().newTrace("custom_operation").apply {
 ## Additional Performance Tips
 
 1. **Image Loading**:
-```kotlin
-// Use Coil's memory cache
-ImageLoader(context) {
-    memoryCachePolicy(CachePolicy.ENABLED)
-    diskCachePolicy(CachePolicy.ENABLED)
-}
-```
+
+   ```kotlin
+   // Use Coil's memory cache
+   ImageLoader(context) {
+       memoryCachePolicy(CachePolicy.ENABLED)
+       diskCachePolicy(CachePolicy.ENABLED)
+   }
+   ```
 
 2. **List Performance**:
-```kotlin
-// Use LazyColumn with keys
-LazyColumn {
-    items(
-        items = items,
-        key = { it.id } // Stable key for better recomposition
-    ) { item ->
-        // Item content
-    }
-}
-```
+
+   ```kotlin
+   // Use LazyColumn with keys
+   LazyColumn {
+       items(
+           items = items,
+           key = { it.id } // Stable key for better recomposition
+       ) { item ->
+           // Item content
+       }
+   }
+   ```
 
 3. **State Hoisting**:
-```kotlin
-// Hoist state for better recomposition control
-@Composable
-fun StatefulComponent(
-    state: State, // Hoisted state
-    onStateChange: (State) -> Unit
-)
-```
+
+   ```kotlin
+   // Hoist state for better recomposition control
+   @Composable
+   fun StatefulComponent(
+       state: State, // Hoisted state
+       onStateChange: (State) -> Unit
+   ) {}
+   ```
 
 4. **Navigation Performance**:
-```kotlin
-// Use NavOptions to control back stack. In JetpackAppState.kt:
-navController.navigate(route) {
-    launchSingleTop = true
-    restoreState = true
-}
-```
+
+   ```kotlin
+   // Use NavOptions to control back stack. In JetpackAppState.kt:
+   navController.navigate(route) {
+       launchSingleTop = true
+       restoreState = true
+   }
+   ```
 
 > [!IMPORTANT]
-> Always profile your app's performance using Android Studio's CPU Profiler and Layout Inspector before and after optimizations to ensure they're effective.
+> Always profile your app's performance using Android Studio's CPU Profiler and Layout Inspector
+> before and after optimizations to ensure they're effective.

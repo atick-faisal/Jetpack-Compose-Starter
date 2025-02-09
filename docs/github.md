@@ -1,10 +1,12 @@
 # GitHub CI/CD Setup
 
-This project uses GitHub Actions for continuous integration and deployment. We have three main workflows:
+This project uses GitHub Actions for continuous integration and deployment. We have three main
+workflows:
 
 ## Build Workflow
 
-The build workflow runs on every pull request and when libraries are updated. It performs the following tasks:
+The build workflow runs on every pull request and when libraries are updated. It performs the
+following tasks:
 
 - Validates Gradle wrapper
 - Sets up JDK 21
@@ -23,7 +25,8 @@ The documentation workflow runs whenever changes are pushed to the main branch. 
 - Deploys documentation to GitHub Pages
 
 > [!NOTE]
-> The documentation workflow runs automatically and requires no additional setup. Make sure your repository has GitHub Pages enabled in the settings.
+> The documentation workflow runs automatically and requires no additional setup. Make sure your
+> repository has GitHub Pages enabled in the settings.
 
 ## Release Workflow
 
@@ -56,7 +59,8 @@ Before you can use the release workflow, you need to set up the following GitHub
    ```
 
 > [!WARNING]
-> Never commit your keystore file, keystore properties, or google-services.json directly to the repository.
+> Never commit your keystore file, keystore properties, or google-services.json directly to the
+> repository.
 
 ### Creating a Release
 
@@ -70,13 +74,15 @@ To create a new release:
    ```
 
 The workflow will automatically:
+
 - Generate a signed APK
 - Create a GitHub release with the changelog
 - Upload the APK to the release
 - Deploy to Play Store via Fastlane
 
 > [!TIP]
-> Make sure your Fastlane setup is complete before using the release workflow. See the [Fastlane Setup](fastlane.md) guide for details.
+> Make sure your Fastlane setup is complete before using the release workflow. See
+> the [Fastlane Setup](fastlane.md) guide for details.
 
 ### Debugging Failed Releases
 
@@ -89,4 +95,5 @@ If the release workflow fails, check:
 5. Keystore and signing configuration match Play Store requirements
 
 > [!NOTE]
-> The workflow timeout is set to 45 minutes. For large projects, you might need to adjust this in the workflow file.
+> The workflow timeout is set to 45 minutes. For large projects, you might need to adjust this in
+> the workflow file.

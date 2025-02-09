@@ -1,6 +1,8 @@
 # Architecture Overview
 
-This project follows the official [Android Architecture Guidelines](https://developer.android.com/topic/architecture) with some pragmatic adaptations to keep the codebase simple and maintainable.
+This project follows the
+official [Android Architecture Guidelines](https://developer.android.com/topic/architecture) with
+some pragmatic adaptations to keep the codebase simple and maintainable.
 
 ## Architectural Principles
 
@@ -19,8 +21,8 @@ The app uses a two-layer architecture:
 ```mermaid
 graph TD
     A[UI Layer] --> B[Data Layer]
-    style A fill:#4CAF50,stroke:#333,stroke-width:2px
-    style B fill:#1976D2,stroke:#333,stroke-width:2px
+    style A fill: #4CAF50, stroke: #333, stroke-width: 2px
+    style B fill: #1976D2, stroke: #333, stroke-width: 2px
 ```
 
 ### UI Layer
@@ -32,6 +34,7 @@ The UI layer follows MVVM pattern and consists of:
 3. **UI State**: Immutable data classes representing screen state
 
 Example UI Layer structure:
+
 ```kotlin
 data class HomeScreenData(
     val items: List<Item> = emptyList(),
@@ -50,7 +53,8 @@ class HomeViewModel @Inject constructor(
 fun HomeScreen(
     uiState: HomeScreenData,
     onAction: (HomeAction) -> Unit
-) {}
+) {
+}
 ```
 
 ### Data Layer
@@ -62,12 +66,13 @@ The data layer handles data operations and consists of:
 3. **Models**: Data representation classes
 
 Example Data Layer structure:
+
 ```kotlin
 class HomeRepositoryImpl @Inject constructor(
     private val localDataSource: LocalDataSource,
     private val networkDataSource: NetworkDataSource
 ) : HomeRepository {
-    override fun getData(): Flow<List<Data>> = 
+    override fun getData(): Flow<List<Data>> =
         networkBoundResource(
             query = { localDataSource.getData() },
             fetch = { networkDataSource.getData() },
@@ -77,47 +82,53 @@ class HomeRepositoryImpl @Inject constructor(
 ```
 
 > [!NOTE]
-> Unlike the official guidelines, this project intentionally omits the domain layer to reduce complexity. You can add a domain layer if your app requires complex business logic or needs to share logic between multiple ViewModels.
+> Unlike the official guidelines, this project intentionally omits the domain layer to reduce
+> complexity. You can add a domain layer if your app requires complex business logic or needs to
+> share
+> logic between multiple ViewModels.
 
 ## State Management
 
 The project uses a consistent state management pattern:
 
 1. **UiState Wrapper**:
-```kotlin
-data class UiState<T : Any>(
-    val data: T,
-    val loading: Boolean = false,
-    val error: OneTimeEvent<Throwable?> = OneTimeEvent(null)
-)
-```
+
+    ```kotlin
+    data class UiState<T : Any>(
+        val data: T,
+        val loading: Boolean = false,
+        val error: OneTimeEvent<Throwable?> = OneTimeEvent(null)
+    )
+    ```
 
 2. **State Updates**:
-```kotlin
-// Regular state updates
-_uiState.updateState { copy(value = newValue) }
 
-// Async operations
-_uiState.updateStateWith(viewModelScope) {
-    repository.someAsyncOperation()
-}
-```
+    ```kotlin
+    // Regular state updates
+    _uiState.updateState { copy(value = newValue) }
+    
+    // Async operations
+    _uiState.updateStateWith(viewModelScope) {
+        repository.someAsyncOperation()
+    }
+    ```
 
 3. **State Display**:
-```kotlin
-@Composable
-fun StatefulScreen(
-    state: UiState<ScreenData>,
-    onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean
-) {
-    StatefulComposable(
-        state = state,
-        onShowSnackbar = onShowSnackbar
-    ) { screenData ->
-        // UI Content
+
+    ```kotlin
+    @Composable
+    fun StatefulScreen(
+        state: UiState<ScreenData>,
+        onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean
+    ) {
+        StatefulComposable(
+            state = state,
+            onShowSnackbar = onShowSnackbar
+        ) { screenData ->
+            // UI Content
+        }
     }
-}
-```
+    ```
 
 ## Dependency Injection
 

@@ -1,13 +1,16 @@
 # Spotless Linting Setup
 
-This project uses Spotless for code formatting and license header management. Spotless is configured to work with Kotlin, Groovy, Gradle KTS files, and XML files.
+This project uses Spotless for code formatting and license header management. Spotless is configured
+to work with Kotlin, Groovy, Gradle KTS files, and XML files.
 
 ## Features
 
 The Spotless configuration includes:
+
 - Kotlin formatting using [ktlint](https://github.com/pinterest/ktlint)
 - Customizable formatting using `ktlint` and the `.editorconfig` file
-- [Custom Compose UI rules](https://github.com/mrmans0n/compose-rules?ref=nlopez.io) for better Jetpack Compose code formatting
+- [Custom Compose UI rules](https://github.com/mrmans0n/compose-rules?ref=nlopez.io) for better
+  Jetpack Compose code formatting
 - License header management for all supported file types
 - Gradle and XML file formatting
 
@@ -18,23 +21,25 @@ The Spotless configuration includes:
 The project includes pre-configured run configurations in the `.run` directory:
 
 1. **Spotless Check**: Verifies if all files conform to the formatting rules
-   - Run using: `./gradlew spotlessCheck`
-   - Or use the "Spotless Check" run configuration in Android Studio
+    - Run using: `./gradlew spotlessCheck`
+    - Or use the "Spotless Check" run configuration in Android Studio
 
 2. **Spotless Apply**: Automatically formats all files according to the rules
-   - Run using: `./gradlew spotlessApply`
-   - Or use the "Spotless Apply" run configuration in Android Studio
+    - Run using: `./gradlew spotlessApply`
+    - Or use the "Spotless Apply" run configuration in Android Studio
 
 > [!TIP]
 > Always run Spotless Apply before committing your changes to ensure consistent code formatting.
 
 ### CI/CD Integration
 
-The project's GitHub Actions workflow automatically runs `spotlessCheck` on pull requests. Your PR will fail if there are any formatting issues.
+The project's GitHub Actions workflow automatically runs `spotlessCheck` on pull requests. Your PR
+will fail if there are any formatting issues.
 
 ## Customizing Copyright Headers
 
 The project includes default copyright headers in the `spotless` directory:
+
 - `copyright.kt` - For Kotlin files
 - `copyright.gradle` - For Gradle files
 - `copyright.kts` - For Kotlin Script files
@@ -47,6 +52,7 @@ To use your own copyright headers:
 3. Maintain the proper file format for each type
 
 Example copyright header for Kotlin files:
+
 ```kotlin
 /*
  * Copyright (c) 2024 Your Name/Organization
@@ -63,6 +69,7 @@ Example copyright header for Kotlin files:
 The Spotless configuration is defined in `gradle/init.gradle.kts` and includes:
 
 ### Kotlin Configuration
+
 ```kotlin
 kotlin {
     target("**/*.kt")
@@ -81,13 +88,16 @@ kotlin {
 ```
 
 ### Other File Types
+
 The configuration includes similar setups for:
+
 - Groovy (Gradle) files
 - Kotlin Script (`.kts`) files
 - XML files
 
 > [!IMPORTANT]
-> The build task will fail if any files don't match the formatting rules. Always run `spotlessApply` if `spotlessCheck` fails.
+> The build task will fail if any files don't match the formatting rules. Always run `spotlessApply`
+> if `spotlessCheck` fails.
 
 ## Best Practices
 
@@ -96,11 +106,14 @@ The configuration includes similar setups for:
    ./gradlew spotlessApply
    ```
 
-2. **IDE Integration**: Use the provided run configurations in Android Studio for easy access to Spotless commands.
+2. **IDE Integration**: Use the provided run configurations in Android Studio for easy access to
+   Spotless commands.
 
 3. **Regular Checks**: Run Spotless Check periodically during development, not just before commits.
 
-4. **Copyright Updates**: Remember to update copyright years and organization information in the header files when necessary.
+4. **Copyright Updates**: Remember to update copyright years and organization information in the
+   header files when necessary.
 
 > [!TIP]
-> If you're using Android Studio, you can bind the Spotless Apply run configuration to a keyboard shortcut for quick formatting.
+> If you're using Android Studio, you can bind the Spotless Apply run configuration to a keyboard
+> shortcut for quick formatting.
