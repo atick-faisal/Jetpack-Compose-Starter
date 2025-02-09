@@ -128,13 +128,13 @@ Use build scans to:
 Take advantage of the project's modular structure:
 
 1. **Make Module**: Instead of rebuilding the entire project, use Make Module:
-    - Android Studio: Right-click module → Make Module
-    - Command Line: `./gradlew :module:name:assembleDebug`
+	- Android Studio: Right-click module → Make Module
+	- Command Line: `./gradlew :module:name:assembleDebug`
 
 2. **Parallel Execution**: Enabled in `gradle.properties`:
-   ```properties
-   org.gradle.parallel=true
-   ```
+	```properties
+	org.gradle.parallel=true
+	```
 
 3. **Configuration Caching**: Already enabled for supported tasks
 
@@ -209,48 +209,48 @@ FirebasePerformance.getInstance().newTrace("custom_operation").apply {
 
 1. **Image Loading**:
 
-   ```kotlin
-   // Use Coil's memory cache
-   ImageLoader(context) {
-       memoryCachePolicy(CachePolicy.ENABLED)
-       diskCachePolicy(CachePolicy.ENABLED)
-   }
-   ```
+	```kotlin
+	// Use Coil's memory cache
+	ImageLoader(context) {
+	   memoryCachePolicy(CachePolicy.ENABLED)
+	   diskCachePolicy(CachePolicy.ENABLED)
+	}
+	```
 
 2. **List Performance**:
 
-   ```kotlin
-   // Use LazyColumn with keys
-   LazyColumn {
-       items(
-           items = items,
-           key = { it.id } // Stable key for better recomposition
-       ) { item ->
-           // Item content
-       }
-   }
-   ```
+	```kotlin
+	// Use LazyColumn with keys
+	LazyColumn {
+	   items(
+	       items = items,
+	       key = { it.id } // Stable key for better recomposition
+	   ) { item ->
+	       // Item content
+	   }
+	}
+	```
 
 3. **State Hoisting**:
 
-   ```kotlin
-   // Hoist state for better recomposition control
-   @Composable
-   fun StatefulComponent(
-       state: State, // Hoisted state
-       onStateChange: (State) -> Unit
-   ) {}
-   ```
+	```kotlin
+	// Hoist state for better recomposition control
+	@Composable
+	fun StatefulComponent(
+	   state: State, // Hoisted state
+	   onStateChange: (State) -> Unit
+	) {}
+	```
 
 4. **Navigation Performance**:
 
-   ```kotlin
-   // Use NavOptions to control back stack. In JetpackAppState.kt:
-   navController.navigate(route) {
-       launchSingleTop = true
-       restoreState = true
-   }
-   ```
+	```kotlin
+	// Use NavOptions to control back stack. In JetpackAppState.kt:
+	navController.navigate(route) {
+	   launchSingleTop = true
+	   restoreState = true
+	}
+	```
 
 > [!IMPORTANT]
 > Always profile your app's performance using Android Studio's CPU Profiler and Layout Inspector

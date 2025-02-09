@@ -317,24 +317,24 @@ abstract class RepositoryModule {
 ## Best Practices Reminder
 
 1. **Data Sources**:
-    - Use `withContext(ioDispatcher)` for IO operations
-    - Handle raw data models
-    - One responsibility per data source
+	- Use `withContext(ioDispatcher)` for IO operations
+	- Handle raw data models
+	- One responsibility per data source
 
 2. **Repositories**:
-    - Use `suspendRunCatching` for error handling
-    - Convert between data models
-    - Coordinate between data sources
+	- Use `suspendRunCatching` for error handling
+	- Convert between data models
+	- Coordinate between data sources
 
 3. **ViewModels**:
-    - Use `updateState` and `updateStateWith` utilities
-    - Handle UI logic and state management
-    - Convert to UI models
+	- Use `updateState` and `updateStateWith` utilities
+	- Handle UI logic and state management
+	- Convert to UI models
 
 4. **UI Components**:
-    - Use `StatefulComposable` for consistent loading/error handling
-    - Keep composables pure and state-driven
-    - Separate route from screen implementation
+	- Use `StatefulComposable` for consistent loading/error handling
+	- Keep composables pure and state-driven
+	- Separate route from screen implementation
 
 > [!IMPORTANT]
 > Always follow the unidirectional data flow pattern: UI Events → ViewModel → Repository → Data

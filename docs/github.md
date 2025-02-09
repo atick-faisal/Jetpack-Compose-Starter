@@ -41,22 +41,22 @@ The release workflow is triggered when you push a tag with the format `v*.*.*` (
 Before you can use the release workflow, you need to set up the following GitHub secrets:
 
 1. `GOOGLE_SERVICES`: Base64 encoded content of your `google-services.json` file
-   ```bash
-   base64 -i google-services.json | tr -d '\n'
-   ```
+	```bash
+	base64 -i google-services.json | tr -d '\n'
+	```
 
 2. `KEYSTORE`: Base64 encoded content of your keystore file
-   ```bash
-   base64 -i your-keystore.jks | tr -d '\n'
-   ```
+	```bash
+	base64 -i your-keystore.jks | tr -d '\n'
+	```
 
 3. `KEYSTORE_PROPERTIES`: Base64 encoded content of your keystore.properties file containing:
-   ```properties
-   storeFile=key.jks
-   storePassword=your-store-password
-   keyAlias=your-key-alias
-   keyPassword=your-key-password
-   ```
+	```properties
+	storeFile=key.jks
+	storePassword=your-store-password
+	keyAlias=your-key-alias
+	keyPassword=your-key-password
+	```
 
 > [!WARNING]
 > Never commit your keystore file, keystore properties, or google-services.json directly to the
@@ -68,10 +68,10 @@ To create a new release:
 
 1. Update the `CHANGELOG.md` file with your release notes
 2. Create and push a new tag:
-   ```bash
-   git tag -a v1.0.0 -m "Release v1.0.0"
-   git push origin v1.0.0
-   ```
+	```bash
+	git tag -a v1.0.0 -m "Release v1.0.0"
+	git push origin v1.0.0
+	```
 
 The workflow will automatically:
 

@@ -116,7 +116,7 @@ The project uses a consistent state management pattern:
 3. **State Display**:
 
     ```kotlin
-    @Composable
+	@Composable
     fun StatefulScreen(
         state: UiState<ScreenData>,
         onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean

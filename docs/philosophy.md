@@ -85,27 +85,27 @@ We use a consistent error handling approach throughout the app:
 
 1. **Repository Layer**: Uses `Result` type
 
-   ```kotlin
-   suspend fun getData(): Result<Data> = suspendRunCatching {
-       dataSource.getData()
-   }
-   ```
+	```kotlin
+	suspend fun getData(): Result<Data> = suspendRunCatching {
+	   dataSource.getData()
+	}
+	```
 
 2. **ViewModel Layer**: Converts to `OneTimeEvent`
 
-   ```kotlin
-   viewModelScope.launch {
-       repository.getData()
-           .onSuccess { data ->
-               _uiState.updateState { copy(data = data) }
-           }
-           .onFailure { error ->
-               _uiState.updateState {
-                   copy(error = OneTimeEvent(error))
-               }
-           }
-   }
-   ```
+	```kotlin
+	viewModelScope.launch {
+	   repository.getData()
+	       .onSuccess { data ->
+	           _uiState.updateState { copy(data = data) }
+	       }
+	       .onFailure { error ->
+	           _uiState.updateState {
+	               copy(error = OneTimeEvent(error))
+	           }
+	       }
+	}
+	```
 
 3. **UI Layer**: Handled by `StatefulComposable`
 
@@ -145,20 +145,20 @@ feature/
 Our design philosophy makes several conscious trade-offs:
 
 1. **Simplicity vs. Flexibility**
-    - We choose simpler solutions even if they're less flexible
-    - Custom solutions are added only when really needed
+	- We choose simpler solutions even if they're less flexible
+	- Custom solutions are added only when really needed
 
 2. **Convention vs. Configuration**
-    - We favor strong conventions over configuration options
-    - This reduces decision fatigue but may limit customization
+	- We favor strong conventions over configuration options
+	- This reduces decision fatigue but may limit customization
 
 3. **Pragmatism vs. Purity**
-    - We prioritize practical solutions over theoretical purity
-    - This may mean occasionally breaking "clean" architecture rules
+	- We prioritize practical solutions over theoretical purity
+	- This may mean occasionally breaking "clean" architecture rules
 
 4. **Consistency vs. Optimization**
-    - We prefer consistent patterns across the codebase
-    - This might mean using the same solution even when a specialized one might be marginally better
+	- We prefer consistent patterns across the codebase
+	- This might mean using the same solution even when a specialized one might be marginally better
 
 > [!IMPORTANT]
 > These patterns are guidelines, not rules. The goal is to make the codebase more maintainable and
@@ -167,20 +167,20 @@ Our design philosophy makes several conscious trade-offs:
 ## Benefits of This Approach
 
 1. **Reduced Cognitive Load**
-    - Developers can predict where to find things
-    - Common patterns reduce decision fatigue
+	- Developers can predict where to find things
+	- Common patterns reduce decision fatigue
 
 2. **Easier Onboarding**
-    - New team members can quickly understand the codebase
-    - Consistent patterns make learning curve smoother
+	- New team members can quickly understand the codebase
+	- Consistent patterns make learning curve smoother
 
 3. **Better Maintainability**
-    - Common patterns make code more predictable
-    - Centralized handling reduces bugs
+	- Common patterns make code more predictable
+	- Centralized handling reduces bugs
 
 4. **Improved Debugging**
-    - State changes are explicit and traceable
-    - Error handling is consistent and predictable
+	- State changes are explicit and traceable
+	- Error handling is consistent and predictable
 
 ## When to Break These Rules
 
