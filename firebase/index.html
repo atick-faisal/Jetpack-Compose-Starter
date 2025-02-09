@@ -994,7 +994,7 @@ to set up Firebase for your project.</p>
 <ul>
 <li>Download <code>google-services.json</code> from Firebase Console</li>
 <li>Before replacing the template file, stop Git from tracking it:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>update-index<span class="w"> </span>--skip-worktree<span class="w"> </span>app/google-services.json
+  <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>update-index<span class="w"> </span>--skip-worktree<span class="w"> </span>app/google-services.json
 </span></code></pre></div></li>
 <li>Replace the template <code>google-services.json</code> in the <code>app</code> directory with your downloaded file</li>
 </ul>
@@ -1131,20 +1131,22 @@ to set up Firebase for your project.</p>
 </div>
 <h2 id="additional-setup">Additional Setup</h2>
 <ol>
-<li><strong>Test Your Configuration</strong>:</li>
-</ol>
+<li>
+<p><strong>Test Your Configuration</strong>:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Add this in an activity or fragment</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">FirebaseAuth</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">currentUser</span><span class="o">?.</span><span class="na">let</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">Timber</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="s">&quot;Firebase Auth is working: </span><span class="si">${</span><span class="nb">it</span><span class="p">.</span><span class="na">email</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="n">Timber</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="s">&quot;Firebase Auth is working: </span><span class="si">${</span><span class="nb">it</span><span class="p">.</span><span class="na">email</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
 </span></code></pre></div>
-<ol>
-<li><strong>Reset Git Tracking</strong> (if needed):</li>
-</ol>
+</li>
+<li>
+<p><strong>Reset Git Tracking</strong> (if needed):</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>update-index<span class="w"> </span>--no-skip-worktree<span class="w"> </span>app/google-services.json
 </span></code></pre></div>
-<ol>
-<li><strong>Multiple Environments</strong>:<ul>
+</li>
+<li>
+<p><strong>Multiple Environments</strong>:</p>
+<ul>
 <li>Create separate Firebase projects for development and production</li>
 <li>Manage different <code>google-services.json</code> files for each build variant</li>
 </ul>
@@ -1152,11 +1154,9 @@ to set up Firebase for your project.</p>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Important</p>
-<p>Remember to add your <code>google-services.json</code> to <code>.gitignore</code> if you're setting up the project from</p>
+<p>Remember to add your <code>google-services.json</code> to <code>.gitignore</code> if you're setting up the project from
+ scratch.</p>
 </div>
-<blockquote>
-<p>scratch.</p>
-</blockquote>
 
 
 
