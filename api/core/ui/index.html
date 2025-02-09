@@ -32,7 +32,8 @@
 <script type="text/javascript" src="../../scripts/main.js" defer></script>
 <script type="text/javascript" src="../../scripts/prism.js" async></script>
 <script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer></script>
-<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script>
+<script type="text/javascript" src="../../dokka-mermaid.js" async></script></head>
 <body>
     <div class="root">
     <nav class="navigation theme-dark" id="navigation-wrapper">
@@ -94,6 +95,56 @@
   <div class="breadcrumbs"></div>
   <div class="cover ">
     <h1 class="cover"><span><span>:core:ui</span></span></h1>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:ui/release"><p class="paragraph">This module contains all the common UI components, theming, and design system elements used throughout the application. It provides a consistent look and feel across all features.</p><h2 class="">Features</h2><ul><li><p class="paragraph">Material3 Design System</p></li><li><p class="paragraph">Common UI Components</p></li><li><p class="paragraph">Theme Configuration</p></li><li><p class="paragraph">Navigation Setup</p></li><li><p class="paragraph">Image Loading</p></li><li><p class="paragraph">Animation Support</p></li></ul><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-1lfetcj4s9inc"></div></div><script>
+window.addEventListener('load', function() {
+  var graphDef =  `graph TD
+    A[core:ui] --> B[core:android]
+    A --> C[compose.bom]
+    C --> D[compose.foundation]
+    C --> E[compose.material3]
+    C --> F[compose.navigation]
+    A --> G[lifecycle]
+    A --> H[coil]
+    A --> I[lottie]
+    subgraph \"Compose Components\"
+        D
+        E
+        F
+    end
+    style A fill: #4CAF50, stroke: #333, stroke-width: 2px
+    style B fill: #64B5F6, stroke: #333, stroke-width: 2px
+    style C fill: #FF7043, stroke: #333, stroke-width: 2px
+    style G fill: #64B5F6, stroke: #333, stroke-width: 2px
+    style H fill: #64B5F6, stroke: #333, stroke-width: 2px
+    style I fill: #64B5F6, stroke: #333, stroke-width: 2px`;
+  var container = document.getElementById('mermaid-container-1lfetcj4s9inc');
+  container.innerHTML = '<div id="mermaid-target-1lfetcj4s9inc"></div>';
+  var updateGraph1lfetcj4s9inc = function() {
+    // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
+    // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
+    setTimeout(() => {
+      var dokkaDarkModeItem = localStorage.getItem("dokka-dark-mode");
+      var isDarkMode = dokkaDarkModeItem ? JSON.parse(dokkaDarkModeItem) : false
+      var theme = 'default';
+      if (isDarkMode === true) {
+        theme = 'dark';
+      }
+      mermaid.initialize({'theme': theme});
+      mermaid.render('mermaid-target-1lfetcj4s9inc', graphDef).then(({ svg, bindFunctions }) => {
+          container.innerHTML = svg;
+          // Trick to make the graph takes only the required height.
+          document.getElementById('mermaid-target-1lfetcj4s9inc').removeAttribute('height')
+          bindFunctions?.(element);
+      });
+    }, 0);
+  }
+  updateGraph1lfetcj4s9inc();
+  
+  var themeToggleButton = document.getElementById('theme-toggle-button');
+  themeToggleButton.addEventListener('click', () => {
+    updateGraph1lfetcj4s9inc();
+  });
+});</script><h2 class="">Usage</h2><p class="paragraph">This module is used by all feature modules that require UI components:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">dependencies {<br>    implementation(project(":core:ui"))<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h3 class="">Key Components</h3><ul><li><p class="paragraph"><strong>Design System</strong>: Common theme, typography, and color schemes</p></li><li><p class="paragraph"><strong>Reusable Components</strong>: Common UI components like buttons, text fields, etc.</p></li><li><p class="paragraph"><strong>Navigation</strong>: Type-safe navigation utilities</p></li><li><p class="paragraph"><strong>Image Loading</strong>: Coil integration for efficient image loading</p></li><li><p class="paragraph"><strong>Animations</strong>: Lottie integration for rich animations</p></li></ul><p class="paragraph">All UI dependencies are exposed as <code class="lang-kotlin">api</code> to ensure consistent versioning across the app.</p></div></div>
   </div>
   <h2 class="">Packages</h2>
   <div class="table"><a data-name="-1741961940%2FPackages%2F-110990712" anchor-label="dev.atick.core.ui.components" id="-1741961940%2FPackages%2F-110990712" data-filterable-set=":core:ui/release"></a>

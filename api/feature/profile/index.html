@@ -32,7 +32,8 @@
 <script type="text/javascript" src="../../scripts/main.js" defer></script>
 <script type="text/javascript" src="../../scripts/prism.js" async></script>
 <script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer></script>
-<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script>
+<script type="text/javascript" src="../../dokka-mermaid.js" async></script></head>
 <body>
     <div class="root">
     <nav class="navigation theme-dark" id="navigation-wrapper">
@@ -94,6 +95,133 @@
   <div class="breadcrumbs"></div>
   <div class="cover ">
     <h1 class="cover"><span><span>:feature:profile</span></span></h1>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":feature:profile/release"><p class="paragraph">User profile management module with account details and preferences.</p><h2 class="">Features</h2><ul><li><p class="paragraph">Profile Information Display</p></li><li><p class="paragraph">Avatar Management</p></li><li><p class="paragraph">Account Settings</p></li><li><p class="paragraph">User Stats</p></li><li><p class="paragraph">Sign Out Flow</p></li></ul><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-74a3g3dqmulcd"></div></div><script>
+window.addEventListener('load', function() {
+  var graphDef =  `graph TD
+    A[feature:profile] --> B[core:ui]
+    A --> C[data]
+    B --> D[core:android]
+    subgraph \"Core Dependencies\"
+        B
+        C
+        D
+    end
+    style A fill: #4CAF50, stroke: #333, stroke-width: 2px
+    style B fill: #64B5F6, stroke: #333, stroke-width: 2px
+    style C fill: #64B5F6, stroke: #333, stroke-width: 2px
+    style D fill: #64B5F6, stroke: #333, stroke-width: 2px`;
+  var container = document.getElementById('mermaid-container-74a3g3dqmulcd');
+  container.innerHTML = '<div id="mermaid-target-74a3g3dqmulcd"></div>';
+  var updateGraph74a3g3dqmulcd = function() {
+    // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
+    // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
+    setTimeout(() => {
+      var dokkaDarkModeItem = localStorage.getItem("dokka-dark-mode");
+      var isDarkMode = dokkaDarkModeItem ? JSON.parse(dokkaDarkModeItem) : false
+      var theme = 'default';
+      if (isDarkMode === true) {
+        theme = 'dark';
+      }
+      mermaid.initialize({'theme': theme});
+      mermaid.render('mermaid-target-74a3g3dqmulcd', graphDef).then(({ svg, bindFunctions }) => {
+          container.innerHTML = svg;
+          // Trick to make the graph takes only the required height.
+          document.getElementById('mermaid-target-74a3g3dqmulcd').removeAttribute('height')
+          bindFunctions?.(element);
+      });
+    }, 0);
+  }
+  updateGraph74a3g3dqmulcd();
+  
+  var themeToggleButton = document.getElementById('theme-toggle-button');
+  themeToggleButton.addEventListener('click', () => {
+    updateGraph74a3g3dqmulcd();
+  });
+});</script><h2 class="">Key Components</h2><ol><li><p class="paragraph"><strong>Profile Screen</strong>: Shows the user profile information</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">@Composable<br>fun ProfileRoute(<br>  onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -&gt; Boolean<br>)</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li></ol><p class="paragraph">User profile management module with account details and preferences.</p><h2 class="">Features</h2><ul><li><p class="paragraph">Profile Information Display</p></li><li><p class="paragraph">Avatar Management</p></li><li><p class="paragraph">Account Settings</p></li><li><p class="paragraph">User Stats</p></li><li><p class="paragraph">Sign Out Flow</p></li></ul><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-6i68hpoiq1ro5"></div></div><script>
+window.addEventListener('load', function() {
+  var graphDef =  `graph TD
+    A[feature:profile] --> B[core:ui]
+    A --> C[data]
+    B --> D[core:android]
+    subgraph \"Core Dependencies\"
+        B
+        C
+        D
+    end
+    style A fill: #4CAF50, stroke: #333, stroke-width: 2px
+    style B fill: #64B5F6, stroke: #333, stroke-width: 2px
+    style C fill: #64B5F6, stroke: #333, stroke-width: 2px
+    style D fill: #64B5F6, stroke: #333, stroke-width: 2px`;
+  var container = document.getElementById('mermaid-container-6i68hpoiq1ro5');
+  container.innerHTML = '<div id="mermaid-target-6i68hpoiq1ro5"></div>';
+  var updateGraph6i68hpoiq1ro5 = function() {
+    // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
+    // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
+    setTimeout(() => {
+      var dokkaDarkModeItem = localStorage.getItem("dokka-dark-mode");
+      var isDarkMode = dokkaDarkModeItem ? JSON.parse(dokkaDarkModeItem) : false
+      var theme = 'default';
+      if (isDarkMode === true) {
+        theme = 'dark';
+      }
+      mermaid.initialize({'theme': theme});
+      mermaid.render('mermaid-target-6i68hpoiq1ro5', graphDef).then(({ svg, bindFunctions }) => {
+          container.innerHTML = svg;
+          // Trick to make the graph takes only the required height.
+          document.getElementById('mermaid-target-6i68hpoiq1ro5').removeAttribute('height')
+          bindFunctions?.(element);
+      });
+    }, 0);
+  }
+  updateGraph6i68hpoiq1ro5();
+  
+  var themeToggleButton = document.getElementById('theme-toggle-button');
+  themeToggleButton.addEventListener('click', () => {
+    updateGraph6i68hpoiq1ro5();
+  });
+});</script><h2 class="">Key Components</h2><ol><li><p class="paragraph"><strong>Profile Screen</strong>: Shows the user profile information</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">@Composable<br>fun ProfileRoute(<br>  onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -&gt; Boolean<br>)</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li></ol><p class="paragraph">User profile management module with account details and preferences.</p><h2 class="">Features</h2><ul><li><p class="paragraph">Profile Information Display</p></li><li><p class="paragraph">Avatar Management</p></li><li><p class="paragraph">Account Settings</p></li><li><p class="paragraph">User Stats</p></li><li><p class="paragraph">Sign Out Flow</p></li></ul><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-1jp5shkjudfkp"></div></div><script>
+window.addEventListener('load', function() {
+  var graphDef =  `graph TD
+    A[feature:profile] --> B[core:ui]
+    A --> C[data]
+    B --> D[core:android]
+    subgraph \"Core Dependencies\"
+        B
+        C
+        D
+    end
+    style A fill: #4CAF50, stroke: #333, stroke-width: 2px
+    style B fill: #64B5F6, stroke: #333, stroke-width: 2px
+    style C fill: #64B5F6, stroke: #333, stroke-width: 2px
+    style D fill: #64B5F6, stroke: #333, stroke-width: 2px`;
+  var container = document.getElementById('mermaid-container-1jp5shkjudfkp');
+  container.innerHTML = '<div id="mermaid-target-1jp5shkjudfkp"></div>';
+  var updateGraph1jp5shkjudfkp = function() {
+    // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
+    // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
+    setTimeout(() => {
+      var dokkaDarkModeItem = localStorage.getItem("dokka-dark-mode");
+      var isDarkMode = dokkaDarkModeItem ? JSON.parse(dokkaDarkModeItem) : false
+      var theme = 'default';
+      if (isDarkMode === true) {
+        theme = 'dark';
+      }
+      mermaid.initialize({'theme': theme});
+      mermaid.render('mermaid-target-1jp5shkjudfkp', graphDef).then(({ svg, bindFunctions }) => {
+          container.innerHTML = svg;
+          // Trick to make the graph takes only the required height.
+          document.getElementById('mermaid-target-1jp5shkjudfkp').removeAttribute('height')
+          bindFunctions?.(element);
+      });
+    }, 0);
+  }
+  updateGraph1jp5shkjudfkp();
+  
+  var themeToggleButton = document.getElementById('theme-toggle-button');
+  themeToggleButton.addEventListener('click', () => {
+    updateGraph1jp5shkjudfkp();
+  });
+});</script><h2 class="">Key Components</h2><ol><li><p class="paragraph"><strong>Profile Screen</strong>: Shows the user profile information</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">@Composable<br>fun ProfileRoute(<br>  onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -&gt; Boolean<br>)</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li></ol></div></div>
   </div>
   <h2 class="">Packages</h2>
   <div class="table"><a data-name="-1208495364%2FPackages%2F787398878" anchor-label="dev.atick.feature.profile.navigation" id="-1208495364%2FPackages%2F787398878" data-filterable-set=":feature:profile/release"></a>
