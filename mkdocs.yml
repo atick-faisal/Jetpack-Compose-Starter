@@ -31,7 +31,6 @@ theme:
         name: Switch to system preference
 
   features:
-    - navigation.tabs
     - navigation.indexes
     - navigation.top
     - content.action.view
@@ -51,7 +50,7 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.details
-  - admonition
+  # - admonition
 
 nav:
   - Getting Started: getting-started.md

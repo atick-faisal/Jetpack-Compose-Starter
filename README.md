@@ -49,6 +49,10 @@ Check out apps built with this template [here](https://github.com/atick-faisal?t
 
 ## Documentation
 
+<p align="center">
+    <a href="https://atick.dev/Jetpack-Compose-Starter">📚 Full Documentation</a>
+</p>
+
 ### Getting Started
 - [Quick Start Guide](docs/getting-started.md)
 - [Firebase Setup](docs/firebase.md)
