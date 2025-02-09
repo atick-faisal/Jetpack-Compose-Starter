@@ -84,7 +84,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Jetpack Android Template" class="md-header__button md-logo" aria-label="Jetpack Android Template" data-md-component="logo">
       
@@ -213,128 +215,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../getting-started/" class="md-tabs__link">
-        
-  
-    
-  
-  Getting Started
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../guide/" class="md-tabs__link">
-          
-  
-    
-  
-  Development Guide
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../spotless/" class="md-tabs__link">
-          
-  
-    
-  
-  Tools & Configuration
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../performance/" class="md-tabs__link">
-          
-  
-    
-  
-  Best Practices
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../api/" class="md-tabs__link">
-        
-  
-    
-  
-  API Reference
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../LICENSE" class="md-tabs__link">
-        
-  
-    
-  
-  License
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -348,10 +228,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Jetpack Android Template" class="md-nav__button md-logo" aria-label="Jetpack Android Template" data-md-component="logo">
       
@@ -415,9 +293,6 @@
         
       
     
-    
-      
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -564,21 +439,15 @@
       
     
     
-      
-        
-        
-      
-      
     
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -848,9 +717,6 @@
       
     
     
-      
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -1118,19 +984,15 @@
    <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>gem<span class="w"> </span>install<span class="w"> </span>fastlane
 </span></code></pre></div></li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For detailed instructions about setting up Fastlane for Android, refer to the <a href="https://docs.fastlane.tools/getting-started/android/setup/">official Android setup guide</a>.</p>
-</div>
+<p>!!! NOTE "Note"
+     For detailed instructions about setting up Fastlane for Android, refer to the <a href="https://docs.fastlane.tools/getting-started/android/setup/">official Android setup guide</a>.</p>
 <ol>
 <li>Set up Play Store authentication:</li>
 <li>Follow the <a href="https://docs.fastlane.tools/actions/upload_to_play_store/">Fastlane Play Store Setup Guide</a> to create and download your <code>play-store.json</code> service account key</li>
 <li>Place the <code>play-store.json</code> file in your fastlane directory</li>
 </ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Never commit your <code>play-store.json</code> file to the repository. Make sure it's included in your <code>.gitignore</code>.</p>
-</div>
+<p>!!! WARNING "Warning"
+     Never commit your <code>play-store.json</code> file to the repository. Make sure it's included in your <code>.gitignore</code>.</p>
 <h2 id="configure-fastlane-files">Configure Fastlane Files</h2>
 <h3 id="appfile-configuration">Appfile Configuration</h3>
 <p>Edit the <code>fastlane/Appfile</code> to configure your app-specific information:</p>
@@ -1172,14 +1034,10 @@
 <p>To pull existing metadata from Play Store:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>fastlane<span class="w"> </span>supply<span class="w"> </span>init
 </span></code></pre></div></p>
-<div class="admonition warning">
-<p class="admonition-title">Important</p>
-<p>For <code>supply</code> to be able to initialize, you need to have successfully uploaded an APK to your app in the Google Play Console at least once.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This command downloads all your existing Play Store metadata and screenshots. It's useful when setting up a new machine or CI environment.</p>
-</div>
+<p>!!! warning "Important"
+     For <code>supply</code> to be able to initialize, you need to have successfully uploaded an APK to your app in the Google Play Console at least once.</p>
+<p>!!! NOTE "Note"
+     This command downloads all your existing Play Store metadata and screenshots. It's useful when setting up a new machine or CI environment.</p>
 <h2 id="deploying-updates">Deploying Updates</h2>
 <ol>
 <li>Update your changelog:</li>
@@ -1200,10 +1058,8 @@
 </span></code></pre></div></p>
 </li>
 </ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Our GitHub Actions workflow automatically runs the deployment when you create a new release tag. See the <a href="../github/">GitHub CI/CD</a> guide for details.</p>
-</div>
+<p>!!! TIP "Tip"
+     Our GitHub Actions workflow automatically runs the deployment when you create a new release tag. See the <a href="../github/">GitHub CI/CD</a> guide for details.</p>
 <h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
 <ol>
 <li><strong>Authentication Errors</strong>:</li>
@@ -1411,7 +1267,7 @@ For more detailed information about Fastlane commands and options, refer to the 
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.indexes", "navigation.top", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>

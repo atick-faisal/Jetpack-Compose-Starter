@@ -84,7 +84,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Jetpack Android Template" class="md-header__button md-logo" aria-label="Jetpack Android Template" data-md-component="logo">
       
@@ -213,128 +215,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../getting-started/" class="md-tabs__link">
-        
-  
-    
-  
-  Getting Started
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../guide/" class="md-tabs__link">
-          
-  
-    
-  
-  Development Guide
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../spotless/" class="md-tabs__link">
-          
-  
-    
-  
-  Tools & Configuration
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../performance/" class="md-tabs__link">
-          
-  
-    
-  
-  Best Practices
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../api/" class="md-tabs__link">
-        
-  
-    
-  
-  API Reference
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../LICENSE" class="md-tabs__link">
-        
-  
-    
-  
-  License
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -348,10 +228,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Jetpack Android Template" class="md-nav__button md-logo" aria-label="Jetpack Android Template" data-md-component="logo">
       
@@ -418,21 +296,15 @@
       
     
     
-      
-        
-        
-      
-      
     
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -728,9 +600,6 @@
       
     
     
-      
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -889,9 +758,6 @@
         
       
     
-    
-      
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1217,10 +1083,8 @@
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="n">content</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="na">data</span><span class="p">)</span>
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This approach trades some flexibility for consistency and reduced boilerplate.</p>
-</div>
+<p>!!! NOTE "Note"
+     This approach trades some flexibility for consistency and reduced boilerplate.</p>
 <h3 id="3-direct-viewmodels">3. Direct ViewModels</h3>
 <p>We opt for a direct approach to state management in ViewModels:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">AuthViewModel</span><span class="w"> </span><span class="nd">@Inject</span><span class="w"> </span><span class="k">constructor</span><span class="p">(</span>
@@ -1275,10 +1139,8 @@
 <p><strong>UI Layer</strong>: Handled by <code>StatefulComposable</code></p>
 </li>
 </ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>This standardized approach makes error handling predictable across the entire application.</p>
-</div>
+<p>!!! TIP "Tip"
+     This standardized approach makes error handling predictable across the entire application.</p>
 <h3 id="5-state-updates">5. State Updates</h3>
 <p>We provide extension functions for common state update patterns:</p>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// Regular state updates</span>
@@ -1327,10 +1189,8 @@
 <li>We prefer consistent patterns across the codebase</li>
 <li>This might mean using the same solution even when a specialized one might be marginally better</li>
 </ol>
-<div class="admonition warning">
-<p class="admonition-title">Important</p>
-<p>These patterns are guidelines, not rules. The goal is to make the codebase more maintainable and easier to understand, not to restrict flexibility where it's truly needed.</p>
-</div>
+<p>!!! warning "Important"
+     These patterns are guidelines, not rules. The goal is to make the codebase more maintainable and easier to understand, not to restrict flexibility where it's truly needed.</p>
 <h2 id="benefits-of-this-approach">Benefits of This Approach</h2>
 <ol>
 <li><strong>Reduced Cognitive Load</strong></li>
@@ -1550,7 +1410,7 @@ When deviating from these patterns, document your reasoning to help other develo
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.indexes", "navigation.top", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>

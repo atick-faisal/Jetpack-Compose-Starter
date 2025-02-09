@@ -84,7 +84,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Jetpack Android Template" class="md-header__button md-logo" aria-label="Jetpack Android Template" data-md-component="logo">
       
@@ -213,128 +215,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../getting-started/" class="md-tabs__link">
-        
-  
-    
-  
-  Getting Started
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../guide/" class="md-tabs__link">
-          
-  
-    
-  
-  Development Guide
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
-          
-  
-    
-  
-  Tools & Configuration
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../performance/" class="md-tabs__link">
-          
-  
-    
-  
-  Best Practices
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../api/" class="md-tabs__link">
-        
-  
-    
-  
-  API Reference
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../LICENSE" class="md-tabs__link">
-        
-  
-    
-  
-  License
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -348,10 +228,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Jetpack Android Template" class="md-nav__button md-logo" aria-label="Jetpack Android Template" data-md-component="logo">
       
@@ -415,9 +293,6 @@
         
       
     
-    
-      
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -564,21 +439,15 @@
       
     
     
-      
-        
-        
-      
-      
     
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -862,9 +731,6 @@
         
       
     
-    
-      
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1156,10 +1022,8 @@
 <li>Run using: <code>./gradlew spotlessApply</code></li>
 <li>Or use the "Spotless Apply" run configuration in Android Studio</li>
 </ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Always run Spotless Apply before committing your changes to ensure consistent code formatting.</p>
-</div>
+<p>!!! TIP "Tip"
+     Always run Spotless Apply before committing your changes to ensure consistent code formatting.</p>
 <h3 id="cicd-integration">CI/CD Integration</h3>
 <p>The project's GitHub Actions workflow automatically runs <code>spotlessCheck</code> on pull requests. Your PR will fail if there are any formatting issues.</p>
 <h2 id="customizing-copyright-headers">Customizing Copyright Headers</h2>
@@ -1181,10 +1045,8 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cm"> * Licensed under ...</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="cm"> */</span>
 </span></code></pre></div></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Make sure to update all copyright files to maintain consistency across different file types.</p>
-</div>
+<p>!!! NOTE "Note"
+     Make sure to update all copyright files to maintain consistency across different file types.</p>
 <h2 id="configuration-details">Configuration Details</h2>
 <p>The Spotless configuration is defined in <code>gradle/init.gradle.kts</code> and includes:</p>
 <h3 id="kotlin-configuration">Kotlin Configuration</h3>
@@ -1208,10 +1070,8 @@
 - Groovy (Gradle) files
 - Kotlin Script (<code>.kts</code>) files
 - XML files</p>
-<div class="admonition warning">
-<p class="admonition-title">Important</p>
-<p>The build task will fail if any files don't match the formatting rules. Always run <code>spotlessApply</code> if <code>spotlessCheck</code> fails.</p>
-</div>
+<p>!!! warning "Important"
+     The build task will fail if any files don't match the formatting rules. Always run <code>spotlessApply</code> if <code>spotlessCheck</code> fails.</p>
 <h2 id="best-practices">Best Practices</h2>
 <ol>
 <li>
@@ -1413,7 +1273,7 @@ If you're using Android Studio, you can bind the Spotless Apply run configuratio
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.indexes", "navigation.top", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
