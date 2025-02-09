@@ -15,9 +15,9 @@ Before you begin, make sure you have:
 ## Initial Setup
 
 1. Install Fastlane:
-	```bash
-	gem install fastlane
-	```
+   ```bash
+   gem install fastlane
+   ```
 
 2. Set up Play Store authentication:
 	- Follow
@@ -31,7 +31,7 @@ Before you begin, make sure you have:
 
 > [!WARNING]
 > Never commit your `play-store.json` file to the repository. Make sure it's included in your
-`.gitignore`.
+> `.gitignore`.
 
 ## Configure Fastlane Files
 
@@ -109,9 +109,9 @@ fastlane supply init
 	- Update screenshots in `metadata/android/en-US/images/`
 
 3. Run deployment:
-	```bash
-	fastlane android deploy
-	```
+   ```bash
+   fastlane android deploy
+   ```
 
 > [!TIP]
 > Our GitHub Actions workflow automatically runs the deployment when you create a new release tag.

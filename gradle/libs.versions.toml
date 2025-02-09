@@ -7,6 +7,7 @@ androidGradlePlugin = "8.8.0"
 gmsPlugin = "4.4.2"
 ksp = "2.1.10-1.0.29"
 dokka = "2.0.0"
+dokkaMermaid = "0.6.0"
 secrets = "2.0.1"
 
 # ... CORE:ANDROID ...
@@ -182,5 +183,6 @@ google-oss-licenses-plugin = { group = "com.google.android.gms", name = "oss-lic
 # ... WORK_MANAGER ...
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workVersion" }
 
-# ... DOKKA ANDROID ...
+# ... DOKKA PLUGINS ...
 dokka-android-plugin = { module = "org.jetbrains.dokka:android-documentation-plugin", version.ref = "dokka" }
+dokka-mermaid-plugin = { module = "com.glureau:html-mermaid-dokka-plugin", version.ref = "dokkaMermaid" }
