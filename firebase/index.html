@@ -993,8 +993,10 @@
 </span></code></pre></div></li>
 <li>Replace the template <code>google-services.json</code> in the <code>app</code> directory with your downloaded file</li>
 </ol>
-<p>!!! WARNING "Warning"
-     Never commit your actual <code>google-services.json</code> to version control. The template file is provided only to ensure successful builds.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Never commit your actual <code>google-services.json</code> to version control. The template file is provided only to ensure successful builds.</p>
+</div>
 <ol>
 <li>Verify Firebase Setup:</li>
 <li>Build and run the app</li>
@@ -1025,8 +1027,10 @@
 <li>Verify <code>google-services.json</code> is in the correct location</li>
 <li>Check if all Firebase dependencies are resolved</li>
 </ol>
-<p>!!! TIP "Tip"
-     If you need to get the SHA-1 hash again later, you can always run the "Signing Report" configuration from Android Studio.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you need to get the SHA-1 hash again later, you can always run the "Signing Report" configuration from Android Studio.</p>
+</div>
 <h2 id="firebase-configuration-files">Firebase Configuration Files</h2>
 <p>The project handles Firebase configuration files in several ways:</p>
 <ol>
@@ -1041,8 +1045,10 @@
 <li>GitHub Actions workflow uses encoded secrets</li>
 <li>See <a href="../github/">GitHub CI/CD Setup</a> for details</li>
 </ol>
-<p>!!! NOTE "Note"
-     The template <code>google-services.json</code> allows the project to build but won't enable Firebase services. You must replace it with your own configuration file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The template <code>google-services.json</code> allows the project to build but won't enable Firebase services. You must replace it with your own configuration file.</p>
+</div>
 <h2 id="firestore-security-rules">Firestore Security Rules</h2>
 <p>Set up security rules in Firebase Console to protect your data:</p>
 <ol>
@@ -1096,8 +1102,10 @@
 - Data ownership validation
 - Document structure validation
 - Explicit deny-by-default for unmatched paths</p>
-<p>!!! warning "Important"
-     Always test your security rules thoroughly using the Firebase Console Rules Playground before deploying to production.</p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Always test your security rules thoroughly using the Firebase Console Rules Playground before deploying to production.</p>
+</div>
 <h2 id="additional-setup">Additional Setup</h2>
 <ol>
 <li>

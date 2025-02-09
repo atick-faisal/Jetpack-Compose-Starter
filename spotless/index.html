@@ -1022,8 +1022,10 @@
 <li>Run using: <code>./gradlew spotlessApply</code></li>
 <li>Or use the "Spotless Apply" run configuration in Android Studio</li>
 </ol>
-<p>!!! TIP "Tip"
-     Always run Spotless Apply before committing your changes to ensure consistent code formatting.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Always run Spotless Apply before committing your changes to ensure consistent code formatting.</p>
+</div>
 <h3 id="cicd-integration">CI/CD Integration</h3>
 <p>The project's GitHub Actions workflow automatically runs <code>spotlessCheck</code> on pull requests. Your PR will fail if there are any formatting issues.</p>
 <h2 id="customizing-copyright-headers">Customizing Copyright Headers</h2>
@@ -1045,8 +1047,10 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cm"> * Licensed under ...</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="cm"> */</span>
 </span></code></pre></div></p>
-<p>!!! NOTE "Note"
-     Make sure to update all copyright files to maintain consistency across different file types.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure to update all copyright files to maintain consistency across different file types.</p>
+</div>
 <h2 id="configuration-details">Configuration Details</h2>
 <p>The Spotless configuration is defined in <code>gradle/init.gradle.kts</code> and includes:</p>
 <h3 id="kotlin-configuration">Kotlin Configuration</h3>
@@ -1070,8 +1074,10 @@
 - Groovy (Gradle) files
 - Kotlin Script (<code>.kts</code>) files
 - XML files</p>
-<p>!!! warning "Important"
-     The build task will fail if any files don't match the formatting rules. Always run <code>spotlessApply</code> if <code>spotlessCheck</code> fails.</p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>The build task will fail if any files don't match the formatting rules. Always run <code>spotlessApply</code> if <code>spotlessCheck</code> fails.</p>
+</div>
 <h2 id="best-practices">Best Practices</h2>
 <ol>
 <li>

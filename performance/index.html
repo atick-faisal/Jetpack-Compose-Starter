@@ -1137,8 +1137,10 @@
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="n">items</span><span class="p">.</span><span class="na">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
 </span></code></pre></div></p>
-<p>!!! TIP "Tip"
-     Use <code>@Immutable</code> for classes that never change and <code>@Stable</code> for classes whose properties may change but maintain identity.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <code>@Immutable</code> for classes that never change and <code>@Stable</code> for classes whose properties may change but maintain identity.</p>
+</div>
 <h2 id="r8-and-proguard-optimization">R8 and ProGuard Optimization</h2>
 <h3 id="project-structure-for-obfuscation">Project Structure for Obfuscation</h3>
 <p>The project follows a consistent pattern for data models to simplify ProGuard/R8 rules:
@@ -1158,8 +1160,10 @@
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>-keepattributes *Annotation*, InnerClasses
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>-dontnote kotlinx.serialization.AnnotationsKt
 </span></code></pre></div>
-<p>!!! NOTE "Note"
-     The project's model organization makes it easy to keep data models unobfuscated while allowing safe obfuscation of implementation classes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The project's model organization makes it easy to keep data models unobfuscated while allowing safe obfuscation of implementation classes.</p>
+</div>
 <h2 id="gradle-build-optimization">Gradle Build Optimization</h2>
 <h3 id="build-scan">Build Scan</h3>
 <p>The project includes Gradle Enterprise build scan support:</p>
@@ -1197,11 +1201,15 @@
 <p><strong>Configuration Caching</strong>: Already enabled for supported tasks</p>
 </li>
 </ol>
-<p>!!! TIP "Tip"
-     When working on a feature, use Make Module on just that feature's module to significantly reduce build time.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When working on a feature, use Make Module on just that feature's module to significantly reduce build time.</p>
+</div>
 <h2 id="baseline-profiles">Baseline Profiles</h2>
-<p>!!! NOTE "Note"
-     Baseline profile support is coming soon to improve app startup performance.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Baseline profile support is coming soon to improve app startup performance.</p>
+</div>
 <h3 id="planned-implementation">Planned Implementation</h3>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// build.gradle.kts</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">androidApplication</span><span class="w"> </span><span class="p">{</span>
@@ -1243,8 +1251,10 @@
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="n">stop</span><span class="p">()</span>
 </span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">}</span>
 </span></code></pre></div></p>
-<p>!!! TIP "Tip"
-     Use the Firebase Console to view performance metrics and identify bottlenecks in your app.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use the Firebase Console to view performance metrics and identify bottlenecks in your app.</p>
+</div>
 <h2 id="additional-performance-tips">Additional Performance Tips</h2>
 <ol>
 <li>

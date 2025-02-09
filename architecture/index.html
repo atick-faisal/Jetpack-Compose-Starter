@@ -1068,8 +1068,10 @@
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="p">)</span>
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
 </span></code></pre></div></p>
-<p>!!! NOTE "Note"
-     Unlike the official guidelines, this project intentionally omits the domain layer to reduce complexity. You can add a domain layer if your app requires complex business logic or needs to share logic between multiple ViewModels.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike the official guidelines, this project intentionally omits the domain layer to reduce complexity. You can add a domain layer if your app requires complex business logic or needs to share logic between multiple ViewModels.</p>
+</div>
 <h2 id="state-management">State Management</h2>
 <p>The project uses a consistent state management pattern:</p>
 <ol>
@@ -1142,11 +1144,13 @@
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="n">repository</span><span class="p">.</span><span class="na">getData</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>!!! TIP "Tip"
-     Consider adding a domain layer when:
-     - Multiple ViewModels share business logic
-     - Business rules become complex
-     - You need to transform data between layers</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Consider adding a domain layer when:
+ - Multiple ViewModels share business logic
+ - Business rules become complex
+ - You need to transform data between layers</p>
+</div>
 <h2 id="testing-strategy-upcoming">Testing Strategy (Upcoming 🚧)</h2>
 <p>The architecture enables different types of tests:</p>
 <ol>

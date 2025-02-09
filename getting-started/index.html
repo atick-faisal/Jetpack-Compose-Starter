@@ -952,8 +952,10 @@
 </span></code></pre></div></p>
 </li>
 </ol>
-<p>!!! NOTE "Note"
-     The debug variant should work out of the box with the template <code>google-services.json</code> file. However, Firebase features like authentication and Firestore won't be functional until you set up your own Firebase project.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The debug variant should work out of the box with the template <code>google-services.json</code> file. However, Firebase features like authentication and Firestore won't be functional until you set up your own Firebase project.</p>
+</div>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>Android Studio Hedgehog or newer</li>
@@ -995,8 +997,10 @@
 <p>Place your keystore file in the <code>app/</code> directory</p>
 </li>
 </ol>
-<p>!!! TIP "Tip"
-     Use Android Studio's "Generate Signed Bundle/APK" tool to help create your keystore if you don't have one.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use Android Studio's "Generate Signed Bundle/APK" tool to help create your keystore if you don't have one.</p>
+</div>
 <ol>
 <li>Build the release variant:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./gradlew<span class="w"> </span>assembleRelease
@@ -1037,8 +1041,10 @@
 <li>Confirm keystore file is in the correct location</li>
 <li>Check signing configuration in build.gradle</li>
 </ol>
-<p>!!! warning "Important"
-     Never commit sensitive files like <code>keystore.properties</code>, your keystore file, or your real <code>google-services.json</code> to version control.</p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Never commit sensitive files like <code>keystore.properties</code>, your keystore file, or your real <code>google-services.json</code> to version control.</p>
+</div>
 <h2 id="ide-setup">IDE Setup</h2>
 <p>For the best development experience:</p>
 <ol>

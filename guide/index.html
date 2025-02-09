@@ -1289,8 +1289,10 @@
 </span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="p">}</span>
 </span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>!!! NOTE "Note"
-     Always use <code>withContext(ioDispatcher)</code> in data sources to ensure operations run on the IO thread.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Always use <code>withContext(ioDispatcher)</code> in data sources to ensure operations run on the IO thread.</p>
+</div>
 <h2 id="step-3-repository-layer">Step 3: Repository Layer</h2>
 <h3 id="31-feature-models">3.1 Feature Models</h3>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// data/src/main/kotlin/dev/atick/data/models/Feature.kt</span>
@@ -1348,8 +1350,10 @@
 </span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">        </span><span class="p">}</span>
 </span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>!!! TIP "Tip"
-     Use <code>suspendRunCatching</code> in repositories to handle errors consistently.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <code>suspendRunCatching</code> in repositories to handle errors consistently.</p>
+</div>
 <h2 id="step-4-ui-layer">Step 4: UI Layer</h2>
 <h3 id="41-ui-models">4.1 UI Models</h3>
 <div class="language-kotlin highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// feature/feature-name/src/main/kotlin/dev/atick/feature/models/</span>
@@ -1516,8 +1520,10 @@
 <li>Keep composables pure and state-driven</li>
 <li>Separate route from screen implementation</li>
 </ol>
-<p>!!! warning "Important"
-     Always follow the unidirectional data flow pattern: UI Events → ViewModel → Repository → Data Sources → Back to UI through StateFlow.</p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Always follow the unidirectional data flow pattern: UI Events → ViewModel → Repository → Data Sources → Back to UI through StateFlow.</p>
+</div>
 <h2 id="testing-upcoming">Testing (Upcoming 🚧)</h2>
 <p>Remember to add tests for your new feature:</p>
 <ol>
