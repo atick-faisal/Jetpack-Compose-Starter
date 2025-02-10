@@ -20,7 +20,9 @@ import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
+import org.gradle.kotlin.dsl.withType
 import org.jetbrains.dokka.gradle.DokkaExtension
+import org.jetbrains.dokka.gradle.engine.plugins.DokkaHtmlPluginParameters
 
 
 class DokkaConventionPlugin : Plugin<Project> {
@@ -37,6 +39,9 @@ class DokkaConventionPlugin : Plugin<Project> {
                 dokkaSourceSets.named("main") {
                     includes.from("README.md")
                     suppressGeneratedFiles.set(true)
+                }
+                pluginsConfiguration.withType<DokkaHtmlPluginParameters> {
+                    footerMessage.set("Made with ❤\uFE0F by Atick Faisal")
                 }
             }
 
