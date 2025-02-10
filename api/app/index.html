@@ -95,7 +95,7 @@
   <div class="breadcrumbs"></div>
   <div class="cover ">
     <h1 class="cover"><span><span>:app</span></span></h1>
-    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app/release"><p class="paragraph">Main application module that coordinates feature modules and handles app-level configuration.</p><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-1spgmb5io2qg2"></div></div><script>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app/release"><p class="paragraph">Main application module that coordinates feature modules and handles app-level configuration.</p><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-718eoj61k96ls"></div></div><script>
 window.addEventListener('load', function() {
   var graphDef =  `graph TD
     A[app] --> B[core:ui]
@@ -117,9 +117,9 @@ window.addEventListener('load', function() {
     style H fill: #FF7043, stroke: #333, stroke-width: 2px
     style I fill: #FFA726, stroke: #333, stroke-width: 2px
     style J fill: #7E57C2, stroke: #333, stroke-width: 2px`;
-  var container = document.getElementById('mermaid-container-1spgmb5io2qg2');
-  container.innerHTML = '<div id="mermaid-target-1spgmb5io2qg2"></div>';
-  var updateGraph1spgmb5io2qg2 = function() {
+  var container = document.getElementById('mermaid-container-718eoj61k96ls');
+  container.innerHTML = '<div id="mermaid-target-718eoj61k96ls"></div>';
+  var updateGraph718eoj61k96ls = function() {
     // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
     // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
     setTimeout(() => {
@@ -130,117 +130,19 @@ window.addEventListener('load', function() {
         theme = 'dark';
       }
       mermaid.initialize({'theme': theme});
-      mermaid.render('mermaid-target-1spgmb5io2qg2', graphDef).then(({ svg, bindFunctions }) => {
+      mermaid.render('mermaid-target-718eoj61k96ls', graphDef).then(({ svg, bindFunctions }) => {
           container.innerHTML = svg;
           // Trick to make the graph takes only the required height.
-          document.getElementById('mermaid-target-1spgmb5io2qg2').removeAttribute('height')
+          document.getElementById('mermaid-target-718eoj61k96ls').removeAttribute('height')
           bindFunctions?.(element);
       });
     }, 0);
   }
-  updateGraph1spgmb5io2qg2();
+  updateGraph718eoj61k96ls();
   
   var themeToggleButton = document.getElementById('theme-toggle-button');
   themeToggleButton.addEventListener('click', () => {
-    updateGraph1spgmb5io2qg2();
-  });
-});</script><h2 class="">Key Features</h2><ul><li><p class="paragraph">Main application</p></li><li><p class="paragraph">Feature coordination</p></li><li><p class="paragraph">Analytics setup</p></li><li><p class="paragraph">Splash screen</p></li><li><p class="paragraph">Version management</p></li><li><p class="paragraph">ProGuard rules</p></li></ul><h2 class="">Version Management</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">// ... Application Version ...<br>val majorUpdateVersion = 1<br>val minorUpdateVersion = 0<br>val patchVersion = 0<br><br>val mVersionCode = majorUpdateVersion.times(10_000)<br>    .plus(minorUpdateVersion.times(100))<br>    .plus(patchVersion)</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">Main application module that coordinates feature modules and handles app-level configuration.</p><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-2jvpijm4cs0rt"></div></div><script>
-window.addEventListener('load', function() {
-  var graphDef =  `graph TD
-    A[app] --> B[core:ui]
-    A --> C[core:network]
-    A --> D[core:preferences]
-    A --> E[feature:auth]
-    A --> F[feature:home]
-    A --> G[feature:profile]
-    A --> H[feature:settings]
-    A --> I[firebase:analytics]
-    A --> J[sync]
-    style A fill: #4CAF50, stroke: #333, stroke-width: 2px
-    style B fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style C fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style D fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style E fill: #FF7043, stroke: #333, stroke-width: 2px
-    style F fill: #FF7043, stroke: #333, stroke-width: 2px
-    style G fill: #FF7043, stroke: #333, stroke-width: 2px
-    style H fill: #FF7043, stroke: #333, stroke-width: 2px
-    style I fill: #FFA726, stroke: #333, stroke-width: 2px
-    style J fill: #7E57C2, stroke: #333, stroke-width: 2px`;
-  var container = document.getElementById('mermaid-container-2jvpijm4cs0rt');
-  container.innerHTML = '<div id="mermaid-target-2jvpijm4cs0rt"></div>';
-  var updateGraph2jvpijm4cs0rt = function() {
-    // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
-    // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
-    setTimeout(() => {
-      var dokkaDarkModeItem = localStorage.getItem("dokka-dark-mode");
-      var isDarkMode = dokkaDarkModeItem ? JSON.parse(dokkaDarkModeItem) : false
-      var theme = 'default';
-      if (isDarkMode === true) {
-        theme = 'dark';
-      }
-      mermaid.initialize({'theme': theme});
-      mermaid.render('mermaid-target-2jvpijm4cs0rt', graphDef).then(({ svg, bindFunctions }) => {
-          container.innerHTML = svg;
-          // Trick to make the graph takes only the required height.
-          document.getElementById('mermaid-target-2jvpijm4cs0rt').removeAttribute('height')
-          bindFunctions?.(element);
-      });
-    }, 0);
-  }
-  updateGraph2jvpijm4cs0rt();
-  
-  var themeToggleButton = document.getElementById('theme-toggle-button');
-  themeToggleButton.addEventListener('click', () => {
-    updateGraph2jvpijm4cs0rt();
-  });
-});</script><h2 class="">Key Features</h2><ul><li><p class="paragraph">Main application</p></li><li><p class="paragraph">Feature coordination</p></li><li><p class="paragraph">Analytics setup</p></li><li><p class="paragraph">Splash screen</p></li><li><p class="paragraph">Version management</p></li><li><p class="paragraph">ProGuard rules</p></li></ul><h2 class="">Version Management</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">// ... Application Version ...<br>val majorUpdateVersion = 1<br>val minorUpdateVersion = 0<br>val patchVersion = 0<br><br>val mVersionCode = majorUpdateVersion.times(10_000)<br>    .plus(minorUpdateVersion.times(100))<br>    .plus(patchVersion)</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">Main application module that coordinates feature modules and handles app-level configuration.</p><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-acm5am64ec2q"></div></div><script>
-window.addEventListener('load', function() {
-  var graphDef =  `graph TD
-    A[app] --> B[core:ui]
-    A --> C[core:network]
-    A --> D[core:preferences]
-    A --> E[feature:auth]
-    A --> F[feature:home]
-    A --> G[feature:profile]
-    A --> H[feature:settings]
-    A --> I[firebase:analytics]
-    A --> J[sync]
-    style A fill: #4CAF50, stroke: #333, stroke-width: 2px
-    style B fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style C fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style D fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style E fill: #FF7043, stroke: #333, stroke-width: 2px
-    style F fill: #FF7043, stroke: #333, stroke-width: 2px
-    style G fill: #FF7043, stroke: #333, stroke-width: 2px
-    style H fill: #FF7043, stroke: #333, stroke-width: 2px
-    style I fill: #FFA726, stroke: #333, stroke-width: 2px
-    style J fill: #7E57C2, stroke: #333, stroke-width: 2px`;
-  var container = document.getElementById('mermaid-container-acm5am64ec2q');
-  container.innerHTML = '<div id="mermaid-target-acm5am64ec2q"></div>';
-  var updateGraphacm5am64ec2q = function() {
-    // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
-    // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
-    setTimeout(() => {
-      var dokkaDarkModeItem = localStorage.getItem("dokka-dark-mode");
-      var isDarkMode = dokkaDarkModeItem ? JSON.parse(dokkaDarkModeItem) : false
-      var theme = 'default';
-      if (isDarkMode === true) {
-        theme = 'dark';
-      }
-      mermaid.initialize({'theme': theme});
-      mermaid.render('mermaid-target-acm5am64ec2q', graphDef).then(({ svg, bindFunctions }) => {
-          container.innerHTML = svg;
-          // Trick to make the graph takes only the required height.
-          document.getElementById('mermaid-target-acm5am64ec2q').removeAttribute('height')
-          bindFunctions?.(element);
-      });
-    }, 0);
-  }
-  updateGraphacm5am64ec2q();
-  
-  var themeToggleButton = document.getElementById('theme-toggle-button');
-  themeToggleButton.addEventListener('click', () => {
-    updateGraphacm5am64ec2q();
+    updateGraph718eoj61k96ls();
   });
 });</script><h2 class="">Key Features</h2><ul><li><p class="paragraph">Main application</p></li><li><p class="paragraph">Feature coordination</p></li><li><p class="paragraph">Analytics setup</p></li><li><p class="paragraph">Splash screen</p></li><li><p class="paragraph">Version management</p></li><li><p class="paragraph">ProGuard rules</p></li></ul><h2 class="">Version Management</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">// ... Application Version ...<br>val majorUpdateVersion = 1<br>val minorUpdateVersion = 0<br>val patchVersion = 0<br><br>val mVersionCode = majorUpdateVersion.times(10_000)<br>    .plus(minorUpdateVersion.times(100))<br>    .plus(patchVersion)</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
   </div>
@@ -317,11 +219,29 @@ window.addEventListener('load', function() {
         <div></div>
       </div>
     </div>
+<a data-name="747026602%2FPackages%2F1259010394" anchor-label="hilt_aggregated_deps" id="747026602%2FPackages%2F1259010394" data-filterable-set=":app/release"></a>
+    <div class="table-row" data-filterable-current=":app/release" data-filterable-set=":app/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="hilt_aggregated_deps/index.html">hilt_aggregated_deps</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="747026602%2FPackages%2F1259010394"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
   </div>
 </div>
     <div class="footer">
         <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
-        <span>© 2025 Copyright</span>
+        <span>Made with ❤️ by Atick Faisal</span>
         <span class="pull-right">
             <span>Generated by </span>
             <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">

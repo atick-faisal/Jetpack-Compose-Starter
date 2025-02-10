@@ -95,7 +95,7 @@
   <div class="breadcrumbs"></div>
   <div class="cover ">
     <h1 class="cover"><span><span>:sync</span></span></h1>
-    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sync/release"><p class="paragraph">This module handles background data synchronization using WorkManager. It ensures data consistency between local and remote data sources by performing periodic and on-demand sync operations.</p><h2 class="">Features</h2><ul><li><p class="paragraph">Background Synchronization</p></li><li><p class="paragraph">Periodic Sync Scheduling</p></li><li><p class="paragraph">Work Constraints Management</p></li><li><p class="paragraph">Progress Tracking</p></li><li><p class="paragraph">Error Handling</p></li><li><p class="paragraph">Hilt Worker Integration</p></li></ul><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-34ubtdudccqad"></div></div><script>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sync/release"><p class="paragraph">This module handles background data synchronization using WorkManager. It ensures data consistency between local and remote data sources by performing periodic and on-demand sync operations.</p><h2 class="">Features</h2><ul><li><p class="paragraph">Background Synchronization</p></li><li><p class="paragraph">Periodic Sync Scheduling</p></li><li><p class="paragraph">Work Constraints Management</p></li><li><p class="paragraph">Progress Tracking</p></li><li><p class="paragraph">Error Handling</p></li><li><p class="paragraph">Hilt Worker Integration</p></li></ul><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-6ta1u2ksn4ffk"></div></div><script>
 window.addEventListener('load', function() {
   var graphDef =  `graph TD
     A[sync] --> B[core:android]
@@ -112,9 +112,9 @@ window.addEventListener('load', function() {
     style B fill: #64B5F6, stroke: #333, stroke-width: 2px
     style C fill: #64B5F6, stroke: #333, stroke-width: 2px
     style D fill: #FF7043, stroke: #333, stroke-width: 2px`;
-  var container = document.getElementById('mermaid-container-34ubtdudccqad');
-  container.innerHTML = '<div id="mermaid-target-34ubtdudccqad"></div>';
-  var updateGraph34ubtdudccqad = function() {
+  var container = document.getElementById('mermaid-container-6ta1u2ksn4ffk');
+  container.innerHTML = '<div id="mermaid-target-6ta1u2ksn4ffk"></div>';
+  var updateGraph6ta1u2ksn4ffk = function() {
     // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
     // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
     setTimeout(() => {
@@ -125,107 +125,19 @@ window.addEventListener('load', function() {
         theme = 'dark';
       }
       mermaid.initialize({'theme': theme});
-      mermaid.render('mermaid-target-34ubtdudccqad', graphDef).then(({ svg, bindFunctions }) => {
+      mermaid.render('mermaid-target-6ta1u2ksn4ffk', graphDef).then(({ svg, bindFunctions }) => {
           container.innerHTML = svg;
           // Trick to make the graph takes only the required height.
-          document.getElementById('mermaid-target-34ubtdudccqad').removeAttribute('height')
+          document.getElementById('mermaid-target-6ta1u2ksn4ffk').removeAttribute('height')
           bindFunctions?.(element);
       });
     }, 0);
   }
-  updateGraph34ubtdudccqad();
+  updateGraph6ta1u2ksn4ffk();
   
   var themeToggleButton = document.getElementById('theme-toggle-button');
   themeToggleButton.addEventListener('click', () => {
-    updateGraph34ubtdudccqad();
-  });
-});</script><h2 class="">Usage</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">dependencies {<br>    implementation(project(":sync"))<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h3 class="">Setting Up Sync</h3><ol><li><p class="paragraph">Make your repository syncable:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">interface YourRepository : Syncable {<br>    override suspend fun sync(): Flow&lt;SyncProgress&gt;<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li><li><p class="paragraph">Create sync worker:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">@HiltWorker<br>class SyncWorker @AssistedInject constructor(<br>    @Assisted context: Context,<br>    @Assisted params: WorkerParameters,<br>    private val repository: YourRepository<br>) : CoroutineWorker(context, params) {<br>    override suspend fun doWork(): Result {<br>        repository.sync()<br>            .collect { progress -&gt;<br>                setProgress(progress.toWorkData())<br>            }<br>        return Result.success()<br>    }<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li><li><p class="paragraph">Request sync operation:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">class YourRepositoryImpl @Inject constructor(<br>    private val syncManager: SyncManager<br>) : YourRepository {<br>    fun requestSync() {<br>        syncManager.requestSync()<br>    }<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li></ol><h3 class="">Work Constraints</h3><p class="paragraph">The sync operation respects the following constraints:</p><ul><li><p class="paragraph">Network availability</p></li><li><p class="paragraph">Battery not low</p></li><li><p class="paragraph">Storage not low</p></li><li><p class="paragraph">Device idle (for periodic sync)</p></li></ul><h3 class="">Progress Tracking</h3><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">data class SyncProgress(<br>    val total: Int = 0,<br>    val current: Int = 0,<br>    val message: String? = null<br>)</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">The sync progress can be observed from the WorkManager's progress updates.</p><p class="paragraph">This module handles background data synchronization using WorkManager. It ensures data consistency between local and remote data sources by performing periodic and on-demand sync operations.</p><h2 class="">Features</h2><ul><li><p class="paragraph">Background Synchronization</p></li><li><p class="paragraph">Periodic Sync Scheduling</p></li><li><p class="paragraph">Work Constraints Management</p></li><li><p class="paragraph">Progress Tracking</p></li><li><p class="paragraph">Error Handling</p></li><li><p class="paragraph">Hilt Worker Integration</p></li></ul><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-1cmho0a9jibqi"></div></div><script>
-window.addEventListener('load', function() {
-  var graphDef =  `graph TD
-    A[sync] --> B[core:android]
-    A --> C[data]
-    A --> D[androidx.work]
-    D --> E[work.runtime.ktx]
-    D --> F[hilt.work]
-    subgraph \"Work Manager\"
-        D
-        E
-        F
-    end
-    style A fill: #4CAF50, stroke: #333, stroke-width: 2px
-    style B fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style C fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style D fill: #FF7043, stroke: #333, stroke-width: 2px`;
-  var container = document.getElementById('mermaid-container-1cmho0a9jibqi');
-  container.innerHTML = '<div id="mermaid-target-1cmho0a9jibqi"></div>';
-  var updateGraph1cmho0a9jibqi = function() {
-    // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
-    // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
-    setTimeout(() => {
-      var dokkaDarkModeItem = localStorage.getItem("dokka-dark-mode");
-      var isDarkMode = dokkaDarkModeItem ? JSON.parse(dokkaDarkModeItem) : false
-      var theme = 'default';
-      if (isDarkMode === true) {
-        theme = 'dark';
-      }
-      mermaid.initialize({'theme': theme});
-      mermaid.render('mermaid-target-1cmho0a9jibqi', graphDef).then(({ svg, bindFunctions }) => {
-          container.innerHTML = svg;
-          // Trick to make the graph takes only the required height.
-          document.getElementById('mermaid-target-1cmho0a9jibqi').removeAttribute('height')
-          bindFunctions?.(element);
-      });
-    }, 0);
-  }
-  updateGraph1cmho0a9jibqi();
-  
-  var themeToggleButton = document.getElementById('theme-toggle-button');
-  themeToggleButton.addEventListener('click', () => {
-    updateGraph1cmho0a9jibqi();
-  });
-});</script><h2 class="">Usage</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">dependencies {<br>    implementation(project(":sync"))<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h3 class="">Setting Up Sync</h3><ol><li><p class="paragraph">Make your repository syncable:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">interface YourRepository : Syncable {<br>    override suspend fun sync(): Flow&lt;SyncProgress&gt;<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li><li><p class="paragraph">Create sync worker:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">@HiltWorker<br>class SyncWorker @AssistedInject constructor(<br>    @Assisted context: Context,<br>    @Assisted params: WorkerParameters,<br>    private val repository: YourRepository<br>) : CoroutineWorker(context, params) {<br>    override suspend fun doWork(): Result {<br>        repository.sync()<br>            .collect { progress -&gt;<br>                setProgress(progress.toWorkData())<br>            }<br>        return Result.success()<br>    }<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li><li><p class="paragraph">Request sync operation:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">class YourRepositoryImpl @Inject constructor(<br>    private val syncManager: SyncManager<br>) : YourRepository {<br>    fun requestSync() {<br>        syncManager.requestSync()<br>    }<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li></ol><h3 class="">Work Constraints</h3><p class="paragraph">The sync operation respects the following constraints:</p><ul><li><p class="paragraph">Network availability</p></li><li><p class="paragraph">Battery not low</p></li><li><p class="paragraph">Storage not low</p></li><li><p class="paragraph">Device idle (for periodic sync)</p></li></ul><h3 class="">Progress Tracking</h3><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">data class SyncProgress(<br>    val total: Int = 0,<br>    val current: Int = 0,<br>    val message: String? = null<br>)</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">The sync progress can be observed from the WorkManager's progress updates.</p><p class="paragraph">This module handles background data synchronization using WorkManager. It ensures data consistency between local and remote data sources by performing periodic and on-demand sync operations.</p><h2 class="">Features</h2><ul><li><p class="paragraph">Background Synchronization</p></li><li><p class="paragraph">Periodic Sync Scheduling</p></li><li><p class="paragraph">Work Constraints Management</p></li><li><p class="paragraph">Progress Tracking</p></li><li><p class="paragraph">Error Handling</p></li><li><p class="paragraph">Hilt Worker Integration</p></li></ul><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-5gvs5iep808l3"></div></div><script>
-window.addEventListener('load', function() {
-  var graphDef =  `graph TD
-    A[sync] --> B[core:android]
-    A --> C[data]
-    A --> D[androidx.work]
-    D --> E[work.runtime.ktx]
-    D --> F[hilt.work]
-    subgraph \"Work Manager\"
-        D
-        E
-        F
-    end
-    style A fill: #4CAF50, stroke: #333, stroke-width: 2px
-    style B fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style C fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style D fill: #FF7043, stroke: #333, stroke-width: 2px`;
-  var container = document.getElementById('mermaid-container-5gvs5iep808l3');
-  container.innerHTML = '<div id="mermaid-target-5gvs5iep808l3"></div>';
-  var updateGraph5gvs5iep808l3 = function() {
-    // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
-    // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
-    setTimeout(() => {
-      var dokkaDarkModeItem = localStorage.getItem("dokka-dark-mode");
-      var isDarkMode = dokkaDarkModeItem ? JSON.parse(dokkaDarkModeItem) : false
-      var theme = 'default';
-      if (isDarkMode === true) {
-        theme = 'dark';
-      }
-      mermaid.initialize({'theme': theme});
-      mermaid.render('mermaid-target-5gvs5iep808l3', graphDef).then(({ svg, bindFunctions }) => {
-          container.innerHTML = svg;
-          // Trick to make the graph takes only the required height.
-          document.getElementById('mermaid-target-5gvs5iep808l3').removeAttribute('height')
-          bindFunctions?.(element);
-      });
-    }, 0);
-  }
-  updateGraph5gvs5iep808l3();
-  
-  var themeToggleButton = document.getElementById('theme-toggle-button');
-  themeToggleButton.addEventListener('click', () => {
-    updateGraph5gvs5iep808l3();
+    updateGraph6ta1u2ksn4ffk();
   });
 });</script><h2 class="">Usage</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">dependencies {<br>    implementation(project(":sync"))<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h3 class="">Setting Up Sync</h3><ol><li><p class="paragraph">Make your repository syncable:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">interface YourRepository : Syncable {<br>    override suspend fun sync(): Flow&lt;SyncProgress&gt;<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li><li><p class="paragraph">Create sync worker:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">@HiltWorker<br>class SyncWorker @AssistedInject constructor(<br>    @Assisted context: Context,<br>    @Assisted params: WorkerParameters,<br>    private val repository: YourRepository<br>) : CoroutineWorker(context, params) {<br>    override suspend fun doWork(): Result {<br>        repository.sync()<br>            .collect { progress -&gt;<br>                setProgress(progress.toWorkData())<br>            }<br>        return Result.success()<br>    }<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li><li><p class="paragraph">Request sync operation:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">class YourRepositoryImpl @Inject constructor(<br>    private val syncManager: SyncManager<br>) : YourRepository {<br>    fun requestSync() {<br>        syncManager.requestSync()<br>    }<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li></ol><h3 class="">Work Constraints</h3><p class="paragraph">The sync operation respects the following constraints:</p><ul><li><p class="paragraph">Network availability</p></li><li><p class="paragraph">Battery not low</p></li><li><p class="paragraph">Storage not low</p></li><li><p class="paragraph">Device idle (for periodic sync)</p></li></ul><h3 class="">Progress Tracking</h3><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">data class SyncProgress(<br>    val total: Int = 0,<br>    val current: Int = 0,<br>    val message: String? = null<br>)</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">The sync progress can be observed from the WorkManager's progress updates.</p></div></div>
   </div>
@@ -302,11 +214,29 @@ window.addEventListener('load', function() {
         <div></div>
       </div>
     </div>
+<a data-name="747026602%2FPackages%2F-2141834970" anchor-label="hilt_aggregated_deps" id="747026602%2FPackages%2F-2141834970" data-filterable-set=":sync/release"></a>
+    <div class="table-row" data-filterable-current=":sync/release" data-filterable-set=":sync/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="hilt_aggregated_deps/index.html">hilt_aggregated_deps</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="747026602%2FPackages%2F-2141834970"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
   </div>
 </div>
     <div class="footer">
         <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
-        <span>© 2025 Copyright</span>
+        <span>Made with ❤️ by Atick Faisal</span>
         <span class="pull-right">
             <span>Generated by </span>
             <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">

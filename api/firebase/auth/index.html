@@ -95,7 +95,7 @@
   <div class="breadcrumbs"></div>
   <div class="cover ">
     <h1 class="cover"><span><span>:firebase:auth</span></span></h1>
-    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":firebase:auth/release"><p class="paragraph">This module handles user authentication using Firebase Authentication. It supports multiple sign-in methods and integrates with Google's Identity Services.</p><h2 class="">Features</h2><ul><li><p class="paragraph">Email/Password Authentication</p></li><li><p class="paragraph">Google Sign-In</p></li><li><p class="paragraph">Credential Management</p></li><li><p class="paragraph">Token Handling</p></li><li><p class="paragraph">Session Management</p></li><li><p class="paragraph">Identity Services Integration</p></li></ul><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-7dv2jc3fm894s"></div></div><script>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":firebase:auth/release"><p class="paragraph">This module handles user authentication using Firebase Authentication. It supports multiple sign-in methods and integrates with Google's Identity Services.</p><h2 class="">Features</h2><ul><li><p class="paragraph">Email/Password Authentication</p></li><li><p class="paragraph">Google Sign-In</p></li><li><p class="paragraph">Credential Management</p></li><li><p class="paragraph">Token Handling</p></li><li><p class="paragraph">Session Management</p></li><li><p class="paragraph">Identity Services Integration</p></li></ul><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-77t3d5to645c0"></div></div><script>
 window.addEventListener('load', function() {
   var graphDef =  `graph TD
     A[firebase:auth] --> B[core:android]
@@ -115,9 +115,9 @@ window.addEventListener('load', function() {
     style C fill: #FFA726, stroke: #333, stroke-width: 2px
     style E fill: #FFA726, stroke: #333, stroke-width: 2px
     style F fill: #FFA726, stroke: #333, stroke-width: 2px`;
-  var container = document.getElementById('mermaid-container-7dv2jc3fm894s');
-  container.innerHTML = '<div id="mermaid-target-7dv2jc3fm894s"></div>';
-  var updateGraph7dv2jc3fm894s = function() {
+  var container = document.getElementById('mermaid-container-77t3d5to645c0');
+  container.innerHTML = '<div id="mermaid-target-77t3d5to645c0"></div>';
+  var updateGraph77t3d5to645c0 = function() {
     // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
     // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
     setTimeout(() => {
@@ -128,113 +128,19 @@ window.addEventListener('load', function() {
         theme = 'dark';
       }
       mermaid.initialize({'theme': theme});
-      mermaid.render('mermaid-target-7dv2jc3fm894s', graphDef).then(({ svg, bindFunctions }) => {
+      mermaid.render('mermaid-target-77t3d5to645c0', graphDef).then(({ svg, bindFunctions }) => {
           container.innerHTML = svg;
           // Trick to make the graph takes only the required height.
-          document.getElementById('mermaid-target-7dv2jc3fm894s').removeAttribute('height')
+          document.getElementById('mermaid-target-77t3d5to645c0').removeAttribute('height')
           bindFunctions?.(element);
       });
     }, 0);
   }
-  updateGraph7dv2jc3fm894s();
+  updateGraph77t3d5to645c0();
   
   var themeToggleButton = document.getElementById('theme-toggle-button');
   themeToggleButton.addEventListener('click', () => {
-    updateGraph7dv2jc3fm894s();
-  });
-});</script><h2 class="">Usage</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">dependencies {<br>    implementation(project(":firebase:auth"))<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h3 class="">Authentication Operations</h3><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">class AuthDataSource @Inject constructor(<br>    private val firebaseAuth: FirebaseAuth,<br>    private val credentialManager: CredentialManager<br>) {<br>    suspend fun signInWithGoogle(activity: Activity): AuthUser {<br>        // Google Sign-In implementation<br>    }<br><br>    suspend fun signInWithEmailPassword(<br>        email: String,<br>        password: String<br>    ): AuthUser {<br>        // Email/Password Sign-In implementation<br>    }<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h3 class="">Credential Management</h3><p class="paragraph">The module uses Android's Credential Manager API for secure credential storage and retrieval.</p><p class="paragraph">This module handles user authentication using Firebase Authentication. It supports multiple sign-in methods and integrates with Google's Identity Services.</p><h2 class="">Features</h2><ul><li><p class="paragraph">Email/Password Authentication</p></li><li><p class="paragraph">Google Sign-In</p></li><li><p class="paragraph">Credential Management</p></li><li><p class="paragraph">Token Handling</p></li><li><p class="paragraph">Session Management</p></li><li><p class="paragraph">Identity Services Integration</p></li></ul><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-d5nho5tr2bb5"></div></div><script>
-window.addEventListener('load', function() {
-  var graphDef =  `graph TD
-    A[firebase:auth] --> B[core:android]
-    A --> C[firebase.bom]
-    C --> D[firebase.auth]
-    A --> E[play.services.auth]
-    A --> F[credentials]
-    F --> G[credentials.play.services]
-    F --> H[identity.google.id]
-    subgraph \"Authentication\"
-        C
-        E
-        F
-    end
-    style A fill: #4CAF50, stroke: #333, stroke-width: 2px
-    style B fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style C fill: #FFA726, stroke: #333, stroke-width: 2px
-    style E fill: #FFA726, stroke: #333, stroke-width: 2px
-    style F fill: #FFA726, stroke: #333, stroke-width: 2px`;
-  var container = document.getElementById('mermaid-container-d5nho5tr2bb5');
-  container.innerHTML = '<div id="mermaid-target-d5nho5tr2bb5"></div>';
-  var updateGraphd5nho5tr2bb5 = function() {
-    // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
-    // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
-    setTimeout(() => {
-      var dokkaDarkModeItem = localStorage.getItem("dokka-dark-mode");
-      var isDarkMode = dokkaDarkModeItem ? JSON.parse(dokkaDarkModeItem) : false
-      var theme = 'default';
-      if (isDarkMode === true) {
-        theme = 'dark';
-      }
-      mermaid.initialize({'theme': theme});
-      mermaid.render('mermaid-target-d5nho5tr2bb5', graphDef).then(({ svg, bindFunctions }) => {
-          container.innerHTML = svg;
-          // Trick to make the graph takes only the required height.
-          document.getElementById('mermaid-target-d5nho5tr2bb5').removeAttribute('height')
-          bindFunctions?.(element);
-      });
-    }, 0);
-  }
-  updateGraphd5nho5tr2bb5();
-  
-  var themeToggleButton = document.getElementById('theme-toggle-button');
-  themeToggleButton.addEventListener('click', () => {
-    updateGraphd5nho5tr2bb5();
-  });
-});</script><h2 class="">Usage</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">dependencies {<br>    implementation(project(":firebase:auth"))<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h3 class="">Authentication Operations</h3><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">class AuthDataSource @Inject constructor(<br>    private val firebaseAuth: FirebaseAuth,<br>    private val credentialManager: CredentialManager<br>) {<br>    suspend fun signInWithGoogle(activity: Activity): AuthUser {<br>        // Google Sign-In implementation<br>    }<br><br>    suspend fun signInWithEmailPassword(<br>        email: String,<br>        password: String<br>    ): AuthUser {<br>        // Email/Password Sign-In implementation<br>    }<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h3 class="">Credential Management</h3><p class="paragraph">The module uses Android's Credential Manager API for secure credential storage and retrieval.</p><p class="paragraph">This module handles user authentication using Firebase Authentication. It supports multiple sign-in methods and integrates with Google's Identity Services.</p><h2 class="">Features</h2><ul><li><p class="paragraph">Email/Password Authentication</p></li><li><p class="paragraph">Google Sign-In</p></li><li><p class="paragraph">Credential Management</p></li><li><p class="paragraph">Token Handling</p></li><li><p class="paragraph">Session Management</p></li><li><p class="paragraph">Identity Services Integration</p></li></ul><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-11pg4invuqacl"></div></div><script>
-window.addEventListener('load', function() {
-  var graphDef =  `graph TD
-    A[firebase:auth] --> B[core:android]
-    A --> C[firebase.bom]
-    C --> D[firebase.auth]
-    A --> E[play.services.auth]
-    A --> F[credentials]
-    F --> G[credentials.play.services]
-    F --> H[identity.google.id]
-    subgraph \"Authentication\"
-        C
-        E
-        F
-    end
-    style A fill: #4CAF50, stroke: #333, stroke-width: 2px
-    style B fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style C fill: #FFA726, stroke: #333, stroke-width: 2px
-    style E fill: #FFA726, stroke: #333, stroke-width: 2px
-    style F fill: #FFA726, stroke: #333, stroke-width: 2px`;
-  var container = document.getElementById('mermaid-container-11pg4invuqacl');
-  container.innerHTML = '<div id="mermaid-target-11pg4invuqacl"></div>';
-  var updateGraph11pg4invuqacl = function() {
-    // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
-    // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
-    setTimeout(() => {
-      var dokkaDarkModeItem = localStorage.getItem("dokka-dark-mode");
-      var isDarkMode = dokkaDarkModeItem ? JSON.parse(dokkaDarkModeItem) : false
-      var theme = 'default';
-      if (isDarkMode === true) {
-        theme = 'dark';
-      }
-      mermaid.initialize({'theme': theme});
-      mermaid.render('mermaid-target-11pg4invuqacl', graphDef).then(({ svg, bindFunctions }) => {
-          container.innerHTML = svg;
-          // Trick to make the graph takes only the required height.
-          document.getElementById('mermaid-target-11pg4invuqacl').removeAttribute('height')
-          bindFunctions?.(element);
-      });
-    }, 0);
-  }
-  updateGraph11pg4invuqacl();
-  
-  var themeToggleButton = document.getElementById('theme-toggle-button');
-  themeToggleButton.addEventListener('click', () => {
-    updateGraph11pg4invuqacl();
+    updateGraph77t3d5to645c0();
   });
 });</script><h2 class="">Usage</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">dependencies {<br>    implementation(project(":firebase:auth"))<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h3 class="">Authentication Operations</h3><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">class AuthDataSource @Inject constructor(<br>    private val firebaseAuth: FirebaseAuth,<br>    private val credentialManager: CredentialManager<br>) {<br>    suspend fun signInWithGoogle(activity: Activity): AuthUser {<br>        // Google Sign-In implementation<br>    }<br><br>    suspend fun signInWithEmailPassword(<br>        email: String,<br>        password: String<br>    ): AuthUser {<br>        // Email/Password Sign-In implementation<br>    }<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h3 class="">Credential Management</h3><p class="paragraph">The module uses Android's Credential Manager API for secure credential storage and retrieval.</p></div></div>
   </div>
@@ -311,11 +217,29 @@ window.addEventListener('load', function() {
         <div></div>
       </div>
     </div>
+<a data-name="747026602%2FPackages%2F2003840308" anchor-label="hilt_aggregated_deps" id="747026602%2FPackages%2F2003840308" data-filterable-set=":firebase:auth/release"></a>
+    <div class="table-row" data-filterable-current=":firebase:auth/release" data-filterable-set=":firebase:auth/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="hilt_aggregated_deps/index.html">hilt_aggregated_deps</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="747026602%2FPackages%2F2003840308"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
   </div>
 </div>
     <div class="footer">
         <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
-        <span>© 2025 Copyright</span>
+        <span>Made with ❤️ by Atick Faisal</span>
         <span class="pull-right">
             <span>Generated by </span>
             <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">

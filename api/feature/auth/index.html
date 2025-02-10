@@ -95,7 +95,7 @@
   <div class="breadcrumbs"></div>
   <div class="cover ">
     <h1 class="cover"><span><span>:feature:auth</span></span></h1>
-    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":feature:auth/release"><p class="paragraph">This module implements user authentication flows including email/password and Google Sign-In. It provides a complete authentication UI with error handling and loading states.</p><h2 class="">Features</h2><ul><li><p class="paragraph">Email/Password Sign In</p></li><li><p class="paragraph">Google Sign In</p></li><li><p class="paragraph">Registration Flow</p></li><li><p class="paragraph">Credential Management</p></li><li><p class="paragraph">Form Validation</p></li><li><p class="paragraph">Error Handling</p></li></ul><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-5ckkv17g45dqj"></div></div><script>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":feature:auth/release"><p class="paragraph">This module implements user authentication flows including email/password and Google Sign-In. It provides a complete authentication UI with error handling and loading states.</p><h2 class="">Features</h2><ul><li><p class="paragraph">Email/Password Sign In</p></li><li><p class="paragraph">Google Sign In</p></li><li><p class="paragraph">Registration Flow</p></li><li><p class="paragraph">Credential Management</p></li><li><p class="paragraph">Form Validation</p></li><li><p class="paragraph">Error Handling</p></li></ul><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-3g3pddo3g6o3h"></div></div><script>
 window.addEventListener('load', function() {
   var graphDef =  `graph TD
     A[feature:auth] --> B[core:ui]
@@ -110,9 +110,9 @@ window.addEventListener('load', function() {
     style B fill: #64B5F6, stroke: #333, stroke-width: 2px
     style C fill: #64B5F6, stroke: #333, stroke-width: 2px
     style D fill: #64B5F6, stroke: #333, stroke-width: 2px`;
-  var container = document.getElementById('mermaid-container-5ckkv17g45dqj');
-  container.innerHTML = '<div id="mermaid-target-5ckkv17g45dqj"></div>';
-  var updateGraph5ckkv17g45dqj = function() {
+  var container = document.getElementById('mermaid-container-3g3pddo3g6o3h');
+  container.innerHTML = '<div id="mermaid-target-3g3pddo3g6o3h"></div>';
+  var updateGraph3g3pddo3g6o3h = function() {
     // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
     // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
     setTimeout(() => {
@@ -123,103 +123,19 @@ window.addEventListener('load', function() {
         theme = 'dark';
       }
       mermaid.initialize({'theme': theme});
-      mermaid.render('mermaid-target-5ckkv17g45dqj', graphDef).then(({ svg, bindFunctions }) => {
+      mermaid.render('mermaid-target-3g3pddo3g6o3h', graphDef).then(({ svg, bindFunctions }) => {
           container.innerHTML = svg;
           // Trick to make the graph takes only the required height.
-          document.getElementById('mermaid-target-5ckkv17g45dqj').removeAttribute('height')
+          document.getElementById('mermaid-target-3g3pddo3g6o3h').removeAttribute('height')
           bindFunctions?.(element);
       });
     }, 0);
   }
-  updateGraph5ckkv17g45dqj();
+  updateGraph3g3pddo3g6o3h();
   
   var themeToggleButton = document.getElementById('theme-toggle-button');
   themeToggleButton.addEventListener('click', () => {
-    updateGraph5ckkv17g45dqj();
-  });
-});</script><h2 class="">Usage</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">dependencies {<br>    implementation(project(":feature:auth"))<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h3 class="">Key Components</h3><ol><li><p class="paragraph"><strong>SignInRoute</strong>: Handles user sign-in</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">@Composable<br>fun SignInRoute(<br>   onSignUpClick: () -&gt; Unit,<br>   onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -&gt; Boolean,<br>   signInViewModel: SignInViewModel = hiltViewModel(),<br>)</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li><li><p class="paragraph"><strong>SignUpRoute</strong>: Handles user registration</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">@Composable<br>fun SignUpRoute(<br>   onSignInClick: () -&gt; Unit,<br>   onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -&gt; Boolean,<br>   signUpViewModel: SignUpViewModel = hiltViewModel(),<br>)</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li></ol><p class="paragraph">This module implements user authentication flows including email/password and Google Sign-In. It provides a complete authentication UI with error handling and loading states.</p><h2 class="">Features</h2><ul><li><p class="paragraph">Email/Password Sign In</p></li><li><p class="paragraph">Google Sign In</p></li><li><p class="paragraph">Registration Flow</p></li><li><p class="paragraph">Credential Management</p></li><li><p class="paragraph">Form Validation</p></li><li><p class="paragraph">Error Handling</p></li></ul><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-uoelfbpsvtb2"></div></div><script>
-window.addEventListener('load', function() {
-  var graphDef =  `graph TD
-    A[feature:auth] --> B[core:ui]
-    A --> C[data]
-    B --> D[core:android]
-    subgraph \"Core Dependencies\"
-        B
-        C
-        D
-    end
-    style A fill: #4CAF50, stroke: #333, stroke-width: 2px
-    style B fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style C fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style D fill: #64B5F6, stroke: #333, stroke-width: 2px`;
-  var container = document.getElementById('mermaid-container-uoelfbpsvtb2');
-  container.innerHTML = '<div id="mermaid-target-uoelfbpsvtb2"></div>';
-  var updateGraphuoelfbpsvtb2 = function() {
-    // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
-    // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
-    setTimeout(() => {
-      var dokkaDarkModeItem = localStorage.getItem("dokka-dark-mode");
-      var isDarkMode = dokkaDarkModeItem ? JSON.parse(dokkaDarkModeItem) : false
-      var theme = 'default';
-      if (isDarkMode === true) {
-        theme = 'dark';
-      }
-      mermaid.initialize({'theme': theme});
-      mermaid.render('mermaid-target-uoelfbpsvtb2', graphDef).then(({ svg, bindFunctions }) => {
-          container.innerHTML = svg;
-          // Trick to make the graph takes only the required height.
-          document.getElementById('mermaid-target-uoelfbpsvtb2').removeAttribute('height')
-          bindFunctions?.(element);
-      });
-    }, 0);
-  }
-  updateGraphuoelfbpsvtb2();
-  
-  var themeToggleButton = document.getElementById('theme-toggle-button');
-  themeToggleButton.addEventListener('click', () => {
-    updateGraphuoelfbpsvtb2();
-  });
-});</script><h2 class="">Usage</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">dependencies {<br>    implementation(project(":feature:auth"))<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h3 class="">Key Components</h3><ol><li><p class="paragraph"><strong>SignInRoute</strong>: Handles user sign-in</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">@Composable<br>fun SignInRoute(<br>   onSignUpClick: () -&gt; Unit,<br>   onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -&gt; Boolean,<br>   signInViewModel: SignInViewModel = hiltViewModel(),<br>)</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li><li><p class="paragraph"><strong>SignUpRoute</strong>: Handles user registration</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">@Composable<br>fun SignUpRoute(<br>   onSignInClick: () -&gt; Unit,<br>   onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -&gt; Boolean,<br>   signUpViewModel: SignUpViewModel = hiltViewModel(),<br>)</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li></ol><p class="paragraph">This module implements user authentication flows including email/password and Google Sign-In. It provides a complete authentication UI with error handling and loading states.</p><h2 class="">Features</h2><ul><li><p class="paragraph">Email/Password Sign In</p></li><li><p class="paragraph">Google Sign In</p></li><li><p class="paragraph">Registration Flow</p></li><li><p class="paragraph">Credential Management</p></li><li><p class="paragraph">Form Validation</p></li><li><p class="paragraph">Error Handling</p></li></ul><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-5aa20s3qlanh7"></div></div><script>
-window.addEventListener('load', function() {
-  var graphDef =  `graph TD
-    A[feature:auth] --> B[core:ui]
-    A --> C[data]
-    B --> D[core:android]
-    subgraph \"Core Dependencies\"
-        B
-        C
-        D
-    end
-    style A fill: #4CAF50, stroke: #333, stroke-width: 2px
-    style B fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style C fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style D fill: #64B5F6, stroke: #333, stroke-width: 2px`;
-  var container = document.getElementById('mermaid-container-5aa20s3qlanh7');
-  container.innerHTML = '<div id="mermaid-target-5aa20s3qlanh7"></div>';
-  var updateGraph5aa20s3qlanh7 = function() {
-    // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
-    // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
-    setTimeout(() => {
-      var dokkaDarkModeItem = localStorage.getItem("dokka-dark-mode");
-      var isDarkMode = dokkaDarkModeItem ? JSON.parse(dokkaDarkModeItem) : false
-      var theme = 'default';
-      if (isDarkMode === true) {
-        theme = 'dark';
-      }
-      mermaid.initialize({'theme': theme});
-      mermaid.render('mermaid-target-5aa20s3qlanh7', graphDef).then(({ svg, bindFunctions }) => {
-          container.innerHTML = svg;
-          // Trick to make the graph takes only the required height.
-          document.getElementById('mermaid-target-5aa20s3qlanh7').removeAttribute('height')
-          bindFunctions?.(element);
-      });
-    }, 0);
-  }
-  updateGraph5aa20s3qlanh7();
-  
-  var themeToggleButton = document.getElementById('theme-toggle-button');
-  themeToggleButton.addEventListener('click', () => {
-    updateGraph5aa20s3qlanh7();
+    updateGraph3g3pddo3g6o3h();
   });
 });</script><h2 class="">Usage</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">dependencies {<br>    implementation(project(":feature:auth"))<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h3 class="">Key Components</h3><ol><li><p class="paragraph"><strong>SignInRoute</strong>: Handles user sign-in</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">@Composable<br>fun SignInRoute(<br>   onSignUpClick: () -&gt; Unit,<br>   onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -&gt; Boolean,<br>   signInViewModel: SignInViewModel = hiltViewModel(),<br>)</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li><li><p class="paragraph"><strong>SignUpRoute</strong>: Handles user registration</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">@Composable<br>fun SignUpRoute(<br>   onSignInClick: () -&gt; Unit,<br>   onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -&gt; Boolean,<br>   signUpViewModel: SignUpViewModel = hiltViewModel(),<br>)</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></li></ol></div></div>
   </div>
@@ -278,11 +194,29 @@ window.addEventListener('load', function() {
         <div></div>
       </div>
     </div>
+<a data-name="747026602%2FPackages%2F62777335" anchor-label="hilt_aggregated_deps" id="747026602%2FPackages%2F62777335" data-filterable-set=":feature:auth/release"></a>
+    <div class="table-row" data-filterable-current=":feature:auth/release" data-filterable-set=":feature:auth/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="hilt_aggregated_deps/index.html">hilt_aggregated_deps</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="747026602%2FPackages%2F62777335"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
   </div>
 </div>
     <div class="footer">
         <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
-        <span>© 2025 Copyright</span>
+        <span>Made with ❤️ by Atick Faisal</span>
         <span class="pull-right">
             <span>Generated by </span>
             <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">

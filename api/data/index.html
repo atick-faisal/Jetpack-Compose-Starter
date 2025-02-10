@@ -95,7 +95,7 @@
   <div class="breadcrumbs"></div>
   <div class="cover ">
     <h1 class="cover"><span><span>:data</span></span></h1>
-    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data/release"><p class="paragraph">Central data management module that coordinates between local and remote data sources.</p><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-4o222fhv4hihj"></div></div><script>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data/release"><p class="paragraph">Central data management module that coordinates between local and remote data sources.</p><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-1l2u8r060cfcs"></div></div><script>
 window.addEventListener('load', function() {
   var graphDef =  `graph TD
     A[data] --> B[core:android]
@@ -121,9 +121,9 @@ window.addEventListener('load', function() {
     style E fill: #64B5F6, stroke: #333, stroke-width: 2px
     style F fill: #FFA726, stroke: #333, stroke-width: 2px
     style G fill: #FFA726, stroke: #333, stroke-width: 2px`;
-  var container = document.getElementById('mermaid-container-4o222fhv4hihj');
-  container.innerHTML = '<div id="mermaid-target-4o222fhv4hihj"></div>';
-  var updateGraph4o222fhv4hihj = function() {
+  var container = document.getElementById('mermaid-container-1l2u8r060cfcs');
+  container.innerHTML = '<div id="mermaid-target-1l2u8r060cfcs"></div>';
+  var updateGraph1l2u8r060cfcs = function() {
     // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
     // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
     setTimeout(() => {
@@ -134,125 +134,19 @@ window.addEventListener('load', function() {
         theme = 'dark';
       }
       mermaid.initialize({'theme': theme});
-      mermaid.render('mermaid-target-4o222fhv4hihj', graphDef).then(({ svg, bindFunctions }) => {
+      mermaid.render('mermaid-target-1l2u8r060cfcs', graphDef).then(({ svg, bindFunctions }) => {
           container.innerHTML = svg;
           // Trick to make the graph takes only the required height.
-          document.getElementById('mermaid-target-4o222fhv4hihj').removeAttribute('height')
+          document.getElementById('mermaid-target-1l2u8r060cfcs').removeAttribute('height')
           bindFunctions?.(element);
       });
     }, 0);
   }
-  updateGraph4o222fhv4hihj();
+  updateGraph1l2u8r060cfcs();
   
   var themeToggleButton = document.getElementById('theme-toggle-button');
   themeToggleButton.addEventListener('click', () => {
-    updateGraph4o222fhv4hihj();
-  });
-});</script><h2 class="">Key Components</h2><ul><li><p class="paragraph">Repository implementations</p></li><li><p class="paragraph">Data models and mappers</p></li><li><p class="paragraph">Offline-first logic</p></li><li><p class="paragraph">Synchronization handling</p></li><li><p class="paragraph">Error management</p></li></ul><h2 class="">Implementation Pattern</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">interface YourRepository {<br>    fun getData(): Flow&lt;List&lt;Data&gt;&gt;<br>}<br><br>class YourRepositoryImpl @Inject constructor(<br>    private val localDataSource: LocalDataSource,<br>    private val remoteDataSource: RemoteDataSource<br>) : YourRepository {<br>    override fun getData(): Flow&lt;List&lt;Data&gt;&gt; =<br>        networkBoundResource(<br>            query = { localDataSource.getData() },<br>            fetch = { remoteDataSource.getData() },<br>            saveFetchResult = { localDataSource.saveData(it) }<br>        )<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">Central data management module that coordinates between local and remote data sources.</p><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-1nhu6dsm0ck0a"></div></div><script>
-window.addEventListener('load', function() {
-  var graphDef =  `graph TD
-    A[data] --> B[core:android]
-    A --> C[core:network]
-    A --> D[core:preferences]
-    A --> E[core:room]
-    A --> F[firebase:auth]
-    A --> G[firebase:firestore]
-    subgraph \"Core\"
-        B
-        C
-        D
-        E
-    end
-    subgraph \"Firebase\"
-        F
-        G
-    end
-    style A fill: #4CAF50, stroke: #333, stroke-width: 2px
-    style B fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style C fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style D fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style E fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style F fill: #FFA726, stroke: #333, stroke-width: 2px
-    style G fill: #FFA726, stroke: #333, stroke-width: 2px`;
-  var container = document.getElementById('mermaid-container-1nhu6dsm0ck0a');
-  container.innerHTML = '<div id="mermaid-target-1nhu6dsm0ck0a"></div>';
-  var updateGraph1nhu6dsm0ck0a = function() {
-    // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
-    // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
-    setTimeout(() => {
-      var dokkaDarkModeItem = localStorage.getItem("dokka-dark-mode");
-      var isDarkMode = dokkaDarkModeItem ? JSON.parse(dokkaDarkModeItem) : false
-      var theme = 'default';
-      if (isDarkMode === true) {
-        theme = 'dark';
-      }
-      mermaid.initialize({'theme': theme});
-      mermaid.render('mermaid-target-1nhu6dsm0ck0a', graphDef).then(({ svg, bindFunctions }) => {
-          container.innerHTML = svg;
-          // Trick to make the graph takes only the required height.
-          document.getElementById('mermaid-target-1nhu6dsm0ck0a').removeAttribute('height')
-          bindFunctions?.(element);
-      });
-    }, 0);
-  }
-  updateGraph1nhu6dsm0ck0a();
-  
-  var themeToggleButton = document.getElementById('theme-toggle-button');
-  themeToggleButton.addEventListener('click', () => {
-    updateGraph1nhu6dsm0ck0a();
-  });
-});</script><h2 class="">Key Components</h2><ul><li><p class="paragraph">Repository implementations</p></li><li><p class="paragraph">Data models and mappers</p></li><li><p class="paragraph">Offline-first logic</p></li><li><p class="paragraph">Synchronization handling</p></li><li><p class="paragraph">Error management</p></li></ul><h2 class="">Implementation Pattern</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">interface YourRepository {<br>    fun getData(): Flow&lt;List&lt;Data&gt;&gt;<br>}<br><br>class YourRepositoryImpl @Inject constructor(<br>    private val localDataSource: LocalDataSource,<br>    private val remoteDataSource: RemoteDataSource<br>) : YourRepository {<br>    override fun getData(): Flow&lt;List&lt;Data&gt;&gt; =<br>        networkBoundResource(<br>            query = { localDataSource.getData() },<br>            fetch = { remoteDataSource.getData() },<br>            saveFetchResult = { localDataSource.saveData(it) }<br>        )<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">Central data management module that coordinates between local and remote data sources.</p><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-4mk273bqq8hme"></div></div><script>
-window.addEventListener('load', function() {
-  var graphDef =  `graph TD
-    A[data] --> B[core:android]
-    A --> C[core:network]
-    A --> D[core:preferences]
-    A --> E[core:room]
-    A --> F[firebase:auth]
-    A --> G[firebase:firestore]
-    subgraph \"Core\"
-        B
-        C
-        D
-        E
-    end
-    subgraph \"Firebase\"
-        F
-        G
-    end
-    style A fill: #4CAF50, stroke: #333, stroke-width: 2px
-    style B fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style C fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style D fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style E fill: #64B5F6, stroke: #333, stroke-width: 2px
-    style F fill: #FFA726, stroke: #333, stroke-width: 2px
-    style G fill: #FFA726, stroke: #333, stroke-width: 2px`;
-  var container = document.getElementById('mermaid-container-4mk273bqq8hme');
-  container.innerHTML = '<div id="mermaid-target-4mk273bqq8hme"></div>';
-  var updateGraph4mk273bqq8hme = function() {
-    // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
-    // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
-    setTimeout(() => {
-      var dokkaDarkModeItem = localStorage.getItem("dokka-dark-mode");
-      var isDarkMode = dokkaDarkModeItem ? JSON.parse(dokkaDarkModeItem) : false
-      var theme = 'default';
-      if (isDarkMode === true) {
-        theme = 'dark';
-      }
-      mermaid.initialize({'theme': theme});
-      mermaid.render('mermaid-target-4mk273bqq8hme', graphDef).then(({ svg, bindFunctions }) => {
-          container.innerHTML = svg;
-          // Trick to make the graph takes only the required height.
-          document.getElementById('mermaid-target-4mk273bqq8hme').removeAttribute('height')
-          bindFunctions?.(element);
-      });
-    }, 0);
-  }
-  updateGraph4mk273bqq8hme();
-  
-  var themeToggleButton = document.getElementById('theme-toggle-button');
-  themeToggleButton.addEventListener('click', () => {
-    updateGraph4mk273bqq8hme();
+    updateGraph1l2u8r060cfcs();
   });
 });</script><h2 class="">Key Components</h2><ul><li><p class="paragraph">Repository implementations</p></li><li><p class="paragraph">Data models and mappers</p></li><li><p class="paragraph">Offline-first logic</p></li><li><p class="paragraph">Synchronization handling</p></li><li><p class="paragraph">Error management</p></li></ul><h2 class="">Implementation Pattern</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">interface YourRepository {<br>    fun getData(): Flow&lt;List&lt;Data&gt;&gt;<br>}<br><br>class YourRepositoryImpl @Inject constructor(<br>    private val localDataSource: LocalDataSource,<br>    private val remoteDataSource: RemoteDataSource<br>) : YourRepository {<br>    override fun getData(): Flow&lt;List&lt;Data&gt;&gt; =<br>        networkBoundResource(<br>            query = { localDataSource.getData() },<br>            fetch = { remoteDataSource.getData() },<br>            saveFetchResult = { localDataSource.saveData(it) }<br>        )<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
   </div>
@@ -419,11 +313,29 @@ window.addEventListener('load', function() {
         <div></div>
       </div>
     </div>
+<a data-name="747026602%2FPackages%2F-364231819" anchor-label="hilt_aggregated_deps" id="747026602%2FPackages%2F-364231819" data-filterable-set=":data/release"></a>
+    <div class="table-row" data-filterable-current=":data/release" data-filterable-set=":data/release">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="hilt_aggregated_deps/index.html">hilt_aggregated_deps</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="747026602%2FPackages%2F-364231819"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
   </div>
 </div>
     <div class="footer">
         <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
-        <span>© 2025 Copyright</span>
+        <span>Made with ❤️ by Atick Faisal</span>
         <span class="pull-right">
             <span>Generated by </span>
             <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
