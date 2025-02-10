@@ -28,6 +28,7 @@ plugins {
     alias(libs.plugins.jetpack.application)
     alias(libs.plugins.jetpack.dagger.hilt)
     alias(libs.plugins.jetpack.firebase)
+    alias(libs.plugins.jetpack.dokka)
 }
 
 android {

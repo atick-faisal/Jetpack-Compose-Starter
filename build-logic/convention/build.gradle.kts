@@ -67,5 +67,9 @@ gradlePlugin {
             id = "dev.atick.firebase"
             implementationClass = "FirebaseConventionPlugin"
         }
+        register("dokka") {
+            id = "dev.atick.dokka"
+            implementationClass = "DokkaConventionPlugin"
+        }
     }
 }

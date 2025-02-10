@@ -61,4 +61,8 @@ dependencies {
 
     // ... Sync
     dokka(project(":sync"))
+
+    // ... Dokka Plugins
+    dokkaPlugin(libs.dokka.android.plugin)
+    dokkaPlugin(libs.dokka.mermaid.plugin)
 }

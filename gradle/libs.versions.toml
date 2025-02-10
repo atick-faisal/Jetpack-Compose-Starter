@@ -88,6 +88,7 @@ jetpack-ui-library = { id = "dev.atick.ui.library" }
 jetpack-application = { id = "dev.atick.application" }
 jetpack-dagger-hilt = { id = "dev.atick.dagger.hilt" }
 jetpack-firebase = { id = "dev.atick.firebase" }
+jetpack-dokka = { id = "dev.atick.dokka" }
 
 [libraries]
 

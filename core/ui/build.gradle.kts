@@ -16,6 +16,7 @@
 
 plugins {
     alias(libs.plugins.jetpack.ui.library)
+    alias(libs.plugins.jetpack.dokka)
 }
 
 android {
