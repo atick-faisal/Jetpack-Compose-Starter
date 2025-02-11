@@ -61,14 +61,14 @@ import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.feature.auth.R
 
 /**
- * Sign in route.
+ * Sign in screen.
  *
  * @param onSignUpClick Navigate to sign up screen.
  * @param onShowSnackbar Show snackbar.
  * @param signInViewModel [SignInViewModel].
  */
 @Composable
-fun SignInRoute(
+internal fun SignInScreen(
     onSignUpClick: () -> Unit,
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
     signInViewModel: SignInViewModel = hiltViewModel(),

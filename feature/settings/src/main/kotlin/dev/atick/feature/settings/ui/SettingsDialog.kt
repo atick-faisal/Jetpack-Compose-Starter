@@ -58,6 +58,8 @@ import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import dev.atick.core.ui.components.JetpackOutlinedButton
 import dev.atick.core.ui.components.JetpackTextButton
 import dev.atick.core.ui.theme.supportsDynamicTheming
+import dev.atick.core.ui.utils.PreviewDevices
+import dev.atick.core.ui.utils.PreviewThemes
 import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.data.model.settings.DarkThemeConfig
@@ -315,3 +317,17 @@ private fun LinksPanel() {
 
 private const val PRIVACY_POLICY_URL = "https://privacy.atick.dev"
 private const val FEEDBACK_URL = "https://forms.gle/muBdaD2HxJLtWo9a8"
+
+@Composable
+@PreviewThemes
+@PreviewDevices
+private fun SettingsDialogPreview() {
+    SettingsDialog(
+        settings = Settings(),
+        onDismiss = {},
+        onChangeDynamicColorPreference = {},
+        onChangeDarkThemeConfig = {},
+        onSignOut = {},
+        supportDynamicColor = true,
+    )
+}

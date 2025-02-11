@@ -50,13 +50,13 @@ import dev.atick.data.model.profile.Profile
 import dev.atick.feature.profile.R
 
 /**
- * Profile screen route.
+ * Profile screen.
  *
  * @param onShowSnackbar Lambda function to show a snackbar message.
  * @param profileViewModel [ProfileViewModel].
  */
 @Composable
-fun ProfileRoute(
+internal fun ProfileScreen(
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
     profileViewModel: ProfileViewModel = hiltViewModel(),
 ) {

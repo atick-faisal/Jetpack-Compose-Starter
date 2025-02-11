@@ -21,7 +21,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import dev.atick.core.ui.utils.SnackbarAction
-import dev.atick.feature.profile.ui.ProfileRoute
+import dev.atick.feature.profile.ui.ProfileScreen
 import kotlinx.serialization.Serializable
 
 /**
@@ -35,7 +35,7 @@ data object Profile
  *
  * @param navOptions Options to configure the navigation behavior.
  */
-fun NavController.navigateToProfile(navOptions: NavOptions?) {
+fun NavController.navigateToProfileScreen(navOptions: NavOptions?) {
     navigate(Profile, navOptions)
 }
 
@@ -48,7 +48,7 @@ fun NavGraphBuilder.profileScreen(
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
 ) {
     composable<Profile> {
-        ProfileRoute(
+        ProfileScreen(
             onShowSnackbar = onShowSnackbar,
         )
     }

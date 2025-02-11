@@ -22,8 +22,8 @@ import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import dev.atick.core.ui.utils.SnackbarAction
-import dev.atick.feature.auth.ui.signin.SignInRoute
-import dev.atick.feature.auth.ui.signup.SignUpRoute
+import dev.atick.feature.auth.ui.signin.SignInScreen
+import dev.atick.feature.auth.ui.signup.SignUpScreen
 import kotlinx.serialization.Serializable
 
 /**
@@ -58,7 +58,7 @@ fun NavController.navigateToAuthNavGraph(navOptions: NavOptions? = null) {
  *
  * @param navOptions [NavOptions].
  */
-fun NavController.navigateToSignInRoute(navOptions: NavOptions? = null) {
+fun NavController.navigateToSignInScreen(navOptions: NavOptions? = null) {
     navigate(SignIn, navOptions)
 }
 
@@ -67,7 +67,7 @@ fun NavController.navigateToSignInRoute(navOptions: NavOptions? = null) {
  *
  * @param navOptions [NavOptions].
  */
-fun NavController.navigateToSignUpRoute(navOptions: NavOptions? = null) {
+fun NavController.navigateToSignUpScreen(navOptions: NavOptions? = null) {
     navigate(SignUp, navOptions)
 }
 
@@ -82,7 +82,7 @@ fun NavGraphBuilder.signInScreen(
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
 ) {
     composable<SignIn> {
-        SignInRoute(
+        SignInScreen(
             onSignUpClick = onSignUpClick,
             onShowSnackbar = onShowSnackbar,
         )
@@ -100,7 +100,7 @@ fun NavGraphBuilder.signUpScreen(
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
 ) {
     composable<SignUp> {
-        SignUpRoute(
+        SignUpScreen(
             onSignInClick = onSignInClick,
             onShowSnackbar = onShowSnackbar,
         )

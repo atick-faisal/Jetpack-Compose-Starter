@@ -54,14 +54,14 @@ import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.data.model.home.Jetpack
 
 /**
- * Home route.
+ * Home screen.
  *
  * @param onJetpackClick The click listener for jetpacks.
  * @param onShowSnackbar The snackbar callback.
  * @param homeViewModel The [HomeViewModel].
  */
 @Composable
-internal fun HomeRoute(
+internal fun HomeScreen(
     onJetpackClick: (String) -> Unit,
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
     homeViewModel: HomeViewModel = hiltViewModel(),

@@ -35,7 +35,7 @@ import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
 /**
- * [ViewModel] for [ProfileRoute].
+ * [ViewModel] for [ProfileScreen].
  *
  * @param profileRepository [ProfileRepository].
  */
