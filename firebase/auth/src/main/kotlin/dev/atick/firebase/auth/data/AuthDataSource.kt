@@ -29,7 +29,7 @@ interface AuthDataSource {
      *
      * @return The currently authenticated [AuthUser], or null if not signed in.
      */
-    val currentUser: AuthUser?
+    fun getCurrentUser(): AuthUser?
 
     /**
      * Look for saved credentials.

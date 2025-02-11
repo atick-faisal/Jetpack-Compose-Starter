@@ -23,7 +23,9 @@ import kotlinx.coroutines.flow.Flow
  */
 interface NetworkUtils {
     /**
-     * Current network state as [Flow].
+     * Get the current network state.
+     *
+     * @return [Flow] of [NetworkState].
      */
-    val currentState: Flow<NetworkState>
+    fun getCurrentState(): Flow<NetworkState>
 }
