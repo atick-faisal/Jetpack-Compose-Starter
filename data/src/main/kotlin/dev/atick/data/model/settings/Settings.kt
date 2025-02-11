@@ -54,7 +54,7 @@ fun UserDataPreferences.asSettings(): Settings {
     return Settings(
         userName = userName,
         useDynamicColor = useDynamicColor,
-        darkThemeConfig = darkThemeConfigPreferences.asDarkThemeConfig(),
+        darkThemeConfig = darkThemeConfigPreferences.toDarkThemeConfig(),
     )
 }
 
@@ -63,7 +63,7 @@ fun UserDataPreferences.asSettings(): Settings {
  *
  * @return The mapped [DarkThemeConfig].
  */
-fun DarkThemeConfigPreferences.asDarkThemeConfig(): DarkThemeConfig {
+fun DarkThemeConfigPreferences.toDarkThemeConfig(): DarkThemeConfig {
     return when (this) {
         DarkThemeConfigPreferences.FOLLOW_SYSTEM -> DarkThemeConfig.FOLLOW_SYSTEM
         DarkThemeConfigPreferences.LIGHT -> DarkThemeConfig.LIGHT
@@ -76,7 +76,7 @@ fun DarkThemeConfigPreferences.asDarkThemeConfig(): DarkThemeConfig {
  *
  * @return The mapped [DarkThemeConfigPreferences].
  */
-fun DarkThemeConfig.asDarkThemeConfigPreferences(): DarkThemeConfigPreferences {
+fun DarkThemeConfig.toDarkThemeConfigPreferences(): DarkThemeConfigPreferences {
     return when (this) {
         DarkThemeConfig.FOLLOW_SYSTEM -> DarkThemeConfigPreferences.FOLLOW_SYSTEM
         DarkThemeConfig.LIGHT -> DarkThemeConfigPreferences.LIGHT

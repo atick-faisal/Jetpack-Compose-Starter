@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.data.model
+package dev.atick.data.model.profile
 
 import dev.atick.core.preferences.model.PreferencesUserProfile
 import dev.atick.core.preferences.model.UserDataPreferences

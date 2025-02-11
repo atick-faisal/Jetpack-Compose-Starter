@@ -22,7 +22,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.core.extensions.asOneTimeEvent
 import dev.atick.core.ui.utils.UiState
 import dev.atick.core.ui.utils.updateWith
-import dev.atick.data.model.Profile
+import dev.atick.data.model.profile.Profile
 import dev.atick.data.repository.profile.ProfileRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
