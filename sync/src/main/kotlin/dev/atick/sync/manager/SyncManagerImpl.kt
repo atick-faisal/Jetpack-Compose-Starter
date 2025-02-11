@@ -33,7 +33,7 @@ import javax.inject.Inject
  *
  * @param context [Context].
  */
-class SyncManagerImpl @Inject constructor(
+internal class SyncManagerImpl @Inject constructor(
     @ApplicationContext private val context: Context,
 ) : SyncManager {
     /**

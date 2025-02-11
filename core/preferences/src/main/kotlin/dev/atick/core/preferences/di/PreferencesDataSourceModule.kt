@@ -39,7 +39,7 @@ abstract class PreferencesDataSourceModule {
      */
     @Binds
     @Singleton
-    abstract fun bindUserPreferencesDataSource(
+    internal abstract fun bindUserPreferencesDataSource(
         userPreferencesDataSourceImpl: UserPreferencesDataSourceImpl,
     ): UserPreferencesDataSource
 }

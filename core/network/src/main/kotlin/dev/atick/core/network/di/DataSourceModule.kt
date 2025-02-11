@@ -39,7 +39,7 @@ abstract class DataSourceModule {
      */
     @Binds
     @Singleton
-    abstract fun bindJetpackDataSource(
+    internal abstract fun bindJetpackDataSource(
         jetpackDataSourceImpl: NetworkDataSourceImpl,
     ): NetworkDataSource
 }

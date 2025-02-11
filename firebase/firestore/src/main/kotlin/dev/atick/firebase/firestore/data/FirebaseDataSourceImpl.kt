@@ -30,7 +30,7 @@ import javax.inject.Inject
  * @param firestore [FirebaseFirestore].
  * @param ioDispatcher [CoroutineDispatcher].
  */
-class FirebaseDataSourceImpl @Inject constructor(
+internal class FirebaseDataSourceImpl @Inject constructor(
     firestore: FirebaseFirestore,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : FirebaseDataSource {

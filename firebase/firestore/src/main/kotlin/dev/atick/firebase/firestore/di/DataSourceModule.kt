@@ -38,7 +38,7 @@ abstract class DataSourceModule {
      */
     @Binds
     @Singleton
-    abstract fun bindFirebaseDataSource(
+    internal abstract fun bindFirebaseDataSource(
         firebaseDataSourceImpl: FirebaseDataSourceImpl,
     ): FirebaseDataSource
 }

@@ -43,7 +43,7 @@ import javax.inject.Inject
  * @param firebaseDataSource [FirebaseDataSource].
  * @param syncManager [SyncManager].
  */
-class HomeRepositoryImpl @Inject constructor(
+internal class HomeRepositoryImpl @Inject constructor(
     private val localDataSource: LocalDataSource,
     private val preferencesDataSource: UserPreferencesDataSource,
     private val firebaseDataSource: FirebaseDataSource,
