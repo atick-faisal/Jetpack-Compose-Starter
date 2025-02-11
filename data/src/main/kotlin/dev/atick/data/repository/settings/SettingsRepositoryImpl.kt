@@ -20,8 +20,8 @@ import dev.atick.core.preferences.data.UserPreferencesDataSource
 import dev.atick.core.utils.suspendRunCatching
 import dev.atick.data.model.settings.DarkThemeConfig
 import dev.atick.data.model.settings.Settings
-import dev.atick.data.model.settings.asDarkThemeConfigPreferences
 import dev.atick.data.model.settings.asSettings
+import dev.atick.data.model.settings.toDarkThemeConfigPreferences
 import dev.atick.firebase.auth.data.AuthDataSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -55,7 +55,7 @@ class SettingsRepositoryImpl @Inject constructor(
     override suspend fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig): Result<Unit> {
         return suspendRunCatching {
             userPreferencesDataSource.setDarkThemeConfig(
-                darkThemeConfig.asDarkThemeConfigPreferences(),
+                darkThemeConfig.toDarkThemeConfigPreferences(),
             )
         }
     }

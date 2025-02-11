@@ -16,7 +16,7 @@
 
 package dev.atick.data.repository.profile
 
-import dev.atick.data.model.Profile
+import dev.atick.data.model.profile.Profile
 import kotlinx.coroutines.flow.Flow
 
 /**
