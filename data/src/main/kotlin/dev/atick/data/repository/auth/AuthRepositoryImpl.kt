@@ -30,7 +30,7 @@ import javax.inject.Inject
  * @param authDataSource The data source for authentication operations.
  * @param userPreferencesDataSource The data source for user preferences.
  */
-class AuthRepositoryImpl @Inject constructor(
+internal class AuthRepositoryImpl @Inject constructor(
     private val authDataSource: AuthDataSource,
     private val userPreferencesDataSource: UserPreferencesDataSource,
 ) : AuthRepository {

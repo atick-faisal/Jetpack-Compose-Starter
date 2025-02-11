@@ -46,7 +46,7 @@ import javax.inject.Inject
  * @param credentialManager The [CredentialManager] for handling credential operations.
  * @param ioDispatcher The [CoroutineDispatcher] for executing suspend functions in an IO context.
  */
-class AuthDataSourceImpl @Inject constructor(
+internal class AuthDataSourceImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth,
     private val credentialManager: CredentialManager,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,

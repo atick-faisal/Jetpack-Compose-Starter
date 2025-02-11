@@ -33,7 +33,7 @@ import javax.inject.Inject
  * @property authDataSource Data source for authentication.
  * @property userPreferencesDataSource Data source for user preferences.
  */
-class SettingsRepositoryImpl @Inject constructor(
+internal class SettingsRepositoryImpl @Inject constructor(
     private val authDataSource: AuthDataSource,
     private val userPreferencesDataSource: UserPreferencesDataSource,
 ) : SettingsRepository {

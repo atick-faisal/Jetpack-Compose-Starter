@@ -39,7 +39,7 @@ abstract class DataSourceModule {
      */
     @Binds
     @Singleton
-    abstract fun bindLocalDataSource(
+    internal abstract fun bindLocalDataSource(
         localDataSourceImpl: LocalDataSourceImpl,
     ): LocalDataSource
 }

@@ -28,7 +28,7 @@ import javax.inject.Inject
  *
  * @param jetpackRestApi The [JetpackRestApi] instance.
  */
-class NetworkDataSourceImpl @Inject constructor(
+internal class NetworkDataSourceImpl @Inject constructor(
     private val jetpackRestApi: JetpackRestApi,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : NetworkDataSource {

@@ -31,7 +31,7 @@ import javax.inject.Inject
  *
  * @param connectivityManager [ConnectivityManager].
  */
-class NetworkUtilsImpl @Inject constructor(
+internal class NetworkUtilsImpl @Inject constructor(
     private val connectivityManager: ConnectivityManager,
 ) : NetworkUtils {
 

@@ -44,7 +44,7 @@ abstract class RepositoryModule {
      */
     @Binds
     @Singleton
-    abstract fun bindAuthRepository(
+    internal abstract fun bindAuthRepository(
         authRepositoryImpl: AuthRepositoryImpl,
     ): AuthRepository
 
@@ -56,7 +56,7 @@ abstract class RepositoryModule {
      */
     @Binds
     @Singleton
-    abstract fun bindHomeRepository(
+    internal abstract fun bindHomeRepository(
         homeRepositoryImpl: HomeRepositoryImpl,
     ): HomeRepository
 
@@ -68,7 +68,7 @@ abstract class RepositoryModule {
      */
     @Binds
     @Singleton
-    abstract fun binProfileRepository(
+    internal abstract fun binProfileRepository(
         profileRepositoryImpl: ProfileRepositoryImpl,
     ): ProfileRepository
 
@@ -80,7 +80,7 @@ abstract class RepositoryModule {
      */
     @Binds
     @Singleton
-    abstract fun bindSettingsRepository(
+    internal abstract fun bindSettingsRepository(
         settingsRepositoryImpl: SettingsRepositoryImpl,
     ): SettingsRepository
 }

@@ -39,7 +39,7 @@ abstract class NetworkUtilsModule {
      */
     @Binds
     @Singleton
-    abstract fun bindNetworkUtils(
+    internal abstract fun bindNetworkUtils(
         networkUtilsImpl: NetworkUtilsImpl,
     ): NetworkUtils
 }

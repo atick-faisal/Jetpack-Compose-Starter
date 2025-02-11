@@ -39,7 +39,7 @@ abstract class DataSourceModule {
      */
     @Binds
     @Singleton
-    abstract fun bindAuthDataSource(
+    internal abstract fun bindAuthDataSource(
         authDataSourceImpl: AuthDataSourceImpl,
     ): AuthDataSource
 }

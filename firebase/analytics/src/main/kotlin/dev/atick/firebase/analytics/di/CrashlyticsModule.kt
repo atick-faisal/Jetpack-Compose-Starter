@@ -38,7 +38,7 @@ abstract class CrashlyticsModule {
      */
     @Binds
     @Singleton
-    abstract fun bindCrashReporter(
+    internal abstract fun bindCrashReporter(
         firebaseCrashReporter: FirebaseCrashReporter,
     ): CrashReporter
 }

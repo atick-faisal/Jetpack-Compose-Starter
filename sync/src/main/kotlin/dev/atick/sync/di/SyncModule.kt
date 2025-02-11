@@ -38,5 +38,5 @@ abstract class SyncModule {
      */
     @Binds
     @Singleton
-    abstract fun bindSyncManager(syncManager: SyncManagerImpl): SyncManager
+    internal abstract fun bindSyncManager(syncManager: SyncManagerImpl): SyncManager
 }

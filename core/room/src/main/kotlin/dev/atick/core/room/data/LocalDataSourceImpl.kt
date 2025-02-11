@@ -30,7 +30,7 @@ import javax.inject.Inject
  * @param jetpackDao The data access object for performing database operations.
  * @param ioDispatcher The coroutine dispatcher for performing IO-bound tasks.
  */
-class LocalDataSourceImpl @Inject constructor(
+internal class LocalDataSourceImpl @Inject constructor(
     private val jetpackDao: JetpackDao,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : LocalDataSource {
