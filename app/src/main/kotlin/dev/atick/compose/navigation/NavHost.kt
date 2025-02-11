@@ -23,8 +23,8 @@ import dev.atick.compose.ui.JetpackAppState
 import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.feature.auth.navigation.AuthNavGraph
 import dev.atick.feature.auth.navigation.authNavGraph
-import dev.atick.feature.auth.navigation.navigateToSignInRoute
-import dev.atick.feature.auth.navigation.navigateToSignUpRoute
+import dev.atick.feature.auth.navigation.navigateToSignInScreen
+import dev.atick.feature.auth.navigation.navigateToSignUpScreen
 import dev.atick.feature.auth.navigation.signInScreen
 import dev.atick.feature.auth.navigation.signUpScreen
 import dev.atick.feature.home.navigation.HomeNavGraph
@@ -58,11 +58,11 @@ fun JetpackNavHost(
         authNavGraph(
             nestedNavGraphs = {
                 signInScreen(
-                    onSignUpClick = navController::navigateToSignUpRoute,
+                    onSignUpClick = navController::navigateToSignUpScreen,
                     onShowSnackbar = onShowSnackbar,
                 )
                 signUpScreen(
-                    onSignInClick = navController::navigateToSignInRoute,
+                    onSignInClick = navController::navigateToSignInScreen,
                     onShowSnackbar = onShowSnackbar,
                 )
             },

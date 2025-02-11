@@ -22,8 +22,8 @@ import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import dev.atick.core.ui.utils.SnackbarAction
-import dev.atick.feature.home.ui.home.HomeRoute
-import dev.atick.feature.home.ui.item.ItemRoute
+import dev.atick.feature.home.ui.home.HomeScreen
+import dev.atick.feature.home.ui.item.ItemScreen
 import kotlinx.serialization.Serializable
 
 /**
@@ -73,7 +73,7 @@ fun NavGraphBuilder.homeScreen(
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
 ) {
     composable<Home> {
-        HomeRoute(
+        HomeScreen(
             onJetpackClick = onJetpackClick,
             onShowSnackbar = onShowSnackbar,
         )
@@ -91,7 +91,7 @@ fun NavGraphBuilder.itemScreen(
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
 ) {
     composable<Item> {
-        ItemRoute(
+        ItemScreen(
             onBackClick = onBackClick,
             onShowSnackbar = onShowSnackbar,
         )

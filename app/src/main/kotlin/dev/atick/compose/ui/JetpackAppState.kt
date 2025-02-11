@@ -35,7 +35,7 @@ import dev.atick.core.network.utils.NetworkState
 import dev.atick.core.network.utils.NetworkUtils
 import dev.atick.feature.home.navigation.navigateToHomeNavGraph
 import dev.atick.feature.home.navigation.navigateToItemScreen
-import dev.atick.feature.profile.navigation.navigateToProfile
+import dev.atick.feature.profile.navigation.navigateToProfileScreen
 import dev.atick.firebase.analytics.utils.CrashReporter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -193,7 +193,7 @@ class JetpackAppState(
 
         when (topLevelDestination) {
             TopLevelDestination.HOME -> navController.navigateToHomeNavGraph(topLevelNavOptions)
-            TopLevelDestination.PROFILE -> navController.navigateToProfile(topLevelNavOptions)
+            TopLevelDestination.PROFILE -> navController.navigateToProfileScreen(topLevelNavOptions)
         }
     }
 }

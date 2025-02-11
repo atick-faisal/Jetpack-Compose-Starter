@@ -47,14 +47,14 @@ import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.feature.home.R
 
 /**
- * Item route.
+ * Item screen.
  *
  * @param onBackClick The back click listener.
  * @param onShowSnackbar The snackbar callback.
  * @param itemViewModel The [ItemViewModel].
  */
 @Composable
-internal fun ItemRoute(
+internal fun ItemScreen(
     onBackClick: () -> Unit,
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
     itemViewModel: ItemViewModel = hiltViewModel(),

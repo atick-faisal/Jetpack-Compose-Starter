@@ -61,14 +61,14 @@ import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.feature.auth.R
 
 /**
- * Composable function for the SignUp route.
+ * Composable function for the SignUp screen.
  *
  * @param onSignInClick Callback to be invoked when the sign-in button is clicked.
  * @param onShowSnackbar Callback to show a snackbar with a message, action, and optional error.
  * @param signUpViewModel ViewModel for the SignUp screen, default is provided by Hilt.
  */
 @Composable
-fun SignUpRoute(
+internal fun SignUpScreen(
     onSignInClick: () -> Unit,
     onShowSnackbar: suspend (String, SnackbarAction, Throwable?) -> Boolean,
     signUpViewModel: SignUpViewModel = hiltViewModel(),
