@@ -315,7 +315,7 @@ private fun LinksPanel() {
     }
 }
 
-private const val PRIVACY_POLICY_URL = "https://privacy.atick.dev"
+private const val PRIVACY_POLICY_URL = "https://atick.dev/privacy"
 private const val FEEDBACK_URL = "https://forms.gle/muBdaD2HxJLtWo9a8"
 
 @Composable
