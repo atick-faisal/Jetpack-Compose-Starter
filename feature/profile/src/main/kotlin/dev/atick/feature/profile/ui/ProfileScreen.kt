@@ -46,7 +46,7 @@ import dev.atick.core.ui.utils.PreviewDevices
 import dev.atick.core.ui.utils.PreviewThemes
 import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
-import dev.atick.data.models.Profile
+import dev.atick.data.model.Profile
 import dev.atick.feature.profile.R
 
 /**

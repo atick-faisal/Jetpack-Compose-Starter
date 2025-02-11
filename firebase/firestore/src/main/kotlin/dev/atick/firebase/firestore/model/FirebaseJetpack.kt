@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.firebase.firestore.models
+package dev.atick.firebase.firestore.model
 
 import kotlinx.serialization.Serializable
 import java.util.UUID

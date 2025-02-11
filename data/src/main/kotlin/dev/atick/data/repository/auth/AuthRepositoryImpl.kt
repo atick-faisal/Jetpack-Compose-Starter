@@ -18,10 +18,10 @@ package dev.atick.data.repository.auth
 
 import android.app.Activity
 import dev.atick.core.preferences.data.UserPreferencesDataSource
-import dev.atick.core.preferences.models.PreferencesUserProfile
+import dev.atick.core.preferences.model.PreferencesUserProfile
 import dev.atick.core.utils.suspendRunCatching
 import dev.atick.firebase.auth.data.AuthDataSource
-import dev.atick.firebase.auth.models.AuthUser
+import dev.atick.firebase.auth.model.AuthUser
 import javax.inject.Inject
 
 /**

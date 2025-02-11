@@ -18,9 +18,9 @@ package dev.atick.core.preferences.data
 
 import androidx.datastore.core.DataStore
 import dev.atick.core.di.IoDispatcher
-import dev.atick.core.preferences.models.DarkThemeConfigPreferences
-import dev.atick.core.preferences.models.PreferencesUserProfile
-import dev.atick.core.preferences.models.UserDataPreferences
+import dev.atick.core.preferences.model.DarkThemeConfigPreferences
+import dev.atick.core.preferences.model.PreferencesUserProfile
+import dev.atick.core.preferences.model.UserDataPreferences
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first

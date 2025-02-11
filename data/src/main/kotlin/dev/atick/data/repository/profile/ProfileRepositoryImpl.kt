@@ -18,8 +18,8 @@ package dev.atick.data.repository.profile
 
 import dev.atick.core.preferences.data.UserPreferencesDataSource
 import dev.atick.core.utils.suspendRunCatching
-import dev.atick.data.models.Profile
-import dev.atick.data.models.toProfile
+import dev.atick.data.model.Profile
+import dev.atick.data.model.toProfile
 import dev.atick.firebase.auth.data.AuthDataSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

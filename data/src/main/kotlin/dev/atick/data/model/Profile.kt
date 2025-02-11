@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package dev.atick.data.models
+package dev.atick.data.model
 
-import dev.atick.core.preferences.models.PreferencesUserProfile
-import dev.atick.core.preferences.models.UserDataPreferences
+import dev.atick.core.preferences.model.PreferencesUserProfile
+import dev.atick.core.preferences.model.UserDataPreferences
 
 /**
  * Data class representing a user profile.

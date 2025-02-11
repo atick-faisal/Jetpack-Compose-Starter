@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package dev.atick.data.models.settings
+package dev.atick.data.model.settings
 
-import dev.atick.core.preferences.models.DarkThemeConfigPreferences
-import dev.atick.core.preferences.models.UserDataPreferences
+import dev.atick.core.preferences.model.DarkThemeConfigPreferences
+import dev.atick.core.preferences.model.UserDataPreferences
 
 /**
  * Data class representing editable user settings related to themes and appearance.

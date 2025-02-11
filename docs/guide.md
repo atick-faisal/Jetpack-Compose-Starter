@@ -20,7 +20,7 @@ Create models in appropriate core module (for example, `core:network` or `core:r
 create your own if its not present in the template:
 
 ```kotlin
-// core/network/src/main/kotlin/dev/atick/core/network/models/NetworkFeature.kt
+// core/network/src/main/kotlin/dev/atick/core/network/model/NetworkFeature.kt
 @Serializable
 data class NetworkFeature(
     val id: String,
@@ -28,7 +28,7 @@ data class NetworkFeature(
     val createdAt: Long = System.currentTimeMillis()
 )
 
-// core/room/src/main/kotlin/dev/atick/core/room/models/FeatureEntity.kt
+// core/room/src/main/kotlin/dev/atick/core/room/model/FeatureEntity.kt
 @Entity(tableName = "features")
 data class FeatureEntity(
     @PrimaryKey val id: String,
@@ -97,7 +97,7 @@ class LocalDataSourceImpl @Inject constructor(
 ### 3.1 Feature Models
 
 ```kotlin
-// data/src/main/kotlin/dev/atick/data/models/Feature.kt
+// data/src/main/kotlin/dev/atick/data/model/Feature.kt
 data class Feature(
     val id: String,
     val name: String,
@@ -164,7 +164,7 @@ class FeatureRepositoryImpl @Inject constructor(
 ### 4.1 UI Models
 
 ```kotlin
-// feature/feature-name/src/main/kotlin/dev/atick/feature/models/
+// feature/feature-name/src/main/kotlin/dev/atick/feature/model/
 data class FeatureScreenData(
     val features: List<Feature> = emptyList(),
     val newFeatureName: String = ""

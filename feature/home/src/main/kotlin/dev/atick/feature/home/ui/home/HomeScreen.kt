@@ -51,7 +51,7 @@ import dev.atick.core.ui.utils.PreviewDevices
 import dev.atick.core.ui.utils.PreviewThemes
 import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
-import dev.atick.data.models.home.Jetpack
+import dev.atick.data.model.home.Jetpack
 
 /**
  * Home route.

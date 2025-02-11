@@ -18,8 +18,8 @@ package dev.atick.core.preferences.utils
 
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer
-import dev.atick.core.preferences.models.DarkThemeConfigPreferences
-import dev.atick.core.preferences.models.UserDataPreferences
+import dev.atick.core.preferences.model.DarkThemeConfigPreferences
+import dev.atick.core.preferences.model.UserDataPreferences
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.KSerializer

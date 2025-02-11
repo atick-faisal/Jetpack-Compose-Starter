@@ -71,10 +71,10 @@ The project follows a consistent pattern for data models to simplify ProGuard/R8
 ```
 ├── feature/
 │   └── your-feature/
-│       └── models/  // Models kept unobfuscated
+│       └── model/  // Models kept unobfuscated
 └── core/
     └── network/
-        └── models/  // Data models kept unobfuscated
+        └── model/  // Data models kept unobfuscated
 ```
 
 ### ProGuard and Consumer Rules
@@ -85,7 +85,7 @@ issues. In that case you need to add or edit the proguard rules. These can be fo
 
 ```proguard
 # Keep all models
--keep class **.models.** { *; }
+-keep class **.model.** { *; }
 
 # Keep Kotlinx Serialization
 -keepattributes *Annotation*, InnerClasses

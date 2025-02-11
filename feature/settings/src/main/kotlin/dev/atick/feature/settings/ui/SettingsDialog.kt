@@ -60,8 +60,8 @@ import dev.atick.core.ui.components.JetpackTextButton
 import dev.atick.core.ui.theme.supportsDynamicTheming
 import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
-import dev.atick.data.models.settings.DarkThemeConfig
-import dev.atick.data.models.settings.Settings
+import dev.atick.data.model.settings.DarkThemeConfig
+import dev.atick.data.model.settings.Settings
 import dev.atick.feature.settings.R
 
 /**

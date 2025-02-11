@@ -16,7 +16,7 @@
 
 package dev.atick.core.room.data
 
-import dev.atick.core.room.models.JetpackEntity
+import dev.atick.core.room.model.JetpackEntity
 import kotlinx.coroutines.flow.Flow
 
 /**

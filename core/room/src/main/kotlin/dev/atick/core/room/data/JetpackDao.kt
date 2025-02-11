@@ -23,7 +23,7 @@ import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
 import androidx.room.Upsert
-import dev.atick.core.room.models.JetpackEntity
+import dev.atick.core.room.model.JetpackEntity
 import kotlinx.coroutines.flow.Flow
 
 /**

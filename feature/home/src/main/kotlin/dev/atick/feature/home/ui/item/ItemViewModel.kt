@@ -27,7 +27,7 @@ import dev.atick.core.ui.utils.UiState
 import dev.atick.core.ui.utils.updateState
 import dev.atick.core.ui.utils.updateStateWith
 import dev.atick.core.utils.OneTimeEvent
-import dev.atick.data.models.home.Jetpack
+import dev.atick.data.model.home.Jetpack
 import dev.atick.data.repository.home.HomeRepository
 import dev.atick.feature.home.navigation.Item
 import kotlinx.coroutines.flow.MutableStateFlow

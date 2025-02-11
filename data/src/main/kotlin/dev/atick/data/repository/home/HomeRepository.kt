@@ -16,7 +16,7 @@
 
 package dev.atick.data.repository.home
 
-import dev.atick.data.models.home.Jetpack
+import dev.atick.data.model.home.Jetpack
 import dev.atick.data.utils.Syncable
 import kotlinx.coroutines.flow.Flow
 
