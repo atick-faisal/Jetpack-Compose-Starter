@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.atick.firebase.auth.models
+package dev.atick.firebase.auth.model
 
 import android.net.Uri
 import com.google.firebase.auth.FirebaseUser

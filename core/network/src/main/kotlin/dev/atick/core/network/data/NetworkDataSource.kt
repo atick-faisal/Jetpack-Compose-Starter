@@ -16,7 +16,7 @@
 
 package dev.atick.core.network.data
 
-import dev.atick.core.network.models.NetworkPost
+import dev.atick.core.network.model.NetworkPost
 
 /**
  * Data source interface for Jetpack.

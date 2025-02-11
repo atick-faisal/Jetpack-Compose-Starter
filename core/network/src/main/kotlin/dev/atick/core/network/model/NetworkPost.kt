@@ -14,23 +14,22 @@
  * limitations under the License.
  */
 
-package dev.atick.core.preferences.models
+package dev.atick.core.network.model
 
-import dev.atick.core.preferences.models.DarkThemeConfigPreferences.DARK
-import dev.atick.core.preferences.models.DarkThemeConfigPreferences.FOLLOW_SYSTEM
-import dev.atick.core.preferences.models.DarkThemeConfigPreferences.LIGHT
 import kotlinx.serialization.Serializable
 
 /**
- * Enum class representing configuration options for the dark theme.
+ * Data class representing a network post retrieved from a remote source.
  *
- * @property FOLLOW_SYSTEM The dark theme configuration follows the system-wide setting.
- * @property LIGHT The app's dark theme is disabled, using the light theme.
- * @property DARK The app's dark theme is enabled, using the dark theme.
+ * @property id The unique identifier of the network post.
+ * @property title The title of the network post.
+ * @property url The URL associated with the network post.
+ * @property thumbnailUrl The URL of the thumbnail image associated with the network post.
  */
 @Serializable
-enum class DarkThemeConfigPreferences {
-    FOLLOW_SYSTEM,
-    LIGHT,
-    DARK,
-}
+data class NetworkPost(
+    val id: Int,
+    val title: String,
+    val url: String,
+    val thumbnailUrl: String,
+)

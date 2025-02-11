@@ -22,8 +22,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.core.extensions.asOneTimeEvent
 import dev.atick.core.ui.utils.UiState
 import dev.atick.core.ui.utils.updateWith
-import dev.atick.data.models.settings.DarkThemeConfig
-import dev.atick.data.models.settings.Settings
+import dev.atick.data.model.settings.DarkThemeConfig
+import dev.atick.data.model.settings.Settings
 import dev.atick.data.repository.settings.SettingsRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

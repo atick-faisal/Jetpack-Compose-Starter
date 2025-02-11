@@ -16,9 +16,9 @@
 
 package dev.atick.core.preferences.data
 
-import dev.atick.core.preferences.models.DarkThemeConfigPreferences
-import dev.atick.core.preferences.models.PreferencesUserProfile
-import dev.atick.core.preferences.models.UserDataPreferences
+import dev.atick.core.preferences.model.DarkThemeConfigPreferences
+import dev.atick.core.preferences.model.PreferencesUserProfile
+import dev.atick.core.preferences.model.UserDataPreferences
 import kotlinx.coroutines.flow.Flow
 
 /**

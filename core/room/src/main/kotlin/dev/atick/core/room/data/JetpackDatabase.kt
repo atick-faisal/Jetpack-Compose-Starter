@@ -18,7 +18,7 @@ package dev.atick.core.room.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import dev.atick.core.room.models.JetpackEntity
+import dev.atick.core.room.model.JetpackEntity
 
 /**
  * Room database for Jetpack.

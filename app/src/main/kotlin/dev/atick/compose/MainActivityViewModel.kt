@@ -22,7 +22,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.core.extensions.asOneTimeEvent
 import dev.atick.core.extensions.stateInDelayed
 import dev.atick.core.preferences.data.UserPreferencesDataSource
-import dev.atick.core.preferences.models.UserDataPreferences
+import dev.atick.core.preferences.model.UserDataPreferences
 import dev.atick.core.ui.utils.UiState
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch

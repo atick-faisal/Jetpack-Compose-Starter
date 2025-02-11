@@ -18,7 +18,7 @@ package dev.atick.firebase.firestore.data
 
 import com.google.firebase.firestore.FirebaseFirestore
 import dev.atick.core.di.IoDispatcher
-import dev.atick.firebase.firestore.models.FirebaseJetpack
+import dev.atick.firebase.firestore.model.FirebaseJetpack
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext

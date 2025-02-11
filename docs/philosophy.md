@@ -137,7 +137,7 @@ feature/
 └── auth/
     ├── navigation/    # Navigation-related code
     ├── ui/           # UI components and ViewModels
-    └── models/       # Feature-specific models
+    └── model/       # Feature-specific models
 ```
 
 ## Conscious Trade-offs

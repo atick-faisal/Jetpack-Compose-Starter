@@ -16,8 +16,8 @@
 
 package dev.atick.data.repository.settings
 
-import dev.atick.data.models.settings.DarkThemeConfig
-import dev.atick.data.models.settings.Settings
+import dev.atick.data.model.settings.DarkThemeConfig
+import dev.atick.data.model.settings.Settings
 import kotlinx.coroutines.flow.Flow
 
 /**

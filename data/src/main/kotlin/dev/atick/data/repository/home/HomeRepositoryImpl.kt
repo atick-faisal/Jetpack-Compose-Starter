@@ -18,13 +18,13 @@ package dev.atick.data.repository.home
 
 import dev.atick.core.preferences.data.UserPreferencesDataSource
 import dev.atick.core.room.data.LocalDataSource
-import dev.atick.core.room.models.SyncAction
+import dev.atick.core.room.model.SyncAction
 import dev.atick.core.utils.suspendRunCatching
-import dev.atick.data.models.home.Jetpack
-import dev.atick.data.models.home.mapToJetpacks
-import dev.atick.data.models.home.toFirebaseJetpack
-import dev.atick.data.models.home.toJetpack
-import dev.atick.data.models.home.toJetpackEntity
+import dev.atick.data.model.home.Jetpack
+import dev.atick.data.model.home.mapToJetpacks
+import dev.atick.data.model.home.toFirebaseJetpack
+import dev.atick.data.model.home.toJetpack
+import dev.atick.data.model.home.toJetpackEntity
 import dev.atick.data.utils.SyncManager
 import dev.atick.data.utils.SyncProgress
 import dev.atick.firebase.firestore.data.FirebaseDataSource

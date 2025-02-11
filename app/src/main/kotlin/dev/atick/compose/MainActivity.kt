@@ -38,8 +38,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.atick.compose.ui.JetpackApp
 import dev.atick.compose.ui.rememberJetpackAppState
 import dev.atick.core.network.utils.NetworkUtils
-import dev.atick.core.preferences.models.DarkThemeConfigPreferences
-import dev.atick.core.preferences.models.UserDataPreferences
+import dev.atick.core.preferences.model.DarkThemeConfigPreferences
+import dev.atick.core.preferences.model.UserDataPreferences
 import dev.atick.core.ui.extensions.checkForPermissions
 import dev.atick.core.ui.extensions.isSystemInDarkTheme
 import dev.atick.core.ui.theme.JetpackTheme

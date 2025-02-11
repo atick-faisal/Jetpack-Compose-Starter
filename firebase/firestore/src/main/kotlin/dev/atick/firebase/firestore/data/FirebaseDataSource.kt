@@ -16,7 +16,7 @@
 
 package dev.atick.firebase.firestore.data
 
-import dev.atick.firebase.firestore.models.FirebaseJetpack
+import dev.atick.firebase.firestore.model.FirebaseJetpack
 
 /**
  * Interface for Firebase data source operations.

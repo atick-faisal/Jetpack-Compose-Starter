@@ -17,7 +17,7 @@
 package dev.atick.core.room.data
 
 import dev.atick.core.di.IoDispatcher
-import dev.atick.core.room.models.JetpackEntity
+import dev.atick.core.room.model.JetpackEntity
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn

@@ -17,7 +17,7 @@
 package dev.atick.firebase.auth.data
 
 import android.app.Activity
-import dev.atick.firebase.auth.models.AuthUser
+import dev.atick.firebase.auth.model.AuthUser
 
 /**
  * Interface defining data source operations for authentication.

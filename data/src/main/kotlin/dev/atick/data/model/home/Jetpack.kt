@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package dev.atick.data.models.home
+package dev.atick.data.model.home
 
 import dev.atick.core.extensions.asFormattedDateTime
-import dev.atick.core.room.models.JetpackEntity
-import dev.atick.firebase.firestore.models.FirebaseJetpack
+import dev.atick.core.room.model.JetpackEntity
+import dev.atick.firebase.firestore.model.FirebaseJetpack
 import java.util.UUID
 
 /**
