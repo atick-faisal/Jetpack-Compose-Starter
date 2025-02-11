@@ -25,9 +25,11 @@ import kotlinx.coroutines.flow.Flow
  */
 interface SettingsRepository {
     /**
-     * A Flow that emits the current settings.
+     * Retrieves the user settings as a Flow.
+     *
+     * @return A Flow emitting the user settings.
      */
-    val settings: Flow<Settings>
+    fun getSettings(): Flow<Settings>
 
     /**
      * Sets the dark theme configuration.

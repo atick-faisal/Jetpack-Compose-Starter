@@ -142,7 +142,7 @@ class JetpackAppState(
     /**
      * Indicates if the application is offline.
      */
-    val isOffline = networkUtils.currentState
+    val isOffline = networkUtils.getCurrentState()
         .map { it != NetworkState.CONNECTED }
         .stateInDelayed(false, coroutineScope)
 

@@ -27,9 +27,11 @@ import kotlinx.coroutines.flow.Flow
 interface UserPreferencesDataSource {
 
     /**
-     * A [Flow] that emits [UserDataPreferences] representing user-specific data.
+     * Retrieves the user profile from the user preferences.
+     *
+     * @return A [Flow] of [PreferencesUserProfile].
      */
-    val userDataPreferences: Flow<UserDataPreferences>
+    fun getUserDataPreferences(): Flow<UserDataPreferences>
 
     /**
      * Retrieves the user ID or throws an exception if the user is not authenticated.

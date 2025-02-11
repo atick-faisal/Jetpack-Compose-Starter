@@ -50,7 +50,7 @@ class SettingsViewModel @Inject constructor(
         get() = _settingsUiState.asStateFlow()
 
     fun updateSettings() {
-        settingsRepository.settings
+        settingsRepository.getSettings()
             .map { UiState(it) }
             .onEach { state -> _settingsUiState.update { state } }
             .catch { e -> UiState(Settings(), error = e.asOneTimeEvent()) }

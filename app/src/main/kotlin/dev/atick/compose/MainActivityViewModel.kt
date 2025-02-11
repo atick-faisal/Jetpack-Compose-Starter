@@ -44,7 +44,7 @@ class MainActivityViewModel @Inject constructor(
      * Represents the state of the UI for user data.
      */
     val uiState: StateFlow<UiState<UserDataPreferences>> =
-        userPreferencesDataSource.userDataPreferences
+        userPreferencesDataSource.getUserDataPreferences()
             .map { userData -> UiState(userData) }
             .catch { e -> UiState(UserDataPreferences(), error = e.asOneTimeEvent()) }
             .stateInDelayed(UiState(UserDataPreferences(), loading = true), viewModelScope)

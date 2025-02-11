@@ -42,7 +42,7 @@ class ProfileRepositoryImpl @Inject constructor(
      * @return A Flow emitting the user profile.
      */
     override fun getProfile(): Flow<Profile> {
-        return userPreferencesDataSource.userDataPreferences.map { it.toProfile() }
+        return userPreferencesDataSource.getUserDataPreferences().map { it.toProfile() }
     }
 
     /**

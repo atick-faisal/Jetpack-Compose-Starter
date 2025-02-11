@@ -43,8 +43,8 @@ class SettingsRepositoryImpl @Inject constructor(
      *
      * @return A Flow emitting the user's settings.
      */
-    override val settings: Flow<Settings>
-        get() = userPreferencesDataSource.userDataPreferences.map { it.asSettings() }
+    override fun getSettings(): Flow<Settings> =
+        userPreferencesDataSource.getUserDataPreferences().map { it.asSettings() }
 
     /**
      * Sets the dark theme configuration.

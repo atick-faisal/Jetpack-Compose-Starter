@@ -57,8 +57,7 @@ class AuthDataSourceImpl @Inject constructor(
      *
      * @return The currently authenticated [AuthUser], or null if not signed in.
      */
-    override val currentUser: AuthUser?
-        get() = firebaseAuth.currentUser?.run { asAuthUser() }
+    override fun getCurrentUser(): AuthUser? = firebaseAuth.currentUser?.run { asAuthUser() }
 
     /**
      * Look for saved credentials.

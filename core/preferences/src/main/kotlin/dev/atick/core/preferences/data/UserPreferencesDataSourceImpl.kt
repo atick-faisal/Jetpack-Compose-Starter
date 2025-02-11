@@ -40,10 +40,12 @@ class UserPreferencesDataSourceImpl @Inject constructor(
 ) : UserPreferencesDataSource {
 
     /**
-     * A [Flow] that emits [UserDataPreferences] representing user-specific data.
+     * Retrieves the user profile from the user preferences.
+     *
+     * @return A [Flow] of [UserDataPreferences].
      */
-    override val userDataPreferences: Flow<UserDataPreferences>
-        get() = datastore.data.flowOn(ioDispatcher)
+    override fun getUserDataPreferences(): Flow<UserDataPreferences> =
+        datastore.data.flowOn(ioDispatcher)
 
     /**
      * Retrieves the user ID or throws an exception if the user is not authenticated.
