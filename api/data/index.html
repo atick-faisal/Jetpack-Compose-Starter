@@ -95,7 +95,7 @@
   <div class="breadcrumbs"></div>
   <div class="cover ">
     <h1 class="cover"><span><span>:data</span></span></h1>
-    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data/release"><p class="paragraph">Central data management module that coordinates between local and remote data sources.</p><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-7i94djsdrl6vs"></div></div><script>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data/release"><p class="paragraph">Central data management module that coordinates between local and remote data sources.</p><h2 class="">Dependencies Graph</h2><div class="sample-container"><div id="mermaid-container-kmhue93af10s"></div></div><script>
 window.addEventListener('load', function() {
   var graphDef =  `graph TD
     A[data] --> B[core:android]
@@ -121,9 +121,9 @@ window.addEventListener('load', function() {
     style E fill: #64B5F6, stroke: #333, stroke-width: 2px
     style F fill: #FFA726, stroke: #333, stroke-width: 2px
     style G fill: #FFA726, stroke: #333, stroke-width: 2px`;
-  var container = document.getElementById('mermaid-container-7i94djsdrl6vs');
-  container.innerHTML = '<div id="mermaid-target-7i94djsdrl6vs"></div>';
-  var updateGraph7i94djsdrl6vs = function() {
+  var container = document.getElementById('mermaid-container-kmhue93af10s');
+  container.innerHTML = '<div id="mermaid-target-kmhue93af10s"></div>';
+  var updateGraphkmhue93af10s = function() {
     // setTimeout required or else the 1st render could be done before mermaid.initialize() has applied the theme.
     // Also required because we can't listen to localStorage events reliably, and it's changed on the same click event...
     setTimeout(() => {
@@ -134,19 +134,19 @@ window.addEventListener('load', function() {
         theme = 'dark';
       }
       mermaid.initialize({'theme': theme});
-      mermaid.render('mermaid-target-7i94djsdrl6vs', graphDef).then(({ svg, bindFunctions }) => {
+      mermaid.render('mermaid-target-kmhue93af10s', graphDef).then(({ svg, bindFunctions }) => {
           container.innerHTML = svg;
           // Trick to make the graph takes only the required height.
-          document.getElementById('mermaid-target-7i94djsdrl6vs').removeAttribute('height')
+          document.getElementById('mermaid-target-kmhue93af10s').removeAttribute('height')
           bindFunctions?.(element);
       });
     }, 0);
   }
-  updateGraph7i94djsdrl6vs();
+  updateGraphkmhue93af10s();
   
   var themeToggleButton = document.getElementById('theme-toggle-button');
   themeToggleButton.addEventListener('click', () => {
-    updateGraph7i94djsdrl6vs();
+    updateGraphkmhue93af10s();
   });
 });</script><h2 class="">Key Components</h2><ul><li><p class="paragraph">Repository implementations</p></li><li><p class="paragraph">Data models and mappers</p></li><li><p class="paragraph">Offline-first logic</p></li><li><p class="paragraph">Synchronization handling</p></li><li><p class="paragraph">Error management</p></li></ul><h2 class="">Implementation Pattern</h2><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">interface YourRepository {<br>    fun getData(): Flow&lt;List&lt;Data&gt;&gt;<br>}<br><br>class YourRepositoryImpl @Inject constructor(<br>    private val localDataSource: LocalDataSource,<br>    private val remoteDataSource: RemoteDataSource<br>) : YourRepository {<br>    override fun getData(): Flow&lt;List&lt;Data&gt;&gt; =<br>        networkBoundResource(<br>            query = { localDataSource.getData() },<br>            fetch = { remoteDataSource.getData() },<br>            saveFetchResult = { localDataSource.saveData(it) }<br>        )<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
   </div>
@@ -169,13 +169,13 @@ window.addEventListener('load', function() {
         <div></div>
       </div>
     </div>
-<a data-name="168173511%2FPackages%2F-364231819" anchor-label="dev.atick.data.models" id="168173511%2FPackages%2F-364231819" data-filterable-set=":data/release"></a>
+<a data-name="-2022328351%2FPackages%2F-364231819" anchor-label="dev.atick.data.model.home" id="-2022328351%2FPackages%2F-364231819" data-filterable-set=":data/release"></a>
     <div class="table-row" data-filterable-current=":data/release" data-filterable-set=":data/release">
       <div>
         <div class="main-subrow ">
           <div class=""><span class="inline-flex">
-              <div><a href="dev.atick.data.models/index.html">dev.atick.data.models</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="168173511%2FPackages%2F-364231819"></span>
+              <div><a href="dev.atick.data.model.home/index.html">dev.atick.data.model.home</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2022328351%2FPackages%2F-364231819"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
           <div class="pull-right">
@@ -187,13 +187,13 @@ window.addEventListener('load', function() {
         <div></div>
       </div>
     </div>
-<a data-name="-931258134%2FPackages%2F-364231819" anchor-label="dev.atick.data.models.home" id="-931258134%2FPackages%2F-364231819" data-filterable-set=":data/release"></a>
+<a data-name="-1294011797%2FPackages%2F-364231819" anchor-label="dev.atick.data.model.profile" id="-1294011797%2FPackages%2F-364231819" data-filterable-set=":data/release"></a>
     <div class="table-row" data-filterable-current=":data/release" data-filterable-set=":data/release">
       <div>
         <div class="main-subrow ">
           <div class=""><span class="inline-flex">
-              <div><a href="dev.atick.data.models.home/index.html">dev.atick.data.models.home</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-931258134%2FPackages%2F-364231819"></span>
+              <div><a href="dev.atick.data.model.profile/index.html">dev.atick.data.model.profile</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1294011797%2FPackages%2F-364231819"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
           <div class="pull-right">
@@ -205,13 +205,13 @@ window.addEventListener('load', function() {
         <div></div>
       </div>
     </div>
-<a data-name="-92569938%2FPackages%2F-364231819" anchor-label="dev.atick.data.models.settings" id="-92569938%2FPackages%2F-364231819" data-filterable-set=":data/release"></a>
+<a data-name="-1252998619%2FPackages%2F-364231819" anchor-label="dev.atick.data.model.settings" id="-1252998619%2FPackages%2F-364231819" data-filterable-set=":data/release"></a>
     <div class="table-row" data-filterable-current=":data/release" data-filterable-set=":data/release">
       <div>
         <div class="main-subrow ">
           <div class=""><span class="inline-flex">
-              <div><a href="dev.atick.data.models.settings/index.html">dev.atick.data.models.settings</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-92569938%2FPackages%2F-364231819"></span>
+              <div><a href="dev.atick.data.model.settings/index.html">dev.atick.data.model.settings</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1252998619%2FPackages%2F-364231819"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
           <div class="pull-right">

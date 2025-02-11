@@ -95,7 +95,7 @@
   <div class="breadcrumbs"><a href="../../index.html">:core:room</a><span class="delimiter">/</span><a href="../index.html">dev.atick.core.room.data</a><span class="delimiter">/</span><span class="current">JetpackDao</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Jetpack</span><wbr><span><span>Dao</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">JetpackDao</a></div><p class="paragraph">DAO for handling <a href="../../dev.atick.core.room.models/-jetpack-entity/index.html">JetpackEntity</a> operations.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">JetpackDao</a></div><p class="paragraph">DAO for handling <a href="../../dev.atick.core.room.model/-jetpack-entity/index.html">JetpackEntity</a> operations.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
@@ -127,7 +127,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-jetpack.html"><span class="token function">getJetpack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span><span class="token operator">&lt;</span><a href="../../dev.atick.core.room.models/-jetpack-entity/index.html">JetpackEntity</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Retrieves a specific jetpack by its ID.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-jetpack.html"><span class="token function">getJetpack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span><span class="token operator">&lt;</span><a href="../../dev.atick.core.room.model/-jetpack-entity/index.html">JetpackEntity</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Retrieves a specific jetpack by its ID.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -142,7 +142,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-jetpacks.html"><span class="token function">getJetpacks</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">userId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../dev.atick.core.room.models/-jetpack-entity/index.html">JetpackEntity</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Retrieves a list of jetpacks for a specific user that are not marked as deleted, ordered by the last updated timestamp in descending order.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-jetpacks.html"><span class="token function">getJetpacks</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">userId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../dev.atick.core.room.model/-jetpack-entity/index.html">JetpackEntity</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Retrieves a list of jetpacks for a specific user that are not marked as deleted, ordered by the last updated timestamp in descending order.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -172,22 +172,22 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-unsynced-jetpacks.html"><span class="token function">getUnsyncedJetpacks</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">userId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../dev.atick.core.room.models/-jetpack-entity/index.html">JetpackEntity</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Retrieves a list of jetpacks for a specific user that need to be synced. A jetpack needs to be synced if it was updated after the last sync or if it is marked as needing sync.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-unsynced-jetpacks.html"><span class="token function">getUnsyncedJetpacks</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">userId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../dev.atick.core.room.model/-jetpack-entity/index.html">JetpackEntity</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Retrieves a list of jetpacks for a specific user that need to be synced. A jetpack needs to be synced if it was updated after the last sync or if it is marked as needing sync.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-7936707%2FFunctions%2F1861475215" anchor-label="insertJetpack" id="-7936707%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+<a data-name="-1715891324%2FFunctions%2F1861475215" anchor-label="insertJetpack" id="-1715891324%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
           <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="insert-jetpack.html"><span>insert</span><wbr><span><span>Jetpack</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-7936707%2FFunctions%2F1861475215"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1715891324%2FFunctions%2F1861475215"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="insert-jetpack.html"><span class="token function">insertJetpack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">jetpackEntity<span class="token operator">: </span><a href="../../dev.atick.core.room.models/-jetpack-entity/index.html">JetpackEntity</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Inserts a new jetpack into the database. If a jetpack with the same ID already exists, it will be replaced.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="insert-jetpack.html"><span class="token function">insertJetpack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">jetpackEntity<span class="token operator">: </span><a href="../../dev.atick.core.room.model/-jetpack-entity/index.html">JetpackEntity</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Inserts a new jetpack into the database. If a jetpack with the same ID already exists, it will be replaced.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -222,47 +222,47 @@
               </div>
             </div>
           </div>
-<a data-name="172936013%2FFunctions%2F1861475215" anchor-label="updateJetpack" id="172936013%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+<a data-name="-1571509388%2FFunctions%2F1861475215" anchor-label="updateJetpack" id="-1571509388%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
           <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="update-jetpack.html"><span>update</span><wbr><span><span>Jetpack</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="172936013%2FFunctions%2F1861475215"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1571509388%2FFunctions%2F1861475215"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="update-jetpack.html"><span class="token function">updateJetpack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">jetpackEntity<span class="token operator">: </span><a href="../../dev.atick.core.room.models/-jetpack-entity/index.html">JetpackEntity</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Updates an existing jetpack in the database.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="update-jetpack.html"><span class="token function">updateJetpack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">jetpackEntity<span class="token operator">: </span><a href="../../dev.atick.core.room.model/-jetpack-entity/index.html">JetpackEntity</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Updates an existing jetpack in the database.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="758363571%2FFunctions%2F1861475215" anchor-label="upsertJetpack" id="758363571%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+<a data-name="664132686%2FFunctions%2F1861475215" anchor-label="upsertJetpack" id="664132686%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
           <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="upsert-jetpack.html"><span>upsert</span><wbr><span><span>Jetpack</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="758363571%2FFunctions%2F1861475215"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="664132686%2FFunctions%2F1861475215"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="upsert-jetpack.html"><span class="token function">upsertJetpack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">jetpackEntity<span class="token operator">: </span><a href="../../dev.atick.core.room.models/-jetpack-entity/index.html">JetpackEntity</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Inserts or updates a jetpack in the database. If a jetpack with the same ID already exists, it will be updated; otherwise, a new entry will be created.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="upsert-jetpack.html"><span class="token function">upsertJetpack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">jetpackEntity<span class="token operator">: </span><a href="../../dev.atick.core.room.model/-jetpack-entity/index.html">JetpackEntity</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Inserts or updates a jetpack in the database. If a jetpack with the same ID already exists, it will be updated; otherwise, a new entry will be created.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1917913892%2FFunctions%2F1861475215" anchor-label="upsertJetpacks" id="1917913892%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
+<a data-name="-1005463867%2FFunctions%2F1861475215" anchor-label="upsertJetpacks" id="-1005463867%2FFunctions%2F1861475215" data-filterable-set=":core:room/release"></a>
           <div class="table-row" data-filterable-current=":core:room/release" data-filterable-set=":core:room/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="upsert-jetpacks.html"><span>upsert</span><wbr><span><span>Jetpacks</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1917913892%2FFunctions%2F1861475215"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1005463867%2FFunctions%2F1861475215"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="upsert-jetpacks.html"><span class="token function">upsertJetpacks</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">remoteJetpacks<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../dev.atick.core.room.models/-jetpack-entity/index.html">JetpackEntity</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Upserts (insert or update) jetpacks from a remote source. If a jetpack already exists locally (matching ID), it will be updated with the remote version. If it doesn't exist locally, a new entry will be created.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:room/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="upsert-jetpacks.html"><span class="token function">upsertJetpacks</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">remoteJetpacks<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../dev.atick.core.room.model/-jetpack-entity/index.html">JetpackEntity</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Upserts (insert or update) jetpacks from a remote source. If a jetpack already exists locally (matching ID), it will be updated with the remote version. If it doesn't exist locally, a new entry will be created.</p></div></div></div>
                 </div>
               </div>
             </div>
