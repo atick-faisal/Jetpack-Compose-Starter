@@ -2,7 +2,7 @@
 <html class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-    <title>Settings</title>
+    <title>getPreferredLocale</title>
 <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
     <script>document.documentElement.classList.replace("no-js","js");</script>
     <script>const storage = localStorage.getItem("dokka-dark-mode")
@@ -46,7 +46,7 @@
         </div>
         <div class="navigation-controls">
         <div class="filter-section filter-section_loading" id="filter-section">
-                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":data/release">androidJvm</button>
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":core:ui/release">androidJvm</button>
             <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
                 <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
                 <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
@@ -57,7 +57,7 @@
                     </div>
                         <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
                             <label class="checkbox">
-                                <input type="checkbox" class="checkbox--input" id=":data/release" data-filter=":data/release">
+                                <input type="checkbox" class="checkbox--input" id=":core:ui/release" data-filter=":core:ui/release">
                                 <span class="checkbox--icon"></span>
                                 androidJvm
                             </label>
@@ -91,12 +91,12 @@
                 </div>
             </div>
             <div id="main">
-<div class="main-content" data-page-type="member" id="content" pageids=":data::dev.atick.data.model.settings/Settings/Settings/#kotlin.String?#kotlin.Boolean#dev.atick.data.model.settings.DarkThemeConfig#dev.atick.data.model.settings.Language/PointingToDeclaration//-364231819">
-  <div class="breadcrumbs"><a href="../../index.html">:data</a><span class="delimiter">/</span><a href="../index.html">dev.atick.data.model.settings</a><span class="delimiter">/</span><a href="index.html">Settings</a><span class="delimiter">/</span><span class="current">Settings</span></div>
+<div class="main-content" data-page-type="member" id="content" pageids=":core:ui::dev.atick.core.ui.utils//getPreferredLocale/#/PointingToDeclaration//-110990712">
+  <div class="breadcrumbs"><a href="../index.html">:core:ui</a><span class="delimiter">/</span><a href="index.html">dev.atick.core.ui.utils</a><span class="delimiter">/</span><span class="current">getPreferredLocale</span></div>
   <div class="cover ">
-    <h1 class="cover"><span><span>Settings</span></span></h1>
+    <h1 class="cover"><span>get</span><wbr><span>Preferred</span><wbr><span><span>Locale</span></span></h1>
   </div>
-  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":data/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">userName<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">useDynamicColor<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span><span class="token punctuation">, </span></span><span class="parameter ">darkThemeConfig<span class="token operator">: </span><a href="../-dark-theme-config/index.html">DarkThemeConfig</a><span class="token operator"> = </span>DarkThemeConfig.FOLLOW_SYSTEM<span class="token punctuation">, </span></span><span class="parameter ">language<span class="token operator">: </span><a href="../-language/index.html">Language</a><span class="token operator"> = </span>Language.ENGLISH</span></span><span class="token punctuation">)</span></div><p class="paragraph">Creates a <a href="index.html">Settings</a> instance with optional parameters.</p></div></div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:ui/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-preferred-locale.html"><span class="token function">getPreferredLocale</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Locale.html">Locale</a></div><p class="paragraph">Returns the user's preferred locale.</p><span class="kdoc-tag"><h4 class="">Return</h4><p class="paragraph">The user's preferred locale.</p></span></div></div>
 </div>
     <div class="footer">
         <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
