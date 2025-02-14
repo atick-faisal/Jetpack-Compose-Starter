@@ -19,11 +19,11 @@ package dev.atick.compose
 import android.Manifest
 import android.os.Build
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.getValue
@@ -53,10 +53,21 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
- * Main activity for the application.
+ * For now, extend from AppCompatActivity.
+ * Otherwise, setApplicationLocales will do nothing.
+ *
+ * Extending from AppCompatActivity requires to use an AppCompat theme for the Activity.
+ * In the manifest, for the activity, use android:theme="@style/Theme.AppCompat"
+ * Otherwise, the application will crash.
+ *
+ * The alternative is to replace AppCompatDelegate with the Framework APIs.
+ * The Frameworks APIs are not backwards compatible, like AppCompatDelegate, and so work for T+.
+ * However, with the Framework APIs, you can use Compose themes and extend from ComponentActivity.
+ * Framework APIs: https://developer.android.com/about/versions/13/features/app-languages#framework-impl
+ * Read more: https://developer.android.com/guide/topics/resources/app-languages#gradle-config
  */
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
 
     private val permissions = mutableListOf<String>()
 

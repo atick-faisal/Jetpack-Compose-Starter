@@ -33,4 +33,7 @@
     <string name="dismiss_dialog_button_text">OK</string>
     <string name="sign_out">Sign Out</string>
     <string name="settings">Settings</string>
+    <string name="language">Language</string>
+    <string name="ar" translatable="false">AR</string>
+    <string name="en" translatable="false">EN</string>
 </resources>

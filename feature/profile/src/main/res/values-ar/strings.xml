@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2023 Atick Faisal
+     Copyright 2025 Atick Faisal
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,13 +15,7 @@
      limitations under the License.
 -->
 
-<resources xmlns:tools="http://schemas.android.com/tools">
-
-    <style name="NightAdjusted.Theme.Jetpack" parent="Theme.AppCompat.NoActionBar" />
-
-    <style name="NightAdjusted.Theme.Splash" parent="Theme.SplashScreen">
-        <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
-    </style>
-
+<resources>
+    <string name="profile_picture">صورة الملف الشخصي</string>
+    <string name="sign_out">تسجيل الخروج</string>
 </resources>
