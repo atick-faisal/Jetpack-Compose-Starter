@@ -24,12 +24,14 @@ import dev.atick.core.preferences.model.UserDataPreferences
  *
  * @property useDynamicColor Indicates whether dynamic colors are enabled.
  * @property darkThemeConfig Configuration for the dark theme.
+ * @property language The language of the app.
  * @constructor Creates a [Settings] instance with optional parameters.
  */
 data class Settings(
     val userName: String? = null,
     val useDynamicColor: Boolean = true,
     val darkThemeConfig: DarkThemeConfig = DarkThemeConfig.FOLLOW_SYSTEM,
+    val language: Language = Language.ENGLISH,
 )
 
 /**
@@ -43,6 +45,16 @@ enum class DarkThemeConfig {
     FOLLOW_SYSTEM,
     LIGHT,
     DARK,
+}
+
+/**
+ * Enum class representing the supported languages.
+ *
+ * @property code The language code.
+ */
+enum class Language(val code: String) {
+    ENGLISH("en"),
+    ARABIC("ar"),
 }
 
 /**

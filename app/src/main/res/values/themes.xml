@@ -19,7 +19,7 @@
 
     <!-- Allows us to override night specific attributes in the
          values-night folder. -->
-    <style name="NightAdjusted.Theme.Jetpack" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="NightAdjusted.Theme.Jetpack" parent="Theme.AppCompat.Light.NoActionBar" />
 
     <!-- The final theme we use -->
     <style name="Theme.Jetpack" parent="NightAdjusted.Theme.Jetpack" />

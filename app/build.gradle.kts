@@ -102,6 +102,10 @@ android {
         buildConfig = true
     }
 
+    androidResources {
+        generateLocaleConfig = true
+    }
+
     namespace = "dev.atick.compose"
 }
 

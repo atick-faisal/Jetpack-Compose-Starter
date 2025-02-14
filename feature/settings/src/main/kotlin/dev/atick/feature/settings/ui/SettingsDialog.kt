@@ -20,6 +20,7 @@ import android.content.Intent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -34,6 +35,9 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Language
+import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
@@ -42,6 +46,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
@@ -57,12 +64,15 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import dev.atick.core.ui.components.JetpackOutlinedButton
 import dev.atick.core.ui.components.JetpackTextButton
+import dev.atick.core.ui.components.JetpackToggleOptions
+import dev.atick.core.ui.components.ToggleOption
 import dev.atick.core.ui.theme.supportsDynamicTheming
 import dev.atick.core.ui.utils.PreviewDevices
 import dev.atick.core.ui.utils.PreviewThemes
 import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.data.model.settings.DarkThemeConfig
+import dev.atick.data.model.settings.Language
 import dev.atick.data.model.settings.Settings
 import dev.atick.feature.settings.R
 
@@ -94,6 +104,7 @@ fun SettingsDialog(
             onDismiss = onDismiss,
             onChangeDynamicColorPreference = settingsViewModel::updateDynamicColorPreference,
             onChangeDarkThemeConfig = settingsViewModel::updateDarkThemeConfig,
+            onChangeLanguage = settingsViewModel::updateLanguagePreference,
             onSignOut = settingsViewModel::signOut,
         )
     }
@@ -115,6 +126,7 @@ private fun SettingsDialog(
     onDismiss: () -> Unit,
     onChangeDynamicColorPreference: (useDynamicColor: Boolean) -> Unit,
     onChangeDarkThemeConfig: (darkThemeConfig: DarkThemeConfig) -> Unit,
+    onChangeLanguage: (language: Language) -> Unit,
     onSignOut: () -> Unit,
     supportDynamicColor: Boolean = supportsDynamicTheming(),
 ) {
@@ -147,6 +159,7 @@ private fun SettingsDialog(
                     supportDynamicColor = supportDynamicColor,
                     onChangeDynamicColorPreference = onChangeDynamicColorPreference,
                     onChangeDarkThemeConfig = onChangeDarkThemeConfig,
+                    onChangeLanguage = onChangeLanguage,
                     onSignOut = onSignOut,
                     onDismiss = onDismiss,
                 )
@@ -184,9 +197,30 @@ private fun ColumnScope.SettingsPanel(
     supportDynamicColor: Boolean,
     onChangeDynamicColorPreference: (useDynamicColor: Boolean) -> Unit,
     onChangeDarkThemeConfig: (darkThemeConfig: DarkThemeConfig) -> Unit,
+    onChangeLanguage: (language: Language) -> Unit,
     onSignOut: () -> Unit,
     onDismiss: () -> Unit,
 ) {
+    var languageSelectedIndex by remember(settings.language) {
+        mutableIntStateOf(
+            Language.entries.indexOfFirst { it == settings.language },
+        )
+    }
+
+    SettingsDialogSectionTitle(text = stringResource(R.string.language))
+    Box(
+        modifier = Modifier.fillMaxWidth(),
+        contentAlignment = Alignment.Center,
+    ) {
+        JetpackToggleOptions(
+            options = getLanguageOptions(),
+            selectedIndex = languageSelectedIndex,
+            onSelectionChange = {
+                languageSelectedIndex = it
+                onChangeLanguage(Language.entries[it])
+            },
+        )
+    }
     AnimatedVisibility(visible = supportDynamicColor) {
         Column {
             SettingsDialogSectionTitle(text = stringResource(R.string.dynamic_color_preference))
@@ -315,6 +349,15 @@ private fun LinksPanel() {
     }
 }
 
+private fun getLanguageOptions(): List<ToggleOption> {
+    return Language.entries.map { language: Language ->
+        when (language) {
+            Language.ENGLISH -> ToggleOption(R.string.en, Icons.Default.Language)
+            Language.ARABIC -> ToggleOption(R.string.ar, Icons.Default.Translate)
+        }
+    }
+}
+
 private const val PRIVACY_POLICY_URL = "https://atick.dev/privacy"
 private const val FEEDBACK_URL = "https://forms.gle/muBdaD2HxJLtWo9a8"
 
@@ -327,6 +370,7 @@ private fun SettingsDialogPreview() {
         onDismiss = {},
         onChangeDynamicColorPreference = {},
         onChangeDarkThemeConfig = {},
+        onChangeLanguage = {},
         onSignOut = {},
         supportDynamicColor = true,
     )

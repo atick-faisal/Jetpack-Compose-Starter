@@ -21,8 +21,11 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.atick.core.extensions.asOneTimeEvent
 import dev.atick.core.ui.utils.UiState
+import dev.atick.core.ui.utils.getPreferredLocale
+import dev.atick.core.ui.utils.setLanguagePreference
 import dev.atick.core.ui.utils.updateWith
 import dev.atick.data.model.settings.DarkThemeConfig
+import dev.atick.data.model.settings.Language
 import dev.atick.data.model.settings.Settings
 import dev.atick.data.repository.settings.SettingsRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -36,7 +39,7 @@ import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
 /**
- * [ViewModel] for [SettingsScreen].
+ * [ViewModel] for [SettingsDialog].
  *
  * @param settingsRepository [SettingsRepository].
  */
@@ -51,7 +54,7 @@ class SettingsViewModel @Inject constructor(
 
     fun updateSettings() {
         settingsRepository.getSettings()
-            .map { UiState(it) }
+            .map { UiState(it.copy(language = getPreferredLanguage())) }
             .onEach { state -> _settingsUiState.update { state } }
             .catch { e -> UiState(Settings(), error = e.asOneTimeEvent()) }
             .launchIn(viewModelScope)
@@ -71,7 +74,19 @@ class SettingsViewModel @Inject constructor(
         }
     }
 
+    fun updateLanguagePreference(language: Language) {
+        setLanguagePreference(language.code)
+    }
+
     fun signOut() {
         _settingsUiState.updateWith(viewModelScope) { settingsRepository.signOut() }
+    }
+
+    private fun getPreferredLanguage(): Language {
+        val preferredLanguage = getPreferredLocale().language
+        return when (preferredLanguage) {
+            "ar" -> Language.ARABIC
+            else -> Language.ENGLISH
+        }
     }
 }
