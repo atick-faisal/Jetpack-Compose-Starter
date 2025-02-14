@@ -159,7 +159,7 @@ GEM
     json (2.9.1)
     jwt (2.10.1)
       base64
-    logger (1.6.5)
+    logger (1.6.6)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     multi_json (1.15.0)

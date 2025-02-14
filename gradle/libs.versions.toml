@@ -3,9 +3,9 @@
 # ... PROJECT ...
 java = "21"
 kotlin = "2.1.10"
-androidGradlePlugin = "8.8.0"
+androidGradlePlugin = "8.8.1"
 gmsPlugin = "4.4.2"
-ksp = "2.1.10-1.0.29"
+ksp = "2.1.10-1.0.30"
 dokka = "2.0.0"
 dokkaMermaid = "0.6.0"
 secrets = "2.0.1"
