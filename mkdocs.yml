@@ -1,6 +1,6 @@
-site_name: Jetpack Android Template
-repo_name: Jetpack-Compose-Starter
-repo_url: https://github.com/atick-faisal/Jetpack-Compose-Starter
+site_name: Jetpack Android Starter
+repo_name: Jetpack-Android-Starter
+repo_url: https://github.com/atick-faisal/Jetpack-Android-Starter
 
 theme:
   name: material

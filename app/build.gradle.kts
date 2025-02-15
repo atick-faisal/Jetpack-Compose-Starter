@@ -86,7 +86,7 @@ android {
             } else {
                 println(
                     "keystore.properties file not found. Using debug key. Read more here: " +
-                            "https://github.com/atick-faisal/Jetpack-Compose-Starter#release",
+                            "https://atick.dev/Jetpack-Android-Starter/github",
                 )
                 signingConfigs.getByName("debug")
 

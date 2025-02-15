@@ -7,7 +7,7 @@ This guide will help you set up and run the project on your local machine.
 1. Clone the repository (with depth 1 to reduce clone size):
 
 	```bash
-	git clone --depth 1 -b main https://github.com/atick-faisal/Jetpack-Compose-Starter.git
+	git clone --depth 1 -b main https://github.com/atick-faisal/Jetpack-Android-Starter.git
 	```
 
 2. Open the project in Android Studio Hedgehog or newer

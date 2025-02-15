@@ -1,13 +1,13 @@
 ![Jetpack Logo](https://github.com/atick-faisal/Jetpack-Compose-Starter/assets/38709932/6d8f68ad-3045-4736-99ed-86c1593f1241)
 
 <p align="center">
-    <a href="https://github.com/atick-faisal/Jetpack-Compose-Starter/releases"><img src="https://img.shields.io/github/release/atick-faisal/Jetpack-Compose-Starter?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
-    <a href="https://github.com/atick-faisal/Jetpack-Compose-Starter/issues"><img src="https://img.shields.io/github/issues/atick-faisal/Jetpack-Compose-Starter?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
-    <a href="https://github.com/atick-faisal/Jetpack-Compose-Starter/contributors"><img src="https://img.shields.io/github/contributors/atick-faisal/Jetpack-Compose-Starter?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
-    <img src="https://img.shields.io/github/actions/workflow/status/atick-faisal/Jetpack-Compose-Starter/Build.yaml?style=for-the-badge&logo=android&labelColor=363a4f"/>
+    <a href="https://github.com/atick-faisal/Jetpack-Android-Starter/releases"><img src="https://img.shields.io/github/release/atick-faisal/Jetpack-Android-Starter?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
+    <a href="https://github.com/atick-faisal/Jetpack-Android-Starter/issues"><img src="https://img.shields.io/github/issues/atick-faisal/Jetpack-Android-Starter?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
+    <a href="https://github.com/atick-faisal/Jetpack-Android-Starter/contributors"><img src="https://img.shields.io/github/contributors/atick-faisal/Jetpack-Android-Starter?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
+    <img src="https://img.shields.io/github/actions/workflow/status/atick-faisal/Jetpack-Android-Starter/Build.yaml?style=for-the-badge&logo=android&labelColor=363a4f"/>
 </p>
 
-# Jetpack Compose Starter 🚀
+# Jetpack Android Starter 🚀
 
 A robust, production-ready template for modern Android development that takes the pain out of
 setting up a new project. Built on the foundation
@@ -57,7 +57,7 @@ template [here](https://github.com/atick-faisal?tab=repositories&q=&type=source&
 
 ## Documentation
 
-### [📚 Full Documentation](https://atick.dev/Jetpack-Compose-Starter)
+### [📚 Full Documentation](https://atick.dev/Jetpack-Android-Starter)
 
 ### Getting Started
 
@@ -83,8 +83,8 @@ template [here](https://github.com/atick-faisal?tab=repositories&q=&type=source&
 - [GitHub CI/CD Setup](docs/github.md)
 - [Fastlane Configuration](docs/fastlane.md)
 
-### [📚 API Reference](https://atick.dev/Jetpack-Compose-Starter/api/)
+### [📚 API Reference](https://atick.dev/Jetpack-Android-Starter/api/)
 
 <p align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" /></p>
 <p align="center"><a href="https://sites.google.com/view/mchowdhury" target="_blank">Qatar University Machine Learning Group</a>
-<p align="center"><a href="https://github.com/atick-faisal/Jetpack-Compose-Starter/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a></p>
+<p align="center"><a href="https://github.com/atick-faisal/Jetpack-Android-Starter/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a></p>
