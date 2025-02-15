@@ -313,42 +313,67 @@ lifeCycleOwner.observeEvent(eventLiveData) { event ->
 }
 ```
 
+## Multilingual Support
+
+Automatic generation of `LocaleConfig` is enabled in `app/build.gradle.kts`:
+
+```kotlin
+androidResources {
+    generateLocaleConfig = true
+}
+```
+
+Also, locale preferences are saved and applied automatically:
+
+```xml
+<service
+    android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
+    android:enabled="false"
+    android:exported="false">
+    <meta-data
+        android:name="autoStoreLocales"
+        android:value="true" />
+</service>
+```
+
+Read more about automatic locale generation [here](https://developer.android.com/guide/topics/resources/app-languages).
+
 ## Best Practices
 
 1. **Use Pre-built Components**
-    - Leverage the components in `core:ui/components`
-    - Maintain consistent styling across the app
-    - Centralize design system changes
+	- Leverage the components in `core:ui/components`
+	- Maintain consistent styling across the app
+	- Centralize design system changes
 
 2. **Error Handling**
-    - Use `suspendRunCatching` in repositories
-    - Let `StatefulComposable` handle UI states
-    - Leverage the built-in error reporting
+	- Use `suspendRunCatching` in repositories
+	- Let `StatefulComposable` handle UI states
+	- Leverage the built-in error reporting
 
 3. **State Management**
-    - Use state update helpers consistently
-    - Leverage `JetpackAppState` for app-wide state
-    - Follow unidirectional data flow
+	- Use state update helpers consistently
+	- Leverage `JetpackAppState` for app-wide state
+	- Follow unidirectional data flow
 
 4. **Network Handling**
-    - Monitor network state with `NetworkUtils`
-    - Use network-bound resources for caching
-    - Handle offline scenarios gracefully
+	- Monitor network state with `NetworkUtils`
+	- Use network-bound resources for caching
+	- Handle offline scenarios gracefully
 
 5. **Resource Loading**
-    - Use `DynamicAsyncImage` for images
-    - Leverage `JetpackLoadingWheel`
-    - Follow Material3 loading patterns
+	- Use `DynamicAsyncImage` for images
+	- Leverage `JetpackLoadingWheel`
+	- Follow Material3 loading patterns
 
 6. **Documentation**
-    - Use Dokka for code documentation
-    - Keep documentation up to date
-    - Leverage the automated docs workflow
+	- Use Dokka for code documentation
+	- Keep documentation up to date
+	- Leverage the automated docs workflow
 
 7. **Secrets Management**
-    - Store sensitive data in local.properties
-    - Provide defaults in secrets.defaults.properties
-    - Use buildConfigField for config values
+	- Store sensitive data in local.properties
+	- Provide defaults in secrets.defaults.properties
+	- Use buildConfigField for config values
 
 > [!TIP]
 > Explore the `core` modules thoroughly - they contain many utilities that can save you time and

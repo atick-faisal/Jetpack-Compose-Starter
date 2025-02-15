@@ -31,6 +31,7 @@ template [here](https://github.com/atick-faisal?tab=repositories&q=&type=source&
 - **Robust Data Management**: Repository pattern with Room and DataStore
 - **Firebase Integration**: Auth, Firestore, Analytics, and Crashlytics
 - **Background Sync**: Data synchronization using WorkManager
+- **Multilingual Support**: Runtime localization update with support for RTL languages
 - **CI/CD**: Automated build, release, and deployment with GitHub Actions
 
 ## Technical Stack
