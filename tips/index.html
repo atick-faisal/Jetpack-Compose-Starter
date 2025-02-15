@@ -858,6 +858,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#multilingual-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multilingual Support
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#best-practices" class="md-nav__link">
     <span class="md-ellipsis">
       Best Practices
@@ -1101,6 +1110,15 @@
   <a href="#ui-extensions" class="md-nav__link">
     <span class="md-ellipsis">
       UI Extensions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multilingual-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multilingual Support
     </span>
   </a>
   
@@ -1402,6 +1420,23 @@
 </span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">    </span><span class="c1">// Handle one-time event</span>
 </span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="p">}</span>
 </span></code></pre></div>
+<h2 id="multilingual-support">Multilingual Support</h2>
+<p>Automatic generation of <code>LocaleConfig</code> is enabled in <code>app/build.gradle.kts</code>:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">androidResources</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="n">generateLocaleConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Also, locale preferences are saved and applied automatically:</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nt">&lt;service</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="na">android:name=</span><span class="s">&quot;androidx.appcompat.app.AppLocalesMetadataHolderService&quot;</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="na">android:enabled=</span><span class="s">&quot;false&quot;</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="na">android:exported=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="nt">&lt;meta-data</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">        </span><span class="na">android:name=</span><span class="s">&quot;autoStoreLocales&quot;</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">        </span><span class="na">android:value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="nt">&lt;/service&gt;</span>
+</span></code></pre></div>
+<p>Read more about automatic locale generation <a href="https://developer.android.com/guide/topics/resources/app-languages">here</a>.</p>
 <h2 id="best-practices">Best Practices</h2>
 <ol>
 <li>
