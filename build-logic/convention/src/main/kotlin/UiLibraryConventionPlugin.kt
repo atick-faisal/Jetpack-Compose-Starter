@@ -62,6 +62,7 @@ class UiLibraryConventionPlugin : Plugin<Project> {
                     freeCompilerArgs.addAll(
                         "-opt-in=kotlin.RequiresOptIn",
                         "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+                        "-opt-in=androidx.compose.foundation.layout.ExperimentalLayoutApi",
                     )
                 }
             }

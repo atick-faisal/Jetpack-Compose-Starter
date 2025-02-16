@@ -16,7 +16,7 @@
 -->
 
 <resources>
-    <string name="privacy_policy">Privacy policy</string>
+    <string name="privacy_policy">Privacy Policy</string>
     <string name="licenses">Licenses</string>
     <string name="brand_guidelines">Brand Guidelines</string>
     <string name="feedback">Feedback</string>
@@ -36,4 +36,5 @@
     <string name="language">Language</string>
     <string name="ar" translatable="false">AR</string>
     <string name="en" translatable="false">EN</string>
+    <string name="terms_of_service">Terms of Service</string>
 </resources>

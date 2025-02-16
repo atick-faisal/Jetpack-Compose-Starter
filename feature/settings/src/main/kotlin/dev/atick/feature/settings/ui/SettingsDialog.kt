@@ -74,6 +74,9 @@ import dev.atick.core.ui.utils.StatefulComposable
 import dev.atick.data.model.settings.DarkThemeConfig
 import dev.atick.data.model.settings.Language
 import dev.atick.data.model.settings.Settings
+import dev.atick.data.utils.FEEDBACK_URL
+import dev.atick.data.utils.PRIVACY_POLICY_URL
+import dev.atick.data.utils.TERMS_OF_SERVICE_URL
 import dev.atick.feature.settings.R
 
 /**
@@ -333,6 +336,11 @@ private fun LinksPanel() {
         ) {
             Text(text = stringResource(R.string.privacy_policy))
         }
+        JetpackTextButton(
+            onClick = { uriHandler.openUri(TERMS_OF_SERVICE_URL) },
+        ) {
+            Text(text = stringResource(R.string.terms_of_service))
+        }
         val context = LocalContext.current
         JetpackTextButton(
             onClick = {
@@ -357,9 +365,6 @@ private fun getLanguageOptions(): List<ToggleOption> {
         }
     }
 }
-
-private const val PRIVACY_POLICY_URL = "https://atick.dev/privacy"
-private const val FEEDBACK_URL = "https://forms.gle/muBdaD2HxJLtWo9a8"
 
 @Composable
 @PreviewThemes
