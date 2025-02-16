@@ -194,19 +194,6 @@ private fun SignUpScreen(
             modifier = Modifier.fillMaxWidth(),
             text = { Text(stringResource(R.string.sign_up)) },
         )
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Text(text = stringResource(R.string.already_have_an_account))
-            JetpackTextButton(onClick = onSignInClick) {
-                Text(
-                    text = stringResource(R.string.sign_in),
-                    color = MaterialTheme.colorScheme.primary,
-                )
-            }
-        }
         DividerWithText(text = R.string.or, modifier = Modifier.padding(vertical = 16.dp))
         JetpackOutlinedButton(
             onClick = { activity?.run(onRegisterWithGoogleClick) },
