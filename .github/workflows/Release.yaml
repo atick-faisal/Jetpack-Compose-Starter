@@ -70,7 +70,11 @@ jobs:
           files: app/build/outputs/apk/release/*.apk
 
       - name: Upload to Play Store
-        run: bundle exec fastlane android deploy
+        run: |
+          echo "${PLAY_STORE_JSON// /}" | base64 --decode > fastlane/play-store.json
+          bundle exec fastlane android deploy
+        env:
+          PLAY_STORE_JSON: ${{ secrets.PLAY_STORE_JSON }}
 
 # https://github.com/softprops/action-gh-release/issues/236
 permissions:

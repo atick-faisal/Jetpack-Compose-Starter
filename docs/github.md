@@ -57,10 +57,15 @@ Before you can use the release workflow, you need to set up the following GitHub
 	keyAlias=your-key-alias
 	keyPassword=your-key-password
 	```
+ 
+4. `PLAY_STORE_JSON`: Base64 encoded content of your `play-store.json` file
+	```bash
+	base64 -i play-store.json | tr -d '\n'
+	```
 
 > [!WARNING]
-> Never commit your keystore file, keystore properties, or google-services.json directly to the
-> repository.
+> Never commit your keystore file, keystore properties, google-services.json or play-store.json
+> directly to the repository.
 
 ### Creating a Release
 
