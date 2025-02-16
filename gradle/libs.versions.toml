@@ -58,6 +58,9 @@ daggerHiltExt = "1.2.0"
 googleOss = "17.1.0"
 googleOssPlugin = "0.10.6"
 
+# ... LEAK CANARY ...
+leakcanaryAndroid = "2.14"
+
 # ... WORK MANAGER ...
 workVersion = "2.10.0"
 
@@ -180,6 +183,9 @@ dokka-gradlePlugin = { group = "org.jetbrains.dokka", name = "org.jetbrains.dokk
 # ... OSS ...
 google-oss-licenses = { group = "com.google.android.gms", name = "play-services-oss-licenses", version.ref = "googleOss" }
 google-oss-licenses-plugin = { group = "com.google.android.gms", name = "oss-licenses-plugin", version.ref = "googleOssPlugin" }
+
+# ... LEAK CANARY ...
+leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanaryAndroid" }
 
 # ... WORK_MANAGER ...
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workVersion" }
