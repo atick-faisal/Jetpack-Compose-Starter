@@ -132,4 +132,8 @@ dependencies {
 
     // ... OSS Licenses
     implementation(libs.google.oss.licenses)
+
+    // ... LeakCanary
+    // TODO: Comment out the following line to disable LeakCanary
+    debugImplementation(libs.leakcanary.android)
 }
