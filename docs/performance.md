@@ -255,3 +255,8 @@ FirebasePerformance.getInstance().newTrace("custom_operation").apply {
 > [!IMPORTANT]
 > Always profile your app's performance using Android Studio's CPU Profiler and Layout Inspector
 > before and after optimizations to ensure they're effective.
+
+## Further Reading
+- [Useful Tips & Tricks](tips.md): Get useful tips for development and debugging
+- [CI/CD Setup](github.md): Set up continuous integration and deployment for the project
+- [Publishing to Play Store](fastlane.md): Learn how to publish your app to the Google Play Store

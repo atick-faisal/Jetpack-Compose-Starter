@@ -172,3 +172,10 @@ dependencies {
     implementation(libs.your.new.dependency)
 }
 ```
+
+## Further Reading
+- [Architecture Overview](architecture.md): Understand the architecture and design principles
+- [Design Philosophy](philosophy.md): Learn about the design philosophy behind the project
+- [Adding New Features](guide.md): Get started with adding new features to the project
+- [Performance Optimization](performance.md): Learn about performance optimization techniques
+- [Useful Tips & Tricks](tips.md): Explore useful tips and tricks for Android development

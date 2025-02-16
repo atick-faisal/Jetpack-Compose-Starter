@@ -119,3 +119,14 @@ For the best development experience:
 	- Import the project's `.editorconfig`
 	- Enable "Format on Save" for Kotlin files
 	- Use the Spotless plugin for consistent formatting
+
+## Further Reading
+- [Firebase Setup Guide](firebase.md): Learn how to set up Firebase features in your project
+- [Dependency Management](dependency.md): Understand how dependencies are managed in the project
+- [Architecture Overview](architecture.md): Learn about the app's architecture
+- [Design Philosophy](philosophy.md): Understand the design principles behind the architecture
+- [Adding New Features](guide.md): Learn how to add new features to the project
+- [Convention Plugins](plugins.md): Learn about custom Gradle plugins used in the project
+- [Performance Optimization](performance.md): Optimize the app for speed and efficiency
+- [Useful Tips & Tricks](tips.md): Get useful tips for development and debugging
+- [Publishing to Play Store](fastlane.md): Learn how to publish your app to the Google Play Store

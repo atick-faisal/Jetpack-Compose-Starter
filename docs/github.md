@@ -97,3 +97,6 @@ If the release workflow fails, check:
 > [!NOTE]
 > The workflow timeout is set to 45 minutes. For large projects, you might need to adjust this in
 > the workflow file.
+
+## Further Reading
+- [Publishing to Play Store](fastlane.md): Learn how to publish your app to the Google Play Store

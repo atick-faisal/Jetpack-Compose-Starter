@@ -192,3 +192,12 @@ The architecture enables different types of tests:
 3. **Error Handling**: Use Result type for operations that can fail
 4. **Coroutines**: Use structured concurrency with proper scoping
 5. **Immutable Data**: Use data classes for state and models
+
+## Further Reading
+- [Design Philosophy](philosophy.md): Understand the design principles behind the architecture
+- [Adding New Features](guide.md): Learn how to add new features to the project
+- [CI/CD Setup](github.md): Set up continuous integration and deployment for the project
+- [Performance Optimization](performance.md): Optimize the app for speed and efficiency
+- [Useful Tips & Tricks](tips.md): Get useful tips for development and debugging
+- [Convention Plugins](plugins.md): Learn about custom Gradle plugins used in the project
+- [Code Style with Spotless](spotless.md): Follow code formatting guidelines for the project

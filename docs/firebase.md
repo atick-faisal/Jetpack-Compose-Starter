@@ -185,3 +185,8 @@ These rules implement several security features:
 > [!IMPORTANT]
 > Remember to add your `google-services.json` to `.gitignore` if you're setting up the project from
 > scratch.
+
+## Further Reading
+- [Dependency Management](dependency.md): Learn how to manage dependencies in the project
+- [Architecture Overview](architecture.md): Understand the architecture and design principles
+- [Adding New Features](guide.md): Get started with adding new features to the project

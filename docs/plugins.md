@@ -185,3 +185,9 @@ To create your own convention plugin:
 > [!WARNING]
 > Don't repeat plugin configurations in module-level build files. If you find yourself doing this,
 > consider creating a new convention plugin instead.
+
+## Further Reading
+- [Dependency Management](dependency.md): Learn about version catalogs and automatic dependency updates
+- [Architecture Overview](architecture.md): Understand the app's architecture
+- [Design Philosophy](philosophy.md): Learn about design principles
+- [Adding New Features](guide.md): Learn how to add new features to the project

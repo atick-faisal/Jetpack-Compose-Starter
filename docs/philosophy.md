@@ -194,3 +194,8 @@ While these patterns serve well for most cases, consider alternatives when:
 > [!TIP]
 > When deviating from these patterns, document your reasoning to help other developers understand
 > the context of your decisions.
+
+## Further Reading
+- [Architecture Overview](architecture.md): Understand the architecture and design principles
+- [Adding New Features](guide.md): Get started with adding new features to the project
+- [CI/CD Setup](github.md): Set up continuous integration and deployment for the project

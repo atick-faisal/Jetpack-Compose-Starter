@@ -349,3 +349,9 @@ Remember to add tests for your new feature:
 3. **ViewModel Tests**: Test state management
 4. **UI Tests**: Test composables
 5. **Integration Tests**: Test full feature flow
+
+## Further Reading
+- [Firebase Setup Guide](firebase.md): Add Firebase to your app
+- [Dependency Management](dependency.md): Learn about version catalogs and plugin configurations
+- [Architecture Overview](architecture.md): Understand the app's architecture
+- [Design Philosophy](philosophy.md): Learn about design principles

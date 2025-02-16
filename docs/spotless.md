@@ -117,3 +117,7 @@ The configuration includes similar setups for:
 > [!TIP]
 > If you're using Android Studio, you can bind the Spotless Apply run configuration to a keyboard
 > shortcut for quick formatting.
+
+## Further Reading
+- [Useful Tips & Tricks](tips.md): Get useful tips for development and debugging
+- [CI/CD Setup](github.md): Set up continuous integration and deployment for the project
