@@ -19,15 +19,19 @@ package dev.atick.feature.auth.ui.signin
 import android.app.Activity
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsTopHeight
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Password
@@ -41,6 +45,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
@@ -49,6 +54,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.atick.core.extensions.getActivity
+import dev.atick.core.ui.components.DividerWithText
 import dev.atick.core.ui.components.JetpackButton
 import dev.atick.core.ui.components.JetpackOutlinedButton
 import dev.atick.core.ui.components.JetpackPasswordFiled
@@ -58,6 +64,8 @@ import dev.atick.core.ui.utils.PreviewDevices
 import dev.atick.core.ui.utils.PreviewThemes
 import dev.atick.core.ui.utils.SnackbarAction
 import dev.atick.core.ui.utils.StatefulComposable
+import dev.atick.data.utils.PRIVACY_POLICY_URL
+import dev.atick.data.utils.TERMS_OF_SERVICE_URL
 import dev.atick.feature.auth.R
 
 /**
@@ -119,29 +127,30 @@ private fun SignInScreen(
     LaunchedEffect(Unit, onSignInWithSavedCredentials) {
         activity?.run(onSignInWithSavedCredentials)
     }
-
     Column(
-        modifier = Modifier.padding(24.dp),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = 40.dp)
+            .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Spacer(Modifier.windowInsetsTopHeight(WindowInsets.safeDrawing))
         Text(stringResource(R.string.sign_in), style = MaterialTheme.typography.headlineLarge)
-        Spacer(modifier = Modifier.height(24.dp))
-        JetpackOutlinedButton(
-            onClick = { activity?.run(onSignInWithGoogleClick) },
-            text = { Text(text = "Sign In with Google") },
-            leadingIcon = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_google),
-                    contentDescription = "Google",
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(text = stringResource(R.string.do_not_have_an_account))
+            JetpackTextButton(onClick = onSignUpClick) {
+                Text(
+                    text = stringResource(R.string.sign_up),
+                    color = MaterialTheme.colorScheme.primary,
                 )
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-                .height(56.dp),
-        )
-        Text(text = "or", modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
+            }
+        }
+        Spacer(modifier = Modifier.height(24.dp))
         JetpackTextFiled(
             value = screenData.email.value,
             errorMessage = screenData.email.errorMessage,
@@ -177,19 +186,51 @@ private fun SignInScreen(
             modifier = Modifier.fillMaxWidth(),
             text = { Text(stringResource(R.string.sign_in)) },
         )
-        Row(
-            modifier = Modifier.fillMaxWidth(),
+        DividerWithText(text = R.string.or, modifier = Modifier.padding(vertical = 16.dp))
+        JetpackOutlinedButton(
+            onClick = { activity?.run(onSignInWithGoogleClick) },
+            text = { Text(text = "Sign In with Google") },
+            leadingIcon = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_google),
+                    contentDescription = "Google",
+                )
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+                .height(56.dp),
+        )
+        Spacer(modifier = Modifier.height(40.dp))
+        Text(
+            text = stringResource(R.string.agree_to_terms),
+            style = MaterialTheme.typography.bodySmall,
+            textAlign = TextAlign.Center,
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+        )
+        FlowRow(
             horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth(),
         ) {
-            Text(text = stringResource(R.string.do_not_have_an_account))
-            JetpackTextButton(onClick = onSignUpClick) {
+            val uriHandler = LocalUriHandler.current
+            JetpackTextButton(
+                onClick = { uriHandler.openUri(PRIVACY_POLICY_URL) },
+            ) {
                 Text(
-                    text = stringResource(R.string.sign_up),
+                    text = stringResource(R.string.privacy_policy),
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
+            JetpackTextButton(
+                onClick = { uriHandler.openUri(TERMS_OF_SERVICE_URL) },
+            ) {
+                Text(
+                    text = stringResource(R.string.terms_of_service),
                     color = MaterialTheme.colorScheme.primary,
                 )
             }
         }
+        Spacer(modifier = Modifier.height(40.dp))
     }
 }
 
